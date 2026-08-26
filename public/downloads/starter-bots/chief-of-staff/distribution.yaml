@@ -1,0 +1,7 @@
+name: chief-of-staff
+version: "1.0.0"
+description: "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

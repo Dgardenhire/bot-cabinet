@@ -1,0 +1,7 @@
+name: scout
+version: "1.0.0"
+description: "Finds timely topics, useful developments, and promising opportunities in the areas you choose."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

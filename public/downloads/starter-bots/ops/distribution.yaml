@@ -1,0 +1,7 @@
+name: ops
+version: "1.0.0"
+description: "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

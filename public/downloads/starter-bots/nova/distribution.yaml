@@ -1,0 +1,7 @@
+name: nova
+version: "1.0.0"
+description: "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

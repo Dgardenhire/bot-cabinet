@@ -1,0 +1,7 @@
+name: client
+version: "1.0.0"
+description: "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

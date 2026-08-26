@@ -1,0 +1,7 @@
+name: planner
+version: "1.0.0"
+description: "Turns a goal into a practical plan with steps, owners, dependencies, dates, and decision points."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

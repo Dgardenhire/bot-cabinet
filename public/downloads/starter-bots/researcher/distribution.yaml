@@ -1,0 +1,7 @@
+name: researcher
+version: "1.0.0"
+description: "Answers a defined question with a concise brief, source links, and clearly marked gaps."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

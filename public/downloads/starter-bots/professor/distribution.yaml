@@ -1,0 +1,7 @@
+name: professor
+version: "1.0.0"
+description: "Builds a realistic learning plan, explains difficult material, and creates practice questions."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

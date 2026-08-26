@@ -1,0 +1,7 @@
+name: writer
+version: "1.0.0"
+description: "Turns an approved brief, notes, or source material into a clear first draft for a named audience."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

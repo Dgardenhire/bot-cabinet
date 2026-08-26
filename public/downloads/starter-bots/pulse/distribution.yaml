@@ -1,0 +1,7 @@
+name: pulse
+version: "1.0.0"
+description: "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE

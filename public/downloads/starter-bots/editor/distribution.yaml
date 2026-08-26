@@ -1,0 +1,7 @@
+name: editor
+version: "1.0.0"
+description: "Revises a draft for clarity, structure, accuracy, and the writer's intended voice."
+distribution_owned:
+  - SOUL.md
+  - README.md
+  - LICENSE
