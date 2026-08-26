@@ -28,6 +28,30 @@ export default function WorkshopPage() {
             <span>Optional AI suggestions</span>
             <span>Apply in Hermes Desktop</span>
           </div>
+          <figure className="workshop-video-card">
+            <div className="workshop-video-header">
+              <div>
+                <span>30-second walkthrough</span>
+                <strong>See Bot Lab in action</strong>
+              </div>
+              <span>PDF · Markdown · Role instructions</span>
+            </div>
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster="/videos/bot-lab-explainer-poster.jpg"
+              aria-label="A 30-second visual walkthrough of the Bot Lab builder"
+              aria-describedby="bot-lab-video-summary"
+            >
+              <source src="/videos/bot-lab-explainer.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+            <figcaption id="bot-lab-video-summary">
+              Name the job, draft the plan, review the live Blueprint, then download a
+              designed PDF, an editable Markdown file, and Hermes role instructions.
+            </figcaption>
+          </figure>
         </div>
 
         <div className="workshop-hero-side">

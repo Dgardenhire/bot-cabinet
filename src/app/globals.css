@@ -723,6 +723,31 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
   padding: 5px 8px; border: 1px solid rgba(168,217,231,.28);
   color: #afc7ca; font: 12px var(--mono); letter-spacing: .07em; text-transform: uppercase;
 }
+.workshop-video-card {
+  max-width: 690px; margin: 30px 0 0; overflow: hidden;
+  border: 1px solid rgba(168,217,231,.32); border-radius: 8px; background: #080a0a;
+  box-shadow: 0 30px 70px rgba(0,0,0,.28);
+}
+.workshop-video-header {
+  min-height: 66px; display: flex; align-items: center; justify-content: space-between;
+  gap: 22px; padding: 12px 15px; border-bottom: 1px solid rgba(168,217,231,.2);
+}
+.workshop-video-header > div { display: grid; gap: 3px; }
+.workshop-video-header > div > span {
+  color: var(--blueprint); font: 700 10px var(--mono); letter-spacing: .13em; text-transform: uppercase;
+}
+.workshop-video-header strong { color: #f0ece3; font: 400 21px/1.1 var(--serif); }
+.workshop-video-header > span {
+  color: var(--brass-bright); font: 700 10px var(--mono); letter-spacing: .06em;
+  text-align: right; text-transform: uppercase;
+}
+.workshop-video-card video {
+  width: 100%; aspect-ratio: 16/9; display: block; background: #050606; object-fit: cover;
+}
+.workshop-video-card video:focus-visible { outline: 2px solid var(--brass-bright); outline-offset: -3px; }
+.workshop-video-card figcaption {
+  margin: 0; padding: 11px 15px 13px; color: #aeb7b5; font-size: 12px; line-height: 1.45;
+}
 .workshop-hero-side { display: grid; gap: 14px; }
 .workshop-hero-art {
   position: relative; height: 255px; margin: 0; overflow: hidden;
@@ -1403,6 +1428,8 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
   .text-link { width: auto; }
   .workshop-hero-copy h1 { font-size: 49px; }
   .workshop-hero-deck { font-size: 16px; }
+  .workshop-video-header { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .workshop-video-header > span { text-align: left; }
   .workshop-hero-art { height: 230px; }
   .workshop-privacy-strip { margin-bottom: 14px; }
   .workshop-output-overview { padding: 18px 16px; }
