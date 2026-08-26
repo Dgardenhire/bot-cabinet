@@ -537,6 +537,31 @@ export function WorkshopBuilder() {
         </p>
       </div>
 
+      <section className="workshop-output-overview" aria-labelledby="workshop-output-heading">
+        <div className="workshop-output-intro">
+          <p className="workshop-panel-kicker">What Bot Lab creates</p>
+          <h2 id="workshop-output-heading">Finish the plan, then keep it in three useful formats</h2>
+          <p>
+            Complete the eight planning fields below. Your finished Blueprint appears beside
+            the form, with its download controls at the top.
+          </p>
+        </div>
+        <ul className="workshop-output-list">
+          <li>
+            <FilePdf size={22} weight="regular" aria-hidden="true" />
+            <span><strong>Designed PDF</strong>A formatted Bot Cabinet report for review or sharing.</span>
+          </li>
+          <li>
+            <FileText size={22} weight="regular" aria-hidden="true" />
+            <span><strong>Markdown file</strong>An editable text copy of the same Bot plan.</span>
+          </li>
+          <li>
+            <Copy size={22} weight="regular" aria-hidden="true" />
+            <span><strong>Hermes role instructions</strong>Ready to copy into Custom SOUL.md in Hermes Desktop.</span>
+          </li>
+        </ul>
+      </section>
+
       <div className="workshop-builder-layout">
         <div className="workshop-drafting-bench">
           <header className="workshop-panel-heading">
@@ -818,6 +843,45 @@ export function WorkshopBuilder() {
             <span className="blueprint-status">Draft plan</span>
           </header>
 
+          <section className="blueprint-export-panel" aria-labelledby="blueprint-export-heading">
+            <div>
+              <span className="blueprint-section-code">YOUR FILES</span>
+              <h3 id="blueprint-export-heading">Download your Bot Blueprint</h3>
+              <p>Save the designed report, the editable Markdown file, or copy the role instructions for Hermes.</p>
+            </div>
+            <div className="blueprint-actions">
+              <button
+                className="blueprint-primary-action"
+                type="button"
+                onClick={downloadPdf}
+                disabled={!complete || pdfState === "preparing"}
+              >
+                <FilePdf size={18} weight="regular" aria-hidden="true" />
+                {pdfState === "preparing" ? "Preparing PDF…" : "Download designed PDF"}
+              </button>
+              <button
+                className="blueprint-secondary-action"
+                type="button"
+                onClick={downloadMarkdown}
+                disabled={!complete}
+              >
+                <FileText size={18} weight="regular" aria-hidden="true" />
+                Download Markdown file
+              </button>
+              <button
+                className="blueprint-secondary-action blueprint-role-action"
+                type="button"
+                onClick={copyRoleInstructions}
+              >
+                <Copy size={18} weight="regular" aria-hidden="true" />
+                {copyState === "copied" ? "Role instructions copied" : "Copy role instructions for Hermes"}
+              </button>
+              <p className="blueprint-action-status" aria-live="polite">
+                {downloadStatus}
+              </p>
+            </div>
+          </section>
+
           <WorkshopLiveDrawing blueprint={blueprint} />
 
           <div className="blueprint-profile-block">
@@ -955,38 +1019,6 @@ export function WorkshopBuilder() {
               <p>{blueprint.missingFields.join(" · ")}</p>
             </div>
           )}
-
-          <div className="blueprint-actions">
-            <button
-              className="blueprint-primary-action"
-              type="button"
-              onClick={downloadPdf}
-              disabled={!complete || pdfState === "preparing"}
-            >
-              <FilePdf size={18} weight="regular" aria-hidden="true" />
-              {pdfState === "preparing" ? "Preparing PDF…" : "Download designed PDF"}
-            </button>
-            <button
-              className="blueprint-secondary-action"
-              type="button"
-              onClick={downloadMarkdown}
-              disabled={!complete}
-            >
-              <FileText size={18} weight="regular" aria-hidden="true" />
-              Download Markdown file
-            </button>
-            <button
-              className="blueprint-secondary-action blueprint-role-action"
-              type="button"
-              onClick={copyRoleInstructions}
-            >
-              <Copy size={18} weight="regular" aria-hidden="true" />
-              {copyState === "copied" ? "Role instructions copied" : "Copy role instructions for Hermes"}
-            </button>
-            <p className="blueprint-action-status" aria-live="polite">
-              {downloadStatus}
-            </p>
-          </div>
 
           <details className="blueprint-prompt-preview">
             <summary>Preview the role instructions</summary>

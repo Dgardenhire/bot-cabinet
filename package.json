@@ -8,9 +8,7 @@
     "build": "npm run generate:content && next build",
     "start": "node scripts/serve-static.mjs",
     "lint": "eslint",
-    "test": "vitest run src && node --test scripts/starter-packages.test.mjs",
-    "test:intake": "node --test scripts/registry-review.test.mjs",
-    "test:edge": "deno test supabase/functions/bot-blueprint/core.test.ts"
+    "test": "vitest run src && node --test scripts/starter-packages.test.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

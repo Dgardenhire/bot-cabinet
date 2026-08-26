@@ -40,16 +40,7 @@ Automated pattern checks can miss problems and can also flag harmless text. A cl
 
 ## Limits on each scan
 
-The scanner stops and reports that it cannot complete the review when the repository exceeds any of these limits:
-
-- 5,000 file-tree entries
-- 120 relevant text files
-- 160 KiB for one relevant text file
-- 1.25 MiB of relevant text in total
-- 10 seconds for one GitHub request
-- 35 seconds for repository retrieval
-
-These limits keep one submission from consuming unlimited time or memory. A publisher can reduce the package to the files people actually need and run the check again.
+The scanner uses fixed limits on file count, file size, total text, and retrieval time. It stops and reports an incomplete review when a repository exceeds those limits. A publisher can reduce the package to the files people actually need and run the check again.
 
 ## Possible results
 
@@ -101,21 +92,3 @@ A report applies only to the commit named in that report. The project's default 
 5. Run the source check against the new commit.
 
 The report names relevant file paths without reproducing possible secret values.
-
-## Run the scanner locally
-
-Use Node 20 or newer. A GitHub token raises GitHub's request limit. Keep that token private.
-
-```bash
-GITHUB_TOKEN=your_token node scripts/registry-review.mjs \
-  --repo https://github.com/OWNER/REPOSITORY \
-  --artifact-type "Installable profile distribution" \
-  --markdown registry-review.md \
-  --json registry-review.json
-```
-
-Run the scanner's tests with:
-
-```bash
-node --test scripts/registry-review.test.mjs
-```

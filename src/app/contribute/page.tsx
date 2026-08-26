@@ -4,6 +4,7 @@ import {
   ArrowRight,
   CheckCircle,
   GitBranch,
+  GithubLogo,
   LockKey,
   MagnifyingGlass,
   Queue,
@@ -27,6 +28,10 @@ export default function ContributePage() {
             Authors can use the preparation form now to organize the required information and
             download a Markdown record to keep with their public project. Questions can be sent to{" "}
             <a className="inline-link" href="mailto:damon@linchpin.studio">damon@linchpin.studio</a>.
+            {" "}Bot Cabinet is open source; view the{" "}
+            <a className="inline-link" href="https://github.com/Dgardenhire/bot-cabinet" target="_blank" rel="noreferrer">
+              <GithubLogo size={16} aria-hidden="true" /> public GitHub repository
+            </a>.
           </aside>
         </div>
       </section>

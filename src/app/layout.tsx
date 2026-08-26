@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: "https://botcabinet.com",
     images: [
       {
-        url: "/brand/bot-cabinet-og-launch-v1-1200x630.png",
+        url: "/brand/bot-cabinet-launch-card-1200x630.jpg",
         width: 1200,
         height: 630,
         alt: "Bot Cabinet — a refined cabinet of useful AI Bots",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Bot Cabinet",
     description:
       "Discover, create, and learn how to use practical Hermes Bots.",
-    images: ["/brand/bot-cabinet-og-launch-v1-1200x630.png"],
+    images: ["/brand/bot-cabinet-launch-card-1200x630.jpg"],
   },
 };
 

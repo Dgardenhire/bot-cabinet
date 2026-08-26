@@ -45,7 +45,6 @@ yarn-error.log*
 .vercel
 
 # local review, drafts, and generated QA material
-/.github/
 /audit-current/
 /tmp/
 /output/
@@ -55,9 +54,6 @@ yarn-error.log*
 /docs/*-audit.md
 /consolidate.py
 /src/data/catalog.ts
-/supabase/.temp/
-/registry-review.md
-/registry-review.json
 /public/brand/wordmark-options/
 /public/brand/bot-cabinet-og-launch-v1.png
 /public/hermes-bot-archetype.png

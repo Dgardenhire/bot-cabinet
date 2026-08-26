@@ -40,6 +40,9 @@ export function SiteFooter() {
         </div>
         <div className="footer-column">
           <span>Elsewhere</span>
+          <a href="https://github.com/Dgardenhire/bot-cabinet" target="_blank" rel="noreferrer">
+            <GithubLogo size={16} aria-hidden="true" /> Bot Cabinet on GitHub
+          </a>
           <a href="mailto:damon@linchpin.studio">Email Damon</a>
           <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noreferrer">
             <GithubLogo size={16} aria-hidden="true" /> Hermes Agent
