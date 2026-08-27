@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   page: {
     paddingTop: 58,
     paddingRight: 44,
-    paddingBottom: 54,
+    paddingBottom: 44,
     paddingLeft: 44,
     backgroundColor: COLORS.vellum,
     color: COLORS.ink,
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   },
   pageDeck: {
     maxWidth: 460,
-    marginBottom: 20,
+    marginBottom: 10,
     color: COLORS.muted,
     fontSize: 10.5,
     lineHeight: 1.55,
@@ -250,8 +250,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   section: {
-    marginBottom: 11,
-    padding: 12,
+    marginBottom: 6,
+    padding: 7,
     borderWidth: 1,
     borderColor: COLORS.vellumDark,
     backgroundColor: "#FBF8F1",
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   sectionTitle: {
-    marginBottom: 7,
+    marginBottom: 3,
     color: COLORS.blueprint,
     fontFamily: "Times-Roman",
     fontSize: 16,
@@ -400,14 +400,14 @@ const styles = StyleSheet.create({
   },
   codeBlock: {
     marginTop: 7,
-    padding: 14,
+    padding: 12,
     borderWidth: 1,
     borderColor: COLORS.cyanDark,
     backgroundColor: COLORS.blueprintDeep,
     color: "#D8E9EC",
     fontFamily: "Courier",
-    fontSize: 9,
-    lineHeight: 1.5,
+    fontSize: 8.4,
+    lineHeight: 1.42,
   },
   noteLine: {
     height: 18,
