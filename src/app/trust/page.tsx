@@ -10,11 +10,15 @@ import {
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Inspection Desk · Review process",
   description: "How Bot Cabinet records each source version and reports automated source scan, human technical review, and Hermes Desktop test status.",
-};
+  path: "/trust/",
+  image: "/brand/social/inspection-desk-1200x630.jpg",
+  imageAlt: "Inspection Desk — understand a Bot before you install it",
+});
 
 const evidence = [
   {

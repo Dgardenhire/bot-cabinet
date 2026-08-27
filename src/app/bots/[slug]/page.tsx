@@ -21,6 +21,7 @@ import {
   getStarterBot,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return [
@@ -35,7 +36,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const communityEntry = getRegistryEntry(slug);
   if (!bot && communityEntry) return { title: `${communityEntry.name} moved` };
   if (!bot) return {};
-  return { title: `${bot.name} · The Cabinet`, description: bot.summary };
+  return buildPageMetadata({
+    title: `${bot.name} · The Cabinet`,
+    description: bot.summary,
+    path: `/bots/${bot.slug}/`,
+    image: "/brand/social/the-cabinet-1200x630.jpg",
+    imageAlt: `The Cabinet — ${bot.name}, a practical Hermes Bot starter`,
+  });
 }
 
 export default async function StarterBotPage({ params }: { params: Promise<{ slug: string }> }) {

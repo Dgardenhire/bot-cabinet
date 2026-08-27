@@ -4,11 +4,15 @@ import { ArrowRight, DownloadSimple, ShieldCheck, UserFocus } from "@phosphor-ic
 
 import { StarterBotCatalog } from "@/components/starter-bot-catalog";
 import { Eyebrow } from "@/components/ui";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "The Cabinet · Hermes Bots",
   description: "Purpose-built public Hermes Bot role templates with example tasks, intended outputs, setup guidance, and downloadable starter files.",
-};
+  path: "/bots/",
+  image: "/brand/social/the-cabinet-1200x630.jpg",
+  imageAlt: "The Cabinet — find a Hermes Bot for the job",
+});
 
 export default function BotsPage() {
   return (

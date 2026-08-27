@@ -4,11 +4,15 @@ import Link from "next/link";
 import { ArrowRight, BookOpenText, Compass, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow } from "@/components/ui";
 import { GUIDES } from "@/data/guides";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Field Manual · Guides",
   description: "Plain-language guides to Hermes Bot Mode, profile distributions, inspection, installation, and responsible sharing.",
-};
+  path: "/guides/",
+  image: "/brand/social/field-manual-1200x630.jpg",
+  imageAlt: "Field Manual — learn how Hermes Bots work",
+});
 
 export default function GuidesPage() {
   return (

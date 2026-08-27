@@ -15,6 +15,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
+import { buildPageMetadata } from "@/lib/metadata";
 import {
   CATEGORY_LABELS,
   REGISTRY_ENTRIES,
@@ -34,7 +35,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const entry = getRegistryEntry(slug);
   if (!entry) return {};
-  return { title: `${entry.name} · Community Registry`, description: entry.summary };
+  return buildPageMetadata({
+    title: `${entry.name} · Community Registry`,
+    description: entry.summary,
+    path: `/community/${entry.slug}/`,
+    image: "/brand/social/community-registry-1200x630.jpg",
+    imageAlt: `Community Registry — ${entry.name}`,
+  });
 }
 
 export default async function CommunityProfilePage({ params }: { params: Promise<{ slug: string }> }) {

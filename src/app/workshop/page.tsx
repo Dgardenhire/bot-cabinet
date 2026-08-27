@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { WorkshopBuilder } from "@/components/workshop-builder";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Bot Lab · Build a custom Bot",
   description:
     "Plan a useful Bot with optional AI suggestions, a downloadable Blueprint, and role instructions for Hermes Desktop.",
-};
+  path: "/workshop/",
+  image: "/brand/social/bot-lab-1200x630.jpg",
+  imageAlt: "Bot Lab — turn a useful idea into a Bot plan",
+});
 
 export default function WorkshopPage() {
   return (
@@ -44,7 +48,7 @@ export default function WorkshopPage() {
               aria-label="A 30-second visual walkthrough of the Bot Lab builder"
               aria-describedby="bot-lab-video-summary"
             >
-              <source src="/videos/bot-lab-explainer.mp4" type="video/mp4" />
+              <source src="/videos/bot-lab-explainer-with-music.mp4" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
             <figcaption id="bot-lab-video-summary">

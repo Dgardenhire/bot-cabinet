@@ -11,11 +11,15 @@ import {
   ShieldWarning,
 } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow } from "@/components/ui";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Submission Desk · Future contributions",
   description: "How to prepare a public Hermes profile package or community project for Bot Cabinet’s Hermes Bot Registry.",
-};
+  path: "/contribute/",
+  image: "/brand/social/submission-desk-1200x630.jpg",
+  imageAlt: "Submission Desk — prepare a public Bot for future review",
+});
 
 export default function ContributePage() {
   return (

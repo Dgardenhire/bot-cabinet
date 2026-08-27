@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowSquareOut, Info, Warning } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
 import { getGuide, GUIDES } from "@/data/guides";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
 
@@ -14,7 +15,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const guide = getGuide(slug);
-  return guide ? { title: `${guide.title} · Field Manual`, description: guide.summary } : {};
+  return guide
+    ? buildPageMetadata({
+        title: `${guide.title} · Field Manual`,
+        description: guide.summary,
+        path: `/guides/${guide.slug}/`,
+        image: "/brand/social/field-manual-1200x630.jpg",
+        imageAlt: `Field Manual — ${guide.title}`,
+      })
+    : {};
 }
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {

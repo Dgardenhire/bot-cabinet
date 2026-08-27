@@ -16,6 +16,7 @@ import { Eyebrow } from "@/components/ui";
 import { CopyTextButton } from "@/components/copy-text-button";
 import { getStarterBot } from "@/data/starter-bots";
 import { BOT_USE_CASES, getBotUseCase, getUseCaseStepPrompt } from "@/data/use-cases";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return BOT_USE_CASES.map((useCase) => ({ slug: useCase.slug }));
@@ -25,7 +26,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const useCase = getBotUseCase(slug);
   if (!useCase) return {};
-  return { title: `${useCase.title} · Bot Crews`, description: useCase.outcome };
+  return buildPageMetadata({
+    title: `${useCase.title} · Bot Crews`,
+    description: useCase.outcome,
+    path: `/use-cases/${useCase.slug}/`,
+    image: "/brand/social/bot-crews-1200x630.jpg",
+    imageAlt: `Bot Crews — ${useCase.title}`,
+  });
 }
 
 export default async function UseCaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {

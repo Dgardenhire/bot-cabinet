@@ -3,11 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Code, Compass, Flask, GitBranch, Newspaper, Wrench } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow, TextLink } from "@/components/ui";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "About Bot Cabinet",
   description: "Why Damon Gardenhire, LINCHPIN, and AI for the Real World built Bot Cabinet and its Hermes Bot Registry.",
-};
+  path: "/about/",
+  image: "/brand/social/about-bot-cabinet-1200x630.jpg",
+  imageAlt: "About Bot Cabinet — why this project exists",
+});
 
 export default function AboutPage() {
   return (

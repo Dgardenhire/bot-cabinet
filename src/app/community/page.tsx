@@ -5,11 +5,15 @@ import { GitBranch, MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 import { RegistryCatalog } from "@/components/registry-catalog";
 import { Eyebrow } from "@/components/ui";
 import { REGISTRY_ENTRIES } from "@/data/registry";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Community Registry · Hermes projects",
   description: "Independent public Hermes profile projects with source links and clearly stated review status.",
-};
+  path: "/community/",
+  image: "/brand/social/community-registry-1200x630.jpg",
+  imageAlt: "Community Registry — explore public Hermes projects",
+});
 
 export default function CommunityPage() {
   return (

@@ -6,11 +6,15 @@ import { ArrowRight, CheckCircle, DownloadSimple, UsersThree } from "@phosphor-i
 import { Eyebrow } from "@/components/ui";
 import { getStarterBot } from "@/data/starter-bots";
 import { BOT_USE_CASES } from "@/data/use-cases";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Bot Crews · Workflows",
   description: "Step-by-step Hermes Bot workflows for everyday research, writing, client work, planning, software, operations, and learning.",
-};
+  path: "/use-cases/",
+  image: "/brand/social/bot-crews-1200x630.jpg",
+  imageAlt: "Bot Crews — Bots that work together",
+});
 
 const USE_CASE_IMAGE_ALTS: Record<string, string> = {
   "morning-industry-briefing": "Three Bots compare source material around a studio worktable",
