@@ -13,7 +13,7 @@ import {
   type Suggestions,
 } from "./core.ts";
 
-const PROVIDER_TIMEOUT_MS = 15_000;
+const PROVIDER_TIMEOUT_MS = 35_000;
 const RATE_LIMIT_TIMEOUT_MS = 5_000;
 
 type RateLimitResult = "allowed" | "limited" | "unavailable";
@@ -115,16 +115,27 @@ async function requestSuggestions(
       cache: "no-store",
       signal: controller.signal,
     });
-    if (!response.ok) return null;
+    if (!response.ok) {
+      console.error(`bot-blueprint provider returned status ${response.status}`);
+      return null;
+    }
 
     const providerText = extractProviderText(await response.json());
-    if (!providerText) return null;
+    if (!providerText) {
+      console.error("bot-blueprint provider returned no usable text");
+      return null;
+    }
     try {
       return parseSuggestions(JSON.parse(providerText));
     } catch {
+      console.error("bot-blueprint provider returned invalid structured output");
       return null;
     }
-  } catch {
+  } catch (error) {
+    const timedOut = error instanceof DOMException && error.name === "AbortError";
+    console.error(timedOut
+      ? "bot-blueprint provider request timed out"
+      : "bot-blueprint provider request failed");
     return null;
   } finally {
     clearTimeout(timeout);
