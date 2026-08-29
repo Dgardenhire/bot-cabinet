@@ -26,9 +26,11 @@ export function SiteFooter() {
         </div>
         <div className="footer-column">
           <span>Explore</span>
+          <Link href="/start">Start Here</Link>
           <Link href="/bots">The Cabinet</Link>
           <Link href="/workshop">Bot Lab</Link>
           <Link href="/use-cases">Bot Crews</Link>
+          <Link href="/crew-kits">Crew Kits</Link>
           <Link href="/community">Community Registry</Link>
           <Link href="/guides">Field Manual</Link>
         </div>

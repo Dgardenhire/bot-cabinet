@@ -6,6 +6,7 @@ import {
   blueprintPdfFileName,
   blueprintToRoleInstructions,
   blueprintToMarkdown,
+  blueprintToBotPassportMarkdown,
   buildBotBlueprint,
   coerceWorkshopDraft,
   applyWorkshopStarterSuggestions,
@@ -202,6 +203,20 @@ describe("blueprint exports", () => {
     expect(roundTrip.soulText.match(/Approval rules:/g)).toHaveLength(1);
   });
 
+  it("appends every safety rule to supplied role instructions", () => {
+    const custom = buildBotBlueprint({
+      ...completeDraft,
+      approvalBoundaries: "Ask before contacting anyone",
+      accessSensitive: "Use only the approved client folder.",
+      prohibitedUncertainty: "Never send or publish the result.",
+      roleInstructions: "Prepare a concise draft from approved material.",
+    });
+
+    expect(custom.soulText).toContain("Approval rules: Ask before contacting anyone");
+    expect(custom.soulText).toContain("Access and sensitive-information limits: Use only the approved client folder.");
+    expect(custom.soulText).toContain("Prohibited actions and uncertainty handling: Never send or publish the result.");
+  });
+
   it("exports a complete Markdown setup plan with clear status labels", () => {
     const markdown = blueprintToMarkdown(blueprint);
 
@@ -210,8 +225,16 @@ describe("blueprint exports", () => {
     expect(markdown).toContain("## Set up in Hermes Desktop");
     expect(markdown).toContain("## Permanent role instructions for Custom SOUL.md");
     expect(markdown).toContain("### First message to send");
-    expect(markdown).toContain("Open the Bots tab and choose New Agent");
+    expect(markdown).toContain("import the .tar.gz archive");
     expect(markdown).toContain("Five-item brief");
+  });
+
+  it("exports a matching Bot Passport", () => {
+    const passport = blueprintToBotPassportMarkdown(blueprint);
+
+    expect(passport).toContain("# Morning Briefing — Bot Passport");
+    expect(passport).toContain("Web search");
+    expect(passport).toContain("Do not publish without approval");
   });
 
   it("uses a safe filename and escapes Markdown-control characters", () => {

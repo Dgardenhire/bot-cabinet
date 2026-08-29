@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Bot Lab · Build a custom Bot",
   description:
-    "Plan a useful Bot with optional AI suggestions, a downloadable Blueprint, and role instructions for Hermes Desktop.",
+    "Plan a useful Bot with optional AI suggestions, then download an importable Hermes profile, a designed Blueprint, and editable role instructions.",
   path: "/workshop/",
   image: "/brand/social/bot-lab-1200x630.jpg",
   imageAlt: "Bot Lab — turn a useful idea into a Bot plan",
@@ -21,39 +21,31 @@ export default function WorkshopPage() {
           <p className="workshop-eyebrow">Build and plan a custom Bot</p>
           <h1 id="workshop-title">Bot Lab</h1>
           <p className="workshop-hero-deck">
-            Start with a name and a clear job. You can ask AI to draft the remaining
-            planning fields, use a basic template, or write every answer yourself. Bot Lab
-            creates a designed Blueprint PDF, a matching Markdown file, role instructions,
-            and a setup plan for Hermes Desktop.
+            Name the Bot and describe the job. Bot Lab can draft the rest, and you can
+            edit every line. When the plan is ready, download an importable Hermes profile,
+            a designed Blueprint PDF, an editable Markdown plan, and a Bot Passport.
           </p>
+          <a className="button button-primary workshop-start-button" href="#workshop-builder-heading">
+            Start with the Bot&apos;s name
+          </a>
           <div className="workshop-label-row" aria-label="Bot Lab status">
-            <span>Planning tool</span>
-            <span>Saves in this browser</span>
-            <span>Optional AI suggestions</span>
-            <span>Apply in Hermes Desktop</span>
+            <span>AI is optional</span>
+            <span>Your draft saves here</span>
+            <span>Four downloads when finished</span>
           </div>
-          <figure className="workshop-video-card">
-            <div className="workshop-video-header">
-              <div>
-                <span>30-second walkthrough</span>
-                <strong>See Bot Lab in action</strong>
-              </div>
-              <span>PDF · Markdown · Role instructions</span>
-            </div>
+          <figure className="workshop-demo-video">
             <video
               controls
               playsInline
               preload="metadata"
-              poster="/videos/bot-lab-explainer-poster.jpg"
-              aria-label="A 30-second visual walkthrough of the Bot Lab builder"
-              aria-describedby="bot-lab-video-summary"
+              poster="/videos/bot-cabinet-bot-lab-walkthrough-poster.jpg"
+              aria-label="Watch how Bot Lab turns an idea into a downloadable Bot plan"
             >
-              <source src="/videos/bot-lab-explainer-with-music.mp4" type="video/mp4" />
-              Your browser does not support embedded video.
+              <source src="/videos/bot-cabinet-bot-lab-walkthrough.mp4" type="video/mp4" />
             </video>
-            <figcaption id="bot-lab-video-summary">
-              Name the job, draft the plan, review the live Blueprint, then download a
-              designed PDF, an editable Markdown file, and Hermes role instructions.
+            <figcaption>
+              See how to name the job, build the plan, and download the files you need for
+              Hermes Desktop.
             </figcaption>
           </figure>
         </div>
@@ -69,32 +61,33 @@ export default function WorkshopPage() {
             />
             <figcaption>Plan the job, access, limits, and first test before setup.</figcaption>
           </figure>
-          <div className="workshop-hero-plate" aria-label="Bot Lab method">
-            <p className="workshop-plate-label">How it works</p>
-            <ol>
-              <li>
-                <span>01</span>
-                <div>
-                  <strong>Define the job</strong>
-                  <p>Give the Bot a name and describe the result you need.</p>
-                </div>
-              </li>
-              <li>
-                <span>02</span>
-                <div>
-                  <strong>Build the plan</strong>
-                  <p>Draft the empty fields with AI, a basic template, or your own answers.</p>
-                </div>
-              </li>
-              <li>
-                <span>03</span>
-                <div>
-                  <strong>Review and test</strong>
-                  <p>Edit every suggestion, then run a small test with sample material.</p>
-                </div>
-              </li>
-            </ol>
-          </div>
+        </div>
+
+        <div className="workshop-hero-plate" aria-label="Bot Lab method">
+          <p className="workshop-plate-label">Three steps</p>
+          <ol>
+            <li>
+              <span>01</span>
+              <div>
+                <strong>Name the job</strong>
+                <p>Enter a Bot name and describe the result you need.</p>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <strong>Complete the plan</strong>
+                <p>Use AI, a basic template, or your own answers.</p>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <strong>Download and test</strong>
+                <p>Import the profile into Hermes and run a small first test.</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -109,8 +102,8 @@ export default function WorkshopPage() {
           <p>
             Bot Lab records the Bot’s job, inputs, expected outputs, tools,
             approval points, and first test. It creates a designed PDF for planning
-            and review, a Markdown copy you can edit, and role instructions you can
-            paste into the Custom SOUL.md field.
+            and review, a Markdown copy you can edit, and an importable Hermes profile
+            with the Bot&apos;s role instructions.
           </p>
           <p>
             You choose the model, tools, connections, and schedule when you create the Bot in

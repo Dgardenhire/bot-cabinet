@@ -15,6 +15,7 @@ import {
   blueprintSuccessChecks,
   type BotBlueprint,
 } from "../lib/workshop";
+import { blueprintToBotPassport } from "../lib/bot-passport";
 
 const COLORS = {
   blueprint: "#102D37",
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   page: {
     paddingTop: 58,
     paddingRight: 44,
-    paddingBottom: 44,
+    paddingBottom: 54,
     paddingLeft: 44,
     backgroundColor: COLORS.vellum,
     color: COLORS.ink,
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
   },
   pageDeck: {
     maxWidth: 460,
-    marginBottom: 10,
+    marginBottom: 20,
     color: COLORS.muted,
     fontSize: 10.5,
     lineHeight: 1.55,
@@ -250,8 +251,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   section: {
-    marginBottom: 6,
-    padding: 7,
+    marginBottom: 11,
+    padding: 12,
     borderWidth: 1,
     borderColor: COLORS.vellumDark,
     backgroundColor: "#FBF8F1",
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   sectionTitle: {
-    marginBottom: 3,
+    marginBottom: 7,
     color: COLORS.blueprint,
     fontFamily: "Times-Roman",
     fontSize: 16,
@@ -400,14 +401,14 @@ const styles = StyleSheet.create({
   },
   codeBlock: {
     marginTop: 7,
-    padding: 12,
+    padding: 14,
     borderWidth: 1,
     borderColor: COLORS.cyanDark,
     backgroundColor: COLORS.blueprintDeep,
     color: "#D8E9EC",
     fontFamily: "Courier",
-    fontSize: 8.4,
-    lineHeight: 1.42,
+    fontSize: 9,
+    lineHeight: 1.5,
   },
   noteLine: {
     height: 18,
@@ -616,6 +617,7 @@ export function WorkshopBlueprintPdf({
   const successChecks = blueprintSuccessChecks(blueprint);
   const firstMessage = blueprintFirstMessage(blueprint);
   const completion = `${blueprint.completedFields} of ${blueprint.totalFields} core fields filled`;
+  const passport = blueprintToBotPassport(blueprint);
 
   return (
     <Document
@@ -776,6 +778,30 @@ export function WorkshopBlueprintPdf({
         </View>
       </PageFrame>
 
+      <PageFrame blueprint={blueprint} code="BOT PASSPORT">
+        <PageHeading
+          code="04 / BOT PASSPORT"
+          title="Access and approval record"
+          deck="Keep this page with the Bot. Review it whenever the job, tools, accounts, schedule, or authority changes."
+        />
+        <View style={styles.statusBand} wrap={false}>
+          <Text style={styles.statusBandLabel}>{passport.riskLevel.toUpperCase()} PLANNED RISK</Text>
+          <Text style={styles.statusBandBody}>The risk label reflects the access and actions described in this Blueprint. It is not a technical security certification.</Text>
+        </View>
+        <View style={styles.twoColumn}>
+          <View style={styles.column}><Section code="04A" title="May read"><BulletList items={passport.reads} empty="No inputs listed." /></Section></View>
+          <View style={styles.column}><Section code="04B" title="May create"><BulletList items={passport.creates} empty="No outputs listed." /></Section></View>
+        </View>
+        <View style={styles.twoColumn}>
+          <View style={styles.column}><Section code="04C" title="May do without approval"><BulletList items={passport.mayDoWithoutApproval} empty="No actions listed." /></Section></View>
+          <View style={styles.column}><Section code="04D" title="Must ask first" warning><BulletList items={passport.mustAsk} empty="No approval actions listed." /></Section></View>
+        </View>
+        <Section code="04E" title="Requested capabilities"><BulletList items={passport.requestedCapabilities} empty="Conversation only." /></Section>
+        <Section code="04F" title="Prohibited actions" warning><BulletList items={passport.prohibited} empty="No prohibited actions listed." /></Section>
+        <Section code="04G" title="Control limits" warning><BulletList items={passport.controlNotes} empty="Review controls before setup." /></Section>
+        <Section code="04H" title="Stop and remove access"><PlainText value={passport.shutdown} empty="Remove schedules and outside access." /></Section>
+      </PageFrame>
+
       <PageFrame blueprint={blueprint} code="FIRST TEST">
         <PageHeading
           code="04 / FIRST-RUN TEST"
@@ -855,13 +881,12 @@ export function WorkshopBlueprintPdf({
         <Section code="05B" title="Setup steps">
           <NumberedList
             items={[
-              "Open the Bots tab and choose New Agent.",
-              "Choose Fresh profile or clone an existing profile after reviewing what the clone contains.",
-              "Enter the Name, Title, and Description shown above.",
-              "Open Advanced and paste the permanent role instructions from this Blueprint into Custom SOUL.md.",
+              "Download the Hermes profile archive from Bot Lab.",
+              "In Hermes Desktop, open Profiles and import the .tar.gz archive.",
+              "Open the imported profile and review its description, SOUL.md role instructions, and Bot Passport.",
               "Choose a model or use the launch profile's model.",
               "Enable only the skills, toolsets, and outside-service connections this job requires.",
-              "Create the Bot and send the first-test message from this Blueprint.",
+              "Open the Bots tab, create the Bot from the imported profile, and send the first-test message from this Blueprint.",
               "Review the result before adding a recurring routine, more access, or a group-chat role.",
             ]}
           />

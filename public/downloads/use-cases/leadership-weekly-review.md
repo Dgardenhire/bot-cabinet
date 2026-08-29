@@ -4,6 +4,19 @@ Designed for: Leaders and small teams that need a clear weekly view of prioritie
 
 Result: A current operating brief and a realistic proposed plan for the next week, with ideas kept separate from commitments.
 
+## Operating guide
+
+- **When to use it:** Use this workflow when you need a current operating brief and a realistic proposed plan for the next week, with ideas kept separate from commitments.
+- **Lead Bot:** COACH
+- **Cadence:** Once each week, with a person approving the source material first
+- **Typical first run:** 30–60 minutes for a first manual run
+
+### Access for the first run
+
+- The approved inputs listed on this page
+- Only the files, sources, and services required for this run
+- No sending, publishing, spending, or live-system changes without approval
+
 ## Bots
 
 1. COACH
@@ -48,6 +61,11 @@ Message to send:
 
 Start with this result from Chief of Staff: A priority and decision log with conflicts and missing owners marked. Turn only the approved priorities into a proposed sequence for the next week. Return this result: A weekly plan with owners, dependencies, and checkpoints. Ask me about missing information before you continue.
 
+## Handoff rules
+
+1. COACH hands the approved output—a decision frame separating ideas, plans, and commitments—to Chief of Staff.
+2. Chief of Staff hands the approved output—a priority and decision log with conflicts and missing owners marked—to Planner.
+
 ## Overall request
 
 Run a weekly leadership review from these approved notes. Keep ideas separate from commitments, surface priority and capacity conflicts, and propose next week's plan without assigning work or changing shared records.
@@ -62,10 +80,18 @@ Run a weekly leadership review from these approved notes. Keep ideas separate fr
 
 Review one week from copied notes and compare every listed commitment with the source before changing any shared system.
 
+## Success checkpoint
+
+The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Review one week from copied notes and compare every listed commitment with the source before changing any shared system.
+
+## If the workflow stalls
+
+If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
+
 ## Hermes Desktop setup
 
-1. Open each Bot's page in Bot Cabinet's Hermes Bots collection and follow its manual Hermes Desktop setup steps.
-2. Run each step in that Bot's own chat and review the result.
-3. Pass the approved result to the next Bot with the message provided for that step.
-4. After the sequence works, you may create a group with the same Bots.
-5. In a group, @mention the Bot you want. Membership order does not control who responds.
+1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
+3. Run each step in that Bot's own chat and review the result.
+4. Pass the approved result to the next Bot with the message provided for that step.
+5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.

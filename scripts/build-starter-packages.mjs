@@ -8,18 +8,21 @@ const execFile = promisify(execFileCallback);
 
 const projectRoot = process.cwd();
 const sourcePath = path.join(projectRoot, "src/data/starter-bots.ts");
+const passportSourcePath = path.join(projectRoot, "src/lib/bot-passport.ts");
 const outputRoot = path.join(projectRoot, "public/downloads/starter-bots");
 
-const source = await readFile(sourcePath, "utf8");
-const compiled = ts.transpileModule(source, {
-  compilerOptions: {
-    module: ts.ModuleKind.CommonJS,
-    target: ts.ScriptTarget.ES2020,
-  },
-}).outputText;
-const compiledModule = { exports: {} };
-new Function("exports", "module", compiled)(compiledModule.exports, compiledModule);
-const starters = compiledModule.exports.STARTER_BOTS;
+async function loadTsModule(filePath) {
+  const source = await readFile(filePath, "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const compiledModule = { exports: {} };
+  new Function("exports", "module", compiled)(compiledModule.exports, compiledModule);
+  return compiledModule.exports;
+}
+
+const { STARTER_BOTS: starters } = await loadTsModule(sourcePath);
+const { starterBotToPassport, botPassportToMarkdown } = await loadTsModule(passportSourcePath);
 
 if (!Array.isArray(starters) || starters.length === 0) {
   throw new Error("No starter bots were found");
@@ -51,28 +54,54 @@ SOFTWARE.
 for (const bot of starters) {
   const botDir = path.join(outputRoot, bot.slug);
   await mkdir(botDir, { recursive: true });
+  const botPassport = starterBotToPassport(bot);
 
   const manifest = [
     `name: ${bot.slug}`,
     'version: "1.0.0"',
     `description: "${bot.summary.replaceAll('"', '\\"')}"`,
+    'hermes_requires: ">=0.20.0"',
+    'author: "Bot Cabinet"',
+    'license: "MIT"',
     "distribution_owned:",
+    "  - profile.yaml",
     "  - SOUL.md",
     "  - README.md",
+    "  - BOT-PASSPORT.md",
     "  - LICENSE",
     "",
   ].join("\n");
+  const profileMetadata = [
+    `display_name: ${JSON.stringify(bot.name)}`,
+    `description: ${JSON.stringify(bot.summary)}`,
+    "description_auto: false",
+    "",
+  ].join("\n");
+  const safetyInstructions = [
+    "## Approval and decision rules",
+    ...botPassport.mustAsk.map((item) => `- ${item}`),
+    ...(bot.workshopDraft.accessSensitive
+      ? ["", "## Access and sensitive-information limits", bot.workshopDraft.accessSensitive]
+      : []),
+    "",
+    "## Prohibited actions and uncertainty handling",
+    ...botPassport.prohibited.map((item) => `- ${item}`),
+  ].join("\n");
+  const soul = `${bot.soul.trim()}\n\n${safetyInstructions}\n`;
+  const importReview = bot.slug === "scout"
+    ? "Bot Cabinet also imported this archive with Hermes Agent 0.20.5."
+    : "Bot Cabinet has not individually imported this archive into Hermes Desktop."
 
   const readme = [
     `# ${bot.name} — ${bot.title}`,
     "",
     bot.summary,
     "",
-    "This LINCHPIN starter package contains role instructions, setup documentation, a package manifest, and a license.",
+    "This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.",
     "",
     "## What this download is",
     "",
-    "This ZIP contains readable source files. Hermes Desktop does not import it directly. Read the files, then create the Bot manually in Hermes Desktop. The package includes distribution.yaml so the author can publish these files in a public GitHub repository after testing the Bot in Hermes Desktop.",
+    "The .tar.gz download is a Hermes profile archive. Import it from the Profiles screen in Hermes Desktop, or use the terminal command shown on this Bot's page. The ZIP contains the same readable source files for inspection.",
     "",
     "## Who this helps",
     "",
@@ -102,29 +131,41 @@ for (const bot of starters) {
     "",
     "## Set it up in Hermes Desktop",
     "",
-    "1. Open the Bots tab and choose New Agent.",
-    `2. Enter the name **${bot.name}**, the title **${bot.title}**, and the description at the top of this file.`,
-    "3. Open Advanced and paste the contents of SOUL.md into Custom SOUL.md.",
-    "4. Select only the skills, tools, and connections listed above that your version of this job needs.",
-    `5. Create the Bot and begin with this test: ${bot.workshopDraft.firstRunTest}`,
+    "1. Import the .tar.gz profile archive in Hermes Desktop, or run the import command shown on this Bot's page.",
+    "2. Open the imported profile and review its name, description, and SOUL.md role instructions.",
+    "3. Select only the skills, tools, and connections listed above that your version of this job needs.",
+    `4. Begin with this test: ${bot.workshopDraft.firstRunTest}`,
     "",
     "## Review status",
     "",
-    "On August 25, 2026, the Hermes Bot Registry in Bot Cabinet ran a file-structure test that confirmed this ZIP contains the expected four files and matches the readable copies. It did not run the Bot. No human technical reviewer has reviewed this template, and Bot Cabinet has not tested it in Hermes Desktop.",
+    `On August 28, 2026, Bot Cabinet confirmed that the ZIP and Hermes profile archive contain the six listed files and match the readable copies. ${importReview} No human technical reviewer has reviewed this template, and its role-specific output has not been tested.`,
     "",
   ].join("\n");
 
   await writeFile(path.join(botDir, "distribution.yaml"), manifest, "utf8");
-  await writeFile(path.join(botDir, "SOUL.md"), `${bot.soul}\n`, "utf8");
+  await writeFile(path.join(botDir, "profile.yaml"), profileMetadata, "utf8");
+  await writeFile(path.join(botDir, "SOUL.md"), soul, "utf8");
   await writeFile(path.join(botDir, "README.md"), readme, "utf8");
+  await writeFile(path.join(botDir, "BOT-PASSPORT.md"), botPassportToMarkdown(botPassport), "utf8");
   await writeFile(path.join(botDir, "LICENSE"), license, "utf8");
 
-  const files = ["distribution.yaml", "SOUL.md", "README.md", "LICENSE"];
+  const files = ["distribution.yaml", "profile.yaml", "SOUL.md", "README.md", "BOT-PASSPORT.md", "LICENSE"];
   const fixedTime = new Date("2026-01-01T00:00:00.000Z");
   await Promise.all(files.map((file) => utimes(path.join(botDir, file), fixedTime, fixedTime)));
+  await utimes(botDir, fixedTime, fixedTime);
   const zipPath = path.join(outputRoot, `${bot.slug}.zip`);
   await rm(zipPath, { force: true });
   await execFile("zip", ["-X", "-q", zipPath, ...files], { cwd: botDir });
+
+  const profileArchivePath = path.join(outputRoot, `${bot.slug}.tar.gz`);
+  const profileTarPath = path.join(outputRoot, `${bot.slug}.tar`);
+  await rm(profileArchivePath, { force: true });
+  await rm(profileTarPath, { force: true });
+  await execFile("tar", ["-cf", profileTarPath, bot.slug], {
+    cwd: outputRoot,
+    env: { ...process.env, COPYFILE_DISABLE: "1" },
+  });
+  await execFile("gzip", ["-n", "-f", profileTarPath]);
 }
 
 process.stdout.write(`${starters.length} starter packages built in ${outputRoot}\n`);

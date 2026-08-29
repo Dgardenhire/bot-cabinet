@@ -22,7 +22,6 @@ const contentTypes = new Map([
   [".json", "application/json; charset=utf-8"],
   [".map", "application/json; charset=utf-8"],
   [".md", "text/markdown; charset=utf-8"],
-  [".mp4", "video/mp4"],
   [".pdf", "application/pdf"],
   [".png", "image/png"],
   [".svg", "image/svg+xml"],
@@ -102,6 +101,7 @@ const server = createServer(async (request, response) => {
 
   try {
     const pathname = new URL(request.url ?? "/", "http://localhost").pathname;
+
     const filePath = await findFile(pathname);
     if (filePath) {
       await sendFile(response, filePath, method);

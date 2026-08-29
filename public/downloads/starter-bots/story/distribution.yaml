@@ -1,7 +1,12 @@
 name: story
 version: "1.0.0"
 description: "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
 distribution_owned:
+  - profile.yaml
   - SOUL.md
   - README.md
+  - BOT-PASSPORT.md
   - LICENSE

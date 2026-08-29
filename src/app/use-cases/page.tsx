@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle, DownloadSimple, UsersThree } from "@phosphor-i
 import { Eyebrow } from "@/components/ui";
 import { getStarterBot } from "@/data/starter-bots";
 import { BOT_USE_CASES } from "@/data/use-cases";
+import { CREW_KITS } from "@/data/crew-kits";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -70,11 +71,28 @@ export default function UseCasesPage() {
         </div>
       </section>
 
+      <section className="content-section shell use-case-kit-intro">
+        <div>
+          <Eyebrow>New · Complete Crew Kits</Eyebrow>
+          <h2 className="section-heading">Build a standing team for an ongoing function</h2>
+          <p className="section-deck">Crew Kits combine several Bots, repeatable workflows, an operating rhythm, and shared access rules. {CREW_KITS.length} complete kits are ready to use.</p>
+        </div>
+        {CREW_KITS.slice(0, 3).map((kit) => (
+          <article key={kit.slug}>
+            <span>{kit.roles.length} Bots · {kit.workflows.length} workflows</span>
+            <h3>{kit.name}</h3>
+            <p>{kit.promise}</p>
+            <Link href={`/crew-kits/${kit.slug}`} className="button button-primary">Open the Crew Kit <ArrowRight size={15} /></Link>
+          </article>
+        ))}
+        <Link href="/crew-kits" className="text-link">Learn how Crew Kits differ from workflows <ArrowRight size={15} /></Link>
+      </section>
+
       <section className="content-section shell use-case-library">
         <div className="use-case-library-heading">
           <div>
             <Eyebrow>{BOT_USE_CASES.length} practical starting points</Eyebrow>
-            <h2 className="section-heading">Choose a Bot Crew by the job</h2>
+            <h2 className="section-heading">Choose a single workflow by the job</h2>
           </div>
           <p>Start with manual handoffs. Add schedules or more access after the workflow produces consistent results.</p>
         </div>

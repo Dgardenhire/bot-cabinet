@@ -16,6 +16,7 @@ import { Eyebrow } from "@/components/ui";
 import { CopyTextButton } from "@/components/copy-text-button";
 import { getStarterBot } from "@/data/starter-bots";
 import { BOT_USE_CASES, getBotUseCase, getUseCaseStepPrompt } from "@/data/use-cases";
+import { getUseCaseOperations } from "@/data/use-case-operations";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
@@ -39,6 +40,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
   const { slug } = await params;
   const useCase = getBotUseCase(slug);
   if (!useCase) notFound();
+  const operations = getUseCaseOperations(useCase);
 
   return (
     <main id="main-content" className="page-main use-case-detail">
@@ -79,26 +81,40 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         <ul>{useCase.inputs.map((item) => <li key={item}><CheckCircle size={18} weight="thin" />{item}</li>)}</ul>
       </section>
 
+      <section className="content-section shell workflow-operating-card">
+        <div className="workflow-operating-heading">
+          <div><Eyebrow>Operating guide</Eyebrow><h2 className="section-heading">Know when to run it and who leads</h2></div>
+          <dl>
+            <div><dt>Lead Bot</dt><dd>{getStarterBot(operations.leadBotSlug)?.name}</dd></div>
+            <div><dt>Typical first run</dt><dd>{operations.estimatedTime}</dd></div>
+            <div><dt>Cadence</dt><dd>{operations.cadence}</dd></div>
+          </dl>
+        </div>
+        <p className="workflow-when-to-use">{operations.whenToUse}</p>
+        <div className="workflow-access-list"><strong>Access for the first run</strong><ul>{operations.access.map((item) => <li key={item}>{item}</li>)}</ul></div>
+      </section>
+
       <section className="content-section shell use-case-steps-section">
         <Eyebrow>Run the first version one step at a time</Eyebrow>
         <h2 className="section-heading">Send one clear message to each Bot</h2>
         <p className="section-deck">Start in individual Bot chats. After you approve a result, paste it into the next Bot’s chat with the message shown below. This gives you a clear handoff and keeps the order predictable.</p>
         <div className="use-case-detail-steps">
-          {useCase.steps.map((step, index) => (
-            <article key={`${step.bot}-${step.action}`}>
+          {useCase.steps.map((step, index) => {
+            const prompt = getUseCaseStepPrompt(useCase, index);
+            return <article key={`${step.bot}-${step.action}`}>
               <span>{index + 1}</span>
               <div>
                 <h3>{step.bot}</h3>
                 <p>{step.action}</p>
                 <strong>Produces: {step.output}</strong>
                 <div className="use-case-step-prompt">
-                  <code>{getUseCaseStepPrompt(useCase, index)}</code>
-                  <CopyTextButton text={getUseCaseStepPrompt(useCase, index)} />
+                  <code>{prompt}</code>
+                  <CopyTextButton text={prompt} />
                 </div>
               </div>
               {index < useCase.steps.length - 1 && <ArrowRight size={22} weight="thin" aria-hidden="true" />}
-            </article>
-          ))}
+            </article>;
+          })}
         </div>
       </section>
 
@@ -116,6 +132,11 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         </article>
       </section>
 
+      <section className="content-section shell workflow-handoff-section">
+        <div><Eyebrow>Handoff rules</Eyebrow><h2 className="section-heading">Move only approved work to the next Bot</h2></div>
+        <ol>{operations.handoffs.map((handoff, index) => <li key={handoff}><span>{index + 1}</span><p>{handoff}</p></li>)}</ol>
+      </section>
+
       <section className="content-section shell use-case-first-test">
         <div>
           <Eyebrow>First test</Eyebrow>
@@ -124,17 +145,22 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         <p>{useCase.firstTest}</p>
       </section>
 
+      <section className="content-section shell workflow-checkpoints">
+        <article><CheckCircle size={27} weight="thin" /><h2>Success checkpoint</h2><p>{operations.successCheckpoint}</p></article>
+        <article><ShieldCheck size={27} weight="thin" /><h2>If the workflow stalls</h2><p>{operations.recovery}</p></article>
+      </section>
+
       <section className="content-section shell use-case-desktop-steps">
         <div>
           <Eyebrow>Set it up in Hermes Desktop</Eyebrow>
           <h2>Begin with individual chats, then add a group when the handoffs work</h2>
         </div>
         <ol>
-          <li>Open each linked starter page and follow its manual Hermes Desktop setup steps.</li>
+          <li>Open each linked starter page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.</li>
+          <li>Review each imported profile’s SOUL.md, Bot Passport, and requested access.</li>
           <li>Run each step in that Bot’s own chat and review the result.</li>
           <li>Pass the approved result to the next Bot with the provided step message.</li>
-          <li>After the sequence works, create an optional group with the same Bots.</li>
-          <li>In a group, @mention the Bot you want. Membership order does not control who responds.</li>
+          <li>After the sequence works, create an optional group with the same Bots. In a group, @mention the Bot you want.</li>
         </ol>
         <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer" className="text-link">Read the official Bot Mode guide <ArrowRight size={15} /></a>
       </section>

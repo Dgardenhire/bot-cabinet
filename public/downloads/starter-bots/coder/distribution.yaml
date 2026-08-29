@@ -1,7 +1,12 @@
 name: coder
 version: "1.0.0"
 description: "Builds a defined software change, runs the available checks, and reports what changed and what still needs review."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
 distribution_owned:
+  - profile.yaml
   - SOUL.md
   - README.md
+  - BOT-PASSPORT.md
   - LICENSE

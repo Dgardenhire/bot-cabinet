@@ -8,20 +8,20 @@ Bot Cabinet and the Hermes Bot Registry are independent from Nous Research. List
 
 ## What the site includes
 
-- Sixteen practical Hermes Bots with example requests, expected results, approval points, and source-package downloads
+- Sixteen practical Hermes Bots with example requests, expected results, approval points, and importable Hermes profile downloads
 - Seventeen everyday use cases that show which Bots to use and provide a copyable message for each step
-- Bot Lab, a browser-based builder with optional AI suggestions, role instructions, and a downloadable Bot Blueprint
+- Bot Lab, a browser-based builder with optional AI suggestions, an importable Hermes profile, role instructions, a designed PDF, and an editable Markdown plan
 - A small directory of public community projects with source links and clearly labeled review information
 - Plain-English guides to Bot Mode, profile packages, first tests, and installation checks
 - Dark and light layouts with a persistent theme control
 
 ## Current review limits
 
-Bot Cabinet currently has one editor and does not provide human technical review. It uses a limited automated source check, but the public submission and publication system is not open yet. Selected community pages therefore show source and review information without presenting an install button.
+Bot Cabinet currently has one editor and does not provide human technical review. The project contains an automated source scanner for local testing, but the public submission and publication system is not open yet. Selected community pages therefore show source and review information without presenting an install button.
 
 Hermes does not publish install counts for these projects. The Registry does not display estimated or invented counts.
 
-Starter downloads are readable source packages. They are not one-click Hermes Desktop imports. Each page explains how to copy the role into a new Bot through Hermes Desktop.
+Starter pages provide a `.tar.gz` Hermes profile archive for import and a ZIP containing the same readable source files. Each page also provides a one-line terminal import command.
 
 ## Run the site locally
 
@@ -38,6 +38,8 @@ Open `http://localhost:3000`.
 npm run lint
 npx tsc --noEmit
 npm test
+npm run test:intake
+npm run test:edge
 npm run build
 ```
 
@@ -46,10 +48,14 @@ Run `npm start` after a build to preview that static export.
 
 ## Bot Lab AI suggestions
 
-Bot Lab can optionally request AI-assisted suggestions from Bot Cabinet's server-side
-service. Provider credentials are not included in the browser or this repository. A
-local build without a configured service endpoint continues to provide the basic
-template builder.
+Bot Lab sends the Bot name and job description to a server-side function. Provider
+credentials stay on the server and are never included in the public website. The
+endpoint validates input and output, limits requests, and returns generic errors.
+Without a configured endpoint, Bot Lab keeps its separately labeled basic template.
+
+Self-hosted copies can use `.env.example` for the public endpoint setting. Keep every
+provider credential and server secret outside the repository and outside all
+`NEXT_PUBLIC_` variables.
 
 ## Review policy
 

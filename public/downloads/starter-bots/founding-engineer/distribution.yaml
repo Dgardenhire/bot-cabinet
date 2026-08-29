@@ -1,7 +1,12 @@
 name: founding-engineer
 version: "1.0.0"
 description: "Turns a defined user problem into the smallest working product version that can be demonstrated and tested."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
 distribution_owned:
+  - profile.yaml
   - SOUL.md
   - README.md
+  - BOT-PASSPORT.md
   - LICENSE

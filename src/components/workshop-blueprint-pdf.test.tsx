@@ -80,6 +80,34 @@ describe("WorkshopBlueprintPdf", () => {
   });
 
   it.skipIf(!hasPdfText)(
+    "includes prohibited actions and the archive import path",
+    async () => {
+      const buffer = await renderToBuffer(
+        <WorkshopBlueprintPdf
+          blueprint={buildBotBlueprint(completeDraft)}
+          generatedAt="2026-08-25T12:00:00.000Z"
+        />,
+      );
+      const temporaryDirectory = await mkdtemp(
+        join(tmpdir(), "bot-cabinet-pdf-passport-test-"),
+      );
+      const pdfPath = join(temporaryDirectory, "blueprint.pdf");
+      const textPath = join(temporaryDirectory, "blueprint.txt");
+
+      try {
+        await writeFile(pdfPath, buffer);
+        execFileSync("pdftotext", [pdfPath, textPath]);
+        const extractedText = await readFile(textPath, "utf8");
+        expect(extractedText).toContain("Prohibited actions");
+        expect(extractedText).toContain("Never publish or send messages");
+        expect(extractedText).toContain("import the .tar.gz archive");
+      } finally {
+        await rm(temporaryDirectory, { recursive: true, force: true });
+      }
+    },
+  );
+
+  it.skipIf(!hasPdfText)(
     "keeps the end of maximum-length tools and profile descriptions",
     async () => {
       const tools = boundedAnswer("TOOLSBEGIN", "toolword", "TOOLSEND", 3_000);
@@ -116,7 +144,7 @@ describe("WorkshopBlueprintPdf", () => {
         expect(extractedText).toContain("DESCBEGIN");
         expect(extractedText).toContain("DESCEND");
         expect(extractedText.match(/toolword/g)).toHaveLength(
-          tools.match(/toolword/g)?.length ?? 0,
+          (tools.match(/toolword/g)?.length ?? 0) * 2,
         );
         expect(extractedText.match(/descword/g)).toHaveLength(
           description.match(/descword/g)?.length ?? 0,

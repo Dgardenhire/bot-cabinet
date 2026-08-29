@@ -1,3 +1,5 @@
+import { blueprintToBotPassport, botPassportToMarkdown } from "./bot-passport";
+
 export type WorkshopDraft = {
   botName: string;
   jobOutcome: string;
@@ -401,11 +403,22 @@ export function buildBotBlueprint(draft: WorkshopDraft): BotBlueprint {
       ? [`Review standard for the first test: ${reviewCriteria}`]
       : []),
   ];
-  const approvalInstruction = soulNotes[3];
+  const safetyInstructions = [
+    soulNotes[3],
+    ...(accessSensitive
+      ? [`Access and sensitive-information limits: ${accessSensitive}`]
+      : []),
+    ...(prohibitedUncertainty
+      ? [`Prohibited actions and uncertainty handling: ${prohibitedUncertainty}`]
+      : []),
+  ];
   const soulText = suppliedRoleInstructions
-    ? suppliedRoleInstructions.includes(approvalInstruction)
-      ? suppliedRoleInstructions
-      : `${suppliedRoleInstructions}\n\n${approvalInstruction}`
+    ? [
+        suppliedRoleInstructions,
+        ...safetyInstructions.filter(
+          (instruction) => !suppliedRoleInstructions.includes(instruction),
+        ),
+      ].join("\n\n")
     : soulNotes.join("\n\n");
 
   return {
@@ -619,14 +632,13 @@ export function blueprintToMarkdown(
     "",
     "## Set up in Hermes Desktop",
     "",
-    "1. Open the Bots tab and choose New Agent.",
-    "2. Choose Fresh profile or clone an existing profile after reviewing what the clone contains.",
-    "3. Enter the Name, Title, and Description above.",
-    "4. Open Advanced and paste the permanent role instructions below into Custom SOUL.md.",
-    "5. Choose a model or use the launch profile's model.",
-    "6. Enable only the skills, tools, and outside-service connections this job requires.",
-    "7. Create the Bot and send the first-test message shown above.",
-    "8. Review the result before adding a routine, more access, or a group-chat role.",
+    "1. Download the Hermes profile archive from Bot Lab.",
+    "2. In Hermes Desktop, open Profiles and import the .tar.gz archive.",
+    "3. Open the imported profile and review its description, SOUL.md role instructions, and Bot Passport.",
+    "4. Choose a model or use the launch profile's model.",
+    "5. Enable only the skills, tools, and outside-service connections this job requires.",
+    "6. Open the Bots tab, create the Bot from the imported profile, and send the first-test message shown above.",
+    "7. Review the result before adding a routine, more access, or a group-chat role.",
     "",
     "### Access decisions to confirm",
     "",
@@ -667,6 +679,10 @@ export function blueprintToMarkdown(
     "Bot Lab creates this planning file in your browser. Apply and test each setting in Hermes Desktop.",
     "",
   ].join("\n");
+}
+
+export function blueprintToBotPassportMarkdown(blueprint: BotBlueprint): string {
+  return botPassportToMarkdown(blueprintToBotPassport(blueprint));
 }
 
 export function blueprintFileStem(blueprint: BotBlueprint): string {

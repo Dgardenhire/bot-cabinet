@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, DM_Serif_Display, Space_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { FunnelAnalytics } from "@/components/funnel-analytics";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -33,13 +34,13 @@ export const metadata: Metadata = {
     template: "%s — Bot Cabinet",
   },
   description:
-    "Bot Cabinet helps people find, understand, and build useful Hermes Bots through The Cabinet, Bot Crews workflows, Bot Lab, the Field Manual, and the Community Registry.",
+    "Choose, build, and use AI specialists for real work with practical Hermes Bot profiles, examples, setup help, and review information.",
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.ico" },
   openGraph: {
     title: "Bot Cabinet",
     description:
-      "Find useful Hermes Bots in The Cabinet, build a plan in Bot Lab, follow Bot Crews workflows, and inspect selected Community Registry projects.",
+      "Choose, build, and use AI specialists for real work—starting with importable Hermes Bot profiles.",
     siteName: "Bot Cabinet",
     type: "website",
     url: "https://botcabinet.com",
@@ -104,6 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         {children}
         <SiteFooter />
+        <FunnelAnalytics />
         <Analytics />
       </body>
     </html>

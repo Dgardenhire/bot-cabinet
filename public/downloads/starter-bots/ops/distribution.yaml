@@ -1,7 +1,12 @@
 name: ops
 version: "1.0.0"
 description: "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
 distribution_owned:
+  - profile.yaml
   - SOUL.md
   - README.md
+  - BOT-PASSPORT.md
   - LICENSE

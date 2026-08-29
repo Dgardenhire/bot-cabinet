@@ -14,6 +14,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
+import { CopyTextButton } from "@/components/copy-text-button";
+import { BotPassportPanel } from "@/components/bot-passport-panel";
 import { LegacyRoute } from "@/components/legacy-route";
 import {
   STARTER_BOTS,
@@ -21,6 +23,7 @@ import {
   getStarterBot,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
+import { starterBotToPassport } from "@/lib/bot-passport";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
@@ -56,6 +59,10 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
+  const profileArchiveUrl = `https://botcabinet.com/downloads/starter-bots/${bot.slug}.tar.gz`;
+  const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}.tar.gz --name ${bot.slug}`;
+  const passport = starterBotToPassport(bot);
+
   return (
     <main id="main-content" className="page-main starter-detail">
       <section className="registry-detail-hero starter-detail-hero">
@@ -74,9 +81,13 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
               <p className="registry-detail-summary">{bot.summary}</p>
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
               <div className="button-row">
-                <Link href={`/workshop?starter=${bot.slug}`} className="button button-primary">Open this template in Bot Lab <Wrench size={16} /></Link>
-                <a href={`/downloads/starter-bots/${bot.slug}.zip`} download className="button button-secondary">Download starter files (ZIP) <DownloadSimple size={16} /></a>
+                <a href={`/downloads/starter-bots/${bot.slug}.tar.gz`} download className="button button-primary" data-funnel-event="bot_profile_download" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Download for Hermes Desktop <DownloadSimple size={16} /></a>
+                <CopyTextButton text={importCommand} label="Install this Hermes profile" className="button button-secondary" analyticsEvent="bot_install_command_copy" analyticsSurface="bot_detail" />
+                <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
+              <p className="starter-install-note">The first button downloads an importable Hermes profile archive. The second copies a one-line terminal command that downloads and imports the same profile.</p>
+              <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
+              <a href={`/downloads/grok-bot-templates/${bot.slug}.md`} download className="text-link">Adapt this Bot for Grok Bot <ArrowRight size={15} /></a>
             </div>
           </div>
         </div>
@@ -105,21 +116,27 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </article>
       </section>
 
-      <section className="content-section shell starter-setup-section">
+      <section className="content-section shell starter-passport-section">
+        <BotPassportPanel passport={passport} downloadHref={`/downloads/starter-bots/${bot.slug}/BOT-PASSPORT.md`} />
+      </section>
+
+      <section className="content-section shell starter-setup-section" id="files-and-review">
         <div>
           <Eyebrow>Set it up in Hermes Desktop</Eyebrow>
-          <h2 className="section-heading">Create the Bot and run one small test</h2>
-          <p className="section-deck">The ZIP contains readable source files. Create the Bot manually in Hermes Desktop. The download includes public role instructions, a step-by-step README, a <code>distribution.yaml</code> file that lists the package contents for a future public GitHub repository, and an MIT license.</p>
+          <h2 className="section-heading">Import the profile and run one small test</h2>
+          <p className="section-deck">The Hermes download includes the Bot’s role instructions, Bot Passport, setup guide, package manifest, and license. The ZIP contains the same files for inspection.</p>
         </div>
         <ol className="starter-setup-steps">
-          <li><span>1</span><div><strong>Download and read the files.</strong><p>Open README.md and SOUL.md so you know exactly what the role says.</p></div></li>
-          <li><span>2</span><div><strong>Create a Bot in Hermes Desktop.</strong><p>Use the Bot Mode create control. Enter the name and title from this page.</p></div></li>
-          <li><span>3</span><div><strong>Add the role instructions.</strong><p>Open the Bot’s advanced settings and use the text from SOUL.md. Add tools only when the job needs them.</p></div></li>
+          <li><span>1</span><div><strong>Download the Hermes profile.</strong><p>Import the .tar.gz archive from the Profiles screen, or copy the terminal command above.</p></div></li>
+          <li><span>2</span><div><strong>Review the imported profile.</strong><p>Read README.md and SOUL.md, then confirm the name, description, and standing instructions.</p></div></li>
+          <li><span>3</span><div><strong>Choose the access it needs.</strong><p>Add only the skills, tools, and connections required for this job.</p></div></li>
           <li><span>4</span><div><strong>Run a low-risk test.</strong><p>Use sample material and confirm that the result matches the intended output before adding private files, accounts, or schedules.</p></div></li>
         </ol>
         <div className="source-link-row starter-file-links">
           <a href={`/downloads/starter-bots/${bot.slug}/README.md`} target="_blank" rel="noreferrer">Read the starter guide</a>
           <a href={`/downloads/starter-bots/${bot.slug}/SOUL.md`} target="_blank" rel="noreferrer">Read the role instructions</a>
+          <a href={`/downloads/starter-bots/${bot.slug}/BOT-PASSPORT.md`} target="_blank" rel="noreferrer">Read the Bot Passport</a>
+          <a href={`/downloads/starter-bots/${bot.slug}.zip`} download>Download readable files (ZIP)</a>
           <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer">Official Bot Mode guide</a>
         </div>
       </section>
@@ -141,7 +158,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
       <section className="content-section shell starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
-        <p><strong>Current review status:</strong> The package test confirmed that the ZIP contains the four listed files. Human technical review: unavailable. Hermes Desktop test: not run.</p>
+        <p><strong>Current review status:</strong> Automated package tests confirmed that the ZIP and Hermes profile archive contain the six listed files and match the readable copies. The Scout reference archive imported successfully with Hermes Agent 0.20.5. Human technical review: unavailable. Role-specific output test: not run.</p>
       </section>
     </main>
   );

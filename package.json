@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "generate:content": "node scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs",
-    "build": "npm run generate:content && next build",
+    "generate:content": "node scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs && node scripts/build-crew-kit-plans.mjs && node scripts/build-crew-kit-pdfs.mjs && node scripts/build-crew-kit-og.mjs && node scripts/build-section-og.mjs && node scripts/build-grok-template-guides.mjs",
+    "build": "npm run generate:content && next build && node scripts/audit-social-metadata.mjs",
     "start": "node scripts/serve-static.mjs",
     "lint": "eslint",
-    "test": "vitest run src && node --test scripts/starter-packages.test.mjs"
+    "test": "vitest run src && node --test scripts/starter-packages.test.mjs",
+    "test:intake": "node --test scripts/registry-review.test.mjs",
+    "test:edge": "deno test supabase/functions/bot-blueprint/core.test.ts"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

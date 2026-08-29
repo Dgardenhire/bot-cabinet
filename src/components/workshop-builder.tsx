@@ -6,6 +6,7 @@ import {
   Broom,
   CheckCircle,
   Copy,
+  DownloadSimple,
   FilePdf,
   FileText,
   FloppyDisk,
@@ -39,7 +40,20 @@ import {
   getEmptyWorkshopAiSuggestionKeys,
 } from "@/lib/workshop-ai";
 import { getStarterBot } from "@/data/starter-bots";
+import {
+  WORKSHOP_JOB_STARTERS,
+  getWorkshopJobStarter,
+  hasWorkshopDraftContent,
+} from "@/data/workshop-job-starters";
 import { WorkshopLiveDrawing } from "@/components/workshop-live-drawing";
+import { BotPassportPanel } from "@/components/bot-passport-panel";
+import { blueprintToBotPassport, botPassportFileName, botPassportToMarkdown } from "@/lib/bot-passport";
+import {
+  buildHermesProfileArchive,
+  hermesProfileArchiveFileName,
+} from "@/lib/hermes-profile";
+
+const WORKSHOP_BACKUP_STORAGE_KEY = `${WORKSHOP_STORAGE_KEY}:previous`;
 
 type FieldDefinition = {
   key: WorkshopFieldKey;
@@ -189,6 +203,7 @@ const PROFILE_FIELD_DEFINITIONS: ProfileFieldDefinition[] = [
 type SaveState = "loading" | "saving" | "saved" | "unavailable";
 type CopyState = "idle" | "copied" | "error";
 type PdfState = "idle" | "preparing" | "downloaded" | "error";
+type ArchiveState = "idle" | "preparing" | "downloaded" | "error";
 type AssistantState = "idle" | "loading";
 
 function BlueprintList({
@@ -252,8 +267,10 @@ export function WorkshopBuilder() {
   const [saveState, setSaveState] = useState<SaveState>("loading");
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const [pdfState, setPdfState] = useState<PdfState>("idle");
+  const [archiveState, setArchiveState] = useState<ArchiveState>("idle");
   const [assistantState, setAssistantState] = useState<AssistantState>("idle");
   const [assistantMessage, setAssistantMessage] = useState("");
+  const [previousDraftAvailable, setPreviousDraftAvailable] = useState(false);
   const aiEndpoint = getBotBlueprintApiUrl();
   const aiAvailable = Boolean(aiEndpoint);
   const emptyAiFields = getEmptyWorkshopAiSuggestionKeys(draft);
@@ -273,6 +290,7 @@ export function WorkshopBuilder() {
     () => blueprintToRoleInstructions(blueprint),
     [blueprint],
   );
+  const passport = useMemo(() => blueprintToBotPassport(blueprint), [blueprint]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -281,6 +299,22 @@ export function WorkshopBuilder() {
         const starter = starterSlug ? getStarterBot(starterSlug) : undefined;
         const stored = window.localStorage.getItem(WORKSHOP_STORAGE_KEY);
         if (starter) {
+          if (stored) {
+            const previousDraft = coerceWorkshopDraft(JSON.parse(stored));
+            if (
+              previousDraft &&
+              Object.values(previousDraft).some((value) => value.trim())
+            ) {
+              window.localStorage.setItem(
+                WORKSHOP_BACKUP_STORAGE_KEY,
+                JSON.stringify(previousDraft),
+              );
+              setPreviousDraftAvailable(true);
+              setAssistantMessage(
+                "The starter is open. Your previous Bot Lab draft is preserved and can be restored below.",
+              );
+            }
+          }
           setDraft({
             ...starter.workshopDraft,
             profileTitle: "",
@@ -293,6 +327,15 @@ export function WorkshopBuilder() {
         } else if (stored) {
           const restored = coerceWorkshopDraft(JSON.parse(stored));
           if (restored) setDraft(restored);
+        }
+        const previousStored = window.localStorage.getItem(
+          WORKSHOP_BACKUP_STORAGE_KEY,
+        );
+        const previousDraft = previousStored
+          ? coerceWorkshopDraft(JSON.parse(previousStored))
+          : null;
+        if (previousDraft && hasWorkshopDraftContent(previousDraft)) {
+          setPreviousDraftAvailable(true);
         }
         setSaveState("saved");
       } catch {
@@ -320,6 +363,24 @@ export function WorkshopBuilder() {
     return () => window.clearTimeout(timeout);
   }, [draft, ready]);
 
+  function restorePreviousDraft() {
+    try {
+      const stored = window.localStorage.getItem(WORKSHOP_BACKUP_STORAGE_KEY);
+      const restored = stored ? coerceWorkshopDraft(JSON.parse(stored)) : null;
+      if (!restored) {
+        setAssistantMessage("The previous draft is no longer available.");
+        setPreviousDraftAvailable(false);
+        return;
+      }
+      setDraft(restored);
+      window.localStorage.removeItem(WORKSHOP_BACKUP_STORAGE_KEY);
+      setPreviousDraftAvailable(false);
+      setAssistantMessage("Your previous Bot Lab draft has been restored.");
+    } catch {
+      setAssistantMessage("The previous draft could not be restored in this browser.");
+    }
+  }
+
   function updateField(
     key: WorkshopFieldKey | WorkshopRefinementFieldKey | WorkshopProfileFieldKey,
     value: string,
@@ -341,6 +402,49 @@ export function WorkshopBuilder() {
     setSaveState("saving");
     setCopyState("idle");
     setPdfState("idle");
+    setArchiveState("idle");
+  }
+
+  function selectJobStarter(starterId: string) {
+    const starter = getWorkshopJobStarter(starterId);
+    if (!starter) return;
+
+    const currentDraft = draftRef.current;
+    const replacingDraft = hasWorkshopDraftContent(currentDraft);
+    if (
+      replacingDraft &&
+      !window.confirm(
+        `Replace this draft with the “${starter.label}” starting point? Your current draft will be kept in this browser so you can restore it.`,
+      )
+    ) {
+      return;
+    }
+
+    if (replacingDraft) {
+      try {
+        window.localStorage.setItem(
+          WORKSHOP_BACKUP_STORAGE_KEY,
+          JSON.stringify(currentDraft),
+        );
+        setPreviousDraftAvailable(true);
+      } catch {
+        setAssistantMessage(
+          "This browser could not preserve your current draft, so Bot Lab did not replace it.",
+        );
+        return;
+      }
+    }
+
+    aiRequestId.current += 1;
+    setDraft({ ...starter.draft });
+    setSaveState("saving");
+    setCopyState("idle");
+    setPdfState("idle");
+    setArchiveState("idle");
+    setAssistantState("idle");
+    setAssistantMessage(
+      `${starter.label} is ready to edit. Review the suggested job, access, approval rules, and first test before downloading the Bot package.`,
+    );
   }
 
   function resetDraft() {
@@ -358,6 +462,7 @@ export function WorkshopBuilder() {
     setDraft({ ...EMPTY_WORKSHOP_DRAFT });
     setCopyState("idle");
     setPdfState("idle");
+    setArchiveState("idle");
     setAssistantState("idle");
     setAssistantMessage("");
     try {
@@ -380,6 +485,7 @@ export function WorkshopBuilder() {
     setSaveState("saving");
     setCopyState("idle");
     setPdfState("idle");
+    setArchiveState("idle");
     setAssistantMessage(
       `Added ${result.filled.length} editable suggestions from the ${result.pattern} basic template. Review each one before export.`,
     );
@@ -415,6 +521,7 @@ export function WorkshopBuilder() {
       setSaveState("saving");
       setCopyState("idle");
       setPdfState("idle");
+      setArchiveState("idle");
       setAssistantMessage(
         result.filled.length > 0
           ? `Added ${result.filled.length} AI suggestion${result.filled.length === 1 ? "" : "s"} to empty fields. Review and edit them before export.`
@@ -471,6 +578,24 @@ export function WorkshopBuilder() {
     downloadBlob(blob, blueprintFileName(blueprint));
   }
 
+  function downloadPassport() {
+    if (!complete) return;
+    const markdown = botPassportToMarkdown(passport);
+    downloadBlob(new Blob([markdown], { type: "text/markdown;charset=utf-8" }), botPassportFileName(passport));
+  }
+
+  async function downloadHermesProfile() {
+    if (!isBlueprintComplete(blueprint) || archiveState === "preparing") return;
+    setArchiveState("preparing");
+    try {
+      const blob = await buildHermesProfileArchive(blueprint);
+      downloadBlob(blob, hermesProfileArchiveFileName(blueprint));
+      setArchiveState("downloaded");
+    } catch {
+      setArchiveState("error");
+    }
+  }
+
   async function downloadPdf() {
     if (!isBlueprintComplete(blueprint) || pdfState === "preparing") return;
 
@@ -523,7 +648,9 @@ export function WorkshopBuilder() {
             ? "The role instructions are on your clipboard."
             : copyState === "error"
               ? "Clipboard access failed. Open the text below and copy it manually."
-              : "Download the designed PDF and matching Markdown file, or copy the role instructions into Hermes Desktop.";
+              : archiveState === "error"
+                ? "The Hermes profile archive could not be created in this browser. The PDF and Markdown downloads remain available."
+                : "Download the Hermes profile, designed PDF, Markdown plan, and Bot Passport.";
 
   return (
     <section className="workshop-builder" aria-labelledby="workshop-builder-heading">
@@ -537,30 +664,30 @@ export function WorkshopBuilder() {
         </p>
       </div>
 
-      <section className="workshop-output-overview" aria-labelledby="workshop-output-heading">
-        <div className="workshop-output-intro">
-          <p className="workshop-panel-kicker">What Bot Lab creates</p>
-          <h2 id="workshop-output-heading">Finish the plan, then keep it in three useful formats</h2>
-          <p>
-            Complete the eight planning fields below. Your finished Blueprint appears beside
-            the form, with its download controls at the top.
-          </p>
+      <div className="workshop-output-strip" aria-labelledby="workshop-output-title">
+        <div>
+          <p className="workshop-panel-kicker">Your complete Bot Lab package</p>
+          <h2 id="workshop-output-title">
+            {complete ? "Your Bot package is ready" : "Complete the plan to unlock your downloads"}
+          </h2>
+          <p>An importable Hermes profile, a designed Blueprint PDF, an editable Markdown plan, and a separate Bot Passport.</p>
         </div>
-        <ul className="workshop-output-list">
-          <li>
-            <FilePdf size={22} weight="regular" aria-hidden="true" />
-            <span><strong>Designed PDF</strong>A formatted Bot Cabinet report for review or sharing.</span>
-          </li>
-          <li>
-            <FileText size={22} weight="regular" aria-hidden="true" />
-            <span><strong>Markdown file</strong>An editable text copy of the same Bot plan.</span>
-          </li>
-          <li>
-            <Copy size={22} weight="regular" aria-hidden="true" />
-            <span><strong>Hermes role instructions</strong>Ready to copy into Custom SOUL.md in Hermes Desktop.</span>
-          </li>
-        </ul>
-      </section>
+        <div className="workshop-output-actions">
+          <button type="button" className="button button-primary" onClick={downloadHermesProfile} disabled={!complete || archiveState === "preparing"} data-funnel-event="bot_lab_profile_download" data-funnel-surface="workshop">
+            <DownloadSimple size={18} aria-hidden="true" />
+            {archiveState === "preparing" ? "Preparing profile…" : "Download Hermes profile"}
+          </button>
+          <button type="button" className="button button-secondary" onClick={downloadPdf} disabled={!complete || pdfState === "preparing"} data-funnel-event="bot_lab_pdf_download" data-funnel-surface="workshop">
+            <FilePdf size={18} aria-hidden="true" /> Download Blueprint PDF
+          </button>
+          <button type="button" className="button button-secondary" onClick={downloadMarkdown} disabled={!complete} data-funnel-event="bot_lab_markdown_download" data-funnel-surface="workshop">
+            <FileText size={18} aria-hidden="true" /> Download Markdown plan
+          </button>
+          <button type="button" className="button button-secondary" onClick={downloadPassport} disabled={!complete} data-funnel-event="bot_lab_passport_download" data-funnel-surface="workshop">
+            <ShieldCheck size={18} aria-hidden="true" /> Download Bot Passport
+          </button>
+        </div>
+      </div>
 
       <div className="workshop-builder-layout">
         <div className="workshop-drafting-bench">
@@ -574,6 +701,53 @@ export function WorkshopBuilder() {
               <span>{saveLabel}</span>
             </div>
           </header>
+
+          <section
+            className="workshop-job-picker"
+            aria-labelledby="workshop-job-picker-heading"
+            data-funnel-step="bot-lab-job-picker"
+          >
+            <div className="workshop-job-picker-heading">
+              <div>
+                <p className="workshop-panel-kicker">Start from a job</p>
+                <h3 id="workshop-job-picker-heading">
+                  Choose the work you need done
+                </h3>
+                <p>
+                  Pick a starting point to fill the plan, then edit every answer
+                  for your situation.
+                </p>
+              </div>
+              {previousDraftAvailable && (
+                <button
+                  className="workshop-job-restore"
+                  type="button"
+                  onClick={restorePreviousDraft}
+                  data-funnel-event="bot_lab_restore_previous_draft"
+                  data-funnel-surface="workshop"
+                >
+                  Restore previous draft
+                </button>
+              )}
+            </div>
+            <div className="workshop-job-options">
+              {WORKSHOP_JOB_STARTERS.map((starter) => (
+                <button
+                  key={starter.id}
+                  className="workshop-job-option"
+                  type="button"
+                  onClick={() => selectJobStarter(starter.id)}
+                  data-funnel-event="bot_lab_job_starter_selected"
+                  data-funnel-surface="workshop"
+                  data-funnel-destination={starter.id}
+                  data-job-starter={starter.id}
+                >
+                  <strong>{starter.label}</strong>
+                  <span>{starter.description}</span>
+                </button>
+              ))}
+            </div>
+          </section>
 
           <div className="workshop-progress-wrap">
             <div className="workshop-progress-copy">
@@ -654,6 +828,8 @@ export function WorkshopBuilder() {
                             assistantState === "loading"
                           }
                           aria-busy={assistantState === "loading"}
+                          data-funnel-event="bot_lab_ai_suggestions_requested"
+                          data-funnel-surface="workshop"
                         >
                           <MagicWand size={16} weight="regular" aria-hidden="true" />
                           {assistantState === "loading"
@@ -665,9 +841,20 @@ export function WorkshopBuilder() {
                           type="button"
                           onClick={useBasicTemplate}
                           disabled={!draft.jobOutcome.trim() || assistantState === "loading"}
+                          data-funnel-event="bot_lab_basic_template_requested"
+                          data-funnel-surface="workshop"
                         >
                           Use a basic template
                         </button>
+                        {previousDraftAvailable && (
+                          <button
+                            className="workshop-assistant-secondary"
+                            type="button"
+                            onClick={restorePreviousDraft}
+                          >
+                            Restore my previous draft
+                          </button>
+                        )}
                       </div>
                       <p className="workshop-assistant-status" aria-live="polite">
                         {assistantMessage || (!draft.botName.trim()
@@ -843,45 +1030,6 @@ export function WorkshopBuilder() {
             <span className="blueprint-status">Draft plan</span>
           </header>
 
-          <section className="blueprint-export-panel" aria-labelledby="blueprint-export-heading">
-            <div>
-              <span className="blueprint-section-code">YOUR FILES</span>
-              <h3 id="blueprint-export-heading">Download your Bot Blueprint</h3>
-              <p>Save the designed report, the editable Markdown file, or copy the role instructions for Hermes.</p>
-            </div>
-            <div className="blueprint-actions">
-              <button
-                className="blueprint-primary-action"
-                type="button"
-                onClick={downloadPdf}
-                disabled={!complete || pdfState === "preparing"}
-              >
-                <FilePdf size={18} weight="regular" aria-hidden="true" />
-                {pdfState === "preparing" ? "Preparing PDF…" : "Download designed PDF"}
-              </button>
-              <button
-                className="blueprint-secondary-action"
-                type="button"
-                onClick={downloadMarkdown}
-                disabled={!complete}
-              >
-                <FileText size={18} weight="regular" aria-hidden="true" />
-                Download Markdown file
-              </button>
-              <button
-                className="blueprint-secondary-action blueprint-role-action"
-                type="button"
-                onClick={copyRoleInstructions}
-              >
-                <Copy size={18} weight="regular" aria-hidden="true" />
-                {copyState === "copied" ? "Role instructions copied" : "Copy role instructions for Hermes"}
-              </button>
-              <p className="blueprint-action-status" aria-live="polite">
-                {downloadStatus}
-              </p>
-            </div>
-          </section>
-
           <WorkshopLiveDrawing blueprint={blueprint} />
 
           <div className="blueprint-profile-block">
@@ -997,11 +1145,11 @@ export function WorkshopBuilder() {
           <section className="blueprint-official-note">
             <p className="blueprint-evidence-label">Available in Hermes Desktop</p>
             <ol>
-              <li>Open the Bots tab and choose New Agent.</li>
-              <li>Enter the Name, Title, and Description shown above.</li>
-              <li>Open Advanced and paste the role instructions into Custom SOUL.md.</li>
+              <li>Download the Hermes profile after all eight planning fields contain text.</li>
+              <li>Import the .tar.gz archive from the Profiles screen in Hermes Desktop.</li>
+              <li>Review the name, description, and SOUL.md role instructions.</li>
               <li>Select only the skills, tools, and outside connections this Bot needs.</li>
-              <li>Create the Bot and run the first test with low-risk material.</li>
+              <li>Run the first test with low-risk material.</li>
             </ol>
             <a
               href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode"
@@ -1013,12 +1161,74 @@ export function WorkshopBuilder() {
             </a>
           </section>
 
+          <BotPassportPanel passport={passport} />
+
           {blueprint.missingFields.length > 0 && (
             <div className="blueprint-missing-note">
               <span>Fields to complete</span>
               <p>{blueprint.missingFields.join(" · ")}</p>
             </div>
           )}
+
+          <div className="blueprint-actions">
+            <button
+              className="blueprint-primary-action"
+              type="button"
+              onClick={downloadHermesProfile}
+              disabled={!complete || archiveState === "preparing"}
+              data-funnel-event="bot_lab_profile_download"
+              data-funnel-surface="blueprint_preview"
+            >
+              <DownloadSimple size={18} weight="regular" aria-hidden="true" />
+              {archiveState === "preparing" ? "Preparing profile…" : "Download Hermes profile"}
+            </button>
+            <button
+              className="blueprint-secondary-action"
+              type="button"
+              onClick={downloadPdf}
+              disabled={!complete || pdfState === "preparing"}
+              data-funnel-event="bot_lab_pdf_download"
+              data-funnel-surface="blueprint_preview"
+            >
+              <FilePdf size={18} weight="regular" aria-hidden="true" />
+              {pdfState === "preparing" ? "Preparing PDF…" : "Download designed PDF"}
+            </button>
+            <button
+              className="blueprint-secondary-action"
+              type="button"
+              onClick={downloadMarkdown}
+              disabled={!complete}
+              data-funnel-event="bot_lab_markdown_download"
+              data-funnel-surface="blueprint_preview"
+            >
+              <FileText size={18} weight="regular" aria-hidden="true" />
+              Download Markdown file
+            </button>
+            <button
+              className="blueprint-secondary-action"
+              type="button"
+              onClick={downloadPassport}
+              disabled={!complete}
+              data-funnel-event="bot_lab_passport_download"
+              data-funnel-surface="blueprint_preview"
+            >
+              <ShieldCheck size={18} weight="regular" aria-hidden="true" />
+              Download Bot Passport
+            </button>
+            <button
+              className="blueprint-secondary-action blueprint-role-action"
+              type="button"
+              onClick={copyRoleInstructions}
+              data-funnel-event="bot_lab_role_instructions_copy"
+              data-funnel-surface="blueprint_preview"
+            >
+              <Copy size={18} weight="regular" aria-hidden="true" />
+              {copyState === "copied" ? "Role instructions copied" : "Copy role instructions for Hermes"}
+            </button>
+            <p className="blueprint-action-status" aria-live="polite">
+              {downloadStatus}
+            </p>
+          </div>
 
           <details className="blueprint-prompt-preview">
             <summary>Preview the role instructions</summary>

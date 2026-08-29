@@ -4,6 +4,19 @@ Designed for: Consultants and project teams that need clear notes and next steps
 
 Result: A follow-up draft with decisions, action items, owners, and unresolved questions.
 
+## Operating guide
+
+- **When to use it:** Use this workflow when you need a follow-up draft with decisions, action items, owners, and unresolved questions.
+- **Lead Bot:** Editor
+- **Cadence:** When a person supplies the approved brief and starts the workflow
+- **Typical first run:** 30–60 minutes for a first manual run
+
+### Access for the first run
+
+- The approved inputs listed on this page
+- Only the files, sources, and services required for this run
+- No sending, publishing, spending, or live-system changes without approval
+
 ## Bots
 
 1. Editor
@@ -48,6 +61,11 @@ Message to send:
 
 Start with this result from Planner: A proposed action list. Format the material for the client. Return this result: A formatted follow-up draft with decisions, owners, dates, and open questions. Ask me about missing information before you continue.
 
+## Handoff rules
+
+1. Editor hands the approved output—structured meeting notes—to Planner.
+2. Planner hands the approved output—a proposed action list—to Client Deliverables.
+
 ## Overall request
 
 Turn these meeting notes into a follow-up draft. Separate decisions, action items, owners, dates, and open questions. Mark every assignment or commitment that needs confirmation.
@@ -62,10 +80,18 @@ Turn these meeting notes into a follow-up draft. Separate decisions, action item
 
 Use a short internal meeting transcript and compare every action item with the original notes.
 
+## Success checkpoint
+
+The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use a short internal meeting transcript and compare every action item with the original notes.
+
+## If the workflow stalls
+
+If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
+
 ## Hermes Desktop setup
 
-1. Open each Bot's page in Bot Cabinet's Hermes Bots collection and follow its manual Hermes Desktop setup steps.
-2. Run each step in that Bot's own chat and review the result.
-3. Pass the approved result to the next Bot with the message provided for that step.
-4. After the sequence works, you may create a group with the same Bots.
-5. In a group, @mention the Bot you want. Membership order does not control who responds.
+1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
+3. Run each step in that Bot's own chat and review the result.
+4. Pass the approved result to the next Bot with the message provided for that step.
+5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.

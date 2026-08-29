@@ -33,9 +33,9 @@ const pathways = [
     green: true,
   },
   {
-    title: "Bots that work together",
-    tag: "Bot Crews",
-    note: "Follow a step-by-step workflow",
+    title: "Build a Bot Crew",
+    tag: "Crews & Kits",
+    note: "Run one workflow or a standing team",
     href: "/use-cases",
     image: "/atelier/mechanic.jpg",
     green: false,
@@ -84,21 +84,19 @@ export default function Home() {
         </div>
         <div className="hero-grid shell">
           <div className="hero-copy">
-            <p className="hero-kicker">Learn · use · build · deploy Hermes Bots</p>
-            <h1 className="hero-title">A working cabinet of Hermes Bots</h1>
+            <p className="hero-kicker">Bot Cabinet · starting with Hermes Agent</p>
+            <h1 className="hero-title">Build and use AI specialists for real work</h1>
             <p className="hero-deck">
-              Browse practical Hermes Bots by the job you need done. Each listing explains what
-              the Bot does, what it needs, how to set it up in Hermes Desktop, and its current
-              review and test status. Each Bot keeps its own continuing conversation, role,
-              memory, tools, and history. You can also plan your own Bot and follow step-by-step
-              workflows that use several Bots together.
+              Bot Cabinet helps you choose a job, create a Bot, and bring it into Hermes
+              Desktop—with clear setup instructions, examples, and review information. Each
+              Bot can keep its own continuing conversation, role, memory, tools, and history.
             </p>
             <div className="button-row">
-              <Link href="/bots" className="button button-primary">
-                Find a Bot by job <ArrowRight size={16} aria-hidden="true" />
+              <Link href="/start" className="button button-primary" data-funnel-event="homepage_start_first_bot" data-funnel-surface="homepage">
+                Start your first Bot <ArrowRight size={16} aria-hidden="true" />
               </Link>
-              <Link href="/guides/what-is-a-hermes-bot" className="button button-secondary">
-                Learn how Bots work <BookOpenText size={16} aria-hidden="true" />
+              <Link href="#bot-in-action" className="button button-secondary" data-funnel-event="homepage_watch_bot" data-funnel-surface="homepage">
+                Watch a Bot work <BookOpenText size={16} aria-hidden="true" />
               </Link>
             </div>
             <div className="hero-evidence" aria-label="What the site provides">
@@ -127,6 +125,54 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-cost-strip" aria-label="Cost information">
+        <div className="shell">
+          <strong>Bot Cabinet is free.</strong>
+          <span>Hermes Agent is open source. You will need a supported AI provider, and provider costs vary.</span>
+        </div>
+      </section>
+
+      <section className="home-section bot-proof-section shell" id="bot-in-action" aria-labelledby="bot-proof-title">
+        <div className="bot-proof-heading">
+          <div>
+            <Eyebrow>See a Bot at work</Eyebrow>
+            <h2 id="bot-proof-title" className="section-heading">A request becomes useful work</h2>
+          </div>
+          <p className="section-deck">
+            This example uses Scout in Hermes Agent. A person supplied a focused brief, Scout
+            organized the verified information, and the result became a concise research brief.
+          </p>
+        </div>
+        <div className="bot-proof-grid">
+          <figure className="bot-proof-video-frame">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster="/videos/bot-cabinet-scout-in-action-poster-v2.png"
+              aria-label="Watch Scout turn a prompt into a concise research brief"
+            >
+              <source src="/videos/bot-cabinet-scout-in-action.mp4" type="video/mp4" />
+            </video>
+            <figcaption>Actual Scout response generated in Hermes Agent from a supplied brief.</figcaption>
+          </figure>
+          <div className="bot-proof-steps">
+            <article>
+              <span>01</span>
+              <div><h3>Give the Bot a clear job</h3><p>Prepare a concise brief explaining how Hermes profiles can be shared, imported, and updated.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><h3>Continue the conversation</h3><p>Scout organized the supplied facts into “What changed” and “Why it matters.”</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><h3>Use the finished result</h3><p>The response became a clear research brief that a first-time Hermes user could understand.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="pathway-section shell" aria-labelledby="starting-points">
         <SectionRule>Choose your Bot Cabinet starting point</SectionRule>
         <h2 id="starting-points" className="sr-only">Choose your Bot Cabinet starting point</h2>
@@ -144,6 +190,14 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <Link className="platform-slide" href="/platforms/grok-bot">
+          <div>
+            <span>New platform pathway</span>
+            <h3>Grok Bot Templates</h3>
+            <p>Use Bot Cabinet roles and Passports as portable recipes for Grok Bot’s new template system.</p>
+          </div>
+          <strong>Adapt a Bot <ArrowRight size={17} aria-hidden="true" /></strong>
+        </Link>
 
         <div className="learning-strip">
           <div className="learning-intro">
@@ -177,46 +231,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section ecosystem-proof-section">
-        <div className="shell">
-          <Eyebrow>Why the Community Registry exists</Eyebrow>
-          <div className="ecosystem-proof-heading">
-            <h2 className="section-heading">Public Hermes profiles are difficult to compare</h2>
-            <p className="section-deck">
-              The Community Registry lists selected public projects with exact source versions,
-              plain-English uses, and separate review and test status. Their setup methods,
-              documentation, and requested access vary.
-            </p>
-          </div>
-          <div className="ecosystem-proof-grid">
-            <article>
-              <Package size={27} weight="thin" aria-hidden="true" />
-              <h3>Different setup methods</h3>
-              <p>Some projects install as Hermes profiles. Others are collections, examples, or tools with their own setup process.</p>
-            </article>
-            <article>
-              <GitBranch size={27} weight="thin" aria-hidden="true" />
-              <h3>Unexpected files</h3>
-              <p>A profile package can copy more files than a user expects when its file list is missing or too broad.</p>
-            </article>
-            <article>
-              <IdentificationBadge size={27} weight="thin" aria-hidden="true" />
-              <h3>Private material</h3>
-              <p>Before using a public package, check its current files and Git history for memories, sessions, local files, credentials, and client material.</p>
-            </article>
-            <article>
-              <WarningDiamond size={27} weight="thin" aria-hidden="true" />
-              <h3>Incomplete testing</h3>
-              <p>A public repository shows what the publisher shared. Installation and Desktop testing require separate checks.</p>
-            </article>
-          </div>
-          <div className="ecosystem-proof-foot">
-            <p>The Community Registry lists only a small set of projects with a clear purpose and current source information.</p>
-            <TextLink href="/community">Browse community projects</TextLink>
-          </div>
-        </div>
-      </section>
-
       <section className="home-section shell">
         <div className="promise-grid">
           <div className="promise-copy">
@@ -238,6 +252,29 @@ export default function Home() {
             <FeatureLine icon={HardDrives} title="Clear access decisions">
               Bot pages list the information you provide, the tools or outside services involved, and the decisions that stay with a person.
             </FeatureLine>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section ecosystem-proof-section">
+        <div className="shell">
+          <Eyebrow>Community Registry review</Eyebrow>
+          <div className="ecosystem-proof-heading">
+            <h2 className="section-heading">Check a public project before you install it</h2>
+            <p className="section-deck">
+              Community Registry pages explain the use, link to an exact source version, and
+              report automated review, human technical review, and Hermes Desktop testing separately.
+            </p>
+          </div>
+          <div className="ecosystem-proof-grid">
+            <article><Package size={27} weight="thin" aria-hidden="true" /><h3>Setup method</h3><p>See whether the project imports as a profile, installs from Git, or uses its own setup process.</p></article>
+            <article><GitBranch size={27} weight="thin" aria-hidden="true" /><h3>Included files</h3><p>See the exact source version and which files the project plans to install.</p></article>
+            <article><IdentificationBadge size={27} weight="thin" aria-hidden="true" /><h3>Requested access</h3><p>Review the files, tools, connections, and accounts the project needs for its job.</p></article>
+            <article><WarningDiamond size={27} weight="thin" aria-hidden="true" /><h3>Test status</h3><p>See which automated checks, human review, and Hermes Desktop tests have been completed.</p></article>
+          </div>
+          <div className="ecosystem-proof-foot">
+            <p>Review status appears on every listed community project.</p>
+            <TextLink href="/community">Browse community projects</TextLink>
           </div>
         </div>
       </section>
@@ -285,7 +322,9 @@ export default function Home() {
           <div>
             <p className="section-deck">
               Bot Lab records the job, inputs, deliverables, tools, schedule, approval
-              points, and first test. It gives you role instructions and a downloadable plan for Hermes Desktop.
+              points, and first test. It creates an importable Hermes profile, a designed
+              Blueprint PDF, an editable Markdown plan, role instructions, and a Bot Passport
+              that records access and approval rules.
             </p>
             <div className="button-row home-workshop-actions">
               <Link href="/workshop" className="button button-primary">

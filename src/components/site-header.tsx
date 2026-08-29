@@ -4,9 +4,11 @@ import { ArrowUpRight, List, X } from "@phosphor-icons/react/dist/ssr";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV_ITEMS = [
+  ["Start Here", "/start"],
   ["The Cabinet", "/bots"],
   ["Bot Lab", "/workshop"],
   ["Bot Crews", "/use-cases"],
+  ["Crew Kits", "/crew-kits"],
   ["Community Registry", "/community"],
   ["Field Manual", "/guides"],
   ["Inspection Desk", "/trust"],

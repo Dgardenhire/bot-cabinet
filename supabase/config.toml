@@ -1,0 +1,4 @@
+project_id = "bot-cabinet"
+
+[functions.bot-blueprint]
+verify_jwt = false
