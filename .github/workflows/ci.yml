@@ -25,9 +25,4 @@ jobs:
         with:
           deno-version: v2.x
       - run: npm ci
-      - run: npm run lint
-      - run: npx tsc --noEmit
-      - run: npm test
-      - run: npm run test:intake
-      - run: npm run test:edge
-      - run: npm run build
+      - run: npm run verify:release

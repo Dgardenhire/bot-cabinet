@@ -6,12 +6,16 @@
     "dev": "next dev",
     "generate:manifest": "tsx scripts/content/generate-bot-manifest.ts",
     "generate:content": "npm run generate:manifest && node scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs && node scripts/build-crew-kit-plans.mjs && node scripts/build-crew-kit-pdfs.mjs && node scripts/build-crew-kit-og.mjs && node scripts/build-section-og.mjs && node scripts/build-grok-template-guides.mjs",
-    "build": "npm run generate:content && next build && node scripts/audit-social-metadata.mjs",
+    "build:site": "next build && node scripts/audit-social-metadata.mjs",
+    "build": "npm run generate:content && npm run build:site",
     "start": "node scripts/serve-static.mjs",
     "lint": "eslint",
     "test": "vitest run src && node --test scripts/starter-packages.test.mjs",
     "test:intake": "node --test scripts/registry-review.test.mjs",
-    "test:edge": "deno test supabase/functions/bot-blueprint/core.test.ts"
+    "test:edge": "deno test supabase/functions/bot-blueprint/core.test.ts",
+    "test:release": "node --test scripts/release/*.test.mjs",
+    "check:generated": "node scripts/release/check-generated.mjs",
+    "verify:release": "npm run generate:content && npm run check:generated && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
