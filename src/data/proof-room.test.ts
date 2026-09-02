@@ -1,4 +1,5 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -50,6 +51,75 @@ describe("Proof Room evidence records", () => {
       expect(checkState(demo, "Role run")).toBe("partial");
       expect(checkState(demo, "Reproduction")).toBe("not-run");
     }
+  });
+
+  it("reports the two Chief of Staff prompt-contract runs without claiming a profile reproduction", () => {
+    const chief = getProofRoomDemo("chief-of-staff-operating-brief");
+    expect(chief?.state).toBe("prompt-contract-recorded");
+    expect(chief?.stateDetail).toBe("one run passed; one exposed unsupported additions");
+    expect(chief?.run?.runAt).toBe("2026-09-02");
+    expect(chief?.run?.model).toBe("deepseek/deepseek-v4-flash-0731");
+    expect(chief?.run?.costNote).toContain("two estimated calls");
+    expect(chief?.conversationExcerpt?.length).toBeGreaterThan(1);
+    expect(chief?.deliverable?.href).toBe("/proof-room/chief-of-staff/run-1-operating-brief.md");
+    expect(chief?.supportingArtifacts.map((artifact) => artifact.href)).toEqual(expect.arrayContaining([
+      "/proof-room/chief-of-staff/run-2-operating-brief.md",
+      "/proof-room/chief-of-staff/run-summary.json",
+    ]));
+
+    const profileImport = chief?.checks.find((check) => check.label === "Profile import");
+    const roleRun = chief?.checks.find((check) => check.label === "Role run");
+    const reproduction = chief?.checks.find((check) => check.label === "Reproduction");
+    expect(profileImport?.state).toBe("not-run");
+    expect(roleRun?.state).toBe("partial");
+    expect(reproduction?.state).toBe("not-run");
+    expect(profileImport?.detail.toLowerCase()).toContain("not imported");
+    expect(reproduction?.detail.toLowerCase()).toContain("not a package reproduction");
+  });
+
+  it("publishes sanitized Chief of Staff run evidence and records the failed second-run assertions", () => {
+    const evidenceRoot = path.join(publicRoot, "proof-room/chief-of-staff");
+    const summaryText = readFileSync(path.join(evidenceRoot, "run-summary.json"), "utf8");
+    const summary = JSON.parse(summaryText) as {
+      hermesVersion: string;
+      promptSha256: string;
+      publishedPromptSha256: string;
+      runs: Array<{ outputSha256: string; validation: { passed: boolean; failures: string[] } }>;
+    };
+    const publishedPrompt = readFileSync(path.join(evidenceRoot, "exact-run-prompt.md"));
+    const firstOutput = readFileSync(path.join(evidenceRoot, "run-1-operating-brief.md"), "utf8");
+    const secondOutput = readFileSync(path.join(evidenceRoot, "run-2-operating-brief.md"), "utf8");
+    const sha256 = (value: string | Buffer) => createHash("sha256").update(value).digest("hex");
+
+    expect(summary.hermesVersion).toBe("0.21.0");
+    expect(summary.promptSha256).toBe("5bd95c006752ec9e7f3228951dc53a2874d3ec5703b17b6a401c0f99a9f1dd02");
+    expect(summary.publishedPromptSha256).toBe(sha256(publishedPrompt));
+    expect(summary.runs.map((run) => run.outputSha256)).toEqual([sha256(firstOutput), sha256(secondOutput)]);
+    expect(summary.runs.map((run) => run.validation.passed)).toEqual([true, false]);
+    expect(summary.runs[1]?.validation.failures).toEqual(expect.arrayContaining([
+      expect.stringContaining("end of day"),
+      expect.stringContaining("post-check owner"),
+    ]));
+
+    for (const output of [firstOutput, secondOutput]) {
+      expect(output).toMatch(/Jordan/i);
+      expect(output).toMatch(/Priya/i);
+      expect(output).toMatch(/Thursday morning/i);
+      expect(output).toMatch(/Friday/i);
+      expect(output).toMatch(/analytics/i);
+      expect(output).toMatch(/(?:unassigned|no owner)/i);
+      expect(output).toMatch(/newsletter/i);
+      expect(output).toMatch(/idea/i);
+      expect(output).toMatch(/Maya['’]s approval/i);
+      expect(output).toMatch(/no new budget|no budget added|budget: no change/i);
+    }
+
+    expect(firstOutput).not.toMatch(/reply by end of day/i);
+    expect(firstOutput).not.toMatch(/post-check owner/i);
+    expect(secondOutput).toMatch(/reply by end of day/i);
+    expect(secondOutput).toMatch(/post-check owner/i);
+    expect(summaryText).not.toMatch(/session[_-]?id/i);
+    expect(summaryText).not.toMatch(/api[_-]?key|secret|sk-ant/i);
   });
 
   it("requires complete evidence before a demonstration can be reproduced", () => {

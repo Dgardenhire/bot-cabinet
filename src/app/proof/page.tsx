@@ -18,6 +18,7 @@ const stateIcon = {
   "test-designed": ClockCounterClockwise,
   "test-prepared": ClockCounterClockwise,
   "recorded-excerpt": WarningCircle,
+  "prompt-contract-recorded": WarningCircle,
   reproduced: CheckCircle,
 } as const;
 
@@ -42,6 +43,7 @@ export default function ProofRoomPage() {
               <div><dt>Test designed</dt><dd>The test is defined, but required source material is still pending.</dd></div>
               <div><dt>Test prepared</dt><dd>Input and prompt are ready; the run has not happened.</dd></div>
               <div><dt>Recorded excerpt</dt><dd>Part of a run exists, but the full record is incomplete.</dd></div>
+              <div><dt>Prompt-contract runs</dt><dd>Real outputs are preserved, but the exact downloadable profile was not imported.</dd></div>
               <div><dt>Reproduced</dt><dd>The same package, input, and prompt passed the disclosed checks again.</dd></div>
             </dl>
           </aside>
@@ -64,7 +66,7 @@ export default function ProofRoomPage() {
             <Eyebrow>Practical assignments</Eyebrow>
             <h2 id="proof-room-library-title" className="section-heading">Follow each test from its source material</h2>
           </div>
-          <p>Scout leads the room. Writer is waiting for its approved source brief. Chief of Staff is ready to run with its fictional transcript.</p>
+          <p>Scout has a recorded excerpt. Writer is waiting for its approved source brief. Chief of Staff now shows two real runs—including the mistakes in the second one.</p>
         </div>
 
         <div className="proof-room-card-grid">

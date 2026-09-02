@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-09-02",
+  "fixture": "fictional-meeting-transcript.md",
+  "hermesVersion": "0.21.0",
+  "provider": "nous",
+  "model": "deepseek/deepseek-v4-flash-0731",
+  "promptSha256": "5bd95c006752ec9e7f3228951dc53a2874d3ec5703b17b6a401c0f99a9f1dd02",
+  "publishedPromptSha256": "301c0847e2e78aa009008b255d4b4eb252d61bea28962b7b642aa6ab59eecf87",
+  "publishedPromptNormalization": "The published copy adds one final newline; the prompt content is otherwise byte-for-byte identical.",
+  "profileImportTested": false,
+  "packageReproductionTested": false,
+  "runs": [
+    {
+      "id": "run-1",
+      "recordedAt": "2026-09-02T12:35:18-05:00",
+      "elapsedSeconds": null,
+      "estimatedCostUsd": 0.0006333264,
+      "costStatus": "estimated",
+      "apiCalls": 1,
+      "tokens": {
+        "input": 9663,
+        "output": 823,
+        "total": 10488
+      },
+      "outputSha256": "aa50f9a2ee254947a559b969991621b9f9bd4bdf09edc8b0d2603105aa3bc70a",
+      "validation": {
+        "passed": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "run-2",
+      "recordedAt": "2026-09-02T12:36:19-05:00",
+      "elapsedSeconds": 8,
+      "estimatedCostUsd": 0.000610344,
+      "costStatus": "estimated",
+      "apiCalls": 1,
+      "tokens": {
+        "input": 9665,
+        "output": 617,
+        "total": 10282
+      },
+      "outputSha256": "902d89f6757d10287a034fadb5a15eb3f471290faf2730b71c68a040a2c16396",
+      "validation": {
+        "passed": false,
+        "failures": [
+          "Unsupported deadline added: “Reply by end of day.”",
+          "Unsupported responsibility added: “post-check owner is Jordan.”"
+        ]
+      }
+    }
+  ]
+}

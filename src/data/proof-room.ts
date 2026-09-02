@@ -1,10 +1,11 @@
-export type ProofState = "test-designed" | "test-prepared" | "recorded-excerpt" | "reproduced";
+export type ProofState = "test-designed" | "test-prepared" | "recorded-excerpt" | "prompt-contract-recorded" | "reproduced";
 export type ProofCheckState = "passed" | "partial" | "not-run" | "unavailable";
 
 export const PROOF_STATE_NAMES: Record<ProofState, string> = {
   "test-designed": "Test designed",
   "test-prepared": "Test prepared",
   "recorded-excerpt": "Recorded excerpt",
+  "prompt-contract-recorded": "Two prompt-contract runs recorded",
   reproduced: "Reproduced",
 };
 
@@ -12,6 +13,7 @@ export const PROOF_PROMPT_HEADINGS: Record<ProofState, string> = {
   "test-designed": "The prompt designed for this test",
   "test-prepared": "The prompt prepared for this test",
   "recorded-excerpt": "The prompt prepared for a complete reproduction",
+  "prompt-contract-recorded": "The request used for both recorded runs",
   reproduced: "The prompt used for this reproduced run",
 };
 
@@ -19,6 +21,7 @@ export const PROOF_PROMPT_EYEBROWS: Record<ProofState, string> = {
   "test-designed": "Planned request",
   "test-prepared": "Prepared request",
   "recorded-excerpt": "Reproduction request",
+  "prompt-contract-recorded": "Recorded request",
   reproduced: "Exact request",
 };
 
@@ -37,6 +40,11 @@ export const PROOF_NEXT_STEP_COPY: Record<ProofState, { eyebrow: string; heading
     eyebrow: "Next required work",
     heading: "Reproduce the run and preserve the complete record",
     body: "Bot Cabinet will add a transcript, finished file, run date, model, elapsed time, cost note, and reproduction result only after they are preserved from a clean test environment.",
+  },
+  "prompt-contract-recorded": {
+    eyebrow: "Next required work",
+    heading: "Import the exact profile and complete a package reproduction",
+    body: "These runs tested the disclosed role and request in Hermes Agent. Bot Cabinet still needs to import the exact downloadable profile and repeat the test before this demonstration can be labeled reproduced.",
   },
   reproduced: {
     eyebrow: "Preserved evidence",
@@ -77,8 +85,11 @@ export interface ProofCheck {
 
 export interface ProofRun {
   runAt: string;
+  hermesVersion?: string;
+  provider?: string;
   model?: string;
   elapsedSeconds?: number;
+  elapsedNote?: string;
   costUsd?: number;
   costNote: string;
 }
@@ -252,13 +263,13 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
     slug: "chief-of-staff-operating-brief",
     botSlug: "chief-of-staff",
     cardImage: "/proof-room/thumbnails/chief-of-staff.webp",
-    title: "Chief of Staff test for an operating brief from a meeting",
-    outcome: "Intended result after a preserved run: confirmed priorities, assigned work, blocked decisions, ideas, an agenda, and a follow-up draft",
-    summary: "The fictional transcript, exact prompt, package, and acceptance requirements are ready. No Hermes role run has been published.",
-    state: "test-prepared",
-    stateDetail: "run not completed",
+    title: "Chief of Staff prepares an operating brief from a meeting",
+    outcome: "Two recorded Hermes runs separated priorities, work, decisions, and ideas; the second also exposed two unsupported additions",
+    summary: "Two genuine Hermes prompt-contract runs are preserved. The first met the disclosed acceptance checks. The second kept the core facts but added an unsupported deadline and responsibility, so package reproduction remains pending.",
+    state: "prompt-contract-recorded",
+    stateDetail: "one run passed; one exposed unsupported additions",
     platform: "Hermes Agent",
-    evidenceNote: "Bot Cabinet has prepared a fictional transcript and exact request. It will publish a result only after a real Hermes run preserves the complete conversation and output.",
+    evidenceNote: "Hermes Agent completed the disclosed role-and-request test twice. Run 1 met the acceptance assertions. Run 2 added “reply by end of day” and called Jordan a “post-check owner,” neither of which appears in the fixture. The exact downloadable profile was not imported, so this is not a reproduced package test.",
     inputStatus: "supplied",
     fixtureDisclosure: "The meeting transcript is fictional. It is designed to test whether the Bot preserves owners, dates, approvals, unassigned work, and ideas without inventing commitments.",
     inputArtifacts: [
@@ -267,9 +278,50 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
         description: "A small, public test fixture with confirmed work, an unassigned analytics task, one idea, and explicit approval limits.",
         href: "/proof-room/chief-of-staff/fictional-meeting-transcript.md",
       },
+      {
+        label: "Exact disclosed run prompt",
+        description: "The role, request, fictional transcript, and acceptance checks sent in both runs.",
+        href: "/proof-room/chief-of-staff/exact-run-prompt.md",
+      },
     ],
     exactPrompt: "Turn this fictional sample transcript into a one-page operating brief. Separate confirmed priorities, assigned work, blocked decisions, and ideas. Preserve every owner and date exactly; write “unassigned” when an owner is missing. Flag capacity conflicts. Draft a five-item meeting agenda and a follow-up message for review. Do not assign people, change dates, contact anyone, or invent commitments.",
+    conversationExcerpt: [
+      {
+        role: "Person",
+        text: "Turn this fictional sample transcript into a one-page operating brief. Preserve every owner and date exactly; write ‘unassigned’ when an owner is missing. Do not invent commitments.",
+        abridged: true,
+      },
+      {
+        role: "Bot",
+        text: "Run 1 kept analytics unassigned, the newsletter as an idea, publication pending Maya’s approval, and the budget unchanged. It passed the disclosed assertions.",
+        abridged: true,
+      },
+      {
+        role: "Bot",
+        text: "Run 2 kept the core facts but added an unsupported ‘reply by end of day’ request and described Jordan as a ‘post-check owner.’ It did not pass every assertion.",
+        abridged: true,
+      },
+    ],
+    conversationDisclosure: "These are concise excerpts from two independent Hermes CLI runs. The complete final responses and sanitized run summary are linked below. Provider-internal reasoning and session identifiers are not published.",
+    deliverable: {
+      label: "Run 1 operating brief",
+      description: "The complete final response from the run that met the disclosed acceptance assertions.",
+      href: "/proof-room/chief-of-staff/run-1-operating-brief.md",
+      download: true,
+    },
     supportingArtifacts: [
+      {
+        label: "Inspect run 2 and its unsupported additions",
+        description: "The complete second final response is preserved rather than silently corrected.",
+        href: "/proof-room/chief-of-staff/run-2-operating-brief.md",
+        download: true,
+      },
+      {
+        label: "Inspect the sanitized run summary",
+        description: "Hermes version, provider, model, timing, estimated cost, tokens, hashes, and assertion results. No session identifiers or secrets are included.",
+        href: "/proof-room/chief-of-staff/run-summary.json",
+        download: true,
+      },
       {
         label: "Download the Chief of Staff Hermes profile",
         description: "Version 1.0.0 profile archive for Hermes Agent 0.20 or later.",
@@ -290,11 +342,20 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
     ],
     profileVersion: "1.0.0",
     passportVersion: 1,
+    run: {
+      runAt: "2026-09-02",
+      hermesVersion: "0.21.0",
+      provider: "nous",
+      model: "deepseek/deepseek-v4-flash-0731",
+      elapsedNote: "Run 1 was not timed; run 2 completed in 8 seconds.",
+      costUsd: 0.0012436704,
+      costNote: "About $0.00124 total across two estimated calls.",
+    },
     checks: [
       { label: "Package checks", state: "passed", detail: "The profile archive and ZIP contain the six declared files and match the readable copies.", checkedAt: "2026-08-28" },
-      { label: "Profile import", state: "not-run", detail: "This profile has not been individually imported into Hermes Desktop." },
-      { label: "Role run", state: "not-run", detail: "The prepared operating-brief test has not been run." },
-      { label: "Reproduction", state: "not-run", detail: "Reproduction begins only after the first complete run is preserved." },
+      { label: "Profile import", state: "not-run", detail: "The exact downloadable Chief of Staff profile was not imported for these runs." },
+      { label: "Role run", state: "partial", detail: "Hermes Agent completed the disclosed role and request twice. One run passed the acceptance assertions; one added two unsupported details.", checkedAt: "2026-09-02" },
+      { label: "Reproduction", state: "not-run", detail: "Repeating the prompt without importing the exact profile is not a package reproduction." },
       commonTechnicalReview,
     ],
   },

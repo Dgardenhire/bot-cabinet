@@ -62,6 +62,7 @@ const statusIcon = {
   "test-designed": Hourglass,
   "test-prepared": Hourglass,
   "recorded-excerpt": WarningCircle,
+  "prompt-contract-recorded": WarningCircle,
   reproduced: ShieldCheck,
 } as const;
 
@@ -97,8 +98,10 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
                 <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
                 {demo.run && <>
                   <div><dt>Run date</dt><dd>{demo.run.runAt}</dd></div>
+                  <div><dt>Hermes</dt><dd>{demo.run.hermesVersion ?? "Not recorded"}</dd></div>
+                  <div><dt>Provider</dt><dd>{demo.run.provider ?? "Not recorded"}</dd></div>
                   <div><dt>Model</dt><dd>{demo.run.model ?? "Not recorded"}</dd></div>
-                  <div><dt>Elapsed</dt><dd>{demo.run.elapsedSeconds === undefined ? "Not recorded" : `${demo.run.elapsedSeconds} seconds`}</dd></div>
+                  <div><dt>Elapsed</dt><dd>{demo.run.elapsedNote ?? (demo.run.elapsedSeconds === undefined ? "Not recorded" : `${demo.run.elapsedSeconds} seconds`)}</dd></div>
                   <div><dt>Cost</dt><dd>{demo.run.costNote}</dd></div>
                 </>}
               </dl>
