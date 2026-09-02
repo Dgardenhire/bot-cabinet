@@ -1547,6 +1547,18 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
 .first-run-finish > svg { color: var(--green); }
 .first-run-finish h2 { margin: 0 0 4px; font: 400 27px var(--serif); }
 .first-run-finish p { max-width: 720px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.first-run-outcome-prompt { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px 28px; align-items: center; padding: 24px 22px; border-top: 1px solid var(--line-soft); background: var(--ink-raised); }
+.first-run-outcome-prompt span { color: var(--blueprint); font: 11px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.first-run-outcome-prompt h2 { margin: 7px 0 5px; color: var(--paper); font: 400 28px/1.08 var(--serif); }
+.first-run-outcome-prompt p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.first-run-outcome-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px; }
+.first-run-outcome-actions button { min-height: 41px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 14px; border: 1px solid var(--line); background: transparent; color: var(--paper); cursor: pointer; font: 12px var(--mono); }
+.first-run-outcome-actions button:first-child { border-color: rgba(117,185,119,.48); color: var(--green); }
+.first-run-outcome-actions button:last-child { border-color: rgba(205,159,76,.45); color: var(--brass-bright); }
+.first-run-outcome-actions button:disabled { cursor: default; opacity: .58; }
+.first-run-outcome-actions button[aria-pressed="true"] { opacity: 1; background: rgba(117,185,119,.08); }
+.first-run-outcome-actions button:last-child[aria-pressed="true"] { background: rgba(205,159,76,.08); }
+.first-run-outcome-thanks { grid-column: 1 / -1; color: var(--paper) !important; }
 .first-run-next { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 70px; align-items: end; border-top: 1px solid var(--line-soft); }
 
 html[data-theme="light"] .first-run-hero-art::before { background: linear-gradient(90deg,var(--ink) 0%,rgba(245,241,232,.62) 17%,transparent 52%),linear-gradient(180deg,transparent 70%,rgba(245,241,232,.8)); }
@@ -1578,6 +1590,8 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .first-run-hero-art { min-height: 380px; border-top: 1px solid var(--line); border-left: 0; }
   .first-run-steps > li { grid-template-columns: 45px minmax(0,1fr); }
   .first-run-step-toggle { grid-column: 2; width: max-content; }
+  .first-run-outcome-prompt { grid-template-columns: 1fr; }
+  .first-run-outcome-actions { justify-content: flex-start; }
   .first-run-next { grid-template-columns: 1fr; gap: 28px; }
 }
 

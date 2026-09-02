@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import { CopyTextButton } from "@/components/copy-text-button";
+import { FirstRunOutcomePrompt } from "@/components/first-run-outcome-prompt";
 
 const STORAGE_KEY = "bot-cabinet-first-run-scout";
 const COMPLETION_STORAGE_KEY = "bot-cabinet-first-run-scout-completion-tracked";
@@ -207,16 +208,19 @@ export function FirstRunChecklist() {
       </ol>
 
       {completed.length === steps.length ? (
-        <div className="first-run-finish" role="status">
-          <CheckCircle size={30} weight="fill" aria-hidden="true" />
-          <div>
-            <h2>Scout is working</h2>
-            <p>You now have a Bot, a first result, and a clear way to check its work. Keep the conversation going or choose a different specialist from The Cabinet.</p>
+        <>
+          <div className="first-run-finish" role="status">
+            <CheckCircle size={30} weight="fill" aria-hidden="true" />
+            <div>
+              <h2>Scout is working</h2>
+              <p>You now have a Bot, a first result, and a clear way to check its work. Keep the conversation going or choose a different specialist from The Cabinet.</p>
+            </div>
+            <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
+              Choose another Bot
+            </Link>
           </div>
-          <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
-            Choose another Bot
-          </Link>
-        </div>
+          <FirstRunOutcomePrompt />
+        </>
       ) : null}
     </div>
   );
