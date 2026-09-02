@@ -31,6 +31,7 @@ export function SiteFooter() {
           <Link href="/workshop">Bot Lab</Link>
           <Link href="/use-cases">Bot Crews</Link>
           <Link href="/crew-kits">Crew Kits</Link>
+          <Link href="/proof">Proof Room</Link>
           <Link href="/community">Community Registry</Link>
           <Link href="/guides">Field Manual</Link>
         </div>

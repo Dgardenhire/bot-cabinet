@@ -9,12 +9,16 @@ const routes = [
   ["workshop", "/brand/social/bot-lab-1200x630.jpg"],
   ["use-cases", "/brand/social/bot-crews-1200x630.jpg"],
   ["crew-kits", "/brand/crew-kits-og-v2-1200x630.jpg"],
+  ["proof", "/brand/social/proof-room-1200x630.jpg"],
   ["community", "/brand/social/community-registry-1200x630.jpg"],
   ["guides", "/brand/social/field-manual-1200x630.jpg"],
   ["trust", "/brand/social/inspection-desk-1200x630.jpg"],
   ["contribute", "/brand/social/submission-desk-1200x630.jpg"],
   ["about", "/brand/social/about-bot-cabinet-1200x630.jpg"],
   ["platforms/grok-bot", "/brand/social/grok-bot-templates-1200x630.jpg"],
+  ["proof/scout-research-brief", "/brand/social/proof-room-1200x630.jpg"],
+  ["proof/writer-article-draft", "/brand/social/proof-room-1200x630.jpg"],
+  ["proof/chief-of-staff-operating-brief", "/brand/social/proof-room-1200x630.jpg"],
 ];
 
 const errors = [];

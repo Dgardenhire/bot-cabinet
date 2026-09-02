@@ -136,11 +136,12 @@ export default function Home() {
         <div className="bot-proof-heading">
           <div>
             <Eyebrow>See a Bot at work</Eyebrow>
-            <h2 id="bot-proof-title" className="section-heading">A request becomes useful work</h2>
+            <h2 id="bot-proof-title" className="section-heading">Follow a Bot through a focused assignment</h2>
           </div>
           <p className="section-deck">
-            This example uses Scout in Hermes Agent. A person supplied a focused brief, Scout
-            organized the verified information, and the result became a concise research brief.
+            This recorded Scout excerpt shows the intended path from a focused request to a concise
+            research brief. The Proof Room separates the material we preserved from the checks that
+            still need to be run.
           </p>
         </div>
         <div className="bot-proof-grid">
@@ -150,11 +151,11 @@ export default function Home() {
               playsInline
               preload="metadata"
               poster="/videos/bot-cabinet-scout-in-action-poster-v2.png"
-              aria-label="Watch Scout turn a prompt into a concise research brief"
+              aria-label="Watch the recorded Scout excerpt"
             >
               <source src="/videos/bot-cabinet-scout-in-action.mp4" type="video/mp4" />
             </video>
-            <figcaption>Actual Scout response generated in Hermes Agent from a supplied brief.</figcaption>
+            <figcaption>Recorded Scout excerpt. The complete raw run record was not preserved.</figcaption>
           </figure>
           <div className="bot-proof-steps">
             <article>
@@ -163,14 +164,15 @@ export default function Home() {
             </article>
             <article>
               <span>02</span>
-              <div><h3>Continue the conversation</h3><p>Scout organized the supplied facts into “What changed” and “Why it matters.”</p></div>
+              <div><h3>Watch the preserved excerpt</h3><p>The excerpt shows Scout organizing a bounded request into a short response.</p></div>
             </article>
             <article>
               <span>03</span>
-              <div><h3>Use the finished result</h3><p>The response became a clear research brief that a first-time Hermes user could understand.</p></div>
+              <div><h3>Inspect the evidence</h3><p>The Proof Room shows the excerpt, planned reproduction sources, and the records still required.</p></div>
             </article>
           </div>
         </div>
+        <div className="bot-proof-room-link"><TextLink href="/proof">Inspect the Proof Room evidence</TextLink></div>
       </section>
 
       <section className="pathway-section shell" aria-labelledby="starting-points">

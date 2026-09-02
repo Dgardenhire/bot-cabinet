@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   ["Bot Lab", "/workshop"],
   ["Bot Crews", "/use-cases"],
   ["Crew Kits", "/crew-kits"],
-  ["Community Registry", "/community"],
+  ["Proof Room", "/proof"],
   ["Field Manual", "/guides"],
   ["Inspection Desk", "/trust"],
   ["Submission Desk", "/contribute"],

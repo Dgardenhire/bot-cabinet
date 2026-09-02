@@ -266,13 +266,14 @@ html[data-cabinet-reveal="run"] .cabinet-reveal { display: block; }
 .bot-proof-grid { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(310px,.55fr); gap: 18px; align-items: stretch; }
 .bot-proof-video-frame { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050707; }
 .bot-proof-video-frame video { width: 100%; aspect-ratio: 16/9; display: block; background: #050707; }
-.bot-proof-video-frame figcaption { padding: 11px 15px; border-top: 1px solid var(--line-soft); color: var(--faint); font: 12px/1.5 var(--mono); }
+.bot-proof-video-frame figcaption { padding: 11px 15px; border-top: 1px solid var(--line-soft); color: #b8b3aa; font: 12px/1.5 var(--mono); }
 .bot-proof-steps { display: grid; border: 1px solid var(--line); border-radius: 8px; background: var(--ink-soft); }
 .bot-proof-steps article { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-content: center; padding: 22px; border-bottom: 1px solid var(--line-soft); }
 .bot-proof-steps article:last-child { border-bottom: 0; }
 .bot-proof-steps article > span { color: var(--brass-bright); font: 12px var(--mono); }
 .bot-proof-steps h3 { margin: 0 0 6px; color: var(--paper); font: 400 23px/1.1 var(--serif); }
 .bot-proof-steps p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.bot-proof-room-link { display: flex; justify-content: flex-end; margin-top: 18px; }
 
 .pathway-section { padding: 22px 0 24px; }
 .pathway-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
@@ -1848,6 +1849,14 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .footer-grid { grid-template-columns: 1fr 1fr; padding-block: 48px 38px; }
   .footer-statement, .footer-column:last-child { grid-column: 1/-1; }
   .footer-base { min-height: auto; display: grid; padding-block: 18px; }
+}
+
+@media (max-width: 360px) {
+  .site-nav { gap: 8px; }
+  .brand-wordmark { width: 140px; }
+  .theme-toggle { width: 42px; min-width: 42px; padding: 0; }
+  .theme-toggle span { display: none; }
+  .mobile-nav { margin-left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

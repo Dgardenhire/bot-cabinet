@@ -5,6 +5,7 @@
  *
  * Usage:
  *   node scripts/audit-links.mjs out
+ *   node scripts/audit-links.mjs out --summary
  *   node scripts/audit-links.mjs out --check-external
  *
  * The script prints JSON to stdout and never writes to the site. External
@@ -24,7 +25,7 @@ const MAX_REDIRECTS = 8;
 
 function usage(message) {
   if (message) console.error(message);
-  console.error("Usage: node scripts/audit-links.mjs [export-directory] [--check-external]");
+  console.error("Usage: node scripts/audit-links.mjs [export-directory] [--summary] [--check-external]");
   process.exitCode = 2;
 }
 
@@ -32,10 +33,13 @@ function parseArguments(argv) {
   let exportDirectory = "out";
   let sawDirectory = false;
   let checkExternal = false;
+  let summaryOnly = false;
 
   for (const argument of argv) {
     if (argument === "--check-external") {
       checkExternal = true;
+    } else if (argument === "--summary") {
+      summaryOnly = true;
     } else if (argument === "--help" || argument === "-h") {
       return { help: true };
     } else if (argument.startsWith("-")) {
@@ -48,7 +52,7 @@ function parseArguments(argv) {
     }
   }
 
-  return { exportDirectory: path.resolve(exportDirectory), checkExternal, help: false };
+  return { exportDirectory: path.resolve(exportDirectory), checkExternal, summaryOnly, help: false };
 }
 
 async function walk(directory) {
@@ -409,7 +413,10 @@ async function main() {
 
   try {
     const result = await audit(options.exportDirectory, options.checkExternal);
-    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+    const output = options.summaryOnly
+      ? { generatedAt: result.generatedAt, ...result.summary, brokenInternal: result.brokenInternal }
+      : result;
+    process.stdout.write(`${JSON.stringify(output, null, 2)}\n`);
     if (result.summary.internalBroken > 0) process.exitCode = 1;
   } catch (error) {
     console.error(`Link audit failed: ${String(error?.message ?? error)}`);

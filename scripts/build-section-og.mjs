@@ -26,6 +26,17 @@ const cards = [
     description: "Role, inputs, first test and Bot Passport included",
     url: "botcabinet.com/platforms/grok-bot",
   },
+  {
+    output: "proof-room-1200x630.jpg",
+    source: path.join(root, "public", "atelier", "scout.jpg"),
+    crop: { left: 240, top: 170, width: 930, height: 488 },
+    flop: true,
+    sourcePosition: "centre",
+    eyebrow: "PROOF ROOM / BOT AT WORK",
+    title: ["See how the evidence builds", "from request toward result"],
+    description: "Inspect inputs, exact prompts, records, gaps and human decisions",
+    url: "botcabinet.com/proof",
+  },
 ];
 
 const outputDirectory = path.join(root, "public", "brand", "social");

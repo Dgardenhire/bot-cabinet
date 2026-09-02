@@ -5,6 +5,7 @@ import { REGISTRY_ENTRIES } from "@/data/registry";
 import { STARTER_BOTS } from "@/data/starter-bots";
 import { BOT_USE_CASES } from "@/data/use-cases";
 import { CREW_KITS } from "@/data/crew-kits";
+import { PROOF_ROOM_DEMOS } from "@/data/proof-room";
 
 const baseUrl = "https://botcabinet.com";
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/workshop",
     "/use-cases",
     "/crew-kits",
+    "/proof",
     "/platforms/grok-bot",
     "/community",
     "/guides",
@@ -31,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...STARTER_BOTS.map((bot) => `/bots/${bot.slug}`),
     ...BOT_USE_CASES.map((useCase) => `/use-cases/${useCase.slug}`),
     ...CREW_KITS.map((kit) => `/crew-kits/${kit.slug}`),
+    ...PROOF_ROOM_DEMOS.map((demo) => `/proof/${demo.slug}`),
     ...REGISTRY_ENTRIES.map((entry) => `/community/${entry.slug}`),
     ...GUIDES.map((guide) => `/guides/${guide.slug}`),
   ];
