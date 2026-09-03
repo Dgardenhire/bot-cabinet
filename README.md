@@ -9,6 +9,7 @@ Bot Cabinet and the Hermes Bot Registry are independent from Nous Research. List
 ## What the site includes
 
 - Sixteen practical Hermes Bots with example requests, expected results, approval points, and importable Hermes profile downloads
+- A portable Markdown and JSON recipe for each starter Bot, plus a separate Grok Bot build brief
 - Seventeen everyday use cases that show which Bots to use and provide a copyable message for each step
 - Bot Lab, a browser-based builder with optional AI suggestions, an importable Hermes profile, role instructions, a designed PDF, and an editable Markdown plan
 - A small directory of public community projects with source links and clearly labeled review information
@@ -22,6 +23,22 @@ Bot Cabinet currently has one editor and does not provide human technical review
 Hermes does not publish install counts for these projects. The Registry does not display estimated or invented counts.
 
 Starter pages provide a `.tar.gz` Hermes profile archive for import and a ZIP containing the same readable source files. Each page also provides a one-line terminal import command.
+
+## Portable Bots and Grok Bot
+
+Each starter Bot has one platform-neutral recipe containing its job, boundaries,
+first task, review checkpoint, Skill recipe, Routine recipe, and Bot Passport.
+Bot Cabinet then supplies separate setup paths:
+
+- Hermes Agent has a downloadable profile distribution and readable source archive.
+- Grok Bot has a prepared build brief that follows the documented profile, Skill,
+  Routine, and public-sharing model.
+
+The Grok Bot adaptations have not yet completed runtime testing. They are labeled
+`Prepared · test pending` on the site. Their current scope is a manual build path;
+package compatibility and one-click import remain outside that scope. Existing Grok brief URLs remain available at
+`/downloads/grok-bot-templates/<bot>.md`; the complete portable packs live at
+`/downloads/portable-bot-packs/<bot>.md` and `.json`.
 
 ## Run the site locally
 

@@ -6,7 +6,7 @@ export function buildPublicBotCatalog(definitions: readonly BotDefinitionV1[]) {
   const bots = definitions.filter((bot) => bot.lifecycle === "public");
   return {
     schemaVersion: 1 as const,
-    catalogVersion: "1.0.0",
+    catalogVersion: "1.1.0",
     count: bots.length,
     bots,
   };

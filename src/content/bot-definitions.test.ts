@@ -30,12 +30,22 @@ describe("BotDefinitionV1 catalog", () => {
     expect(scout.controls.requiresApproval.length).toBeGreaterThan(0);
     expect(scout.controls.prohibited.length).toBeGreaterThan(0);
     expect(scout.platforms.hermes.artifactKind).toBe("profile-distribution");
+    expect(scout.platforms.hermes.packageStatus).toBe("files-and-archive-checked");
+    expect(scout.platforms.hermes.importStatus).toBe("reference-imported");
     expect(scout.platforms.grok?.artifactKind).toBe("adaptation-brief");
+    expect(scout.platforms.grok?.testStatus).toBe("adaptation-prepared-not-tested");
+    expect(scout.platforms.portable.artifactKind).toBe("portable-bot-pack");
     expect(scout.platforms.hermes.archiveUrl).toBe(
       "/downloads/starter-bots/scout.tar.gz",
     );
     expect(scout.platforms.grok?.adaptationUrl).toBe(
       "/downloads/grok-bot-templates/scout.md",
+    );
+    expect(scout.platforms.portable.markdownUrl).toBe(
+      "/downloads/portable-bot-packs/scout.md",
+    );
+    expect(scout.platforms.portable.jsonUrl).toBe(
+      "/downloads/portable-bot-packs/scout.json",
     );
     expect(scout.relationships.workflows).toContain("morning-industry-briefing");
     expect(scout.relationships.crewKits).toContain("publishing-desk");
@@ -100,6 +110,50 @@ describe("BotDefinitionV1 catalog", () => {
     expect(issues).toContain(`${valid.slug}: job.inputs must not contain duplicates`);
     expect(issues).toContain(
       `${valid.slug}: relationships.worksWith must not reference itself`,
+    );
+  });
+
+  it("rejects platform records that overstate package or adaptation status", () => {
+    const valid = starterBotToDefinition(STARTER_BOTS[0]);
+    const invalid = {
+      ...valid,
+      platforms: {
+        ...valid.platforms,
+        hermes: {
+          ...valid.platforms.hermes,
+          artifactKind: "unreviewed-archive",
+          packageStatus: "trusted",
+          importStatus: "all-imported",
+        },
+        grok: {
+          ...valid.platforms.grok!,
+          artifactKind: "compatible-template",
+          testStatus: "compatible",
+        },
+        portable: {
+          ...valid.platforms.portable,
+          artifactKind: "universal-installer",
+        },
+      },
+    };
+
+    const issues = validateBotDefinitions([invalid as never]);
+
+    expect(issues).toContain(
+      `${valid.slug}: platforms.hermes.packageStatus is invalid`,
+    );
+    expect(issues).toContain(
+      `${valid.slug}: platforms.hermes.artifactKind is invalid`,
+    );
+    expect(issues).toContain(
+      `${valid.slug}: platforms.hermes.importStatus is invalid`,
+    );
+    expect(issues).toContain(`${valid.slug}: platforms.grok.testStatus is invalid`);
+    expect(issues).toContain(
+      `${valid.slug}: platforms.grok.artifactKind is invalid`,
+    );
+    expect(issues).toContain(
+      `${valid.slug}: platforms.portable.artifactKind is invalid`,
     );
   });
 });

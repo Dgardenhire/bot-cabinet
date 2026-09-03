@@ -14,8 +14,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
-import { CopyTextButton } from "@/components/copy-text-button";
 import { BotPassportPanel } from "@/components/bot-passport-panel";
+import { BotPlatformChooser } from "@/components/bot-platform-chooser";
 import { LegacyRoute } from "@/components/legacy-route";
 import {
   STARTER_BOTS,
@@ -82,16 +82,22 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
               <div className="button-row">
                 <a href={`/downloads/starter-bots/${bot.slug}.tar.gz`} download className="button button-primary" data-funnel-event="bot_profile_download" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Download for Hermes Desktop <DownloadSimple size={16} /></a>
-                <CopyTextButton text={importCommand} label="Install this Hermes profile" className="button button-secondary" analyticsEvent="bot_install_command_copy" analyticsSurface="bot_detail" />
+                <a href={`/downloads/grok-bot-templates/${bot.slug}.md`} download className="button button-secondary">Download the Grok build brief <DownloadSimple size={16} /></a>
+                <a href={`/downloads/portable-bot-packs/${bot.slug}.md`} download className="button button-secondary">Download the portable Bot Pack <DownloadSimple size={16} /></a>
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
-              <p className="starter-install-note">The first button downloads an importable Hermes profile archive. The second copies a one-line terminal command that downloads and imports the same profile.</p>
+              <p className="starter-install-note">The Hermes profile is ready to download. The Grok Bot build brief is prepared and awaits a runtime test. The portable pack keeps the shared job recipe, limits, first task, Skill recipe, and Routine recipe together.</p>
               <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
-              <a href={`/downloads/grok-bot-templates/${bot.slug}.md`} download className="text-link">Adapt this Bot for Grok Bot <ArrowRight size={15} /></a>
             </div>
           </div>
         </div>
       </section>
+
+      <BotPlatformChooser
+        botName={bot.name}
+        botSlug={bot.slug}
+        hermesImportCommand={importCommand}
+      />
 
       <section className="content-section shell starter-practical-grid">
         <article className="starter-practical-card">

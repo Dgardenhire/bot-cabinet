@@ -40,6 +40,18 @@ describe("public catalog discovery files", () => {
         entry.links.detail.startsWith(`${BOT_CABINET_ORIGIN}/bots/`),
       ),
     ).toBe(true);
+    expect(first.entries[0].platforms.hermes.packageStatus).toBe(
+      "files-and-archive-checked",
+    );
+    expect(first.entries[0].platforms.grok?.testStatus).toBe(
+      "adaptation-prepared-not-tested",
+    );
+    expect(first.entries[0].platforms.portable.markdown).toBe(
+      `${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.md`,
+    );
+    expect(first.entries[0].platforms.portable.json).toBe(
+      `${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.json`,
+    );
   });
 
   it("changes the revision when published profile content changes without a version bump", () => {
@@ -123,6 +135,12 @@ describe("public catalog discovery files", () => {
       `${BOT_CABINET_ORIGIN}/api/v1/bot-fit-test.json`,
     );
     expect(PUBLIC_LLMS_TEXT).toContain(`${BOT_CABINET_ORIGIN}/fit/`);
+    expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/platforms/grok-bot/`,
+    );
+    expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.md`,
+    );
     for (const kind of ["Assignment", "Skill", "Routine", "Bot", "Crew"]) {
       expect(PUBLIC_LLMS_TEXT).toContain(kind);
     }

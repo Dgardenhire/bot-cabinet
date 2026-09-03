@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "feedVersion": "1.0.0",
-  "releasedAt": "2026-09-02T00:00:00.000Z",
-  "catalogVersion": "1.0.0",
-  "revision": "58bab8c0b75089a57361ce425e15d35e894fd6943d439a2920a0dff6fe33eb0f",
+  "feedVersion": "1.1.0",
+  "releasedAt": "2026-09-03T00:00:00.000Z",
+  "catalogVersion": "1.1.0",
+  "revision": "a691ec7607c25bf3245abea36ed9fa53a5c8a1accfe6bb8d9d2ab8de29b47a4b",
   "source": "https://botcabinet.com/api/v1/bots.json",
   "count": 16,
   "entries": [
@@ -25,12 +25,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "reference-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/scout.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/scout.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/scout.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/scout.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/scout.json"
         }
       }
     },
@@ -52,12 +60,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/researcher.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/researcher.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/researcher.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/researcher.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/researcher.json"
         }
       }
     },
@@ -79,12 +95,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/writer.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/writer.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/writer.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/writer.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/writer.json"
         }
       }
     },
@@ -106,12 +130,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/editor.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/editor.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/editor.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/editor.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/editor.json"
         }
       }
     },
@@ -133,12 +165,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/planner.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/planner.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/planner.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/planner.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/planner.json"
         }
       }
     },
@@ -160,12 +200,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/client.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/client.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/client.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/client.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/client.json"
         }
       }
     },
@@ -187,12 +235,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/coder.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/coder.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/coder.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/coder.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/coder.json"
         }
       }
     },
@@ -214,12 +270,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/ops.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/ops.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/ops.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/ops.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/ops.json"
         }
       }
     },
@@ -241,12 +305,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/professor.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/professor.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/professor.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/professor.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/professor.json"
         }
       }
     },
@@ -268,12 +340,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/architect.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/architect.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/architect.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/architect.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/architect.json"
         }
       }
     },
@@ -295,12 +375,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/founding-engineer.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/founding-engineer.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/founding-engineer.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/founding-engineer.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/founding-engineer.json"
         }
       }
     },
@@ -322,12 +410,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/chief-of-staff.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/chief-of-staff.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/chief-of-staff.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/chief-of-staff.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/chief-of-staff.json"
         }
       }
     },
@@ -349,12 +445,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/coach.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/coach.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/coach.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/coach.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/coach.json"
         }
       }
     },
@@ -376,12 +480,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/nova.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/nova.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/nova.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/nova.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/nova.json"
         }
       }
     },
@@ -403,12 +515,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/pulse.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/pulse.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/pulse.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/pulse.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/pulse.json"
         }
       }
     },
@@ -430,12 +550,20 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "profile": "https://botcabinet.com/downloads/starter-bots/story.tar.gz",
           "readableSource": "https://botcabinet.com/downloads/starter-bots/story.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/story.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/story.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/story.json"
         }
       }
     }

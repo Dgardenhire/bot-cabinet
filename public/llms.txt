@@ -10,6 +10,7 @@ Bot Cabinet is an independent guide to practical Bots. Each public profile expla
 - [Catalog updates](https://botcabinet.com/api/v1/updates.json): A compact, versioned JSON feed for finding the current public profiles.
 - [Bot Fit Test contract](https://botcabinet.com/api/v1/bot-fit-test.json): JSON Schema and repository CLI instructions for choosing an Assignment, Skill, Routine, Bot, or Crew.
 - [RSS feed](https://botcabinet.com/feed.xml): Current public profiles for feed readers and monitoring tools.
+- [Portable Bot Pack example](https://botcabinet.com/downloads/portable-bot-packs/scout.md): Platform-neutral job, controls, first task, Skill recipe, Routine recipe, and platform setup paths.
 
 ## Useful starting points
 
@@ -18,6 +19,7 @@ Bot Cabinet is an independent guide to practical Bots. Each public profile expla
 - [Browse Bots](https://botcabinet.com/bots/): Search the public catalog by job.
 - [Bot Lab](https://botcabinet.com/workshop/): Plan and customize a Bot.
 - [Crew Kits](https://botcabinet.com/crew-kits/): Plan several Bots with separate jobs and handoffs.
+- [Hermes and Grok Bot](https://botcabinet.com/platforms/grok-bot/): Compare the supported setup path for each platform.
 - [Review process](https://botcabinet.com/trust/): Understand the labels and checks shown on the site.
 
 ## Current public Bots

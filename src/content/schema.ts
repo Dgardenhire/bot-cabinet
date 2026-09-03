@@ -40,13 +40,21 @@ export type BotDefinitionV1 = {
     hermes: {
       minimumVersion: string;
       artifactKind: "profile-distribution";
+      packageStatus: "files-and-archive-checked";
+      importStatus: "reference-imported" | "not-individually-imported";
       detailUrl: string;
       archiveUrl: string;
       readableSourceUrl: string;
     };
     grok?: {
-      artifactKind: "adaptation-brief" | "template";
+      artifactKind: "adaptation-brief";
+      testStatus: "adaptation-prepared-not-tested";
       adaptationUrl: string;
+    };
+    portable: {
+      artifactKind: "portable-bot-pack";
+      markdownUrl: string;
+      jsonUrl: string;
     };
   };
   relationships: {
@@ -210,6 +218,48 @@ export function validateBotDefinitions(
       bot,
       "platforms.hermes.readableSourceUrl",
       bot.platforms.hermes.readableSourceUrl,
+    );
+    if (bot.platforms.hermes.packageStatus !== "files-and-archive-checked") {
+      issues.push(`${bot.slug}: platforms.hermes.packageStatus is invalid`);
+    }
+    if (bot.platforms.hermes.artifactKind !== "profile-distribution") {
+      issues.push(`${bot.slug}: platforms.hermes.artifactKind is invalid`);
+    }
+    if (
+      !["reference-imported", "not-individually-imported"].includes(
+        bot.platforms.hermes.importStatus,
+      )
+    ) {
+      issues.push(`${bot.slug}: platforms.hermes.importStatus is invalid`);
+    }
+    if (bot.platforms.grok) {
+      requireText(
+        issues,
+        bot,
+        "platforms.grok.adaptationUrl",
+        bot.platforms.grok.adaptationUrl,
+      );
+      if (bot.platforms.grok.testStatus !== "adaptation-prepared-not-tested") {
+        issues.push(`${bot.slug}: platforms.grok.testStatus is invalid`);
+      }
+      if (bot.platforms.grok.artifactKind !== "adaptation-brief") {
+        issues.push(`${bot.slug}: platforms.grok.artifactKind is invalid`);
+      }
+    }
+    if (bot.platforms.portable.artifactKind !== "portable-bot-pack") {
+      issues.push(`${bot.slug}: platforms.portable.artifactKind is invalid`);
+    }
+    requireText(
+      issues,
+      bot,
+      "platforms.portable.markdownUrl",
+      bot.platforms.portable.markdownUrl,
+    );
+    requireText(
+      issues,
+      bot,
+      "platforms.portable.jsonUrl",
+      bot.platforms.portable.jsonUrl,
     );
     requireText(issues, bot, "links.detailUrl", bot.links.detailUrl);
     requireText(

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "1.0.0",
+  "catalogVersion": "1.1.0",
   "count": 16,
   "bots": [
     {
@@ -50,24 +50,34 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
+          "Ask before contacting anyone",
+          "Ask before changing a schedule",
           "A person selects the topics to pursue.",
           "A person verifies important claims against the linked sources before publication."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not publish"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "reference-imported",
           "detailUrl": "/bots/scout/",
           "archiveUrl": "/downloads/starter-bots/scout.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/scout.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/scout.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/scout.md",
+          "jsonUrl": "/downloads/portable-bot-packs/scout.json"
         }
       },
       "relationships": {
@@ -140,24 +150,33 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person makes legal, medical, financial, and policy decisions.",
-          "The Bot identifies uncertainty and asks for missing information."
+          "Ask when sources conflict",
+          "A person makes legal, medical, financial, and policy decisions."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not make high-stakes decisions",
+          "Do not contact sources or publish"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/researcher/",
           "archiveUrl": "/downloads/starter-bots/researcher.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/researcher.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/researcher.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/researcher.md",
+          "jsonUrl": "/downloads/portable-bot-packs/researcher.json"
         }
       },
       "relationships": {
@@ -243,24 +262,32 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person approves factual claims and final wording.",
-          "The Bot uses supplied sources and marks unsupported claims."
+          "A person approves factual claims and final wording."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not invent facts",
+          "Do not publish or send"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/writer/",
           "archiveUrl": "/downloads/starter-bots/writer.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/writer.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/writer.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/writer.md",
+          "jsonUrl": "/downloads/portable-bot-packs/writer.json"
         }
       },
       "relationships": {
@@ -337,24 +364,33 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person approves substantive changes.",
-          "The Bot marks uncertainty and preserves quotations and sourced facts."
+          "Ask before changing substantive meaning",
+          "A person approves substantive changes."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not change quoted language",
+          "Do not publish or send"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/editor/",
           "archiveUrl": "/downloads/starter-bots/editor.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/editor.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/editor.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/editor.md",
+          "jsonUrl": "/downloads/portable-bot-packs/editor.json"
         }
       },
       "relationships": {
@@ -433,8 +469,9 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person approves assignments and deadlines.",
-          "The Bot identifies assumptions and missing capacity."
+          "Do not assign people or commit dates without approval",
+          "Do not change an external task system without approval",
+          "A person approves assignments and deadlines."
         ],
         "prohibited": [
           "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
@@ -444,13 +481,21 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/planner/",
           "archiveUrl": "/downloads/starter-bots/planner.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/planner.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/planner.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/planner.md",
+          "jsonUrl": "/downloads/portable-bot-packs/planner.json"
         }
       },
       "relationships": {
@@ -534,24 +579,33 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
+          "Ask before including prices, promises, or deadlines",
           "A person approves pricing, promises, and final delivery.",
           "A person limits client information to approved files and systems and checks the Bot’s access before use."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not send files or messages"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/client/",
           "archiveUrl": "/downloads/starter-bots/client.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/client.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/client.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/client.md",
+          "jsonUrl": "/downloads/portable-bot-packs/client.json"
         }
       },
       "relationships": {
@@ -627,24 +681,33 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person approves deployment and destructive changes.",
-          "The Bot preserves unrelated work and reports failed checks."
+          "Ask before deployment",
+          "Ask before deleting material",
+          "A person approves deployment and destructive changes."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not change files outside the approved project"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/coder/",
           "archiveUrl": "/downloads/starter-bots/coder.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/coder.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/coder.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/coder.md",
+          "jsonUrl": "/downloads/portable-bot-packs/coder.json"
         }
       },
       "relationships": {
@@ -713,7 +776,9 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "The Bot reports problems before making repairs.",
+          "Report before repairing",
+          "Ask before restarts or configuration changes",
+          "Ask before sending external messages",
           "A person approves restarts, deletions, configuration changes, and external messages."
         ],
         "prohibited": [
@@ -724,13 +789,21 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/ops/",
           "archiveUrl": "/downloads/starter-bots/ops.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/ops.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/ops.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/ops.md",
+          "jsonUrl": "/downloads/portable-bot-packs/ops.json"
         }
       },
       "relationships": {
@@ -801,24 +874,31 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person selects authoritative materials and evaluates formal credentials.",
-          "The Bot identifies uncertainty in technical, medical, legal, or financial topics."
+          "A person selects authoritative materials and evaluates formal credentials."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not claim formal certification or professional authority"
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/professor/",
           "archiveUrl": "/downloads/starter-bots/professor.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/professor.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/professor.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/professor.md",
+          "jsonUrl": "/downloads/portable-bot-packs/professor.json"
         }
       },
       "relationships": {
@@ -886,24 +966,34 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person approves architecture, budgets, vendors, and risk acceptance.",
-          "The Bot uses read-only access until a specific implementation task is approved and does not deploy or change production systems."
+          "Ask before selecting a vendor or adding a dependency",
+          "Ask before accepting a security or reliability risk",
+          "A person approves architecture, budgets, vendors, and risk acceptance."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not deploy or change production systems",
+          "The Bot uses read-only access until a specific implementation task is approved and does not deploy or change production systems."
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/architect/",
           "archiveUrl": "/downloads/starter-bots/architect.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/architect.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/architect.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/architect.md",
+          "jsonUrl": "/downloads/portable-bot-packs/architect.json"
         }
       },
       "relationships": {
@@ -975,8 +1065,10 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person defines the product promise, accepts technical tradeoffs, and approves release.",
-          "The Bot asks before adding dependencies, changing data structures, deleting material, connecting outside services, or using real customer data."
+          "Ask before adding a dependency or changing a data structure",
+          "Ask before deleting material or using real customer data",
+          "Do not connect outside services or release the work without approval",
+          "A person defines the product promise, accepts technical tradeoffs, and approves release."
         ],
         "prohibited": [
           "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
@@ -986,13 +1078,21 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/founding-engineer/",
           "archiveUrl": "/downloads/starter-bots/founding-engineer.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/founding-engineer.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/founding-engineer.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/founding-engineer.md",
+          "jsonUrl": "/downloads/portable-bot-packs/founding-engineer.json"
         }
       },
       "relationships": {
@@ -1063,24 +1163,34 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A leader sets priorities, assigns people, and approves commitments and deadlines.",
-          "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+          "Ask before contacting anyone",
+          "Ask before changing a calendar, task, or shared record",
+          "A leader sets priorities, assigns people, and approves commitments and deadlines."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not assign people or commit dates or budgets",
+          "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/chief-of-staff/",
           "archiveUrl": "/downloads/starter-bots/chief-of-staff.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/chief-of-staff.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/chief-of-staff.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/chief-of-staff.md",
+          "jsonUrl": "/downloads/portable-bot-packs/chief-of-staff.json"
         }
       },
       "relationships": {
@@ -1155,24 +1265,32 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
-          "A person makes all life, career, employment, medical, legal, and financial decisions.",
-          "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."
+          "A person makes all life, career, employment, medical, legal, and financial decisions."
         ],
         "prohibited": [
-          "Do not send, publish, purchase, delete, deploy, or change an outside account unless a person explicitly approves it."
+          "Do not contact anyone or change a schedule",
+          "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."
         ]
       },
       "platforms": {
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/coach/",
           "archiveUrl": "/downloads/starter-bots/coach.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/coach.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/coach.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/coach.md",
+          "jsonUrl": "/downloads/portable-bot-packs/coach.json"
         }
       },
       "relationships": {
@@ -1242,9 +1360,12 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
+          "Ask before spending money or contacting anyone",
+          "Ask before publishing a claim or beginning a build",
           "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture."
         ],
         "prohibited": [
+          "Do not present forecasts or interest as proof of demand",
           "The Bot treats forecasts as hypotheses and never presents interest, traffic, or generated analysis as proof of demand."
         ]
       },
@@ -1252,13 +1373,21 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/nova/",
           "archiveUrl": "/downloads/starter-bots/nova.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/nova.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/nova.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/nova.md",
+          "jsonUrl": "/downloads/portable-bot-packs/nova.json"
         }
       },
       "relationships": {
@@ -1329,9 +1458,12 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
+          "Ask before changing campaigns, tracking, or accounts",
+          "Ask before spending money or contacting customers",
           "A person approves targeting, spending, public claims, customer outreach, and account changes."
         ],
         "prohibited": [
+          "Do not collect new personal data or publish claims",
           "The Bot does not change campaigns or tracking, collect new personal data, or treat a small sample as a reliable result."
         ]
       },
@@ -1339,13 +1471,21 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/pulse/",
           "archiveUrl": "/downloads/starter-bots/pulse.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/pulse.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/pulse.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/pulse.md",
+          "jsonUrl": "/downloads/portable-bot-packs/pulse.json"
         }
       },
       "relationships": {
@@ -1416,9 +1556,12 @@
           "Identify missing information and ask questions"
         ],
         "requiresApproval": [
+          "Ask before changing protected language or substantive meaning",
           "A person decides what the organization stands for and approves every public claim and final draft."
         ],
         "prohibited": [
+          "Do not invent facts, quotations, results, or motives",
+          "Do not publish or send",
           "The Bot does not invent quotations, events, results, or motives and does not publish or send material."
         ]
       },
@@ -1426,13 +1569,21 @@
         "hermes": {
           "minimumVersion": ">=0.20.0",
           "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
           "detailUrl": "/bots/story/",
           "archiveUrl": "/downloads/starter-bots/story.tar.gz",
           "readableSourceUrl": "/downloads/starter-bots/story.zip"
         },
         "grok": {
           "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
           "adaptationUrl": "/downloads/grok-bot-templates/story.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdownUrl": "/downloads/portable-bot-packs/story.md",
+          "jsonUrl": "/downloads/portable-bot-packs/story.json"
         }
       },
       "relationships": {

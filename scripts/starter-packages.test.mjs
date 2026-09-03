@@ -8,6 +8,7 @@ import test from "node:test";
 const execFile = promisify(execFileCallback);
 const root = path.join(process.cwd(), "public/downloads/starter-bots");
 const grokRoot = path.join(process.cwd(), "public/downloads/grok-bot-templates");
+const portableRoot = path.join(process.cwd(), "public/downloads/portable-bot-packs");
 const expectedFiles = ["BOT-PASSPORT.md", "LICENSE", "README.md", "SOUL.md", "distribution.yaml", "profile.yaml"];
 const expectedStarterCount = 16;
 
@@ -94,9 +95,35 @@ test("every starter Bot has a portable Grok Bot adaptation brief", async () => {
   assert.equal(entries.length, expectedStarterCount);
   for (const entry of entries) {
     const guide = await readFile(path.join(grokRoot, entry), "utf8");
-    assert.match(guide, /— Grok Bot adaptation brief/);
-    assert.match(guide, /This is a portable build brief, not a one-click Grok Bot installer\./);
+    assert.match(guide, /— Build brief for Grok Bot/);
+    assert.match(guide, /Adaptation status: Prepared from the portable recipe; not tested in Grok Bot/);
     assert.match(guide, /## Build it in Grok Bot/);
-    assert.match(guide, /## Prohibited actions/);
+    assert.match(guide, /## What Grok Bot sharing carries/);
+    assert.doesNotMatch(guide, /one-click|install this Grok|import this Grok/i);
+  }
+});
+
+test("every starter Bot has matching Markdown and JSON portable packs", async () => {
+  const entries = await readdir(portableRoot);
+  const markdownEntries = entries.filter((entry) => entry.endsWith(".md"));
+  const jsonEntries = entries.filter((entry) => entry.endsWith(".json"));
+  assert.equal(markdownEntries.length, expectedStarterCount);
+  assert.equal(jsonEntries.length, expectedStarterCount);
+
+  for (const entry of markdownEntries) {
+    const slug = entry.replace(/\.md$/, "");
+    const markdown = await readFile(path.join(portableRoot, entry), "utf8");
+    const json = JSON.parse(
+      await readFile(path.join(portableRoot, `${slug}.json`), "utf8"),
+    );
+
+    assert.match(markdown, /— Portable Bot Pack/);
+    assert.match(markdown, /## Reusable Skill recipe/);
+    assert.match(markdown, /## Routine recipe/);
+    assert.match(markdown, /## Use in Hermes/);
+    assert.match(markdown, /## Build in Grok Bot/);
+    assert.equal(json.schemaVersion, 1);
+    assert.equal(json.bot.slug, slug);
+    assert.equal(json.platforms.grokBot.testStatus, "adaptation-prepared-not-tested");
   }
 });

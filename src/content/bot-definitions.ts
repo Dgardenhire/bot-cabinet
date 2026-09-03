@@ -4,7 +4,7 @@ import {
 } from "../data/starter-bots";
 import { CREW_KITS } from "../data/crew-kits";
 import { BOT_USE_CASES } from "../data/use-cases";
-import { starterBotToPassport } from "../lib/bot-passport";
+import { starterBotToPortablePack } from "../lib/portable-bot-pack";
 import {
   type BotDefinitionV1,
   validateBotDefinitions,
@@ -14,7 +14,8 @@ export { validateBotDefinitions } from "./schema";
 export type { BotDefinitionV1 } from "./schema";
 
 export function starterBotToDefinition(bot: StarterBot): BotDefinitionV1 {
-  const passport = starterBotToPassport(bot);
+  const portablePack = starterBotToPortablePack(bot);
+  const passport = portablePack.controls;
 
   return {
     schemaVersion: 1,
@@ -50,13 +51,21 @@ export function starterBotToDefinition(bot: StarterBot): BotDefinitionV1 {
       hermes: {
         minimumVersion: ">=0.20.0",
         artifactKind: "profile-distribution",
+        packageStatus: portablePack.platforms.hermes.packageStatus,
+        importStatus: portablePack.platforms.hermes.importStatus,
         detailUrl: `/bots/${bot.slug}/`,
         archiveUrl: `/downloads/starter-bots/${bot.slug}.tar.gz`,
         readableSourceUrl: `/downloads/starter-bots/${bot.slug}.zip`,
       },
       grok: {
         artifactKind: "adaptation-brief",
+        testStatus: portablePack.platforms.grokBot.testStatus,
         adaptationUrl: `/downloads/grok-bot-templates/${bot.slug}.md`,
+      },
+      portable: {
+        artifactKind: "portable-bot-pack",
+        markdownUrl: `/downloads/portable-bot-packs/${bot.slug}.md`,
+        jsonUrl: `/downloads/portable-bot-packs/${bot.slug}.json`,
       },
     },
     relationships: {

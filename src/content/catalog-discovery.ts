@@ -8,8 +8,8 @@ import {
 export const BOT_CABINET_ORIGIN = "https://botcabinet.com";
 
 export const CATALOG_DISCOVERY_RELEASE = {
-  feedVersion: "1.0.0",
-  releasedAt: "2026-09-02T00:00:00.000Z",
+  feedVersion: "1.1.0",
+  releasedAt: "2026-09-03T00:00:00.000Z",
 } as const;
 
 type PublicBotCatalog = ReturnType<typeof buildPublicBotCatalog>;
@@ -72,6 +72,8 @@ export function buildCatalogUpdates(catalog: PublicBotCatalog) {
         hermes: {
           minimumVersion: bot.platforms.hermes.minimumVersion,
           artifactKind: bot.platforms.hermes.artifactKind,
+          packageStatus: bot.platforms.hermes.packageStatus,
+          importStatus: bot.platforms.hermes.importStatus,
           profile: absoluteUrl(bot.platforms.hermes.archiveUrl),
           readableSource: absoluteUrl(
             bot.platforms.hermes.readableSourceUrl,
@@ -81,10 +83,16 @@ export function buildCatalogUpdates(catalog: PublicBotCatalog) {
           ? {
               grok: {
                 artifactKind: bot.platforms.grok.artifactKind,
+                testStatus: bot.platforms.grok.testStatus,
                 adaptation: absoluteUrl(bot.platforms.grok.adaptationUrl),
               },
             }
           : {}),
+        portable: {
+          artifactKind: bot.platforms.portable.artifactKind,
+          markdown: absoluteUrl(bot.platforms.portable.markdownUrl),
+          json: absoluteUrl(bot.platforms.portable.jsonUrl),
+        },
       },
     })),
   };
@@ -150,6 +158,7 @@ export function buildLlmsText(catalog: PublicBotCatalog) {
     `- [Catalog updates](${BOT_CABINET_ORIGIN}/api/v1/updates.json): A compact, versioned JSON feed for finding the current public profiles.`,
     `- [Bot Fit Test contract](${BOT_CABINET_ORIGIN}/api/v1/bot-fit-test.json): JSON Schema and repository CLI instructions for choosing an Assignment, Skill, Routine, Bot, or Crew.`,
     `- [RSS feed](${BOT_CABINET_ORIGIN}/feed.xml): Current public profiles for feed readers and monitoring tools.`,
+    `- [Portable Bot Pack example](${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.md): Platform-neutral job, controls, first task, Skill recipe, Routine recipe, and platform setup paths.`,
     "",
     "## Useful starting points",
     "",
@@ -158,6 +167,7 @@ export function buildLlmsText(catalog: PublicBotCatalog) {
     `- [Browse Bots](${BOT_CABINET_ORIGIN}/bots/): Search the public catalog by job.`,
     `- [Bot Lab](${BOT_CABINET_ORIGIN}/workshop/): Plan and customize a Bot.`,
     `- [Crew Kits](${BOT_CABINET_ORIGIN}/crew-kits/): Plan several Bots with separate jobs and handoffs.`,
+    `- [Hermes and Grok Bot](${BOT_CABINET_ORIGIN}/platforms/grok-bot/): Compare the supported setup path for each platform.`,
     `- [Review process](${BOT_CABINET_ORIGIN}/trust/): Understand the labels and checks shown on the site.`,
     "",
     "## Current public Bots",
