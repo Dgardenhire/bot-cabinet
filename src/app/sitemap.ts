@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/start",
     "/bots",
     "/workshop",
+    "/portraits",
     "/use-cases",
     "/crew-kits",
     "/proof",
@@ -41,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}/`.replace(`${baseUrl}//`, `${baseUrl}/`),
-    lastModified: new Date("2026-09-02"),
+    lastModified: new Date("2026-09-03"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.split("/").filter(Boolean).length === 1 ? 0.8 : 0.6,
   }));

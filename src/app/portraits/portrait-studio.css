@@ -1,0 +1,627 @@
+.portrait-page {
+  background:
+    radial-gradient(circle at 84% 4%, rgba(198,154,75,.1), transparent 29rem),
+    var(--ink);
+}
+
+.portrait-kicker {
+  margin: 0 0 14px;
+  color: var(--brass-bright);
+  font: 700 12px var(--mono);
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.portrait-hero {
+  display: grid;
+  grid-template-columns: minmax(0,.8fr) minmax(500px,1.2fr);
+  gap: 70px;
+  align-items: center;
+  padding: 64px 0 54px;
+}
+
+.portrait-hero-copy h1 {
+  max-width: 660px;
+  margin: 0 0 22px;
+  font: 400 clamp(54px,6.5vw,94px)/.92 var(--serif);
+  letter-spacing: -.045em;
+}
+
+.portrait-hero-copy > p:not(.portrait-kicker) {
+  max-width: 650px;
+  margin: 0 0 28px;
+  color: #bbb7ae;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.portrait-hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.portrait-hero-facts span {
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  color: #b8b4ab;
+  font: 12px var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.portrait-hero-art {
+  position: relative;
+  height: 470px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--ink-soft);
+  box-shadow: 0 24px 64px rgba(0,0,0,.25);
+}
+
+.portrait-hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(5,7,7,.8));
+  pointer-events: none;
+}
+
+.portrait-hero-art picture,
+.portrait-hero-art img {
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-hero-art picture {
+  display: block;
+}
+
+.portrait-hero-art img {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.portrait-hero-art figcaption {
+  position: absolute;
+  right: 19px;
+  bottom: 16px;
+  left: 19px;
+  z-index: 1;
+  color: #d4d0c8;
+  font: 12px/1.5 var(--mono);
+  text-align: right;
+}
+
+.portrait-gallery-section,
+.portrait-builder-section,
+.portrait-use-section {
+  padding: 76px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.portrait-section-heading,
+.portrait-builder-heading {
+  display: grid;
+  grid-template-columns: minmax(0,.9fr) minmax(340px,.55fr);
+  gap: 72px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.portrait-section-heading h2,
+.portrait-builder-heading h2,
+.portrait-use-section h2 {
+  margin: 0;
+  font: 400 clamp(38px,4.4vw,64px)/1 var(--serif);
+  letter-spacing: -.03em;
+}
+
+.portrait-section-heading > p,
+.portrait-builder-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.portrait-gallery-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.portrait-gallery-grid-premium {
+  grid-template-columns: repeat(5,minmax(0,1fr));
+}
+
+.portrait-gallery-grid-classic {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+}
+
+.portrait-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--ink-soft);
+}
+
+.portrait-card > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+
+.portrait-card-copy {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.portrait-card-copy > span {
+  color: var(--brass-bright);
+  font: 12px var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.portrait-card-copy h3 {
+  margin: 7px 0 7px;
+  color: var(--paper);
+  font: 400 28px/1 var(--serif);
+}
+
+.portrait-card-copy p {
+  flex: 1;
+  min-height: 66px;
+  margin: 0 0 17px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.portrait-card-copy .button {
+  width: 100%;
+  min-height: 43px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.portrait-card-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.portrait-card-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--faint);
+  font: 13px var(--mono);
+  text-decoration: underline;
+  text-decoration-color: var(--brass-deep);
+  text-underline-offset: 3px;
+}
+
+.portrait-card-links a:hover {
+  color: var(--brass-bright);
+}
+
+.portrait-upload-steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr) auto;
+  align-items: stretch;
+  margin-top: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--ink-soft);
+}
+
+.portrait-upload-steps article {
+  display: grid;
+  grid-template-columns: 26px 28px 1fr;
+  gap: 9px;
+  align-items: start;
+  padding: 20px;
+  border-right: 1px solid var(--line-soft);
+}
+
+.portrait-upload-steps article > span,
+.portrait-upload-steps article > svg {
+  color: var(--brass-bright);
+}
+
+.portrait-upload-steps article > span {
+  font: 12px var(--mono);
+}
+
+.portrait-upload-steps h3 {
+  margin: 0 0 4px;
+  color: var(--paper);
+  font: 14px var(--mono);
+}
+
+.portrait-upload-steps p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.portrait-upload-steps > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  color: var(--brass-bright);
+  font: 12px var(--mono);
+}
+
+.portrait-builder-grid {
+  display: grid;
+  grid-template-columns: minmax(0,.82fr) minmax(500px,1.18fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.portrait-builder-form,
+.portrait-recipe {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--ink-soft);
+}
+
+.portrait-builder-form {
+  padding: 24px;
+}
+
+.portrait-builder-form fieldset {
+  min-width: 0;
+  margin: 0 0 24px;
+  padding: 0 0 24px;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.portrait-builder-form legend,
+.portrait-builder-form label > span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--paper);
+  font: 12px var(--mono);
+  letter-spacing: .03em;
+}
+
+.portrait-rendering-options {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 9px;
+}
+
+.portrait-rendering-options legend {
+  grid-column: 1 / -1;
+}
+
+.portrait-rendering-options label {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 9px;
+  min-height: 116px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255,255,255,.015);
+  cursor: pointer;
+}
+
+.portrait-rendering-options label.is-selected {
+  border-color: var(--brass);
+  background: rgba(198,154,75,.08);
+}
+
+.portrait-rendering-options input {
+  margin-top: 4px;
+  accent-color: var(--brass);
+}
+
+.portrait-rendering-options strong,
+.portrait-rendering-options small {
+  display: block;
+}
+
+.portrait-rendering-options strong {
+  margin-bottom: 6px;
+  color: var(--paper);
+  font: 13px var(--mono);
+}
+
+.portrait-rendering-options small {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.portrait-identity-fields,
+.portrait-choice-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.portrait-identity-fields {
+  margin-bottom: 16px;
+}
+
+.portrait-choice-grid {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+
+.portrait-choice-wide {
+  grid-column: 1 / -1;
+}
+
+.portrait-builder-form input[type="text"],
+.portrait-builder-form textarea,
+.portrait-builder-form select,
+.portrait-recipe textarea {
+  width: 100%;
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  background: #080b0b;
+  color: var(--ivory);
+}
+
+.portrait-builder-form input[type="text"],
+.portrait-builder-form select {
+  min-height: 46px;
+  padding: 0 12px;
+}
+
+.portrait-builder-form textarea {
+  min-height: 94px;
+  padding: 11px 12px;
+  resize: vertical;
+}
+
+.portrait-builder-form input:focus,
+.portrait-builder-form textarea:focus,
+.portrait-builder-form select:focus,
+.portrait-recipe textarea:focus {
+  border-color: var(--brass);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(198,154,75,.09);
+}
+
+.portrait-recipe {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1fr);
+  overflow: hidden;
+}
+
+.portrait-recipe-reference {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background: #070909;
+}
+
+.portrait-recipe-reference::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 68%, rgba(5,7,7,.86));
+}
+
+.portrait-recipe-reference img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait-recipe-reference span {
+  position: absolute;
+  right: 14px;
+  bottom: 13px;
+  left: 14px;
+  z-index: 1;
+  color: #d1ccc3;
+  font: 12px var(--mono);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.portrait-recipe-copy {
+  padding: 25px;
+}
+
+.portrait-recipe-copy .portrait-kicker {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.portrait-recipe-copy h3 {
+  margin: 0 0 7px;
+  color: var(--paper);
+  font: 400 34px/1 var(--serif);
+  overflow-wrap: anywhere;
+}
+
+.portrait-rendering-note {
+  margin: 0 0 17px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.portrait-recipe textarea {
+  min-height: 330px;
+  padding: 14px;
+  resize: vertical;
+  color: #c9c6be;
+  font: 12px/1.58 var(--mono);
+}
+
+.portrait-recipe-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.portrait-recipe-actions .copy-text-button.button-primary {
+  min-height: 46px;
+  padding: 0 20px;
+  border-color: var(--brass);
+  background: linear-gradient(135deg,var(--brass-bright),#b88739);
+  color: #15100a;
+}
+
+.portrait-local-note {
+  margin: 14px 0 0;
+  color: var(--faint);
+  font: 12px/1.55 var(--mono);
+}
+
+.portrait-next-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0;
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--ink-soft);
+}
+
+.portrait-next-step > div,
+.portrait-next-step > a {
+  padding: 20px 22px;
+  border-right: 1px solid var(--line-soft);
+}
+
+.portrait-next-step > div span {
+  color: var(--brass-bright);
+  font: 12px var(--mono);
+  text-transform: uppercase;
+}
+
+.portrait-next-step > div p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.portrait-next-step > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-right: 0;
+  color: var(--brass-bright);
+  font: 12px var(--mono);
+}
+
+.portrait-use-section {
+  display: grid;
+  grid-template-columns: minmax(300px,.55fr) minmax(0,1fr);
+  gap: 86px;
+  padding-bottom: 96px;
+}
+
+.portrait-use-section > div:last-child {
+  max-width: 780px;
+}
+
+.portrait-use-section > div:last-child p {
+  margin: 0 0 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.portrait-use-section a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--brass-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--brass-deep);
+  text-underline-offset: 4px;
+}
+
+html[data-theme="light"] .portrait-hero-copy > p:not(.portrait-kicker),
+html[data-theme="light"] .portrait-hero-facts span {
+  color: #514d45;
+}
+
+html[data-theme="light"] .portrait-card,
+html[data-theme="light"] .portrait-upload-steps,
+html[data-theme="light"] .portrait-builder-form,
+html[data-theme="light"] .portrait-recipe,
+html[data-theme="light"] .portrait-next-step {
+  background: var(--ink-raised);
+}
+
+html[data-theme="light"] .portrait-builder-form input[type="text"],
+html[data-theme="light"] .portrait-builder-form textarea,
+html[data-theme="light"] .portrait-builder-form select,
+html[data-theme="light"] .portrait-recipe textarea {
+  border-color: rgba(37,33,27,.2);
+  background: #fffdf8;
+  color: #1d1c19;
+}
+
+html[data-theme="light"] .portrait-rendering-options label {
+  background: rgba(255,253,248,.7);
+}
+
+html[data-theme="light"] .portrait-rendering-options label.is-selected {
+  background: rgba(147,105,30,.09);
+}
+
+@media (max-width: 1180px) {
+  .portrait-gallery-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .portrait-builder-grid { grid-template-columns: 1fr; }
+  .portrait-recipe { grid-template-columns: minmax(200px,.44fr) minmax(0,1fr); }
+}
+
+@media (max-width: 920px) {
+  .portrait-hero { grid-template-columns: 1fr; gap: 34px; }
+  .portrait-hero-art { height: 420px; }
+  .portrait-section-heading,
+  .portrait-builder-heading,
+  .portrait-use-section { grid-template-columns: 1fr; gap: 22px; }
+  .portrait-upload-steps,
+  .portrait-next-step { grid-template-columns: 1fr; }
+  .portrait-upload-steps article,
+  .portrait-next-step > div,
+  .portrait-next-step > a { border-right: 0; border-bottom: 1px solid var(--line-soft); }
+  .portrait-upload-steps > a,
+  .portrait-next-step > a { border-bottom: 0; }
+}
+
+@media (max-width: 700px) {
+  .portrait-hero { padding: 44px 0 40px; }
+  .portrait-hero-art { height: 330px; }
+  .portrait-gallery-section,
+  .portrait-builder-section,
+  .portrait-use-section { padding: 56px 0; }
+  .portrait-gallery-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .portrait-rendering-options,
+  .portrait-choice-grid { grid-template-columns: 1fr; }
+  .portrait-choice-wide { grid-column: auto; }
+  .portrait-recipe { grid-template-columns: 1fr; }
+  .portrait-recipe-reference { height: 280px; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 500px) {
+  .portrait-gallery-grid { grid-template-columns: 1fr; }
+  .portrait-card-copy p { min-height: 0; }
+  .portrait-hero-art { height: 280px; }
+  .portrait-recipe-actions .button { width: 100%; }
+}

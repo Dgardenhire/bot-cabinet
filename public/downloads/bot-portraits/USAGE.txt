@@ -1,0 +1,27 @@
+BOT CABINET PORTRAIT STUDIO
+
+These portraits are designed for AI Bot profile images.
+
+HERMES DESKTOP
+1. Open Bots.
+2. Right-click the Bot and choose Edit Profile.
+3. Choose Upload.
+4. Select the 1024px PNG and save.
+
+The 256px version is available when you need a smaller file. The premium
+source portraits retain their original Content Credentials; all prepared
+square downloads are documented derivatives.
+
+USE TERMS
+You may use these selected images, unchanged except for ordinary avatar
+cropping, resizing, and compression, as profile images for AI Bots that you
+operate or configure. You may not sell or redistribute the files as an art or
+avatar collection, use them as a trademark, place them in training data, claim
+authorship, or imply an endorsement by Bot Cabinet, LINCHPIN, Hermes Agent, or
+Nous Research. All other rights are reserved.
+
+Full terms:
+https://botcabinet.com/downloads/bot-portraits/ASSET-LICENSE.md
+
+Provenance:
+https://botcabinet.com/downloads/bot-portraits/PROVENANCE.md

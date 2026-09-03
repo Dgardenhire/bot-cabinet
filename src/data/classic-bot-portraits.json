@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "classic-coder",
+    "name": "Coder",
+    "description": "Teal workshop Bot with a drafting-table setting.",
+    "alt": "A friendly teal mechanical coding Bot in a warm workshop",
+    "sourceFile": "bot-coder.png",
+    "sourceSha256": "0e15f18c1d84c3c9967111f2067b967fc3114e54070980e76bb2007da97ee510"
+  },
+  {
+    "slug": "classic-editor",
+    "name": "Editor",
+    "description": "Graphite writing Bot with a brass fountain pen.",
+    "alt": "A friendly graphite mechanical editing Bot holding a fountain pen",
+    "sourceFile": "bot-editor.png",
+    "sourceSha256": "1bca9188cc9e106564686792f6b7cf33b09937e4a1e441cf5cf94607edaf96b7"
+  },
+  {
+    "slug": "classic-operations",
+    "name": "Operations",
+    "description": "Copper operations Bot with a panel of clear gauges.",
+    "alt": "A friendly copper mechanical operations Bot with several gauges",
+    "sourceFile": "bot-ops.png",
+    "sourceSha256": "ddf67e4c4f7127f5d4b33d5b7aaf2f84e8e15f8612cf3f2c9cdc855f9edcf314"
+  },
+  {
+    "slug": "classic-planner",
+    "name": "Planner",
+    "description": "Plum planning Bot with a rolled map and measuring instrument.",
+    "alt": "A friendly plum mechanical planning Bot holding a rolled map",
+    "sourceFile": "bot-planner.png",
+    "sourceSha256": "bc7cc5c85920d6117e0523fc94272f29bce4cfe6affbcb28bfde7e2538ad5e8e"
+  },
+  {
+    "slug": "classic-professor",
+    "name": "Professor",
+    "description": "Warm coral learning Bot carrying a small stack of books.",
+    "alt": "A friendly coral mechanical teaching Bot carrying books",
+    "sourceFile": "bot-professor.png",
+    "sourceSha256": "2a22c605d934c687225a4a7f6edbefc490b59bbc6ce352207cbdfc5f8ae0674b"
+  },
+  {
+    "slug": "classic-researcher",
+    "name": "Researcher",
+    "description": "Violet and brass research Bot with a pocket notebook.",
+    "alt": "A friendly violet and brass mechanical research Bot holding a notebook",
+    "sourceFile": "bot-researcher.png",
+    "sourceSha256": "28760fb56b537788322274a99715e80a620a2681963e02c231aedf7bde8a8175"
+  },
+  {
+    "slug": "classic-scout",
+    "name": "Classic Scout",
+    "description": "Cobalt field Bot with a clock-like chest instrument.",
+    "alt": "A friendly cobalt mechanical field scout Bot with a clock-like chest instrument",
+    "sourceFile": "bot-scout.png",
+    "sourceSha256": "78bbff01438bfe5e3283db9a822e970cef590cad2c961aefc8d41c6e12773950"
+  },
+  {
+    "slug": "classic-writer",
+    "name": "Writer",
+    "description": "Polished brass writing Bot in a book-lined study.",
+    "alt": "A friendly polished brass mechanical writing Bot in a study",
+    "sourceFile": "bot-writer.png",
+    "sourceSha256": "2b0429390198d487e056a7dfa5e883cebb43df142b811e945cb263bdf1227e10"
+  }
+]

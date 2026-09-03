@@ -7,12 +7,12 @@ const NAV_ITEMS = [
   ["Fit Test", "/fit"],
   ["The Cabinet", "/bots"],
   ["Bot Lab", "/workshop"],
+  ["Portrait Studio", "/portraits"],
   ["Bot Crews", "/use-cases"],
   ["Crew Kits", "/crew-kits"],
   ["Proof Room", "/proof"],
   ["Field Manual", "/guides"],
   ["Inspection Desk", "/trust"],
-  ["Submission Desk", "/contribute"],
 ] as const;
 
 export function SiteHeader() {

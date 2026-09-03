@@ -13,6 +13,11 @@ const GENERATED_PATHS = [
   "public/downloads/crew-kits",
   "public/downloads/grok-bot-templates",
   "public/downloads/portable-bot-packs",
+  "public/downloads/bot-portraits/hermes",
+  "public/downloads/bot-portraits/ASSET-LICENSE.md",
+  "public/downloads/bot-portraits/PROVENANCE.md",
+  "public/downloads/bot-portraits/USAGE.txt",
+  "public/bot-portraits/previews",
   "public/brand",
 ];
 

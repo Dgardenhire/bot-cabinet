@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "navigator",
+    "name": "Navigator",
+    "description": "Cobalt enamel, ivory faceplate, and a compass-like chest instrument.",
+    "alt": "A friendly cobalt-blue mechanical Bot with large camera-lens eyes",
+    "originalSha256": "a7247608cf1ed45b26f7eb206e5cceb7a1b2b358ed33fca1470a1740f43e48e3",
+    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "archivist",
+    "name": "Archivist",
+    "description": "Ivory enamel, oxblood panels, and a slender glass-and-brass chest gauge.",
+    "alt": "A friendly ivory and oxblood mechanical Bot with large camera-lens eyes",
+    "originalSha256": "6c340862b172ed8bde371e56cf4500628b3ce2761fee721292b200ceca74be91",
+    "crop": { "left": 72, "top": 45, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "mechanic",
+    "name": "Mechanic",
+    "description": "Burnt-umber enamel, graphite limbs, and a small pressure dial.",
+    "alt": "A friendly burnt-umber mechanical Bot with large camera-lens eyes",
+    "originalSha256": "6c59ffe090613b6342ef4697405a5107c5488edfaa2325306b3785700af5d335",
+    "crop": { "left": 72, "top": 70, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "diplomat",
+    "name": "Diplomat",
+    "description": "Forest-green enamel, brass seams, and a restrained acoustic grille.",
+    "alt": "A friendly forest-green mechanical Bot with large camera-lens eyes",
+    "originalSha256": "14e12b7a29516b66af74eacba7ba8ff17420f7a8153510549e096182f66ef217",
+    "crop": { "left": 72, "top": 65, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "scout",
+    "name": "Scout",
+    "description": "Graphite enamel, pewter panels, and a compact, nimble silhouette.",
+    "alt": "A friendly graphite and pewter mechanical Bot with large camera-lens eyes",
+    "originalSha256": "b3765e4bee7c6b71ab682778d26a05c7af2bdccb6f889edc2fb889985340d1ef",
+    "crop": { "left": 72, "top": 115, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "courier",
+    "name": "Courier",
+    "description": "Sky-blue and ivory enamel with a neat document case.",
+    "alt": "A friendly sky-blue and ivory mechanical courier Bot with large camera-lens eyes",
+    "originalSha256": "a9f0877d8a3eb11b9cbe9faddafcc9dc529940456434aad71f4efb229f5a51a2",
+    "crop": { "left": 72, "top": 80, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "steward",
+    "name": "Steward",
+    "description": "Sage and ivory enamel with a small service gauge.",
+    "alt": "A friendly sage and ivory mechanical steward Bot with large camera-lens eyes",
+    "originalSha256": "5104f638a6dd5ea1294cbc119d7f31fd532248872437ca5d15dd721244bad794",
+    "crop": { "left": 72, "top": 220, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "scribe",
+    "name": "Scribe",
+    "description": "Ivory and plum enamel with a slim fountain pen.",
+    "alt": "A friendly ivory and plum mechanical writing Bot with large camera-lens eyes",
+    "originalSha256": "704de6e42fd38e2a5609adef651c87fd0a798bb07f7f50f6ff42d185dd478938",
+    "crop": { "left": 72, "top": 90, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "beacon",
+    "name": "Beacon",
+    "description": "A non-humanoid ivory navigation instrument with cobalt insets.",
+    "alt": "A friendly ivory and cobalt spherical navigation Bot with one central camera lens",
+    "originalSha256": "93b6b5c236238d4031ad781b45aba3b2b2079d071da4c045cc48a5d5a53447b1",
+    "crop": { "left": 72, "top": 130, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "builder",
+    "name": "Builder",
+    "description": "A compact terracotta and ivory Bot with a brass caliper.",
+    "alt": "A friendly compact terracotta and ivory mechanical builder Bot with large camera-lens eyes",
+    "originalSha256": "956dcb6bcc18f0e63de0016fe8d0464739fd1efe2d3f6e98879dc1c9d9bbdd96",
+    "crop": { "left": 72, "top": 250, "width": 880, "height": 880 }
+  }
+]

@@ -334,6 +334,16 @@ html[data-cabinet-reveal="run"] .cabinet-reveal { display: block; }
 .platform-slide h3 { margin: 6px 0; color: var(--paper); font: 400 31px/1.05 var(--serif); }
 .platform-slide p { max-width: 760px; margin: 0; color: var(--muted); line-height: 1.55; }
 .platform-slide strong { display: flex; align-items: center; gap: 9px; color: var(--ivory); font: 14px var(--mono); white-space: nowrap; }
+.portrait-home-slide {
+  background:
+    linear-gradient(105deg,rgba(35,72,97,.28),rgba(198,154,75,.08)),
+    var(--ink-raised);
+}
+.portrait-home-slide-copy { display: grid; grid-template-columns: 88px minmax(0,1fr); gap: 20px; align-items: center; }
+.portrait-home-slide-copy > img {
+  width: 88px; height: 88px; object-fit: cover; border: 1px solid var(--line); border-radius: 50%;
+}
+.portrait-home-slide h3 { margin-top: 4px; }
 
 .learning-strip {
   display: grid; grid-template-columns: 260px repeat(3,1fr); gap: 0; margin-top: 12px;
@@ -448,6 +458,9 @@ html[data-theme="light"] .registry-card,
 html[data-theme="light"] .source-reading-card,
 html[data-theme="light"] .legacy-route-card,
 html[data-theme="light"] .founder-copy { background: var(--ink-raised); }
+html[data-theme="light"] .portrait-home-slide {
+  background: linear-gradient(105deg,rgba(43,104,124,.1),rgba(147,105,30,.07)),var(--ink-raised);
+}
 html[data-theme="light"] .ecosystem-proof-section {
   background:
     linear-gradient(90deg,rgba(112,76,21,.045) 1px,transparent 1px),
@@ -2233,6 +2246,8 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .pathway-section { transform: none; padding-top: 30px; }
   .pathway-grid, .learning-strip, .content-grid-3 { grid-template-columns: 1fr; }
   .platform-slide { grid-template-columns: 1fr; align-items: start; padding: 24px 22px; }
+  .portrait-home-slide-copy { grid-template-columns: 72px minmax(0,1fr); gap: 16px; }
+  .portrait-home-slide-copy > img { width: 72px; height: 72px; }
   .pathway-card { height: 310px; }
   .learning-intro, .learning-step { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line-soft); }
   .learning-step:last-child { border-bottom: 0; }

@@ -2,10 +2,10 @@ import path from "node:path";
 import { mkdir } from "node:fs/promises";
 import sharp from "sharp";
 
+import { buildTransparentWordmark } from "./lib/transparent-wordmark.mjs";
+
 const root = process.cwd();
 const wordmark = path.join(root, "public", "brand", "bot-cabinet-wordmark-dark-v1.png");
-const WORDMARK_BACKGROUND_THRESHOLD = 42;
-const WORDMARK_ALPHA_SCALE = 4;
 
 const cards = [
   {
@@ -16,6 +16,15 @@ const cards = [
     title: ["Should this work be", "a Bot?"],
     description: "Choose an Assignment, Skill, Routine, Bot, or Crew",
     url: "botcabinet.com/fit",
+  },
+  {
+    output: "bot-portrait-studio-1200x630.jpg",
+    source: path.join(root, "public", "downloads", "bot-portraits", "hermes", "navigator-1024.png"),
+    sourcePosition: "right",
+    eyebrow: "BOT PORTRAIT STUDIO",
+    title: ["Give your Bot a face", "Choose one or design your own"],
+    description: "Hermes-ready portraits and a guided custom image recipe",
+    url: "botcabinet.com/portraits",
   },
   {
     output: "first-bot-1200x630.jpg",
@@ -53,58 +62,7 @@ const cards = [
 const outputDirectory = path.join(root, "public", "brand", "social");
 await mkdir(outputDirectory, { recursive: true });
 
-const { data: wordmarkPixels, info: wordmarkInfo } = await sharp(wordmark)
-  .resize({ width: 310 })
-  .removeAlpha()
-  .raw()
-  .toBuffer({ resolveWithObject: true });
-
-function makeDarkBackgroundTransparent(pixels, info) {
-  if (info.channels !== 3) {
-    throw new Error(`Expected a three-channel wordmark image; received ${info.channels}.`);
-  }
-
-  const result = Buffer.alloc(info.width * info.height * 4);
-  for (
-    let sourceIndex = 0, outputIndex = 0;
-    sourceIndex < pixels.length;
-    sourceIndex += info.channels, outputIndex += 4
-  ) {
-    const red = pixels[sourceIndex];
-    const green = pixels[sourceIndex + 1];
-    const blue = pixels[sourceIndex + 2];
-    const brightness = Math.max(red, green, blue);
-
-    result[outputIndex] = red;
-    result[outputIndex + 1] = green;
-    result[outputIndex + 2] = blue;
-    result[outputIndex + 3] = Math.max(
-      0,
-      Math.min(
-        255,
-        Math.round(
-          (brightness - WORDMARK_BACKGROUND_THRESHOLD) * WORDMARK_ALPHA_SCALE,
-        ),
-      ),
-    );
-  }
-  return result;
-}
-
-const transparentWordmarkPixels = makeDarkBackgroundTransparent(
-  wordmarkPixels,
-  wordmarkInfo,
-);
-
-const wordmarkBuffer = await sharp(transparentWordmarkPixels, {
-  raw: {
-    width: wordmarkInfo.width,
-    height: wordmarkInfo.height,
-    channels: 4,
-  },
-})
-  .png()
-  .toBuffer();
+const wordmarkBuffer = await buildTransparentWordmark(wordmark, 310);
 
 async function renderCard(card) {
   let source = sharp(card.source);

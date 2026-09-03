@@ -237,6 +237,28 @@ export default function Home() {
           </div>
           <strong>Adapt a Bot <ArrowRight size={17} aria-hidden="true" /></strong>
         </Link>
+        <Link
+          className="platform-slide portrait-home-slide"
+          href="/portraits"
+          data-funnel-event="homepage_portrait_studio"
+          data-funnel-surface="homepage"
+        >
+          <div className="portrait-home-slide-copy">
+            <Image
+              src="/bot-portraits/previews/navigator.webp"
+              alt=""
+              width={560}
+              height={560}
+              sizes="(max-width: 720px) 72px, 88px"
+            />
+            <div>
+              <span>Bot Portrait Studio</span>
+              <h3>Give your Bot a face</h3>
+              <p>Choose a friendly portrait, download it for Hermes Desktop, or build a personalized image recipe.</p>
+            </div>
+          </div>
+          <strong>Choose a portrait <ArrowRight size={17} aria-hidden="true" /></strong>
+        </Link>
 
         <div className="learning-strip">
           <div className="learning-intro">

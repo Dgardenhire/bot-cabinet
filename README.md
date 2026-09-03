@@ -12,6 +12,7 @@ Bot Cabinet and the Hermes Bot Registry are independent from Nous Research. List
 - A portable Markdown and JSON recipe for each starter Bot, plus a separate Grok Bot build brief
 - Seventeen everyday use cases that show which Bots to use and provide a copyable message for each step
 - Bot Lab, a browser-based builder with optional AI suggestions, an importable Hermes profile, role instructions, a designed PDF, and an editable Markdown plan
+- Bot Portrait Studio, with eighteen Hermes-ready portrait downloads and a browser-based custom portrait recipe builder
 - A small directory of public community projects with source links and clearly labeled review information
 - Plain-English guides to Bot Mode, profile packages, first tests, and installation checks
 - Dark and light layouts with a persistent theme control
@@ -88,4 +89,5 @@ provider credential and server secret outside the repository and outside all
 The source code is available under the [MIT License](LICENSE). The downloadable
 starter Bot packages contain their own MIT license. Bot Cabinet's name, wordmark,
 brand assets, photography, generated artwork, and personal images are not included
-in that software license; see [ASSET-LICENSE.md](ASSET-LICENSE.md).
+in that software license. A narrow exception permits the selected Portrait Studio
+images to be used as AI Bot avatars; see [ASSET-LICENSE.md](ASSET-LICENSE.md).

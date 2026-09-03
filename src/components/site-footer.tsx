@@ -29,6 +29,7 @@ export function SiteFooter() {
           <Link href="/start">Start Here</Link>
           <Link href="/bots">The Cabinet</Link>
           <Link href="/workshop">Bot Lab</Link>
+          <Link href="/portraits">Portrait Studio</Link>
           <Link href="/use-cases">Bot Crews</Link>
           <Link href="/crew-kits">Crew Kits</Link>
           <Link href="/proof">Proof Room</Link>
