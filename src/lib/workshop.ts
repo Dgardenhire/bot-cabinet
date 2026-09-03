@@ -1,23 +1,19 @@
 import { blueprintToBotPassport, botPassportToMarkdown } from "./bot-passport";
+import { type WorkshopDraft } from "./workshop-contract";
+import {
+  cleanInline,
+  escapeMarkdown,
+  splitPlanningItems,
+} from "./text-format";
 
-export type WorkshopDraft = {
-  botName: string;
-  jobOutcome: string;
-  inputsContext: string;
-  outputsDeliverables: string;
-  cadenceTrigger: string;
-  toolsIntegrations: string;
-  approvalBoundaries: string;
-  firstRunTest: string;
-  audienceSuccess?: string;
-  accessSensitive?: string;
-  prohibitedUncertainty?: string;
-  continuityMemory?: string;
-  reviewCriteria?: string;
-  profileTitle?: string;
-  profileDescription?: string;
-  roleInstructions?: string;
-};
+export {
+  coerceWorkshopDraft,
+  EMPTY_WORKSHOP_DRAFT,
+  WORKSHOP_BACKUP_STORAGE_KEY,
+  WORKSHOP_STORAGE_KEY,
+  type WorkshopDraft,
+} from "./workshop-contract";
+export { cleanInline, escapeMarkdown, splitPlanningItems } from "./text-format";
 
 export type WorkshopFieldKey = Exclude<
   keyof WorkshopDraft,
@@ -79,27 +75,6 @@ export type BotBlueprint = {
   officialHermesSurface: string;
 };
 
-export const WORKSHOP_STORAGE_KEY = "hermes-registry.workshop-draft.v1";
-
-export const EMPTY_WORKSHOP_DRAFT: WorkshopDraft = {
-  botName: "",
-  jobOutcome: "",
-  inputsContext: "",
-  outputsDeliverables: "",
-  cadenceTrigger: "",
-  toolsIntegrations: "",
-  approvalBoundaries: "",
-  firstRunTest: "",
-  audienceSuccess: "",
-  accessSensitive: "",
-  prohibitedUncertainty: "",
-  continuityMemory: "",
-  reviewCriteria: "",
-  profileTitle: "",
-  profileDescription: "",
-  roleInstructions: "",
-};
-
 export const OFFICIAL_HERMES_SURFACE =
   "Hermes Bot Mode profiles use a Name, Title, and Description. Advanced settings include the AI model service, Custom SOUL.md role instructions, skills, tools, and MCP connections to outside services. Review every choice in Hermes Desktop.";
 
@@ -115,14 +90,6 @@ const FIELD_LABELS: Record<WorkshopFieldKey, string> = {
 };
 
 const DRAFT_KEYS = Object.keys(FIELD_LABELS) as WorkshopFieldKey[];
-
-const REFINEMENT_KEYS: WorkshopRefinementFieldKey[] = [
-  "audienceSuccess",
-  "accessSensitive",
-  "prohibitedUncertainty",
-  "continuityMemory",
-  "reviewCriteria",
-];
 
 type WorkshopSuggestionPattern = {
   name: string;
@@ -286,10 +253,6 @@ function cleanParagraph(value: string): string {
     .trim();
 }
 
-function cleanInline(value: string): string {
-  return value.replace(/\s+/g, " ").trim();
-}
-
 function truncate(value: string, maximum: number): string {
   if (value.length <= maximum) return value;
   const available = value.slice(0, Math.max(0, maximum - 1)).trimEnd();
@@ -302,46 +265,6 @@ function truncate(value: string, maximum: number): string {
     "",
   );
   return `${wholeWords.replace(/[,:;\-]+$/, "")}…`;
-}
-
-export function splitPlanningItems(value: string): string[] {
-  const seen = new Set<string>();
-
-  return value
-    .replace(/\r\n?/g, "\n")
-    .split(/\n+|;/)
-    .map((item) => item.replace(/^\s*(?:[-*•]|\d+[.)])\s+/, "").trim())
-    .filter(Boolean)
-    .filter((item) => {
-      const key = item.toLocaleLowerCase();
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-}
-
-export function coerceWorkshopDraft(value: unknown): WorkshopDraft | null {
-  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
-
-  const candidate = value as Record<string, unknown>;
-  const draft = { ...EMPTY_WORKSHOP_DRAFT };
-
-  for (const key of DRAFT_KEYS) {
-    if (typeof candidate[key] !== "string") return null;
-    draft[key] = candidate[key];
-  }
-
-  for (const key of REFINEMENT_KEYS) {
-    if (candidate[key] !== undefined && typeof candidate[key] !== "string") return null;
-    draft[key] = typeof candidate[key] === "string" ? candidate[key] : "";
-  }
-
-  for (const key of ["profileTitle", "profileDescription", "roleInstructions"] as const) {
-    if (candidate[key] !== undefined && typeof candidate[key] !== "string") return null;
-    draft[key] = typeof candidate[key] === "string" ? candidate[key] : "";
-  }
-
-  return draft;
 }
 
 export function buildBotBlueprint(draft: WorkshopDraft): BotBlueprint {
@@ -484,10 +407,6 @@ export function blueprintFirstMessage(blueprint: BotBlueprint): string {
     approvalReminder,
     "Use only the material and access I provide for this test. Return the result for review with confirmed sources, assumptions, missing information, and open questions.",
   ].join("\n\n");
-}
-
-function escapeMarkdown(value: string): string {
-  return value.replace(/([\\`*_[\]<>#+!|])/g, "\\$1");
 }
 
 function markdownList(items: string[]): string {

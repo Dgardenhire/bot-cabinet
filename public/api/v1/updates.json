@@ -1,0 +1,443 @@
+{
+  "schemaVersion": 1,
+  "feedVersion": "1.0.0",
+  "releasedAt": "2026-09-02T00:00:00.000Z",
+  "catalogVersion": "1.0.0",
+  "revision": "58bab8c0b75089a57361ce425e15d35e894fd6943d439a2920a0dff6fe33eb0f",
+  "source": "https://botcabinet.com/api/v1/bots.json",
+  "count": 16,
+  "entries": [
+    {
+      "id": "bot:scout@1.0.0",
+      "kind": "bot",
+      "slug": "scout",
+      "version": "1.0.0",
+      "name": "Scout",
+      "title": "Topic and opportunity finder",
+      "category": "research",
+      "summary": "Finds timely topics, useful developments, and promising opportunities in the areas you choose.",
+      "audience": "People who want a steady list of relevant ideas without searching the web all day.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/scout/",
+        "customize": "https://botcabinet.com/workshop/?starter=scout"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/scout.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/scout.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/scout.md"
+        }
+      }
+    },
+    {
+      "id": "bot:researcher@1.0.0",
+      "kind": "bot",
+      "slug": "researcher",
+      "version": "1.0.0",
+      "name": "Researcher",
+      "title": "Source-based research assistant",
+      "category": "research",
+      "summary": "Answers a defined question with a concise brief, source links, and clearly marked gaps.",
+      "audience": "People who need a useful first research pass before they make a decision or draft public material.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/researcher/",
+        "customize": "https://botcabinet.com/workshop/?starter=researcher"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/researcher.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/researcher.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/researcher.md"
+        }
+      }
+    },
+    {
+      "id": "bot:writer@1.0.0",
+      "kind": "bot",
+      "slug": "writer",
+      "version": "1.0.0",
+      "name": "Writer",
+      "title": "First-draft writing assistant",
+      "category": "writing",
+      "summary": "Turns an approved brief, notes, or source material into a clear first draft for a named audience.",
+      "audience": "People who know what they want to say and need help producing a usable first draft.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/writer/",
+        "customize": "https://botcabinet.com/workshop/?starter=writer"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/writer.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/writer.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/writer.md"
+        }
+      }
+    },
+    {
+      "id": "bot:editor@1.0.0",
+      "kind": "bot",
+      "slug": "editor",
+      "version": "1.0.0",
+      "name": "Editor",
+      "title": "Plain-language editor",
+      "category": "writing",
+      "summary": "Revises a draft for clarity, structure, accuracy, and the writer's intended voice.",
+      "audience": "People who have a draft and want a careful second pass before they publish or send it.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/editor/",
+        "customize": "https://botcabinet.com/workshop/?starter=editor"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/editor.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/editor.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/editor.md"
+        }
+      }
+    },
+    {
+      "id": "bot:planner@1.0.0",
+      "kind": "bot",
+      "slug": "planner",
+      "version": "1.0.0",
+      "name": "Planner",
+      "title": "Project planning assistant",
+      "category": "planning",
+      "summary": "Turns a goal into a practical plan with steps, owners, dependencies, dates, and decision points.",
+      "audience": "People who need to organize a project before work begins or recover a project that has lost direction.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/planner/",
+        "customize": "https://botcabinet.com/workshop/?starter=planner"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/planner.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/planner.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/planner.md"
+        }
+      }
+    },
+    {
+      "id": "bot:client@1.0.0",
+      "kind": "bot",
+      "slug": "client",
+      "version": "1.0.0",
+      "name": "Client Deliverables",
+      "title": "Client deliverable assistant",
+      "category": "planning",
+      "summary": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+      "audience": "Consultants, small firms, and internal teams that produce recurring client-facing documents.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/client/",
+        "customize": "https://botcabinet.com/workshop/?starter=client"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/client.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/client.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/client.md"
+        }
+      }
+    },
+    {
+      "id": "bot:coder@1.0.0",
+      "kind": "bot",
+      "slug": "coder",
+      "version": "1.0.0",
+      "name": "Coder",
+      "title": "Software building assistant",
+      "category": "technical",
+      "summary": "Builds a defined software change, runs the available checks, and reports what changed and what still needs review.",
+      "audience": "People who can describe a software outcome and provide a working branch or disposable project copy for the change.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/coder/",
+        "customize": "https://botcabinet.com/workshop/?starter=coder"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/coder.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/coder.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/coder.md"
+        }
+      }
+    },
+    {
+      "id": "bot:ops@1.0.0",
+      "kind": "bot",
+      "slug": "ops",
+      "version": "1.0.0",
+      "name": "Ops",
+      "title": "Operations monitoring assistant",
+      "category": "technical",
+      "summary": "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.",
+      "audience": "People who manage recurring automated work and need a consistent status report.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/ops/",
+        "customize": "https://botcabinet.com/workshop/?starter=ops"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/ops.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/ops.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/ops.md"
+        }
+      }
+    },
+    {
+      "id": "bot:professor@1.0.0",
+      "kind": "bot",
+      "slug": "professor",
+      "version": "1.0.0",
+      "name": "Professor",
+      "title": "Learning and study assistant",
+      "category": "learning",
+      "summary": "Builds a realistic learning plan, explains difficult material, and creates practice questions.",
+      "audience": "People learning a subject, preparing for a certification, or organizing professional development.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/professor/",
+        "customize": "https://botcabinet.com/workshop/?starter=professor"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/professor.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/professor.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/professor.md"
+        }
+      }
+    },
+    {
+      "id": "bot:architect@1.0.0",
+      "kind": "bot",
+      "slug": "architect",
+      "version": "1.0.0",
+      "name": "ARCHITECT",
+      "title": "CTO and technology strategy assistant",
+      "category": "technical",
+      "summary": "Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
+      "audience": "Founders and small teams that need senior technical judgment before building, buying, or rebuilding software.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/architect/",
+        "customize": "https://botcabinet.com/workshop/?starter=architect"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/architect.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/architect.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/architect.md"
+        }
+      }
+    },
+    {
+      "id": "bot:founding-engineer@1.0.0",
+      "kind": "bot",
+      "slug": "founding-engineer",
+      "version": "1.0.0",
+      "name": "Founding Engineer",
+      "title": "Early product and prototyping assistant",
+      "category": "technical",
+      "summary": "Turns a defined user problem into the smallest working product version that can be demonstrated and tested.",
+      "audience": "Founders and small teams that have a defined user problem and need a narrow prototype or early product change built.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/founding-engineer/",
+        "customize": "https://botcabinet.com/workshop/?starter=founding-engineer"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/founding-engineer.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/founding-engineer.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/founding-engineer.md"
+        }
+      }
+    },
+    {
+      "id": "bot:chief-of-staff@1.0.0",
+      "kind": "bot",
+      "slug": "chief-of-staff",
+      "version": "1.0.0",
+      "name": "Chief of Staff",
+      "title": "Executive priority and coordination assistant",
+      "category": "planning",
+      "summary": "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+      "audience": "Leaders and small teams that need clearer priorities and coordination without adding another meeting.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/chief-of-staff/",
+        "customize": "https://botcabinet.com/workshop/?starter=chief-of-staff"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/chief-of-staff.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/chief-of-staff.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/chief-of-staff.md"
+        }
+      }
+    },
+    {
+      "id": "bot:coach@1.0.0",
+      "kind": "bot",
+      "slug": "coach",
+      "version": "1.0.0",
+      "name": "COACH",
+      "title": "Life and career planning assistant",
+      "category": "planning",
+      "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
+      "audience": "People considering a transition or trying to turn a broad direction into practical next steps.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/coach/",
+        "customize": "https://botcabinet.com/workshop/?starter=coach"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/coach.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/coach.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/coach.md"
+        }
+      }
+    },
+    {
+      "id": "bot:nova@1.0.0",
+      "kind": "bot",
+      "slug": "nova",
+      "version": "1.0.0",
+      "name": "NOVA",
+      "title": "New venture testing assistant",
+      "category": "planning",
+      "summary": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
+      "audience": "Founders and teams deciding whether a new product, service, or business line deserves further investment.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/nova/",
+        "customize": "https://botcabinet.com/workshop/?starter=nova"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/nova.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/nova.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/nova.md"
+        }
+      }
+    },
+    {
+      "id": "bot:pulse@1.0.0",
+      "kind": "bot",
+      "slug": "pulse",
+      "version": "1.0.0",
+      "name": "PULSE",
+      "title": "Growth management assistant",
+      "category": "planning",
+      "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
+      "audience": "Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/pulse/",
+        "customize": "https://botcabinet.com/workshop/?starter=pulse"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/pulse.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/pulse.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/pulse.md"
+        }
+      }
+    },
+    {
+      "id": "bot:story@1.0.0",
+      "kind": "bot",
+      "slug": "story",
+      "version": "1.0.0",
+      "name": "STORY",
+      "title": "Chief narrative officer",
+      "category": "writing",
+      "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
+      "audience": "Leaders and teams whose public materials need one clear story without flattening factual distinctions or inventing proof.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/story/",
+        "customize": "https://botcabinet.com/workshop/?starter=story"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "profile": "https://botcabinet.com/downloads/starter-bots/story.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/story.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/story.md"
+        }
+      }
+    }
+  ]
+}

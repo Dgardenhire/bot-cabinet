@@ -91,7 +91,12 @@ const cabinetRevealBootstrap = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${dmSans.variable} ${dmSerif.variable} ${spaceMono.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+      className={`${dmSans.variable} ${dmSerif.variable} ${spaceMono.variable}`}
+    >
       <body>
         <Script id="theme-bootstrap" strategy="beforeInteractive">
           {themeBootstrap}

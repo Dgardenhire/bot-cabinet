@@ -14,6 +14,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
+    "/fit",
     "/start",
     "/bots",
     "/workshop",
@@ -40,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}/`.replace(`${baseUrl}//`, `${baseUrl}/`),
-    lastModified: new Date("2026-08-29"),
+    lastModified: new Date("2026-09-02"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.split("/").filter(Boolean).length === 1 ? 0.8 : 0.6,
   }));

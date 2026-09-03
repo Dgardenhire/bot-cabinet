@@ -18,6 +18,7 @@ import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "rea
 
 import {
   EMPTY_WORKSHOP_DRAFT,
+  WORKSHOP_BACKUP_STORAGE_KEY,
   WORKSHOP_STORAGE_KEY,
   applyWorkshopStarterSuggestions,
   blueprintFileName,
@@ -52,8 +53,7 @@ import {
   buildHermesProfileArchive,
   hermesProfileArchiveFileName,
 } from "@/lib/hermes-profile";
-
-const WORKSHOP_BACKUP_STORAGE_KEY = `${WORKSHOP_STORAGE_KEY}:previous`;
+import { downloadBlob } from "@/lib/browser-download";
 
 type FieldDefinition = {
   key: WorkshopFieldKey;
@@ -242,21 +242,6 @@ function copyTextFallback(value: string): boolean {
   }
 }
 
-function downloadBlob(blob: Blob, fileName: string, openInNewTab = false) {
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = fileName;
-  if (openInNewTab) {
-    anchor.target = "_blank";
-    anchor.rel = "noopener";
-  }
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
 export function WorkshopBuilder() {
   const [draft, setDraftState] = useState<WorkshopDraft>({
     ...EMPTY_WORKSHOP_DRAFT,
@@ -299,28 +284,43 @@ export function WorkshopBuilder() {
         const starter = starterSlug ? getStarterBot(starterSlug) : undefined;
         const stored = window.localStorage.getItem(WORKSHOP_STORAGE_KEY);
         if (starter) {
+          let openStarter = true;
           if (stored) {
             const previousDraft = coerceWorkshopDraft(JSON.parse(stored));
-            if (
-              previousDraft &&
-              Object.values(previousDraft).some((value) => value.trim())
-            ) {
-              window.localStorage.setItem(
+            if (previousDraft && hasWorkshopDraftContent(previousDraft)) {
+              const existingBackupValue = window.localStorage.getItem(
                 WORKSHOP_BACKUP_STORAGE_KEY,
-                JSON.stringify(previousDraft),
               );
-              setPreviousDraftAvailable(true);
-              setAssistantMessage(
-                "The starter is open. Your previous Bot Lab draft is preserved and can be restored below.",
-              );
+              const existingBackup = existingBackupValue
+                ? coerceWorkshopDraft(JSON.parse(existingBackupValue))
+                : null;
+              if (existingBackup && hasWorkshopDraftContent(existingBackup)) {
+                openStarter = false;
+                setDraft(previousDraft);
+                setPreviousDraftAvailable(true);
+                setAssistantMessage(
+                  "Bot Lab did not open the starter because this browser already has a preserved draft. Restore or download that work first.",
+                );
+              } else {
+                window.localStorage.setItem(
+                  WORKSHOP_BACKUP_STORAGE_KEY,
+                  JSON.stringify(previousDraft),
+                );
+                setPreviousDraftAvailable(true);
+                setAssistantMessage(
+                  "The starter is open. Your previous Bot Lab draft is preserved and can be restored below.",
+                );
+              }
             }
           }
-          setDraft({
-            ...starter.workshopDraft,
-            profileTitle: "",
-            profileDescription: "",
-            roleInstructions: "",
-          });
+          if (openStarter) {
+            setDraft({
+              ...starter.workshopDraft,
+              profileTitle: "",
+              profileDescription: "",
+              roleInstructions: "",
+            });
+          }
           const nextUrl = new URL(window.location.href);
           nextUrl.searchParams.delete("starter");
           window.history.replaceState({}, "", `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
@@ -411,6 +411,28 @@ export function WorkshopBuilder() {
 
     const currentDraft = draftRef.current;
     const replacingDraft = hasWorkshopDraftContent(currentDraft);
+    if (replacingDraft) {
+      try {
+        const storedBackup = window.localStorage.getItem(
+          WORKSHOP_BACKUP_STORAGE_KEY,
+        );
+        const backupDraft = storedBackup
+          ? coerceWorkshopDraft(JSON.parse(storedBackup))
+          : null;
+        if (backupDraft && hasWorkshopDraftContent(backupDraft)) {
+          setPreviousDraftAvailable(true);
+          setAssistantMessage(
+            "Bot Lab already has a preserved draft. Restore or download that work before replacing the current draft with a new starting point.",
+          );
+          return;
+        }
+      } catch {
+        setAssistantMessage(
+          "This browser could not check the preserved draft, so Bot Lab did not replace the current draft.",
+        );
+        return;
+      }
+    }
     if (
       replacingDraft &&
       !window.confirm(

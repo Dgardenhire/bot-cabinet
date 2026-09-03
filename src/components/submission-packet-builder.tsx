@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+
+import { downloadMarkdown } from "@/lib/browser-download";
 import { Check, Copy, DownloadSimple, FileText } from "@phosphor-icons/react";
 
 type FormState = {
@@ -107,13 +109,7 @@ export function SubmissionPacketBuilder() {
   }
 
   function downloadPacket() {
-    const blob = new Blob([packet], { type: "text/markdown;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "bot-cabinet-submission.md";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadMarkdown(packet, "bot-cabinet-submission.md");
     setStatus("Markdown downloaded. Nothing was submitted.");
   }
 

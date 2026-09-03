@@ -4,8 +4,19 @@ import sharp from "sharp";
 
 const root = process.cwd();
 const wordmark = path.join(root, "public", "brand", "bot-cabinet-wordmark-dark-v1.png");
+const WORDMARK_BACKGROUND_THRESHOLD = 42;
+const WORDMARK_ALPHA_SCALE = 4;
 
 const cards = [
+  {
+    output: "bot-fit-test-1200x630.jpg",
+    source: path.join(root, "public", "atelier", "orrery.jpg"),
+    sourcePosition: "right",
+    eyebrow: "BOT FIT TEST / CHOOSE BEFORE YOU BUILD",
+    title: ["Should this work be", "a Bot?"],
+    description: "Choose an Assignment, Skill, Routine, Bot, or Crew",
+    url: "botcabinet.com/fit",
+  },
   {
     output: "first-bot-1200x630.jpg",
     source: path.join(root, "public", "atelier", "scout.jpg"),
@@ -42,9 +53,60 @@ const cards = [
 const outputDirectory = path.join(root, "public", "brand", "social");
 await mkdir(outputDirectory, { recursive: true });
 
-const wordmarkBuffer = await sharp(wordmark).resize({ width: 310 }).png().toBuffer();
+const { data: wordmarkPixels, info: wordmarkInfo } = await sharp(wordmark)
+  .resize({ width: 310 })
+  .removeAlpha()
+  .raw()
+  .toBuffer({ resolveWithObject: true });
 
-for (const card of cards) {
+function makeDarkBackgroundTransparent(pixels, info) {
+  if (info.channels !== 3) {
+    throw new Error(`Expected a three-channel wordmark image; received ${info.channels}.`);
+  }
+
+  const result = Buffer.alloc(info.width * info.height * 4);
+  for (
+    let sourceIndex = 0, outputIndex = 0;
+    sourceIndex < pixels.length;
+    sourceIndex += info.channels, outputIndex += 4
+  ) {
+    const red = pixels[sourceIndex];
+    const green = pixels[sourceIndex + 1];
+    const blue = pixels[sourceIndex + 2];
+    const brightness = Math.max(red, green, blue);
+
+    result[outputIndex] = red;
+    result[outputIndex + 1] = green;
+    result[outputIndex + 2] = blue;
+    result[outputIndex + 3] = Math.max(
+      0,
+      Math.min(
+        255,
+        Math.round(
+          (brightness - WORDMARK_BACKGROUND_THRESHOLD) * WORDMARK_ALPHA_SCALE,
+        ),
+      ),
+    );
+  }
+  return result;
+}
+
+const transparentWordmarkPixels = makeDarkBackgroundTransparent(
+  wordmarkPixels,
+  wordmarkInfo,
+);
+
+const wordmarkBuffer = await sharp(transparentWordmarkPixels, {
+  raw: {
+    width: wordmarkInfo.width,
+    height: wordmarkInfo.height,
+    channels: 4,
+  },
+})
+  .png()
+  .toBuffer();
+
+async function renderCard(card) {
   let source = sharp(card.source);
   if (card.crop) source = source.extract(card.crop);
   if (card.flop) source = source.flop();
@@ -86,5 +148,8 @@ for (const card of cards) {
     .jpeg({ quality: 94, chromaSubsampling: "4:4:4" })
     .toFile(output);
 
-  process.stdout.write(`${output}\n`);
+  return output;
 }
+
+const outputs = await Promise.all(cards.map(renderCard));
+for (const output of outputs) process.stdout.write(`${output}\n`);

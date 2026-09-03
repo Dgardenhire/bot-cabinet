@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bot Cabinet catalog</title>
+    <link>https://botcabinet.com/bots/</link>
+    <description>Current public Bot Cabinet profiles and their plain-language job descriptions.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://botcabinet.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scout — Topic and opportunity finder</title>
+      <link>https://botcabinet.com/bots/scout/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:scout:1.0.0</guid>
+      <description>Finds timely topics, useful developments, and promising opportunities in the areas you choose.</description>
+      <category>research</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Researcher — Source-based research assistant</title>
+      <link>https://botcabinet.com/bots/researcher/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:researcher:1.0.0</guid>
+      <description>Answers a defined question with a concise brief, source links, and clearly marked gaps.</description>
+      <category>research</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Writer — First-draft writing assistant</title>
+      <link>https://botcabinet.com/bots/writer/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:writer:1.0.0</guid>
+      <description>Turns an approved brief, notes, or source material into a clear first draft for a named audience.</description>
+      <category>writing</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Editor — Plain-language editor</title>
+      <link>https://botcabinet.com/bots/editor/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:editor:1.0.0</guid>
+      <description>Revises a draft for clarity, structure, accuracy, and the writer&apos;s intended voice.</description>
+      <category>writing</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Planner — Project planning assistant</title>
+      <link>https://botcabinet.com/bots/planner/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:planner:1.0.0</guid>
+      <description>Turns a goal into a practical plan with steps, owners, dependencies, dates, and decision points.</description>
+      <category>planning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Client Deliverables — Client deliverable assistant</title>
+      <link>https://botcabinet.com/bots/client/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:client:1.0.0</guid>
+      <description>Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.</description>
+      <category>planning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Coder — Software building assistant</title>
+      <link>https://botcabinet.com/bots/coder/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:coder:1.0.0</guid>
+      <description>Builds a defined software change, runs the available checks, and reports what changed and what still needs review.</description>
+      <category>technical</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ops — Operations monitoring assistant</title>
+      <link>https://botcabinet.com/bots/ops/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:ops:1.0.0</guid>
+      <description>Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.</description>
+      <category>technical</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Professor — Learning and study assistant</title>
+      <link>https://botcabinet.com/bots/professor/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:professor:1.0.0</guid>
+      <description>Builds a realistic learning plan, explains difficult material, and creates practice questions.</description>
+      <category>learning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ARCHITECT — CTO and technology strategy assistant</title>
+      <link>https://botcabinet.com/bots/architect/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:architect:1.0.0</guid>
+      <description>Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.</description>
+      <category>technical</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Founding Engineer — Early product and prototyping assistant</title>
+      <link>https://botcabinet.com/bots/founding-engineer/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:founding-engineer:1.0.0</guid>
+      <description>Turns a defined user problem into the smallest working product version that can be demonstrated and tested.</description>
+      <category>technical</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chief of Staff — Executive priority and coordination assistant</title>
+      <link>https://botcabinet.com/bots/chief-of-staff/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:chief-of-staff:1.0.0</guid>
+      <description>Keeps a leader&apos;s confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.</description>
+      <category>planning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>COACH — Life and career planning assistant</title>
+      <link>https://botcabinet.com/bots/coach/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:coach:1.0.0</guid>
+      <description>Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.</description>
+      <category>planning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>NOVA — New venture testing assistant</title>
+      <link>https://botcabinet.com/bots/nova/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:nova:1.0.0</guid>
+      <description>Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.</description>
+      <category>planning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PULSE — Growth management assistant</title>
+      <link>https://botcabinet.com/bots/pulse/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:pulse:1.0.0</guid>
+      <description>Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.</description>
+      <category>planning</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>STORY — Chief narrative officer</title>
+      <link>https://botcabinet.com/bots/story/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:story:1.0.0</guid>
+      <description>Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.</description>
+      <category>writing</category>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

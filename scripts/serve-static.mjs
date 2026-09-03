@@ -1,16 +1,9 @@
 import { access, readFile, stat } from "node:fs/promises";
 import { createServer } from "node:http";
-import { extname, resolve, sep } from "node:path";
+import { basename, extname, resolve, sep } from "node:path";
+import { pathToFileURL } from "node:url";
 
-const outputDirectory = resolve(process.cwd(), "out");
-const host = process.env.HOST?.trim() || "127.0.0.1";
-const parsedPort = Number(process.env.PORT || 3000);
-const port =
-  Number.isInteger(parsedPort) && parsedPort >= 1 && parsedPort <= 65_535
-    ? parsedPort
-    : 3000;
-
-const contentTypes = new Map([
+export const CONTENT_TYPES = new Map([
   [".avif", "image/avif"],
   [".css", "text/css; charset=utf-8"],
   [".gif", "image/gif"],
@@ -29,9 +22,20 @@ const contentTypes = new Map([
   [".webp", "image/webp"],
   [".woff", "font/woff"],
   [".woff2", "font/woff2"],
+  [".xml", "application/xml; charset=utf-8"],
 ]);
 
-function safeOutputPath(pathname) {
+export function contentTypeFor(filePath) {
+  if (basename(filePath).toLowerCase() === "feed.xml") {
+    return "application/rss+xml; charset=utf-8";
+  }
+  return (
+    CONTENT_TYPES.get(extname(filePath).toLowerCase()) ??
+    "application/octet-stream"
+  );
+}
+
+function safeOutputPath(outputDirectory, pathname) {
   let decoded;
   try {
     decoded = decodeURIComponent(pathname);
@@ -50,8 +54,8 @@ function safeOutputPath(pathname) {
   return candidate;
 }
 
-async function findFile(pathname) {
-  const candidate = safeOutputPath(pathname);
+async function findFile(outputDirectory, pathname) {
+  const candidate = safeOutputPath(outputDirectory, pathname);
   if (!candidate) return null;
 
   const choices = pathname.endsWith("/")
@@ -73,54 +77,71 @@ async function sendFile(response, filePath, method, status = 200) {
   response.writeHead(status, {
     "Cache-Control": "no-cache",
     "Content-Length": body.byteLength,
-    "Content-Type":
-      contentTypes.get(extname(filePath).toLowerCase()) ??
-      "application/octet-stream",
+    "Content-Type": contentTypeFor(filePath),
     "X-Content-Type-Options": "nosniff",
   });
   response.end(method === "HEAD" ? undefined : body);
 }
 
-await access(outputDirectory).catch(() => {
-  throw new Error(
-    "Static export not found at " + outputDirectory +
-      ". Run npm run build first.",
-  );
-});
-
-const server = createServer(async (request, response) => {
-  const method = request.method ?? "GET";
-  if (method !== "GET" && method !== "HEAD") {
-    response.writeHead(405, {
-      Allow: "GET, HEAD",
-      "Content-Type": "text/plain; charset=utf-8",
-    });
-    response.end("Method not allowed.");
-    return;
-  }
-
-  try {
-    const pathname = new URL(request.url ?? "/", "http://localhost").pathname;
-
-    const filePath = await findFile(pathname);
-    if (filePath) {
-      await sendFile(response, filePath, method);
+export function createStaticServer(outputDirectory = resolve(process.cwd(), "out")) {
+  return createServer(async (request, response) => {
+    const method = request.method ?? "GET";
+    if (method !== "GET" && method !== "HEAD") {
+      response.writeHead(405, {
+        Allow: "GET, HEAD",
+        "Content-Type": "text/plain; charset=utf-8",
+      });
+      response.end("Method not allowed.");
       return;
     }
 
-    const notFoundPath = resolve(outputDirectory, "404.html");
     try {
-      await sendFile(response, notFoundPath, method, 404);
-    } catch {
-      response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
-      response.end(method === "HEAD" ? undefined : "Not found.");
-    }
-  } catch {
-    response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
-    response.end(method === "HEAD" ? undefined : "Preview server error.");
-  }
-});
+      const pathname = new URL(request.url ?? "/", "http://localhost").pathname;
 
-server.listen(port, host, () => {
-  console.log("Bot Cabinet static preview: http://" + host + ":" + port);
-});
+      const filePath = await findFile(outputDirectory, pathname);
+      if (filePath) {
+        await sendFile(response, filePath, method);
+        return;
+      }
+
+      const notFoundPath = resolve(outputDirectory, "404.html");
+      try {
+        await sendFile(response, notFoundPath, method, 404);
+      } catch {
+        response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+        response.end(method === "HEAD" ? undefined : "Not found.");
+      }
+    } catch {
+      response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+      response.end(method === "HEAD" ? undefined : "Preview server error.");
+    }
+  });
+}
+
+export async function startStaticServer({
+  outputDirectory = resolve(process.cwd(), "out"),
+  host = process.env.HOST?.trim() || "127.0.0.1",
+  port = Number(process.env.PORT || 3000),
+} = {}) {
+  await access(outputDirectory).catch(() => {
+    throw new Error(
+      "Static export not found at " + outputDirectory +
+        ". Run npm run build first.",
+    );
+  });
+
+  const safePort =
+    Number.isInteger(port) && port >= 1 && port <= 65_535 ? port : 3000;
+  const server = createStaticServer(outputDirectory);
+  server.listen(safePort, host, () => {
+    console.log("Bot Cabinet static preview: http://" + host + ":" + safePort);
+  });
+  return server;
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  startStaticServer().catch((error) => {
+    process.stderr.write(`Unable to start static preview: ${String(error)}\n`);
+    process.exitCode = 1;
+  });
+}

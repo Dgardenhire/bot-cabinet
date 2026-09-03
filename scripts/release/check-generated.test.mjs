@@ -13,10 +13,14 @@ const execFile = promisify(execFileCallback);
 test("generated drift check catches tracked and untracked output only", async () => {
   const root = await mkdtemp(path.join(tmpdir(), "bot-cabinet-generated-check-"));
   const generated = path.join(root, "public/api/v1/bots.json");
+  const feed = path.join(root, "public/feed.xml");
+  const llms = path.join(root, "public/llms.txt");
   const unrelated = path.join(root, "notes.md");
 
   await mkdir(path.dirname(generated), { recursive: true });
   await writeFile(generated, "{}\n", "utf8");
+  await writeFile(feed, "<rss />\n", "utf8");
+  await writeFile(llms, "# Fixture\n", "utf8");
   await writeFile(unrelated, "initial\n", "utf8");
   await execFile("git", ["init", "-q"], { cwd: root });
   await execFile("git", ["config", "user.email", "test@example.com"], {
@@ -44,6 +48,15 @@ test("generated drift check catches tracked and untracked output only", async ()
   );
   assert.deepEqual(await listGeneratedChanges(root), [
     "M public/api/v1/bots.json",
+    "?? public/downloads/starter-bots/new.txt",
+  ]);
+
+  await writeFile(feed, "<rss version=\"2.0\" />\n", "utf8");
+  await writeFile(llms, "# Updated fixture\n", "utf8");
+  assert.deepEqual(await listGeneratedChanges(root), [
+    "M public/api/v1/bots.json",
+    "M public/feed.xml",
+    "M public/llms.txt",
     "?? public/downloads/starter-bots/new.txt",
   ]);
 });

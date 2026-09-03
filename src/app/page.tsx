@@ -132,6 +132,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-fit-section shell" aria-labelledby="home-fit-title">
+        <div className="home-fit-copy">
+          <Eyebrow>Bot Fit Test</Eyebrow>
+          <h2 id="home-fit-title" className="section-heading">
+            Find the simplest setup that can do the job
+          </h2>
+          <p className="section-deck">
+            Describe the work and answer a few short questions. Bot Cabinet will tell
+            you whether to use a one-time Assignment, reusable Skill, scheduled Routine,
+            continuing Bot, or coordinated Crew.
+          </p>
+          <Link
+            href="/fit/"
+            className="button button-primary"
+            data-funnel-event="homepage_bot_fit_test"
+            data-funnel-surface="homepage"
+          >
+            Take the Bot Fit Test <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+        <div className="home-fit-scale" aria-label="Five possible work formats">
+          {[
+            ["01", "Assignment", "One result"],
+            ["02", "Skill", "Reusable method"],
+            ["03", "Routine", "Runs on a trigger"],
+            ["04", "Bot", "Keeps the job and context"],
+            ["05", "Crew", "Specialists with handoffs"],
+          ].map(([number, label, note]) => (
+            <div key={label}>
+              <span>{number}</span>
+              <strong>{label}</strong>
+              <small>{note}</small>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="home-section bot-proof-section shell" id="bot-in-action" aria-labelledby="bot-proof-title">
         <div className="bot-proof-heading">
           <div>

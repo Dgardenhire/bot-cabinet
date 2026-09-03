@@ -4,7 +4,7 @@ import { ArrowUpRight, List, X } from "@phosphor-icons/react/dist/ssr";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV_ITEMS = [
-  ["Start Here", "/start"],
+  ["Fit Test", "/fit"],
   ["The Cabinet", "/bots"],
   ["Bot Lab", "/workshop"],
   ["Bot Crews", "/use-cases"],

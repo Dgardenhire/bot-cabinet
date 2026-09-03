@@ -1,0 +1,741 @@
+{
+  "schemaVersion": 1,
+  "name": "Bot Cabinet Bot Fit Test",
+  "page": "https://botcabinet.com/fit/",
+  "purpose": "Choose the smallest useful form for work: Assignment, Skill, Routine, Bot, or Crew.",
+  "interfaces": {
+    "web": {
+      "url": "https://botcabinet.com/fit/",
+      "processing": "Runs in the visitor's browser without an AI service."
+    },
+    "repositoryCli": {
+      "command": "npm run fit:bot -- ./bot-fit-input.json",
+      "stdin": "cat bot-fit-input.json | npm run fit:bot",
+      "output": "JSON containing the normalized input, full recommendation, Markdown plan, and Bot Lab workshopDraft when the result is a Bot."
+    }
+  },
+  "resultKinds": [
+    "assignment",
+    "skill",
+    "routine",
+    "bot",
+    "crew"
+  ],
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://botcabinet.com/schemas/bot-fit-test-input-v1.json",
+    "title": "Bot Cabinet Bot Fit Test input",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "result"
+    ],
+    "properties": {
+      "result": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000,
+        "pattern": "\\S",
+        "description": "The concrete finished result the person needs."
+      },
+      "frequency": {
+        "type": "string",
+        "enum": [
+          "once",
+          "repeat",
+          "scheduled"
+        ],
+        "default": "once"
+      },
+      "needsContinuingContext": {
+        "type": "boolean",
+        "default": false
+      },
+      "needsMultipleSpecialists": {
+        "type": "boolean",
+        "default": false
+      },
+      "workProvenManually": {
+        "type": "boolean",
+        "default": false
+      },
+      "overlapsExistingRole": {
+        "type": "string",
+        "enum": [
+          "yes",
+          "no",
+          "unsure"
+        ],
+        "default": "unsure"
+      },
+      "access": {
+        "type": "string",
+        "maxLength": 4000,
+        "default": ""
+      },
+      "approvals": {
+        "type": "string",
+        "maxLength": 4000,
+        "default": ""
+      },
+      "trigger": {
+        "type": "string",
+        "maxLength": 1000,
+        "default": ""
+      },
+      "failurePlan": {
+        "type": "string",
+        "maxLength": 1000,
+        "default": ""
+      },
+      "costLimit": {
+        "type": "string",
+        "maxLength": 1000,
+        "default": ""
+      },
+      "shutdown": {
+        "type": "string",
+        "maxLength": 1000,
+        "default": ""
+      },
+      "override": {
+        "type": "string",
+        "enum": [
+          "auto",
+          "assignment",
+          "skill",
+          "routine",
+          "bot",
+          "crew"
+        ],
+        "default": "auto"
+      }
+    }
+  },
+  "outputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://botcabinet.com/schemas/bot-fit-test-output-v1.json",
+    "title": "Bot Cabinet Bot Fit Test output",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schemaVersion",
+      "input",
+      "recommendation",
+      "artifact"
+    ],
+    "properties": {
+      "schemaVersion": {
+        "const": 1
+      },
+      "input": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "result",
+          "frequency",
+          "needsContinuingContext",
+          "needsMultipleSpecialists",
+          "workProvenManually",
+          "overlapsExistingRole",
+          "access",
+          "approvals",
+          "trigger",
+          "failurePlan",
+          "costLimit",
+          "shutdown",
+          "override"
+        ],
+        "properties": {
+          "result": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S",
+            "description": "The concrete finished result the person needs."
+          },
+          "frequency": {
+            "type": "string",
+            "enum": [
+              "once",
+              "repeat",
+              "scheduled"
+            ],
+            "default": "once"
+          },
+          "needsContinuingContext": {
+            "type": "boolean",
+            "default": false
+          },
+          "needsMultipleSpecialists": {
+            "type": "boolean",
+            "default": false
+          },
+          "workProvenManually": {
+            "type": "boolean",
+            "default": false
+          },
+          "overlapsExistingRole": {
+            "type": "string",
+            "enum": [
+              "yes",
+              "no",
+              "unsure"
+            ],
+            "default": "unsure"
+          },
+          "access": {
+            "type": "string",
+            "maxLength": 4000,
+            "default": ""
+          },
+          "approvals": {
+            "type": "string",
+            "maxLength": 4000,
+            "default": ""
+          },
+          "trigger": {
+            "type": "string",
+            "maxLength": 1000,
+            "default": ""
+          },
+          "failurePlan": {
+            "type": "string",
+            "maxLength": 1000,
+            "default": ""
+          },
+          "costLimit": {
+            "type": "string",
+            "maxLength": 1000,
+            "default": ""
+          },
+          "shutdown": {
+            "type": "string",
+            "maxLength": 1000,
+            "default": ""
+          },
+          "override": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "assignment",
+              "skill",
+              "routine",
+              "bot",
+              "crew"
+            ],
+            "default": "auto"
+          }
+        }
+      },
+      "recommendation": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "label",
+              "summary",
+              "why",
+              "owns",
+              "excludes",
+              "access",
+              "approvals",
+              "firstTest",
+              "doneCheck",
+              "nextAction"
+            ],
+            "properties": {
+              "kind": {
+                "const": "assignment"
+              },
+              "label": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "owns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "excludes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "access": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "approvals": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "firstTest": {
+                "type": "string"
+              },
+              "doneCheck": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nextAction": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "label",
+              "summary",
+              "why",
+              "owns",
+              "excludes",
+              "access",
+              "approvals",
+              "firstTest",
+              "doneCheck",
+              "nextAction"
+            ],
+            "properties": {
+              "kind": {
+                "const": "skill"
+              },
+              "label": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "owns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "excludes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "access": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "approvals": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "firstTest": {
+                "type": "string"
+              },
+              "doneCheck": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nextAction": {
+                "type": "string"
+              },
+              "graduation": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "label",
+              "summary",
+              "why",
+              "owns",
+              "excludes",
+              "access",
+              "approvals",
+              "firstTest",
+              "doneCheck",
+              "nextAction",
+              "operatingControls",
+              "routineControls"
+            ],
+            "properties": {
+              "kind": {
+                "const": "routine"
+              },
+              "label": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "owns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "excludes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "access": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "approvals": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "firstTest": {
+                "type": "string"
+              },
+              "doneCheck": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nextAction": {
+                "type": "string"
+              },
+              "operatingControls": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "trigger",
+                  "failureResponse",
+                  "costLimit",
+                  "shutdownMethod"
+                ],
+                "properties": {
+                  "trigger": {
+                    "type": "string"
+                  },
+                  "failureResponse": {
+                    "type": "string"
+                  },
+                  "costLimit": {
+                    "type": "string"
+                  },
+                  "shutdownMethod": {
+                    "type": "string"
+                  }
+                }
+              },
+              "routineControls": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "trigger",
+                  "failureResponse",
+                  "costLimit",
+                  "shutdownMethod"
+                ],
+                "properties": {
+                  "trigger": {
+                    "type": "string"
+                  },
+                  "failureResponse": {
+                    "type": "string"
+                  },
+                  "costLimit": {
+                    "type": "string"
+                  },
+                  "shutdownMethod": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "label",
+              "summary",
+              "why",
+              "owns",
+              "excludes",
+              "access",
+              "approvals",
+              "firstTest",
+              "doneCheck",
+              "nextAction",
+              "workshopDraft"
+            ],
+            "properties": {
+              "kind": {
+                "const": "bot"
+              },
+              "label": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "owns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "excludes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "access": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "approvals": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "firstTest": {
+                "type": "string"
+              },
+              "doneCheck": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nextAction": {
+                "type": "string"
+              },
+              "operatingControls": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "trigger",
+                  "failureResponse",
+                  "costLimit",
+                  "shutdownMethod"
+                ],
+                "properties": {
+                  "trigger": {
+                    "type": "string"
+                  },
+                  "failureResponse": {
+                    "type": "string"
+                  },
+                  "costLimit": {
+                    "type": "string"
+                  },
+                  "shutdownMethod": {
+                    "type": "string"
+                  }
+                }
+              },
+              "workshopDraft": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "botName",
+                  "jobOutcome",
+                  "inputsContext",
+                  "outputsDeliverables",
+                  "cadenceTrigger",
+                  "toolsIntegrations",
+                  "approvalBoundaries",
+                  "firstRunTest",
+                  "audienceSuccess",
+                  "accessSensitive",
+                  "prohibitedUncertainty",
+                  "continuityMemory",
+                  "reviewCriteria",
+                  "profileTitle",
+                  "profileDescription",
+                  "roleInstructions"
+                ],
+                "properties": {
+                  "botName": {
+                    "type": "string"
+                  },
+                  "jobOutcome": {
+                    "type": "string"
+                  },
+                  "inputsContext": {
+                    "type": "string"
+                  },
+                  "outputsDeliverables": {
+                    "type": "string"
+                  },
+                  "cadenceTrigger": {
+                    "type": "string"
+                  },
+                  "toolsIntegrations": {
+                    "type": "string"
+                  },
+                  "approvalBoundaries": {
+                    "type": "string"
+                  },
+                  "firstRunTest": {
+                    "type": "string"
+                  },
+                  "audienceSuccess": {
+                    "type": "string"
+                  },
+                  "accessSensitive": {
+                    "type": "string"
+                  },
+                  "prohibitedUncertainty": {
+                    "type": "string"
+                  },
+                  "continuityMemory": {
+                    "type": "string"
+                  },
+                  "reviewCriteria": {
+                    "type": "string"
+                  },
+                  "profileTitle": {
+                    "type": "string"
+                  },
+                  "profileDescription": {
+                    "type": "string"
+                  },
+                  "roleInstructions": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "label",
+              "summary",
+              "why",
+              "owns",
+              "excludes",
+              "access",
+              "approvals",
+              "firstTest",
+              "doneCheck",
+              "nextAction"
+            ],
+            "properties": {
+              "kind": {
+                "const": "crew"
+              },
+              "label": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "owns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "excludes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "access": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "approvals": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "firstTest": {
+                "type": "string"
+              },
+              "doneCheck": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nextAction": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "artifact": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fileName",
+          "markdown"
+        ],
+        "properties": {
+          "fileName": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
