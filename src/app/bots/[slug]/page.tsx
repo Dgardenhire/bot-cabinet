@@ -14,6 +14,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
+import { BotPackV2Panel } from "@/components/bot-pack-v2-panel";
 import { BotPassportPanel } from "@/components/bot-passport-panel";
 import { BotPlatformChooser } from "@/components/bot-platform-chooser";
 import { LegacyRoute } from "@/components/legacy-route";
@@ -23,7 +24,11 @@ import {
   getStarterBot,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
-import { starterBotToPassport } from "@/lib/bot-passport";
+import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
+import {
+  portableBotPackV2ArtifactPaths,
+  starterBotToPortablePackV2,
+} from "@/lib/portable-bot-pack-v2";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
@@ -59,9 +64,11 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
-  const profileArchiveUrl = `https://botcabinet.com/downloads/starter-bots/${bot.slug}.tar.gz`;
-  const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}.tar.gz --name ${bot.slug}`;
-  const passport = starterBotToPassport(bot);
+  const portablePackV2 = starterBotToPortablePackV2(bot);
+  const portablePackV2Paths = portableBotPackV2ArtifactPaths(bot.slug);
+  const profileArchiveUrl = `https://botcabinet.com${portablePackV2.platforms.hermes.archiveUrl}`;
+  const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}-v2.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}-v2.tar.gz --name ${bot.slug}-v2`;
+  const passport = portableBotPackV2ToPassport(portablePackV2);
 
   return (
     <main id="main-content" className="page-main starter-detail">
@@ -81,12 +88,12 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
               <p className="registry-detail-summary">{bot.summary}</p>
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
               <div className="button-row">
-                <a href={`/downloads/starter-bots/${bot.slug}.tar.gz`} download className="button button-primary" data-funnel-event="bot_profile_download" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Download for Hermes Desktop <DownloadSimple size={16} /></a>
-                <a href={`/downloads/grok-bot-templates/${bot.slug}.md`} download className="button button-secondary">Download the Grok build brief <DownloadSimple size={16} /></a>
-                <a href={`/downloads/portable-bot-packs/${bot.slug}.md`} download className="button button-secondary">Download the portable Bot Pack <DownloadSimple size={16} /></a>
+                <a href={portablePackV2.platforms.hermes.archiveUrl} download className="button button-primary" data-funnel-event="bot_profile_download" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Download for Hermes Desktop <DownloadSimple size={16} /></a>
+                <a href={portablePackV2.platforms.grokBot.briefUrl} download className="button button-secondary">Download the Grok build brief <DownloadSimple size={16} /></a>
+                <a href={portablePackV2Paths.portableMarkdownUrl} download className="button button-secondary">Download Bot Pack 2.0 <DownloadSimple size={16} /></a>
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
-              <p className="starter-install-note">The Hermes profile is ready to download. The Grok Bot build brief is prepared and awaits a runtime test. The portable pack keeps the shared job recipe, limits, first task, Skill recipe, and Routine recipe together.</p>
+              <p className="starter-install-note">All 16 Bot Pack 2.0 Hermes archives passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026. Human technical and role-specific output tests remain pending. The Grok Bot build briefs remain untested.</p>
               <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
             </div>
           </div>
@@ -94,10 +101,13 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
       </section>
 
       <BotPlatformChooser
-        botName={bot.name}
-        botSlug={bot.slug}
         hermesImportCommand={importCommand}
+        pack={portablePackV2}
       />
+
+      <section className="content-section shell starter-pack-v2-section">
+        <BotPackV2Panel pack={portablePackV2} />
+      </section>
 
       <section className="content-section shell starter-practical-grid">
         <article className="starter-practical-card">
@@ -123,14 +133,14 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
       </section>
 
       <section className="content-section shell starter-passport-section">
-        <BotPassportPanel passport={passport} downloadHref={`/downloads/starter-bots/${bot.slug}/BOT-PASSPORT.md`} />
+        <BotPassportPanel passport={passport} downloadHref={`/downloads/starter-bots/v2/${bot.slug}/BOT-PASSPORT.md`} />
       </section>
 
       <section className="content-section shell starter-setup-section" id="files-and-review">
         <div>
           <Eyebrow>Set it up in Hermes Desktop</Eyebrow>
           <h2 className="section-heading">Import the profile and run one small test</h2>
-          <p className="section-deck">The Hermes download includes the Bot’s role instructions, Bot Passport, setup guide, package manifest, and license. The ZIP contains the same files for inspection.</p>
+          <p className="section-deck">The Hermes download contains seven files: its profile and distribution manifests, role instructions, Bot Passport, setup guide, license, and bundled Skill. The ZIP contains the same seven files for inspection.</p>
         </div>
         <ol className="starter-setup-steps">
           <li><span>1</span><div><strong>Download the Hermes profile.</strong><p>Import the .tar.gz archive from the Profiles screen, or copy the terminal command above.</p></div></li>
@@ -139,10 +149,10 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <li><span>4</span><div><strong>Run a low-risk test.</strong><p>Use sample material and confirm that the result matches the intended output before adding private files, accounts, or schedules.</p></div></li>
         </ol>
         <div className="source-link-row starter-file-links">
-          <a href={`/downloads/starter-bots/${bot.slug}/README.md`} target="_blank" rel="noreferrer">Read the starter guide</a>
-          <a href={`/downloads/starter-bots/${bot.slug}/SOUL.md`} target="_blank" rel="noreferrer">Read the role instructions</a>
-          <a href={`/downloads/starter-bots/${bot.slug}/BOT-PASSPORT.md`} target="_blank" rel="noreferrer">Read the Bot Passport</a>
-          <a href={`/downloads/starter-bots/${bot.slug}.zip`} download>Download readable files (ZIP)</a>
+          <a href={`/downloads/starter-bots/v2/${bot.slug}/README.md`} target="_blank" rel="noreferrer">Read the starter guide</a>
+          <a href={`/downloads/starter-bots/v2/${bot.slug}/SOUL.md`} target="_blank" rel="noreferrer">Read the role instructions</a>
+          <a href={`/downloads/starter-bots/v2/${bot.slug}/BOT-PASSPORT.md`} target="_blank" rel="noreferrer">Read the Bot Passport</a>
+          <a href={portablePackV2.platforms.hermes.readableFilesUrl} download>Download readable files (ZIP)</a>
           <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer">Official Bot Mode guide</a>
         </div>
       </section>
@@ -164,7 +174,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
       <section className="content-section shell starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
-        <p><strong>Current review status:</strong> Automated package tests confirmed that the ZIP and Hermes profile archive contain the six listed files and match the readable copies. The Scout reference archive imported successfully with Hermes Agent 0.20.5. Human technical review: unavailable. Role-specific output test: not run.</p>
+        <p><strong>Current review status:</strong> Automated package tests confirmed that each ZIP and Hermes profile archive contains the same seven files. All 16 V2 archives passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026. Human technical review and role-specific output/runtime tests remain pending. Grok Bot adaptation remains untested.</p>
       </section>
     </main>
   );

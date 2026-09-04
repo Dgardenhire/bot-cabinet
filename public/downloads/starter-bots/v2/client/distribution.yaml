@@ -1,0 +1,13 @@
+name: client
+version: "2.0.0"
+description: "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/client-core/SKILL.md

@@ -6,11 +6,16 @@ Bot Cabinet is an independent guide to practical Bots. Each public profile expla
 
 ## Machine-readable catalog
 
-- [Complete Bot catalog](https://botcabinet.com/api/v1/bots.json): Full public Bot definitions in JSON.
-- [Catalog updates](https://botcabinet.com/api/v1/updates.json): A compact, versioned JSON feed for finding the current public profiles.
-- [Bot Fit Test contract](https://botcabinet.com/api/v1/bot-fit-test.json): JSON Schema and repository CLI instructions for choosing an Assignment, Skill, Routine, Bot, or Crew.
-- [RSS feed](https://botcabinet.com/feed.xml): Current public profiles for feed readers and monitoring tools.
-- [Portable Bot Pack example](https://botcabinet.com/downloads/portable-bot-packs/scout.md): Platform-neutral job, controls, first task, Skill recipe, Routine recipe, and platform setup paths.
+- [Bot Pack 2.0 index](https://botcabinet.com/api/v2/index.json): Current V2 entry points.
+- [Bot Pack 2.0 catalog](https://botcabinet.com/api/v2/bots.json): Current V2 definitions.
+- [Bot Pack 2.0 schema](https://botcabinet.com/api/v2/portable-bot-pack.schema.json): V2 validation schema.
+- [Bot Pack 2.0 example](https://botcabinet.com/downloads/portable-bot-packs/v2/scout.json): Scout V2 JSON.
+- [Readable Bot Pack 2.0 example](https://botcabinet.com/downloads/portable-bot-packs/v2/scout.md): Scout V2 Markdown.
+- [Legacy V1 Bot catalog](https://botcabinet.com/api/v1/bots.json): Retained for existing consumers.
+- [Legacy V1 catalog updates](https://botcabinet.com/api/v1/updates.json): Earlier discovery feed.
+- [Bot Fit Test contract](https://botcabinet.com/api/v1/bot-fit-test.json): Schema and CLI for choosing an Assignment, Skill, Routine, Bot, or Crew.
+- [RSS feed](https://botcabinet.com/feed.xml): Public profile feed.
+- [Legacy V1 Portable Bot Pack example](https://botcabinet.com/downloads/portable-bot-packs/scout.md): Earlier Scout pack.
 
 ## Useful starting points
 
@@ -24,19 +29,19 @@ Bot Cabinet is an independent guide to practical Bots. Each public profile expla
 
 ## Current public Bots
 
-- [Scout: Topic and opportunity finder](https://botcabinet.com/bots/scout/): Finds timely topics, useful developments, and promising opportunities in the areas you choose.
-- [Researcher: Source-based research assistant](https://botcabinet.com/bots/researcher/): Answers a defined question with a concise brief, source links, and clearly marked gaps.
-- [Writer: First-draft writing assistant](https://botcabinet.com/bots/writer/): Turns an approved brief, notes, or source material into a clear first draft for a named audience.
-- [Editor: Plain-language editor](https://botcabinet.com/bots/editor/): Revises a draft for clarity, structure, accuracy, and the writer's intended voice.
-- [Planner: Project planning assistant](https://botcabinet.com/bots/planner/): Turns a goal into a practical plan with steps, owners, dependencies, dates, and decision points.
-- [Client Deliverables: Client deliverable assistant](https://botcabinet.com/bots/client/): Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.
-- [Coder: Software building assistant](https://botcabinet.com/bots/coder/): Builds a defined software change, runs the available checks, and reports what changed and what still needs review.
-- [Ops: Operations monitoring assistant](https://botcabinet.com/bots/ops/): Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.
-- [Professor: Learning and study assistant](https://botcabinet.com/bots/professor/): Builds a realistic learning plan, explains difficult material, and creates practice questions.
-- [ARCHITECT: CTO and technology strategy assistant](https://botcabinet.com/bots/architect/): Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.
-- [Founding Engineer: Early product and prototyping assistant](https://botcabinet.com/bots/founding-engineer/): Turns a defined user problem into the smallest working product version that can be demonstrated and tested.
-- [Chief of Staff: Executive priority and coordination assistant](https://botcabinet.com/bots/chief-of-staff/): Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
-- [COACH: Life and career planning assistant](https://botcabinet.com/bots/coach/): Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.
-- [NOVA: New venture testing assistant](https://botcabinet.com/bots/nova/): Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.
-- [PULSE: Growth management assistant](https://botcabinet.com/bots/pulse/): Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.
-- [STORY: Chief narrative officer](https://botcabinet.com/bots/story/): Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.
+- [Scout: Topic and opportunity finder](https://botcabinet.com/bots/scout/)
+- [Researcher: Source-based research assistant](https://botcabinet.com/bots/researcher/)
+- [Writer: First-draft writing assistant](https://botcabinet.com/bots/writer/)
+- [Editor: Plain-language editor](https://botcabinet.com/bots/editor/)
+- [Planner: Project planning assistant](https://botcabinet.com/bots/planner/)
+- [Client Deliverables: Client deliverable assistant](https://botcabinet.com/bots/client/)
+- [Coder: Software building assistant](https://botcabinet.com/bots/coder/)
+- [Ops: Operations monitoring assistant](https://botcabinet.com/bots/ops/)
+- [Professor: Learning and study assistant](https://botcabinet.com/bots/professor/)
+- [ARCHITECT: CTO and technology strategy assistant](https://botcabinet.com/bots/architect/)
+- [Founding Engineer: Early product and prototyping assistant](https://botcabinet.com/bots/founding-engineer/)
+- [Chief of Staff: Executive priority and coordination assistant](https://botcabinet.com/bots/chief-of-staff/)
+- [COACH: Life and career planning assistant](https://botcabinet.com/bots/coach/)
+- [NOVA: New venture testing assistant](https://botcabinet.com/bots/nova/)
+- [PULSE: Growth management assistant](https://botcabinet.com/bots/pulse/)
+- [STORY: Chief narrative officer](https://botcabinet.com/bots/story/)

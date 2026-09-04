@@ -1,0 +1,13 @@
+name: pulse
+version: "2.0.0"
+description: "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/pulse-core/SKILL.md

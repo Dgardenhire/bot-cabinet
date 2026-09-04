@@ -4,6 +4,8 @@ import path from "node:path";
 import { promisify } from "node:util";
 import ts from "typescript";
 
+import { createDeterministicTarGzip } from "./content/deterministic-archives.ts";
+
 const execFile = promisify(execFileCallback);
 
 const projectRoot = process.cwd();
@@ -88,6 +90,7 @@ for (const bot of starters) {
     ...botPassport.prohibited.map((item) => `- ${item}`),
   ].join("\n");
   const soul = `${bot.soul.trim()}\n\n${safetyInstructions}\n`;
+  const passport = botPassportToMarkdown(botPassport);
   const importReview = bot.slug === "scout"
     ? "Bot Cabinet also imported this archive with Hermes Agent 0.20.5."
     : "Bot Cabinet has not individually imported this archive into Hermes Desktop."
@@ -142,14 +145,21 @@ for (const bot of starters) {
     "",
   ].join("\n");
 
-  await writeFile(path.join(botDir, "distribution.yaml"), manifest, "utf8");
-  await writeFile(path.join(botDir, "profile.yaml"), profileMetadata, "utf8");
-  await writeFile(path.join(botDir, "SOUL.md"), soul, "utf8");
-  await writeFile(path.join(botDir, "README.md"), readme, "utf8");
-  await writeFile(path.join(botDir, "BOT-PASSPORT.md"), botPassportToMarkdown(botPassport), "utf8");
-  await writeFile(path.join(botDir, "LICENSE"), license, "utf8");
+  const packageFiles = {
+    "distribution.yaml": manifest,
+    "profile.yaml": profileMetadata,
+    "SOUL.md": soul,
+    "README.md": readme,
+    "BOT-PASSPORT.md": passport,
+    LICENSE: license,
+  };
+  await Promise.all(
+    Object.entries(packageFiles).map(([file, content]) =>
+      writeFile(path.join(botDir, file), content, "utf8"),
+    ),
+  );
 
-  const files = ["distribution.yaml", "profile.yaml", "SOUL.md", "README.md", "BOT-PASSPORT.md", "LICENSE"];
+  const files = Object.keys(packageFiles);
   const fixedTime = new Date("2026-01-01T00:00:00.000Z");
   await Promise.all(files.map((file) => utimes(path.join(botDir, file), fixedTime, fixedTime)));
   await utimes(botDir, fixedTime, fixedTime);
@@ -158,14 +168,10 @@ for (const bot of starters) {
   await execFile("zip", ["-X", "-q", zipPath, ...files], { cwd: botDir });
 
   const profileArchivePath = path.join(outputRoot, `${bot.slug}.tar.gz`);
-  const profileTarPath = path.join(outputRoot, `${bot.slug}.tar`);
-  await rm(profileArchivePath, { force: true });
-  await rm(profileTarPath, { force: true });
-  await execFile("tar", ["-cf", profileTarPath, bot.slug], {
-    cwd: outputRoot,
-    env: { ...process.env, COPYFILE_DISABLE: "1" },
-  });
-  await execFile("gzip", ["-n", "-f", profileTarPath]);
+  await writeFile(
+    profileArchivePath,
+    createDeterministicTarGzip(bot.slug, packageFiles),
+  );
 }
 
 process.stdout.write(`${starters.length} starter packages built in ${outputRoot}\n`);

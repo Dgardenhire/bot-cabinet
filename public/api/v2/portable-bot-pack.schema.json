@@ -1,0 +1,602 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://botcabinet.com/api/v2/portable-bot-pack.schema.json",
+  "title": "Bot Cabinet Portable Bot Pack V2",
+  "description": "A strict, platform-neutral Bot recipe with explicit controls, prepared Skills, and inactive Routine plans.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "packVersion",
+    "artifactId",
+    "preparationStatus",
+    "identity",
+    "job",
+    "instructions",
+    "controls",
+    "skills",
+    "routines",
+    "platforms",
+    "provenance"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "packVersion": {
+      "type": "string",
+      "pattern": "^2\\.[0-9]+\\.[0-9]+$"
+    },
+    "artifactId": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "preparationStatus": {
+      "const": "prepared"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactId",
+        "slug",
+        "name",
+        "title",
+        "category",
+        "summary",
+        "audience",
+        "portrait"
+      ],
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "category": {
+          "enum": [
+            "writing",
+            "research",
+            "planning",
+            "technical",
+            "learning"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "audience": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "portrait": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "artifactId",
+            "url"
+          ],
+          "properties": {
+            "artifactId": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "url": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        }
+      }
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "exampleRequests",
+        "inputs",
+        "outputs",
+        "cadence",
+        "firstMission",
+        "checkpoint"
+      ],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "exampleRequests": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "cadence": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "firstMission": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "checkpoint": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "instructions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durableRoleAndBoundaries"
+      ],
+      "properties": {
+        "durableRoleAndBoundaries": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "riskLevel",
+        "requestedCapabilities",
+        "allowedWithoutApproval",
+        "requiresApproval",
+        "operatingLimits",
+        "prohibited",
+        "shutdown"
+      ],
+      "properties": {
+        "riskLevel": {
+          "enum": [
+            "Low",
+            "Moderate",
+            "Elevated"
+          ]
+        },
+        "requestedCapabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "allowedWithoutApproval": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "requiresApproval": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "operatingLimits": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "prohibited": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "shutdown": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifactId",
+          "name",
+          "preparationStatus",
+          "testStatus",
+          "whenToUse",
+          "inputs",
+          "steps",
+          "outputs",
+          "requiresApproval",
+          "prohibited"
+        ],
+        "properties": {
+          "artifactId": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "preparationStatus": {
+            "const": "prepared"
+          },
+          "testStatus": {
+            "const": "not-tested"
+          },
+          "whenToUse": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "inputs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "requiresApproval": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "prohibited": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        }
+      }
+    },
+    "routines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifactId",
+          "name",
+          "preparationStatus",
+          "testStatus",
+          "activationStatus",
+          "owner",
+          "trigger",
+          "expectedResults",
+          "requiresApproval",
+          "missingInputBehavior",
+          "failureHandling"
+        ],
+        "properties": {
+          "artifactId": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "preparationStatus": {
+            "const": "prepared"
+          },
+          "testStatus": {
+            "const": "not-tested"
+          },
+          "activationStatus": {
+            "const": "manual-test-required"
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "trigger": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "expectedResults": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "requiresApproval": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "missingInputBehavior": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "failureHandling": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    "platforms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hermes",
+        "grokBot"
+      ],
+      "properties": {
+        "hermes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "platformId",
+            "artifactId",
+            "artifactKind",
+            "mediaType",
+            "importable",
+            "minimumVersion",
+            "archiveUrl",
+            "readableFilesUrl",
+            "packageStatus",
+            "importStatus",
+            "importEvidence"
+          ],
+          "properties": {
+            "platformId": {
+              "const": "hermes-agent"
+            },
+            "artifactId": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "artifactKind": {
+              "const": "profile-archive"
+            },
+            "mediaType": {
+              "const": "application/gzip"
+            },
+            "importable": {
+              "const": true
+            },
+            "minimumVersion": {
+              "const": ">=0.21.0"
+            },
+            "archiveUrl": {
+              "type": "string",
+              "pattern": "^/downloads/starter-bots/v2/[a-z0-9]+(?:-[a-z0-9]+)*\\.tar\\.gz$"
+            },
+            "readableFilesUrl": {
+              "type": "string",
+              "pattern": "^/downloads/starter-bots/v2/[a-z0-9]+(?:-[a-z0-9]+)*\\.zip$"
+            },
+            "packageStatus": {
+              "const": "files-and-archive-checked"
+            },
+            "importStatus": {
+              "const": "import-test-passed"
+            },
+            "importEvidence": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "hermesVersion",
+                "testedDate",
+                "scope"
+              ],
+              "properties": {
+                "hermesVersion": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "testedDate": {
+                  "type": "string",
+                  "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                },
+                "scope": {
+                  "const": "archive-import-and-bundled-skill-presence"
+                }
+              }
+            }
+          }
+        },
+        "grokBot": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "platformId",
+            "artifactId",
+            "artifactKind",
+            "mediaType",
+            "importable",
+            "briefUrl",
+            "preparationStatus",
+            "testStatus"
+          ],
+          "properties": {
+            "platformId": {
+              "const": "grok-bot"
+            },
+            "artifactId": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "artifactKind": {
+              "const": "manual-build-brief"
+            },
+            "mediaType": {
+              "const": "text/markdown"
+            },
+            "importable": {
+              "const": false
+            },
+            "briefUrl": {
+              "type": "string",
+              "pattern": "^/downloads/grok-bot-templates/v2/[a-z0-9]+(?:-[a-z0-9]+)*\\.md$"
+            },
+            "preparationStatus": {
+              "const": "prepared"
+            },
+            "testStatus": {
+              "const": "adaptation-prepared-not-tested"
+            }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "sourceUrl",
+        "publishedDate",
+        "license"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "publishedDate": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    }
+  }
+}

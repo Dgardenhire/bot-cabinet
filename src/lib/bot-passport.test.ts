@@ -6,8 +6,10 @@ import {
   blueprintToBotPassport,
   botPassportFileName,
   botPassportToMarkdown,
+  portableBotPackV2ToPassport,
   starterBotToPassport,
 } from "./bot-passport";
+import { starterBotToPortablePackV2 } from "./portable-bot-pack-v2";
 
 describe("Bot Passports", () => {
   it("creates a Passport for every starter Bot", () => {
@@ -58,5 +60,22 @@ describe("Bot Passports", () => {
 
     expect(passport.mustAsk).toContain("A person selects the topics to pursue.");
     expect(passport.prohibited).toContain("The Bot does not contact anyone.");
+  });
+
+  it("adapts a Portable Bot Pack V2 to a version 2 Passport", () => {
+    const pack = starterBotToPortablePackV2(STARTER_BOTS[0]);
+    const passport = portableBotPackV2ToPassport(pack);
+    const markdown = botPassportToMarkdown(passport);
+
+    expect(passport.version).toBe(2);
+    expect(passport.botName).toBe(pack.identity.name);
+    expect(passport.reads).toEqual(pack.job.inputs);
+    expect(passport.creates).toEqual(pack.job.outputs);
+    expect(passport.requestedCapabilities).toEqual(
+      pack.controls.requestedCapabilities,
+    );
+    expect(passport.mustAsk).toEqual(pack.controls.requiresApproval);
+    expect(passport.prohibited).toEqual(pack.controls.prohibited);
+    expect(markdown).toContain("**Passport version:** 2");
   });
 });

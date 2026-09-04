@@ -129,6 +129,15 @@ describe("public catalog discovery files", () => {
       `${BOT_CABINET_ORIGIN}/api/v1/bots.json`,
     );
     expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/api/v2/index.json`,
+    );
+    expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/api/v2/bots.json`,
+    );
+    expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/api/v2/portable-bot-pack.schema.json`,
+    );
+    expect(PUBLIC_LLMS_TEXT).toContain(
       `${BOT_CABINET_ORIGIN}/api/v1/updates.json`,
     );
     expect(PUBLIC_LLMS_TEXT).toContain(
@@ -141,6 +150,13 @@ describe("public catalog discovery files", () => {
     expect(PUBLIC_LLMS_TEXT).toContain(
       `${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.md`,
     );
+    expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/v2/scout.json`,
+    );
+    expect(PUBLIC_LLMS_TEXT).toContain(
+      `${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/v2/scout.md`,
+    );
+    expect(PUBLIC_LLMS_TEXT).toMatch(/Legacy V1 Bot catalog/);
     for (const kind of ["Assignment", "Skill", "Routine", "Bot", "Crew"]) {
       expect(PUBLIC_LLMS_TEXT).toContain(kind);
     }

@@ -3,6 +3,10 @@ import {
   starterBotToPassport,
   type BotPassport,
 } from "./bot-passport";
+import {
+  starterBotReviewCheckpoint,
+  starterBotSkillSteps,
+} from "./portable-bot-pack-shared";
 
 export type PortableBotPack = {
   schemaVersion: 1;
@@ -141,20 +145,6 @@ function portableControlRules(bot: StarterBot, base: BotPassport) {
   };
 }
 
-function checkpointFor(bot: StarterBot) {
-  return `Pause for a person to review these deliverables: ${inlineMarkdownList(bot.produces)}. Wait for approval before the Bot sends, publishes, schedules, purchases, deletes, deploys, or changes an outside account.`;
-}
-
-function skillStepsFor(bot: StarterBot) {
-  return [
-    `Confirm that the request fits this job: ${bot.workshopDraft.jobOutcome}`,
-    "Gather the approved inputs and ask for anything required that is missing.",
-    `Create the intended result: ${bot.produces.join("; ")}.`,
-    "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
-    "Give the work to a person for review at the stated checkpoint.",
-  ];
-}
-
 export function starterBotToPortablePack(bot: StarterBot): PortableBotPack {
   const baseControls = starterBotToPassport(bot);
   const rules = portableControlRules(bot, baseControls);
@@ -185,11 +175,11 @@ export function starterBotToPortablePack(bot: StarterBot): PortableBotPack {
         ...rules.prohibited,
       ]),
       firstTask: bot.workshopDraft.firstRunTest,
-      checkpoint: checkpointFor(bot),
+      checkpoint: starterBotReviewCheckpoint(bot),
       skill: {
         whenToUse: bot.workshopDraft.cadenceTrigger,
         inputs: [...bot.setup],
-        steps: skillStepsFor(bot),
+        steps: starterBotSkillSteps(bot),
         expectedOutput: [...bot.produces],
         safetyBoundaries: [
           ...rules.approvalGates,

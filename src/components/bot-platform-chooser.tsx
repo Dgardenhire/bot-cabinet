@@ -8,16 +8,25 @@ import {
 
 import { CopyTextButton } from "./copy-text-button";
 import { Eyebrow } from "./ui";
+import {
+  portableBotPackV2ArtifactPaths,
+  type PortableBotPackV2,
+} from "../lib/portable-bot-pack-v2";
 
 export function BotPlatformChooser({
-  botName,
-  botSlug,
   hermesImportCommand,
+  pack,
 }: {
-  botName: string;
-  botSlug: string;
   hermesImportCommand?: string;
+  pack: PortableBotPackV2;
 }) {
+  const botName = pack.identity.name;
+  const botSlug = pack.identity.slug;
+  const hermesArchiveUrl = pack.platforms.hermes.archiveUrl;
+  const hermesReadableFilesUrl = pack.platforms.hermes.readableFilesUrl;
+  const grokBriefUrl = pack.platforms.grokBot.briefUrl;
+  const paths = portableBotPackV2ArtifactPaths(botSlug);
+
   return (
     <section
       className="bot-platform-chooser shell"
@@ -39,21 +48,27 @@ export function BotPlatformChooser({
           <div className="bot-platform-card-topline">
             <Package size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-status is-available">
-              Downloadable profile
+              Archive import passed
             </span>
           </div>
           <h3>Hermes Agent</h3>
           <p>
             Import the prepared profile, review its files, choose the access it
-            needs, and run the first test.
+            needs, and run the first assignment. The archive and bundled Skill
+            passed an isolated import check in Hermes Agent{" "}
+            {pack.platforms.hermes.importEvidence.hermesVersion}; output testing
+            remains yours to complete.
           </p>
           <div className="bot-platform-actions">
             <a
-              href={`/downloads/starter-bots/${botSlug}.tar.gz`}
+              href={hermesArchiveUrl}
               download
               className="text-link"
             >
               Download the profile <DownloadSimple size={15} />
+            </a>
+            <a href={hermesReadableFilesUrl} download className="text-link">
+              Inspect the readable files <DownloadSimple size={15} />
             </a>
             {hermesImportCommand && (
               <CopyTextButton
@@ -80,7 +95,7 @@ export function BotPlatformChooser({
           </p>
           <div className="bot-platform-actions">
             <a
-              href={`/downloads/grok-bot-templates/${botSlug}.md`}
+              href={grokBriefUrl}
               download
               className="text-link"
             >
@@ -104,14 +119,14 @@ export function BotPlatformChooser({
           </p>
           <div className="bot-platform-actions">
             <a
-              href={`/downloads/portable-bot-packs/${botSlug}.md`}
+              href={paths.portableMarkdownUrl}
               download
               className="text-link"
             >
               Download Markdown <DownloadSimple size={15} />
             </a>
             <a
-              href={`/downloads/portable-bot-packs/${botSlug}.json`}
+              href={paths.portableJsonUrl}
               download
               className="text-link"
             >

@@ -1,0 +1,13 @@
+name: nova
+version: "2.0.0"
+description: "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/nova-core/SKILL.md

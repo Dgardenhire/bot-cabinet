@@ -1,0 +1,13 @@
+name: chief-of-staff
+version: "2.0.0"
+description: "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/chief-of-staff-core/SKILL.md

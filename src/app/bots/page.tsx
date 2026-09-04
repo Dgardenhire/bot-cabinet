@@ -39,7 +39,7 @@ export default function BotsPage() {
       <section className="starter-status-strip">
         <div className="shell">
           <DownloadSimple size={20} weight="thin" aria-hidden="true" />
-          <p><strong>Free starter files are available now.</strong> They have not received a human technical review or a test in Hermes Desktop. Review the files and begin with low-risk sample material.</p>
+          <p><strong>Free Bot Pack 2.0 files are available now.</strong> Every Hermes archive passed an isolated profile-import test. That confirms the package can be imported; it does not prove the Bot&apos;s work quality. Human technical review and real-job testing are still in progress, so begin with low-risk sample material.</p>
         </div>
       </section>
 

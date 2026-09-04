@@ -1,0 +1,14 @@
+{
+  "apiVersion": 2,
+  "status": "prepared",
+  "botCount": 16,
+  "resources": {
+    "bots": "/api/v2/bots.json",
+    "portableBotPackSchema": "/api/v2/portable-bot-pack.schema.json",
+    "portableBotPackPathPrefix": "/downloads/portable-bot-packs/v2/",
+    "hermesProfileArchivePathPrefix": "/downloads/starter-bots/v2/",
+    "grokManualBuildBriefPathPrefix": "/downloads/grok-bot-templates/v2/"
+  },
+  "routineActivation": "manual-test-required",
+  "grokImportSupport": false
+}

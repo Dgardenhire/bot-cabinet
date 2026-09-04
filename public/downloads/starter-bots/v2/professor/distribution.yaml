@@ -1,0 +1,13 @@
+name: professor
+version: "2.0.0"
+description: "Builds a realistic learning plan, explains difficult material, and creates practice questions."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/professor-core/SKILL.md

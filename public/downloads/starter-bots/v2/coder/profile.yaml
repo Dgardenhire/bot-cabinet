@@ -1,0 +1,3 @@
+display_name: "Coder"
+description: "Builds a defined software change, runs the available checks, and reports what changed and what still needs review."
+description_auto: false

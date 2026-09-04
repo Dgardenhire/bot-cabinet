@@ -1,0 +1,13 @@
+name: coach
+version: "2.0.0"
+description: "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/coach-core/SKILL.md

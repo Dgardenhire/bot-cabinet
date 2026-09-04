@@ -1,8 +1,9 @@
 import type { StarterBot } from "../data/starter-bots";
+import type { PortableBotPackV2 } from "./portable-bot-pack-v2";
 import type { BotBlueprint } from "./workshop";
 
 export type BotPassport = {
-  version: 1;
+  version: 1 | 2;
   botName: string;
   role: string;
   riskLevel: "Low" | "Moderate" | "Elevated";
@@ -92,6 +93,26 @@ export function starterBotToPassport(bot: StarterBot): BotPassport {
   };
 }
 
+export function portableBotPackV2ToPassport(
+  pack: PortableBotPackV2,
+): BotPassport {
+  return {
+    version: 2,
+    botName: pack.identity.name,
+    role: pack.identity.title,
+    riskLevel: pack.controls.riskLevel,
+    reads: [...pack.job.inputs],
+    creates: [...pack.job.outputs],
+    requestedCapabilities: [...pack.controls.requestedCapabilities],
+    mayDoWithoutApproval: [...pack.controls.allowedWithoutApproval],
+    mustAsk: [...pack.controls.requiresApproval],
+    prohibited: [...pack.controls.prohibited],
+    controlNotes: [...pack.controls.operatingLimits],
+    firstTest: pack.job.firstMission,
+    shutdown: pack.controls.shutdown,
+  };
+}
+
 export function blueprintToBotPassport(blueprint: BotBlueprint): BotPassport {
   const classified = classifyBoundaries(blueprint.approvals);
   const prohibited = [...classified.prohibited, ...items(blueprint.prohibitedUncertainty)];
@@ -134,7 +155,7 @@ export function botPassportToMarkdown(passport: BotPassport) {
     "",
     `**Role:** ${passport.role}`,
     `**Risk level:** ${passport.riskLevel}`,
-    "**Passport version:** 1",
+    `**Passport version:** ${passport.version}`,
     "",
     "## What it may read",
     "",

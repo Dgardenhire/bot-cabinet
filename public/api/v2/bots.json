@@ -1,0 +1,665 @@
+{
+  "apiVersion": 2,
+  "schemaVersion": 2,
+  "packVersion": "2.0.0",
+  "portablePackSchemaUrl": "/api/v2/portable-bot-pack.schema.json",
+  "count": 16,
+  "bots": [
+    {
+      "artifactId": "bot-cabinet:bot:scout:portable-pack",
+      "slug": "scout",
+      "name": "Scout",
+      "title": "Topic and opportunity finder",
+      "category": "research",
+      "summary": "Finds timely topics, useful developments, and promising opportunities in the areas you choose.",
+      "portraitUrl": "/bot-scout.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/scout.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/scout.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:scout:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/scout.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/scout.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:scout:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/scout.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:researcher:portable-pack",
+      "slug": "researcher",
+      "name": "Researcher",
+      "title": "Source-based research assistant",
+      "category": "research",
+      "summary": "Answers a defined question with a concise brief, source links, and clearly marked gaps.",
+      "portraitUrl": "/bot-researcher.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/researcher.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/researcher.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:researcher:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/researcher.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:researcher:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/researcher.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:writer:portable-pack",
+      "slug": "writer",
+      "name": "Writer",
+      "title": "First-draft writing assistant",
+      "category": "writing",
+      "summary": "Turns an approved brief, notes, or source material into a clear first draft for a named audience.",
+      "portraitUrl": "/bot-writer.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/writer.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/writer.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:writer:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/writer.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/writer.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:writer:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/writer.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:editor:portable-pack",
+      "slug": "editor",
+      "name": "Editor",
+      "title": "Plain-language editor",
+      "category": "writing",
+      "summary": "Revises a draft for clarity, structure, accuracy, and the writer's intended voice.",
+      "portraitUrl": "/bot-editor.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/editor.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/editor.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:editor:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/editor.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/editor.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:editor:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/editor.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:planner:portable-pack",
+      "slug": "planner",
+      "name": "Planner",
+      "title": "Project planning assistant",
+      "category": "planning",
+      "summary": "Turns a goal into a practical plan with steps, owners, dependencies, dates, and decision points.",
+      "portraitUrl": "/bot-planner.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/planner.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/planner.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:planner:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/planner.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:planner:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/planner.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:client:portable-pack",
+      "slug": "client",
+      "name": "Client Deliverables",
+      "title": "Client deliverable assistant",
+      "category": "planning",
+      "summary": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+      "portraitUrl": "/atelier/diplomat.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/client.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/client.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:client:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/client.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/client.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:client:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/client.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:coder:portable-pack",
+      "slug": "coder",
+      "name": "Coder",
+      "title": "Software building assistant",
+      "category": "technical",
+      "summary": "Builds a defined software change, runs the available checks, and reports what changed and what still needs review.",
+      "portraitUrl": "/bot-coder.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/coder.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/coder.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:coder:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/coder.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/coder.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:coder:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/coder.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:ops:portable-pack",
+      "slug": "ops",
+      "name": "Ops",
+      "title": "Operations monitoring assistant",
+      "category": "technical",
+      "summary": "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.",
+      "portraitUrl": "/bot-ops.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/ops.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/ops.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:ops:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/ops.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/ops.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:ops:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/ops.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:professor:portable-pack",
+      "slug": "professor",
+      "name": "Professor",
+      "title": "Learning and study assistant",
+      "category": "learning",
+      "summary": "Builds a realistic learning plan, explains difficult material, and creates practice questions.",
+      "portraitUrl": "/bot-professor.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/professor.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/professor.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:professor:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/professor.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/professor.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:professor:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/professor.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:architect:portable-pack",
+      "slug": "architect",
+      "name": "ARCHITECT",
+      "title": "CTO and technology strategy assistant",
+      "category": "technical",
+      "summary": "Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
+      "portraitUrl": "/atelier/orrery.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/architect.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/architect.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:architect:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/architect.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/architect.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:architect:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/architect.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:founding-engineer:portable-pack",
+      "slug": "founding-engineer",
+      "name": "Founding Engineer",
+      "title": "Early product and prototyping assistant",
+      "category": "technical",
+      "summary": "Turns a defined user problem into the smallest working product version that can be demonstrated and tested.",
+      "portraitUrl": "/atelier/mechanic.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/founding-engineer.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/founding-engineer.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:founding-engineer:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/founding-engineer.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/founding-engineer.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:founding-engineer:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/founding-engineer.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:chief-of-staff:portable-pack",
+      "slug": "chief-of-staff",
+      "name": "Chief of Staff",
+      "title": "Executive priority and coordination assistant",
+      "category": "planning",
+      "summary": "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+      "portraitUrl": "/atelier/fleet.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/chief-of-staff.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/chief-of-staff.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:chief-of-staff:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/chief-of-staff.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/chief-of-staff.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:chief-of-staff:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/chief-of-staff.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:coach:portable-pack",
+      "slug": "coach",
+      "name": "COACH",
+      "title": "Life and career planning assistant",
+      "category": "planning",
+      "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
+      "portraitUrl": "/atelier/navigator.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/coach.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/coach.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:coach:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/coach.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/coach.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:coach:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/coach.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:nova:portable-pack",
+      "slug": "nova",
+      "name": "NOVA",
+      "title": "New venture testing assistant",
+      "category": "planning",
+      "summary": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
+      "portraitUrl": "/atelier/nautilus.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/nova.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/nova.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:nova:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/nova.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/nova.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:nova:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/nova.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:pulse:portable-pack",
+      "slug": "pulse",
+      "name": "PULSE",
+      "title": "Growth management assistant",
+      "category": "planning",
+      "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
+      "portraitUrl": "/atelier/cicada.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/pulse.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/pulse.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:pulse:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/pulse.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/pulse.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:pulse:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/pulse.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:story:portable-pack",
+      "slug": "story",
+      "name": "STORY",
+      "title": "Chief narrative officer",
+      "category": "writing",
+      "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
+      "portraitUrl": "/atelier/archivist.jpg",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/story.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/story.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:story:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/story.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/story.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.0",
+          "testedDate": "2026-09-04",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:story:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/story.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    }
+  ]
+}

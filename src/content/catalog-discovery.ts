@@ -4,8 +4,9 @@ import {
   PUBLIC_BOT_CATALOG,
   buildPublicBotCatalog,
 } from "./public-manifest";
+import { BOT_CABINET_ORIGIN } from "../lib/site-constants";
 
-export const BOT_CABINET_ORIGIN = "https://botcabinet.com";
+export { BOT_CABINET_ORIGIN };
 
 export const CATALOG_DISCOVERY_RELEASE = {
   feedVersion: "1.1.0",
@@ -142,7 +143,7 @@ export function buildCatalogRss(catalog: PublicBotCatalog) {
 export function buildLlmsText(catalog: PublicBotCatalog) {
   const botLinks = catalog.bots.map(
     (bot) =>
-      `- [${bot.identity.name}: ${bot.identity.title}](${absoluteUrl(bot.links.detailUrl)}): ${bot.identity.summary}`,
+      `- [${bot.identity.name}: ${bot.identity.title}](${absoluteUrl(bot.links.detailUrl)})`,
   );
 
   return [
@@ -154,11 +155,16 @@ export function buildLlmsText(catalog: PublicBotCatalog) {
     "",
     "## Machine-readable catalog",
     "",
-    `- [Complete Bot catalog](${BOT_CABINET_ORIGIN}/api/v1/bots.json): Full public Bot definitions in JSON.`,
-    `- [Catalog updates](${BOT_CABINET_ORIGIN}/api/v1/updates.json): A compact, versioned JSON feed for finding the current public profiles.`,
-    `- [Bot Fit Test contract](${BOT_CABINET_ORIGIN}/api/v1/bot-fit-test.json): JSON Schema and repository CLI instructions for choosing an Assignment, Skill, Routine, Bot, or Crew.`,
-    `- [RSS feed](${BOT_CABINET_ORIGIN}/feed.xml): Current public profiles for feed readers and monitoring tools.`,
-    `- [Portable Bot Pack example](${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.md): Platform-neutral job, controls, first task, Skill recipe, Routine recipe, and platform setup paths.`,
+    `- [Bot Pack 2.0 index](${BOT_CABINET_ORIGIN}/api/v2/index.json): Current V2 entry points.`,
+    `- [Bot Pack 2.0 catalog](${BOT_CABINET_ORIGIN}/api/v2/bots.json): Current V2 definitions.`,
+    `- [Bot Pack 2.0 schema](${BOT_CABINET_ORIGIN}/api/v2/portable-bot-pack.schema.json): V2 validation schema.`,
+    `- [Bot Pack 2.0 example](${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/v2/scout.json): Scout V2 JSON.`,
+    `- [Readable Bot Pack 2.0 example](${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/v2/scout.md): Scout V2 Markdown.`,
+    `- [Legacy V1 Bot catalog](${BOT_CABINET_ORIGIN}/api/v1/bots.json): Retained for existing consumers.`,
+    `- [Legacy V1 catalog updates](${BOT_CABINET_ORIGIN}/api/v1/updates.json): Earlier discovery feed.`,
+    `- [Bot Fit Test contract](${BOT_CABINET_ORIGIN}/api/v1/bot-fit-test.json): Schema and CLI for choosing an Assignment, Skill, Routine, Bot, or Crew.`,
+    `- [RSS feed](${BOT_CABINET_ORIGIN}/feed.xml): Public profile feed.`,
+    `- [Legacy V1 Portable Bot Pack example](${BOT_CABINET_ORIGIN}/downloads/portable-bot-packs/scout.md): Earlier Scout pack.`,
     "",
     "## Useful starting points",
     "",

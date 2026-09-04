@@ -1,0 +1,13 @@
+name: researcher
+version: "2.0.0"
+description: "Answers a defined question with a concise brief, source links, and clearly marked gaps."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/researcher-core/SKILL.md

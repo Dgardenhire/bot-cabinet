@@ -4,6 +4,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import test from "node:test";
+import { gunzipSync } from "node:zlib";
 
 const execFile = promisify(execFileCallback);
 const root = path.join(process.cwd(), "public/downloads/starter-bots");
@@ -11,10 +12,50 @@ const grokRoot = path.join(process.cwd(), "public/downloads/grok-bot-templates")
 const portableRoot = path.join(process.cwd(), "public/downloads/portable-bot-packs");
 const expectedFiles = ["BOT-PASSPORT.md", "LICENSE", "README.md", "SOUL.md", "distribution.yaml", "profile.yaml"];
 const expectedStarterCount = 16;
+const tarBlockSize = 512;
+
+function readTarText(header, offset, length) {
+  return header
+    .subarray(offset, offset + length)
+    .toString("utf8")
+    .replace(/\0.*$/s, "")
+    .trim();
+}
+
+function readTarOctal(header, offset, length) {
+  const value = readTarText(header, offset, length);
+  return value ? Number.parseInt(value, 8) : 0;
+}
+
+function readTarHeaders(archive) {
+  const tar = gunzipSync(archive);
+  const headers = [];
+  let offset = 0;
+
+  while (offset + tarBlockSize <= tar.length) {
+    const header = tar.subarray(offset, offset + tarBlockSize);
+    if (header.every((byte) => byte === 0)) break;
+
+    const size = readTarOctal(header, 124, 12);
+    headers.push({
+      name: readTarText(header, 0, 100),
+      uid: readTarOctal(header, 108, 8),
+      gid: readTarOctal(header, 116, 8),
+      uname: readTarText(header, 265, 32),
+      gname: readTarText(header, 297, 32),
+    });
+    offset += tarBlockSize + Math.ceil(size / tarBlockSize) * tarBlockSize;
+  }
+
+  return headers;
+}
 
 test("starter downloads contain only the reviewed source files and match the loose copies", async () => {
   const entries = await readdir(root, { withFileTypes: true });
-  const slugs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
+  const slugs = entries
+    .filter((entry) => entry.isDirectory() && entry.name !== "v2")
+    .map((entry) => entry.name)
+    .sort();
   assert.equal(slugs.length, expectedStarterCount);
 
   for (const slug of slugs) {
@@ -33,6 +74,20 @@ test("starter downloads contain only the reviewed source files and match the loo
     }
 
     const archivePath = path.join(root, `${slug}.tar.gz`);
+    const archive = await readFile(archivePath);
+    const tarHeaders = readTarHeaders(archive);
+    assert.deepEqual(
+      tarHeaders.map(({ name }) => name).sort(),
+      [`${slug}/`, ...expectedFiles.map((file) => `${slug}/${file}`)].sort(),
+      `${slug} contains unexpected raw tar headers`,
+    );
+    for (const header of tarHeaders) {
+      assert.equal(header.uid, 0, `${header.name} exposes a nonzero owner ID`);
+      assert.equal(header.gid, 0, `${header.name} exposes a nonzero group ID`);
+      assert.equal(header.uname, "", `${header.name} exposes an owner name`);
+      assert.equal(header.gname, "", `${header.name} exposes a group name`);
+    }
+
     const { stdout: tarListing } = await execFile("tar", ["-tzf", archivePath]);
     const tarEntries = tarListing.trim().split("\n").filter((entry) => !entry.endsWith("/"));
     assert.deepEqual(
