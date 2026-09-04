@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div className="footer-statement">
           <Link href="/" className="wordmark brand-wordmark footer-wordmark" aria-label="Bot Cabinet home">
             <Image
-              src="/brand/bot-cabinet-wordmark-dark-v1.png"
+              src="/brand/bot-cabinet-wordmark-transparent-v1.png"
               alt="Bot Cabinet"
               width={1400}
               height={296}

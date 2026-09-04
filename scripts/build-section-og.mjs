@@ -1,5 +1,5 @@
 import path from "node:path";
-import { mkdir } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
 import { buildTransparentWordmark } from "./lib/transparent-wordmark.mjs";
@@ -63,6 +63,11 @@ const outputDirectory = path.join(root, "public", "brand", "social");
 await mkdir(outputDirectory, { recursive: true });
 
 const wordmarkBuffer = await buildTransparentWordmark(wordmark, 310);
+const transparentWordmark = await buildTransparentWordmark(wordmark, 1400);
+await writeFile(
+  path.join(root, "public", "brand", "bot-cabinet-wordmark-transparent-v1.png"),
+  transparentWordmark,
+);
 
 async function renderCard(card) {
   let source = sharp(card.source);

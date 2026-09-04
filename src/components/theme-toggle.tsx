@@ -1,7 +1,6 @@
 "use client";
 
 import { Moon, Sun } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
 
 type Theme = "dark" | "light";
 
@@ -10,20 +9,11 @@ function currentTheme(): Theme {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme | null>(null);
-
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => setTheme(currentTheme()));
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
-
-  const nextTheme: Theme = theme === "light" ? "dark" : "light";
-
   function toggleTheme() {
+    const nextTheme: Theme = currentTheme() === "light" ? "dark" : "light";
     document.documentElement.dataset.theme = nextTheme;
     document.documentElement.style.colorScheme = nextTheme;
     window.localStorage.setItem("hbr-theme", nextTheme);
-    setTheme(nextTheme);
   }
 
   return (
@@ -31,15 +21,13 @@ export function ThemeToggle() {
       type="button"
       className="theme-toggle"
       onClick={toggleTheme}
-      aria-label={`Switch to ${nextTheme} theme`}
-      title={`Switch to ${nextTheme} theme`}
+      aria-label="Toggle color theme"
+      title="Toggle color theme"
     >
-      {nextTheme === "light" ? (
-        <Sun size={16} weight="thin" aria-hidden="true" />
-      ) : (
-        <Moon size={16} weight="thin" aria-hidden="true" />
-      )}
-      <span>{nextTheme === "light" ? "Light" : "Dark"}</span>
+      <Sun className="theme-toggle-sun" size={16} weight="thin" aria-hidden="true" />
+      <Moon className="theme-toggle-moon" size={16} weight="thin" aria-hidden="true" />
+      <span className="theme-toggle-light-label">Light</span>
+      <span className="theme-toggle-dark-label">Dark</span>
     </button>
   );
 }

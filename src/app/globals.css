@@ -116,19 +116,17 @@ img { display: block; max-width: 100%; }
 }
 .brand-wordmark {
   width: clamp(178px, 15vw, 226px); overflow: hidden; isolation: isolate;
-  background: var(--ink); line-height: 0;
+  background: transparent; line-height: 0;
 }
 .brand-wordmark img {
-  width: 100%; height: auto; mix-blend-mode: screen;
-  filter: brightness(1.16) contrast(3.2);
+  width: 100%; height: auto;
+  filter: brightness(1.06) contrast(1.12);
 }
-html[data-theme="light"] .brand-wordmark { background: #fff; }
 html[data-theme="light"] .brand-wordmark img {
-  mix-blend-mode: multiply;
-  filter: grayscale(1) invert(1) contrast(3.2);
+  filter: grayscale(1) brightness(.14) contrast(1.35);
 }
 .desktop-nav { display: flex; align-items: center; gap: clamp(14px, 1.65vw, 28px); }
-.desktop-nav a { position: relative; color: #c4c1b9; font: 13px var(--mono); }
+.desktop-nav a { position: relative; color: #c4c1b9; font: 13px var(--mono); white-space: nowrap; }
 .desktop-nav a::after {
   content: ""; position: absolute; right: 0; bottom: -8px; left: 0; height: 1px;
   transform: scaleX(0); background: var(--brass); transition: transform 180ms ease;
@@ -142,6 +140,12 @@ html[data-theme="light"] .brand-wordmark img {
   font: 13px var(--mono); letter-spacing: .08em; text-transform: uppercase;
 }
 .theme-toggle:hover { background: rgba(198,154,75,.08); color: var(--ivory); }
+.theme-toggle-moon,
+.theme-toggle-dark-label { display: none; }
+html[data-theme="light"] .theme-toggle-sun,
+html[data-theme="light"] .theme-toggle-light-label { display: none; }
+html[data-theme="light"] .theme-toggle-moon { display: block; }
+html[data-theme="light"] .theme-toggle-dark-label { display: inline; }
 .mobile-nav { display: none; margin-left: 12px; }
 .mobile-nav summary {
   width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line);
@@ -441,8 +445,11 @@ html[data-theme="light"] .desktop-nav a { color: #3f3b34; }
 html[data-theme="light"] .mobile-nav nav { background: rgba(245,241,232,.99); }
 html[data-theme="light"] .hero-visual::before {
   background:
-    linear-gradient(90deg,var(--ink) 0%,rgba(245,241,232,.96) 9%,rgba(245,241,232,.82) 24%,rgba(245,241,232,.52) 42%,rgba(245,241,232,.2) 58%,transparent 72%),
-    linear-gradient(180deg,transparent 62%,rgba(245,241,232,.78) 100%);
+    linear-gradient(90deg,var(--ink) 0%,rgba(245,241,232,.8) 10%,rgba(245,241,232,.5) 26%,rgba(245,241,232,.2) 42%,rgba(245,241,232,.06) 54%,transparent 66%),
+    linear-gradient(180deg,transparent 72%,rgba(245,241,232,.48) 100%);
+}
+html[data-theme="light"] .pathway-card::after {
+  background: linear-gradient(180deg,rgba(5,7,7,.06) 18%,rgba(5,7,7,.18) 56%,rgba(5,7,7,.84) 100%);
 }
 html[data-theme="light"] .hero-deck,
 html[data-theme="light"] .inner-deck,
@@ -502,6 +509,37 @@ html[data-theme="light"] .workshop-output-strip {
   border-color: rgba(43,104,124,.3);
   background: linear-gradient(100deg,rgba(220,235,240,.92),rgba(238,244,246,.72));
 }
+html[data-theme="light"] .workshop-privacy-strip {
+  border-color: rgba(43,104,124,.26);
+  background: rgba(220,235,240,.72);
+  color: #3e4c50;
+}
+html[data-theme="light"] .workshop-privacy-strip strong { color: #1d1c19; }
+html[data-theme="light"] .workshop-progress,
+html[data-theme="light"] .workshop-progress::-webkit-progress-bar { background: #d6d0c4; }
+html[data-theme="light"] .registry-card-image::after {
+  background: linear-gradient(180deg,transparent 68%,rgba(5,7,7,.66));
+}
+html[data-theme="light"] .registry-detail-image::after {
+  background: linear-gradient(180deg,transparent 76%,rgba(5,7,7,.64));
+}
+html[data-theme="light"] .workshop-hero-art::after {
+  background: linear-gradient(180deg,transparent 66%,rgba(5,8,9,.66) 100%);
+}
+html[data-theme="light"] .guides-hero-art::after,
+html[data-theme="light"] .about-hero-image::after {
+  background: linear-gradient(180deg,transparent 68%,rgba(5,7,7,.64) 100%);
+}
+html[data-theme="light"] .crew-kit-card-image {
+  border-right: 1px solid var(--line-soft);
+}
+html[data-theme="light"] .crew-kit-card-image::after { background: none; }
+html[data-theme="light"] .crew-passport,
+html[data-theme="light"] .bot-passport {
+  background: linear-gradient(135deg,rgba(43,104,124,.065),transparent 62%),var(--ink-raised);
+}
+html[data-theme="light"] .crew-passport-grid article,
+html[data-theme="light"] .bot-passport-grid article { background: rgba(147,105,30,.035); }
 html[data-theme="light"] .site-footer { background: #e8e1d4; }
 html[data-theme="light"] .footer-column a { color: #4f4a42; }
 html[data-theme="light"] .footer-column a:hover { color: #171612; }
@@ -783,6 +821,35 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
 .bot-platform-grid article > p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
 .bot-platform-actions { display: grid; justify-items: start; gap: 12px; margin-top: auto; padding-top: 26px; }
 .bot-platform-actions .copy-text-button { width: max-content; max-width: 100%; }
+.starter-pack-v2-section { border-bottom: 1px solid var(--line-soft); }
+.bot-pack-v2 { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--ink-soft); }
+.bot-pack-v2-heading {
+  display: grid; grid-template-columns: minmax(0,.85fr) minmax(340px,.65fr); gap: 70px;
+  align-items: end; padding: 30px; border-bottom: 1px solid var(--line);
+}
+.bot-pack-v2-heading .eyebrow { margin-bottom: 12px; }
+.bot-pack-v2-heading h2 { margin: 0; color: var(--paper); font: 400 clamp(38px,3.5vw,54px)/1 var(--serif); letter-spacing: -.025em; }
+.bot-pack-v2-heading > p { max-width: 620px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.bot-pack-v2-job { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.bot-pack-v2-job article { min-height: 210px; padding: 27px 30px; border-right: 1px solid var(--line-soft); }
+.bot-pack-v2-job article:last-child { border-right: 0; }
+.bot-pack-v2-label { display: flex; align-items: center; gap: 10px; color: var(--brass-bright); }
+.bot-pack-v2-label span, .bot-pack-v2-kicker, .bot-pack-v2-recipes strong {
+  font: 12px/1.4 var(--mono); letter-spacing: .07em; text-transform: uppercase;
+}
+.bot-pack-v2-job article > p { margin: 30px 0 0; color: var(--paper); font: 400 24px/1.32 var(--serif); }
+.bot-pack-v2-recipes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border-top: 1px solid var(--line); }
+.bot-pack-v2-recipes article { min-height: 360px; padding: 27px 30px; border-right: 1px solid var(--line-soft); background: rgba(168,217,231,.025); }
+.bot-pack-v2-recipes article:last-child { border-right: 0; }
+.bot-pack-v2-recipes article > div { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; color: var(--blueprint); }
+.bot-pack-v2-kicker { margin: 36px 0 8px; color: var(--faint); }
+.bot-pack-v2-recipes h3 { margin: 0 0 12px; color: var(--paper); font: 400 30px/1.06 var(--serif); }
+.bot-pack-v2-recipes p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
+.bot-pack-v2-recipes strong { display: block; margin-top: 25px; color: var(--brass-bright); }
+.bot-pack-v2-recipes ul { margin: 10px 0 0; padding-left: 22px; color: var(--muted); }
+.bot-pack-v2-recipes li { margin: 8px 0; padding-left: 4px; line-height: 1.5; }
+.bot-pack-v2-recipes li::marker { color: var(--brass); }
+.bot-pack-v2-note { margin: 0; padding: 16px 30px; border-top: 1px solid var(--line); color: var(--faint); font-size: 14px; line-height: 1.55; }
 
 /* Portable Bots and Grok Bot build briefs */
 .grok-platform-page {
@@ -1889,7 +1956,7 @@ html[data-theme="light"] .grok-sharing-facts article { border-color: rgba(43,104
 html[data-theme="light"] .first-run-hero-art::before { background: linear-gradient(90deg,var(--ink) 0%,rgba(245,241,232,.62) 17%,transparent 52%),linear-gradient(180deg,transparent 70%,rgba(245,241,232,.8)); }
 html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,253,248,.88); color: var(--paper); }
 
-@media (max-width: 1250px) {
+@media (max-width: 1320px) {
   .desktop-nav { display: none; }
   .mobile-nav { display: block; }
   .site-nav { gap: 18px; }
@@ -1904,6 +1971,7 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .fit-test-question-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .fit-test-result-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .bot-platform-chooser-heading { grid-template-columns: 1fr; gap: 20px; }
+  .bot-pack-v2-heading { grid-template-columns: 1fr; gap: 20px; }
   .bot-platform-grid { grid-template-columns: 1fr 1fr; }
   .bot-platform-grid article:last-child { grid-column: 1/-1; min-height: 280px; }
   .grok-platform-hero { grid-template-columns: 1fr; align-items: start; }
@@ -1922,6 +1990,8 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .use-case-kit-intro, .crew-kit-card, .crew-kit-purpose, .crew-operating-grid, .crew-setup, .workflow-handoff-section { grid-template-columns: 1fr; }
   .crew-kit-card-image { min-height: 280px; }
   .crew-kit-card-image::after { background: linear-gradient(180deg, transparent 72%, var(--ink-soft)); }
+  html[data-theme="light"] .crew-kit-card-image { border-right: 0; border-bottom: 1px solid var(--line-soft); }
+  html[data-theme="light"] .crew-kit-card-image::after { background: none; }
   .crew-kit-card-copy { padding: 28px; }
   .crew-level-grid, .crew-passport-grid, .workflow-checkpoints { grid-template-columns: 1fr; }
   .crew-role-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
@@ -1948,6 +2018,9 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .fit-test-next-action { grid-template-columns: 1fr; }
   .fit-test-result-actions { justify-content: flex-start; }
   .bot-platform-grid { grid-template-columns: 1fr; }
+  .bot-pack-v2-job, .bot-pack-v2-recipes { grid-template-columns: 1fr; }
+  .bot-pack-v2-job article, .bot-pack-v2-recipes article { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line-soft); }
+  .bot-pack-v2-job article:last-child, .bot-pack-v2-recipes article:last-child { border-bottom: 0; }
   .bot-platform-grid article:last-child { grid-column: auto; }
   .grok-platform-map-grid { grid-template-columns: 1fr; }
   .grok-platform-map-connector { min-height: 58px; }
@@ -1998,6 +2071,10 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .fit-test-refresh-message { align-items: stretch; flex-direction: column; margin-inline: 16px; }
   .fit-test-refresh-message .button { width: 100%; }
   .bot-platform-chooser { padding-block: 44px; }
+  .bot-pack-v2-heading, .bot-pack-v2-job article, .bot-pack-v2-recipes article { padding: 20px; }
+  .bot-pack-v2-job article > p { margin-top: 22px; font-size: 22px; }
+  .bot-pack-v2-recipes article > div { flex-direction: column; }
+  .bot-pack-v2-note { padding: 15px 20px; }
   .bot-platform-grid article { min-height: 0; padding: 20px; }
   .bot-platform-card-topline { flex-direction: column; }
   .bot-platform-status { text-align: left; }
@@ -2226,6 +2303,9 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .hero-copy::before { display: none; }
   .hero-visual { height: 460px; border-top: 1px solid var(--line-soft); }
   .hero-visual::before { background: linear-gradient(180deg,var(--ink) 0%,transparent 25%,rgba(8,10,10,.28) 70%,rgba(8,10,10,.8) 100%); }
+  html[data-theme="light"] .hero-visual::before {
+    background: linear-gradient(180deg,var(--ink) 0%,rgba(245,241,232,.4) 12%,transparent 34%,transparent 78%,rgba(245,241,232,.46) 100%);
+  }
   .hero-visual img { object-position: 50% 22%; }
   .promise-grid, .inner-hero-grid { grid-template-columns: 1fr; }
   .content-grid-3 { grid-template-columns: 1fr 1fr; }

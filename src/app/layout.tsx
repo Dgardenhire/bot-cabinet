@@ -36,7 +36,6 @@ export const metadata: Metadata = {
   description:
     "Choose, build, and use AI specialists for real work with practical Hermes Bot profiles, examples, setup help, and review information.",
   alternates: { canonical: "/" },
-  icons: { icon: "/favicon.ico" },
   openGraph: {
     title: "Bot Cabinet",
     description:
