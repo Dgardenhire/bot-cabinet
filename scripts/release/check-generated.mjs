@@ -7,6 +7,7 @@ const execFile = promisify(execFileCallback);
 const GENERATED_PATHS = [
   "public/api/v1",
   "public/api/v2",
+  "public/schemas",
   "public/feed.xml",
   "public/llms.txt",
   "public/downloads/starter-bots",

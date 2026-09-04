@@ -159,11 +159,31 @@ describe("Bot Fit agent contract", () => {
     ).toBe(false);
   });
 
-  it("matches the generated public contract", async () => {
-    const source = await readFile(
-      path.join(process.cwd(), "public/api/v1/bot-fit-test.json"),
-      "utf8",
-    );
-    expect(JSON.parse(source)).toEqual(BOT_FIT_PUBLIC_CONTRACT);
+  it("matches the generated public contract and standalone schemas", async () => {
+    const [contractSource, inputSchemaSource, outputSchemaSource] =
+      await Promise.all([
+        readFile(
+          path.join(process.cwd(), "public/api/v1/bot-fit-test.json"),
+          "utf8",
+        ),
+        readFile(
+          path.join(
+            process.cwd(),
+            "public/schemas/bot-fit-test-input-v1.json",
+          ),
+          "utf8",
+        ),
+        readFile(
+          path.join(
+            process.cwd(),
+            "public/schemas/bot-fit-test-output-v1.json",
+          ),
+          "utf8",
+        ),
+      ]);
+
+    expect(JSON.parse(contractSource)).toEqual(BOT_FIT_PUBLIC_CONTRACT);
+    expect(JSON.parse(inputSchemaSource)).toEqual(BOT_FIT_INPUT_SCHEMA);
+    expect(JSON.parse(outputSchemaSource)).toEqual(BOT_FIT_OUTPUT_SCHEMA);
   });
 });

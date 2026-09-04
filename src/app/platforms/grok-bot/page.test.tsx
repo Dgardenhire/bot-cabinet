@@ -18,7 +18,7 @@ describe("Grok Bot platform page", () => {
 
     for (const bot of STARTER_BOTS) {
       expect(html).toContain(
-        `href="/downloads/grok-bot-templates/${bot.slug}.md"`,
+        `href="/downloads/grok-bot-templates/v2/${bot.slug}.md"`,
       );
       expect(html).toContain(
         `href="/downloads/portable-bot-packs/${bot.slug}.md"`,

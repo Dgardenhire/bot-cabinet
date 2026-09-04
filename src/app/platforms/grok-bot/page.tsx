@@ -147,7 +147,7 @@ export default function GrokBotTemplatesPage() {
               <div className="portable-template-actions">
                 <a
                   className="text-link"
-                  href={`/downloads/grok-bot-templates/${bot.slug}.md`}
+                  href={`/downloads/grok-bot-templates/v2/${bot.slug}.md`}
                   download
                 >
                   Download the Grok build brief <DownloadSimple size={15} />
