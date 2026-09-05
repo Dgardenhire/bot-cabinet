@@ -5,6 +5,7 @@ import sharp from "sharp";
 const root = process.cwd();
 const routes = [
   ["start", "/brand/social/first-bot-1200x630.jpg"],
+  ["fit", "/brand/social/bot-fit-test-1200x630.jpg?v=20260905"],
   ["bots", "/brand/social/the-cabinet-1200x630.jpg"],
   ["workshop", "/brand/social/bot-lab-1200x630.jpg"],
   ["portraits", "/brand/social/bot-portrait-studio-1200x630.jpg"],
@@ -40,7 +41,8 @@ for (const [route, imagePath] of routes) {
     errors.push(`${route}: dedicated X/Twitter image is missing`);
   }
 
-  const metadata = await sharp(path.join(root, "public", imagePath)).metadata();
+  const assetPath = imagePath.split("?", 1)[0];
+  const metadata = await sharp(path.join(root, "public", assetPath)).metadata();
   if (metadata.width !== 1200 || metadata.height !== 630) {
     errors.push(`${route}: social image is ${metadata.width}x${metadata.height}, expected 1200x630`);
   }

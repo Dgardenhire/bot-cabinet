@@ -9,7 +9,7 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Describe the work and find out whether it needs an Assignment, Skill, Routine, Bot, or Crew.",
   path: "/fit/",
-  image: "/brand/social/bot-fit-test-1200x630.jpg",
+  image: "/brand/social/bot-fit-test-1200x630.jpg?v=20260905",
   imageAlt: "Bot Cabinet Fit Test — choose the right setup for the work",
 });
 
