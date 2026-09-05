@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${bot.name} · The Cabinet`,
     description: bot.summary,
     path: `/bots/${bot.slug}/`,
-    image: "/brand/social/the-cabinet-1200x630.jpg",
+    image: bot.showcase ? `/brand/social/showcase-${bot.slug}-v1-1200x630.jpg` : "/brand/social/the-cabinet-1200x630.jpg",
     imageAlt: `The Cabinet — ${bot.name}, a practical Hermes Bot starter`,
   });
 }
@@ -82,7 +82,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
             </div>
             <div className="registry-detail-copy">
               <Eyebrow>{STARTER_CATEGORY_LABELS[bot.category]}</Eyebrow>
-              <p className="starter-status-label">Free starter · role and instructions included</p>
+              <p className="starter-status-label">{bot.showcase ? "Bot Showcase · free starter" : "Free starter · role and instructions included"}</p>
               <h1>{bot.name}</h1>
               <h2 className="starter-detail-title">{bot.title}</h2>
               <p className="registry-detail-summary">{bot.summary}</p>
@@ -93,12 +93,21 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
                 <a href={portablePackV2Paths.portableMarkdownUrl} download className="button button-secondary">Download Bot Pack 2.0 <DownloadSimple size={16} /></a>
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
-              <p className="starter-install-note">All 16 Bot Pack 2.0 Hermes archives passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026. Human technical and role-specific output tests remain pending. The Grok Bot build briefs remain untested.</p>
+              <p className="starter-install-note">{portablePackV2.platforms.hermes.importEvidence ? "This archive passed an isolated import and bundled-Skill presence check in Hermes Agent 0.21.0 on September 4, 2026." : "New prepared profile: Hermes import testing is pending."} Human technical and role-specific output tests remain pending. The Grok Bot build brief remains untested.</p>
               <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {bot.showcase && (
+        <section className="content-section shell">
+          <Eyebrow>Bot Showcase</Eyebrow>
+          <h2 className="section-heading">{bot.showcase.tagline}</h2>
+          <p className="section-deck">{bot.showcase.sample}</p>
+          <p>This fictional example illustrates the intended result; it is not a recorded Bot run.</p>
+        </section>
+      )}
 
       <BotPlatformChooser
         hermesImportCommand={importCommand}
@@ -174,7 +183,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
       <section className="content-section shell starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
-        <p><strong>Current review status:</strong> Automated package tests confirmed that each ZIP and Hermes profile archive contains the same seven files. All 16 V2 archives passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026. Human technical review and role-specific output/runtime tests remain pending. Grok Bot adaptation remains untested.</p>
+        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same seven files. {portablePackV2.platforms.hermes.importEvidence ? "This archive passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026." : "Hermes import testing is pending for this new profile."} Human technical review and role-specific output/runtime tests remain pending. Grok Bot adaptation remains untested.</p>
       </section>
     </main>
   );

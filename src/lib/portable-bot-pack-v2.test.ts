@@ -14,6 +14,16 @@ function copy<T>(value: T): T {
 }
 
 describe("Portable Bot Pack V2", () => {
+  it("does not inherit the earlier release's import evidence for Showcase Bots", () => {
+    for (const slug of ["curator", "reentry", "receipt"]) {
+      const pack = starterBotToPortablePackV2(STARTER_BOTS.find(bot => bot.slug === slug)!);
+      expect(pack.platforms.hermes.importStatus).toBe("not-tested");
+      expect(pack.platforms.hermes.importEvidence).toBeNull();
+      const overstated = copy(pack);
+      overstated.platforms.hermes.importStatus = "import-test-passed";
+      expect(validatePortableBotPackV2(overstated).length).toBeGreaterThan(0);
+    }
+  });
   it("builds and validates a normalized V2 pack for every starter Bot", () => {
     for (const bot of STARTER_BOTS) {
       const pack = starterBotToPortablePackV2(bot);

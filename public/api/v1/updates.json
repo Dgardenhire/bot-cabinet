@@ -3,9 +3,9 @@
   "feedVersion": "1.1.0",
   "releasedAt": "2026-09-03T00:00:00.000Z",
   "catalogVersion": "1.1.0",
-  "revision": "a691ec7607c25bf3245abea36ed9fa53a5c8a1accfe6bb8d9d2ab8de29b47a4b",
+  "revision": "e9429ac259c95492b96640c33ccd898c7171ea907f239110c76e83e9a8fe2b5f",
   "source": "https://botcabinet.com/api/v1/bots.json",
-  "count": 16,
+  "count": 19,
   "entries": [
     {
       "id": "bot:scout@1.0.0",
@@ -564,6 +564,111 @@
           "artifactKind": "portable-bot-pack",
           "markdown": "https://botcabinet.com/downloads/portable-bot-packs/story.md",
           "json": "https://botcabinet.com/downloads/portable-bot-packs/story.json"
+        }
+      }
+    },
+    {
+      "id": "bot:curator@1.0.0",
+      "kind": "bot",
+      "slug": "curator",
+      "version": "1.0.0",
+      "name": "Curator",
+      "title": "Bot lineup improvement manager",
+      "category": "technical",
+      "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
+      "audience": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/curator/",
+        "customize": "https://botcabinet.com/workshop/?starter=curator"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
+          "profile": "https://botcabinet.com/downloads/starter-bots/curator.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/curator.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/curator.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/curator.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/curator.json"
+        }
+      }
+    },
+    {
+      "id": "bot:reentry@1.0.0",
+      "kind": "bot",
+      "slug": "reentry",
+      "version": "1.0.0",
+      "name": "Reentry",
+      "title": "Project resumption guide",
+      "category": "planning",
+      "summary": "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.",
+      "audience": "People returning to projects after interruptions or switching between several ongoing builds.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/reentry/",
+        "customize": "https://botcabinet.com/workshop/?starter=reentry"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
+          "profile": "https://botcabinet.com/downloads/starter-bots/reentry.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/reentry.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/reentry.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/reentry.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/reentry.json"
+        }
+      }
+    },
+    {
+      "id": "bot:receipt@1.0.0",
+      "kind": "bot",
+      "slug": "receipt",
+      "version": "1.0.0",
+      "name": "Receipt",
+      "title": "Returns and warranty case assistant",
+      "category": "planning",
+      "summary": "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.",
+      "audience": "People tired of reconstructing a consumer issue every time they contact a company.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/receipt/",
+        "customize": "https://botcabinet.com/workshop/?starter=receipt"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
+          "profile": "https://botcabinet.com/downloads/starter-bots/receipt.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/receipt.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/receipt.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/receipt.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/receipt.json"
         }
       }
     }

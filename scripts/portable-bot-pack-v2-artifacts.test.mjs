@@ -24,7 +24,7 @@ test("generated V2 index resolves every versioned artifact", async () => {
   assert.equal(index.grokImportSupport, false);
   assert.equal(index.routineActivation, "manual-test-required");
   assert.equal(catalog.apiVersion, 2);
-  assert.equal(catalog.count, 16);
+  assert.equal(catalog.count, 19);
   assert.equal(catalog.bots.length, catalog.count);
   assert.equal(new Set(catalog.bots.map((bot) => bot.slug)).size, catalog.count);
   assert.equal(schema.$schema, "https://json-schema.org/draft/2020-12/schema");
@@ -45,8 +45,10 @@ test("generated V2 index resolves every versioned artifact", async () => {
     assert.equal(pack.artifactId, bot.artifactId);
     assert.equal(pack.routines[0].activationStatus, "manual-test-required");
     assert.equal(pack.routines[0].testStatus, "not-tested");
-    assert.equal(pack.platforms.hermes.importStatus, "import-test-passed");
-    assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, "0.21.0");
+    const newShowcaseBot = ["curator", "reentry", "receipt"].includes(bot.slug);
+    assert.equal(pack.platforms.hermes.importStatus, newShowcaseBot ? "not-tested" : "import-test-passed");
+    if (newShowcaseBot) assert.equal(pack.platforms.hermes.importEvidence, null);
+    else assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, "0.21.0");
     assert.equal(pack.platforms.grokBot.importable, false);
     assert.match(portableMarkdown, /Portable Bot Pack V2/);
     assert.match(grokBrief, /not an import package/i);

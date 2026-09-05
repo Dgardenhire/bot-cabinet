@@ -16,7 +16,7 @@ describe("BotPlatformChooser", () => {
     expect(html).toContain("Use Scout on your platform");
     expect(html).toContain("Archive import passed");
     expect(html).toContain("Hermes Agent 0.21.0");
-    expect(html).toContain("output testing remains yours to complete");
+    expect(html).toContain("output testing remains pending");
     expect(html).toContain("Prepared · test pending");
     expect(html).toContain("Portable Bot Pack");
     expect(html).toContain('href="/downloads/starter-bots/v2/scout.tar.gz"');

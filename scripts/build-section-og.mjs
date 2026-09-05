@@ -8,6 +8,42 @@ const root = process.cwd();
 const wordmark = path.join(root, "public", "brand", "bot-cabinet-wordmark-dark-v1.png");
 
 const cards = [
+{
+  "output": "showcase-curator-v1-1200x630.jpg",
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/archivist-1024.png"),
+  "sourcePosition": "right",
+  "eyebrow": "BOT SHOWCASE",
+  "title": [
+    "Meet Curator",
+    ""
+  ],
+  "description": "Help your Bots get better",
+  "url": "botcabinet.com/bots/curator"
+},
+{
+  "output": "showcase-reentry-v1-1200x630.jpg",
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/navigator-1024.png"),
+  "sourcePosition": "right",
+  "eyebrow": "BOT SHOWCASE",
+  "title": [
+    "Meet Reentry",
+    ""
+  ],
+  "description": "Pick up where you left off",
+  "url": "botcabinet.com/bots/reentry"
+},
+{
+  "output": "showcase-receipt-v1-1200x630.jpg",
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/steward-1024.png"),
+  "sourcePosition": "right",
+  "eyebrow": "BOT SHOWCASE",
+  "title": [
+    "Meet Receipt",
+    ""
+  ],
+  "description": "Keep the case together",
+  "url": "botcabinet.com/bots/receipt"
+},
   {
     output: "bot-fit-test-1200x630.jpg",
     source: path.join(root, "public", "atelier", "orrery.jpg"),
@@ -74,6 +110,12 @@ async function renderCard(card) {
   if (card.crop) source = source.extract(card.crop);
   if (card.flop) source = source.flop();
 
+  const portraitCard = card.output.startsWith("showcase-");
+  if (portraitCard) {
+    const portrait = await source.resize(630, 630, { fit: "cover" }).toBuffer();
+    source = sharp({ create: { width: 1200, height: 630, channels: 3, background: "#070b0b" } })
+      .composite([{ input: portrait, left: 570, top: 0 }]);
+  }
   const background = await source
     .resize(1200, 630, { fit: "cover", position: card.sourcePosition })
     .jpeg({ quality: 92, chromaSubsampling: "4:4:4" })

@@ -11,7 +11,7 @@ const root = path.join(process.cwd(), "public/downloads/starter-bots");
 const grokRoot = path.join(process.cwd(), "public/downloads/grok-bot-templates");
 const portableRoot = path.join(process.cwd(), "public/downloads/portable-bot-packs");
 const expectedFiles = ["BOT-PASSPORT.md", "LICENSE", "README.md", "SOUL.md", "distribution.yaml", "profile.yaml"];
-const expectedStarterCount = 16;
+const expectedStarterCount = 19;
 const tarBlockSize = 512;
 
 function readTarText(header, offset, length) {

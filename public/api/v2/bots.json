@@ -3,7 +3,7 @@
   "schemaVersion": 2,
   "packVersion": "2.0.0",
   "portablePackSchemaUrl": "/api/v2/portable-bot-pack.schema.json",
-  "count": 16,
+  "count": 19,
   "bots": [
     {
       "artifactId": "bot-cabinet:bot:scout:portable-pack",
@@ -657,6 +657,117 @@
         "mediaType": "text/markdown",
         "importable": false,
         "briefUrl": "/downloads/grok-bot-templates/v2/story.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:curator:portable-pack",
+      "slug": "curator",
+      "name": "Curator",
+      "title": "Bot lineup improvement manager",
+      "category": "technical",
+      "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
+      "portraitUrl": "/downloads/bot-portraits/hermes/archivist-1024.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/curator.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/curator.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:curator:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/curator.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/curator.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "not-tested",
+        "importEvidence": null
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:curator:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/curator.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:reentry:portable-pack",
+      "slug": "reentry",
+      "name": "Reentry",
+      "title": "Project resumption guide",
+      "category": "planning",
+      "summary": "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.",
+      "portraitUrl": "/downloads/bot-portraits/hermes/navigator-1024.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/reentry.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/reentry.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:reentry:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/reentry.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/reentry.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "not-tested",
+        "importEvidence": null
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:reentry:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/reentry.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:receipt:portable-pack",
+      "slug": "receipt",
+      "name": "Receipt",
+      "title": "Returns and warranty case assistant",
+      "category": "planning",
+      "summary": "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.",
+      "portraitUrl": "/downloads/bot-portraits/hermes/steward-1024.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/receipt.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/receipt.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:receipt:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/receipt.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/receipt.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "not-tested",
+        "importEvidence": null
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:receipt:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/receipt.md",
         "preparationStatus": "prepared",
         "testStatus": "adaptation-prepared-not-tested"
       }

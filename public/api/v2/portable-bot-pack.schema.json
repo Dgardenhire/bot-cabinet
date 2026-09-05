@@ -496,10 +496,16 @@
               "const": "files-and-archive-checked"
             },
             "importStatus": {
-              "const": "import-test-passed"
+              "enum": [
+                "import-test-passed",
+                "not-tested"
+              ]
             },
             "importEvidence": {
-              "type": "object",
+              "type": [
+                "object",
+                "null"
+              ],
               "additionalProperties": false,
               "required": [
                 "hermesVersion",

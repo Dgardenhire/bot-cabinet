@@ -48,16 +48,15 @@ export function BotPlatformChooser({
           <div className="bot-platform-card-topline">
             <Package size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-status is-available">
-              Archive import passed
+              {pack.platforms.hermes.importEvidence ? "Archive import passed" : "Prepared profile · import test pending"}
             </span>
           </div>
           <h3>Hermes Agent</h3>
           <p>
             Import the prepared profile, review its files, choose the access it
-            needs, and run the first assignment. The archive and bundled Skill
-            passed an isolated import check in Hermes Agent{" "}
-            {pack.platforms.hermes.importEvidence.hermesVersion}; output testing
-            remains yours to complete.
+            needs, and run the first assignment. {pack.platforms.hermes.importEvidence
+              ? `The archive and bundled Skill passed an isolated import check in Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion}. Role-specific output testing remains pending.`
+              : "Import and role-specific output testing remain pending for this new profile."}
           </p>
           <div className="bot-platform-actions">
             <a

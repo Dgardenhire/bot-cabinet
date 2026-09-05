@@ -135,5 +135,29 @@
       <category>writing</category>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
+    <item>
+      <title>Curator — Bot lineup improvement manager</title>
+      <link>https://botcabinet.com/bots/curator/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:curator:1.0.0</guid>
+      <description>Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.</description>
+      <category>technical</category>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Reentry — Project resumption guide</title>
+      <link>https://botcabinet.com/bots/reentry/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:reentry:1.0.0</guid>
+      <description>Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.</description>
+      <category>planning</category>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Receipt — Returns and warranty case assistant</title>
+      <link>https://botcabinet.com/bots/receipt/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:receipt:1.0.0</guid>
+      <description>Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.</description>
+      <category>planning</category>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
   </channel>
 </rss>

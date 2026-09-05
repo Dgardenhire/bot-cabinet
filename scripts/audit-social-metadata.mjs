@@ -4,6 +4,9 @@ import sharp from "sharp";
 
 const root = process.cwd();
 const routes = [
+  ["bots/curator", "/brand/social/showcase-curator-v1-1200x630.jpg"],
+  ["bots/reentry", "/brand/social/showcase-reentry-v1-1200x630.jpg"],
+  ["bots/receipt", "/brand/social/showcase-receipt-v1-1200x630.jpg"],
   ["start", "/brand/social/first-bot-1200x630.jpg"],
   ["fit", "/brand/social/bot-fit-test-share-v2-1200x630.jpg"],
   ["bots", "/brand/social/the-cabinet-1200x630.jpg"],

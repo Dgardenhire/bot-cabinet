@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "status": "prepared",
-  "botCount": 16,
+  "botCount": 19,
   "resources": {
     "bots": "/api/v2/bots.json",
     "portableBotPackSchema": "/api/v2/portable-bot-pack.schema.json",

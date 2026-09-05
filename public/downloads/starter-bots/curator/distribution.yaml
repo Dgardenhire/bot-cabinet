@@ -1,0 +1,12 @@
+name: curator
+version: "1.0.0"
+description: "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE

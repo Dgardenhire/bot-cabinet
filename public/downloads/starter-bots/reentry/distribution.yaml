@@ -1,0 +1,12 @@
+name: reentry
+version: "1.0.0"
+description: "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE

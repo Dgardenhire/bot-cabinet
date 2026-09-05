@@ -1,0 +1,12 @@
+name: receipt
+version: "1.0.0"
+description: "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue."
+hermes_requires: ">=0.20.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
