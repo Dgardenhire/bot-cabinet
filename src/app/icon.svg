@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Bot Cabinet">
+  <style>
+    .ground { fill: #070b0c; }
+    .frame { fill: none; stroke: #c99b46; stroke-width: 14; }
+    .letters { fill: #f3efe6; }
+    @media (prefers-color-scheme: light) {
+      .ground { fill: #f6f1e7; }
+      .frame { stroke: #9a6b1f; }
+      .letters { fill: #090b0c; }
+    }
+  </style>
+  <rect class="ground" width="256" height="256" rx="28" />
+  <rect class="frame" x="18" y="18" width="220" height="220" rx="12" />
+  <text
+    class="letters"
+    x="128"
+    y="154"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="70"
+    font-weight="800"
+    letter-spacing="-2"
+  >BOT</text>
+</svg>

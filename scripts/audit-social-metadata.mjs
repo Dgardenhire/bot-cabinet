@@ -5,7 +5,7 @@ import sharp from "sharp";
 const root = process.cwd();
 const routes = [
   ["start", "/brand/social/first-bot-1200x630.jpg"],
-  ["fit", "/brand/social/bot-fit-test-1200x630.jpg?v=20260905"],
+  ["fit", "/brand/social/bot-fit-test-share-v2-1200x630.jpg"],
   ["bots", "/brand/social/the-cabinet-1200x630.jpg"],
   ["workshop", "/brand/social/bot-lab-1200x630.jpg"],
   ["portraits", "/brand/social/bot-portrait-studio-1200x630.jpg"],
@@ -40,12 +40,28 @@ for (const [route, imagePath] of routes) {
   if (!html.includes(`<meta name="twitter:image" content="${absoluteImage}"`)) {
     errors.push(`${route}: dedicated X/Twitter image is missing`);
   }
+  if (imagePath.includes("?")) {
+    errors.push(`${route}: social image URL must use a plain, immutable filename without a query string`);
+  }
 
   const assetPath = imagePath.split("?", 1)[0];
   const metadata = await sharp(path.join(root, "public", assetPath)).metadata();
   if (metadata.width !== 1200 || metadata.height !== 630) {
     errors.push(`${route}: social image is ${metadata.width}x${metadata.height}, expected 1200x630`);
   }
+}
+
+const rootHtml = await readFile(path.join(root, "out", "index.html"), "utf8");
+if (!rootHtml.includes('<link rel="icon" href="/icon.svg')) {
+  errors.push("sitewide SVG favicon is missing");
+}
+if (!rootHtml.includes('<link rel="apple-touch-icon" href="/apple-icon.png')) {
+  errors.push("sitewide Apple touch icon is missing");
+}
+
+const appleIcon = await sharp(path.join(root, "src", "app", "apple-icon.png")).metadata();
+if (appleIcon.width !== 180 || appleIcon.height !== 180) {
+  errors.push(`Apple touch icon is ${appleIcon.width}x${appleIcon.height}, expected 180x180`);
 }
 
 if (errors.length) {
