@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${bot.name} · The Cabinet`,
     description: bot.summary,
     path: `/bots/${bot.slug}/`,
-    image: bot.showcase ? `/brand/social/showcase-${bot.slug}-v1-1200x630.jpg` : "/brand/social/the-cabinet-1200x630.jpg",
+    image: bot.showcase ? `/brand/social/showcase-${bot.slug}-${bot.slug === "receipt" ? "v2" : "v1"}-1200x630.jpg` : "/brand/social/the-cabinet-1200x630.jpg",
     imageAlt: `The Cabinet — ${bot.name}, a practical Hermes Bot starter`,
   });
 }

@@ -33,7 +33,7 @@ const cards = [
   "url": "botcabinet.com/bots/reentry"
 },
 {
-  "output": "showcase-receipt-v1-1200x630.jpg",
+  "output": "showcase-receipt-v2-1200x630.jpg",
   "source": path.join(root, "public", "downloads/bot-portraits/hermes/steward-1024.png"),
   "sourcePosition": "right",
   "eyebrow": "BOT SHOWCASE",
