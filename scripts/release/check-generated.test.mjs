@@ -15,7 +15,9 @@ test("release pipeline generates crew bundles before checking for drift", async 
     await readFile(new URL("../../package.json", import.meta.url), "utf8"),
   );
   const generateContent = packageJson.scripts["generate:content"];
+  const generateCi = packageJson.scripts["generate:ci"];
   const buildSite = packageJson.scripts["build:site"];
+  const verifyCi = packageJson.scripts["verify:ci"];
   const verifyRelease = packageJson.scripts["verify:release"];
 
   assert.match(
@@ -23,10 +25,27 @@ test("release pipeline generates crew bundles before checking for drift", async 
     /npm run generate:portable-v2 && npm run generate:crew-bundles$/,
   );
   assert.doesNotMatch(buildSite, /generate:crew-bundles/);
+  assert.match(generateCi, /npm run generate:crew-bundles$/);
+  assert.doesNotMatch(
+    generateCi,
+    /build-(?:bot-portraits|crew-kit-og|section-og)/,
+    "CI must not recreate host-rendered artwork",
+  );
+  assert.match(
+    verifyCi,
+    /^npm run generate:ci && npm run check:generated(?: &&|$)/,
+  );
   assert.match(
     verifyRelease,
     /^npm run generate:content && npm run check:generated(?: &&|$)/,
   );
+
+  const checksWorkflow = await readFile(
+    new URL("../../.github/workflows/ci.yml", import.meta.url),
+    "utf8",
+  );
+  assert.match(checksWorkflow, /- run: npm run verify:ci/);
+  assert.doesNotMatch(checksWorkflow, /- run: npm run verify:release/);
 });
 
 test("generated drift check catches tracked and untracked output only", async () => {
