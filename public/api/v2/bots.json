@@ -668,7 +668,7 @@
       "title": "Bot lineup improvement manager",
       "category": "technical",
       "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
-      "portraitUrl": "/downloads/bot-portraits/hermes/archivist-1024.png",
+      "portraitUrl": "/downloads/bot-portraits/hermes/curator-1024.png",
       "preparationStatus": "prepared",
       "portablePack": {
         "jsonUrl": "/downloads/portable-bot-packs/v2/curator.json",
@@ -705,7 +705,7 @@
       "title": "Project resumption guide",
       "category": "planning",
       "summary": "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.",
-      "portraitUrl": "/downloads/bot-portraits/hermes/navigator-1024.png",
+      "portraitUrl": "/downloads/bot-portraits/hermes/reentry-1024.png",
       "preparationStatus": "prepared",
       "portablePack": {
         "jsonUrl": "/downloads/portable-bot-packs/v2/reentry.json",
@@ -742,7 +742,7 @@
       "title": "Returns and warranty case assistant",
       "category": "planning",
       "summary": "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.",
-      "portraitUrl": "/downloads/bot-portraits/hermes/steward-1024.png",
+      "portraitUrl": "/downloads/bot-portraits/hermes/receipt-1024.png",
       "preparationStatus": "prepared",
       "portablePack": {
         "jsonUrl": "/downloads/portable-bot-packs/v2/receipt.json",

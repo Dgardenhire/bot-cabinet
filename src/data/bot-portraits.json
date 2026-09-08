@@ -78,5 +78,29 @@
     "alt": "A friendly compact terracotta and ivory mechanical builder Bot with large camera-lens eyes",
     "originalSha256": "956dcb6bcc18f0e63de0016fe8d0464739fd1efe2d3f6e98879dc1c9d9bbdd96",
     "crop": { "left": 72, "top": 250, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "curator",
+    "name": "Curator",
+    "description": "Burgundy and ivory enamel with a brass catalog-card drawer.",
+    "alt": "A friendly burgundy and ivory mechanical curator Bot with large camera-lens eyes",
+    "originalSha256": "d834f13e3d8ed2802baf2182342129508f4c56d67442e924bee84180eca400fd",
+    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "reentry",
+    "name": "Reentry",
+    "description": "Midnight-indigo and blue-gray enamel with a compass instrument.",
+    "alt": "A friendly midnight-indigo mechanical reentry Bot with large camera-lens eyes",
+    "originalSha256": "495b6f3dfe1aec6f1fb694b31edca6a59fe00d1c1bbde54627bd4aff793dd2c1",
+    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+  },
+  {
+    "slug": "receipt",
+    "name": "Receipt",
+    "description": "Ivory and oxblood enamel with a compact timestamp instrument.",
+    "alt": "A friendly ivory and oxblood mechanical receipt Bot with large camera-lens eyes",
+    "originalSha256": "13d527b11fa59cbaf2d1b25538940ad32440a5b8d566d47c13ba147e0d730f05",
+    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
   }
 ]

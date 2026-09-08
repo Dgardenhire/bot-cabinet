@@ -1620,7 +1620,7 @@
         "category": "technical",
         "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
         "audience": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful.",
-        "image": "/downloads/bot-portraits/hermes/archivist-1024.png"
+        "image": "/downloads/bot-portraits/hermes/curator-1024.png"
       },
       "job": {
         "outcome": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
@@ -1708,7 +1708,7 @@
         "category": "planning",
         "summary": "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.",
         "audience": "People returning to projects after interruptions or switching between several ongoing builds.",
-        "image": "/downloads/bot-portraits/hermes/navigator-1024.png"
+        "image": "/downloads/bot-portraits/hermes/reentry-1024.png"
       },
       "job": {
         "outcome": "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.",
@@ -1797,7 +1797,7 @@
         "category": "planning",
         "summary": "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.",
         "audience": "People tired of reconstructing a consumer issue every time they contact a company.",
-        "image": "/downloads/bot-portraits/hermes/steward-1024.png"
+        "image": "/downloads/bot-portraits/hermes/receipt-1024.png"
       },
       "job": {
         "outcome": "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.",
