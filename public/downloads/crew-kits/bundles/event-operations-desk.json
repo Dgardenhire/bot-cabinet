@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "event-operations-desk",
+  "name": "Event Operations Desk",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "responsibility": "Build the event plan, milestones, dependencies, and run of show.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/planner.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only project documents",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Do not assign people or commit dates without approval",
+        "Do not change an external task system without approval",
+        "A person approves assignments and deadlines."
+      ],
+      "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
+    },
+    {
+      "slug": "chief-of-staff",
+      "name": "Chief of Staff",
+      "responsibility": "Act as Coordinator and maintain owners, decisions, and deadlines.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/chief-of-staff.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/chief-of-staff.tar.gz",
+      "sha256": "b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only access to approved planning documents and calendar information",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Ask before contacting anyone",
+        "Ask before changing a calendar, task, or shared record",
+        "A leader sets priorities, assigns people, and approves commitments and deadlines.",
+        "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+      ],
+      "firstTest": "Use sample updates from two projects to produce a one-page priority brief and a decision log for review."
+    },
+    {
+      "slug": "client",
+      "name": "Client Deliverables",
+      "responsibility": "Prepare guest, speaker, vendor, and internal communication drafts.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/client.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/client.tar.gz",
+      "sha256": "f72a70696e86663a8d8e7e833c8e27eb7edca24114b3937da761549bc7643dc6",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional document-template access"
+      ],
+      "approvalActions": [
+        "Ask before including prices, promises, or deadlines",
+        "A person approves pricing, promises, and final delivery.",
+        "A person limits client information to approved files and systems and checks the Bot’s access before use."
+      ],
+      "firstTest": "Create a two-page client update from supplied notes and mark every item that needs approval."
+    },
+    {
+      "slug": "ops",
+      "name": "Ops",
+      "responsibility": "Track readiness, logistics, unresolved risks, and day-of notes.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/ops.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/ops.tar.gz",
+      "sha256": "afb217c5f761e50b65d63cee53a243846497aa50da9676109d87d25cc76f6845",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only logs and status endpoints",
+        "Approved notification channel"
+      ],
+      "approvalActions": [
+        "Report before repairing",
+        "Ask before restarts or configuration changes",
+        "Ask before sending external messages",
+        "A person approves restarts, deletions, configuration changes, and external messages."
+      ],
+      "firstTest": "Check two harmless status sources and produce a report without changing either system."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Planning",
+      "action": "Build milestones, dependencies, and decision dates.",
+      "owner": "Planner"
+    },
+    {
+      "timing": "Coordination",
+      "action": "Maintain the tracker and communication drafts.",
+      "owner": "Chief of Staff + Client Deliverables"
+    },
+    {
+      "timing": "Readiness",
+      "action": "Review logistics, risks, and fallback plans.",
+      "owner": "Ops + person"
+    },
+    {
+      "timing": "Closeout",
+      "action": "Record exceptions and follow-up.",
+      "owner": "Ops + person"
+    }
+  ],
+  "approvalActions": [
+    "Contact a guest, speaker, vendor, or venue",
+    "Make a purchase, booking, or cancellation",
+    "Change the event date, program, or public announcement"
+  ],
+  "prohibitedActions": [
+    "Sign contracts or accept terms",
+    "Spend money or make reservations",
+    "Expose guest information"
+  ]
+}

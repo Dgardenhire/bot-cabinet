@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "hiring-support-desk",
+  "name": "Hiring Support Desk",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "writer",
+      "name": "Writer",
+      "responsibility": "Create the approved role brief and candidate-facing drafts.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/writer.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/writer.tar.gz",
+      "sha256": "7f1f3d29a8f5189b4964a68a0734c1010996a443c3a874c1312e48d8c312d722",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "A person approves factual claims and final wording."
+      ],
+      "firstTest": "Draft a 500-word article from one approved outline and three supplied sources."
+    },
+    {
+      "slug": "researcher",
+      "name": "Researcher",
+      "responsibility": "Organize supplied job-relevant information without scoring people.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/researcher.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Read-only document access when I provide files"
+      ],
+      "approvalActions": [
+        "Ask when sources conflict",
+        "A person makes legal, medical, financial, and policy decisions."
+      ],
+      "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
+    },
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "responsibility": "Build the interview plan, question set, and schedule.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/planner.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only project documents",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Do not assign people or commit dates without approval",
+        "Do not change an external task system without approval",
+        "A person approves assignments and deadlines."
+      ],
+      "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
+    },
+    {
+      "slug": "editor",
+      "name": "Editor",
+      "responsibility": "Check clarity, consistency, and missing criteria.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/editor.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/editor.tar.gz",
+      "sha256": "7f16ed8dccd5ec9d07fff0d42944bc14ac903a6f9e1b8bcc7234117a3c689dc2",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "Ask before changing substantive meaning",
+        "A person approves substantive changes."
+      ],
+      "firstTest": "Edit a two-page memo and explain the five most important changes."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Role definition",
+      "action": "Approve responsibilities, evidence, and process.",
+      "owner": "Writer + Planner + person"
+    },
+    {
+      "timing": "Preparation",
+      "action": "Organize material and prepare consistent questions.",
+      "owner": "Researcher + Planner"
+    },
+    {
+      "timing": "Interview record",
+      "action": "Format factual notes and open questions.",
+      "owner": "Editor"
+    },
+    {
+      "timing": "Decision",
+      "action": "People make every employment decision.",
+      "owner": "Hiring manager"
+    }
+  ],
+  "approvalActions": [
+    "Contact, advance, rank, reject, or select a candidate",
+    "Discuss compensation or background checks",
+    "Use sensitive personal information"
+  ],
+  "prohibitedActions": [
+    "Make an employment decision",
+    "Infer protected traits",
+    "Search private or unapproved sources"
+  ]
+}

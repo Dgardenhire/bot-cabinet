@@ -4,6 +4,7 @@ import {
   BOT_FIT_EMPTY_ANSWERS,
   botFitArtifactFileName,
   botFitRecommendationToMarkdown,
+  isBotFitFormComplete,
   recommendBotFit,
   type BotFitAnswers,
 } from "./bot-fit-test";
@@ -255,6 +256,30 @@ describe("recommendBotFit", () => {
       "Define one concrete result before starting.",
     ]);
     expect(recommendation.firstTest).toContain("Describe one concrete result");
+  });
+});
+
+describe("Fit Test form completeness", () => {
+  it.each([
+    "frequency",
+    "needsContinuingContext",
+    "needsMultipleSpecialists",
+    "workProvenManually",
+    "overlapsExistingRole",
+  ] as const)("blocks a skipped %s answer even when the job is filled in", (key) => {
+    expect(isBotFitFormComplete({ ...answers(), [key]: undefined })).toBe(false);
+  });
+
+  it("accepts explicit No and Not sure answers, without requiring optional details", () => {
+    expect(isBotFitFormComplete(answers())).toBe(true);
+  });
+
+  it("rejects whitespace-only jobs even with all branch answers", () => {
+    expect(isBotFitFormComplete(answers({ result: "  \n " }))).toBe(false);
+  });
+
+  it.each(["once", "repeat", "scheduled"] as const)("preserves the %s path", (frequency) => {
+    expect(isBotFitFormComplete(answers({ frequency }))).toBe(true);
   });
 });
 

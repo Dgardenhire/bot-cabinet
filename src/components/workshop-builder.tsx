@@ -594,7 +594,6 @@ export function WorkshopBuilder() {
   }
 
   function downloadMarkdown() {
-    if (!isBlueprintComplete(blueprint)) return;
     const markdown = blueprintToMarkdown(blueprint);
     const blob = new Blob([markdown], { type: "text/markdown;charset=utf-8" });
     downloadBlob(blob, blueprintFileName(blueprint));
@@ -659,7 +658,7 @@ export function WorkshopBuilder() {
           : "Local save unavailable";
   const complete = isBlueprintComplete(blueprint);
   const downloadStatus = !complete
-    ? `Complete all eight fields to download the Blueprint. Remaining: ${blueprint.missingFields.join(", ")}.`
+    ? `This draft is not ready for setup. Complete blank fields and replace “Not yet specified” answers: ${blueprint.missingFields.join(", ")}. You can save an incomplete Markdown draft now.`
     : pdfState === "preparing"
       ? "Preparing the designed PDF in this browser…"
       : pdfState === "error"
@@ -688,11 +687,12 @@ export function WorkshopBuilder() {
 
       <div className="workshop-output-strip" aria-labelledby="workshop-output-title">
         <div>
-          <p className="workshop-panel-kicker">Your complete Bot Lab package</p>
+          <p className="workshop-panel-kicker">Your Bot Lab downloads</p>
           <h2 id="workshop-output-title">
-            {complete ? "Your Bot package is ready" : "Complete the plan to unlock your downloads"}
+            {complete ? "Your Bot package is ready for your review" : "Save your draft or finish the setup plan"}
           </h2>
           <p>An importable Hermes profile, a designed Blueprint PDF, an editable Markdown plan, and a separate Bot Passport.</p>
+          {!complete && <p role="status">{downloadStatus}</p>}
         </div>
         <div className="workshop-output-actions">
           <button type="button" className="button button-primary" onClick={downloadHermesProfile} disabled={!complete || archiveState === "preparing"} data-funnel-event="bot_lab_profile_download" data-funnel-surface="workshop">
@@ -702,8 +702,8 @@ export function WorkshopBuilder() {
           <button type="button" className="button button-secondary" onClick={downloadPdf} disabled={!complete || pdfState === "preparing"} data-funnel-event="bot_lab_pdf_download" data-funnel-surface="workshop">
             <FilePdf size={18} aria-hidden="true" /> Download Blueprint PDF
           </button>
-          <button type="button" className="button button-secondary" onClick={downloadMarkdown} disabled={!complete} data-funnel-event="bot_lab_markdown_download" data-funnel-surface="workshop">
-            <FileText size={18} aria-hidden="true" /> Download Markdown plan
+          <button type="button" className="button button-secondary" onClick={downloadMarkdown} data-funnel-event="bot_lab_markdown_download" data-funnel-surface="workshop">
+            <FileText size={18} aria-hidden="true" /> {complete ? "Download Markdown plan" : "Save incomplete Markdown draft"}
           </button>
           <button type="button" className="button button-secondary" onClick={downloadPassport} disabled={!complete} data-funnel-event="bot_lab_passport_download" data-funnel-surface="workshop">
             <ShieldCheck size={18} aria-hidden="true" /> Download Bot Passport
@@ -1219,12 +1219,11 @@ export function WorkshopBuilder() {
               className="blueprint-secondary-action"
               type="button"
               onClick={downloadMarkdown}
-              disabled={!complete}
               data-funnel-event="bot_lab_markdown_download"
               data-funnel-surface="blueprint_preview"
             >
               <FileText size={18} weight="regular" aria-hidden="true" />
-              Download Markdown file
+              {complete ? "Download Markdown file" : "Save incomplete Markdown draft"}
             </button>
             <button
               className="blueprint-secondary-action"

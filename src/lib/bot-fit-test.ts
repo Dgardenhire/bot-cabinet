@@ -29,6 +29,30 @@ export type BotFitAnswers = {
   override: BotFitKind | "auto";
 };
 
+type BotFitBranchQuestion =
+  | "frequency"
+  | "needsContinuingContext"
+  | "needsMultipleSpecialists"
+  | "workProvenManually"
+  | "overlapsExistingRole";
+
+// The UI must distinguish an explicit No from a question never answered.
+export type BotFitFormAnswers = Omit<BotFitAnswers, BotFitBranchQuestion> &
+  Partial<Pick<BotFitAnswers, BotFitBranchQuestion>>;
+
+export function isBotFitFormComplete(
+  answers: BotFitFormAnswers,
+): answers is BotFitAnswers {
+  return (
+    answers.result.trim().length > 0 &&
+    ["once", "repeat", "scheduled"].includes(answers.frequency ?? "") &&
+    typeof answers.needsContinuingContext === "boolean" &&
+    typeof answers.needsMultipleSpecialists === "boolean" &&
+    typeof answers.workProvenManually === "boolean" &&
+    ["yes", "no", "unsure"].includes(answers.overlapsExistingRole ?? "")
+  );
+}
+
 export type BotFitOperatingControls = {
   trigger: string;
   failureResponse: string;

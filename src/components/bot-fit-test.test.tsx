@@ -4,6 +4,14 @@ import { describe, expect, it } from "vitest";
 import { BotFitTest } from "./bot-fit-test";
 
 describe("BotFitTest", () => {
+  it("does not silently answer any branching question for the visitor", () => {
+    const markup = renderToStaticMarkup(<BotFitTest />);
+    const radios = markup.match(/<input[^>]+type="radio"[^>]*>/g) ?? [];
+    expect(radios).toHaveLength(12);
+    expect(radios.every((radio) => !radio.includes("checked"))).toBe(true);
+    expect(radios.every((radio) => radio.includes("required"))).toBe(true);
+    expect(markup).not.toContain('id="fit-test-result"');
+  });
   it("presents a plain-language, browser-local path to the right work format", () => {
     const markup = renderToStaticMarkup(<BotFitTest />);
 

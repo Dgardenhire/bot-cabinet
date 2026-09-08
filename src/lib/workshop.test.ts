@@ -61,6 +61,16 @@ describe("coerceWorkshopDraft", () => {
 });
 
 describe("buildBotBlueprint", () => {
+  it.each(["Not yet specified", "  NOT YET SPECIFIED.  ", "Approved documents\nNot yet specified"])("does not count unresolved placeholder text as completed: %s", (placeholder) => {
+    const blueprint = buildBotBlueprint({ ...completeDraft, approvalBoundaries: placeholder });
+    expect(blueprint.completedFields).toBe(7);
+    expect(blueprint.missingFields).toEqual(["When it must ask you"]);
+    expect(isBlueprintComplete(blueprint)).toBe(false);
+    const markdown = blueprintToMarkdown(blueprint);
+    expect(markdown).toContain("Incomplete draft — not ready for setup");
+    expect(markdown).toContain("When it must ask you");
+  });
+
   it("is deterministic and translates every planning field", () => {
     const first = buildBotBlueprint(completeDraft);
     const second = buildBotBlueprint({ ...completeDraft });

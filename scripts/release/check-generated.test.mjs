@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFile as execFileCallback } from "node:child_process";
-import { mkdtemp, mkdir, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
@@ -9,6 +9,25 @@ import test from "node:test";
 import { listGeneratedChanges } from "./check-generated.mjs";
 
 const execFile = promisify(execFileCallback);
+
+test("release pipeline generates crew bundles before checking for drift", async () => {
+  const packageJson = JSON.parse(
+    await readFile(new URL("../../package.json", import.meta.url), "utf8"),
+  );
+  const generateContent = packageJson.scripts["generate:content"];
+  const buildSite = packageJson.scripts["build:site"];
+  const verifyRelease = packageJson.scripts["verify:release"];
+
+  assert.match(
+    generateContent,
+    /npm run generate:portable-v2 && npm run generate:crew-bundles$/,
+  );
+  assert.doesNotMatch(buildSite, /generate:crew-bundles/);
+  assert.match(
+    verifyRelease,
+    /^npm run generate:content && npm run check:generated(?: &&|$)/,
+  );
+});
 
 test("generated drift check catches tracked and untracked output only", async () => {
   const root = await mkdtemp(path.join(tmpdir(), "bot-cabinet-generated-check-"));

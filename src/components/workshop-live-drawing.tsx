@@ -30,68 +30,78 @@ function itemCount(count: number, singular: string, plural = `${singular}s`) {
 }
 
 export function WorkshopLiveDrawing({ blueprint }: WorkshopLiveDrawingProps) {
-  const hasName = blueprint.profile.name !== "Untitled bot";
+  const missingFields = new Set(blueprint.missingFields);
+  const isReady = (field: string) => !missingFields.has(field);
+  const nameReady = isReady("Bot name");
+  const missionReady = isReady("Job and outcome");
+  const inputsReady = isReady("Information and rules");
+  const outputsReady = isReady("What it should produce");
+  const cadenceReady = isReady("When it should run");
+  const toolsReady = isReady("Tools and outside services");
+  const approvalsReady = isReady("When it must ask you");
+  const testReady = isReady("First test");
   const modules: DrawingModule[] = [
     {
       label: "Bot name",
-      detail: hasName ? "Name added" : "Name needed",
-      ready: hasName,
+      detail: nameReady ? "Name added" : "Name needed",
+      ready: nameReady,
       icon: Robot,
     },
     {
       label: "Job and outcome",
-      detail: blueprint.mission ? "Outcome added" : "Outcome needed",
-      ready: Boolean(blueprint.mission),
+      detail: missionReady ? "Outcome added" : "Outcome needed",
+      ready: missionReady,
       icon: Crosshair,
     },
     {
       label: "Information and rules",
-      detail: blueprint.inputs.length
+      detail: inputsReady
         ? itemCount(blueprint.inputs.length, "information item")
         : "Information needed",
-      ready: blueprint.inputs.length > 0,
+      ready: inputsReady,
       icon: TrayArrowDown,
     },
     {
       label: "Intended result",
-      detail: blueprint.outputs.length
+      detail: outputsReady
         ? itemCount(blueprint.outputs.length, "result")
         : "Result needed",
-      ready: blueprint.outputs.length > 0,
+      ready: outputsReady,
       icon: Package,
     },
     {
       label: "When work starts",
-      detail: blueprint.cadence ? "Timing added" : "Timing needed",
-      ready: Boolean(blueprint.cadence),
+      detail: cadenceReady ? "Timing added" : "Timing needed",
+      ready: cadenceReady,
       icon: Clock,
     },
     {
       label: "Tools and services",
-      detail: blueprint.tools.length
+      detail: toolsReady
         ? itemCount(blueprint.tools.length, "tool")
         : "Tools needed",
-      ready: blueprint.tools.length > 0,
+      ready: toolsReady,
       icon: Wrench,
     },
     {
       label: "Approval required",
-      detail: blueprint.approvals.length
+      detail: approvalsReady
         ? itemCount(blueprint.approvals.length, "approval item")
         : "Approval items needed",
-      ready: blueprint.approvals.length > 0,
+      ready: approvalsReady,
       icon: ShieldCheck,
     },
     {
       label: "First test",
-      detail: blueprint.firstRunTest ? "Test added" : "Test needed",
-      ready: Boolean(blueprint.firstRunTest),
+      detail: testReady ? "Test added" : "Test needed",
+      ready: testReady,
       icon: CheckCircle,
     },
   ];
 
   const nextModuleIndex = modules.findIndex((module) => !module.ready);
-  const drawingComplete = nextModuleIndex === -1;
+  const drawingComplete =
+    blueprint.completedFields === blueprint.totalFields && nextModuleIndex === -1;
   const nextModule = drawingComplete ? null : modules[nextModuleIndex];
   const drawingState = drawingComplete
     ? "All 8 fields filled"
