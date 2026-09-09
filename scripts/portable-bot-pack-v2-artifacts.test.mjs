@@ -45,12 +45,25 @@ test("generated V2 index resolves every versioned artifact", async () => {
     assert.equal(pack.artifactId, bot.artifactId);
     assert.equal(pack.routines[0].activationStatus, "manual-test-required");
     assert.equal(pack.routines[0].testStatus, "not-tested");
-    const newShowcaseBot = ["curator", "reentry", "receipt"].includes(bot.slug);
-    assert.equal(pack.platforms.hermes.importStatus, newShowcaseBot ? "not-tested" : "import-test-passed");
-    if (newShowcaseBot) assert.equal(pack.platforms.hermes.importEvidence, null);
-    else assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, "0.21.0");
+    const hasSeptember9Evidence = ["curator", "reentry", "receipt"].includes(bot.slug);
+    assert.equal(pack.platforms.hermes.importStatus, "import-test-passed");
+    assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, hasSeptember9Evidence ? "0.21.1" : "0.21.0");
+    assert.equal(pack.provenance.publishedDate, hasSeptember9Evidence ? "2026-09-05" : "2026-09-04");
     assert.equal(pack.platforms.grokBot.importable, false);
     assert.match(portableMarkdown, /Portable Bot Pack V2/);
+    const packageReadme = await readFile(
+      path.join(projectRoot, `public/downloads/starter-bots/v2/${bot.slug}/README.md`),
+      "utf8",
+    );
+    assert.match(packageReadme, /did not test output quality or live-service behavior/);
+    if (hasSeptember9Evidence) {
+      const proofSlug = {
+        curator: "curator-lineup-review",
+        reentry: "reentry-project-resumption",
+        receipt: "receipt-refund-case",
+      }[bot.slug];
+      assert.match(packageReadme, new RegExp(`/proof/${proofSlug}/`));
+    }
     assert.match(grokBrief, /not an import package/i);
     assert.match(grokBrief, /not tested in Grok Bot/i);
     assert.doesNotMatch(grokBrief, /one-click|native package|automatically import/i);

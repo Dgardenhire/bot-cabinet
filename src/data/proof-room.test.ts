@@ -19,11 +19,14 @@ function checkState(demo: (typeof PROOF_ROOM_DEMOS)[number], label: "Role run" |
 }
 
 describe("Proof Room evidence records", () => {
-  it("publishes the three approved demonstrations in order", () => {
+  it("publishes the demonstrations in their approved order", () => {
     expect(PROOF_ROOM_DEMOS.map((demo) => demo.slug)).toEqual([
       "scout-research-brief",
       "writer-article-draft",
       "chief-of-staff-operating-brief",
+      "curator-lineup-review",
+      "reentry-project-resumption",
+      "receipt-refund-case",
     ]);
   });
 
@@ -133,6 +136,41 @@ describe("Proof Room evidence records", () => {
       expect(demo.inputStatus).toBe("supplied");
       expect(demo.transcript?.href).toBeTruthy();
       expect(demo.checks.slice(0, 4).every((check) => check.state === "passed")).toBe(true);
+    }
+  });
+
+  it("publishes exact-package reproduction records for the three new Bots", () => {
+    const expected = {
+      "curator-lineup-review": /likely[\s\S]+not proven/i,
+      "reentry-project-resumption": /last approved checkpoint/i,
+      "receipt-refund-case": /issued[\s\S]+not documented/i,
+    };
+
+    for (const [slug, requiredEvidence] of Object.entries(expected)) {
+      const demo = getProofRoomDemo(slug);
+      expect(demo?.state).toBe("reproduced");
+      expect(demo?.profileVersion).toBe("2.0.0");
+      expect(demo?.run?.hermesVersion).toBe("0.21.1");
+      expect(demo?.run?.provider).toBe("nous");
+      expect(demo?.run?.model).toBe("deepseek/deepseek-v4-flash");
+      expect(demo?.checks.slice(0, 4).every((check) => check.state === "passed")).toBe(true);
+      expect(demo?.profileArchiveHref).toBe(`/downloads/starter-bots/v2/${demo?.botSlug}.tar.gz`);
+      const archive = readFileSync(path.join(publicRoot, demo!.profileArchiveHref.slice(1)));
+      expect(createHash("sha256").update(archive).digest("hex")).toBe(demo?.profileArchiveSha256);
+
+      const transcriptPath = path.join(publicRoot, demo!.transcript!.href.slice(1));
+      const transcript = readFileSync(transcriptPath, "utf8");
+      expect(transcript).toMatch(requiredEvidence);
+      const publicTextArtifacts = [
+        transcript,
+        readFileSync(path.join(publicRoot, demo!.deliverable!.href.slice(1)), "utf8"),
+        ...demo!.inputArtifacts
+          .filter((artifact) => artifact.href?.startsWith("/"))
+          .map((artifact) => readFileSync(path.join(publicRoot, artifact.href!.slice(1)), "utf8")),
+      ];
+      for (const artifact of publicTextArtifacts) {
+        expect(artifact).not.toMatch(/session[_-]?id|api[_-]?key|sk-ant/i);
+      }
     }
   });
 

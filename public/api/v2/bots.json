@@ -684,8 +684,12 @@
         "archiveUrl": "/downloads/starter-bots/v2/curator.tar.gz",
         "readableFilesUrl": "/downloads/starter-bots/v2/curator.zip",
         "packageStatus": "files-and-archive-checked",
-        "importStatus": "not-tested",
-        "importEvidence": null
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.1",
+          "testedDate": "2026-09-09",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -721,8 +725,12 @@
         "archiveUrl": "/downloads/starter-bots/v2/reentry.tar.gz",
         "readableFilesUrl": "/downloads/starter-bots/v2/reentry.zip",
         "packageStatus": "files-and-archive-checked",
-        "importStatus": "not-tested",
-        "importEvidence": null
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.1",
+          "testedDate": "2026-09-09",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -758,8 +766,12 @@
         "archiveUrl": "/downloads/starter-bots/v2/receipt.tar.gz",
         "readableFilesUrl": "/downloads/starter-bots/v2/receipt.zip",
         "packageStatus": "files-and-archive-checked",
-        "importStatus": "not-tested",
-        "importEvidence": null
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.1",
+          "testedDate": "2026-09-09",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
       },
       "grokBot": {
         "platformId": "grok-bot",

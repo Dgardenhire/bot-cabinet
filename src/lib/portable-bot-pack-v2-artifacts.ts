@@ -5,6 +5,7 @@ import {
   PORTABLE_BOT_PACK_V2_SCHEMA_VERSION,
   type PortableBotPackV2,
 } from "./portable-bot-pack-v2";
+import { getReproducedBotEvidence } from "../data/bot-release-evidence";
 import { BOT_CABINET_ORIGIN } from "./site-constants";
 
 const PUBLIC_ORIGIN = BOT_CABINET_ORIGIN;
@@ -689,6 +690,7 @@ export function compilePortableBotPackV2HermesFiles(
     pack.controls.shutdown,
     "",
   ].join("\n");
+  const reproducedRoleRunProofSlug = getReproducedBotEvidence(pack.identity.slug)?.proofSlug;
   const readme = [
     `# ${pack.identity.name} — ${pack.identity.title}`,
     "",
@@ -700,7 +702,12 @@ export function compilePortableBotPackV2HermesFiles(
     "",
     "- The generated files and archive structure are checked at build time.",
     pack.platforms.hermes.importEvidence ? `- This V2 archive passed an isolated import with Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion} on ${pack.platforms.hermes.importEvidence.testedDate}.` : "- This prepared archive has not yet been imported and tested in Hermes.",
-    "- That import test confirmed the archive and bundled Skill were present. It did not test output quality or live-service behavior.",
+    reproducedRoleRunProofSlug
+      ? "- That import test confirmed the archive and bundled Skill were present. By itself, that import did not test output quality or live-service behavior."
+      : "- That import test confirmed the archive and bundled Skill were present. It did not test output quality or live-service behavior.",
+    ...(reproducedRoleRunProofSlug
+      ? [`- Separately, two first-mission role runs passed the published checks on 2026-09-09. Inspect the evidence at ${PUBLIC_ORIGIN}/proof/${reproducedRoleRunProofSlug}/.`]
+      : []),
     `- The included Skill is ${skill.preparationStatus} and ${skill.testStatus}.`,
     `- The Routine is a plan only: ${routine.activationStatus} and ${routine.testStatus}.`,
     "- No schedule or active Routine is included in this package.",
