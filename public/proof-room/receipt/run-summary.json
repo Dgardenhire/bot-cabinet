@@ -1,0 +1,15 @@
+{
+  "bot": "receipt",
+  "profileVersion": "2.0.0",
+  "archive": "/downloads/starter-bots/v2/receipt.tar.gz",
+  "archiveSha256": "622788dce90e9e74de9c8e6ab419fb79a0f678d38a7b96229619d557e36ed001",
+  "runDate": "2026-09-09",
+  "hermesVersion": "0.21.1",
+  "provider": "nous",
+  "model": "deepseek/deepseek-v4-flash",
+  "publishedRuns": 2,
+  "finalArchiveValidationRuns": [
+    { "run": 1, "apiCalls": 1, "estimatedCostUsd": 0.0003570348, "acceptanceChecks": "passed" },
+    { "run": 2, "apiCalls": 2, "estimatedCostUsd": 0.0003818988, "acceptanceChecks": "passed" }
+  ]
+}

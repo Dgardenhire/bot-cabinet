@@ -1,4 +1,4 @@
-# NOVA — New venture testing assistant
+# Nova — New venture testing assistant
 
 Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.
 

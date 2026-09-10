@@ -1,0 +1,15 @@
+{
+  "bot": "reentry",
+  "profileVersion": "2.0.0",
+  "archive": "/downloads/starter-bots/v2/reentry.tar.gz",
+  "archiveSha256": "0cad677d1edd4649410f0dec954b29a7ea1731168f90d2b4dbc98b82f46eb698",
+  "runDate": "2026-09-09",
+  "hermesVersion": "0.21.1",
+  "provider": "nous",
+  "model": "deepseek/deepseek-v4-flash",
+  "publishedRuns": 2,
+  "finalArchiveValidationRuns": [
+    { "run": 1, "apiCalls": 1, "estimatedCostUsd": 0.0003542382, "acceptanceChecks": "passed" },
+    { "run": 2, "apiCalls": 1, "estimatedCostUsd": 0.0003735918, "acceptanceChecks": "passed" }
+  ]
+}

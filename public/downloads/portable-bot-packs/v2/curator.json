@@ -13,7 +13,7 @@
     "audience": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:curator:portrait",
-      "url": "/downloads/bot-portraits/hermes/archivist-1024.png"
+      "url": "/downloads/bot-portraits/hermes/curator-1024.png"
     }
   },
   "job": {
@@ -129,8 +129,12 @@
       "archiveUrl": "/downloads/starter-bots/v2/curator.tar.gz",
       "readableFilesUrl": "/downloads/starter-bots/v2/curator.zip",
       "packageStatus": "files-and-archive-checked",
-      "importStatus": "not-tested",
-      "importEvidence": null
+      "importStatus": "import-test-passed",
+      "importEvidence": {
+        "hermesVersion": "0.21.1",
+        "testedDate": "2026-09-09",
+        "scope": "archive-import-and-bundled-skill-presence"
+      }
     },
     "grokBot": {
       "platformId": "grok-bot",

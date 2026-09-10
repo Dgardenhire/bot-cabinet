@@ -7,7 +7,7 @@ Result: A current operating brief and a realistic proposed plan for the next wee
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need a current operating brief and a realistic proposed plan for the next week, with ideas kept separate from commitments.
-- **Lead Bot:** COACH
+- **Lead Bot:** Coach
 - **Cadence:** Once each week, with a person approving the source material first
 - **Typical first run:** 30–60 minutes for a first manual run
 
@@ -19,7 +19,7 @@ Result: A current operating brief and a realistic proposed plan for the next wee
 
 ## Bots
 
-1. COACH
+1. Coach
 2. Chief of Staff
 3. Planner
 
@@ -31,7 +31,7 @@ Result: A current operating brief and a realistic proposed plan for the next wee
 
 ## Workflow
 
-### 1. COACH
+### 1. Coach
 
 Guide a review of what changed, what remains open, and what may need to stop
 
@@ -49,7 +49,7 @@ Output: A priority and decision log with conflicts and missing owners marked
 
 Message to send:
 
-Start with this result from COACH: A decision frame separating ideas, plans, and commitments. Compare the review with confirmed priorities, owners, dependencies, and capacity. Return this result: A priority and decision log with conflicts and missing owners marked. Ask me about missing information before you continue.
+Start with this result from Coach: A decision frame separating ideas, plans, and commitments. Compare the review with confirmed priorities, owners, dependencies, and capacity. Return this result: A priority and decision log with conflicts and missing owners marked. Ask me about missing information before you continue.
 
 ### 3. Planner
 
@@ -63,7 +63,7 @@ Start with this result from Chief of Staff: A priority and decision log with con
 
 ## Handoff rules
 
-1. COACH hands the approved output—a decision frame separating ideas, plans, and commitments—to Chief of Staff.
+1. Coach hands the approved output—a decision frame separating ideas, plans, and commitments—to Chief of Staff.
 2. Chief of Staff hands the approved output—a priority and decision log with conflicts and missing owners marked—to Planner.
 
 ## Overall request

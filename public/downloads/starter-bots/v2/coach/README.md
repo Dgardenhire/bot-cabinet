@@ -1,4 +1,4 @@
-# COACH — Life and career planning assistant
+# Coach — Life and career planning assistant
 
 Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.
 

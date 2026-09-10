@@ -1,10 +1,11 @@
 # Bot Portrait Studio provenance
 
-Bot Cabinet's Portrait Studio collection contains 18 images: ten premium
+Bot Cabinet's Portrait Studio collection contains 21 images: thirteen premium
 portraits and eight classic portraits already used elsewhere on the site.
 
 The first five premium portraits were created on August 25, 2026. The second
-five were created on September 3, 2026. All ten were made with OpenAI's
+five were created on September 3, 2026. Curator, Reentry, and Receipt were
+created on September 8, 2026. All thirteen were made with OpenAI's
 built-in image generation, and the original PNGs retain Content Credentials
 identifying OpenAI Media Service and `gpt-image` version `2.0`.
 
@@ -26,6 +27,9 @@ excessive gears, fantasy costumes, and dystopian imagery.
 | Scribe | `704de6e42fd38e2a5609adef651c87fd0a798bb07f7f50f6ff42d185dd478938` |
 | Beacon | `93b6b5c236238d4031ad781b45aba3b2b2079d071da4c045cc48a5d5a53447b1` |
 | Builder | `956dcb6bcc18f0e63de0016fe8d0464739fd1efe2d3f6e98879dc1c9d9bbdd96` |
+| Curator | `d834f13e3d8ed2802baf2182342129508f4c56d67442e924bee84180eca400fd` |
+| Reentry | `495b6f3dfe1aec6f1fb694b31edca6a59fe00d1c1bbde54627bd4aff793dd2c1` |
+| Receipt | `13d527b11fa59cbaf2d1b25538940ad32440a5b8d566d47c13ba147e0d730f05` |
 
 ## Classic portraits
 

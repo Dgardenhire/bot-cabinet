@@ -7,7 +7,7 @@ Result: A defined feature, implemented as the smallest reversible change in a wo
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need a defined feature, implemented as the smallest reversible change in a working branch or disposable project copy, with review notes and test results.
-- **Lead Bot:** ARCHITECT
+- **Lead Bot:** Architect
 - **Cadence:** When a person supplies the approved brief and starts the workflow
 - **Typical first run:** 30–60 minutes for a first manual run
 
@@ -19,7 +19,7 @@ Result: A defined feature, implemented as the smallest reversible change in a wo
 
 ## Bots
 
-1. ARCHITECT
+1. Architect
 2. Founding Engineer
 3. Editor
 
@@ -31,7 +31,7 @@ Result: A defined feature, implemented as the smallest reversible change in a wo
 
 ## Workflow
 
-### 1. ARCHITECT
+### 1. Architect
 
 Compare the simplest viable technical approaches and identify risks
 
@@ -49,7 +49,7 @@ Output: Changed files, test results, shortcuts, and remaining risks
 
 Message to send:
 
-Start with this result from ARCHITECT: An implementation decision record with approval points. Build the approved feature as a small reversible change and run the available checks. Return this result: Changed files, test results, shortcuts, and remaining risks. Ask me about missing information before you continue.
+Start with this result from Architect: An implementation decision record with approval points. Build the approved feature as a small reversible change and run the available checks. Return this result: Changed files, test results, shortcuts, and remaining risks. Ask me about missing information before you continue.
 
 ### 3. Editor
 
@@ -63,7 +63,7 @@ Start with this result from Founding Engineer: Changed files, test results, shor
 
 ## Handoff rules
 
-1. ARCHITECT hands the approved output—an implementation decision record with approval points—to Founding Engineer.
+1. Architect hands the approved output—an implementation decision record with approval points—to Founding Engineer.
 2. Founding Engineer hands the approved output—changed files, test results, shortcuts, and remaining risks—to Editor.
 
 ## Overall request

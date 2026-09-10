@@ -1,4 +1,4 @@
-# ARCHITECT — Bot Passport V2
+# Architect — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:architect:portable-pack
 - **Role:** CTO and technology strategy assistant

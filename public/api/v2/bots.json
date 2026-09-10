@@ -377,7 +377,7 @@
     {
       "artifactId": "bot-cabinet:bot:architect:portable-pack",
       "slug": "architect",
-      "name": "ARCHITECT",
+      "name": "Architect",
       "title": "CTO and technology strategy assistant",
       "category": "technical",
       "summary": "Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
@@ -500,7 +500,7 @@
     {
       "artifactId": "bot-cabinet:bot:coach:portable-pack",
       "slug": "coach",
-      "name": "COACH",
+      "name": "Coach",
       "title": "Life and career planning assistant",
       "category": "planning",
       "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
@@ -541,7 +541,7 @@
     {
       "artifactId": "bot-cabinet:bot:nova:portable-pack",
       "slug": "nova",
-      "name": "NOVA",
+      "name": "Nova",
       "title": "New venture testing assistant",
       "category": "planning",
       "summary": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
@@ -582,7 +582,7 @@
     {
       "artifactId": "bot-cabinet:bot:pulse:portable-pack",
       "slug": "pulse",
-      "name": "PULSE",
+      "name": "Pulse",
       "title": "Growth management assistant",
       "category": "planning",
       "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
@@ -623,7 +623,7 @@
     {
       "artifactId": "bot-cabinet:bot:story:portable-pack",
       "slug": "story",
-      "name": "STORY",
+      "name": "Story",
       "title": "Chief narrative officer",
       "category": "writing",
       "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
@@ -668,7 +668,7 @@
       "title": "Bot lineup improvement manager",
       "category": "technical",
       "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
-      "portraitUrl": "/downloads/bot-portraits/hermes/archivist-1024.png",
+      "portraitUrl": "/downloads/bot-portraits/hermes/curator-1024.png",
       "preparationStatus": "prepared",
       "portablePack": {
         "jsonUrl": "/downloads/portable-bot-packs/v2/curator.json",
@@ -684,8 +684,12 @@
         "archiveUrl": "/downloads/starter-bots/v2/curator.tar.gz",
         "readableFilesUrl": "/downloads/starter-bots/v2/curator.zip",
         "packageStatus": "files-and-archive-checked",
-        "importStatus": "not-tested",
-        "importEvidence": null
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.1",
+          "testedDate": "2026-09-09",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -705,7 +709,7 @@
       "title": "Project resumption guide",
       "category": "planning",
       "summary": "Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.",
-      "portraitUrl": "/downloads/bot-portraits/hermes/navigator-1024.png",
+      "portraitUrl": "/downloads/bot-portraits/hermes/reentry-1024.png",
       "preparationStatus": "prepared",
       "portablePack": {
         "jsonUrl": "/downloads/portable-bot-packs/v2/reentry.json",
@@ -721,8 +725,12 @@
         "archiveUrl": "/downloads/starter-bots/v2/reentry.tar.gz",
         "readableFilesUrl": "/downloads/starter-bots/v2/reentry.zip",
         "packageStatus": "files-and-archive-checked",
-        "importStatus": "not-tested",
-        "importEvidence": null
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.1",
+          "testedDate": "2026-09-09",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -742,7 +750,7 @@
       "title": "Returns and warranty case assistant",
       "category": "planning",
       "summary": "Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.",
-      "portraitUrl": "/downloads/bot-portraits/hermes/steward-1024.png",
+      "portraitUrl": "/downloads/bot-portraits/hermes/receipt-1024.png",
       "preparationStatus": "prepared",
       "portablePack": {
         "jsonUrl": "/downloads/portable-bot-packs/v2/receipt.json",
@@ -758,8 +766,12 @@
         "archiveUrl": "/downloads/starter-bots/v2/receipt.tar.gz",
         "readableFilesUrl": "/downloads/starter-bots/v2/receipt.zip",
         "packageStatus": "files-and-archive-checked",
-        "importStatus": "not-tested",
-        "importEvidence": null
+        "importStatus": "import-test-passed",
+        "importEvidence": {
+          "hermesVersion": "0.21.1",
+          "testedDate": "2026-09-09",
+          "scope": "archive-import-and-bundled-skill-presence"
+        }
       },
       "grokBot": {
         "platformId": "grok-bot",

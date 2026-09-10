@@ -143,14 +143,15 @@ function zipCentralHeader(
   return header;
 }
 
-export function createDeterministicZip(files: Readonly<Record<string, string>>) {
+export function createDeterministicZip(files: Readonly<Record<string, string | Buffer>>) {
   const localChunks: Buffer[] = [];
   const centralChunks: Buffer[] = [];
   let localOffset = 0;
 
   for (const relativePath of Object.keys(files).sort()) {
     const name = Buffer.from(relativePath, "utf8");
-    const body = Buffer.from(files[relativePath], "utf8");
+    const content = files[relativePath];
+    const body = Buffer.isBuffer(content) ? content : Buffer.from(content, "utf8");
     const crc = crc32(body);
     const localHeader = zipLocalHeader(name, body, crc);
     const centralHeader = zipCentralHeader(name, body, crc, localOffset);

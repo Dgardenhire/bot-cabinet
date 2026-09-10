@@ -1,4 +1,5 @@
 import type { StarterBot } from "../data/starter-bots";
+import { getReproducedBotEvidence } from "../data/bot-release-evidence";
 import {
   starterBotReviewCheckpoint,
   starterBotSkillSteps,
@@ -9,7 +10,7 @@ export const PORTABLE_BOT_PACK_V2_SCHEMA_VERSION = 2 as const;
 export const PORTABLE_BOT_PACK_V2_PACK_VERSION = "2.0.0" as const;
 export const PORTABLE_BOT_PACK_V2_PUBLISHED_DATE = "2026-09-04" as const;
 
-const IMPORT_TESTED_SLUGS = new Set(["scout", "researcher", "writer", "editor", "planner", "client", "coder", "ops", "professor", "architect", "founding-engineer", "chief-of-staff", "coach", "nova", "pulse", "story"]);
+const IMPORT_TESTED_SLUGS = new Set(["scout", "researcher", "writer", "editor", "planner", "client", "coder", "ops", "professor", "architect", "founding-engineer", "chief-of-staff", "coach", "nova", "pulse", "story", "curator", "reentry", "receipt"]);
 
 export type PortableBotPackV2RiskLevel = "Low" | "Moderate" | "Elevated";
 
@@ -90,8 +91,8 @@ export type PortableBotPackV2 = {
       packageStatus: "files-and-archive-checked";
       importStatus: "import-test-passed" | "not-tested";
       importEvidence: null | {
-        hermesVersion: "0.21.0";
-        testedDate: "2026-09-04";
+        hermesVersion: "0.21.0" | "0.21.1";
+        testedDate: "2026-09-04" | "2026-09-09";
         scope: "archive-import-and-bundled-skill-presence";
       };
     };
@@ -268,6 +269,7 @@ export function starterBotToPortablePackV2(
   const controls = normalizeControls(bot);
   const ids = portableBotPackV2ArtifactIds(bot.slug);
   const paths = portableBotPackV2ArtifactPaths(bot.slug);
+  const reproducedEvidence = getReproducedBotEvidence(bot.slug);
 
   return {
     schemaVersion: PORTABLE_BOT_PACK_V2_SCHEMA_VERSION,
@@ -344,8 +346,8 @@ export function starterBotToPortablePackV2(
         packageStatus: "files-and-archive-checked",
         importStatus: IMPORT_TESTED_SLUGS.has(bot.slug) ? "import-test-passed" : "not-tested",
         importEvidence: IMPORT_TESTED_SLUGS.has(bot.slug) ? {
-          hermesVersion: "0.21.0",
-          testedDate: "2026-09-04",
+          hermesVersion: reproducedEvidence?.hermesVersion ?? "0.21.0",
+          testedDate: reproducedEvidence?.testedDate ?? "2026-09-04",
           scope: "archive-import-and-bundled-skill-presence",
         } : null,
       },
@@ -363,7 +365,7 @@ export function starterBotToPortablePackV2(
     provenance: {
       source: "Bot Cabinet starter catalog",
       sourceUrl: paths.sourcePageUrl,
-      publishedDate: IMPORT_TESTED_SLUGS.has(bot.slug) ? PORTABLE_BOT_PACK_V2_PUBLISHED_DATE : "2026-09-05",
+      publishedDate: reproducedEvidence?.publishedDate ?? PORTABLE_BOT_PACK_V2_PUBLISHED_DATE,
       license: "MIT",
     },
   };
@@ -722,7 +724,7 @@ function validateRoutines(value: unknown, issues: string[]) {
   }
 }
 
-function validatePlatforms(value: unknown, issues: string[]) {
+function validatePlatforms(value: unknown, botSlug: unknown, issues: string[]) {
   const platforms = objectWithExactKeys(
     value,
     "pack.platforms",
@@ -807,6 +809,16 @@ function validatePlatforms(value: unknown, issues: string[]) {
       "pack.platforms.hermes.importStatus",
       issues,
     );
+    const expectedImportStatus =
+      typeof botSlug === "string" && IMPORT_TESTED_SLUGS.has(botSlug)
+        ? "import-test-passed"
+        : "not-tested";
+    exactValue(
+      hermes.importStatus,
+      expectedImportStatus,
+      "pack.platforms.hermes.importStatus",
+      issues,
+    );
     if (hermes.importStatus === "not-tested" && hermes.importEvidence !== null) {
       issues.push("Untested profiles must not carry import evidence");
     }
@@ -817,15 +829,17 @@ function validatePlatforms(value: unknown, issues: string[]) {
       issues,
     );
     if (importEvidence) {
+      const reproducedEvidence =
+        typeof botSlug === "string" ? getReproducedBotEvidence(botSlug) : undefined;
       exactValue(
         importEvidence.hermesVersion,
-        "0.21.0",
+        reproducedEvidence?.hermesVersion ?? "0.21.0",
         "pack.platforms.hermes.importEvidence.hermesVersion",
         issues,
       );
       exactValue(
         importEvidence.testedDate,
-        "2026-09-04",
+        reproducedEvidence?.testedDate ?? "2026-09-04",
         "pack.platforms.hermes.importEvidence.testedDate",
         issues,
       );
@@ -1108,7 +1122,7 @@ export function validatePortableBotPackV2(value: unknown): string[] {
   validateControls(pack.controls, issues);
   validateSkills(pack.skills, issues);
   validateRoutines(pack.routines, issues);
-  validatePlatforms(pack.platforms, issues);
+  validatePlatforms(pack.platforms, isObject(pack.identity) ? pack.identity.slug : undefined, issues);
   validateProvenance(pack.provenance, issues);
   validateStableIds(pack, issues);
   validateCrossReferences(pack, issues);

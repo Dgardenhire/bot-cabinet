@@ -1,4 +1,4 @@
-# COACH — Bot Passport V2
+# Coach — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:coach:portable-pack
 - **Role:** Life and career planning assistant

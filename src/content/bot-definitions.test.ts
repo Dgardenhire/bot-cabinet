@@ -16,6 +16,12 @@ describe("BotDefinitionV1 catalog", () => {
     );
   });
 
+  it("does not use all caps for Bot identity names", () => {
+    for (const bot of BOT_DEFINITIONS) {
+      expect(bot.identity.name).not.toBe(bot.identity.name.toUpperCase());
+    }
+  });
+
   it("preserves the job, package controls, and platform outputs", () => {
     const scout = starterBotToDefinition(STARTER_BOTS[0]);
 

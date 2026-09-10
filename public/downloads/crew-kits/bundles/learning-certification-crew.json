@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "learning-certification-crew",
+  "name": "Learning and Certification Crew",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "researcher",
+      "name": "Researcher",
+      "responsibility": "Collect and organize approved official materials.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/researcher.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Read-only document access when I provide files"
+      ],
+      "approvalActions": [
+        "Ask when sources conflict",
+        "A person makes legal, medical, financial, and policy decisions."
+      ],
+      "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
+    },
+    {
+      "slug": "professor",
+      "name": "Professor",
+      "responsibility": "Explain concepts and create practice questions.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/professor.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/professor.tar.gz",
+      "sha256": "46661088274f609a8c02a7287b001c22392b21f25213f9d20421fb9c31bc30cd",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only access to approved learning materials",
+        "Optional web research"
+      ],
+      "approvalActions": [
+        "A person selects authoritative materials and evaluates formal credentials."
+      ],
+      "firstTest": "Assess one narrow topic and produce a one-week study plan with five practice questions."
+    },
+    {
+      "slug": "coach",
+      "name": "Coach",
+      "responsibility": "Act as Quiz Coach and help the learner review errors.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/coach.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/coach.tar.gz",
+      "sha256": "89d8e806b829f5da753ca3fb783f8af263ef5cea473ff513c7b2747515cdd06b",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Conversation and user-supplied notes",
+        "Optional read-only access to approved calendar or planning documents"
+      ],
+      "approvalActions": [
+        "The user chooses every goal and action",
+        "A person makes all life, career, employment, medical, legal, and financial decisions.",
+        "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."
+      ],
+      "firstTest": "Use one current, low-stakes decision to compare two options and define one reversible next step."
+    },
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "responsibility": "Build and adjust the study schedule.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/planner.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only project documents",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Do not assign people or commit dates without approval",
+        "Do not change an external task system without approval",
+        "A person approves assignments and deadlines."
+      ],
+      "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Plan",
+      "action": "Map official material to a realistic sequence.",
+      "owner": "Researcher + Planner"
+    },
+    {
+      "timing": "Learn",
+      "action": "Explain the current topic and examples.",
+      "owner": "Professor"
+    },
+    {
+      "timing": "Practice",
+      "action": "Run a quiz and record errors.",
+      "owner": "Coach"
+    },
+    {
+      "timing": "Review",
+      "action": "Adjust the next cycle from progress.",
+      "owner": "Planner + learner"
+    }
+  ],
+  "approvalActions": [
+    "Register or purchase material",
+    "Change the target or schedule",
+    "Add outside material as an authority"
+  ],
+  "prohibitedActions": [
+    "Claim unofficial material is authoritative",
+    "Complete graded work dishonestly",
+    "Guarantee an exam result"
+  ]
+}

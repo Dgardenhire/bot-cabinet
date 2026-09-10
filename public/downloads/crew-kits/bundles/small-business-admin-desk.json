@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "small-business-admin-desk",
+  "name": "Small-Business Admin Desk",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "chief-of-staff",
+      "name": "Chief of Staff",
+      "responsibility": "Act as Intake and route messages, tasks, and decisions.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/chief-of-staff.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/chief-of-staff.tar.gz",
+      "sha256": "b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only access to approved planning documents and calendar information",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Ask before contacting anyone",
+        "Ask before changing a calendar, task, or shared record",
+        "A leader sets priorities, assigns people, and approves commitments and deadlines.",
+        "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+      ],
+      "firstTest": "Use sample updates from two projects to produce a one-page priority brief and a decision log for review."
+    },
+    {
+      "slug": "researcher",
+      "name": "Researcher",
+      "responsibility": "Find the approved customer, project, policy, or service context.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/researcher.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Read-only document access when I provide files"
+      ],
+      "approvalActions": [
+        "Ask when sources conflict",
+        "A person makes legal, medical, financial, and policy decisions."
+      ],
+      "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
+    },
+    {
+      "slug": "client",
+      "name": "Client Deliverables",
+      "responsibility": "Prepare customer and partner communication drafts.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/client.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/client.tar.gz",
+      "sha256": "f72a70696e86663a8d8e7e833c8e27eb7edca24114b3937da761549bc7643dc6",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional document-template access"
+      ],
+      "approvalActions": [
+        "Ask before including prices, promises, or deadlines",
+        "A person approves pricing, promises, and final delivery.",
+        "A person limits client information to approved files and systems and checks the Bot’s access before use."
+      ],
+      "firstTest": "Create a two-page client update from supplied notes and mark every item that needs approval."
+    },
+    {
+      "slug": "ops",
+      "name": "Ops",
+      "responsibility": "Maintain open work, deadlines, exceptions, and status.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/ops.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/ops.tar.gz",
+      "sha256": "afb217c5f761e50b65d63cee53a243846497aa50da9676109d87d25cc76f6845",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only logs and status endpoints",
+        "Approved notification channel"
+      ],
+      "approvalActions": [
+        "Report before repairing",
+        "Ask before restarts or configuration changes",
+        "Ask before sending external messages",
+        "A person approves restarts, deletions, configuration changes, and external messages."
+      ],
+      "firstTest": "Check two harmless status sources and produce a report without changing either system."
+    },
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "responsibility": "Convert priorities into follow-up steps, owners, and dates.",
+      "setupOrder": 5,
+      "packVersion": "2.0.0",
+      "archivePath": "members/planner.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only project documents",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Do not assign people or commit dates without approval",
+        "Do not change an external task system without approval",
+        "A person approves assignments and deadlines."
+      ],
+      "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Daily intake",
+      "action": "Classify work and identify needed context.",
+      "owner": "Chief of Staff"
+    },
+    {
+      "timing": "Prepare",
+      "action": "Research and draft the work product.",
+      "owner": "Researcher + Client Deliverables"
+    },
+    {
+      "timing": "Track",
+      "action": "Update tasks, deadlines, and exceptions.",
+      "owner": "Ops + Planner"
+    },
+    {
+      "timing": "Weekly review",
+      "action": "Approve priorities and consequential actions.",
+      "owner": "Person"
+    }
+  ],
+  "approvalActions": [
+    "Send a message or statement",
+    "Make a payment, refund, purchase, or contract change",
+    "Delete a record or change an account"
+  ],
+  "prohibitedActions": [
+    "Access unrestricted banking",
+    "Share confidential information",
+    "Delete messages or change its own access rules"
+  ]
+}

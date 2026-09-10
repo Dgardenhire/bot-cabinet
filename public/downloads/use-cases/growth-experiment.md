@@ -20,7 +20,7 @@ Result: A focused growth test with a verified baseline, one primary metric, and 
 ## Bots
 
 1. Researcher
-2. PULSE
+2. Pulse
 3. Writer
 
 ## Information to gather
@@ -41,7 +41,7 @@ Message to send:
 
 Use the approved inputs I provide. Check customer evidence and possible causes of the selected problem. Return this result: A concise evidence brief with gaps marked. Ask me about missing information before you continue.
 
-### 2. PULSE
+### 2. Pulse
 
 Define the baseline and design one measurable experiment
 
@@ -59,12 +59,12 @@ Output: Two clear variants with claims and approval questions marked
 
 Message to send:
 
-Start with this result from PULSE: An experiment plan with one primary metric and success and stop rules. Draft the approved test materials for the selected channel. Return this result: Two clear variants with claims and approval questions marked. Ask me about missing information before you continue.
+Start with this result from Pulse: An experiment plan with one primary metric and success and stop rules. Draft the approved test materials for the selected channel. Return this result: Two clear variants with claims and approval questions marked. Ask me about missing information before you continue.
 
 ## Handoff rules
 
-1. Researcher hands the approved output—a concise evidence brief with gaps marked—to PULSE.
-2. PULSE hands the approved output—an experiment plan with one primary metric and success and stop rules—to Writer.
+1. Researcher hands the approved output—a concise evidence brief with gaps marked—to Pulse.
+2. Pulse hands the approved output—an experiment plan with one primary metric and success and stop rules—to Writer.
 
 ## Overall request
 

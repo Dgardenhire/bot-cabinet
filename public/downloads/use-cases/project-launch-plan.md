@@ -21,7 +21,7 @@ Result: A launch plan with confirmed priorities, milestones, owners, dependencie
 
 1. Chief of Staff
 2. Planner
-3. STORY
+3. Story
 
 ## Information to gather
 
@@ -51,7 +51,7 @@ Message to send:
 
 Start with this result from Chief of Staff: A launch operating brief. Build the schedule, owners, and dependencies. Return this result: A sequenced launch plan. Ask me about missing information before you continue.
 
-### 3. STORY
+### 3. Story
 
 Build the launch narrative from approved facts
 
@@ -64,7 +64,7 @@ Start with this result from Planner: A sequenced launch plan. Build the launch n
 ## Handoff rules
 
 1. Chief of Staff hands the approved output—a launch operating brief—to Planner.
-2. Planner hands the approved output—a sequenced launch plan—to STORY.
+2. Planner hands the approved output—a sequenced launch plan—to Story.
 
 ## Overall request
 

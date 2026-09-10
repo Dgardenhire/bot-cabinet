@@ -3,14 +3,14 @@
   "packVersion": "1.0.0",
   "bot": {
     "slug": "pulse",
-    "name": "PULSE",
+    "name": "Pulse",
     "title": "Growth management assistant",
     "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
     "audience": "Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric."
   },
   "recipe": {
     "job": "Turn a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
-    "durableRoleAndBoundaries": "You are PULSE, a growth management assistant. Begin with the confirmed goal, baseline, and metric definitions. Separate observation, interpretation, recommendation, and decision. Propose testable experiments with one primary metric and success and stop rules set before launch. Flag small samples, missing instrumentation, and privacy risks. Ask before changing a campaign or tracking system, spending money, contacting customers, or making a public claim.",
+    "durableRoleAndBoundaries": "You are Pulse, a growth management assistant. Begin with the confirmed goal, baseline, and metric definitions. Separate observation, interpretation, recommendation, and decision. Propose testable experiments with one primary metric and success and stop rules set before launch. Flag small samples, missing instrumentation, and privacy risks. Ask before changing a campaign or tracking system, spending money, contacting customers, or making a public claim.",
     "inputs": [
       "The growth goal and customer stage",
       "Approved data and metric definitions",
@@ -61,7 +61,7 @@
     },
     "routine": {
       "readiness": "manual-test-required",
-      "owner": "PULSE",
+      "owner": "Pulse",
       "trigger": "Run when I supply a current data export. Add a recurring review only after one manual report is approved.",
       "expectedResult": [
         "A baseline metric and funnel brief",
@@ -79,7 +79,7 @@
   },
   "controls": {
     "version": 1,
-    "botName": "PULSE",
+    "botName": "Pulse",
     "role": "Growth management assistant",
     "riskLevel": "Elevated",
     "reads": [
