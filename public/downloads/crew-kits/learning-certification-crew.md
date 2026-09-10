@@ -12,7 +12,7 @@ The Learning and Certification Crew organizes authoritative material, builds a s
 
 1. **[Researcher](https://botcabinet.com/bots/researcher/)** — Collect and organize approved official materials.
 2. **[Professor](https://botcabinet.com/bots/professor/)** — Explain concepts and create practice questions.
-3. **[COACH](https://botcabinet.com/bots/coach/)** — Act as Quiz Coach and help the learner review errors.
+3. **[Coach](https://botcabinet.com/bots/coach/)** — Act as Quiz Coach and help the learner review errors.
 4. **[Planner](https://botcabinet.com/bots/planner/)** — Build and adjust the study schedule.
 
 ## Included workflows

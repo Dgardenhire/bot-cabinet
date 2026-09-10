@@ -54,12 +54,12 @@ Requested capabilities (configure manually):
 - Web research
 - Read-only document access when I provide files
 
-## 3. STORY
+## 3. Story
 
 Shape the central message for the intended audience.
 
 Archive: members/story.tar.gz
-SHA-256: 1afa7ef592a08e176cf836fe757876e11147b907148253f0f8cf5272fbaadd6c
+SHA-256: b53f531951ce54975c2cbc1e1643e641fa536832cb61f2fbd7a6d1536852fafc
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

@@ -52,7 +52,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
     botSlugs: ["story", "writer", "editor"],
     inputs: ["The approved idea or announcement", "Audience and platforms", "Confirmed facts, source material, and voice examples"],
     steps: [
-      { bot: "STORY", action: "Build a central message from the confirmed facts", output: "A message brief with proof points and unsupported claims marked" },
+      { bot: "Story", action: "Build a central message from the confirmed facts", output: "A message brief with proof points and unsupported claims marked" },
       { bot: "Writer", action: "Adapt the approved message for each platform", output: "A set of draft posts with source notes" },
       { bot: "Editor", action: "Remove repetition and check tone", output: "A revised content set with questions" },
     ],
@@ -134,7 +134,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
     steps: [
       { bot: "Chief of Staff", action: "Organize confirmed priorities, owners, constraints, and unresolved decisions", output: "A launch operating brief" },
       { bot: "Planner", action: "Build the schedule, owners, and dependencies", output: "A sequenced launch plan" },
-      { bot: "STORY", action: "Build the launch narrative from approved facts", output: "A message map with proof points, audience needs, and unsupported claims" },
+      { bot: "Story", action: "Build the launch narrative from approved facts", output: "A message map with proof points, audience needs, and unsupported claims" },
     ],
     humanDecisions: ["Confirm priorities, owners, and dates", "Resolve budget, capacity, and risk decisions", "Approve the message and every public claim"],
     firstTest: "Build a plan for a small internal launch and review every assignment with the named owner.",
@@ -148,7 +148,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
     botSlugs: ["architect", "founding-engineer", "editor"],
     inputs: ["Approved feature request and user outcome", "Existing code, design, and technical constraints", "Acceptance checks, time limit, and project boundaries"],
     steps: [
-      { bot: "ARCHITECT", action: "Compare the simplest viable technical approaches and identify risks", output: "An implementation decision record with approval points" },
+      { bot: "Architect", action: "Compare the simplest viable technical approaches and identify risks", output: "An implementation decision record with approval points" },
       { bot: "Founding Engineer", action: "Build the approved feature as a small reversible change and run the available checks", output: "Changed files, test results, shortcuts, and remaining risks" },
       { bot: "Editor", action: "Review user-facing copy and the handoff summary", output: "Copy-review notes and a release-note draft" },
     ],
@@ -212,9 +212,9 @@ export const BOT_USE_CASES: BotUseCase[] = [
     botSlugs: ["nova", "researcher", "pulse"],
     inputs: ["The idea and its current status", "The intended customer and problem", "Existing evidence, budget, time, and risk limits"],
     steps: [
-      { bot: "NOVA", action: "Separate known facts, assumptions, forecasts, and missing evidence", output: "A venture brief and assumption ledger" },
+      { bot: "Nova", action: "Separate known facts, assumptions, forecasts, and missing evidence", output: "A venture brief and assumption ledger" },
       { bot: "Researcher", action: "Check the highest-risk assumptions against approved public sources", output: "A source-based evidence brief with conflicts and gaps" },
-      { bot: "PULSE", action: "Turn the most important open question into one measurable low-cost test", output: "A test plan with a primary metric and success, revise, and stop rules" },
+      { bot: "Pulse", action: "Turn the most important open question into one measurable low-cost test", output: "A test plan with a primary metric and success, revise, and stop rules" },
     ],
     humanDecisions: ["Confirm the idea's status and risk limits", "Approve any spending, outreach, or public claim", "Decide whether to continue, revise, or stop after reviewing the results"],
     firstTest: "Use one idea and approved public sources to design a no-spend test. Approve the decision rules before running it.",
@@ -229,7 +229,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
     inputs: ["The growth goal and selected customer stage", "Approved data and metric definitions", "Channels, budget, capacity, privacy rules, and voice examples"],
     steps: [
       { bot: "Researcher", action: "Check customer evidence and possible causes of the selected problem", output: "A concise evidence brief with gaps marked" },
-      { bot: "PULSE", action: "Define the baseline and design one measurable experiment", output: "An experiment plan with one primary metric and success and stop rules" },
+      { bot: "Pulse", action: "Define the baseline and design one measurable experiment", output: "An experiment plan with one primary metric and success and stop rules" },
       { bot: "Writer", action: "Draft the approved test materials for the selected channel", output: "Two clear variants with claims and approval questions marked" },
     ],
     humanDecisions: ["Approve the problem interpretation, metric, and decision rules", "Approve targeting, budget, outreach, and any tracking change", "Approve the variants and decide whether to launch, revise, or stop"],
@@ -244,7 +244,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
     botSlugs: ["coach", "chief-of-staff", "planner"],
     inputs: ["Confirmed priorities and commitments", "The week's notes, results, and decisions", "Next week's capacity, obligations, and deadlines"],
     steps: [
-      { bot: "COACH", action: "Guide a review of what changed, what remains open, and what may need to stop", output: "A decision frame separating ideas, plans, and commitments" },
+      { bot: "Coach", action: "Guide a review of what changed, what remains open, and what may need to stop", output: "A decision frame separating ideas, plans, and commitments" },
       { bot: "Chief of Staff", action: "Compare the review with confirmed priorities, owners, dependencies, and capacity", output: "A priority and decision log with conflicts and missing owners marked" },
       { bot: "Planner", action: "Turn only the approved priorities into a proposed sequence for the next week", output: "A weekly plan with owners, dependencies, and checkpoints" },
     ],
@@ -260,8 +260,8 @@ export const BOT_USE_CASES: BotUseCase[] = [
     botSlugs: ["nova", "architect", "founding-engineer"],
     inputs: ["The product goal, intended user, and current evidence", "The current system and business constraints", "Budget, time limit, risk limits, and acceptance checks"],
     steps: [
-      { bot: "NOVA", action: "Identify the product assumptions and the evidence needed for the next decision", output: "A product hypothesis and evidence brief" },
-      { bot: "ARCHITECT", action: "Compare practical technical directions for the approved product test", output: "An architecture decision record with costs, risks, and approval points" },
+      { bot: "Nova", action: "Identify the product assumptions and the evidence needed for the next decision", output: "A product hypothesis and evidence brief" },
+      { bot: "Architect", action: "Compare practical technical directions for the approved product test", output: "An architecture decision record with costs, risks, and approval points" },
       { bot: "Founding Engineer", action: "Build the approved direction as the smallest reversible prototype", output: "A working prototype, acceptance-check results, and a decision log" },
     ],
     humanDecisions: ["Confirm the user problem and product promise", "Choose the technical direction and approve vendors, dependencies, budget, and risk", "Approve repository access, real data use, and any merge or release"],
@@ -277,7 +277,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
     inputs: ["Confirmed facts and approved source material", "Audiences, channels, and desired response", "Voice examples, protected language, and off-limit claims"],
     steps: [
       { bot: "Researcher", action: "Organize the confirmed facts, sources, contradictions, and evidence gaps", output: "A source and proof-point brief" },
-      { bot: "STORY", action: "Build the central narrative and adapt its message structure by audience", output: "A narrative brief and audience message map" },
+      { bot: "Story", action: "Build the central narrative and adapt its message structure by audience", output: "A narrative brief and audience message map" },
       { bot: "Writer", action: "Turn the approved message map into reusable channel drafts", output: "A message kit with sample website, email, and social copy" },
     ],
     humanDecisions: ["Decide the central meaning and positioning", "Approve proof points, quotations, testimonials, and public claims", "Approve final wording and any publication or distribution"],

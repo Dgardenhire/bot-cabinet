@@ -1,9 +1,9 @@
 ---
 name: nova-core
-description: "NOVA core Skill. Run when I provide a venture idea or new evidence from an approved test."
+description: "Nova core Skill. Run when I provide a venture idea or new evidence from an approved test."
 ---
 
-# NOVA core Skill
+# Nova core Skill
 
 **Artifact ID:** bot-cabinet:bot:nova:skill:primary
 

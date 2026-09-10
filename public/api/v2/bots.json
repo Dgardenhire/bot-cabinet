@@ -377,7 +377,7 @@
     {
       "artifactId": "bot-cabinet:bot:architect:portable-pack",
       "slug": "architect",
-      "name": "ARCHITECT",
+      "name": "Architect",
       "title": "CTO and technology strategy assistant",
       "category": "technical",
       "summary": "Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
@@ -500,7 +500,7 @@
     {
       "artifactId": "bot-cabinet:bot:coach:portable-pack",
       "slug": "coach",
-      "name": "COACH",
+      "name": "Coach",
       "title": "Life and career planning assistant",
       "category": "planning",
       "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
@@ -541,7 +541,7 @@
     {
       "artifactId": "bot-cabinet:bot:nova:portable-pack",
       "slug": "nova",
-      "name": "NOVA",
+      "name": "Nova",
       "title": "New venture testing assistant",
       "category": "planning",
       "summary": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
@@ -582,7 +582,7 @@
     {
       "artifactId": "bot-cabinet:bot:pulse:portable-pack",
       "slug": "pulse",
-      "name": "PULSE",
+      "name": "Pulse",
       "title": "Growth management assistant",
       "category": "planning",
       "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
@@ -623,7 +623,7 @@
     {
       "artifactId": "bot-cabinet:bot:story:portable-pack",
       "slug": "story",
-      "name": "STORY",
+      "name": "Story",
       "title": "Chief narrative officer",
       "category": "writing",
       "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",

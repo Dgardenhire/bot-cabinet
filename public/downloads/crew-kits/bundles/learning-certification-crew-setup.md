@@ -54,12 +54,12 @@ Requested capabilities (configure manually):
 - Read-only access to approved learning materials
 - Optional web research
 
-## 3. COACH
+## 3. Coach
 
 Act as Quiz Coach and help the learner review errors.
 
 Archive: members/coach.tar.gz
-SHA-256: 9e768d2aca1e7508a7927194fa20233aa263c698e9fb206aeb260421461fc3a1
+SHA-256: 89d8e806b829f5da753ca3fb783f8af263ef5cea473ff513c7b2747515cdd06b
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

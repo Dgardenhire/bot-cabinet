@@ -1,4 +1,4 @@
-# STORY — Chief narrative officer
+# Story — Chief narrative officer
 
 Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.
 

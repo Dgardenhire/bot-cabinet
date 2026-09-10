@@ -33,12 +33,12 @@ Requested capabilities (configure manually):
 - Read-only project documents
 - Optional task-system access after review
 
-## 2. ARCHITECT
+## 2. Architect
 
 Choose the technical approach and identify material risks.
 
 Archive: members/architect.tar.gz
-SHA-256: faf2e3a950b9ac65b2bc9367a9d101e12e6fe7008852b7a85dadf12fd0c8e807
+SHA-256: 36e3d3f8a324217e4cd3c55d917546297a50b0ce08678b640aa5f49e8ee382f6
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

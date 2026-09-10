@@ -12,7 +12,7 @@ The Personal Planning Desk researches approved options, organizes constraints, b
 
 1. **[Researcher](https://botcabinet.com/bots/researcher/)** — Research approved options, current facts, costs, and constraints.
 2. **[Planner](https://botcabinet.com/bots/planner/)** — Build the sequence, schedule, decisions, and fallback plan.
-3. **[COACH](https://botcabinet.com/bots/coach/)** — Act as Constraint Checker and test fit with stated priorities.
+3. **[Coach](https://botcabinet.com/bots/coach/)** — Act as Constraint Checker and test fit with stated priorities.
 
 ## Included workflows
 

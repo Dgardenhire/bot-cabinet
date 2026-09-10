@@ -1,4 +1,4 @@
-# PULSE — Bot Passport V2
+# Pulse — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:pulse:portable-pack
 - **Role:** Growth management assistant

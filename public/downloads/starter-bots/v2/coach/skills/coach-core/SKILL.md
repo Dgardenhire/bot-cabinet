@@ -1,9 +1,9 @@
 ---
 name: coach-core
-description: "COACH core Skill. Run when I bring a specific decision or begin an approved weekly review."
+description: "Coach core Skill. Run when I bring a specific decision or begin an approved weekly review."
 ---
 
-# COACH core Skill
+# Coach core Skill
 
 **Artifact ID:** bot-cabinet:bot:coach:skill:primary
 
