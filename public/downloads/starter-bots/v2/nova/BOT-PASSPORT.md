@@ -1,4 +1,4 @@
-# NOVA — Bot Passport V2
+# Nova — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:nova:portable-pack
 - **Role:** New venture testing assistant

@@ -1,12 +1,11 @@
-import { execFile as execFileCallback } from "node:child_process";
-import { mkdir, readFile, rm, utimes, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { promisify } from "node:util";
 import ts from "typescript";
 
-import { createDeterministicTarGzip } from "./content/deterministic-archives.ts";
-
-const execFile = promisify(execFileCallback);
+import {
+  createDeterministicTarGzip,
+  createDeterministicZip,
+} from "./content/deterministic-archives.ts";
 
 const projectRoot = process.cwd();
 const sourcePath = path.join(projectRoot, "src/data/starter-bots.ts");
@@ -159,13 +158,8 @@ for (const bot of starters) {
     ),
   );
 
-  const files = Object.keys(packageFiles);
-  const fixedTime = new Date("2026-01-01T00:00:00.000Z");
-  await Promise.all(files.map((file) => utimes(path.join(botDir, file), fixedTime, fixedTime)));
-  await utimes(botDir, fixedTime, fixedTime);
   const zipPath = path.join(outputRoot, `${bot.slug}.zip`);
-  await rm(zipPath, { force: true });
-  await execFile("zip", ["-X", "-q", zipPath, ...files], { cwd: botDir });
+  await writeFile(zipPath, createDeterministicZip(packageFiles));
 
   const profileArchivePath = path.join(outputRoot, `${bot.slug}.tar.gz`);
   await writeFile(

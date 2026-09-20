@@ -1,9 +1,9 @@
 ---
 name: architect-core
-description: "ARCHITECT core Skill. Run when I provide a defined technical decision or approve a review of the current system."
+description: "Architect core Skill. Run when I provide a defined technical decision or approve a review of the current system."
 ---
 
-# ARCHITECT core Skill
+# Architect core Skill
 
 **Artifact ID:** bot-cabinet:bot:architect:skill:primary
 

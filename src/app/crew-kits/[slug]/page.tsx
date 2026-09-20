@@ -7,9 +7,22 @@ import { Eyebrow } from "@/components/ui";
 import { CREW_KITS, getCrewKit } from "@/data/crew-kits";
 import { getStarterBot } from "@/data/starter-bots";
 import { buildPageMetadata } from "@/lib/metadata";
+import { CREW_MEMBER_STEPS, CREW_PERMISSIONS_NOTICE, readGeneratedCrewManifest } from "@/lib/crew-bundle";
+import { CrewSetupProgress } from "@/components/crew-setup-progress";
+import styles from "@/components/crew-setup-progress.module.css";
 
 export function generateStaticParams() {
   return CREW_KITS.map((kit) => ({ slug: kit.slug }));
+}
+
+function statusLabel(status: string) {
+  switch (status) {
+    case "import-test-passed": return "Passed";
+    case "not-tested": return "Not tested";
+    case "inactive; manual-test-required": return "Inactive; manual test required";
+    case "not-recorded": return "Not recorded";
+    default: return status;
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -30,6 +43,7 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const kit = getCrewKit(slug);
   if (!kit) notFound();
+  const manifest = readGeneratedCrewManifest(kit.slug);
   const resolvedRoles = kit.roles.flatMap((role) => {
     const bot = getStarterBot(role.botSlug);
     return bot ? [{ ...role, bot }] : [];
@@ -46,11 +60,15 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
               <h1 className="inner-title">{kit.name}</h1>
               <p className="inner-deck">{kit.promise}</p>
               <p className="use-case-detail-audience"><strong>Designed for:</strong> {kit.audience}</p>
+              <p className="section-intro">{CREW_PERMISSIONS_NOTICE}</p>
               <div className="button-row">
-                <a href={`/downloads/crew-kits/${kit.slug}.pdf`} download className="button button-primary">Download the designed PDF <DownloadSimple size={16} /></a>
+                <a href={`/downloads/crew-kits/bundles/${kit.slug}.zip`} download className="button button-primary">Download this Crew Kit <DownloadSimple size={16} /></a>
+                <a href="#guided-setup" className="button button-secondary">Start guided setup <ArrowRight size={16} /></a>
+                <a href={`/downloads/crew-kits/${kit.slug}.pdf`} download className="button button-secondary">Download the designed PDF <DownloadSimple size={16} /></a>
                 <a href={`/downloads/crew-kits/${kit.slug}.md`} download className="button button-secondary">Download editable Markdown <DownloadSimple size={16} /></a>
                 <a href="#crew-passport" className="button button-secondary">Review the Crew Passport <ShieldCheck size={16} /></a>
               </div>
+              <p className="section-intro">One ZIP: {resolvedRoles.length} individual Hermes profiles, readable files, a versioned manifest, and an ordered checklist. Unzip first, then import each profile. {manifest.schedulesActive ? "Schedules are active; review them before use." : "No schedules are activated."}</p>
             </div>
             <aside className="inner-aside use-case-roster">
               <UsersThree size={28} weight="thin" aria-hidden="true" />
@@ -58,6 +76,21 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
               <div>{resolvedRoles.map(({ bot }, index) => <Link href={`/bots/${bot.slug}`} key={bot.slug}><span>{index + 1}</span><div><b>{bot.name}</b><small>{bot.title}</small></div><ArrowRight size={14} /></Link>)}</div>
             </aside>
           </div>
+        </div>
+      </section>
+
+      <section className="content-section shell" id="guided-setup">
+        <Eyebrow>Your setup bench</Eyebrow>
+        <h2 className="section-heading">Bring the team in, one checked step at a time</h2>
+        <p className="section-intro">Keep existing profiles intact. If a name already exists, use a new name rather than replacing that Bot. Start with sample material and manually approve each handoff.</p>
+        <div className="button-row"><a href={`/downloads/crew-kits/bundles/${kit.slug}-setup.md`} download className="button button-secondary">Keep the setup checklist <DownloadSimple size={16} /></a><a href={`/downloads/crew-kits/bundles/${kit.slug}.json`} className="button button-secondary">Inspect the manifest</a></div>
+        <CrewSetupProgress members={manifest.members} steps={CREW_MEMBER_STEPS} />
+        <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="Crew member testing status">
+          <table className={styles.table}>
+            <caption>Bundle {manifest.bundleVersion}. Crew handoffs: {statusLabel(manifest.runtimeStatus).toLowerCase()}. An import test does not establish work quality.</caption>
+            <thead><tr><th scope="col">Member</th><th scope="col">Pack / minimum Hermes</th><th scope="col">Import test</th><th scope="col">Skill test</th><th scope="col">Routine</th><th scope="col">Human review</th></tr></thead>
+            <tbody>{manifest.members.map(member => <tr key={member.slug}><th scope="row"><Link href={`/bots/${member.slug}`}>{member.name}</Link></th><td>{member.packVersion}<br />{member.minimumSupported}</td><td>{member.importTest === "import-test-passed" && member.testedWith ? `Passed on ${member.testedWith}` : statusLabel(member.importTest)}</td><td>{statusLabel(member.skillTest)}</td><td>{statusLabel(member.routine)}</td><td>{statusLabel(member.humanTechnicalReview)}</td></tr>)}</tbody>
+          </table>
         </div>
       </section>
 

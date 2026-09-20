@@ -14,7 +14,7 @@ export const PROOF_PROMPT_HEADINGS: Record<ProofState, string> = {
   "test-prepared": "The prompt prepared for this test",
   "recorded-excerpt": "The prompt prepared for a complete reproduction",
   "prompt-contract-recorded": "The request used for both recorded runs",
-  reproduced: "The prompt used for this reproduced run",
+  reproduced: "Instructions for repeating this run",
 };
 
 export const PROOF_PROMPT_EYEBROWS: Record<ProofState, string> = {
@@ -22,7 +22,7 @@ export const PROOF_PROMPT_EYEBROWS: Record<ProofState, string> = {
   "test-prepared": "Prepared request",
   "recorded-excerpt": "Reproduction request",
   "prompt-contract-recorded": "Recorded request",
-  reproduced: "Exact request",
+  reproduced: "Run request",
 };
 
 export const PROOF_NEXT_STEP_COPY: Record<ProofState, { eyebrow: string; heading: string; body: string }> = {
@@ -96,7 +96,7 @@ export interface ProofRun {
 
 export interface ProofRoomDemo {
   slug: string;
-  botSlug: "scout" | "writer" | "chief-of-staff";
+  botSlug: "scout" | "writer" | "chief-of-staff" | "curator" | "reentry" | "receipt";
   cardImage: string;
   title: string;
   outcome: string;
@@ -117,6 +117,8 @@ export interface ProofRoomDemo {
   supportingArtifacts: ProofLinkedArtifact[];
   humanDecisions: string[];
   profileVersion: string;
+  profileArchiveHref: string;
+  profileArchiveSha256?: string;
   passportVersion: number;
   run?: ProofRun;
   checks: ProofCheck[];
@@ -201,6 +203,7 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
       "Decide whether the brief is accurate and useful enough to share.",
     ],
     profileVersion: "1.0.0",
+    profileArchiveHref: "/downloads/starter-bots/scout.tar.gz",
     passportVersion: 1,
     checks: [
       { label: "Package checks", state: "passed", detail: "The profile archive and ZIP contain the six declared files and match the readable copies.", checkedAt: "2026-08-28" },
@@ -250,6 +253,7 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
       "Check every factual claim and approve the final wording.",
     ],
     profileVersion: "1.0.0",
+    profileArchiveHref: "/downloads/starter-bots/writer.tar.gz",
     passportVersion: 1,
     checks: [
       { label: "Package checks", state: "passed", detail: "The profile archive and ZIP contain the six declared files and match the readable copies.", checkedAt: "2026-08-28" },
@@ -341,6 +345,7 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
       "Approve priorities, commitments, and any follow-up before it is sent.",
     ],
     profileVersion: "1.0.0",
+    profileArchiveHref: "/downloads/starter-bots/chief-of-staff.tar.gz",
     passportVersion: 1,
     run: {
       runAt: "2026-09-02",
@@ -356,6 +361,129 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
       { label: "Profile import", state: "not-run", detail: "The exact downloadable Chief of Staff profile was not imported for these runs." },
       { label: "Role run", state: "partial", detail: "Hermes Agent completed the disclosed role and request twice. One run passed the acceptance assertions; one added two unsupported details.", checkedAt: "2026-09-02" },
       { label: "Reproduction", state: "not-run", detail: "Repeating the prompt without importing the exact profile is not a package reproduction." },
+      commonTechnicalReview,
+    ],
+  },
+  {
+    slug: "curator-lineup-review",
+    botSlug: "curator",
+    cardImage: "/downloads/bot-portraits/hermes/curator-1024.png",
+    title: "Curator reviews an overlapping Bot lineup",
+    outcome: "Two exact-package runs found likely overlap without inventing performance evidence",
+    summary: "The final Curator 2.0.0 archive was imported into Hermes and ran the same fictional lineup review twice. Both validation runs passed the disclosed checks; the earlier complete outputs remain published below.",
+    state: "reproduced",
+    stateDetail: "exact package passed twice",
+    platform: "Hermes Agent",
+    evidenceNote: "The fingerprinted downloadable Curator archive was imported as a temporary Hermes test profile after final generation. Two validation runs used the same public fixture and request. Both treated the overlap as likely rather than proven, kept the occasional Invoice Helper at unknown effectiveness, proposed a comparison test, and applied no changes. The complete published outputs below came from the immediately preceding runs with the same profile contents, before the README status text was regenerated.",
+    inputStatus: "supplied",
+    fixtureDisclosure: "The three profiles, role descriptions, and dated outputs are fictional. They test whether Curator preserves uncertainty and avoids equating missing logs with failure.",
+    inputArtifacts: [{ label: "Fictional Bot lineup", description: "The complete public fixture and acceptance checks.", href: "/proof-room/curator/fictional-lineup.md" }],
+    exactPrompt: "Run the Curator first mission using only the fictional evidence below. Return a concise Lineup Review suitable for human review. Do not change anything. Identify likely overlap without declaring it proven; treat Invoice Helper effectiveness as unknown, not poor; recommend lineup decisions with reasons and confidence; draft one representative comparison test; preserve human approval and make no changes.",
+    conversationExcerpt: [
+      { role: "Person", text: "Review two similar newsletter Bots and one occasional Invoice Helper. Treat overlap as a finding to test, not a proven conclusion, and make no changes.", abridged: true },
+      { role: "Bot", text: "Both runs marked the newsletter overlap likely but unproven, kept Invoice Helper at unknown effectiveness, and proposed a controlled comparison before any merger.", abridged: true },
+    ],
+    conversationDisclosure: "The full second-run prompt and response are published in the transcript. The first complete result is preserved separately. Provider-internal reasoning and session identifiers are not published.",
+    transcript: { label: "Read the complete second-run transcript", description: "The complete request and final response from the earlier reproduced run.", href: "/proof-room/curator/run-2-transcript.md", download: true },
+    deliverable: { label: "Download the first Lineup Review", description: "The complete review produced by the earlier first run.", href: "/proof-room/curator/run-1-lineup-review.md", download: true },
+    supportingArtifacts: [
+      { label: "Inspect the run summary", description: "The final archive fingerprint and recorded runtime details.", href: "/proof-room/curator/run-summary.json", download: true },
+      { label: "Download the Curator Hermes profile", description: "The fingerprinted version 2.0.0 archive used in both final validation runs.", href: "/downloads/starter-bots/v2/curator.tar.gz", download: true },
+      { label: "Inspect the readable Curator files", description: "The readable package corresponding to the tested profile.", href: "/downloads/starter-bots/v2/curator.zip", download: true },
+    ],
+    humanDecisions: ["Decide whether the two newsletter roles should remain separate.", "Approve any comparison test before it runs.", "Approve any future instruction edit, merger, or archive action."],
+    profileVersion: "2.0.0",
+    profileArchiveHref: "/downloads/starter-bots/v2/curator.tar.gz",
+    profileArchiveSha256: "7236d29be020f10bc9d87eadf3ec1b68c49e902aa293806ca0490d1e10532afa",
+    passportVersion: 2,
+    run: { runAt: "2026-09-09", hermesVersion: "0.21.1", provider: "nous", model: "deepseek/deepseek-v4-flash", elapsedSeconds: 30, costUsd: 0.0004439547, costNote: "The preserved second run was estimated at $0.000444. The first run completed successfully, but its usage file was not retained." },
+    checks: [
+      { label: "Package checks", state: "passed", detail: "The generated archive and readable package passed the repository package checks.", checkedAt: "2026-09-09" },
+      { label: "Profile import", state: "passed", detail: "The exact Curator 2.0.0 archive imported with its bundled Skill present.", checkedAt: "2026-09-09" },
+      { label: "Role run", state: "passed", detail: "The first run met every disclosed acceptance check and preserved its complete result.", checkedAt: "2026-09-09" },
+      { label: "Reproduction", state: "passed", detail: "The same profile, fixture, and request passed the disclosed checks in a second independent run.", checkedAt: "2026-09-09" },
+      commonTechnicalReview,
+    ],
+  },
+  {
+    slug: "reentry-project-resumption",
+    botSlug: "reentry",
+    cardImage: "/downloads/bot-portraits/hermes/reentry-1024.png",
+    title: "Reentry restores the last approved checkpoint",
+    outcome: "Two exact-package runs kept a newer proposal separate from approved work",
+    summary: "The final Reentry 2.0.0 archive was imported into Hermes and ran the same fictional project-resumption test twice. Both validation runs passed the disclosed checks; the earlier complete outputs remain published below.",
+    state: "reproduced",
+    stateDetail: "exact package passed twice",
+    platform: "Hermes Agent",
+    evidenceNote: "The fingerprinted downloadable Reentry archive was imported after final generation. Both validation runs identified the Monday draft as the last approved checkpoint, kept Tuesday's edits at proposed status, treated publication as unconfirmed, and protected the approved restaurant language. Neither run edited or published anything. The complete published outputs below came from the immediately preceding runs with the same profile contents, before the README status text was regenerated.",
+    inputStatus: "supplied",
+    fixtureDisclosure: "The project, filenames, messages, and publication note are fictional. The fixture tests whether a newer file is incorrectly promoted to approved status.",
+    inputArtifacts: [{ label: "Fictional project record", description: "The dated drafts, approval message, proposal note, and acceptance checks.", href: "/proof-room/reentry/fictional-project-record.md" }],
+    exactPrompt: "Run the Reentry first mission using only this fictional project record. Produce a concise resumption brief and do not edit or publish anything. Identify Monday as the last approved checkpoint; label Tuesday changes proposed rather than approved; label publication unconfirmed; preserve the protected restaurant language; state the minimum next action and one necessary question.",
+    conversationExcerpt: [
+      { role: "Person", text: "Resume from an approved Monday draft, a newer but unapproved Tuesday draft, and an unsupported suggestion that publication might happen.", abridged: true },
+      { role: "Bot", text: "Both runs retained Monday as the approved checkpoint, labeled Tuesday proposed, marked publication unconfirmed, and kept the protected restaurant language in force.", abridged: true },
+    ],
+    conversationDisclosure: "The full second-run prompt and response are published in the transcript. The first complete result is preserved separately.",
+    transcript: { label: "Read the complete second-run transcript", description: "The complete request and final response from the earlier reproduced run.", href: "/proof-room/reentry/run-2-transcript.md", download: true },
+    deliverable: { label: "Download the first resumption brief", description: "The complete brief produced by the earlier first run.", href: "/proof-room/reentry/run-1-resumption-brief.md", download: true },
+    supportingArtifacts: [
+      { label: "Inspect the run summary", description: "The final archive fingerprint and recorded runtime details.", href: "/proof-room/reentry/run-summary.json", download: true },
+      { label: "Download the Reentry Hermes profile", description: "The fingerprinted version 2.0.0 archive used in both final validation runs.", href: "/downloads/starter-bots/v2/reentry.tar.gz", download: true },
+      { label: "Inspect the readable Reentry files", description: "The readable package corresponding to the tested profile.", href: "/downloads/starter-bots/v2/reentry.zip", download: true },
+    ],
+    humanDecisions: ["Decide whether any proposed Tuesday edit should supersede the approved draft.", "Confirm whether protected language may change.", "Approve publication and retain a deployment record."],
+    profileVersion: "2.0.0",
+    profileArchiveHref: "/downloads/starter-bots/v2/reentry.tar.gz",
+    profileArchiveSha256: "0cad677d1edd4649410f0dec954b29a7ea1731168f90d2b4dbc98b82f46eb698",
+    passportVersion: 2,
+    run: { runAt: "2026-09-09", hermesVersion: "0.21.1", provider: "nous", model: "deepseek/deepseek-v4-flash", elapsedSeconds: 23.33, costUsd: 0.0002845104, costNote: "The preserved second run was estimated at $0.000285. The first run completed successfully, but its usage file was not retained." },
+    checks: [
+      { label: "Package checks", state: "passed", detail: "The generated archive and readable package passed the repository package checks.", checkedAt: "2026-09-09" },
+      { label: "Profile import", state: "passed", detail: "The exact Reentry 2.0.0 archive imported with its bundled Skill present.", checkedAt: "2026-09-09" },
+      { label: "Role run", state: "passed", detail: "The first run met every disclosed status and approval check.", checkedAt: "2026-09-09" },
+      { label: "Reproduction", state: "passed", detail: "The same profile, fixture, and request passed the disclosed checks in a second independent run.", checkedAt: "2026-09-09" },
+      commonTechnicalReview,
+    ],
+  },
+  {
+    slug: "receipt-refund-case",
+    botSlug: "receipt",
+    cardImage: "/downloads/bot-portraits/hermes/receipt-1024.png",
+    title: "Receipt tracks a promised refund",
+    outcome: "Two exact-package runs kept approval, issuance, and receipt as separate facts",
+    summary: "The final Receipt 2.0.0 archive was imported into Hermes and ran the same fictional refund case twice. Both validation runs passed the disclosed checks; the earlier complete outputs remain published below.",
+    state: "reproduced",
+    stateDetail: "exact package passed twice",
+    platform: "Hermes Agent",
+    evidenceNote: "The fingerprinted downloadable Receipt archive was imported after final generation. Both validation runs kept the case open, declined to invent a deadline from undated email, separated a requested and approved refund from issuance and receipt, and produced a factual draft that was not sent. The complete published outputs below came from the immediately preceding runs with the same profile contents, before the README status text was regenerated.",
+    inputStatus: "supplied",
+    fixtureDisclosure: "The order, amount, product, emails, and case number are fictional. No real purchase, account, or payment data was used.",
+    inputArtifacts: [{ label: "Fictional refund case", description: "The complete public case fixture and acceptance checks.", href: "/proof-room/receipt/fictional-refund-case.md" }],
+    exactPrompt: "Run the Receipt first mission using only this fictional case. Produce a concise case record and draft follow-up. Do not send anything. Distinguish requested, approved or promised, issued, and received; do not calculate a deadline without the promise date; request only missing information needed; leave the case open; draft a factual message for human review; do not send it or assert legal rights.",
+    conversationExcerpt: [
+      { role: "Person", text: "Track an $80 refund promised within ten business days when the promise date and payment confirmation are missing.", abridged: true },
+      { role: "Bot", text: "Both runs recorded the promise without calling the refund issued or received, requested the missing dates and transaction evidence, kept the case open, and drafted but did not send a follow-up.", abridged: true },
+    ],
+    conversationDisclosure: "The full second-run prompt and response are published in the transcript. The first complete case record is preserved separately.",
+    transcript: { label: "Read the complete second-run transcript", description: "The complete request and final response from the earlier reproduced run.", href: "/proof-room/receipt/run-2-transcript.md", download: true },
+    deliverable: { label: "Download the first case record", description: "The complete case record and draft produced by the earlier first run.", href: "/proof-room/receipt/run-1-case-record.md", download: true },
+    supportingArtifacts: [
+      { label: "Inspect the run summary", description: "The final archive fingerprint and recorded runtime details.", href: "/proof-room/receipt/run-summary.json", download: true },
+      { label: "Download the Receipt Hermes profile", description: "The fingerprinted version 2.0.0 archive used in both final validation runs.", href: "/downloads/starter-bots/v2/receipt.tar.gz", download: true },
+      { label: "Inspect the readable Receipt files", description: "The readable package corresponding to the tested profile.", href: "/downloads/starter-bots/v2/receipt.zip", download: true },
+    ],
+    humanDecisions: ["Supply or withhold the missing transaction evidence.", "Review and revise any follow-up message.", "Choose whether to send a message and confirm when the case should close."],
+    profileVersion: "2.0.0",
+    profileArchiveHref: "/downloads/starter-bots/v2/receipt.tar.gz",
+    profileArchiveSha256: "622788dce90e9e74de9c8e6ab419fb79a0f678d38a7b96229619d557e36ed001",
+    passportVersion: 2,
+    run: { runAt: "2026-09-09", hermesVersion: "0.21.1", provider: "nous", model: "deepseek/deepseek-v4-flash", elapsedSeconds: 29.73, costUsd: 0.0004241004, costNote: "The preserved second run was estimated at $0.000424. The first run completed successfully, but its usage file was not retained." },
+    checks: [
+      { label: "Package checks", state: "passed", detail: "The generated archive and readable package passed the repository package checks.", checkedAt: "2026-09-09" },
+      { label: "Profile import", state: "passed", detail: "The exact Receipt 2.0.0 archive imported with its bundled Skill present.", checkedAt: "2026-09-09" },
+      { label: "Role run", state: "passed", detail: "The first run met every disclosed evidence, deadline, and approval check.", checkedAt: "2026-09-09" },
+      { label: "Reproduction", state: "passed", detail: "The same profile, fixture, and request passed the disclosed checks in a second independent run.", checkedAt: "2026-09-09" },
       commonTechnicalReview,
     ],
   },

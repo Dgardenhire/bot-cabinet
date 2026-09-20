@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "customer-support-desk",
+  "name": "Customer Support Desk",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "chief-of-staff",
+      "name": "Chief of Staff",
+      "responsibility": "Act as Intake, classify the request, and route it to the right path.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/chief-of-staff.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/chief-of-staff.tar.gz",
+      "sha256": "b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only access to approved planning documents and calendar information",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Ask before contacting anyone",
+        "Ask before changing a calendar, task, or shared record",
+        "A leader sets priorities, assigns people, and approves commitments and deadlines.",
+        "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+      ],
+      "firstTest": "Use sample updates from two projects to produce a one-page priority brief and a decision log for review."
+    },
+    {
+      "slug": "researcher",
+      "name": "Researcher",
+      "responsibility": "Find the approved policy or customer record needed for the case.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/researcher.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Read-only document access when I provide files"
+      ],
+      "approvalActions": [
+        "Ask when sources conflict",
+        "A person makes legal, medical, financial, and policy decisions."
+      ],
+      "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
+    },
+    {
+      "slug": "writer",
+      "name": "Writer",
+      "responsibility": "Draft a concise response using confirmed information.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/writer.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/writer.tar.gz",
+      "sha256": "7f1f3d29a8f5189b4964a68a0734c1010996a443c3a874c1312e48d8c312d722",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "A person approves factual claims and final wording."
+      ],
+      "firstTest": "Draft a 500-word article from one approved outline and three supplied sources."
+    },
+    {
+      "slug": "editor",
+      "name": "Editor",
+      "responsibility": "Act as Support Reviewer and check tone, accuracy, and escalation.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/editor.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/editor.tar.gz",
+      "sha256": "7f16ed8dccd5ec9d07fff0d42944bc14ac903a6f9e1b8bcc7234117a3c689dc2",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "Ask before changing substantive meaning",
+        "A person approves substantive changes."
+      ],
+      "firstTest": "Edit a two-page memo and explain the five most important changes."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Intake",
+      "action": "Classify urgency, topic, customer, and required records.",
+      "owner": "Chief of Staff"
+    },
+    {
+      "timing": "Policy check",
+      "action": "Find the approved answer and mark missing information.",
+      "owner": "Researcher"
+    },
+    {
+      "timing": "Draft",
+      "action": "Prepare the reply or escalation record.",
+      "owner": "Writer"
+    },
+    {
+      "timing": "Review",
+      "action": "Approve, revise, or route the response.",
+      "owner": "Editor + person"
+    }
+  ],
+  "approvalActions": [
+    "Send a customer reply",
+    "Issue a refund, credit, replacement, or account change",
+    "Handle a legal, safety, or privacy issue"
+  ],
+  "prohibitedActions": [
+    "Expose another customer’s information",
+    "Delete requests or records",
+    "Promise an outcome before approval"
+  ]
+}

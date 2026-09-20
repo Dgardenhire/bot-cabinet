@@ -1,9 +1,9 @@
 ---
 name: story-core
-description: "STORY core Skill. Run when I provide approved source material for a narrative, launch, or message review."
+description: "Story core Skill. Run when I provide approved source material for a narrative, launch, or message review."
 ---
 
-# STORY core Skill
+# Story core Skill
 
 **Artifact ID:** bot-cabinet:bot:story:skill:primary
 

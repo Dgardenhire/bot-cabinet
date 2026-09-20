@@ -85,7 +85,7 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
               <p className="inner-deck">{demo.outcome}</p>
               <div className="button-row">
                 <Link href={`/bots/${demo.botSlug}`} className="button button-primary">Open the Bot profile <ArrowRight size={16} /></Link>
-                <a href={`/downloads/starter-bots/${demo.botSlug}.tar.gz`} download className="button button-secondary">Download for Hermes <DownloadSimple size={16} /></a>
+                <a href={demo.profileArchiveHref} download className="button button-secondary">Download for Hermes <DownloadSimple size={16} /></a>
               </div>
             </div>
             <aside className="inner-aside proof-detail-status">
@@ -95,6 +95,7 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
               <dl>
                 <div><dt>Platform</dt><dd>{demo.platform}</dd></div>
                 <div><dt>Profile</dt><dd>v{demo.profileVersion}</dd></div>
+                {demo.profileArchiveSha256 && <div><dt>Archive SHA-256</dt><dd><code>{demo.profileArchiveSha256}</code></dd></div>}
                 <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
                 {demo.run && <>
                   <div><dt>Run date</dt><dd>{demo.run.runAt}</dd></div>
@@ -150,8 +151,9 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
       <section className="content-section shell proof-prompt-section">
         <div className="proof-section-heading">
           <div><Eyebrow>{PROOF_PROMPT_EYEBROWS[demo.state]}</Eyebrow><h2 className="section-heading">{PROOF_PROMPT_HEADINGS[demo.state]}</h2></div>
-          <CopyTextButton text={demo.exactPrompt} label={demo.state === "recorded-excerpt" ? "Copy reproduction prompt" : "Copy exact prompt"} />
+          <CopyTextButton text={demo.exactPrompt} label={demo.state === "recorded-excerpt" ? "Copy reproduction prompt" : demo.state === "reproduced" ? "Copy run request" : "Copy exact prompt"} />
         </div>
+        {demo.state === "reproduced" && <p className="section-intro">Use this request with the disclosed input file above. The complete preserved prompt, including the fixture, is in the linked transcript.</p>}
         {demo.state === "recorded-excerpt" && <p className="section-intro">This request is for the future isolated reproduction. It did not generate the recorded excerpt.</p>}
         <blockquote>{demo.exactPrompt}</blockquote>
       </section>

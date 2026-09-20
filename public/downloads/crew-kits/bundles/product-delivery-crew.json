@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "product-delivery-crew",
+  "name": "Product Delivery Crew",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "responsibility": "Define the user outcome, acceptance conditions, scope, and dependencies.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/planner.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only project documents",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Do not assign people or commit dates without approval",
+        "Do not change an external task system without approval",
+        "A person approves assignments and deadlines."
+      ],
+      "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
+    },
+    {
+      "slug": "architect",
+      "name": "Architect",
+      "responsibility": "Choose the technical approach and identify material risks.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/architect.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/architect.tar.gz",
+      "sha256": "36e3d3f8a324217e4cd3c55d917546297a50b0ce08678b640aa5f49e8ee382f6",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only access to approved repositories and technical documents",
+        "Optional web research for current vendor documentation"
+      ],
+      "approvalActions": [
+        "Ask before selecting a vendor or adding a dependency",
+        "Ask before accepting a security or reliability risk",
+        "A person approves architecture, budgets, vendors, and risk acceptance."
+      ],
+      "firstTest": "Review a small architecture packet and produce a one-page decision record comparing two options."
+    },
+    {
+      "slug": "founding-engineer",
+      "name": "Founding Engineer",
+      "responsibility": "Implement the approved approach and document actual changes.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/founding-engineer.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/founding-engineer.tar.gz",
+      "sha256": "1961e655244acd16243ae0024ece46a43f40f28b1031b08c71d6647927d77dd1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Approved project files",
+        "Terminal access inside the project copy",
+        "Existing test runner"
+      ],
+      "approvalActions": [
+        "Ask before adding a dependency or changing a data structure",
+        "Ask before deleting material or using real customer data",
+        "Do not connect outside services or release the work without approval",
+        "A person defines the product promise, accepts technical tradeoffs, and approves release."
+      ],
+      "firstTest": "Build one small workflow in a disposable project copy, run its acceptance check, and demonstrate the result."
+    },
+    {
+      "slug": "coder",
+      "name": "Coder",
+      "responsibility": "Act as Tester by running checks and reporting failures.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/coder.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/coder.tar.gz",
+      "sha256": "dde7d90140283ebea8cefae60c66ba2dc558de7e47d621e52f6ca15839c67e73",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Project file access",
+        "Terminal access inside the project",
+        "Version control"
+      ],
+      "approvalActions": [
+        "Ask before deployment",
+        "Ask before deleting material",
+        "A person approves deployment and destructive changes."
+      ],
+      "firstTest": "Make one small reversible change in a project copy and run the existing checks."
+    },
+    {
+      "slug": "editor",
+      "name": "Editor",
+      "responsibility": "Prepare review notes, release copy, and unresolved questions.",
+      "setupOrder": 5,
+      "packVersion": "2.0.0",
+      "archivePath": "members/editor.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/editor.tar.gz",
+      "sha256": "7f16ed8dccd5ec9d07fff0d42944bc14ac903a6f9e1b8bcc7234117a3c689dc2",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "Ask before changing substantive meaning",
+        "A person approves substantive changes."
+      ],
+      "firstTest": "Edit a two-page memo and explain the five most important changes."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Definition",
+      "action": "Agree on the outcome and boundaries.",
+      "owner": "Planner + person"
+    },
+    {
+      "timing": "Direction",
+      "action": "Choose the approach and record risks.",
+      "owner": "Architect"
+    },
+    {
+      "timing": "Build and check",
+      "action": "Implement the change and run checks.",
+      "owner": "Founding Engineer + Coder"
+    },
+    {
+      "timing": "Release decision",
+      "action": "Review evidence before release.",
+      "owner": "Editor + person"
+    }
+  ],
+  "approvalActions": [
+    "Change authentication, billing, or production data",
+    "Install an unfamiliar dependency",
+    "Merge, deploy, or publish a release"
+  ],
+  "prohibitedActions": [
+    "Expose secrets",
+    "Force-push or overwrite another project",
+    "Disable security checks to make a build pass"
+  ]
+}

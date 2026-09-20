@@ -1,4 +1,4 @@
-# STORY — Bot Passport V2
+# Story — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:story:portable-pack
 - **Role:** Chief narrative officer

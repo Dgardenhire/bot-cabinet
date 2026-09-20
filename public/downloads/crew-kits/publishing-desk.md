@@ -12,7 +12,7 @@ The Publishing Desk finds worthwhile topics, checks source material, develops th
 
 1. **[Scout](https://botcabinet.com/bots/scout/)** — Find timely subjects and source material inside the approved brief.
 2. **[Researcher](https://botcabinet.com/bots/researcher/)** — Check claims, organize evidence, and mark gaps or conflicting sources.
-3. **[STORY](https://botcabinet.com/bots/story/)** — Shape the central message for the intended audience.
+3. **[Story](https://botcabinet.com/bots/story/)** — Shape the central message for the intended audience.
 4. **[Writer](https://botcabinet.com/bots/writer/)** — Create the main draft and approved channel versions.
 5. **[Editor](https://botcabinet.com/bots/editor/)** — Improve clarity, check claims, and return approval questions.
 

@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "publishing-desk",
+  "name": "Publishing Desk",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "scout",
+      "name": "Scout",
+      "responsibility": "Find timely subjects and source material inside the approved brief.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/scout.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/scout.tar.gz",
+      "sha256": "961e8512a33911efc1ef8b4b0b9b566ee0e24d0d3a3f60aef482f30a4020ea5d",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Optional read-only access to an approved source list"
+      ],
+      "approvalActions": [
+        "Ask before contacting anyone",
+        "Ask before changing a schedule",
+        "A person selects the topics to pursue.",
+        "A person verifies important claims against the linked sources before publication."
+      ],
+      "firstTest": "Review five approved sources and return three ideas with working links."
+    },
+    {
+      "slug": "researcher",
+      "name": "Researcher",
+      "responsibility": "Check claims, organize evidence, and mark gaps or conflicting sources.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/researcher.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Read-only document access when I provide files"
+      ],
+      "approvalActions": [
+        "Ask when sources conflict",
+        "A person makes legal, medical, financial, and policy decisions."
+      ],
+      "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
+    },
+    {
+      "slug": "story",
+      "name": "Story",
+      "responsibility": "Shape the central message for the intended audience.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/story.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/story.tar.gz",
+      "sha256": "b53f531951ce54975c2cbc1e1643e641fa536832cb61f2fbd7a6d1536852fafc",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only access to approved source documents",
+        "Voice and brand examples",
+        "Optional web research for checking supplied facts"
+      ],
+      "approvalActions": [
+        "Ask before changing protected language or substantive meaning",
+        "A person decides what the organization stands for and approves every public claim and final draft."
+      ],
+      "firstTest": "Use three approved source documents to create a one-page narrative brief and mark every unsupported claim."
+    },
+    {
+      "slug": "writer",
+      "name": "Writer",
+      "responsibility": "Create the main draft and approved channel versions.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/writer.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/writer.tar.gz",
+      "sha256": "7f1f3d29a8f5189b4964a68a0734c1010996a443c3a874c1312e48d8c312d722",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "A person approves factual claims and final wording."
+      ],
+      "firstTest": "Draft a 500-word article from one approved outline and three supplied sources."
+    },
+    {
+      "slug": "editor",
+      "name": "Editor",
+      "responsibility": "Improve clarity, check claims, and return approval questions.",
+      "setupOrder": 5,
+      "packVersion": "2.0.0",
+      "archivePath": "members/editor.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/editor.tar.gz",
+      "sha256": "7f16ed8dccd5ec9d07fff0d42944bc14ac903a6f9e1b8bcc7234117a3c689dc2",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "Ask before changing substantive meaning",
+        "A person approves substantive changes."
+      ],
+      "firstTest": "Edit a two-page memo and explain the five most important changes."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Start of cycle",
+      "action": "Select the topic and approve sources.",
+      "owner": "Person + Scout"
+    },
+    {
+      "timing": "Research",
+      "action": "Build the evidence brief and mark gaps.",
+      "owner": "Researcher"
+    },
+    {
+      "timing": "Draft",
+      "action": "Create the main piece and channel versions.",
+      "owner": "Story + Writer"
+    },
+    {
+      "timing": "Review",
+      "action": "Check the package and decide whether to publish.",
+      "owner": "Editor + person"
+    }
+  ],
+  "approvalActions": [
+    "Send or publish material",
+    "Contact a source or contributor",
+    "Change a public claim, price, or promise"
+  ],
+  "prohibitedActions": [
+    "Use unapproved private material",
+    "Publish from a draft conversation",
+    "Represent assumptions as confirmed facts"
+  ]
+}

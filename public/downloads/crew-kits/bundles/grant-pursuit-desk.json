@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": "1.0.0",
+  "slug": "grant-pursuit-desk",
+  "name": "Grant Pursuit Desk",
+  "runtimeStatus": "not-tested",
+  "schedulesActive": false,
+  "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
+  "members": [
+    {
+      "slug": "scout",
+      "name": "Scout",
+      "responsibility": "Find current opportunities matching the approved mission, geography, and funding range.",
+      "setupOrder": 1,
+      "packVersion": "2.0.0",
+      "archivePath": "members/scout.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/scout.tar.gz",
+      "sha256": "961e8512a33911efc1ef8b4b0b9b566ee0e24d0d3a3f60aef482f30a4020ea5d",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Optional read-only access to an approved source list"
+      ],
+      "approvalActions": [
+        "Ask before contacting anyone",
+        "Ask before changing a schedule",
+        "A person selects the topics to pursue.",
+        "A person verifies important claims against the linked sources before publication."
+      ],
+      "firstTest": "Review five approved sources and return three ideas with working links."
+    },
+    {
+      "slug": "researcher",
+      "name": "Researcher",
+      "responsibility": "Verify eligibility, deadlines, requirements, and official language.",
+      "setupOrder": 2,
+      "packVersion": "2.0.0",
+      "archivePath": "members/researcher.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
+      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Web research",
+        "Read-only document access when I provide files"
+      ],
+      "approvalActions": [
+        "Ask when sources conflict",
+        "A person makes legal, medical, financial, and policy decisions."
+      ],
+      "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
+    },
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "responsibility": "Build the work plan, evidence checklist, assignments, and schedule.",
+      "setupOrder": 3,
+      "packVersion": "2.0.0",
+      "archivePath": "members/planner.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
+      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only project documents",
+        "Optional task-system access after review"
+      ],
+      "approvalActions": [
+        "Do not assign people or commit dates without approval",
+        "Do not change an external task system without approval",
+        "A person approves assignments and deadlines."
+      ],
+      "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
+    },
+    {
+      "slug": "writer",
+      "name": "Writer",
+      "responsibility": "Draft sections from approved facts and evidence.",
+      "setupOrder": 4,
+      "packVersion": "2.0.0",
+      "archivePath": "members/writer.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/writer.tar.gz",
+      "sha256": "7f1f3d29a8f5189b4964a68a0734c1010996a443c3a874c1312e48d8c312d722",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "A person approves factual claims and final wording."
+      ],
+      "firstTest": "Draft a 500-word article from one approved outline and three supplied sources."
+    },
+    {
+      "slug": "editor",
+      "name": "Editor",
+      "responsibility": "Check completeness, consistency, claims, and compliance questions.",
+      "setupOrder": 5,
+      "packVersion": "2.0.0",
+      "archivePath": "members/editor.tar.gz",
+      "archiveUrl": "/downloads/starter-bots/v2/editor.tar.gz",
+      "sha256": "7f16ed8dccd5ec9d07fff0d42944bc14ac903a6f9e1b8bcc7234117a3c689dc2",
+      "minimumSupported": ">=0.21.0",
+      "testedWith": "0.21.0",
+      "importTest": "import-test-passed",
+      "skillTest": "not-tested",
+      "routine": "inactive; manual-test-required",
+      "humanTechnicalReview": "not-recorded",
+      "requestedCapabilities": [
+        "Read-only document access",
+        "Optional web access for checking supplied links"
+      ],
+      "approvalActions": [
+        "Ask before changing substantive meaning",
+        "A person approves substantive changes."
+      ],
+      "firstTest": "Edit a two-page memo and explain the five most important changes."
+    }
+  ],
+  "handoffOrder": [
+    {
+      "timing": "Discovery",
+      "action": "Find opportunities and preserve official source links.",
+      "owner": "Scout"
+    },
+    {
+      "timing": "Eligibility",
+      "action": "Check threshold requirements and prepare a decision brief.",
+      "owner": "Researcher + person"
+    },
+    {
+      "timing": "Development",
+      "action": "Build the evidence plan and draft approved sections.",
+      "owner": "Planner + Writer"
+    },
+    {
+      "timing": "Compliance",
+      "action": "Review the package and route open questions.",
+      "owner": "Editor + person"
+    }
+  ],
+  "approvalActions": [
+    "Represent organizational eligibility or performance",
+    "Set a budget, target, or commitment",
+    "Contact a funder or submit an application"
+  ],
+  "prohibitedActions": [
+    "Invent performance data, partners, or budgets",
+    "Reuse restricted material",
+    "Submit through a portal"
+  ]
+}

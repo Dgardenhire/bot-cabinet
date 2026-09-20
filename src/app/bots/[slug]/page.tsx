@@ -30,6 +30,7 @@ import {
   starterBotToPortablePackV2,
 } from "@/lib/portable-bot-pack-v2";
 import { buildPageMetadata } from "@/lib/metadata";
+import { botImportAndRunStatus } from "@/lib/bot-status-copy";
 
 export function generateStaticParams() {
   return [
@@ -93,7 +94,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
                 <a href={portablePackV2Paths.portableMarkdownUrl} download className="button button-secondary">Download Bot Pack 2.0 <DownloadSimple size={16} /></a>
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
-              <p className="starter-install-note">{portablePackV2.platforms.hermes.importEvidence ? "This archive passed an isolated import and bundled-Skill presence check in Hermes Agent 0.21.0 on September 4, 2026." : "New prepared profile: Hermes import testing is pending."} Human technical and role-specific output tests remain pending. The Grok Bot build brief remains untested.</p>
+              <p className="starter-install-note">{botImportAndRunStatus(portablePackV2)}</p>
               <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
             </div>
           </div>

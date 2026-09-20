@@ -20,7 +20,7 @@ Result: A central narrative, verified proof points, and a reusable message kit f
 ## Bots
 
 1. Researcher
-2. STORY
+2. Story
 3. Writer
 
 ## Information to gather
@@ -41,7 +41,7 @@ Message to send:
 
 Use the approved inputs I provide. Organize the confirmed facts, sources, contradictions, and evidence gaps. Return this result: A source and proof-point brief. Ask me about missing information before you continue.
 
-### 2. STORY
+### 2. Story
 
 Build the central narrative and adapt its message structure by audience
 
@@ -59,12 +59,12 @@ Output: A message kit with sample website, email, and social copy
 
 Message to send:
 
-Start with this result from STORY: A narrative brief and audience message map. Turn the approved message map into reusable channel drafts. Return this result: A message kit with sample website, email, and social copy. Ask me about missing information before you continue.
+Start with this result from Story: A narrative brief and audience message map. Turn the approved message map into reusable channel drafts. Return this result: A message kit with sample website, email, and social copy. Ask me about missing information before you continue.
 
 ## Handoff rules
 
-1. Researcher hands the approved output—a source and proof-point brief—to STORY.
-2. STORY hands the approved output—a narrative brief and audience message map—to Writer.
+1. Researcher hands the approved output—a source and proof-point brief—to Story.
+2. Story hands the approved output—a narrative brief and audience message map—to Writer.
 
 ## Overall request
 

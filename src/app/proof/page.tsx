@@ -66,7 +66,7 @@ export default function ProofRoomPage() {
             <Eyebrow>Practical assignments</Eyebrow>
             <h2 id="proof-room-library-title" className="section-heading">Follow each test from its source material</h2>
           </div>
-          <p>Scout has a recorded excerpt. Writer is waiting for its approved source brief. Chief of Staff now shows two real runs—including the mistakes in the second one.</p>
+          <p>Curator, Reentry, and Receipt now have exact-package reproductions with complete outputs. Earlier Scout, Writer, and Chief of Staff records remain visible at their current evidence level.</p>
         </div>
 
         <div className="proof-room-card-grid">

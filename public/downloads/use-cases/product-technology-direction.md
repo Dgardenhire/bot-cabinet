@@ -7,7 +7,7 @@ Result: A product and technology decision record plus the smallest reversible pr
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need a product and technology decision record plus the smallest reversible prototype needed to resolve the next uncertainty.
-- **Lead Bot:** NOVA
+- **Lead Bot:** Nova
 - **Cadence:** When a person supplies the approved brief and starts the workflow
 - **Typical first run:** 30–60 minutes for a first manual run
 
@@ -19,8 +19,8 @@ Result: A product and technology decision record plus the smallest reversible pr
 
 ## Bots
 
-1. NOVA
-2. ARCHITECT
+1. Nova
+2. Architect
 3. Founding Engineer
 
 ## Information to gather
@@ -31,7 +31,7 @@ Result: A product and technology decision record plus the smallest reversible pr
 
 ## Workflow
 
-### 1. NOVA
+### 1. Nova
 
 Identify the product assumptions and the evidence needed for the next decision
 
@@ -41,7 +41,7 @@ Message to send:
 
 Use the approved inputs I provide. Identify the product assumptions and the evidence needed for the next decision. Return this result: A product hypothesis and evidence brief. Ask me about missing information before you continue.
 
-### 2. ARCHITECT
+### 2. Architect
 
 Compare practical technical directions for the approved product test
 
@@ -49,7 +49,7 @@ Output: An architecture decision record with costs, risks, and approval points
 
 Message to send:
 
-Start with this result from NOVA: A product hypothesis and evidence brief. Compare practical technical directions for the approved product test. Return this result: An architecture decision record with costs, risks, and approval points. Ask me about missing information before you continue.
+Start with this result from Nova: A product hypothesis and evidence brief. Compare practical technical directions for the approved product test. Return this result: An architecture decision record with costs, risks, and approval points. Ask me about missing information before you continue.
 
 ### 3. Founding Engineer
 
@@ -59,12 +59,12 @@ Output: A working prototype, acceptance-check results, and a decision log
 
 Message to send:
 
-Start with this result from ARCHITECT: An architecture decision record with costs, risks, and approval points. Build the approved direction as the smallest reversible prototype. Return this result: A working prototype, acceptance-check results, and a decision log. Ask me about missing information before you continue.
+Start with this result from Architect: An architecture decision record with costs, risks, and approval points. Build the approved direction as the smallest reversible prototype. Return this result: A working prototype, acceptance-check results, and a decision log. Ask me about missing information before you continue.
 
 ## Handoff rules
 
-1. NOVA hands the approved output—a product hypothesis and evidence brief—to ARCHITECT.
-2. ARCHITECT hands the approved output—an architecture decision record with costs, risks, and approval points—to Founding Engineer.
+1. Nova hands the approved output—a product hypothesis and evidence brief—to Architect.
+2. Architect hands the approved output—an architecture decision record with costs, risks, and approval points—to Founding Engineer.
 
 ## Overall request
 

@@ -10,8 +10,8 @@ export const metadata: Metadata = buildPageMetadata({
   title: "The Cabinet · Hermes Bots",
   description: "Purpose-built public Hermes Bot role templates with example tasks, intended outputs, setup guidance, and downloadable starter files.",
   path: "/bots/",
-  image: "/brand/social/the-cabinet-1200x630.jpg",
-  imageAlt: "The Cabinet — find a Hermes Bot for the job",
+  image: "/brand/social/bot-pack-2-0-1200x630.jpg",
+  imageAlt: "Bot Pack 2.0 — one useful job in four usable formats",
 });
 
 export default function BotsPage() {
@@ -30,7 +30,7 @@ export default function BotsPage() {
           </div>
           <aside className="inner-aside starter-explainer">
             <UserFocus size={27} weight="thin" aria-hidden="true" />
-            <strong>Sixteen practical Hermes Bots</strong>
+            <strong>Nineteen practical Hermes Bots</strong>
             <p>Each page includes example requests, intended outputs, setup steps, role instructions, and a downloadable source package.</p>
           </aside>
         </div>
@@ -39,7 +39,7 @@ export default function BotsPage() {
       <section className="starter-status-strip">
         <div className="shell">
           <DownloadSimple size={20} weight="thin" aria-hidden="true" />
-          <p><strong>Free Bot Pack 2.0 files are available now.</strong> Every Hermes archive passed an isolated profile-import test. That confirms the package can be imported; it does not prove the Bot&apos;s work quality. Human technical review and real-job testing are still in progress, so begin with low-risk sample material.</p>
+          <p><strong>Free Bot Pack 2.0 files are available now.</strong> The original 16 Hermes archives passed isolated profile-import tests. Curator, Reentry, and Receipt are newer prepared profiles whose import tests remain pending. Import success does not prove work quality; human technical review and real-job testing are still in progress.</p>
         </div>
       </section>
 

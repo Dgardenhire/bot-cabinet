@@ -1,4 +1,4 @@
-# PULSE — Growth management assistant
+# Pulse — Growth management assistant
 
 Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.
 

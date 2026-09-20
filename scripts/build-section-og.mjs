@@ -10,7 +10,7 @@ const wordmark = path.join(root, "public", "brand", "bot-cabinet-wordmark-dark-v
 const cards = [
 {
   "output": "showcase-curator-v1-1200x630.jpg",
-  "source": path.join(root, "public", "downloads/bot-portraits/hermes/archivist-1024.png"),
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/curator-1024.png"),
   "sourcePosition": "right",
   "eyebrow": "BOT SHOWCASE",
   "title": [
@@ -22,7 +22,7 @@ const cards = [
 },
 {
   "output": "showcase-reentry-v1-1200x630.jpg",
-  "source": path.join(root, "public", "downloads/bot-portraits/hermes/navigator-1024.png"),
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/reentry-1024.png"),
   "sourcePosition": "right",
   "eyebrow": "BOT SHOWCASE",
   "title": [
@@ -34,7 +34,7 @@ const cards = [
 },
 {
   "output": "showcase-receipt-v2-1200x630.jpg",
-  "source": path.join(root, "public", "downloads/bot-portraits/hermes/steward-1024.png"),
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/receipt-1024.png"),
   "sourcePosition": "right",
   "eyebrow": "BOT SHOWCASE",
   "title": [

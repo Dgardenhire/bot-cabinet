@@ -13,7 +13,6 @@ import {
   FormEvent,
   KeyboardEvent,
   MouseEvent,
-  useMemo,
   useRef,
   useState,
 } from "react";
@@ -22,8 +21,10 @@ import {
   BOT_FIT_EMPTY_ANSWERS,
   botFitArtifactFileName,
   botFitRecommendationToMarkdown,
+  isBotFitFormComplete,
   recommendBotFit,
   type BotFitAnswers,
+  type BotFitFormAnswers,
   type BotFitFrequency,
   type BotFitKind,
   type BotFitOverlap,
@@ -74,7 +75,7 @@ function YesNoChoice({
   legend: string;
   hint: string;
   name: string;
-  value: boolean;
+  value: boolean | undefined;
   onChange: (value: boolean) => void;
 }) {
   return (
@@ -86,7 +87,8 @@ function YesNoChoice({
           <input
             type="radio"
             name={name}
-            checked={value}
+            required
+            checked={value === true}
             onChange={() => onChange(true)}
           />
           <span>Yes</span>
@@ -95,7 +97,8 @@ function YesNoChoice({
           <input
             type="radio"
             name={name}
-            checked={!value}
+            required
+            checked={value === false}
             onChange={() => onChange(false)}
           />
           <span>No</span>
@@ -138,9 +141,15 @@ function OperatingControls({
 }
 
 export function BotFitTest() {
-  const [answers, setAnswers] = useState<BotFitAnswers>({
+  const [answers, setAnswers] = useState<BotFitFormAnswers>({
     ...BOT_FIT_EMPTY_ANSWERS,
+    frequency: undefined,
+    needsContinuingContext: undefined,
+    needsMultipleSpecialists: undefined,
+    workProvenManually: undefined,
+    overlapsExistingRole: undefined,
   });
+  const [formError, setFormError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submittedRecommendation, setSubmittedRecommendation] =
     useState<BotFitRecommendation | null>(null);
@@ -149,7 +158,6 @@ export function BotFitTest() {
   const [handoffMessage, setHandoffMessage] = useState("");
   const resultRef = useRef<HTMLElement>(null);
   const completionTrackedRef = useRef(false);
-  const currentRecommendation = useMemo(() => recommendBotFit(answers), [answers]);
   const resultNeedsRefresh = resultStatus.startsWith("Answers changed");
 
   function update<K extends keyof BotFitAnswers>(
@@ -170,6 +178,15 @@ export function BotFitTest() {
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!isBotFitFormComplete(answers)) {
+      setFormError("Describe a result and answer each question before getting a recommendation.");
+      setSubmittedRecommendation(null);
+      setSubmitted(false);
+      setResultStatus("");
+      return;
+    }
+    setFormError("");
+    const currentRecommendation = recommendBotFit(answers);
     if (!completionTrackedRef.current) {
       track("bot_fit_test_completed", {
         surface: "bot-fit-test",
@@ -280,6 +297,7 @@ export function BotFitTest() {
                 <input
                   type="radio"
                   name="frequency"
+                  required
                   value={option.value}
                   checked={answers.frequency === option.value}
                   onChange={() => update("frequency", option.value)}
@@ -324,6 +342,7 @@ export function BotFitTest() {
                   <input
                     type="radio"
                     name="overlaps-existing-role"
+                    required
                     value={option.value}
                     checked={answers.overlapsExistingRole === option.value}
                     onChange={() => update("overlapsExistingRole", option.value)}
@@ -408,6 +427,7 @@ export function BotFitTest() {
           </div>
         </details>
 
+        {formError && <p role="alert">{formError}</p>}
         <div className="fit-test-submit-row">
           <button
             className="button button-primary"
@@ -423,7 +443,7 @@ export function BotFitTest() {
         {resultStatus}
       </p>
 
-      {submitted && submittedRecommendation && (
+      {submitted && submittedRecommendation && isBotFitFormComplete(answers) && (
         <section
           className="fit-test-result"
           id="fit-test-result"

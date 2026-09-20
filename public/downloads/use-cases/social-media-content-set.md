@@ -7,7 +7,7 @@ Result: Draft posts that carry one approved message across selected platforms, w
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need draft posts that carry one approved message across selected platforms, with source links and review notes.
-- **Lead Bot:** STORY
+- **Lead Bot:** Story
 - **Cadence:** When a person supplies the approved brief and starts the workflow
 - **Typical first run:** 30–60 minutes for a first manual run
 
@@ -19,7 +19,7 @@ Result: Draft posts that carry one approved message across selected platforms, w
 
 ## Bots
 
-1. STORY
+1. Story
 2. Writer
 3. Editor
 
@@ -31,7 +31,7 @@ Result: Draft posts that carry one approved message across selected platforms, w
 
 ## Workflow
 
-### 1. STORY
+### 1. Story
 
 Build a central message from the confirmed facts
 
@@ -49,7 +49,7 @@ Output: A set of draft posts with source notes
 
 Message to send:
 
-Start with this result from STORY: A message brief with proof points and unsupported claims marked. Adapt the approved message for each platform. Return this result: A set of draft posts with source notes. Ask me about missing information before you continue.
+Start with this result from Story: A message brief with proof points and unsupported claims marked. Adapt the approved message for each platform. Return this result: A set of draft posts with source notes. Ask me about missing information before you continue.
 
 ### 3. Editor
 
@@ -63,7 +63,7 @@ Start with this result from Writer: A set of draft posts with source notes. Remo
 
 ## Handoff rules
 
-1. STORY hands the approved output—a message brief with proof points and unsupported claims marked—to Writer.
+1. Story hands the approved output—a message brief with proof points and unsupported claims marked—to Writer.
 2. Writer hands the approved output—a set of draft posts with source notes—to Editor.
 
 ## Overall request

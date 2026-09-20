@@ -13,7 +13,7 @@
     "audience": "People tired of reconstructing a consumer issue every time they contact a company.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:receipt:portrait",
-      "url": "/downloads/bot-portraits/hermes/steward-1024.png"
+      "url": "/downloads/bot-portraits/hermes/receipt-1024.png"
     }
   },
   "job": {
@@ -127,8 +127,12 @@
       "archiveUrl": "/downloads/starter-bots/v2/receipt.tar.gz",
       "readableFilesUrl": "/downloads/starter-bots/v2/receipt.zip",
       "packageStatus": "files-and-archive-checked",
-      "importStatus": "not-tested",
-      "importEvidence": null
+      "importStatus": "import-test-passed",
+      "importEvidence": {
+        "hermesVersion": "0.21.1",
+        "testedDate": "2026-09-09",
+        "scope": "archive-import-and-bundled-skill-presence"
+      }
     },
     "grokBot": {
       "platformId": "grok-bot",

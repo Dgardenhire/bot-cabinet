@@ -8,7 +8,9 @@
     "generate:discovery": "tsx scripts/content/generate-catalog-discovery.ts",
     "generate:fit-contract": "tsx scripts/content/generate-bot-fit-contract.ts",
     "generate:portable-v2": "tsx scripts/content/generate-portable-bot-packs-v2.ts",
-    "generate:content": "npm run generate:manifest && npm run generate:discovery && npm run generate:fit-contract && tsx scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs && node scripts/build-crew-kit-plans.mjs && node scripts/build-crew-kit-pdfs.mjs && node scripts/build-crew-kit-og.mjs && node scripts/build-bot-portraits.mjs && node scripts/build-section-og.mjs && tsx scripts/content/generate-portable-bot-packs.ts && npm run generate:portable-v2",
+    "generate:content": "npm run generate:manifest && npm run generate:discovery && npm run generate:fit-contract && tsx scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs && node scripts/build-crew-kit-plans.mjs && node scripts/build-crew-kit-pdfs.mjs && node scripts/build-crew-kit-og.mjs && node scripts/build-bot-portraits.mjs && node scripts/build-section-og.mjs && tsx scripts/content/generate-portable-bot-packs.ts && npm run generate:portable-v2 && npm run generate:crew-bundles",
+    "generate:ci": "npm run generate:manifest && npm run generate:discovery && npm run generate:fit-contract && tsx scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs && node scripts/build-crew-kit-plans.mjs && node scripts/build-crew-kit-pdfs.mjs && tsx scripts/content/generate-portable-bot-packs.ts && npm run generate:portable-v2 && npm run generate:crew-bundles",
+    "generate:crew-bundles": "tsx scripts/content/generate-crew-bundles.ts",
     "build:site": "next build && node scripts/audit-social-metadata.mjs && node scripts/audit-links.mjs --summary",
     "build": "npm run generate:content && npm run build:site",
     "start": "node scripts/serve-static.mjs",
@@ -19,6 +21,7 @@
     "test:edge": "deno test supabase/functions/bot-blueprint/core.test.ts",
     "test:release": "node --test scripts/release/*.test.mjs scripts/serve-static.test.mjs",
     "check:generated": "node scripts/release/check-generated.mjs",
+    "verify:ci": "npm run generate:ci && npm run check:generated && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site",
     "verify:release": "npm run generate:content && npm run check:generated && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site"
   },
   "dependencies": {

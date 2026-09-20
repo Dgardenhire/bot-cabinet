@@ -1,9 +1,9 @@
 ---
 name: pulse-core
-description: "PULSE core Skill. Run when I supply a current data export. Add a recurring review only after one manual report is approved."
+description: "Pulse core Skill. Run when I supply a current data export. Add a recurring review only after one manual report is approved."
 ---
 
-# PULSE core Skill
+# Pulse core Skill
 
 **Artifact ID:** bot-cabinet:bot:pulse:skill:primary
 

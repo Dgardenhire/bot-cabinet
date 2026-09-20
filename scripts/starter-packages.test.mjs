@@ -13,6 +13,7 @@ const portableRoot = path.join(process.cwd(), "public/downloads/portable-bot-pac
 const expectedFiles = ["BOT-PASSPORT.md", "LICENSE", "README.md", "SOUL.md", "distribution.yaml", "profile.yaml"];
 const expectedStarterCount = 19;
 const tarBlockSize = 512;
+const zipCentralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
 
 function readTarText(header, offset, length) {
   return header
@@ -50,6 +51,27 @@ function readTarHeaders(archive) {
   return headers;
 }
 
+function readZipCentralHeaders(archive) {
+  const headers = [];
+  let offset = archive.indexOf(zipCentralSignature);
+
+  while (offset >= 0 && archive.readUInt32LE(offset) === 0x02014b50) {
+    const nameLength = archive.readUInt16LE(offset + 28);
+    const extraLength = archive.readUInt16LE(offset + 30);
+    const commentLength = archive.readUInt16LE(offset + 32);
+    headers.push({
+      versionMadeBy: archive.readUInt16LE(offset + 4),
+      flags: archive.readUInt16LE(offset + 8),
+      compressionMethod: archive.readUInt16LE(offset + 10),
+      modifiedTime: archive.readUInt16LE(offset + 12),
+      modifiedDate: archive.readUInt16LE(offset + 14),
+    });
+    offset += 46 + nameLength + extraLength + commentLength;
+  }
+
+  return headers;
+}
+
 test("starter downloads contain only the reviewed source files and match the loose copies", async () => {
   const entries = await readdir(root, { withFileTypes: true });
   const slugs = entries
@@ -60,6 +82,18 @@ test("starter downloads contain only the reviewed source files and match the loo
 
   for (const slug of slugs) {
     const zipPath = path.join(root, `${slug}.zip`);
+    const zipArchive = await readFile(zipPath);
+    const zipHeaders = readZipCentralHeaders(zipArchive);
+    assert.equal(zipHeaders.length, expectedFiles.length);
+    for (const header of zipHeaders) {
+      assert.deepEqual(header, {
+        versionMadeBy: 0x0314,
+        flags: 0x0800,
+        compressionMethod: 0,
+        modifiedTime: 0,
+        modifiedDate: 0x5c21,
+      });
+    }
     const { stdout } = await execFile("unzip", ["-Z1", zipPath]);
     const zipEntries = stdout.trim().split("\n").sort();
     assert.deepEqual(zipEntries, expectedFiles, `${slug} contains unexpected ZIP entries`);
