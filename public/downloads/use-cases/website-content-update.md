@@ -7,9 +7,9 @@ Result: Revised page copy and a website change with recorded check results that 
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need revised page copy and a website change with recorded check results that follows the existing design.
-- **Lead Bot:** Coder
+- **Lead Bot:** Researcher
 - **Cadence:** When a person supplies the approved brief and starts the workflow
-- **Typical first run:** 15–30 minutes for a first manual run
+- **Typical first run:** 30–60 minutes for a first manual run
 
 ### Access for the first run
 
@@ -17,13 +17,13 @@ Result: Revised page copy and a website change with recorded check results that 
 - Only the files, sources, and services required for this run
 - No sending, publishing, spending, or live-system changes without approval
 
-## Recommended starting Bot
+## Bots
 
-1. Coder
+1. Researcher
+2. Writer
+3. Coder
 
-One Coder can handle a small update from approved facts and copy. Add Researcher when facts need substantial checking, or Writer when the page needs a separate editorial pass.
-
-Optional specialists: researcher, writer.
+This workflow uses separate roles because factual checking, public writing, and changing production code need different reviews before publication. For a minor edit from already approved copy, one Coder is enough.
 
 ## Information to gather
 
@@ -33,15 +33,40 @@ Optional specialists: researcher, writer.
 
 ## Workflow
 
-### 1. Coder
+### 1. Researcher
 
-Check the supplied facts, revise the page within the existing design, and run the project checks
+Check the facts and source links
 
-Output: Updated copy and code, source notes, changed files, and verification results
+Output: A sourced fact sheet for human approval
 
 Message to send:
 
-Use the approved inputs I provide. Check the supplied facts, revise the page within the existing design, and run the project checks. Return this result: Updated copy and code, source notes, changed files, and verification results. Ask me about missing information before you continue.
+Use the approved inputs I provide. Check the facts and source links. Return this result: A sourced fact sheet for human approval. Ask me about missing information before you continue.
+
+### 2. Writer
+
+Draft clear page copy for the intended reader
+
+Output: A page-copy draft for human review
+
+Message to send:
+
+Start with this result from Researcher: A sourced fact sheet for human approval. Draft clear page copy for the intended reader. Return this result: A page-copy draft for human review. Ask me about missing information before you continue.
+
+### 3. Coder
+
+Update the page and run the project checks
+
+Output: Changed files and verification results
+
+Message to send:
+
+Start with this result from Writer: A page-copy draft for human review. Update the page and run the project checks. Return this result: Changed files and verification results. Ask me about missing information before you continue.
+
+## Handoff rules
+
+1. Researcher hands the approved output—a sourced fact sheet for human approval—to Writer.
+2. Writer hands the approved output—a page-copy draft for human review—to Coder.
 
 ## Overall request
 
@@ -63,11 +88,12 @@ The first run passes when a person can verify the final result against the suppl
 
 ## If the workflow stalls
 
-If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help.
+If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
 
 ## Hermes Desktop setup
 
-1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
-2. Review the profile's SOUL.md, Bot Passport, and requested access.
-3. Run the complete request in that Bot's chat with low-risk material and review the result.
-4. Add a schedule, outside connection, or optional specialist only after the manual version works.
+1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
+3. Run each step in that Bot's own chat and review the result.
+4. Pass the approved result to the next Bot with the message provided for that step.
+5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.

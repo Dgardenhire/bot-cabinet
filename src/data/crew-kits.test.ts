@@ -67,7 +67,7 @@ describe("Crew Kits and workflow operations", () => {
     }
   });
 
-  it("starts ordinary jobs with one Bot instead of forcing a crew", () => {
+  it("uses one Bot by default and keeps multi-Bot workflows only for a stated separation of work", () => {
     const singleBotJobs = [
       "personal-morning-newspaper",
       "morning-industry-briefing",
@@ -76,16 +76,13 @@ describe("Crew Kits and workflow operations", () => {
       "client-meeting-follow-up",
       "client-proposal",
       "grant-opportunity-review",
-      "website-content-update",
       "project-launch-plan",
       "software-feature-build",
       "operations-status-report",
       "study-and-certification-plan",
       "customer-request-response",
-      "new-venture-evaluation",
       "growth-experiment",
       "leadership-weekly-review",
-      "product-technology-direction",
       "narrative-message-system",
     ];
 
@@ -94,6 +91,19 @@ describe("Crew Kits and workflow operations", () => {
       expect(useCase?.botSlugs).toHaveLength(1);
       expect(useCase?.steps).toHaveLength(1);
       expect(useCase?.setupNote).toContain("Add");
+    }
+
+    const multiBotJobs = [
+      "website-content-update",
+      "new-venture-evaluation",
+      "product-technology-direction",
+    ];
+
+    for (const slug of multiBotJobs) {
+      const useCase = getBotUseCase(slug);
+      expect(useCase?.botSlugs.length).toBeGreaterThan(1);
+      expect(useCase?.steps).toHaveLength(useCase?.botSlugs.length ?? 0);
+      expect(useCase?.setupNote).toContain("separate");
     }
   });
 });
