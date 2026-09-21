@@ -28,6 +28,14 @@ export interface BotReleasePacket {
 
 export const BOT_RELEASE_PACKETS: BotReleasePacket[] = [
   {
+    botSlug: "daily-newspaper",
+    portrait: "/downloads/bot-portraits/hermes/daily-newspaper-1024.png",
+    socialCard: "/brand/social/showcase-daily-newspaper-v1-1200x630.jpg",
+    xPost: "New in Bot Cabinet: Daily Newspaper turns the calendar notes, messages and reading you choose into one calm, source-linked page for the day ahead. Inspired by Karen X. Cheng's Grok Bot idea. Free Hermes files and first test: https://botcabinet.com/bots/daily-newspaper/",
+    status: "draft",
+    humanApprovalRequired: true,
+  },
+  {
     botSlug: "curator",
     portrait: "/downloads/bot-portraits/hermes/curator-1024.png",
     socialCard: "/brand/social/showcase-curator-v1-1200x630.jpg",

@@ -1,0 +1,13 @@
+name: daily-newspaper
+version: "2.0.0"
+description: "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead."
+hermes_requires: ">=0.21.0"
+author: "Bot Cabinet"
+license: "MIT"
+distribution_owned:
+  - profile.yaml
+  - SOUL.md
+  - README.md
+  - BOT-PASSPORT.md
+  - LICENSE
+  - skills/daily-newspaper-core/SKILL.md

@@ -3,9 +3,9 @@
   "feedVersion": "1.1.0",
   "releasedAt": "2026-09-03T00:00:00.000Z",
   "catalogVersion": "1.1.0",
-  "revision": "094753704dea91ba68d05cbd43aa09b369391a731229b7363672a7f947b8f55e",
+  "revision": "d825366232e94cc303494cbc654a8549f4de1a933c826c7b925a5c6b24e453ae",
   "source": "https://botcabinet.com/api/v1/bots.json",
-  "count": 19,
+  "count": 20,
   "entries": [
     {
       "id": "bot:scout@1.0.0",
@@ -564,6 +564,41 @@
           "artifactKind": "portable-bot-pack",
           "markdown": "https://botcabinet.com/downloads/portable-bot-packs/story.md",
           "json": "https://botcabinet.com/downloads/portable-bot-packs/story.json"
+        }
+      }
+    },
+    {
+      "id": "bot:daily-newspaper@1.0.0",
+      "kind": "bot",
+      "slug": "daily-newspaper",
+      "version": "1.0.0",
+      "name": "Daily Newspaper",
+      "title": "Personal daily briefing maker",
+      "category": "writing",
+      "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
+      "audience": "People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/daily-newspaper/",
+        "customize": "https://botcabinet.com/workshop/?starter=daily-newspaper"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
+          "profile": "https://botcabinet.com/downloads/starter-bots/daily-newspaper.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/daily-newspaper.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/daily-newspaper.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/daily-newspaper.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/daily-newspaper.json"
         }
       }
     },
