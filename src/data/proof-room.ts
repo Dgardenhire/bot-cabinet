@@ -1,5 +1,5 @@
 export type ProofState = "test-designed" | "test-prepared" | "recorded-excerpt" | "prompt-contract-recorded" | "failed-runtime" | "runtime-passed" | "reproduced";
-export type ProofCheckState = "passed" | "partial" | "not-run" | "unavailable";
+export type ProofCheckState = "passed" | "failed" | "partial" | "not-run" | "unavailable";
 
 export const PROOF_STATE_NAMES: Record<ProofState, string> = {
   "test-designed": "Test designed",
@@ -59,8 +59,8 @@ export const PROOF_NEXT_STEP_COPY: Record<ProofState, { eyebrow: string; heading
   },
   "runtime-passed": {
     eyebrow: "Next required proof",
-    heading: "Repeat the same acceptance test independently",
-    body: "One exact-package crew run reached the required human-review hold after a bounded Writer correction and fresh Editor audit. Repeat the locked test independently before making a reliability claim; human publication approval remains a separate decision.",
+    heading: "Repeat the acceptance test after the failed independent run",
+    body: "One exact-package crew run reached the required human-review hold. An independent second run exposed an unsupported missing-information implication, and the revised gate now rejects that preserved output. Repeat the locked test with the revised guard before making a reliability claim; human publication approval remains a separate decision.",
   },
   reproduced: {
     eyebrow: "Preserved evidence",
@@ -291,9 +291,9 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
     outcome: "Five roles reach a source-checked draft and the required human-review hold",
     summary: "Scout, Researcher, Story, Writer and Editor completed a locked Tool Library run using the exact revised packages. Editor caught three unsupported directions; one bounded Writer correction removed them, and a fresh Editor audit passed all 25 exact boundaries. Codex semantic review found the corrected publishable claims source-faithful. Human approval remains absent.",
     state: "runtime-passed",
-    stateDetail: "one fixture passed; independent reproduction pending",
+    stateDetail: "one fixture passed; independent reproduction exposed a missing-information implication",
     platform: "Hermes Agent",
-    evidenceNote: "The latest Scout-to-Editor run used the exact generated bundle, locked Tool Library packet, separated Writer/Editor responsibilities and immutable evidence options. Writer passed its mechanical gate. Editor caught three unsupported directions, Writer removed only those claims, and a fresh Editor audit accepted 21 newsletter plus four social boundaries with zero unsupported or ambiguous assertions. Codex semantic review also passed the corrected fixture. The final state is hold-for-human-review, not publication approval or general reliability.",
+    evidenceNote: "The successful Scout-to-Editor run used the exact generated bundle, locked Tool Library packet, separated Writer/Editor responsibilities and immutable evidence options. A second run used the same package and fixture but semantic review caught an unsupported `catalog URL coming` implication after the structural gates passed. The revised gate now rejects that preserved output. The public state remains one runtime pass, not reproduction, publication approval or general reliability.",
     inputStatus: "supplied",
     fixtureDisclosure: "The Riverside Library, Tool Library, dates, inventory and operating rules are fictional. The fixture deliberately mixes current, superseded and missing information to test source discipline.",
     inputArtifacts: [
@@ -372,6 +372,12 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
         download: true,
       },
       {
+        label: "Read the independent reproduction failure",
+        description: "The same package and fixture produced one unsupported missing-information implication; the preserved output now fails the revised deterministic guard.",
+        href: "/proof-room/publishing-desk/independent-reproduction-failure.md",
+        download: true,
+      },
+      {
         label: "Download the Publishing Desk Crew Kit",
         description: "The current guided bundle. Import each profile separately; this failed run does not establish crew reliability.",
         href: "/downloads/crew-kits/bundles/publishing-desk.zip",
@@ -398,7 +404,7 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
       { label: "Package checks", state: "passed", detail: "The tested bundle and exact Writer 2.0.5 and Editor 2.0.3 archives were generated, fingerprinted and included in the run.", checkedAt: "2026-09-20" },
       { label: "Profile import", state: "passed", detail: "The current Writer and Editor archives were imported through Hermes native profile import. This does not establish output quality.", checkedAt: "2026-09-20" },
       { label: "Role run", state: "passed", detail: "All five roles completed. Editor caught three unsupported directions; one bounded Writer correction and fresh Editor re-audit reached the required human-review hold with zero gate issues.", checkedAt: "2026-09-20" },
-      { label: "Reproduction", state: "not-run", detail: "This is one successful locked fixture. An independent second run is required before any reproduction or reliability claim.", checkedAt: "2026-09-20" },
+      { label: "Reproduction", state: "failed", detail: "An independent second run completed on the same package and fixture but added `catalog URL coming`, which the source did not establish. The preserved output now fails the revised missing-information projection guard.", checkedAt: "2026-09-20" },
       commonTechnicalReview,
     ],
   },

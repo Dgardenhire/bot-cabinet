@@ -70,7 +70,7 @@ export default function ProofRoomPage() {
             <Eyebrow>Practical assignments</Eyebrow>
             <h2 id="proof-room-library-title" className="section-heading">Follow each test from its source material</h2>
           </div>
-          <p>Curator, Reentry, and Receipt have exact-package reproductions. Publishing Desk has one exact-package crew pass pending independent reproduction. Earlier incomplete and failed records remain visible.</p>
+          <p>Curator, Reentry, and Receipt have exact-package reproductions. Publishing Desk has one exact-package crew pass and one failed independent reproduction. Earlier incomplete and failed records remain visible.</p>
         </div>
 
         <div className="proof-room-card-grid">
