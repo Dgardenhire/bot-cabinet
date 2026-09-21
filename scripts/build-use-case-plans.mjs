@@ -25,6 +25,7 @@ await mkdir(outputRoot, { recursive: true });
 
 for (const useCase of useCases) {
   const operations = operationsModule.getUseCaseOperations(useCase);
+  const isSingleBot = useCase.botSlugs.length === 1;
   const lines = [
     `# ${useCase.title}`,
     "",
@@ -43,9 +44,11 @@ for (const useCase of useCases) {
     "",
     ...operations.access.map((item) => `- ${item}`),
     "",
-    "## Bots",
+    `## ${isSingleBot ? "Recommended starting Bot" : "Bots"}`,
     "",
     ...useCase.botSlugs.map((slug, index) => `${index + 1}. ${useCase.steps[index]?.bot ?? slug}`),
+    ...(useCase.setupNote ? ["", useCase.setupNote] : []),
+    ...(useCase.optionalBotSlugs?.length ? ["", `Optional specialists: ${useCase.optionalBotSlugs.join(", ")}.`] : []),
     "",
     "## Information to gather",
     "",
@@ -65,10 +68,12 @@ for (const useCase of useCases) {
       useCaseModule.getUseCaseStepPrompt(useCase, index),
       "",
     ]),
-    "## Handoff rules",
-    "",
-    ...operations.handoffs.map((handoff, index) => `${index + 1}. ${handoff}`),
-    "",
+    ...(!isSingleBot ? [
+      "## Handoff rules",
+      "",
+      ...operations.handoffs.map((handoff, index) => `${index + 1}. ${handoff}`),
+      "",
+    ] : []),
     "## Overall request",
     "",
     useCase.kickoffMessage,
@@ -107,11 +112,18 @@ for (const useCase of useCases) {
     ] : []),
     "## Hermes Desktop setup",
     "",
-    "1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.",
-    "2. Review each imported profile's SOUL.md, Bot Passport, and requested access.",
-    "3. Run each step in that Bot's own chat and review the result.",
-    "4. Pass the approved result to the next Bot with the message provided for that step.",
-    "5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.",
+    ...(isSingleBot ? [
+      "1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.",
+      "2. Review the profile's SOUL.md, Bot Passport, and requested access.",
+      "3. Run the complete request in that Bot's chat with low-risk material and review the result.",
+      "4. Add a schedule, outside connection, or optional specialist only after the manual version works.",
+    ] : [
+      "1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.",
+      "2. Review each imported profile's SOUL.md, Bot Passport, and requested access.",
+      "3. Run each step in that Bot's own chat and review the result.",
+      "4. Pass the approved result to the next Bot with the message provided for that step.",
+      "5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.",
+    ]),
   ];
   await writeFile(path.join(outputRoot, `${useCase.slug}.md`), `${lines.join("\n")}\n`, "utf8");
 }

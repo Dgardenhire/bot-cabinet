@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, ArrowSquareOut, Binoculars, CalendarCheck, CheckCircle, Flask, Rss, Warning } from "@phosphor-icons/react/dist/ssr";
-import { AgentWatchVisitStatus } from "@/components/agent-watch-visit-status";
-import { EvidencePill, Eyebrow } from "@/components/ui";
-import { AGENT_WATCH_ITEMS, AGENT_WATCH_UPDATED, type WatchEvidence, type WatchResponseStatus } from "@/data/agent-watch";
+import { Binoculars, CheckCircle, Flask, Rss, Warning } from "@phosphor-icons/react/dist/ssr";
+import { AgentWatchFeed } from "@/components/agent-watch-feed";
+import { Eyebrow } from "@/components/ui";
+import { AGENT_WATCH_ITEMS, AGENT_WATCH_UPDATED } from "@/data/agent-watch";
 import { buildPageMetadata } from "@/lib/metadata";
 
 const baseMetadata = buildPageMetadata({
@@ -22,25 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-const evidenceLabels: Record<WatchEvidence, string> = {
-  observed: "Source checked",
-  "provider-claim": "What the company says",
-  "cabinet-tested": "Tested by Bot Cabinet",
-};
-
-const statusLabels: Record<WatchResponseStatus, string> = {
-  published: "Added to Bot Cabinet",
-  prepared: "Ready, but not live",
-  testing: "Still being tested",
-  watching: "Watching",
-};
-
-const evidenceKinds: Record<WatchEvidence, "official" | "tested" | "blueprint"> = {
-  observed: "official",
-  "provider-claim": "blueprint",
-  "cabinet-tested": "tested",
-};
-
 export default function AgentWatchPage() {
   return (
     <main id="main-content" className="page-main agent-watch-page">
@@ -53,7 +33,6 @@ export default function AgentWatchPage() {
               New AI tools and useful ways to put them to work. Each note explains what changed, why it matters, what Bot Cabinet added, and what still needs to be tested.
             </p>
             <a href="/watch/feed.xml" className="button button-secondary" data-funnel-event="agent_watch_rss_open" data-funnel-surface="agent_watch">Follow by RSS <Rss size={16} aria-hidden="true" /></a>
-            <AgentWatchVisitStatus slugs={AGENT_WATCH_ITEMS.map(item => item.slug)} />
           </div>
           <div className="agent-watch-method">
             <Binoculars size={31} weight="thin" aria-hidden="true" />
@@ -77,35 +56,7 @@ export default function AgentWatchPage() {
           <p>This page is the Agent Watch feed. New notes appear here after we review them. RSS is simply another way to follow the same notes.</p>
         </div>
 
-        <div className="agent-watch-list">
-          {AGENT_WATCH_ITEMS.map((item) => (
-            <article className="agent-watch-card" id={item.slug} key={item.slug}>
-              <div className="agent-watch-card-meta">
-                <EvidencePill kind={evidenceKinds[item.evidence]}>{evidenceLabels[item.evidence]}</EvidencePill>
-                <span>{statusLabels[item.responseStatus]}</span>
-              </div>
-              <h2>{item.title}</h2>
-              <dl>
-                <div><dt>What changed</dt><dd>{item.signal}</dd></div>
-                <div><dt>Why it matters</dt><dd>{item.whyItMatters}</dd></div>
-                <div><dt>What Bot Cabinet did</dt><dd>{item.cabinetResponse}</dd></div>
-                <div className="agent-watch-limit"><dt>What we still do not know</dt><dd>{item.limits}</dd></div>
-              </dl>
-              <div className="agent-watch-dates">
-                <span><CalendarCheck size={16} weight="thin" /> Observed {item.observedOn}</span>
-                <span>Review again by {item.reviewAgainBy}</span>
-              </div>
-              <div className="agent-watch-links">
-                {item.sources.map((source) => (
-                  <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} <ArrowSquareOut size={13} /></a>
-                ))}
-                {item.cabinetLinks?.map((link) => (
-                  <Link href={link.href} key={link.href}>{link.label} <ArrowRight size={13} /></Link>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
+        <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />
       </section>
     </main>
   );

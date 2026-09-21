@@ -21,10 +21,11 @@ export function cadenceFor(title: string) {
 }
 
 export function getUseCaseOperations(useCase: BotUseCase): UseCaseOperations {
+  const isSingleBot = useCase.botSlugs.length === 1;
   return {
     whenToUse: `Use this workflow when you need ${useCase.outcome.charAt(0).toLowerCase()}${useCase.outcome.slice(1)}`,
     cadence: cadenceFor(useCase.title),
-    estimatedTime: useCase.steps.length > 3 ? "45–90 minutes for a first manual run" : "30–60 minutes for a first manual run",
+    estimatedTime: isSingleBot ? "15–30 minutes for a first manual run" : useCase.steps.length > 3 ? "45–90 minutes for a first manual run" : "30–60 minutes for a first manual run",
     leadBotSlug: useCase.botSlugs[0],
     access: [
       "The approved inputs listed on this page",
@@ -35,6 +36,8 @@ export function getUseCaseOperations(useCase: BotUseCase): UseCaseOperations {
       `${useCase.steps[index].bot} hands the approved output—${useCase.steps[index].output.toLowerCase()}—to ${step.bot}.`,
     ),
     successCheckpoint: `The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. ${useCase.firstTest}`,
-    recovery: "If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.",
+    recovery: isSingleBot
+      ? "If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help."
+      : "If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.",
   };
 }

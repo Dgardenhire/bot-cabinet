@@ -1,12 +1,13 @@
-import { AGENT_WATCH_RSS } from "@/lib/agent-watch-feed";
+import { AGENT_WATCH_RSS_URL } from "@/lib/agent-watch-live";
 
 export const dynamic = "force-static";
 
 export function GET() {
-  return new Response(AGENT_WATCH_RSS, {
+  return new Response(null, {
+    status: 307,
     headers: {
-      "Content-Type": "application/rss+xml; charset=utf-8",
-      "Cache-Control": "public, max-age=0, s-maxage=3600",
+      Location: AGENT_WATCH_RSS_URL,
+      "Cache-Control": "public, max-age=300",
     },
   });
 }
