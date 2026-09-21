@@ -8,6 +8,7 @@ import { starterBotToPortablePackV2, validatePortableBotPackV2 } from "./portabl
 import { compilePortableBotPackV2HermesFiles } from "./portable-bot-pack-v2-artifacts";
 
 export const CREW_BUNDLE_VERSION = "1.0.0";
+export const PUBLISHING_DESK_BUNDLE_VERSION = "1.0.2";
 export const CREW_PERMISSIONS_NOTICE = "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.";
 export const CREW_MEMBER_STEPS = [
   "Review SOUL.md and bundled files",
@@ -18,6 +19,10 @@ export const CREW_MEMBER_STEPS = [
 ] as const;
 
 export function buildCrewBundle(kit: CrewKit) {
+  const bundleVersion = kit.slug === "publishing-desk"
+    ? PUBLISHING_DESK_BUNDLE_VERSION
+    : CREW_BUNDLE_VERSION;
+  const publishingRuntimeChecked = kit.slug === "publishing-desk";
   const files: Record<string, string | Buffer> = {};
   const seen = new Set<string>();
   const members = kit.roles.map((role, index) => {
@@ -51,8 +56,18 @@ export function buildCrewBundle(kit: CrewKit) {
   });
   if (!members.length) throw new Error("A crew needs members");
   const manifest = {
-    schemaVersion: 1, bundleVersion: CREW_BUNDLE_VERSION, slug: kit.slug, name: kit.name,
-    runtimeStatus: "not-tested" as const, schedulesActive: false,
+    schemaVersion: 1, bundleVersion, slug: kit.slug, name: kit.name,
+    runtimeStatus: publishingRuntimeChecked ? "failed-acceptance" as const : "not-tested" as const,
+    runtimeCheckedAt: publishingRuntimeChecked ? "2026-09-20" as const : null,
+    runtimeEvidenceHref: publishingRuntimeChecked ? "/proof/publishing-desk-failed-handoff" as const : null,
+    runtimeTestScope: publishingRuntimeChecked ? "fresh-five-role-locked-tool-library" as const : null,
+    testedBundleSha256: publishingRuntimeChecked ? "5935128a84df986bdc891643b6e0ba45400ad6b6b0ad2bea34d26cbb4e857d97" as const : null,
+    priorRuntimeEvidence: publishingRuntimeChecked ? {
+      bundleVersion: "1.0.1" as const,
+      status: "failed-acceptance" as const,
+      checkedAt: "2026-09-20" as const,
+    } : null,
+    schedulesActive: false,
     permissionsNotice: CREW_PERMISSIONS_NOTICE, members,
     handoffOrder: kit.operatingRhythm,
     approvalActions: kit.passport.approvalActions,
@@ -60,9 +75,12 @@ export function buildCrewBundle(kit: CrewKit) {
   };
   files["crew-manifest.json"] = JSON.stringify(manifest, null, 2) + "\n";
   files["SETUP.md"] = [
-    `# ${kit.name} — guided setup`, "", `Bundle ${CREW_BUNDLE_VERSION}`, "", kit.promise, "",
+    `# ${kit.name} — guided setup`, "", `Bundle ${bundleVersion}`, "", kit.promise, "",
     CREW_PERMISSIONS_NOTICE, "",
-    "This ZIP is a collection of individual profiles, not a one-click crew installer. Unzip it first; import each member .tar.gz separately. No schedules are activated. Crew coordination has not been runtime-tested.", "",
+    "This ZIP is a collection of individual profiles, not a one-click crew installer. Unzip it first; import each member .tar.gz separately. No schedules are activated.", "",
+    publishingRuntimeChecked
+      ? "Current status: failed final acceptance. A fresh Scout-to-Editor run passed schema, boundary and literal-evidence checks, but semantic inspection held one sponsor overclaim and no human approval was recorded. Tested ZIP SHA-256: 5935128a84df986bdc891643b6e0ba45400ad6b6b0ad2bea34d26cbb4e857d97. Inspect https://botcabinet.com/proof/publishing-desk-failed-handoff/ before use."
+      : "Crew coordination has not been runtime-tested.", "",
     "Keep existing Bots and projects intact. Use new profile names where needed; do not overwrite an existing profile.", "",
     "Import-tested means archive import was checked, not that this Bot or crew has proved its work quality.", "",
     ...members.flatMap(member => [

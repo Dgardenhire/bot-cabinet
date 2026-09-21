@@ -17,7 +17,16 @@ describe("complete crew bundles", () => {
       const { manifest, files } = buildCrewBundle(kit);
       expect(readGeneratedCrewManifest(kit.slug)).toEqual(manifest);
       expect(manifest.members.map(m => m.slug)).toEqual(kit.roles.map(r => r.botSlug));
-      expect(manifest.runtimeStatus).toBe("not-tested");
+      expect(manifest.runtimeStatus).toBe(kit.slug === "publishing-desk" ? "failed-acceptance" : "not-tested");
+      expect(manifest.runtimeCheckedAt).toBe(kit.slug === "publishing-desk" ? "2026-09-20" : null);
+      expect(manifest.runtimeEvidenceHref).toBe(kit.slug === "publishing-desk" ? "/proof/publishing-desk-failed-handoff" : null);
+      expect(manifest.runtimeTestScope).toBe(kit.slug === "publishing-desk" ? "fresh-five-role-locked-tool-library" : null);
+      expect(manifest.testedBundleSha256).toBe(kit.slug === "publishing-desk" ? "5935128a84df986bdc891643b6e0ba45400ad6b6b0ad2bea34d26cbb4e857d97" : null);
+      expect(manifest.priorRuntimeEvidence).toEqual(kit.slug === "publishing-desk" ? {
+        bundleVersion: "1.0.1",
+        status: "failed-acceptance",
+        checkedAt: "2026-09-20",
+      } : null);
       expect(manifest.schedulesActive).toBe(false);
       for (const member of manifest.members) {
         const bot = getStarterBot(member.slug)!;
@@ -38,6 +47,13 @@ describe("complete crew bundles", () => {
         expect(String(files["SETUP.md"])).toContain("[ ]");
       }
       expect(String(files["SETUP.md"])).toContain("Passports are checklists, not locks");
+      if (kit.slug === "publishing-desk") {
+        expect(String(files["SETUP.md"])).toContain("Current status: failed final acceptance");
+        expect(String(files["SETUP.md"])).toContain("fresh Scout-to-Editor run passed");
+        expect(String(files["SETUP.md"])).toContain("no human approval was recorded");
+      } else {
+        expect(String(files["SETUP.md"])).toContain("Crew coordination has not been runtime-tested");
+      }
       const bundlePath = `public/downloads/crew-kits/bundles/${kit.slug}`;
       expect(readFileSync(`${bundlePath}.json`, "utf8")).toBe(
         String(files["crew-manifest.json"]),

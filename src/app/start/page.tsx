@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, CurrencyDollar, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, Clock, CurrencyDollar, Desktop, EnvelopeSimple, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 
+import { CopyTextButton } from "@/components/copy-text-button";
 import { FirstRunChecklist } from "@/components/first-run-checklist";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -14,6 +15,9 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/brand/social/first-bot-1200x630.jpg",
   imageAlt: "Start your first Bot with Bot Cabinet and Scout",
 });
+
+const desktopSetupUrl = "https://botcabinet.com/start/";
+const desktopSetupEmail = `mailto:?subject=${encodeURIComponent("Continue Bot Cabinet setup on my computer")}&body=${encodeURIComponent(`Open this public setup guide on the computer where I will use Hermes Desktop:\n\n${desktopSetupUrl}`)}`;
 
 export default function StartPage() {
   return (
@@ -58,6 +62,35 @@ export default function StartPage() {
         <div className="shell">
           <strong>What you need:</strong>
           <span>A computer, Hermes Desktop, and a supported AI provider. Provider costs vary.</span>
+        </div>
+      </section>
+
+      <section className="shell first-run-desktop-handoff" aria-labelledby="desktop-handoff-title">
+        <Desktop size={30} weight="thin" aria-hidden="true" />
+        <div>
+          <Eyebrow>Reading this on your phone?</Eyebrow>
+          <h2 id="desktop-handoff-title">Continue setup on your computer</h2>
+          <p>
+            Hermes Desktop installation and Bot imports happen on a computer. Send yourself this public guide,
+            then begin the checklist there so its browser-local progress stays with that device.
+          </p>
+        </div>
+        <div className="first-run-desktop-actions">
+          <CopyTextButton
+            text={desktopSetupUrl}
+            label="Copy desktop setup link"
+            analyticsEvent="first_run_desktop_link_copy"
+            analyticsSurface="start_page"
+          />
+          <a
+            className="button button-secondary"
+            href={desktopSetupEmail}
+            data-funnel-event="first_run_desktop_link_email"
+            data-funnel-surface="start_page"
+            data-funnel-destination="desktop_setup_guide"
+          >
+            Email the setup link <EnvelopeSimple size={16} aria-hidden="true" />
+          </a>
         </div>
       </section>
 

@@ -1,0 +1,25 @@
+.panel { margin-top: 2rem; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: .5rem; background: var(--ink-soft); }
+.heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.heading span { color: var(--blueprint); font: 11px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.heading h3 { margin: .35rem 0 0; color: var(--paper); font: 400 30px/1.08 var(--serif); }
+.heading small { flex: none; padding: .4rem .55rem; border: 1px solid var(--line); color: var(--muted); font: 11px var(--mono); }
+.panel > p { max-width: 75ch; color: var(--muted); line-height: 1.6; }
+.panel strong { color: var(--paper); }
+.progress { width: 100%; height: .5rem; margin: 1rem 0 1.5rem; accent-color: var(--brass-bright); }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.grid fieldset { min-width: 0; margin: 0; padding: 1rem; border: 1px solid var(--line-soft); }
+.grid legend { padding: 0 .5rem; color: var(--paper); font-weight: 700; }
+.item { display: flex; align-items: flex-start; gap: .75rem; padding: .5rem 0; color: var(--muted); line-height: 1.5; cursor: pointer; }
+.item input { flex: none; width: 1.05rem; height: 1.05rem; margin-top: .25rem; accent-color: var(--brass-bright); }
+.outcome { margin-top: 1rem; padding: 1rem; border: 1px solid rgba(168,217,231,.35); background: rgba(168,217,231,.035); }
+.outcome p { margin: 0 0 .5rem; }
+.outcome div { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.outcome button, .reset { min-height: 2.5rem; padding: .55rem .85rem; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.outcome button:first-child { color: var(--green); }
+.outcome button:last-child { color: var(--brass-bright); }
+.history, .limit { margin-top: 1rem; padding: .8rem 1rem; border-left: 2px solid var(--blueprint); background: rgba(168,217,231,.035); }
+.limit { border-left-color: var(--brass-bright); }
+.footerActions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1rem; }
+.footerActions > a { color: var(--brass-bright); font: 700 13px var(--mono); }
+.reset { color: var(--muted); }
+@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } .heading { display: grid; } .heading small { width: max-content; } }

@@ -19,6 +19,8 @@ function statusLabel(status: string) {
   switch (status) {
     case "import-test-passed": return "Passed";
     case "not-tested": return "Not tested";
+    case "failed-acceptance": return "Failed acceptance";
+    case "correction-prepared-not-tested": return "Correction prepared; not tested";
     case "inactive; manual-test-required": return "Inactive; manual test required";
     case "not-recorded": return "Not recorded";
     default: return status;
@@ -62,8 +64,8 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
               <p className="use-case-detail-audience"><strong>Designed for:</strong> {kit.audience}</p>
               <p className="section-intro">{CREW_PERMISSIONS_NOTICE}</p>
               <div className="button-row">
-                <a href={`/downloads/crew-kits/bundles/${kit.slug}.zip`} download className="button button-primary">Download this Crew Kit <DownloadSimple size={16} /></a>
-                <a href="#guided-setup" className="button button-secondary">Start guided setup <ArrowRight size={16} /></a>
+                <a href={`/downloads/crew-kits/bundles/${kit.slug}.zip`} download className="button button-primary" data-funnel-event="crew_bundle_download" data-funnel-surface="crew_detail" data-funnel-destination={kit.slug}>Download this Crew Kit <DownloadSimple size={16} /></a>
+                <a href="#guided-setup" className="button button-secondary" data-funnel-event="crew_guided_setup_started" data-funnel-surface="crew_detail" data-funnel-destination={kit.slug}>Start guided setup <ArrowRight size={16} /></a>
                 <a href={`/downloads/crew-kits/${kit.slug}.pdf`} download className="button button-secondary">Download the designed PDF <DownloadSimple size={16} /></a>
                 <a href={`/downloads/crew-kits/${kit.slug}.md`} download className="button button-secondary">Download editable Markdown <DownloadSimple size={16} /></a>
                 <a href="#crew-passport" className="button button-secondary">Review the Crew Passport <ShieldCheck size={16} /></a>
@@ -77,14 +79,15 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
             </aside>
           </div>
         </div>
+        {manifest.runtimeEvidenceHref ? <p className="section-intro"><Link href={manifest.runtimeEvidenceHref}>Inspect the recorded runtime evidence</Link>. Import success does not establish crew reliability or human approval.</p> : null}
       </section>
 
       <section className="content-section shell" id="guided-setup">
         <Eyebrow>Your setup bench</Eyebrow>
         <h2 className="section-heading">Bring the team in, one checked step at a time</h2>
         <p className="section-intro">Keep existing profiles intact. If a name already exists, use a new name rather than replacing that Bot. Start with sample material and manually approve each handoff.</p>
-        <div className="button-row"><a href={`/downloads/crew-kits/bundles/${kit.slug}-setup.md`} download className="button button-secondary">Keep the setup checklist <DownloadSimple size={16} /></a><a href={`/downloads/crew-kits/bundles/${kit.slug}.json`} className="button button-secondary">Inspect the manifest</a></div>
-        <CrewSetupProgress members={manifest.members} steps={CREW_MEMBER_STEPS} />
+        <div className="button-row"><a href={`/downloads/crew-kits/bundles/${kit.slug}-setup.md`} download className="button button-secondary" data-funnel-event="crew_setup_checklist_download" data-funnel-surface="crew_setup" data-funnel-destination={kit.slug}>Keep the setup checklist <DownloadSimple size={16} /></a><a href={`/downloads/crew-kits/bundles/${kit.slug}.json`} className="button button-secondary" data-funnel-event="crew_manifest_inspected" data-funnel-surface="crew_setup" data-funnel-destination={kit.slug}>Inspect the manifest</a></div>
+        <CrewSetupProgress kitSlug={kit.slug} members={manifest.members} steps={CREW_MEMBER_STEPS} />
         <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="Crew member testing status">
           <table className={styles.table}>
             <caption>Bundle {manifest.bundleVersion}. Crew handoffs: {statusLabel(manifest.runtimeStatus).toLowerCase()}. An import test does not establish work quality.</caption>

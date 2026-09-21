@@ -63,6 +63,8 @@ const statusIcon = {
   "test-prepared": Hourglass,
   "recorded-excerpt": WarningCircle,
   "prompt-contract-recorded": WarningCircle,
+  "failed-runtime": WarningCircle,
+  "runtime-passed": CheckCircle,
   reproduced: ShieldCheck,
 } as const;
 
@@ -72,6 +74,9 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
   if (!demo) notFound();
   const nextStep = PROOF_NEXT_STEP_COPY[demo.state];
   const StatusIcon = statusIcon[demo.state];
+  const subjectHref = demo.subjectHref ?? `/bots/${demo.botSlug}`;
+  const subjectLabel = demo.subjectKind === "crew" ? "Open the Crew Kit" : "Open the Bot profile";
+  const downloadLabel = demo.subjectKind === "crew" ? "Download the Crew Kit" : "Download for Hermes";
 
   return (
     <main id="main-content" className="page-main proof-detail-page">
@@ -84,8 +89,8 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
               <h1 className="inner-title">{demo.title}</h1>
               <p className="inner-deck">{demo.outcome}</p>
               <div className="button-row">
-                <Link href={`/bots/${demo.botSlug}`} className="button button-primary">Open the Bot profile <ArrowRight size={16} /></Link>
-                <a href={demo.profileArchiveHref} download className="button button-secondary">Download for Hermes <DownloadSimple size={16} /></a>
+                <Link href={subjectHref} className="button button-primary">{subjectLabel} <ArrowRight size={16} /></Link>
+                <a href={demo.profileArchiveHref} download className="button button-secondary">{downloadLabel} <DownloadSimple size={16} /></a>
               </div>
             </div>
             <aside className="inner-aside proof-detail-status">
@@ -94,7 +99,7 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
               <p>{demo.evidenceNote}</p>
               <dl>
                 <div><dt>Platform</dt><dd>{demo.platform}</dd></div>
-                <div><dt>Profile</dt><dd>v{demo.profileVersion}</dd></div>
+                <div><dt>{demo.subjectKind === "crew" ? "Bundle" : "Profile"}</dt><dd>v{demo.profileVersion}</dd></div>
                 {demo.profileArchiveSha256 && <div><dt>Archive SHA-256</dt><dd><code>{demo.profileArchiveSha256}</code></dd></div>}
                 <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
                 {demo.run && <>
@@ -198,9 +203,9 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
 
       <section className="content-section shell proof-material-grid">
         <div>
-          <Eyebrow>Starter package</Eyebrow>
-          <h2 className="section-heading">The files used to set up this Bot</h2>
-          <p className="section-intro">These are the Bot profile and readable setup files. They are separate from any finished result produced during a run.</p>
+          <Eyebrow>{demo.subjectKind === "crew" ? "Crew and evidence files" : "Starter package"}</Eyebrow>
+          <h2 className="section-heading">{demo.subjectKind === "crew" ? "The bundle and records behind this handoff" : "The files used to set up this Bot"}</h2>
+          <p className="section-intro">{demo.subjectKind === "crew" ? "These records separate the downloadable setup bundle from the outputs and checks produced during the test." : "These are the Bot profile and readable setup files. They are separate from any finished result produced during a run."}</p>
         </div>
         <div className="proof-artifact-list">
           {demo.supportingArtifacts.map((artifact) => (

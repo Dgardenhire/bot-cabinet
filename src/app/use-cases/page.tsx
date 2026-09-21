@@ -102,8 +102,8 @@ export default function UseCasesPage() {
             <article className="use-case-card" key={useCase.slug}>
               <div className="use-case-card-image">
                 <Image
-                  src={`/use-cases/${useCase.slug}.${JPG_USE_CASE_IMAGES.has(useCase.slug) ? "jpg" : "webp"}`}
-                  alt={USE_CASE_IMAGE_ALTS[useCase.slug] ?? ""}
+                  src={useCase.image?.src ?? `/use-cases/${useCase.slug}.${JPG_USE_CASE_IMAGES.has(useCase.slug) ? "jpg" : "webp"}`}
+                  alt={useCase.image?.alt ?? USE_CASE_IMAGE_ALTS[useCase.slug] ?? ""}
                   width={1080}
                   height={720}
                   sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1120px) 50vw, 33vw"

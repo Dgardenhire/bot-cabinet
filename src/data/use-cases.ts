@@ -9,9 +9,95 @@ export interface BotUseCase {
   humanDecisions: string[];
   firstTest: string;
   kickoffMessage: string;
+  image?: { src: string; alt: string };
+  adaptations?: WorkflowAdaptation[];
+}
+
+export type WorkflowAdaptationStatus =
+  | "original-source"
+  | "cabinet-tested"
+  | "implementation-brief"
+  | "capability-review";
+
+export interface WorkflowAdaptation {
+  platform: string;
+  status: WorkflowAdaptationStatus;
+  statusLabel: string;
+  approach: string;
+  setup: string;
+  limitations: string;
+  source?: { label: string; href: string };
+  cabinetGuide?: string;
 }
 
 export const BOT_USE_CASES: BotUseCase[] = [
+  {
+    slug: "personal-morning-newspaper",
+    title: "Personal morning newspaper",
+    audience: "People who want a finite, useful morning read instead of beginning with an endless feed",
+    outcome: "A one-page edition built from selected calendar items, actionable messages and one chosen interest, ready for review and optional printing.",
+    botSlugs: ["scout", "editor", "ops"],
+    image: { src: "/use-cases/morning-industry-briefing.webp", alt: "A finite morning edition prepared beside a reading table" },
+    inputs: ["Selected or fictional calendar entries and messages", "An optional approved source about one interest", "Timezone, page size, exclusions and delivery preference"],
+    steps: [
+      { bot: "Scout", action: "Organize only the supplied calendar, message and interest sources", output: "A dated source sheet with missing context marked" },
+      { bot: "Editor", action: "Lay out a finite one-page edition without inventing details", output: "A readable edition and separate correction notes" },
+      { bot: "Ops", action: "Prepare the approved file and report the exact delivery step", output: "A reviewed file for manual delivery or one authorized trial" },
+    ],
+    humanDecisions: ["Choose sources and private-topic exclusions", "Approve every connected account, schedule and delivery path", "Approve a single print trial before recurring printing"],
+    firstTest: "Use fictional appointments and messages to make one page. Check every detail in print preview; do not schedule or print it yet.",
+    kickoffMessage: "Create a sample one-page morning newspaper from only the supplied calendar entries, messages and optional source. Preserve dates and timezones, cite every item, mark missing context, keep correction notes outside the edition, and do not connect accounts, schedule, send or print anything.",
+    adaptations: [
+      {
+        platform: "Grok Bot",
+        status: "original-source",
+        statusLabel: "Original creator workflow",
+        approach: "Karen X. Cheng's Morning Newspaper turns selected personal context into a finite paper edition that can print overnight.",
+        setup: "Review the original marketplace item and its imported instructions before connecting sources. Start with a preview and confirm the exact delivery and printer path.",
+        limitations: "Cabinet verified the official listing, not its runtime behavior, account permissions, scheduling or printing.",
+        source: { label: "The Morning Newspaper — Karen X. Cheng", href: "https://x.ai/bot/marketplace/bots/the-morning-newspaper" },
+        cabinetGuide: "/guides/morning-newspaper-across-agents",
+      },
+      {
+        platform: "Hermes",
+        status: "implementation-brief",
+        statusLabel: "Cabinet implementation brief",
+        approach: "Use a dedicated profile and reusable skill to create the approved edition; add a named scheduled job only after a manual edition passes review.",
+        setup: "Begin with selected or fictional inputs, inspect the generated skill, then propose the schedule, local output and failure notice for human approval.",
+        limitations: "This adaptation has not been run end to end. A cloud Hermes instance cannot reach a home printer without a separately configured, narrowly scoped bridge.",
+        cabinetGuide: "/guides/morning-newspaper-across-agents",
+      },
+      {
+        platform: "Muse",
+        status: "capability-review",
+        statusLabel: "Capability review only",
+        approach: "Ask the personal agent to create the same bounded edition from connections available in the user's account, then determine whether printable-file delivery is supported.",
+        setup: "Run a manual sample first and ask the service to identify actual source access, scheduling, export, retention, cost and stop controls before enabling anything recurring.",
+        limitations: "Provider descriptions mention connected apps and background work, but Cabinet has not verified this complete workflow or printer delivery.",
+        source: { label: "Muse provider announcement", href: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" },
+        cabinetGuide: "/guides/morning-newspaper-across-agents",
+      },
+      {
+        platform: "Instinct",
+        status: "capability-review",
+        statusLabel: "Capability review only",
+        approach: "Use the same outcome brief in the conversational assistant and verify which personal sources, routines and file outputs the current account supports.",
+        setup: "Request a non-recurring preview, then ask for an explicit capability and permission report before connecting accounts or creating a routine.",
+        limitations: "Cabinet has not verified an account-specific implementation, pricing, printable export or automatic printing.",
+        source: { label: "Instinct provider page", href: "https://instinct.com/" },
+        cabinetGuide: "/guides/morning-newspaper-across-agents",
+      },
+      {
+        platform: "Another agent or emerging tool",
+        status: "implementation-brief",
+        statusLabel: "Portable outcome brief",
+        approach: "Carry the job definition—not a vendor-specific package—into any agent that can use selected sources, produce a finite document and support a reviewed delivery step.",
+        setup: "Test the sample brief with fictional inputs. Verify source access, scheduling, export, privacy, costs, error handling and stop controls against that tool's current behavior.",
+        limitations: "A similar chat interface or claimed integration does not establish compatibility. Treat each host as untested until the complete outcome is observed.",
+        cabinetGuide: "/guides/morning-newspaper-across-agents",
+      },
+    ],
+  },
   {
     slug: "morning-industry-briefing",
     title: "Morning industry briefing",

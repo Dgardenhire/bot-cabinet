@@ -5,6 +5,13 @@ import { STARTER_BOTS } from "../../../data/starter-bots";
 import GrokBotTemplatesPage from "./page";
 
 describe("Grok Bot platform page", () => {
+  it("offers a dated external-template path without passing it off as a Cabinet runtime test", () => {
+    const html = renderToStaticMarkup(<GrokBotTemplatesPage />);
+    expect(html).toContain("September 20, 2026 · Not runtime-tested");
+    expect(html).toContain('href="https://x.ai/bot/marketplace"');
+    expect(html).toContain('href="https://x.ai/bot/guides/templates-for-grok-bot"');
+    expect(html).toContain("manual build briefs, not native templates");
+  });
   it("shows every prepared adaptation with the correct three-part download path", () => {
     const html = renderToStaticMarkup(<GrokBotTemplatesPage />);
 

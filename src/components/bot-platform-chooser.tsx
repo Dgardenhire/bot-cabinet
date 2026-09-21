@@ -114,7 +114,9 @@ export function BotPlatformChooser({
           <h3>Portable Bot Pack</h3>
           <p>
             Keep the complete recipe as readable Markdown or structured JSON,
-            including its Bot Passport and platform-specific setup notes.
+            including its Bot Passport and platform-specific setup notes. The
+            included Agent Skill uses the <code>SKILL.md</code> convention, but
+            a shared file format does not prove identical behavior on every host.
           </p>
           <div className="bot-platform-actions">
             <a
@@ -131,7 +133,18 @@ export function BotPlatformChooser({
             >
               Download JSON <DownloadSimple size={15} />
             </a>
+            <a
+              href={paths.portableSkillUrl}
+              download
+              className="text-link"
+              data-funnel-event="bot_portable_skill_download"
+              data-funnel-surface="bot_platform_chooser"
+              data-funnel-destination={botSlug}
+            >
+              Download the Agent Skill <DownloadSimple size={15} />
+            </a>
           </div>
+          <p className="bot-platform-portability-note">Prepared file. Review its instructions and permissions, then test it in the target agent before relying on it.</p>
         </article>
       </div>
     </section>

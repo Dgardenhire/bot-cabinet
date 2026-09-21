@@ -17,6 +17,7 @@ import { Eyebrow } from "@/components/ui";
 import { BotPackV2Panel } from "@/components/bot-pack-v2-panel";
 import { BotPassportPanel } from "@/components/bot-passport-panel";
 import { BotPlatformChooser } from "@/components/bot-platform-chooser";
+import { BotWorkbench } from "@/components/bot-workbench";
 import { LegacyRoute } from "@/components/legacy-route";
 import {
   STARTER_BOTS,
@@ -95,6 +96,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
               <p className="starter-install-note">{botImportAndRunStatus(portablePackV2)}</p>
+              <a href="#bot-workbench" className="text-link" data-funnel-event="bot_workbench_open" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>After downloading: continue setup and test {bot.name} <ArrowRight size={15} /></a>
               <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
             </div>
           </div>
@@ -165,6 +167,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <a href={portablePackV2.platforms.hermes.readableFilesUrl} download>Download readable files (ZIP)</a>
           <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer">Official Bot Mode guide</a>
         </div>
+        <BotWorkbench botSlug={bot.slug} botName={bot.name} packVersion={portablePackV2.packVersion} />
       </section>
 
       <section className="content-section shell starter-teammates">

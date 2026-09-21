@@ -13,6 +13,7 @@ import Link from "next/link";
 
 import { CopyTextButton } from "@/components/copy-text-button";
 import { FirstRunOutcomePrompt } from "@/components/first-run-outcome-prompt";
+import { RepeatUsePrompt } from "@/components/repeat-use-prompt";
 
 const STORAGE_KEY = "bot-cabinet-first-run-scout";
 const COMPLETION_STORAGE_KEY = "bot-cabinet-first-run-scout-completion-tracked";
@@ -220,6 +221,7 @@ export function FirstRunChecklist() {
             </Link>
           </div>
           <FirstRunOutcomePrompt />
+          <RepeatUsePrompt />
         </>
       ) : null}
     </div>

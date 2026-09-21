@@ -273,6 +273,22 @@ export function BotFitTest() {
         </p>
       </div>
 
+      <aside className="fit-test-platform-handoff" aria-label="Choose an agent platform separately">
+        <div>
+          <strong>First choose the shape of the work. Then choose where to run it.</strong>
+          <p>Compare an existing assistant, a reusable workflow, or a developer setup by access, effort, approvals, cost, and recovery—not by brand alone.</p>
+        </div>
+        <Link
+          href="/guides/choose-your-agent-path"
+          className="text-link"
+          data-funnel-event="bot_fit_platform_guide_open"
+          data-funnel-surface="bot-fit-test"
+          data-funnel-destination="choose-your-agent-path"
+        >
+          Compare agent paths <ArrowRight size={15} aria-hidden="true" />
+        </Link>
+      </aside>
+
       <form id="bot-fit-test-form" className="fit-test-form" onSubmit={submit}>
         <div className="fit-test-primary-question">
           <label htmlFor="fit-test-work-result">What are you trying to accomplish?</label>

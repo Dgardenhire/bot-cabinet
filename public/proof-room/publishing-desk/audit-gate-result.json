@@ -1,0 +1,12 @@
+{
+  "issues": [],
+  "sentenceCount": 12,
+  "auditedEntryCount": 12,
+  "unsupportedAssertions": 6,
+  "ambiguousAssertions": 4,
+  "quotationsVerified": true,
+  "noUnsupportedAssertions": false,
+  "semanticSupportVerified": false,
+  "factualAccuracyVerified": false,
+  "humanApproved": false
+}

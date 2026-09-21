@@ -6,11 +6,13 @@ import { ThemeToggle } from "@/components/theme-toggle";
 const NAV_ITEMS = [
   ["Fit Test", "/fit"],
   ["The Cabinet", "/bots"],
+  ["My Workbench", "/workbench"],
   ["Bot Lab", "/workshop"],
   ["Portrait Studio", "/portraits"],
   ["Bot Crews", "/use-cases"],
   ["Crew Kits", "/crew-kits"],
   ["Proof Room", "/proof"],
+  ["Agent Watch", "/watch"],
   ["Field Manual", "/guides"],
   ["Inspection Desk", "/trust"],
 ] as const;

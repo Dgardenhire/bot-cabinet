@@ -6,7 +6,9 @@ Find promising funding opportunities, check eligibility, and turn the strongest 
 
 Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.
 
-This ZIP is a collection of individual profiles, not a one-click crew installer. Unzip it first; import each member .tar.gz separately. No schedules are activated. Crew coordination has not been runtime-tested.
+This ZIP is a collection of individual profiles, not a one-click crew installer. Unzip it first; import each member .tar.gz separately. No schedules are activated.
+
+Crew coordination has not been runtime-tested.
 
 Keep existing Bots and projects intact. Use new profile names where needed; do not overwrite an existing profile.
 
@@ -80,8 +82,8 @@ Requested capabilities (configure manually):
 Draft sections from approved facts and evidence.
 
 Archive: members/writer.tar.gz
-SHA-256: 7f1f3d29a8f5189b4964a68a0734c1010996a443c3a874c1312e48d8c312d722
-Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
+SHA-256: 550c3182a5b6e0d20c8e418464f299921d05e65b8b795590de6bf0282258e8a5
+Pack: 2.0.5; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
 - [ ] Review SOUL.md and bundled files
@@ -101,8 +103,8 @@ Requested capabilities (configure manually):
 Check completeness, consistency, claims, and compliance questions.
 
 Archive: members/editor.tar.gz
-SHA-256: 7f16ed8dccd5ec9d07fff0d42944bc14ac903a6f9e1b8bcc7234117a3c689dc2
-Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
+SHA-256: 5cf5ac1d11b406df726894260d3cdb94b85abeda8650e6b5800552d2550f4975
+Pack: 2.0.3; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
 - [ ] Review SOUL.md and bundled files

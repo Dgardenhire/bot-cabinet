@@ -1,0 +1,103 @@
+{
+  "draft": "Cedar Street Repair Club’s next workshop is Saturday, October 17, 2026, from 10 a.m. to noon at Cedar Street Library, Room B. Admission is free, and space is limited to 24 people. Registration opens October 1. [REGISTRATION LINK PENDING — INSERT BEFORE PUBLICATION]\n\nBring one small household item that needs fixing. Please leave mains-powered appliances and anything with batteries at home — the volunteer fixers focus on mechanical and unpowered items.\n\nIf you missed the September pilot, here is what to expect: 18 items came through the door. Volunteers repaired 11 of them. Four items need parts that were not on hand, and three could not be repaired on the spot. Every item got attention, and the room was full of people trying to help.\n\nRegistration is first-come, first-served. When the link is added, sign up early — 24 seats go fast.",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Workshop is Saturday October 17, 2026, 10 a.m.–noon, at Cedar Street Library, Room B. Capacity is 24. Registration opens October 1. Admission is free. Bring one small household item; no mains-powered appliances or batteries. Registration link has NOT been supplied."
+    },
+    {
+      "id": "S2",
+      "text": "18 people attended the September pilot; 11 items were repaired, 4 need parts, 3 could not be repaired. There was no survey of satisfaction or money saved. Do not infer percentages of successful participants: items and people are different units."
+    },
+    {
+      "id": "S3",
+      "text": "Proposed October 10, capacity 30, suggested $5 admission. SUPERSEDED by S1. Sponsor discussions only, no sponsor agreement."
+    }
+  ],
+  "entries": [
+    {
+      "exactDraftQuote": "Cedar Street Repair Club’s next workshop is Saturday, October 17, 2026, from 10 a.m. to noon at Cedar Street Library, Room B.",
+      "status": "ambiguous",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "The date, time and location match S1, but the sentence also assigns the event to the club and calls it the club’s next workshop. The original source does not establish that ownership or sequence."
+    },
+    {
+      "exactDraftQuote": "Admission is free, and space is limited to 24 people.",
+      "status": "supported",
+      "sourceId": "S1",
+      "originalSourcePassage": "Capacity is 24. Registration opens October 1. Admission is free.",
+      "explanation": "S1 supplies free admission and capacity 24."
+    },
+    {
+      "exactDraftQuote": "Registration opens October 1.",
+      "status": "supported",
+      "sourceId": "S1",
+      "originalSourcePassage": "Registration opens October 1.",
+      "explanation": "The sentence matches S1."
+    },
+    {
+      "exactDraftQuote": "[REGISTRATION LINK PENDING — INSERT BEFORE PUBLICATION]",
+      "status": "ambiguous",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "S1 establishes that no link was supplied, but it does not establish when a link will exist. The publication instruction belongs to the assignment rather than the factual source."
+    },
+    {
+      "exactDraftQuote": "Bring one small household item that needs fixing.",
+      "status": "ambiguous",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "S1 supports one small household item, but does not explicitly say the item must need fixing."
+    },
+    {
+      "exactDraftQuote": "Please leave mains-powered appliances and anything with batteries at home — the volunteer fixers focus on mechanical and unpowered items.",
+      "status": "unsupported",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "The sentence broadens batteries to anything containing one and invents volunteers, their focus and an item classification absent from S1."
+    },
+    {
+      "exactDraftQuote": "If you missed the September pilot, here is what to expect: 18 items came through the door.",
+      "status": "unsupported",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "S2 reports 18 people, not 18 items, and explicitly warns that people and items are different units."
+    },
+    {
+      "exactDraftQuote": "Volunteers repaired 11 of them.",
+      "status": "unsupported",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "S2 says 11 items were repaired but does not identify volunteers as the actors."
+    },
+    {
+      "exactDraftQuote": "Four items need parts that were not on hand, and three could not be repaired on the spot.",
+      "status": "ambiguous",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "S2 supports the counts but not the claims that parts were absent or that the repairs occurred on the spot. The sentence mixes supported and unsupported assertions."
+    },
+    {
+      "exactDraftQuote": "Every item got attention, and the room was full of people trying to help.",
+      "status": "unsupported",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "Neither the attention given to each item nor a full room of helpers appears in S1 or S2."
+    },
+    {
+      "exactDraftQuote": "Registration is first-come, first-served.",
+      "status": "unsupported",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "No source supplies a registration allocation rule."
+    },
+    {
+      "exactDraftQuote": "When the link is added, sign up early — 24 seats go fast.",
+      "status": "unsupported",
+      "sourceId": null,
+      "originalSourcePassage": null,
+      "explanation": "The source does not establish link timing, demand, registration speed or that capacity is measured as seats."
+    }
+  ]
+}
