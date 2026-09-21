@@ -20,7 +20,7 @@ import {
 import { Eyebrow, FeatureLine, SectionRule, TextLink } from "@/components/ui";
 
 export const metadata: Metadata = {
-  description: "Find useful Hermes Bots in The Cabinet, plan a custom Bot in Bot Lab, follow Bot Crews workflows, and learn from the Field Manual.",
+  description: "Discover useful AI Bots, see what people are building, and find a practical way to try the ideas yourself. Browse guides, downloads, and honest test results.",
 };
 
 const pathways = [
@@ -84,12 +84,12 @@ export default function Home() {
         </div>
         <div className="hero-grid shell">
           <div className="hero-copy">
-            <p className="hero-kicker">Bot Cabinet · starting with Hermes Agent</p>
-            <h1 className="hero-title">Build and use AI specialists for real work</h1>
+            <p className="hero-kicker">Bot Cabinet · find a useful place to start</p>
+            <h1 className="hero-title">Find a Bot that makes your day easier</h1>
             <p className="hero-deck">
-              Bot Cabinet helps you choose a job, create a Bot, and bring it into Hermes
-              Desktop—with clear setup instructions, examples, and review information. Each
-              Bot can keep its own continuing conversation, role, memory, tools, and history.
+              See what people are building, pick an idea that fits your life or work, and
+              try it for yourself. Browse new Bots, follow clear guides, or download a
+              ready-made starting point for Hermes. We show what has actually been tested.
             </p>
             <div className="button-row">
               <Link href="/start" className="button button-primary" data-funnel-event="homepage_start_first_bot" data-funnel-surface="homepage">
@@ -110,7 +110,7 @@ export default function Home() {
                 <ShieldCheck size={17} weight="thin" aria-hidden="true" /> Source and test status shown
               </span>
             </div>
-            <TextLink href="/use-cases">See Bot Crews workflows</TextLink>
+            <TextLink href="/watch/">See new Bot ideas</TextLink>
           </div>
           <div className="hero-visual" aria-label="A cream and burgundy workshop robot">
             <Image
