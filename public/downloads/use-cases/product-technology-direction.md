@@ -7,9 +7,9 @@ Result: A product and technology decision record plus the smallest reversible pr
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need a product and technology decision record plus the smallest reversible prototype needed to resolve the next uncertainty.
-- **Lead Bot:** Nova
+- **Lead Bot:** Founding Engineer
 - **Cadence:** When a person supplies the approved brief and starts the workflow
-- **Typical first run:** 30–60 minutes for a first manual run
+- **Typical first run:** 15–30 minutes for a first manual run
 
 ### Access for the first run
 
@@ -17,11 +17,13 @@ Result: A product and technology decision record plus the smallest reversible pr
 - Only the files, sources, and services required for this run
 - No sending, publishing, spending, or live-system changes without approval
 
-## Bots
+## Recommended starting Bot
 
-1. Nova
-2. Architect
-3. Founding Engineer
+1. Founding Engineer
+
+One Founding Engineer can compare practical options and build a narrow prototype. Add Nova when the product question is still unclear, or Architect for a high-consequence technical decision.
+
+Optional specialists: nova, architect.
 
 ## Information to gather
 
@@ -31,40 +33,15 @@ Result: A product and technology decision record plus the smallest reversible pr
 
 ## Workflow
 
-### 1. Nova
+### 1. Founding Engineer
 
-Identify the product assumptions and the evidence needed for the next decision
+Clarify the next product question, compare practical technical options, and build only the smallest approved prototype
 
-Output: A product hypothesis and evidence brief
-
-Message to send:
-
-Use the approved inputs I provide. Identify the product assumptions and the evidence needed for the next decision. Return this result: A product hypothesis and evidence brief. Ask me about missing information before you continue.
-
-### 2. Architect
-
-Compare practical technical directions for the approved product test
-
-Output: An architecture decision record with costs, risks, and approval points
+Output: A decision record, working prototype, acceptance-check results, and remaining questions
 
 Message to send:
 
-Start with this result from Nova: A product hypothesis and evidence brief. Compare practical technical directions for the approved product test. Return this result: An architecture decision record with costs, risks, and approval points. Ask me about missing information before you continue.
-
-### 3. Founding Engineer
-
-Build the approved direction as the smallest reversible prototype
-
-Output: A working prototype, acceptance-check results, and a decision log
-
-Message to send:
-
-Start with this result from Architect: An architecture decision record with costs, risks, and approval points. Build the approved direction as the smallest reversible prototype. Return this result: A working prototype, acceptance-check results, and a decision log. Ask me about missing information before you continue.
-
-## Handoff rules
-
-1. Nova hands the approved output—a product hypothesis and evidence brief—to Architect.
-2. Architect hands the approved output—an architecture decision record with costs, risks, and approval points—to Founding Engineer.
+Use the approved inputs I provide. Clarify the next product question, compare practical technical options, and build only the smallest approved prototype. Return this result: A decision record, working prototype, acceptance-check results, and remaining questions. Ask me about missing information before you continue.
 
 ## Overall request
 
@@ -86,12 +63,11 @@ The first run passes when a person can verify the final result against the suppl
 
 ## If the workflow stalls
 
-If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
+If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help.
 
 ## Hermes Desktop setup
 
-1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
-2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
-3. Run each step in that Bot's own chat and review the result.
-4. Pass the approved result to the next Bot with the message provided for that step.
-5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.
+1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review the profile's SOUL.md, Bot Passport, and requested access.
+3. Run the complete request in that Bot's chat with low-risk material and review the result.
+4. Add a schedule, outside connection, or optional specialist only after the manual version works.

@@ -9,7 +9,7 @@ Result: A launch plan with confirmed priorities, milestones, owners, dependencie
 - **When to use it:** Use this workflow when you need a launch plan with confirmed priorities, milestones, owners, dependencies, decision dates, and a message map.
 - **Lead Bot:** Chief of Staff
 - **Cadence:** When a person supplies the approved brief and starts the workflow
-- **Typical first run:** 30–60 minutes for a first manual run
+- **Typical first run:** 15–30 minutes for a first manual run
 
 ### Access for the first run
 
@@ -17,11 +17,13 @@ Result: A launch plan with confirmed priorities, milestones, owners, dependencie
 - Only the files, sources, and services required for this run
 - No sending, publishing, spending, or live-system changes without approval
 
-## Bots
+## Recommended starting Bot
 
 1. Chief of Staff
-2. Planner
-3. Story
+
+One Chief of Staff can prepare a small launch plan. Add Planner for a large dependency-heavy schedule, or Story when several audiences need a separate message system.
+
+Optional specialists: planner, story.
 
 ## Information to gather
 
@@ -33,38 +35,13 @@ Result: A launch plan with confirmed priorities, milestones, owners, dependencie
 
 ### 1. Chief of Staff
 
-Organize confirmed priorities, owners, constraints, and unresolved decisions
+Organize the priorities, owners, constraints, schedule, dependencies, open decisions, and approved message
 
-Output: A launch operating brief
-
-Message to send:
-
-Use the approved inputs I provide. Organize confirmed priorities, owners, constraints, and unresolved decisions. Return this result: A launch operating brief. Ask me about missing information before you continue.
-
-### 2. Planner
-
-Build the schedule, owners, and dependencies
-
-Output: A sequenced launch plan
+Output: A practical launch plan with milestones, owners, decision dates, risks, and a concise message brief
 
 Message to send:
 
-Start with this result from Chief of Staff: A launch operating brief. Build the schedule, owners, and dependencies. Return this result: A sequenced launch plan. Ask me about missing information before you continue.
-
-### 3. Story
-
-Build the launch narrative from approved facts
-
-Output: A message map with proof points, audience needs, and unsupported claims
-
-Message to send:
-
-Start with this result from Planner: A sequenced launch plan. Build the launch narrative from approved facts. Return this result: A message map with proof points, audience needs, and unsupported claims. Ask me about missing information before you continue.
-
-## Handoff rules
-
-1. Chief of Staff hands the approved output—a launch operating brief—to Planner.
-2. Planner hands the approved output—a sequenced launch plan—to Story.
+Use the approved inputs I provide. Organize the priorities, owners, constraints, schedule, dependencies, open decisions, and approved message. Return this result: A practical launch plan with milestones, owners, decision dates, risks, and a concise message brief. Ask me about missing information before you continue.
 
 ## Overall request
 
@@ -86,12 +63,11 @@ The first run passes when a person can verify the final result against the suppl
 
 ## If the workflow stalls
 
-If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
+If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help.
 
 ## Hermes Desktop setup
 
-1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
-2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
-3. Run each step in that Bot's own chat and review the result.
-4. Pass the approved result to the next Bot with the message provided for that step.
-5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.
+1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review the profile's SOUL.md, Bot Passport, and requested access.
+3. Run the complete request in that Bot's chat with low-risk material and review the result.
+4. Add a schedule, outside connection, or optional specialist only after the manual version works.

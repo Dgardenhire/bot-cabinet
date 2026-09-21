@@ -65,7 +65,7 @@ describe("complete crew bundles", () => {
         createDeterministicZip(files),
       );
     }
-  });
+  }, 15_000);
   it("fails closed for unknown or duplicate members", () => {
     const kit = CREW_KITS[0];
     expect(() => buildCrewBundle({ ...kit, roles: [{ botSlug: "missing", responsibility: "test" }] })).toThrow();

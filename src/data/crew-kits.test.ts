@@ -75,10 +75,18 @@ describe("Crew Kits and workflow operations", () => {
       "social-media-content-set",
       "client-meeting-follow-up",
       "client-proposal",
+      "grant-opportunity-review",
+      "website-content-update",
+      "project-launch-plan",
+      "software-feature-build",
       "operations-status-report",
       "study-and-certification-plan",
       "customer-request-response",
+      "new-venture-evaluation",
+      "growth-experiment",
       "leadership-weekly-review",
+      "product-technology-direction",
+      "narrative-message-system",
     ];
 
     for (const slug of singleBotJobs) {
