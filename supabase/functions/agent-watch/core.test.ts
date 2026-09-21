@@ -13,11 +13,27 @@ const item = {
   responseStatus: "published" as const,
   limits: "It has not been tested from start to finish.",
   sources: [{ label: "Official source", href: "https://example.com/source" }],
+  botDetails: {
+    name: "Useful Bot",
+    creator: "A maker",
+    platform: "Example",
+    job: "Handles one useful job.",
+    requiredAccess: "An account and one selected file.",
+    outsideActions: "None during the first test.",
+    evidenceStatus: "inspected" as const,
+    cabinetDecision: "test-adaptation" as const,
+    cabinetFit: "Test it before deciding whether to add it.",
+    closestCabinetMatch: { label: "Scout", href: "/bots/scout" },
+  },
 };
 
 Deno.test("accepts a complete reviewed item and rejects unsafe links", () => {
   assertEquals(parseAgentWatchItem(item), item);
   assertEquals(parseAgentWatchItem({ ...item, sources: [{ label: "bad", href: "javascript:alert(1)" }] }), null);
+  assertEquals(parseAgentWatchItem({ ...item, botDetails: { ...item.botDetails, cabinetFit: "" } }), null);
+  assertEquals(parseAgentWatchItem({ ...item, botDetails: { ...item.botDetails, closestCabinetMatch: { label: "bad", href: "javascript:alert(1)" } } }), null);
+  assertEquals(parseAgentWatchItem({ ...item, botDetails: { ...item.botDetails, evidenceStatus: "downloaded" } }), null);
+  assertEquals(parseAgentWatchItem({ ...item, botDetails: { ...item.botDetails, cabinetDecision: "copy-it" } }), null);
 });
 
 Deno.test("keeps only the newest valid revision", () => {

@@ -18,5 +18,8 @@ describe("Crew Kit measurement path", () => {
     }
     expect(markup.match(/data-funnel-destination="publishing-desk"/g)).toHaveLength(4);
     expect(markup).not.toContain("data-funnel-content");
+    expect(markup).toContain("source of truth, finished deliverable");
+    expect(markup).toContain("Test one missing input or failed handoff");
+    expect(markup).toContain("Repeat the complete handoff");
   });
 });

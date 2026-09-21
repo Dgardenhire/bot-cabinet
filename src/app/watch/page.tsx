@@ -43,8 +43,8 @@ export default function AgentWatchPage() {
 
         <div className="section-heading">
           <Eyebrow>Worth your attention</Eyebrow>
-          <h2>New tools and useful ideas</h2>
-          <p>Each note explains what is new, why it may matter and a sensible place to begin.</p>
+          <h2>Useful changes and ideas</h2>
+          <p>See specific Bots first, followed by larger changes that may affect how people use agents.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />

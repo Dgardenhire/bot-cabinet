@@ -1,5 +1,20 @@
 export type WatchEvidence = "observed" | "provider-claim" | "cabinet-tested";
 export type WatchResponseStatus = "published" | "prepared" | "testing" | "watching";
+export type WatchBotEvidence = "listed" | "inspected" | "imported" | "task-tested" | "repeated";
+export type WatchBotDecision = "improve-existing" | "test-adaptation" | "write-guide" | "add-new" | "watch";
+
+export type WatchBotDetails = {
+  name: string;
+  creator: string;
+  platform: string;
+  job: string;
+  requiredAccess: string;
+  outsideActions: string;
+  evidenceStatus: WatchBotEvidence;
+  cabinetDecision: WatchBotDecision;
+  cabinetFit: string;
+  closestCabinetMatch: { label: string; href: string };
+};
 
 export type AgentWatchItem = {
   slug: string;
@@ -14,12 +29,15 @@ export type AgentWatchItem = {
   limits: string;
   sources: { label: string; href: string }[];
   cabinetLinks?: { label: string; href: string }[];
+  botDetails?: WatchBotDetails;
 };
 
 type PublicationRow = { slug: string; revision: number; payload: unknown; published_at: string };
 
 const evidence = new Set<WatchEvidence>(["observed", "provider-claim", "cabinet-tested"]);
 const statuses = new Set<WatchResponseStatus>(["published", "prepared", "testing", "watching"]);
+const botEvidence = new Set<WatchBotEvidence>(["listed", "inspected", "imported", "task-tested", "repeated"]);
+const botDecisions = new Set<WatchBotDecision>(["improve-existing", "test-adaptation", "write-guide", "add-new", "watch"]);
 
 function isDate(value: unknown): value is string {
   return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value);
@@ -41,6 +59,16 @@ function isLink(value: unknown): value is { label: string; href: string } {
   }
 }
 
+function isBotDetails(value: unknown): value is WatchBotDetails {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const details = value as Record<string, unknown>;
+  if (!isText(details.name, 120) || !isText(details.creator, 120) || !isText(details.platform, 80)) return false;
+  if (!isText(details.job, 500) || !isText(details.requiredAccess, 700) || !isText(details.outsideActions, 700)) return false;
+  if (!botEvidence.has(details.evidenceStatus as WatchBotEvidence) || !botDecisions.has(details.cabinetDecision as WatchBotDecision)) return false;
+  if (!isText(details.cabinetFit, 500) || !isLink(details.closestCabinetMatch)) return false;
+  return true;
+}
+
 export function parseAgentWatchItem(value: unknown): AgentWatchItem | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   const item = value as Record<string, unknown>;
@@ -51,6 +79,7 @@ export function parseAgentWatchItem(value: unknown): AgentWatchItem | null {
   if (!evidence.has(item.evidence as WatchEvidence) || !statuses.has(item.responseStatus as WatchResponseStatus)) return null;
   if (!Array.isArray(item.sources) || item.sources.length < 1 || item.sources.length > 12 || !item.sources.every(isLink)) return null;
   if (item.cabinetLinks !== undefined && (!Array.isArray(item.cabinetLinks) || item.cabinetLinks.length > 12 || !item.cabinetLinks.every(isLink))) return null;
+  if (item.botDetails !== undefined && !isBotDetails(item.botDetails)) return null;
   return item as AgentWatchItem;
 }
 

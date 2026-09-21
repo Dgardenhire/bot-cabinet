@@ -34,6 +34,15 @@ export interface StarterBot {
   workshopDraft: WorkshopDraft;
 }
 
+export type StarterBotRoleContract = {
+  owns: string;
+  doesNotOwn: string[];
+  sourceOfTruth: string[];
+  approvalPoints: string[];
+  trigger: string;
+  finishedDeliverables: string[];
+};
+
 export const STARTER_CATEGORY_LABELS: Record<StarterBotCategory, string> = {
   writing: "Writing and communications",
   research: "Research and monitoring",
@@ -657,4 +666,15 @@ export const STARTER_BOTS: StarterBot[] = [
 
 export function getStarterBot(slug: string) {
   return STARTER_BOTS.find((bot) => bot.slug === slug);
+}
+
+export function getStarterBotRoleContract(bot: StarterBot): StarterBotRoleContract {
+  return {
+    owns: bot.summary,
+    doesNotOwn: bot.boundaries,
+    sourceOfTruth: bot.workshopDraft.inputsContext.split("\n").filter(Boolean),
+    approvalPoints: bot.workshopDraft.approvalBoundaries.split("\n").filter(Boolean),
+    trigger: bot.workshopDraft.cadenceTrigger,
+    finishedDeliverables: bot.produces,
+  };
 }
