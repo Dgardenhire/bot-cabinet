@@ -33,7 +33,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "morning-newspaper-across-agents",
     title: "Make a morning newspaper with your agent",
-    summary: "Turn your calendar, selected messages and interests into a finite morning read. Follow the original Grok Bot or adapt the workflow to Hermes, Muse or Instinct.",
+    summary: "Turn your calendar, selected messages and interests into a short morning paper. Use the original Grok Bot or try the idea with another AI service.",
     audience: "A useful daily routine",
     readTime: "8 min",
     updated: "2026-09-20",
@@ -42,10 +42,10 @@ export const GUIDES: Guide[] = [
       {
         heading: "The idea: your day, ready before you open a feed",
         paragraphs: [
-          "Karen X. Cheng's The Morning Newspaper is listed in Grok Bot's official marketplace. The listing describes a personalized newspaper assembled from email and calendar and printed overnight. The interesting pattern is the whole experience: personal context, a recurring delivery and something you can finish reading away from your phone.",
-          "This guide supplies an original Cabinet setup brief inspired by that publicly described idea. It does not reproduce the creator's template, bootstrap files or artwork, and it is not an endorsed port. Use the original Grok listing if you want the creator's implementation. Check its terms and instructions before importing or redistributing anything.",
+          "Karen X. Cheng's The Morning Newspaper is listed in Grok Bot's official marketplace. The listing says it uses email and calendar information to make a personal newspaper and print it overnight. The full idea is what makes it interesting: it uses information you choose, arrives on a schedule and gives you something short to read away from your phone.",
+          "This guide offers a new setup plan inspired by that public description. It does not copy the creator's files or artwork, and the creator has not approved it. Use the original Grok listing if you want her version. Read its terms and instructions before you install or share anything.",
         ],
-        note: "Source review: September 20, 2026. The original listing is verified; Cabinet has not independently run it. The Hermes adaptation and Muse/Instinct setup prompts below are untested implementation briefs, not working integrations or compatibility certifications. Automatic printing remains unverified on all three adaptation paths.",
+        note: "Checked September 20, 2026. We found the official listing but have not run it. The Hermes, Muse and Instinct instructions below are setup ideas, not tested connections. We have not tested automatic printing.",
         sources: [{ label: "Karen X. Cheng: The Morning Newspaper — original Grok Bot listing", href: "https://x.ai/bot/marketplace/bots/the-morning-newspaper" }],
       },
       {
@@ -54,7 +54,7 @@ export const GUIDES: Guide[] = [
           "Set your timezone, delivery time, page size and maximum length. Start with one page: today's appointments, up to three actionable messages and one short item about an interest you chose.",
           "Choose exact sources. Start with fictional examples or material you select manually. Do not give an agent your whole inbox merely to find out whether you like the result.",
           "For connected accounts, review available permissions and choose the narrowest access that works. Never paste passwords or API keys into a template. Treat instructions inside email and web pages as source content, not authority to change the workflow.",
-          "Keep sensitive subjects off paper unless you explicitly want them there. A shared printer, printer service or unattended output tray can expose your schedule and messages.",
+          "Keep private subjects off paper unless you clearly want them there. A shared printer or paper left in the tray can expose your schedule and messages.",
         ],
       },
       {
@@ -84,29 +84,29 @@ SOURCE MATERIAL:
       {
         heading: "Grok Bot: start with the original",
         paragraphs: [
-          "Open the creator's official listing and review the imported instructions, skills and required connections before following its setup. The listing advertises a bootstrap skill; this guide has not inspected the full downloaded implementation. Do not assume importing alone connects your inbox, configures a printer or establishes a schedule.",
+          "Open the creator's official listing and read the instructions and required connections before you set it up. The listing offers a starter file, but Bot Cabinet has not checked the full download. Installing it does not automatically connect your inbox, set up a printer or create a schedule.",
           "Ask for a preview with selected sample inputs first. Confirm what data will leave your account, how printing reaches your device, where the files are stored and how to stop the routine. A successful preview is not yet evidence that the overnight delivery works.",
         ],
         sources: [{ label: "Open the original Grok Bot", href: "https://x.ai/bot/marketplace/bots/the-morning-newspaper" }],
       },
       {
-        heading: "Hermes: adapt the brief, then connect the delivery",
+        heading: "Hermes: make one edition before you schedule it",
         paragraphs: [
-          "Use a separate profile for this routine, or an existing briefing profile whose access you have reviewed. Start with the first-edition brief above and selected inputs. Ask Hermes to save the approved instructions as a reusable skill and report the exact file path; inspect that file before using it for unattended work.",
-          "Hermes documents scheduled jobs with skills and local-file or configured-channel delivery. After reviewing one edition, ask it to propose a single named morning job with an explicit timezone, the approved skill, output directory and failure notification. Inspect existing jobs to avoid duplicates. Confirm the next run and selected model before authorizing creation; record the job ID so you can pause that exact routine.",
-          "Scheduling does not connect email or printers. Check that your chosen Hermes host can read the approved sources and reach the delivery device. A cloud instance does not automatically have access to your home printer. Start with manual printing of the reviewed file. For unattended printing, use a supported, narrowly scoped printer connection or an explicitly configured local bridge—not a publicly exposed printer or open network port.",
+          "Use a separate Hermes profile for this routine, or a briefing profile whose access you have already checked. Start with the sample instructions above and information you choose. Ask Hermes to save the final instructions as a reusable skill and show you where it saved the file. Read that file before letting it run on its own.",
+          "After you approve one edition, ask Hermes to suggest one named morning job. The plan should include the time and time zone, the approved instructions, where the file will go and how Hermes will report a failure. Check that a duplicate job does not already exist. Confirm the next run before you approve it, and save the job number so you can pause it later.",
+          "A schedule does not connect email or printers. Check that Hermes can read only the sources you approve and reach the place where the file should go. A cloud agent cannot automatically reach your home printer. Print the first approved file yourself. For automatic printing, use a safe local connection set up only for that printer. Never expose a printer to the public internet.",
         ],
-        note: "This is a proposed Hermes adaptation, not a tested profile archive. Keep document generation and printing separate so a failed or uncertain generation cannot print an old edition. Do not change another profile's credentials, jobs or model settings.",
+        note: "This Hermes setup has not been tested from start to finish. Keep making the document and printing it as separate steps, so a failed run cannot print an old edition. Do not change another profile's passwords, jobs or settings.",
         sources: [
           { label: "Hermes profiles", href: official.profiles },
           { label: "Hermes scheduled tasks and delivery", href: official.cron },
         ],
       },
       {
-        heading: "Muse or Instinct: ask for the outcome, check the actual connections",
+        heading: "Muse or Instinct: check what your account can really do",
         paragraphs: [
-          "Muse's announcement describes connected apps and background work. Instinct presents a conversational personal assistant. Neither source establishes the complete newspaper-to-printer workflow for your accounts and devices. Do not look for a Hermes archive importer: begin with the same first-edition brief in the service you already use.",
-          "After a useful sample, ask the service the capability questions below. Use its supported connections and routine controls only after reviewing the actual account-specific choices. If it can deliver a daily message but cannot export or print, that is a partial implementation—not the physical newspaper. You can print manually while investigating supported delivery, but should not describe that as automatic printing.",
+          "Meta says Muse can use connected apps and work in the background. Instinct describes an assistant you can text or call. Neither company has shown that every account and device can complete this whole newspaper-and-printing job. Start with the same sample instructions in the service you already use.",
+          "After you get a useful sample, ask the questions below. Check the choices shown in your own account before you connect anything. If the service can send a daily message but cannot make or print a file, it is only doing part of the job. You can print the file yourself, but that is not automatic printing.",
         ],
         code: `Can you implement this approved morning edition in my current account?
 Before changing anything, tell me:
@@ -124,11 +124,11 @@ Do not create the routine, connect accounts or print yet.`,
         ],
       },
       {
-        heading: "Prove the complete morning, not just a nice page",
+        heading: "Test the whole routine, not just the page",
         bullets: [
           "First preview: compare every appointment, deadline and attributed claim with the supplied sources. Check the date, timezone, omissions, page fit and readability in print preview.",
           "First delivery: explicitly authorize one trial to the intended destination. Confirm the file arrived and, if testing printing, that the correct dated edition actually came out of the correct printer exactly once.",
-          "Failure trial: with non-sensitive inputs, check missing calendar access and an unavailable printer. Expect a clear failure notice, no invented replacement data and no unlimited reprints or retries.",
+          "Failure test: with made-up information, try a missing calendar and an unavailable printer. Expect a clear warning, no invented replacement information and no endless reprints or retries.",
           "Repeat-use check: try three real mornings. Record setup effort, corrections, costs and whether you actually read the edition. Three runs are a small pilot, not a reliability guarantee.",
           "Keep a stop card: exact routine/job name and ID, pause procedure, output location, connected accounts and how to revoke their access. Agree a finite retention period for generated editions.",
         ],
@@ -139,7 +139,7 @@ Do not create the routine, connect accounts or print yet.`,
   {
     slug: "choose-your-agent-path",
     title: "Which agent path fits your work?",
-    summary: "Compare ready-to-use assistants, reusable Bot workflows, and developer tools. Start with the job, not the newest launch.",
+    summary: "Compare ready-to-use assistants, reusable Bot instructions and tools for software builders. Start with the job, not the newest launch.",
     audience: "Choosing across platforms",
     readTime: "6 min",
     updated: "2026-09-20",
@@ -148,10 +148,10 @@ Do not create the routine, connect accounts or print yet.`,
       {
         heading: "Three choices, not one ladder to climb",
         paragraphs: [
-          "You do not need to build your own agent infrastructure to benefit from agents. A service may already handle your job. A reusable workflow can adapt an existing assistant. Developer frameworks become relevant when you are building a product or need control that an existing service cannot supply.",
-          "Cabinet's editorial starting point is to try the least burdensome option that meets your actual requirements. That is a selection principle, not proof that one platform is best. The examples below are a dated source review, not an exhaustive ranking or a hands-on reliability test.",
+          "You do not need to build your own AI system to benefit from an agent. A service may already handle your job. Saved instructions may help an assistant do the same job more than once. Tools for software builders matter when you are making a product or need control that a ready-made service does not offer.",
+          "Bot Cabinet starts with the simplest choice that can do the real job. That does not prove one service is best. The examples below come from a dated review of public sources, not a full ranking or a hands-on test.",
         ],
-        note: "Documentation reviewed September 20, 2026. Product descriptions are provider claims unless explicitly identified otherwise. Access, pricing and capabilities can change. No platform in this guide has been independently runtime-tested by Cabinet for this comparison.",
+        note: "Pages checked September 20, 2026. Product descriptions come from the companies unless we say otherwise. Access, prices and features can change. Bot Cabinet has not tested these services side by side.",
       },
       {
         heading: "A ready-to-use assistant: delegate without assembling a Bot",
@@ -168,12 +168,12 @@ Do not create the routine, connect accounts or print yet.`,
       {
         heading: "Ready-made assistants are splitting into different jobs",
         paragraphs: [
-          "The current wave is not one generic personal-agent category. Provider materials show at least three different products hiding behind similar assistant language. Ollie is organized around family coordination and shared household context. Wajo's Fo is organized around completing real-world errands through calls, bookings, purchases and vendors. Town is organized around learning how a person works, then acting across email, calendars, documents and business systems.",
+          "These new assistants do different jobs even when companies use similar words. Ollie focuses on families and shared household information. Wajo's Fo focuses on errands such as calls, bookings, purchases and dealing with vendors. Town focuses on learning how a person works, then helping across email, calendars, documents and business tools.",
           "That distinction changes what you should test. Family coordination depends on shared participation and accurate household context. A real-world concierge needs spending limits, confirmation rules, reliable escalation and recovery when a merchant or phone tree blocks it. A work-model assistant needs careful account permissions, correct memory and a way to inspect or correct what it has learned about your voice, contacts and priorities.",
-          "These sources are provider descriptions, not Cabinet endorsements or reliability results. They are examples of emerging job shapes, not a closed list of brands. New services should be placed by the work they actually finish, the access they require and the proof available—not added as another undifferentiated assistant listing.",
+          "These descriptions come from the companies. They are not Bot Cabinet endorsements or test results. They are examples, not a complete list. Bot Cabinet should judge new services by the work they finish, the access they need and the proof we can find.",
         ],
         bullets: [
-          "Family coordinator — compare with Cabinet's Home Admin material, which currently organizes lists, reminders and research but does not claim connected family coordination or autonomous action.",
+          "Family coordinator — compare with Home Admin, which organizes lists, reminders and research but does not claim to connect a whole family or act on its own.",
           "Real-world concierge — compare with the Personal Planning Desk, which prepares choices and plans while a person controls calls, bookings, purchases, cancellations and messages.",
           "Work-model operator — compare with the Small-Business Admin Desk, which defines reviewable outputs and approval boundaries but is not a turnkey service that learns from connected accounts.",
         ],
@@ -185,10 +185,10 @@ Do not create the routine, connect accounts or print yet.`,
         ],
       },
       {
-        heading: "A reusable workflow: keep the job, choose the host",
+        heading: "Reusable instructions: keep the job, choose the service",
         paragraphs: [
-          "Grok Bot's official template guide describes sharing instructions, selected memories, skills and plugins. Templates still require review and setup; custom scripts and non-standard integrations may not transfer. Cabinet's current Grok downloads are manual build briefs, not those native template links.",
-          "A portable skill packages instructions and optional resources for a supporting agent. The Agent Skills specification includes environment requirements: sharing a format does not prove the same behavior on every host. A skill bundle, a collection of Bot profiles and a tested coordinated crew are different deliverables.",
+          "Grok Bot's official guide explains how to share instructions, selected memories, skills and plugins. A template still needs review and setup. Special scripts or connections may not move to another service. Bot Cabinet's Grok downloads are step-by-step build guides, not Grok template links.",
+          "A portable skill is a folder of instructions and helpful files for an AI agent. Using the same file type does not prove it will work the same way with every service. One skill, a group of Bot profiles and a tested crew are different things.",
           "Consider this path when your repeated job needs consistent instructions, sources, deliverables and approval points. Check for an existing workflow before making another. Review a sample output, install requirements, recurring costs and how to stop it—not only the role's name.",
         ],
         sources: [
@@ -198,10 +198,10 @@ Do not create the routine, connect accounts or print yet.`,
         ],
       },
       {
-        heading: "Developer infrastructure: relevant when the product needs it",
+        heading: "Tools for people who build software",
         paragraphs: [
-          "A harness manages how a model uses tools, receives context, continues, stops and asks for help. A runtime supplies execution and state; vendors sometimes use these terms differently. Building a product with an existing framework is not the same as writing that control loop yourself.",
-          "Jev is an example of a component at this layer. TypeSafe describes a decision model that selects choices or produces scores, rather than writing the final reply. LangChain's September 17 article demonstrates experimental middleware around it. That is interesting for builders evaluating routing or classification—not a reason for an ordinary user to install another assistant, or for Cabinet to adopt it without a demonstrated need.",
+          "A harness is the code around an AI model. It decides what tools the model can use, what information it sees, when it keeps going and when it stops or asks for help. Software companies do not always use the word in exactly the same way.",
+          "Jev is one tool for software builders. TypeSafe says it helps a system choose or score options; it does not write the final answer. LangChain showed an early example of using it inside a larger system. That may help a builder, but it is not a reason for most people to install another assistant or for Bot Cabinet to use it without a clear need.",
         ],
         sources: [
           { label: "Cloudflare: runtime and harness distinctions", href: "https://developers.cloudflare.com/agents/harnesses/" },
@@ -214,7 +214,7 @@ Do not create the routine, connect accounts or print yet.`,
         bullets: [
           "Name one real job and the deliverable that would make it finished. Include what must not happen without your approval.",
           "List the accounts, data, devices and permissions it needs. Check those exact connections rather than assuming broad integration claims cover them.",
-          "Where the provider permits evaluation, start with non-sensitive sample material and no autonomous sends or purchases. Compare with your normal way of doing the work.",
+          "When the service allows a test, start with safe sample material and do not let it send messages or make purchases on its own. Compare it with your normal way of doing the work.",
           "Record setup effort, corrections, human review time, charges and whether the output was actually useful. Repeat the same job on a second and third real occasion before calling it a dependable routine.",
           "Check what happens after interrupted work, changed instructions or expired access. Know how to stop schedules, correct memory and export or delete information.",
         ],

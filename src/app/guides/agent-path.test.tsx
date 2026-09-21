@@ -19,8 +19,8 @@ describe("cross-platform agent path guide", () => {
   it("renders dated source links and distinguishes research from runtime proof", async () => {
     const html = renderToStaticMarkup(await GuidePage({ params: Promise.resolve({ slug }) }));
     expect(html).toContain("2026-09-20");
-    expect(html).toContain("not an exhaustive ranking or a hands-on reliability test");
-    expect(html).toContain("manual build briefs, not those native template links");
+    expect(html).toContain("not a full ranking or a hands-on test");
+    expect(html).toContain("step-by-step build guides, not Grok template links");
     expect(html).toContain("https://docs.typesafe.ai/concepts/system-one");
     expect(html).toContain("https://instinct.com/");
     expect(html).toContain("https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/");
@@ -31,5 +31,6 @@ describe("cross-platform agent path guide", () => {
     expect(html).toContain("Overlap is a reason to compare the experience");
     expect(html).toContain("has not created a new Bot from these findings");
     expect(html).toContain("second and third real occasion");
+    expect(html).toContain("A harness is the code around an AI model");
   });
 });
