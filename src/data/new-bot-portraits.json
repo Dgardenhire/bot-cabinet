@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "daily-newspaper",
+    "name": "Daily Newspaper",
+    "description": "Clean sky-blue Bot with a sunrise badge and a folded newspaper.",
+    "alt": "A friendly sky-blue Daily Newspaper Bot in a sunny reading room",
+    "sourceFile": "bot-daily-newspaper.png",
+    "sourceSha256": "55020bf47b4983b75b56f236ef89cb430d14637e429a1d75f669fdd8e4c1c883"
+  }
+]

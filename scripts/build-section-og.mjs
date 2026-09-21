@@ -9,6 +9,15 @@ const wordmark = path.join(root, "public", "brand", "bot-cabinet-wordmark-dark-v
 
 const cards = [
 {
+  output: "showcase-daily-newspaper-v1-1200x630.jpg",
+  source: path.join(root, "public", "downloads/bot-portraits/hermes/daily-newspaper-1024.png"),
+  sourcePosition: "right",
+  eyebrow: "BOT SHOWCASE",
+  title: ["Meet Daily", "Newspaper"],
+  description: "A useful edition, made for you",
+  url: "botcabinet.com/bots/daily-newspaper"
+},
+{
   "output": "showcase-curator-v1-1200x630.jpg",
   "source": path.join(root, "public", "downloads/bot-portraits/hermes/curator-1024.png"),
   "sourcePosition": "right",

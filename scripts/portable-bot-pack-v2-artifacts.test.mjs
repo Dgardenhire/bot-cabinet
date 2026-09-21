@@ -24,7 +24,7 @@ test("generated V2 index resolves every versioned artifact", async () => {
   assert.equal(index.grokImportSupport, false);
   assert.equal(index.routineActivation, "manual-test-required");
   assert.equal(catalog.apiVersion, 2);
-  assert.equal(catalog.count, 19);
+  assert.equal(catalog.count, 20);
   assert.equal(catalog.bots.length, catalog.count);
   assert.equal(new Set(catalog.bots.map((bot) => bot.slug)).size, catalog.count);
   assert.equal(schema.$schema, "https://json-schema.org/draft/2020-12/schema");
@@ -46,17 +46,18 @@ test("generated V2 index resolves every versioned artifact", async () => {
     assert.equal(pack.routines[0].activationStatus, "manual-test-required");
     assert.equal(pack.routines[0].testStatus, "not-tested");
     const hasSeptember9Evidence = ["curator", "reentry", "receipt"].includes(bot.slug);
-    assert.equal(pack.platforms.hermes.importStatus, "import-test-passed");
-    assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, ["writer", "editor"].includes(bot.slug) ? "0.21.3" : hasSeptember9Evidence ? "0.21.1" : "0.21.0");
-    assert.equal(pack.platforms.hermes.importEvidence.testedDate, ["writer", "editor"].includes(bot.slug) ? "2026-09-20" : hasSeptember9Evidence ? "2026-09-09" : "2026-09-04");
-    assert.equal(pack.provenance.publishedDate, hasSeptember9Evidence ? "2026-09-05" : "2026-09-04");
+    const importTested = bot.slug !== "daily-newspaper";
+    assert.equal(pack.platforms.hermes.importStatus, importTested ? "import-test-passed" : "not-tested");
+    assert.equal(pack.platforms.hermes.importEvidence?.hermesVersion ?? null, importTested ? (["writer", "editor"].includes(bot.slug) ? "0.21.3" : hasSeptember9Evidence ? "0.21.1" : "0.21.0") : null);
+    assert.equal(pack.platforms.hermes.importEvidence?.testedDate ?? null, importTested ? (["writer", "editor"].includes(bot.slug) ? "2026-09-20" : hasSeptember9Evidence ? "2026-09-09" : "2026-09-04") : null);
+    assert.equal(pack.provenance.publishedDate, bot.slug === "daily-newspaper" ? "2026-09-21" : hasSeptember9Evidence ? "2026-09-05" : "2026-09-04");
     assert.equal(pack.platforms.grokBot.importable, false);
     assert.match(portableMarkdown, /Portable Bot Pack V2/);
     const packageReadme = await readFile(
       path.join(projectRoot, `public/downloads/starter-bots/v2/${bot.slug}/README.md`),
       "utf8",
     );
-    assert.match(packageReadme, /did not test output quality or live-service behavior/);
+    assert.match(packageReadme, importTested ? /did not test output quality or live-service behavior/ : /Output quality and live-service behavior remain untested/);
     if (hasSeptember9Evidence) {
       const proofSlug = {
         curator: "curator-lineup-review",

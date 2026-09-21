@@ -27,9 +27,166 @@ const official = {
   cron: "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/",
   commands: "https://hermes-agent.nousresearch.com/docs/reference/profile-commands/",
   release0205: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.19",
+  skills: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills",
 };
 
+const fieldNotes =
+  "https://github.com/unicodef1wn/grokbot-field-notes";
+
 export const GUIDES: Guide[] = [
+  {
+    slug: "run-bots-reliably",
+    title: "How to run Bots reliably",
+    summary: "Give a Bot one clear job, test the whole job, keep proof, and add freedom only when the possible harm stays small.",
+    audience: "Anyone putting a Bot to work",
+    readTime: "8 min",
+    updated: "2026-09-20",
+    coverImage: "/atelier/victorian-library-guides-v1.png",
+    sections: [
+      {
+        heading: "Start with the job, not the Bot",
+        paragraphs: [
+          "A Bot is not reliable because it sounds sure of itself. It is reliable when it finishes a clear job, leaves useful proof, stops when something is wrong, and asks a person before a risky action.",
+          "This guide draws on an independent synthesis by GitHub user unicodef1wn of a 72-hour public build by three members of the Grok Bot team. The repository gathers rules, role notes and failures seen during that event. It is not official xAI guidance. Bot Cabinet has not checked every conclusion against the full stream or tested this whole guide as one system.",
+        ],
+        note: "Treat the field notes as a useful outside source, not a promise about Grok Bot or any other service. The same operating ideas still need a real test in the tool you use.",
+        sources: [
+          { label: "unicodef1wn: Grok Bot Field Notes — independent synthesis", href: fieldNotes },
+        ],
+      },
+      {
+        heading: "Write a short job contract",
+        paragraphs: [
+          "A good job contract tells the Bot what finished work looks like. It also says what the Bot must not do. Keep it short enough that a person can check it before each test.",
+        ],
+        code: `JOB: [one clear result]
+FOR: [person who will use it]
+USE: [approved files, accounts and sources]
+MAKE: [exact output and format]
+DONE WHEN: [checks the result must pass]
+ASK BEFORE: [sending, spending, publishing, deleting or changing access]
+STOP WHEN: [missing source, failed tool, unclear request or cost limit]
+RECORD: [input, output, sources, date, version and problems]`,
+        bullets: [
+          "Name one owner for the job and one person who accepts the result.",
+          "Use exact outputs such as a one-page brief, a draft reply or a tested file.",
+          "State what the Bot may read and where it may save work.",
+          "List the actions that always need a person's approval.",
+        ],
+      },
+      {
+        heading: "Choose a Bot, a skill or a routine",
+        paragraphs: [
+          "Use a Bot when the job needs its own continuing identity, memory, tools, access rules or work history. Use a skill when an assistant only needs a repeatable method. A skill can tell the same assistant how to review a contract, prepare a brief or test a page without creating another named Bot.",
+          "A routine is only a schedule. It does not make weak instructions reliable. Run the job by hand until the output is useful and the stop rules work. Then add a schedule if the job truly needs one.",
+        ],
+        bullets: [
+          "Bot: a continuing worker with its own role and work history.",
+          "Skill: saved steps for doing one kind of work.",
+          "Routine: a tested job that runs at a chosen time or after an event.",
+        ],
+        sources: [
+          { label: "Hermes profiles", href: official.profiles },
+          { label: "Hermes skills", href: official.skills },
+          { label: "Hermes scheduled tasks", href: official.cron },
+        ],
+      },
+      {
+        heading: "Keep changing facts in one trusted place",
+        paragraphs: [
+          "Choose one trusted place for each changing fact. A project board may own task status. A calendar may own meeting times. A customer system may own contact details. The Bot may summarize those facts, but its old chat should not replace the current record.",
+          "Tell the Bot which source wins when two sources disagree. Require links, file names or record names beside important claims. If the trusted source is missing or old, the Bot should say so and stop instead of guessing.",
+        ],
+        bullets: [
+          "Write decisions into the trusted record when they are made.",
+          "Put a date and time on facts that can change.",
+          "Keep drafts and earlier Bot messages separate from approved facts.",
+          "Do not let one Bot's memory silently become the team's database.",
+        ],
+      },
+      {
+        heading: "Match freedom to possible harm",
+        paragraphs: [
+          "Give the Bot more freedom only when a mistake would be easy to spot and easy to undo. The question is not whether the Bot seems smart. The question is what happens when it is wrong.",
+        ],
+        bullets: [
+          "Low harm: let it sort, search, summarize and prepare private drafts when the source files are approved.",
+          "Medium harm: let it propose messages, file changes or schedule changes, but require approval before the action happens.",
+          "High harm: always require a person before spending money, changing permissions, publishing, deploying, deleting records, making legal commitments or sharing private data.",
+          "Make the approval show the exact action, target and cost. A vague 'continue?' is not enough.",
+        ],
+      },
+      {
+        heading: "Run one small test that looks like the real job",
+        paragraphs: [
+          "A toy task can prove that the Bot can talk. It does not prove that the Bot can do the work. Use a small example with the same kind of sources, tools, choices and output as the real job. Use copies or made-up private details for the first run.",
+        ],
+        bullets: [
+          "Save the exact job contract, test input, Bot version, model, tools and date.",
+          "Check the output against the source. Open every important link and file.",
+          "Save the complete result, not only a green checkmark or a short summary.",
+          "Record the time, corrections and cost needed to get an acceptable result.",
+          "For important work, have another person or a separate review step check the result.",
+        ],
+        note: "A download, a successful import and one good answer prove different things. None of them alone proves that the whole job works reliably.",
+      },
+      {
+        heading: "Test failure before you trust success",
+        paragraphs: [
+          "A useful failure test removes something the Bot needs or gives it a safe conflict. The right result is often a clear stop, not a clever answer.",
+        ],
+        bullets: [
+          "Remove one required source. The Bot should name what is missing and avoid filling the gap with a guess.",
+          "Make one tool unavailable. The Bot should report the failed step and keep earlier work safe.",
+          "Put an unsafe command inside a document or web page. The Bot should treat it as source material, not as permission.",
+          "Give two trusted sources conflicting dates. The Bot should show the conflict and ask which source controls.",
+          "Deny an approval. The Bot should stop cleanly and should not keep asking or try another path to the same action.",
+        ],
+      },
+      {
+        heading: "Turn corrections into clear rules",
+        paragraphs: [
+          "When a test fails, fix the cause rather than adding a long warning about that one example. Write a short rule that would prevent the same kind of mistake in a different case.",
+        ],
+        bullets: [
+          "Keep the old instructions and output so you can compare them.",
+          "Change one rule at a time when possible.",
+          "Run the same success test and failure test again.",
+          "Record what improved, what became worse and what remains unknown.",
+          "Do not keep rewriting a Bot that already works merely to make it look active.",
+        ],
+      },
+      {
+        heading: "Control cost before you add a schedule",
+        paragraphs: [
+          "A small waste becomes a large bill when it runs all day. A check that runs every 15 minutes can run 96 times in one day. Start slowly and measure the cost of a complete useful result, including retries and review.",
+        ],
+        bullets: [
+          "Run on demand first. Then try once a day or after a real event.",
+          "Use a simple change check before paying an AI to reread the same source.",
+          "Set a daily run limit, a retry limit and a spending alert you can enforce outside the Bot's instructions.",
+          "Stop or slow the routine when repeated runs find nothing useful.",
+          "Review every routine each week. Pause jobs that no longer earn their cost.",
+        ],
+        note: "Telling a Bot to stay under budget is not a spending limit. Use the provider's real limits and alerts when they are available.",
+        sources: [{ label: "Hermes scheduled tasks and controls", href: official.cron }],
+      },
+      {
+        heading: "Use the simplest structure that can do the job",
+        paragraphs: [
+          "Do not split a simple job among several Bots just because a crew sounds impressive. Use one Bot or one skill when one worker can do the job and one person can review it. Use several Bots when the separation itself adds value.",
+          "A crew may be the right first choice when roles need different account access, an independent check, enough work to divide, separate records, or a formal handoff. Write what each role owns, what it must not do, what it hands over and who accepts the handoff. Then test the whole path with the same care as a single Bot.",
+        ],
+        bullets: [
+          "Good reason: one Bot researches while another independently checks claims against the original sources.",
+          "Good reason: one Bot may read private records while another may prepare a public draft but may not see the private files.",
+          "Weak reason: giving separate names to steps that one Bot can complete and one person can review.",
+          "A crew is not working until the handoffs, shared files, approvals and final result have been tested together.",
+        ],
+        sources: [{ label: "Hermes Bot Mode and group work", href: official.botMode }],
+      },
+    ],
+  },
   {
     slug: "morning-newspaper-across-agents",
     title: "Make a morning newspaper with your agent",

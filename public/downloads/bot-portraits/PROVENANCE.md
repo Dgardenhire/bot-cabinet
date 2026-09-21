@@ -1,7 +1,8 @@
 # Bot Portrait Studio provenance
 
-Bot Cabinet's Portrait Studio collection contains 21 images: thirteen premium
-portraits and eight classic portraits already used elsewhere on the site.
+Bot Cabinet's Portrait Studio collection contains thirteen premium portraits
+and eight classic portraits already used elsewhere on the site. Daily Newspaper
+has a separately recorded original and downloadable derivatives.
 
 The first five premium portraits were created on August 25, 2026. The second
 five were created on September 3, 2026. Curator, Reentry, and Receipt were
@@ -57,3 +58,13 @@ documented square crop from each 1024×1536 premium original, and produces:
 The premium crops, compressed classic downloads, and website previews do not
 retain the original cryptographic Content Credentials. They are documented
 derivatives, not signed originals.
+
+## Daily Newspaper
+
+The original 1254×1254 PNG was generated on September 21, 2026 using OpenAI's
+image generation for the standalone Daily Newspaper Bot. The character has a
+clean blue shell, a sunrise badge, and a folded newspaper. Its original file is
+`public/bot-daily-newspaper.png` with SHA-256
+`55020bf47b4983b75b56f236ef89cb430d14637e429a1d75f669fdd8e4c1c883`.
+The build verifies this source and creates a compact 1024×1024 Hermes portrait,
+a 256×256 version, and a website preview. These derivatives are not signed originals.

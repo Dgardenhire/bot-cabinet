@@ -23,6 +23,7 @@ import {
   STARTER_BOTS,
   STARTER_CATEGORY_LABELS,
   getStarterBot,
+  getStarterBotRoleContract,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
 import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
@@ -71,6 +72,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
   const profileArchiveUrl = `https://botcabinet.com${portablePackV2.platforms.hermes.archiveUrl}`;
   const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}-v2.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}-v2.tar.gz --name ${bot.slug}-v2`;
   const passport = portableBotPackV2ToPassport(portablePackV2);
+  const roleContract = getStarterBotRoleContract(bot);
 
   return (
     <main id="main-content" className="page-main starter-detail">
@@ -111,6 +113,20 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <p>This fictional example illustrates the intended result; it is not a recorded Bot run.</p>
         </section>
       )}
+
+      <section className="content-section shell">
+        <Eyebrow>Job contract</Eyebrow>
+        <h2 className="section-heading">Know exactly what this Bot is responsible for</h2>
+        <p className="section-intro">A clear job prevents a Bot from quietly taking on work, authority, or information it was never given.</p>
+        <div className="starter-practical-grid">
+          <article className="starter-practical-card"><h3>Owns</h3><p>{roleContract.owns}</p></article>
+          <article className="starter-practical-card"><h3>Does not own</h3><ul>{roleContract.doesNotOwn.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Source of truth</h3><ul>{roleContract.sourceOfTruth.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Needs approval for</h3><ul>{roleContract.approvalPoints.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Starts when</h3><p>{roleContract.trigger}</p></article>
+          <article className="starter-practical-card"><h3>Hands back</h3><ul>{roleContract.finishedDeliverables.map((item) => <li key={item}>{item}</li>)}</ul></article>
+        </div>
+      </section>
 
       <BotPlatformChooser
         hermesImportCommand={importCommand}
@@ -158,7 +174,10 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <li><span>1</span><div><strong>Download the Hermes profile.</strong><p>Import the .tar.gz archive from the Profiles screen, or copy the terminal command above.</p></div></li>
           <li><span>2</span><div><strong>Review the imported profile.</strong><p>Read README.md and SOUL.md, then confirm the name, description, and standing instructions.</p></div></li>
           <li><span>3</span><div><strong>Choose the access it needs.</strong><p>Add only the skills, tools, and connections required for this job.</p></div></li>
-          <li><span>4</span><div><strong>Run a low-risk test.</strong><p>Use sample material and confirm that the result matches the intended output before adding private files, accounts, or schedules.</p></div></li>
+          <li><span>4</span><div><strong>Run the named first test.</strong><p>{bot.workshopDraft.firstRunTest}</p></div></li>
+          <li><span>5</span><div><strong>Keep proof.</strong><p>Save the exact input, the finished output, the Bot and Hermes versions, the date, and any correction you had to make.</p></div></li>
+          <li><span>6</span><div><strong>Test one failure.</strong><p>Remove a required input or deny an optional connection. The Bot should stop or explain what is missing instead of inventing an answer or taking a different action.</p></div></li>
+          <li><span>7</span><div><strong>Repeat before automating.</strong><p>Run the same job successfully again after any change to its instructions, tools, source material, or schedule.</p></div></li>
         </ol>
         <div className="source-link-row starter-file-links">
           <a href={`/downloads/starter-bots/v2/${bot.slug}/README.md`} target="_blank" rel="noreferrer">Read the starter guide</a>

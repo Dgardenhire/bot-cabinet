@@ -3,7 +3,7 @@
   "schemaVersion": 2,
   "packVersion": "2.0.0",
   "portablePackSchemaUrl": "/api/v2/portable-bot-pack.schema.json",
-  "count": 19,
+  "count": 20,
   "bots": [
     {
       "artifactId": "bot-cabinet:bot:scout:portable-pack",
@@ -657,6 +657,43 @@
         "mediaType": "text/markdown",
         "importable": false,
         "briefUrl": "/downloads/grok-bot-templates/v2/story.md",
+        "preparationStatus": "prepared",
+        "testStatus": "adaptation-prepared-not-tested"
+      }
+    },
+    {
+      "artifactId": "bot-cabinet:bot:daily-newspaper:portable-pack",
+      "slug": "daily-newspaper",
+      "name": "Daily Newspaper",
+      "title": "Personal daily briefing maker",
+      "category": "writing",
+      "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
+      "portraitUrl": "/downloads/bot-portraits/hermes/daily-newspaper-1024.png",
+      "preparationStatus": "prepared",
+      "portablePack": {
+        "jsonUrl": "/downloads/portable-bot-packs/v2/daily-newspaper.json",
+        "markdownUrl": "/downloads/portable-bot-packs/v2/daily-newspaper.md"
+      },
+      "hermes": {
+        "platformId": "hermes-agent",
+        "artifactId": "bot-cabinet:bot:daily-newspaper:platform:hermes:profile-archive",
+        "artifactKind": "profile-archive",
+        "mediaType": "application/gzip",
+        "importable": true,
+        "minimumVersion": ">=0.21.0",
+        "archiveUrl": "/downloads/starter-bots/v2/daily-newspaper.tar.gz",
+        "readableFilesUrl": "/downloads/starter-bots/v2/daily-newspaper.zip",
+        "packageStatus": "files-and-archive-checked",
+        "importStatus": "not-tested",
+        "importEvidence": null
+      },
+      "grokBot": {
+        "platformId": "grok-bot",
+        "artifactId": "bot-cabinet:bot:daily-newspaper:platform:grok-bot:manual-brief",
+        "artifactKind": "manual-build-brief",
+        "mediaType": "text/markdown",
+        "importable": false,
+        "briefUrl": "/downloads/grok-bot-templates/v2/daily-newspaper.md",
         "preparationStatus": "prepared",
         "testStatus": "adaptation-prepared-not-tested"
       }

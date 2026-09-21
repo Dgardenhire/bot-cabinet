@@ -6,6 +6,7 @@ import sharp from "sharp";
 
 import portraits from "../src/data/bot-portraits.json" with { type: "json" };
 import classicPortraits from "../src/data/classic-bot-portraits.json" with { type: "json" };
+import newPortraits from "../src/data/new-bot-portraits.json" with { type: "json" };
 
 const root = process.cwd();
 const downloadsDirectory = path.join(root, "public", "downloads", "bot-portraits");
@@ -73,6 +74,26 @@ for (const portrait of classicPortraits) {
     .png({ compressionLevel: 9, quality: 92 })
     .toBuffer();
 
+  await writePortraitDerivatives(portrait.slug, square);
+}
+
+for (const portrait of newPortraits) {
+  if (path.basename(portrait.sourceFile) !== portrait.sourceFile) {
+    throw new Error(`${portrait.slug}: source must be a public-file name`);
+  }
+  const sourceBuffer = await readFile(path.join(root, "public", portrait.sourceFile));
+  const digest = createHash("sha256").update(sourceBuffer).digest("hex");
+  if (digest !== portrait.sourceSha256) {
+    throw new Error(`${portrait.slug}: source hash does not match its provenance record`);
+  }
+  const metadata = await sharp(sourceBuffer).metadata();
+  if (metadata.width !== 1254 || metadata.height !== 1254 || metadata.format !== "png") {
+    throw new Error(`${portrait.slug}: expected a 1254x1254 PNG source`);
+  }
+  const square = await sharp(sourceBuffer)
+    .resize(1024, 1024)
+    .png({ palette: true, colors: 192, quality: 90, compressionLevel: 9, effort: 10 })
+    .toBuffer();
   await writePortraitDerivatives(portrait.slug, square);
 }
 

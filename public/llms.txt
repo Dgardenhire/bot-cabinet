@@ -45,6 +45,7 @@ Bot Cabinet is an independent guide to practical Bots. Each public profile expla
 - [Nova: New venture testing assistant](https://botcabinet.com/bots/nova/)
 - [Pulse: Growth management assistant](https://botcabinet.com/bots/pulse/)
 - [Story: Chief narrative officer](https://botcabinet.com/bots/story/)
+- [Daily Newspaper: Personal daily briefing maker](https://botcabinet.com/bots/daily-newspaper/)
 - [Curator: Bot lineup improvement manager](https://botcabinet.com/bots/curator/)
 - [Reentry: Project resumption guide](https://botcabinet.com/bots/reentry/)
 - [Receipt: Returns and warranty case assistant](https://botcabinet.com/bots/receipt/)

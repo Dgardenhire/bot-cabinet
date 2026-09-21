@@ -136,6 +136,14 @@
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Daily Newspaper — Personal daily briefing maker</title>
+      <link>https://botcabinet.com/bots/daily-newspaper/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:daily-newspaper:1.0.0</guid>
+      <description>Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.</description>
+      <category>writing</category>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Curator — Bot lineup improvement manager</title>
       <link>https://botcabinet.com/bots/curator/</link>
       <guid isPermaLink="false">bot-cabinet:bot:curator:1.0.0</guid>

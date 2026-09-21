@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Binoculars, CheckCircle, Flask, Warning } from "@phosphor-icons/react/dist/ssr";
 import { AgentWatchFeed } from "@/components/agent-watch-feed";
+import { LiveBotListings } from "@/components/live-bot-listings";
 import { Eyebrow } from "@/components/ui";
 import { AGENT_WATCH_ITEMS, AGENT_WATCH_UPDATED } from "@/data/agent-watch";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -34,6 +35,7 @@ export default function AgentWatchPage() {
       </section>
 
       <section className="content-section shell" aria-labelledby="watch-method-title">
+        <LiveBotListings />
         <div className="agent-watch-key">
           <h2 id="watch-method-title">What the labels mean</h2>
           <div><CheckCircle size={20} weight="thin" /><span><strong>Source reviewed</strong> means the note links to the original public source.</span></div>
@@ -43,8 +45,8 @@ export default function AgentWatchPage() {
 
         <div className="section-heading">
           <Eyebrow>Worth your attention</Eyebrow>
-          <h2>New tools and useful ideas</h2>
-          <p>Each note explains what is new, why it may matter and a sensible place to begin.</p>
+          <h2>Useful changes and ideas</h2>
+          <p>See specific Bots first, followed by larger changes that may affect how people use agents.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />

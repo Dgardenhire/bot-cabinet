@@ -14,12 +14,28 @@ const item: AgentWatchItem = {
   responseStatus: "published",
   limits: "It is not fully tested.",
   sources: [{ label: "Official", href: "https://example.com" }],
+  botDetails: {
+    name: "Useful Bot",
+    creator: "A maker",
+    platform: "Example",
+    job: "Handles one useful job.",
+    requiredAccess: "An account and one selected file.",
+    outsideActions: "None during the first test.",
+    evidenceStatus: "inspected",
+    cabinetDecision: "test-adaptation",
+    cabinetFit: "Test it before deciding whether to add it.",
+    closestCabinetMatch: { label: "Scout", href: "/bots/scout" },
+  },
 };
 
 describe("live Agent Watch feed", () => {
   it("accepts reviewed feed items and rejects unsafe links", () => {
     expect(parsePublicWatchFeed({ items: [item] })).toEqual([item]);
     expect(parsePublicWatchItem({ ...item, sources: [{ label: "bad", href: "javascript:alert(1)" }] })).toBeNull();
+    expect(parsePublicWatchItem({ ...item, botDetails: { ...item.botDetails, job: "" } })).toBeNull();
+    expect(parsePublicWatchItem({ ...item, botDetails: { ...item.botDetails, closestCabinetMatch: { label: "bad", href: "javascript:alert(1)" } } })).toBeNull();
+    expect(parsePublicWatchItem({ ...item, botDetails: { ...item.botDetails, evidenceStatus: "downloaded" } })).toBeNull();
+    expect(parsePublicWatchItem({ ...item, botDetails: { ...item.botDetails, cabinetDecision: "copy-it" } })).toBeNull();
   });
 
   it("uses a newer live revision and keeps the fallback if the feed is down", () => {

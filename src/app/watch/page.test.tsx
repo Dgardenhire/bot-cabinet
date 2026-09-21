@@ -17,7 +17,32 @@ describe("Agent Watch", () => {
 
   it("renders useful public guidance without exposing internal operations or analytics", () => {
     const html = renderToStaticMarkup(<AgentWatchPage />);
-    expect(html).toContain("New tools and useful ideas");
+    expect(html).toContain("Useful changes and ideas");
+    expect(html).toContain("Fresh Bot listings");
+    expect(html).toContain("My Bot Farm and GrokHub");
+    expect(html).toContain("New and noteworthy Bots");
+    expect(html).toContain("Unstick Me Bot");
+    expect(html).toContain("Bill Import Bot");
+    expect(html).toContain("Stuck Signal Bot");
+    expect(html).toContain("Canonizer Bot");
+    expect(html).toContain("About Me Bot");
+    expect(html).toContain("Scouty Bot");
+    expect(html).toContain("Accounts and access");
+    expect(html).toContain("Creator");
+    expect(html).toContain("Outside the chat");
+    expect(html).toContain("Closest Cabinet match");
+    expect(html).toContain("Cabinet decision");
+    expect(html).toContain("Add a new Bot");
+    expect(html).toContain("Test an adaptation");
+    expect(html).toContain("Improve an existing Bot");
+    expect(html).toContain("Write a guide");
+    expect(html).toContain("Inspected");
+    expect(html).toContain("Yanqing Cheng");
+    expect(html).toContain("Nick Roman");
+    expect(html).toContain("href=\"/bots/reentry\"");
+    expect(html).toContain("href=\"/bots/scout\"");
+    expect(html).toContain("https://x.com/YanqingCheng/status/2099206038368977179");
+    expect(html).toContain("https://x.ai/bot/A3pcjyO0dAkvRGxD4VGeH");
     expect(html).toContain("Find the signal");
     expect(html).toContain("Maker’s claim");
     expect(html).toContain("Try this");

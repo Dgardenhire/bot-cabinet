@@ -1,5 +1,20 @@
 export type WatchEvidence = "observed" | "provider-claim" | "cabinet-tested";
 export type WatchResponseStatus = "published" | "prepared" | "testing" | "watching";
+export type WatchBotEvidence = "listed" | "inspected" | "imported" | "task-tested" | "repeated";
+export type WatchBotDecision = "improve-existing" | "test-adaptation" | "write-guide" | "add-new" | "watch";
+
+export type WatchBotDetails = {
+  name: string;
+  creator: string;
+  platform: string;
+  job: string;
+  requiredAccess: string;
+  outsideActions: string;
+  evidenceStatus: WatchBotEvidence;
+  cabinetDecision: WatchBotDecision;
+  cabinetFit: string;
+  closestCabinetMatch: { label: string; href: string };
+};
 
 export type AgentWatchItem = {
   slug: string;
@@ -14,9 +29,216 @@ export type AgentWatchItem = {
   limits: string;
   sources: { label: string; href: string }[];
   cabinetLinks?: { label: string; href: string }[];
+  botDetails?: WatchBotDetails;
 };
 
 export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
+  {
+    slug: "unstick-me-bot",
+    observedOn: "2026-09-20",
+    reviewAgainBy: "2026-09-27",
+    title: "Unstick Me Bot helps someone take the first small step",
+    signal:
+      "Yanqing Cheng shared a Grok Bot that helps when a task feels hard to begin. It asks short questions one at a time instead of making a large plan.",
+    evidence: "observed",
+    whyItMatters:
+      "A long plan can become one more obstacle. This narrower approach may help someone find one manageable action and begin it.",
+    cabinetResponse:
+      "Test this as a possible new standalone Bot. Compare it with Coach and Planner using the same stalled task, and keep it only if the smaller approach helps someone start sooner.",
+    responseStatus: "testing",
+    limits:
+      "Bot Cabinet has reviewed the public description and links but has not run the Grok template or built a Hermes adaptation.",
+    sources: [
+      { label: "Creator's post", href: "https://x.com/YanqingCheng/status/2099206038368977179" },
+      { label: "Open the Grok Bot template", href: "https://x.ai/bot/EahHaI-kwO0hgWj6I45jC" },
+      { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/unstick-me-bot" },
+    ],
+    cabinetLinks: [
+      { label: "Compare with Coach", href: "/bots/coach" },
+      { label: "Compare with Planner", href: "/bots/planner" },
+    ],
+    botDetails: {
+      name: "Unstick Me Bot",
+      creator: "Yanqing Cheng",
+      platform: "Grok Bot",
+      job: "Helps someone begin a stalled task through short, one-at-a-time questions.",
+      requiredAccess: "A Grok Bot account and the task the person wants help starting.",
+      outsideActions: "None described. It asks questions and suggests a next step.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "add-new",
+      cabinetFit: "Test it against Coach and Planner first, then add it only if the smaller approach works better.",
+      closestCabinetMatch: { label: "Coach", href: "/bots/coach" },
+    },
+  },
+  {
+    slug: "bill-import-bot",
+    observedOn: "2026-09-20",
+    reviewAgainBy: "2026-09-27",
+    title: "Bill Import Bot turns statements into reviewed records",
+    signal:
+      "A public Grok Bot template accepts statement files or screenshots, finds likely duplicates, suggests categories and shows a preview before anything is saved.",
+    evidence: "observed",
+    whyItMatters:
+      "The useful pattern is the preview before the write. It can reduce repetitive entry while leaving the final categories and changes with the person using it.",
+    cabinetResponse:
+      "Test an adaptation as a new Bot because Receipt handles returns and warranties, not transaction entry. Begin with made-up records and require approval before any file is changed.",
+    responseStatus: "testing",
+    limits:
+      "Bot Cabinet has not run the template or checked its duplicate detection. Financial files can contain sensitive information and should not be connected during an early test.",
+    sources: [
+      { label: "Creator's post", href: "https://x.com/coolbat1999/status/2099141007887777987" },
+      { label: "Open the Grok Bot template", href: "https://x.ai/bot/A3pcjyO0dAkvRGxD4VGeH" },
+      { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/bill-import-bot" },
+    ],
+    cabinetLinks: [{ label: "Compare with Receipt", href: "/bots/receipt" }],
+    botDetails: {
+      name: "Bill Import Bot",
+      creator: "@coolbat1999",
+      platform: "Grok Bot",
+      job: "Reads statement files, flags possible duplicates and previews entries for approval.",
+      requiredAccess: "A Grok Bot account and statement files or screenshots selected by the user.",
+      outsideActions: "May write approved records after showing a preview. The first test should stop before any write.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "test-adaptation",
+      cabinetFit: "Receipt covers returns and warranties, so this deserves a separate adaptation test.",
+      closestCabinetMatch: { label: "Receipt", href: "/bots/receipt" },
+    },
+  },
+  {
+    slug: "stuck-signal-bot",
+    observedOn: "2026-09-20",
+    reviewAgainBy: "2026-09-27",
+    title: "Stuck Signal Bot stays quiet until a job needs attention",
+    signal:
+      "A shared Grok Bot watches a running job and sends a warning only when it passes a time limit, repeats itself or reports an error.",
+    evidence: "observed",
+    whyItMatters:
+      "A useful monitor should reduce checking, not create a second stream of noise. Clear warning rules make this pattern useful for long-running work.",
+    cabinetResponse:
+      "Use the idea to improve Ops and Cabinet Keeper rather than add a near-duplicate Bot. A first test should watch one harmless job with a clear time limit and one place for alerts.",
+    responseStatus: "watching",
+    limits:
+      "Bot Cabinet has not run the template. A monitor needs exact rules, limited access and a reliable way to avoid duplicate or false warnings.",
+    sources: [
+      { label: "Creator's post", href: "https://x.com/WeirdBotDrop/status/2096625291531538791" },
+      { label: "Open the Grok Bot template", href: "https://x.ai/bot/1JxNBfQ05cVYJGLLh6R-o" },
+      { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/stuck-signal-bot" },
+    ],
+    cabinetLinks: [{ label: "See Ops", href: "/bots/ops" }],
+    botDetails: {
+      name: "Stuck Signal Bot",
+      creator: "@WeirdBotDrop",
+      platform: "Grok Bot",
+      job: "Watches a running job and warns only when it stalls, loops or fails.",
+      requiredAccess: "A Grok Bot account, the job's status information and a place to send alerts.",
+      outsideActions: "Reads job status and sends an alert when a rule is met.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "improve-existing",
+      cabinetFit: "Add the quiet-alert pattern to Ops and Cabinet Keeper instead of making a duplicate Bot.",
+      closestCabinetMatch: { label: "Ops", href: "/bots/ops" },
+    },
+  },
+  {
+    slug: "canonizer-bot",
+    observedOn: "2026-09-20",
+    reviewAgainBy: "2026-09-27",
+    title: "Canonizer Bot keeps one current project record",
+    signal:
+      "A shared Grok Bot turns updates from different chats or agents into one current status file, with decisions, open questions and next steps.",
+    evidence: "observed",
+    whyItMatters:
+      "Work becomes hard to resume when important decisions are scattered. One short, dated record can make handoffs and restarts much easier.",
+    cabinetResponse:
+      "Use this pattern to improve Reentry rather than create another project-resumption Bot. Test whether it can update one record without erasing disagreement or treating a guess as a decision.",
+    responseStatus: "watching",
+    limits:
+      "Bot Cabinet has not run the template. A combined record can hide conflicting accounts unless every change keeps its source and date.",
+    sources: [
+      { label: "Creator's post", href: "https://x.com/hudcos/status/2097309182584094975" },
+      { label: "Open the Grok Bot template", href: "https://x.ai/bot/pOcrH-Rc7SdPWiHsX9vHg" },
+      { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/canonizer-bot" },
+    ],
+    cabinetLinks: [{ label: "See Reentry", href: "/bots/reentry" }],
+    botDetails: {
+      name: "Canonizer Bot",
+      creator: "@hudcos",
+      platform: "Grok Bot",
+      job: "Keeps one dated record of a project's decisions, questions and next steps.",
+      requiredAccess: "A Grok Bot account and the project updates or files being combined.",
+      outsideActions: "Creates or updates a shared project record.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "improve-existing",
+      cabinetFit: "Add source and date tracking to Reentry instead of making another restart Bot.",
+      closestCabinetMatch: { label: "Reentry", href: "/bots/reentry" },
+    },
+  },
+  {
+    slug: "about-me-bot",
+    observedOn: "2026-09-20",
+    reviewAgainBy: "2026-09-27",
+    title: "About Me Bot keeps a living personal brief",
+    signal:
+      "A shared Grok Bot builds and updates a personal profile that can help another assistant understand preferences, goals and working style.",
+    evidence: "observed",
+    whyItMatters:
+      "People repeat the same background whenever they start with a new assistant. A portable brief could save time, but it can also collect more private information than the job needs.",
+    cabinetResponse:
+      "Study the idea before adapting it. Any Cabinet version should let a person see, edit and remove every saved fact, and should explain which details are unnecessary for the current job.",
+    responseStatus: "watching",
+    limits:
+      "Bot Cabinet has not tested the template. A personal profile can become inaccurate, overly revealing or difficult to move safely between services.",
+    sources: [
+      { label: "Creator's post", href: "https://x.com/TAftermath2020/status/2099183022193123784" },
+      { label: "Open the Grok Bot template", href: "https://x.ai/bot/7dfQ6zC2X2hmnIlnF4rSN" },
+      { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/about-me-bot" },
+    ],
+    botDetails: {
+      name: "About Me Bot",
+      creator: "@TAftermath2020",
+      platform: "Grok Bot",
+      job: "Keeps an editable brief of a person's preferences, goals and working style.",
+      requiredAccess: "A Grok Bot account and personal details the user chooses to provide.",
+      outsideActions: "Stores and updates a personal profile for later use.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "watch",
+      cabinetFit: "Do not adapt it until the privacy, correction and deletion controls are clear.",
+      closestCabinetMatch: { label: "Coach", href: "/bots/coach" },
+    },
+  },
+  {
+    slug: "scouty-bot",
+    observedOn: "2026-09-20",
+    reviewAgainBy: "2026-09-27",
+    title: "Scouty Bot checks job openings against a person's experience",
+    signal:
+      "A shared Grok Bot starts with a resume and location, finds likely openings and checks the listings before presenting them.",
+    evidence: "observed",
+    whyItMatters:
+      "Job search is a strong fit for focused research, but a useful result needs a current opening and a clear reason it matches—not a long list of scraped titles.",
+    cabinetResponse:
+      "Treat this as a new use case for Scout, not a new Bot. Test it with a made-up resume and require a direct employer link, location check and short explanation for every result.",
+    responseStatus: "watching",
+    limits:
+      "Bot Cabinet has not run the template or checked the quality of its matches. Job listings expire quickly and a public post may not reflect current behavior.",
+    sources: [
+      { label: "Creator's post", href: "https://x.com/NickRoman/status/2097381626955055254" },
+      { label: "Open the Grok Bot template", href: "https://x.ai/bot/jc0tOHuVUAn4MHuH2zyDn" },
+      { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/scouty-bot" },
+    ],
+    cabinetLinks: [{ label: "See Scout", href: "/bots/scout" }],
+    botDetails: {
+      name: "Scouty Bot",
+      creator: "Nick Roman",
+      platform: "Grok Bot",
+      job: "Finds current job openings and explains how each one fits a person's experience.",
+      requiredAccess: "A Grok Bot account, a resume or work history, a location and web search.",
+      outsideActions: "Searches public job listings. No application submission is described.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "write-guide",
+      cabinetFit: "Add a job-search guide for Scout rather than create a second research Bot.",
+      closestCabinetMatch: { label: "Scout", href: "/bots/scout" },
+    },
+  },
   {
     slug: "personal-agents-move-into-background",
     observedOn: "2026-09-20",

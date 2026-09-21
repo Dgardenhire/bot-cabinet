@@ -1,0 +1,31 @@
+import { describe, expect, it } from "vitest";
+import { newestListings, parseGrokHubListings, parseMyBotFarmListings } from "./live-bot-listings";
+
+describe("live directory listings", () => {
+  it("accepts My Bot Farm Bots and teams with their real listed dates", () => {
+    const items = parseMyBotFarmListings({ stalls: [
+      { kind: "agent", slug: "patch", name: "Patch", description: "Fixes a defined issue", pageUrl: "https://mybot.farm/agents/patch", listedAt: "2026-09-18T00:00:00Z", author: { username: "Ada" } },
+      { kind: "team", slug: "desk", name: "Desk", title: "A small team", pageUrl: "https://mybot.farm/teams/desk", listedAt: "2026-09-17T00:00:00Z" },
+    ] });
+    expect(items).toHaveLength(2);
+    expect(items[0]).toMatchObject({ name: "Patch", kind: "Bot", creator: "Ada", listedAt: "2026-09-18T00:00:00.000Z" });
+    expect(items[1].kind).toBe("Team");
+  });
+
+  it("retains GrokHub's original x.ai Bot link and excludes non-Bot news", () => {
+    const items = parseGrokHubListings({ items: [
+      { type: "use-case", slug: "example", headline: "Example Bot", summary: "Does a job", url: "https://www.grokhub.io/use-cases/example", template_url: "https://x.ai/bot/abc", source: { label: "@maker" }, added_at: "2026-09-19T12:00:00Z" },
+      { type: "news", slug: "event", headline: "Event", summary: "A meetup", url: "https://www.grokhub.io/news/event", added_at: "2026-09-19T12:00:00Z" },
+    ] });
+    expect(items).toHaveLength(1);
+    expect(items[0]).toMatchObject({ creator: "@maker", originalUrl: "https://x.ai/bot/abc", source: "GrokHub" });
+  });
+
+  it("rejects off-site and malformed links and sorts without inventing a discovery date", () => {
+    const bad = parseMyBotFarmListings({ stalls: [{ kind: "agent", name: "Bad", description: "Bad", pageUrl: "https://evil.example/", listedAt: "2026-09-18" }] });
+    expect(bad).toEqual([]);
+    const items = parseGrokHubListings({ items: [{ type: "use-case", slug: "safe", headline: "Safe", summary: "Job", url: "https://www.grokhub.io/use-cases/safe", template_url: "javascript:alert(1)", added_at: "2026-09-18" }] });
+    expect(items[0].originalUrl).toBeUndefined();
+    expect(newestListings([...items, ...items])).toHaveLength(1);
+  });
+});

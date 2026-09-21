@@ -1,9 +1,11 @@
-import type { AgentWatchItem, WatchEvidence, WatchResponseStatus } from "@/data/agent-watch";
+import type { AgentWatchItem, WatchBotDecision, WatchBotEvidence, WatchEvidence, WatchResponseStatus } from "@/data/agent-watch";
 
 export const AGENT_WATCH_API_URL = "https://mdjchixwgvicovkwrgle.supabase.co/functions/v1/agent-watch";
 
 const evidence = new Set<WatchEvidence>(["observed", "provider-claim", "cabinet-tested"]);
 const statuses = new Set<WatchResponseStatus>(["published", "prepared", "testing", "watching"]);
+const botEvidence = new Set<WatchBotEvidence>(["listed", "inspected", "imported", "task-tested", "repeated"]);
+const botDecisions = new Set<WatchBotDecision>(["improve-existing", "test-adaptation", "write-guide", "add-new", "watch"]);
 const retiredSlugs = new Set(["bounce-rate-is-not-useful-action", "repeat-use-not-return-visits"]);
 
 function validLink(value: unknown) {
@@ -12,6 +14,17 @@ function validLink(value: unknown) {
   if (typeof link.label !== "string" || typeof link.href !== "string") return false;
   if (link.href.startsWith("/")) return true;
   try { return new URL(link.href).protocol === "https:"; } catch { return false; }
+}
+
+function validBotDetails(value: unknown) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const details = value as Record<string, unknown>;
+  const textFields = ["name", "creator", "platform", "job", "requiredAccess", "outsideActions", "cabinetFit"];
+  if (textFields.some((key) => typeof details[key] !== "string" || !(details[key] as string).trim())) return false;
+  if (!botEvidence.has(details.evidenceStatus as WatchBotEvidence)) return false;
+  if (!botDecisions.has(details.cabinetDecision as WatchBotDecision)) return false;
+  if (!validLink(details.closestCabinetMatch)) return false;
+  return true;
 }
 
 export function parsePublicWatchItem(value: unknown): AgentWatchItem | null {
@@ -24,6 +37,7 @@ export function parsePublicWatchItem(value: unknown): AgentWatchItem | null {
   if (!evidence.has(item.evidence as WatchEvidence) || !statuses.has(item.responseStatus as WatchResponseStatus)) return null;
   if (!Array.isArray(item.sources) || item.sources.length < 1 || !item.sources.every(validLink)) return null;
   if (item.cabinetLinks !== undefined && (!Array.isArray(item.cabinetLinks) || !item.cabinetLinks.every(validLink))) return null;
+  if (item.botDetails !== undefined && !validBotDetails(item.botDetails)) return null;
   return item as unknown as AgentWatchItem;
 }
 

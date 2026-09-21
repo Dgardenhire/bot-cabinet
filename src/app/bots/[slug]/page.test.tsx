@@ -14,5 +14,11 @@ describe("starter Bot detail", () => {
     expect(html).toContain('data-funnel-destination="scout"');
     expect(html).toContain("After downloading: continue setup and test Scout");
     expect(html).toContain('id="bot-workbench"');
+    expect(html).toContain("Job contract");
+    expect(html).toContain("Source of truth");
+    expect(html).toContain("Needs approval for");
+    expect(html).toContain("Run the named first test");
+    expect(html).toContain("Test one failure");
+    expect(html).toContain("Repeat before automating");
   });
 });
