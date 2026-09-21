@@ -6,6 +6,11 @@
 .member legend { font-weight: 700; padding: 0 .5rem; }
 .item { display: flex; gap: .75rem; align-items: flex-start; padding: .5rem 0; line-height: 1.5; cursor: pointer; }
 .item input { flex-shrink: 0; width: 1.1rem; height: 1.1rem; margin-top: .2rem; accent-color: #b88935; }
+.outcome { margin: 1rem 0; padding: 1rem; border: 1px solid currentColor; }
+.outcome div { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .85rem; }
+.outcome button, .reset { min-height: 2.5rem; padding: .55rem .85rem; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.outcome button:first-child { color: var(--green); }
+.reset { margin-top: .5rem; color: var(--muted); }
 .tableWrap { overflow-x: auto; margin-top: 1.5rem; }
 .table { width: 100%; border-collapse: collapse; font-size: .9rem; text-align: left; }
 .table th, .table td { padding: .85rem; border-bottom: 1px solid currentColor; vertical-align: top; }

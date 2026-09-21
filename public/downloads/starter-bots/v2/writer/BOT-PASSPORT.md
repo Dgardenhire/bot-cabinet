@@ -3,7 +3,7 @@
 - **Artifact ID:** bot-cabinet:bot:writer:portable-pack
 - **Role:** First-draft writing assistant
 - **Planned risk:** Moderate
-- **Pack version:** 2.0.0
+- **Pack version:** 2.0.5
 
 ## Requested capabilities
 

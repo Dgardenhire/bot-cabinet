@@ -702,7 +702,9 @@ export function compilePortableBotPackV2HermesFiles(
     "",
     "- The generated files and archive structure are checked at build time.",
     pack.platforms.hermes.importEvidence ? `- This V2 archive passed an isolated import with Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion} on ${pack.platforms.hermes.importEvidence.testedDate}.` : "- This prepared archive has not yet been imported and tested in Hermes.",
-    reproducedRoleRunProofSlug
+    !pack.platforms.hermes.importEvidence
+      ? "- Output quality and live-service behavior remain untested for this revision."
+      : reproducedRoleRunProofSlug
       ? "- That import test confirmed the archive and bundled Skill were present. By itself, that import did not test output quality or live-service behavior."
       : "- That import test confirmed the archive and bundled Skill were present. It did not test output quality or live-service behavior.",
     ...(reproducedRoleRunProofSlug

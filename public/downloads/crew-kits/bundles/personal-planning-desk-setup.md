@@ -6,7 +6,9 @@ Turn a trip, set of errands, or personal project into a researched plan with con
 
 Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.
 
-This ZIP is a collection of individual profiles, not a one-click crew installer. Unzip it first; import each member .tar.gz separately. No schedules are activated. Crew coordination has not been runtime-tested.
+This ZIP is a collection of individual profiles, not a one-click crew installer. Unzip it first; import each member .tar.gz separately. No schedules are activated.
+
+Crew coordination has not been runtime-tested.
 
 Keep existing Bots and projects intact. Use new profile names where needed; do not overwrite an existing profile.
 

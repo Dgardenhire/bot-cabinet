@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, ClockCounterClockwise, Flask, WarningCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CheckCircle, ClockCounterClockwise, Flask, WarningCircle, XCircle } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
 import { PROOF_ROOM_DEMOS, PROOF_STATE_NAMES } from "@/data/proof-room";
@@ -19,6 +19,8 @@ const stateIcon = {
   "test-prepared": ClockCounterClockwise,
   "recorded-excerpt": WarningCircle,
   "prompt-contract-recorded": WarningCircle,
+  "failed-runtime": XCircle,
+  "runtime-passed": CheckCircle,
   reproduced: CheckCircle,
 } as const;
 
@@ -44,6 +46,8 @@ export default function ProofRoomPage() {
               <div><dt>Test prepared</dt><dd>Input and prompt are ready; the run has not happened.</dd></div>
               <div><dt>Recorded excerpt</dt><dd>Part of a run exists, but the full record is incomplete.</dd></div>
               <div><dt>Prompt-contract runs</dt><dd>Real outputs are preserved, but the exact downloadable profile was not imported.</dd></div>
+              <div><dt>Failed runtime</dt><dd>The disclosed run happened, but its output did not pass the stated acceptance checks.</dd></div>
+              <div><dt>Runtime passed once</dt><dd>One exact-package run passed; independent reproduction and human approval remain separate.</dd></div>
               <div><dt>Reproduced</dt><dd>The same package, input, and prompt passed the disclosed checks again.</dd></div>
             </dl>
           </aside>
@@ -66,7 +70,7 @@ export default function ProofRoomPage() {
             <Eyebrow>Practical assignments</Eyebrow>
             <h2 id="proof-room-library-title" className="section-heading">Follow each test from its source material</h2>
           </div>
-          <p>Curator, Reentry, and Receipt now have exact-package reproductions with complete outputs. Earlier Scout, Writer, and Chief of Staff records remain visible at their current evidence level.</p>
+          <p>Curator, Reentry, and Receipt have exact-package reproductions. Publishing Desk has one exact-package crew pass pending independent reproduction. Earlier incomplete and failed records remain visible.</p>
         </div>
 
         <div className="proof-room-card-grid">
@@ -84,7 +88,7 @@ export default function ProofRoomPage() {
                   <p>{demo.summary}</p>
                   <dl className="proof-room-card-facts">
                     <div><dt>Platform</dt><dd>{demo.platform}</dd></div>
-                    <div><dt>Profile</dt><dd>v{demo.profileVersion}</dd></div>
+                    <div><dt>{demo.subjectKind === "crew" ? "Bundle" : "Profile"}</dt><dd>v{demo.profileVersion}</dd></div>
                     <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
                   </dl>
                   <Link href={`/proof/${demo.slug}`} className="button button-secondary">

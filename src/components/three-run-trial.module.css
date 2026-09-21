@@ -1,0 +1,25 @@
+.loading, .panel { padding: clamp(1.25rem,3vw,2rem); border: 1px solid var(--line); background: var(--ink-soft); }
+.loading { color: var(--muted); }
+.panel p { color: var(--muted); line-height: 1.6; }
+.panel p strong { color: var(--paper); }
+.heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 1rem; align-items: start; margin-bottom: 1rem; }
+.heading span { color: var(--blueprint); font: 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.heading h2 { margin: .3rem 0; color: var(--paper); font: 400 clamp(1.8rem,4vw,2.8rem)/1.05 var(--serif); }
+.heading p { margin: 0; }
+.heading > strong { padding: .55rem .7rem; border: 1px solid var(--line); color: var(--brass-bright); font: 12px var(--mono); }
+.fields, .runFields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.25rem 0; }
+.fields label, .runFields label { display: grid; gap: .45rem; color: var(--paper); font: 700 12px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.fields input, .runFields select { width: 100%; min-height: 46px; padding: .7rem .75rem; border: 1px solid var(--line); border-radius: 0; background: var(--ink); color: var(--paper); font: 400 15px var(--sans); text-transform: none; letter-spacing: 0; }
+.wide { grid-column: 1 / -1; }
+.privacy { font-size: 13px; }
+.tableWrap { margin: 1.25rem 0; overflow-x: auto; }
+.tableWrap table { width: 100%; min-width: 680px; border-collapse: collapse; }
+.tableWrap th, .tableWrap td { padding: .75rem; border: 1px solid var(--line-soft); text-align: left; }
+.tableWrap th { color: var(--blueprint); font: 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+.tableWrap td { color: var(--muted); font-size: 14px; }
+.runForm { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.runForm h3, .summary h3 { margin: 0; color: var(--paper); font: 400 25px var(--serif); }
+.summary { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid rgba(168,217,231,.3); background: rgba(168,217,231,.04); }
+.actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.5rem; }
+.reset { padding: .65rem 0; border: 0; background: transparent; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (max-width: 700px) { .heading, .fields, .runFields { grid-template-columns: 1fr; } .heading > strong { justify-self: start; } .wide { grid-column: auto; } }

@@ -4,6 +4,11 @@
   "slug": "small-business-admin-desk",
   "name": "Small-Business Admin Desk",
   "runtimeStatus": "not-tested",
+  "runtimeCheckedAt": null,
+  "runtimeEvidenceHref": null,
+  "runtimeTestScope": null,
+  "testedBundleSha256": null,
+  "priorRuntimeEvidence": null,
   "schedulesActive": false,
   "permissionsNotice": "Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.",
   "members": [

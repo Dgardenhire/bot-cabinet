@@ -151,6 +151,14 @@ export default function Home() {
           >
             Take the Bot Fit Test <ArrowRight size={16} aria-hidden="true" />
           </Link>
+          <Link
+            href="/workbench/#three-run-trial"
+            className="home-repeat-use-link"
+            data-funnel-event="homepage_three_run_trial"
+            data-funnel-surface="homepage"
+          >
+            Already using an agent? Compare three real runs <ArrowRight size={15} aria-hidden="true" />
+          </Link>
         </div>
         <div className="home-fit-scale" aria-label="Five possible work formats">
           {[
@@ -229,6 +237,14 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <Link className="platform-slide" href="/watch">
+          <div>
+            <span>Living field notes</span>
+            <h3>Agent Watch</h3>
+            <p>See what changed across agents and Bot workflows, why it may matter, what Cabinet has done, and what remains untested.</p>
+          </div>
+          <strong>Read current signals <ArrowRight size={17} aria-hidden="true" /></strong>
+        </Link>
         <Link className="platform-slide" href="/platforms/grok-bot">
           <div>
             <span>New platform pathway</span>

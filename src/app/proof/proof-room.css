@@ -18,6 +18,8 @@
 .proof-state-label { width: fit-content; display: inline-flex; align-items: center; gap: 7px; padding: 6px 8px; border: 1px solid var(--line); color: var(--faint); font: 11px/1.35 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
 .proof-state-recorded-excerpt .proof-state-label { border-color: rgba(205,159,76,.45); color: var(--brass-bright); }
 .proof-state-prompt-contract-recorded .proof-state-label { border-color: rgba(168,217,231,.48); color: var(--blueprint); }
+.proof-state-failed-runtime .proof-state-label { border-color: rgba(205,113,76,.62); color: #e4a080; }
+.proof-state-runtime-passed .proof-state-label { border-color: rgba(111,181,153,.62); color: #a8dbc5; }
 .proof-state-reproduced .proof-state-label { border-color: rgba(117,185,119,.46); color: #a5d4a6; }
 .proof-room-card h3 { margin: 20px 0 9px; color: var(--paper); font: 400 28px/1.03 var(--serif); }
 .proof-room-card-copy > p { margin: 0 0 13px; color: var(--muted); font-size: 14px; line-height: 1.58; }

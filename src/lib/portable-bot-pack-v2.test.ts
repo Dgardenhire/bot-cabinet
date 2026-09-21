@@ -41,7 +41,7 @@ describe("Portable Bot Pack V2", () => {
 
       expect(parsePortableBotPackV2(pack)).toBe(pack);
       expect(pack.schemaVersion).toBe(2);
-      expect(pack.packVersion).toBe("2.0.0");
+      expect(pack.packVersion).toBe(bot.slug === "writer" ? "2.0.5" : bot.slug === "editor" ? "2.0.3" : "2.0.0");
       expect(pack.preparationStatus).toBe("prepared");
       expect(pack.identity.slug).toBe(bot.slug);
       expect(pack.identity.portrait.url).toBe(bot.image);
@@ -171,6 +171,11 @@ describe("Portable Bot Pack V2", () => {
     );
     expect(scout.platforms.hermes.importStatus).toBe("import-test-passed");
     expect(writer.platforms.hermes.importStatus).toBe("import-test-passed");
+    expect(writer.platforms.hermes.importEvidence).toEqual({
+      hermesVersion: "0.21.3",
+      testedDate: "2026-09-20",
+      scope: "archive-import-and-bundled-skill-presence",
+    });
     expect(scout.platforms.hermes.importEvidence).toEqual({
       hermesVersion: "0.21.0",
       testedDate: "2026-09-04",

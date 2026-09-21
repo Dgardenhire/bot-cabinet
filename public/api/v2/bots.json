@@ -112,8 +112,8 @@
         "packageStatus": "files-and-archive-checked",
         "importStatus": "import-test-passed",
         "importEvidence": {
-          "hermesVersion": "0.21.0",
-          "testedDate": "2026-09-04",
+          "hermesVersion": "0.21.3",
+          "testedDate": "2026-09-20",
           "scope": "archive-import-and-bundled-skill-presence"
         }
       },
@@ -153,8 +153,8 @@
         "packageStatus": "files-and-archive-checked",
         "importStatus": "import-test-passed",
         "importEvidence": {
-          "hermesVersion": "0.21.0",
-          "testedDate": "2026-09-04",
+          "hermesVersion": "0.21.3",
+          "testedDate": "2026-09-20",
           "scope": "archive-import-and-bundled-skill-presence"
         }
       },

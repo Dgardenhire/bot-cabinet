@@ -1,5 +1,5 @@
-import { existsSync, readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -23,6 +23,7 @@ describe("Proof Room evidence records", () => {
     expect(PROOF_ROOM_DEMOS.map((demo) => demo.slug)).toEqual([
       "scout-research-brief",
       "writer-article-draft",
+      "publishing-desk-failed-handoff",
       "chief-of-staff-operating-brief",
       "curator-lineup-review",
       "reentry-project-resumption",
@@ -206,6 +207,8 @@ describe("Proof Room evidence records", () => {
     expect(Object.keys(PROOF_STATE_NAMES).sort()).toEqual(Object.keys(PROOF_NEXT_STEP_COPY).sort());
     expect(PROOF_NEXT_STEP_COPY.reproduced.heading).toContain("Review the record");
     expect(PROOF_NEXT_STEP_COPY["test-designed"].heading).toContain("Supply the source material");
+    expect(PROOF_NEXT_STEP_COPY["failed-runtime"].heading).toContain("Remove the three invented missing-information directions");
+    expect(PROOF_NEXT_STEP_COPY["runtime-passed"].heading).toContain("Repeat the same acceptance test independently");
   });
 
   it("keeps every referenced local proof asset in the public tree", () => {
@@ -224,5 +227,22 @@ describe("Proof Room evidence records", () => {
         expect(existsSync(path.join(publicRoot, href.slice(1))), href).toBe(true);
       }
     }
+  });
+
+  it("records one Publishing Desk crew pass without claiming reproduction or human approval", () => {
+    const demo = getProofRoomDemo("publishing-desk-failed-handoff");
+    expect(demo).toBeDefined();
+    expect(demo?.subjectKind).toBe("crew");
+    expect(demo?.state).toBe("runtime-passed");
+    expect(demo?.checks.find((check) => check.label === "Role run")?.state).toBe("passed");
+    expect(demo?.checks.find((check) => check.label === "Reproduction")?.state).toBe("not-run");
+    expect(demo?.deliverable?.description).toContain("correction loop");
+    expect(demo?.supportingArtifacts.map((artifact) => artifact.href)).toEqual(expect.arrayContaining([
+      "/proof-room/publishing-desk/audit-gate-result.json",
+      "/proof-room/publishing-desk/runtime-failure-summary.md",
+      "/proof-room/publishing-desk/latest-correction-and-unseen-result.md",
+      "/proof-room/publishing-desk/fresh-five-role-result.md",
+    ]));
+    expect(demo?.profileArchiveSha256).toBeUndefined();
   });
 });

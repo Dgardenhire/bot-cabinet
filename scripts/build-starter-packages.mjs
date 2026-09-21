@@ -1,6 +1,6 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import ts from "typescript";
+import { pathToFileURL } from "node:url";
 
 import {
   createDeterministicTarGzip,
@@ -13,13 +13,9 @@ const passportSourcePath = path.join(projectRoot, "src/lib/bot-passport.ts");
 const outputRoot = path.join(projectRoot, "public/downloads/starter-bots");
 
 async function loadTsModule(filePath) {
-  const source = await readFile(filePath, "utf8");
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
-  }).outputText;
-  const compiledModule = { exports: {} };
-  new Function("exports", "module", compiled)(compiledModule.exports, compiledModule);
-  return compiledModule.exports;
+  // This generator runs under tsx. Use its module loader so shared source
+  // imports resolve normally instead of evaluating transpiled code without require.
+  return import(pathToFileURL(filePath).href);
 }
 
 const { STARTER_BOTS: starters } = await loadTsModule(sourcePath);

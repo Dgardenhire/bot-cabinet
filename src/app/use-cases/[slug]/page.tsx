@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   UsersThree,
   Wrench,
+  ArrowSquareOut,
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
@@ -144,6 +145,33 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         </div>
         <p>{useCase.firstTest}</p>
       </section>
+
+      {useCase.adaptations && (
+        <section className="content-section shell workflow-adaptations">
+          <div>
+            <Eyebrow>Run the outcome across platforms</Eyebrow>
+            <h2 className="section-heading">Keep the useful job; choose the implementation that fits</h2>
+            <p className="section-deck">These are separately labeled paths—not claims that every platform behaves the same. Cabinet can add another host or independent tool without changing the workflow itself.</p>
+          </div>
+          <div className="workflow-adaptation-grid">
+            {useCase.adaptations.map((adaptation) => (
+              <article key={adaptation.platform} data-adaptation-status={adaptation.status}>
+                <div>
+                  <h3>{adaptation.platform}</h3>
+                  <span>{adaptation.statusLabel}</span>
+                </div>
+                <p><strong>Approach:</strong> {adaptation.approach}</p>
+                <p><strong>Start here:</strong> {adaptation.setup}</p>
+                <p><strong>Known limit:</strong> {adaptation.limitations}</p>
+                <div className="workflow-adaptation-links">
+                  {adaptation.source && <a href={adaptation.source.href} target="_blank" rel="noreferrer">{adaptation.source.label} <ArrowSquareOut size={13} /></a>}
+                  {adaptation.cabinetGuide && <Link href={adaptation.cabinetGuide}>Open Cabinet setup guide <ArrowRight size={13} /></Link>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="content-section shell workflow-checkpoints">
         <article><CheckCircle size={27} weight="thin" /><h2>Success checkpoint</h2><p>{operations.successCheckpoint}</p></article>

@@ -80,6 +80,40 @@ export default function GrokBotTemplatesPage() {
         </div>
       </section>
 
+      <section className="grok-platform-map shell" aria-labelledby="grok-current-heading">
+        <div className="grok-platform-map-heading">
+          <div>
+            <Eyebrow>Source review · September 20, 2026 · Not runtime-tested</Eyebrow>
+            <h2 id="grok-current-heading">You may not need to build another Bot</h2>
+          </div>
+          <p>
+            Grok Bot now has an official marketplace and native template links.
+            Check for an existing workflow before assembling a Cabinet recipe.
+            Cabinet&apos;s downloads here remain manual build briefs, not native templates.
+          </p>
+        </div>
+        <div className="grok-platform-map-grid">
+          <article>
+            <h3>Start with the existing ecosystem</h3>
+            <p>
+              Browse by the task you need done. A listing is a creator&apos;s claim,
+              not proof that the workflow will work with your accounts or data.
+            </p>
+            <a href="https://x.ai/bot/marketplace">Browse the official Grok Bot marketplace</a>
+          </article>
+          <article>
+            <h3>Inspect the setup before adding it</h3>
+            <p>
+              xAI&apos;s September 8 guide describes templates as reusable recipes.
+              Review included context and integrations. Plugins may need setup;
+              custom scripts and non-standard integrations may need separate transfer.
+              Start with sample data and check the result before connecting sensitive accounts.
+            </p>
+            <a href="https://x.ai/bot/guides/templates-for-grok-bot">Read what native templates include and omit</a>
+          </article>
+        </div>
+      </section>
+
       <section className="grok-platform-map shell" aria-labelledby="portable-map-heading">
         <div className="grok-platform-map-heading">
           <div>

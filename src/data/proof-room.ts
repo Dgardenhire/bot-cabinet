@@ -1,4 +1,4 @@
-export type ProofState = "test-designed" | "test-prepared" | "recorded-excerpt" | "prompt-contract-recorded" | "reproduced";
+export type ProofState = "test-designed" | "test-prepared" | "recorded-excerpt" | "prompt-contract-recorded" | "failed-runtime" | "runtime-passed" | "reproduced";
 export type ProofCheckState = "passed" | "partial" | "not-run" | "unavailable";
 
 export const PROOF_STATE_NAMES: Record<ProofState, string> = {
@@ -6,6 +6,8 @@ export const PROOF_STATE_NAMES: Record<ProofState, string> = {
   "test-prepared": "Test prepared",
   "recorded-excerpt": "Recorded excerpt",
   "prompt-contract-recorded": "Two prompt-contract runs recorded",
+  "failed-runtime": "Runtime failed acceptance",
+  "runtime-passed": "Runtime passed once",
   reproduced: "Reproduced",
 };
 
@@ -14,6 +16,8 @@ export const PROOF_PROMPT_HEADINGS: Record<ProofState, string> = {
   "test-prepared": "The prompt prepared for this test",
   "recorded-excerpt": "The prompt prepared for a complete reproduction",
   "prompt-contract-recorded": "The request used for both recorded runs",
+  "failed-runtime": "The assignment used for the failed handoff",
+  "runtime-passed": "The assignment used for this recorded handoff",
   reproduced: "Instructions for repeating this run",
 };
 
@@ -22,6 +26,8 @@ export const PROOF_PROMPT_EYEBROWS: Record<ProofState, string> = {
   "test-prepared": "Prepared request",
   "recorded-excerpt": "Reproduction request",
   "prompt-contract-recorded": "Recorded request",
+  "failed-runtime": "Recorded failed request",
+  "runtime-passed": "Recorded run request",
   reproduced: "Run request",
 };
 
@@ -45,6 +51,16 @@ export const PROOF_NEXT_STEP_COPY: Record<ProofState, { eyebrow: string; heading
     eyebrow: "Next required work",
     heading: "Import the exact profile and complete a package reproduction",
     body: "These runs tested the disclosed role and request in Hermes Agent. Bot Cabinet still needs to import the exact downloadable profile and repeat the test before this demonstration can be labeled reproduced.",
+  },
+  "failed-runtime": {
+    eyebrow: "Correction required",
+    heading: "Remove the three invented missing-information directions, then repeat the full acceptance check",
+    body: "The simplified Writer handoff passed its mechanical gate, and Editor completed all 24 exact-boundary audits. Editor correctly held one newsletter and two social directions because the source did not identify a website, contact or placeholder for the missing catalog URL. Regenerate the corrected Writer and Editor packages, repeat the locked fixture and retain human publication approval as a separate decision.",
+  },
+  "runtime-passed": {
+    eyebrow: "Next required proof",
+    heading: "Repeat the same acceptance test independently",
+    body: "One exact-package crew run reached the required human-review hold after a bounded Writer correction and fresh Editor audit. Repeat the locked test independently before making a reliability claim; human publication approval remains a separate decision.",
   },
   reproduced: {
     eyebrow: "Preserved evidence",
@@ -97,6 +113,8 @@ export interface ProofRun {
 export interface ProofRoomDemo {
   slug: string;
   botSlug: "scout" | "writer" | "chief-of-staff" | "curator" | "reentry" | "receipt";
+  subjectKind?: "bot" | "crew";
+  subjectHref?: string;
   cardImage: string;
   title: string;
   outcome: string;
@@ -260,6 +278,127 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
       { label: "Profile import", state: "not-run", detail: "This profile has not been individually imported into Hermes Desktop." },
       { label: "Role run", state: "not-run", detail: "The designed article-draft test has not been run." },
       { label: "Reproduction", state: "not-run", detail: "Reproduction begins only after the first complete run is preserved." },
+      commonTechnicalReview,
+    ],
+  },
+  {
+    slug: "publishing-desk-failed-handoff",
+    botSlug: "writer",
+    subjectKind: "crew",
+    subjectHref: "/crew-kits/publishing-desk",
+    cardImage: "/use-cases/weekly-newsletter.webp",
+    title: "Publishing Desk runs a five-role newsletter handoff",
+    outcome: "Five roles reach a source-checked draft and the required human-review hold",
+    summary: "Scout, Researcher, Story, Writer and Editor completed a locked Tool Library run using the exact revised packages. Editor caught three unsupported directions; one bounded Writer correction removed them, and a fresh Editor audit passed all 25 exact boundaries. Codex semantic review found the corrected publishable claims source-faithful. Human approval remains absent.",
+    state: "runtime-passed",
+    stateDetail: "one fixture passed; independent reproduction pending",
+    platform: "Hermes Agent",
+    evidenceNote: "The latest Scout-to-Editor run used the exact generated bundle, locked Tool Library packet, separated Writer/Editor responsibilities and immutable evidence options. Writer passed its mechanical gate. Editor caught three unsupported directions, Writer removed only those claims, and a fresh Editor audit accepted 21 newsletter plus four social boundaries with zero unsupported or ambiguous assertions. Codex semantic review also passed the corrected fixture. The final state is hold-for-human-review, not publication approval or general reliability.",
+    inputStatus: "supplied",
+    fixtureDisclosure: "The Riverside Library, Tool Library, dates, inventory and operating rules are fictional. The fixture deliberately mixes current, superseded and missing information to test source discipline.",
+    inputArtifacts: [
+      {
+        label: "Locked fictional Tool Library packet",
+        description: "The approved launch notice, inventory report, operations FAQ, superseded draft and assignment limits supplied to every role.",
+        href: "/proof-room/publishing-desk/tool-library-source-packet.md",
+      },
+      {
+        label: "Sentence-level audit fixture",
+        description: "Every sentence in the failed Writer body, its bounded status and the original source passages used by the deterministic gate.",
+        href: "/proof-room/publishing-desk/failed-writer-audit.json",
+      },
+    ],
+    exactPrompt: "Prepare a 250–350-word newsletter for adult Riverside Library members and an X draft of at most 280 Unicode code points. Use only S1–S4. Preserve current versus superseded details and the distinction among tools, categories, kits and borrowers. Do not invent a catalog URL, contact, placeholder, partners, sponsors, demand, savings, popularity, usage, outcomes, quotations, guarantees, environmental claims, staff names, delivery options, registration availability or publication approval.",
+    conversationExcerpt: [
+      {
+        role: "Person",
+        text: "Use the original fictional packet through Scout, Researcher, Story, Writer and Editor. Preserve every handoff and block unsupported public claims.",
+        abridged: true,
+      },
+      {
+        role: "Bot",
+        text: "Editor held three invented missing-information directions. Writer removed only those claims; the fresh Editor audit accepted all 25 corrected boundaries and retained the human-review hold.",
+        abridged: true,
+      },
+    ],
+    conversationDisclosure: "These lines summarize the preserved stage outputs and Codex reviews. Provider-internal reasoning and identifiers are not published. The linked failed draft, audit fixture, deterministic result and sanitized summary are the public evidence.",
+    deliverable: {
+      label: "Inspect the latest simplified-Writer result",
+      description: "The full five-role result, exact hashes, correction loop, bounded cost, final gates and remaining proof limits.",
+      href: "/proof-room/publishing-desk/simplified-writer-editor-result.md",
+      download: true,
+    },
+    supportingArtifacts: [
+      {
+        label: "Inspect the original failed newsletter",
+        description: "The earlier repair-workshop regression fixture remains preserved rather than silently replaced.",
+        href: "/proof-room/publishing-desk/failed-writer-newsletter.md",
+        download: true,
+      },
+      {
+        label: "Inspect the deterministic gate result",
+        description: "Twelve sentences covered; six unsupported and four ambiguous; semantic support, factual accuracy and human approval remain false.",
+        href: "/proof-room/publishing-desk/audit-gate-result.json",
+        download: true,
+      },
+      {
+        label: "Read the sanitized runtime failure summary",
+        description: "What ran, what failed, recorded cost limits and the proof still required.",
+        href: "/proof-room/publishing-desk/runtime-failure-summary.md",
+        download: true,
+      },
+      {
+        label: "Read the correction and locked unseen-case result",
+        description: "The known technical pass, the separate unseen five-role failure, bounded cost estimates and the next executable correction.",
+        href: "/proof-room/publishing-desk/latest-correction-and-unseen-result.md",
+        download: true,
+      },
+      {
+        label: "Read the Publishing Desk 1.0.2 gated result",
+        description: "Exact bundle and member hashes, deterministic Writer metadata normalization, Editor JSON failure and bounded cost estimates.",
+        href: "/proof-room/publishing-desk/gated-writer-editor-result.md",
+        download: true,
+      },
+      {
+        label: "Read the structured-output and revision result",
+        description: "Schema enforcement, the bounded Writer–Editor feedback loop, removed unsupported claims and the remaining literal-evidence failure.",
+        href: "/proof-room/publishing-desk/structured-output-and-revision-result.md",
+        download: true,
+      },
+      {
+        label: "Read the fresh five-role result",
+        description: "Exact tested bundle, role sequence, gate result, bounded costs and the semantic sentence that still holds publication.",
+        href: "/proof-room/publishing-desk/fresh-five-role-result.md",
+        download: true,
+      },
+      {
+        label: "Download the Publishing Desk Crew Kit",
+        description: "The current guided bundle. Import each profile separately; this failed run does not establish crew reliability.",
+        href: "/downloads/crew-kits/bundles/publishing-desk.zip",
+        download: true,
+      },
+    ],
+    humanDecisions: [
+      "Review every ambiguous or unsupported sentence against the original source packet.",
+      "Approve or reject a corrected draft only after semantic source review.",
+      "Keep publishing, sending and any public claim under human control.",
+    ],
+    profileVersion: "1.0.2",
+    profileArchiveHref: "/downloads/crew-kits/bundles/publishing-desk.zip",
+    passportVersion: 2,
+    run: {
+      runAt: "2026-09-20",
+      hermesVersion: "0.21.3 / v2026.8.31-11812-g4d14aaf477",
+      provider: "nous",
+      model: "deepseek/deepseek-v4-flash",
+      elapsedNote: "The gated current-bundle Writer and Editor stages completed under the 150-second per-stage supervisor. This record does not claim a benchmark timing.",
+      costNote: "Provider-derived estimates for the five roles, one Writer correction and one Editor re-audit totaled $0.00965038. This is an estimate, not an invoice. Earlier runs remain separately disclosed.",
+    },
+    checks: [
+      { label: "Package checks", state: "passed", detail: "The tested bundle and exact Writer 2.0.5 and Editor 2.0.3 archives were generated, fingerprinted and included in the run.", checkedAt: "2026-09-20" },
+      { label: "Profile import", state: "passed", detail: "The current Writer and Editor archives were imported through Hermes native profile import. This does not establish output quality.", checkedAt: "2026-09-20" },
+      { label: "Role run", state: "passed", detail: "All five roles completed. Editor caught three unsupported directions; one bounded Writer correction and fresh Editor re-audit reached the required human-review hold with zero gate issues.", checkedAt: "2026-09-20" },
+      { label: "Reproduction", state: "not-run", detail: "This is one successful locked fixture. An independent second run is required before any reproduction or reliability claim.", checkedAt: "2026-09-20" },
       commonTechnicalReview,
     ],
   },

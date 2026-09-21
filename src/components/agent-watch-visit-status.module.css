@@ -1,0 +1,8 @@
+.loading, .panel { margin-top: 20px; padding: 14px 16px; border: 1px solid var(--line); background: rgba(8,10,10,.42); color: var(--muted); }
+.panel { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 12px; align-items: center; }
+.panel svg { color: var(--blueprint); }
+.panel p { margin: 0; font-size: 13px; line-height: 1.55; }
+.panel strong { color: var(--paper); }
+.panel button { min-height: 36px; padding: .45rem .65rem; border: 1px solid var(--brass); background: transparent; color: var(--brass-bright); font: 700 11px var(--mono); cursor: pointer; }
+.hasUpdates { border-color: rgba(198,154,75,.4); }
+@media (max-width: 700px) { .panel { grid-template-columns: auto 1fr; } .panel button { grid-column: 1 / -1; } }

@@ -41,13 +41,14 @@ test("generated V2 index resolves every versioned artifact", async () => {
     );
 
     assert.equal(pack.schemaVersion, 2);
-    assert.equal(pack.packVersion, "2.0.0");
+    assert.equal(pack.packVersion, bot.slug === "writer" ? "2.0.5" : bot.slug === "editor" ? "2.0.3" : "2.0.0");
     assert.equal(pack.artifactId, bot.artifactId);
     assert.equal(pack.routines[0].activationStatus, "manual-test-required");
     assert.equal(pack.routines[0].testStatus, "not-tested");
     const hasSeptember9Evidence = ["curator", "reentry", "receipt"].includes(bot.slug);
     assert.equal(pack.platforms.hermes.importStatus, "import-test-passed");
-    assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, hasSeptember9Evidence ? "0.21.1" : "0.21.0");
+    assert.equal(pack.platforms.hermes.importEvidence.hermesVersion, ["writer", "editor"].includes(bot.slug) ? "0.21.3" : hasSeptember9Evidence ? "0.21.1" : "0.21.0");
+    assert.equal(pack.platforms.hermes.importEvidence.testedDate, ["writer", "editor"].includes(bot.slug) ? "2026-09-20" : hasSeptember9Evidence ? "2026-09-09" : "2026-09-04");
     assert.equal(pack.provenance.publishedDate, hasSeptember9Evidence ? "2026-09-05" : "2026-09-04");
     assert.equal(pack.platforms.grokBot.importable, false);
     assert.match(portableMarkdown, /Portable Bot Pack V2/);
