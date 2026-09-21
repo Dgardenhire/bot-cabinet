@@ -25,11 +25,8 @@ const STANDARD_SETUP = [
   "Download each approved profile and import it into Hermes Desktop.",
   "Open each Bot's settings in Hermes Desktop. Give it only the files, tools, and connections needed for its role.",
   "Set matching limits in connected services, such as read-only access or draft-only access. The Crew Passport is a checklist; it does not apply these limits for you.",
-  "Choose one workflow and write down its source of truth, finished deliverable, and the decisions that stay with a person.",
-  "Run that workflow manually in separate Bot conversations with sample or copied material.",
-  "Save the exact input, output, version, date, and approval record for each handoff before the next Bot begins.",
-  "Test one missing input or failed handoff. The Crew should stop and report the problem rather than inventing work or silently skipping a stage.",
-  "Repeat the complete handoff after any material change to a profile, Skill, connection, model, or schedule.",
+  "Run one workflow manually in separate Bot conversations.",
+  "Save each approved handoff before the next Bot begins.",
   "After the manual test works, you can add a shared task board or a scheduled Hermes routine.",
 ];
 
