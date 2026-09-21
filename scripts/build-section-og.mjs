@@ -54,6 +54,15 @@ const cards = [
     url: "botcabinet.com/fit",
   },
   {
+    output: "bot-crews-v2-1200x630.jpg",
+    source: path.join(root, "public", "brand", "social", "sources", "bot-crews-friendly-v2.png"),
+    sourcePosition: "centre",
+    eyebrow: "BOT CREWS",
+    title: ["Bots that work", "together"],
+    description: "Step-by-step workflows for research, writing, client work and operations",
+    url: "botcabinet.com/use-cases",
+  },
+  {
     output: "bot-portrait-studio-1200x630.jpg",
     source: path.join(root, "public", "downloads", "bot-portraits", "hermes", "navigator-1024.png"),
     sourcePosition: "right",
