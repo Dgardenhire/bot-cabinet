@@ -1,10 +1,10 @@
 import type { AgentWatchItem, WatchEvidence, WatchResponseStatus } from "@/data/agent-watch";
 
 export const AGENT_WATCH_API_URL = "https://mdjchixwgvicovkwrgle.supabase.co/functions/v1/agent-watch";
-export const AGENT_WATCH_RSS_URL = `${AGENT_WATCH_API_URL}?format=rss`;
 
 const evidence = new Set<WatchEvidence>(["observed", "provider-claim", "cabinet-tested"]);
 const statuses = new Set<WatchResponseStatus>(["published", "prepared", "testing", "watching"]);
+const retiredSlugs = new Set(["bounce-rate-is-not-useful-action", "repeat-use-not-return-visits"]);
 
 function validLink(value: unknown) {
   if (!value || typeof value !== "object") return false;
@@ -37,7 +37,10 @@ export function parsePublicWatchFeed(value: unknown): AgentWatchItem[] {
 
 export function mergeWatchItems(live: AgentWatchItem[], fallback: AgentWatchItem[]) {
   if (live.length === 0) return fallback;
-  const bySlug = new Map(fallback.map((item) => [item.slug, item]));
-  for (const item of live) bySlug.set(item.slug, item);
+  const bySlug = new Map(live.filter((item) => !retiredSlugs.has(item.slug)).map((item) => [item.slug, item]));
+  for (const item of fallback) {
+    const current = bySlug.get(item.slug);
+    if (!current || current.observedOn <= item.observedOn) bySlug.set(item.slug, item);
+  }
   return [...bySlug.values()].sort((a, b) => b.observedOn.localeCompare(a.observedOn) || a.title.localeCompare(b.title));
 }

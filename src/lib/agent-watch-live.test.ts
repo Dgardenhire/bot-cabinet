@@ -22,9 +22,14 @@ describe("live Agent Watch feed", () => {
     expect(parsePublicWatchItem({ ...item, sources: [{ label: "bad", href: "javascript:alert(1)" }] })).toBeNull();
   });
 
-  it("replaces a built-in item with its live revision and keeps the fallback if the feed is down", () => {
-    const revised = { ...item, title: "Revised" };
+  it("uses a newer live revision and keeps the fallback if the feed is down", () => {
+    const revised = { ...item, observedOn: "2026-09-21", title: "Revised" };
     expect(mergeWatchItems([revised], [item])).toEqual([revised]);
     expect(mergeWatchItems([], [item])).toEqual([item]);
+  });
+
+  it("keeps internal analytics notes out of the public page", () => {
+    const retired = { ...item, slug: "bounce-rate-is-not-useful-action" };
+    expect(mergeWatchItems([retired], [item])).toEqual([item]);
   });
 });
