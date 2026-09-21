@@ -6,28 +6,32 @@ import { LIVE_BOT_SOURCES, newestListings, parseGrokHubListings, parseMyBotFarmL
 
 type SourceState = { name: string; ok: boolean };
 
+async function fetchListings(signal?: AbortSignal) {
+  return Promise.allSettled(LIVE_BOT_SOURCES.map(async (source) => {
+    const response = await fetch(source.url, { signal, headers: { Accept: "application/json" }, cache: "no-store" });
+    if (!response.ok) throw new Error(`${source.name} unavailable`);
+    const data: unknown = await response.json();
+    const listings = source.name === "My Bot Farm" ? parseMyBotFarmListings(data) : parseGrokHubListings(data);
+    if (!listings.length) throw new Error(`${source.name} returned no usable Bot listings`);
+    return listings;
+  }));
+}
+
 export function LiveBotListings() {
   const [items, setItems] = useState<LiveBotListing[]>([]);
   const [sources, setSources] = useState<SourceState[]>([]);
   const [checkedAt, setCheckedAt] = useState<Date | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const refresh = useCallback(async (signal?: AbortSignal) => {
-    setLoading(true);
-    const results = await Promise.allSettled(LIVE_BOT_SOURCES.map(async (source) => {
-      const response = await fetch(source.url, { signal, headers: { Accept: "application/json" }, cache: "no-store" });
-      if (!response.ok) throw new Error(`${source.name} unavailable`);
-      const data: unknown = await response.json();
-      const listings = source.name === "My Bot Farm" ? parseMyBotFarmListings(data) : parseGrokHubListings(data);
-      if (!listings.length) throw new Error(`${source.name} returned no usable Bot listings`);
-      return listings;
-    }));
-    if (signal?.aborted) return;
-    setSources(results.map((result, index) => ({ name: LIVE_BOT_SOURCES[index].name, ok: result.status === "fulfilled" })));
-    const available = results.flatMap((result) => result.status === "fulfilled" ? result.value : []);
-    if (available.length) setItems(newestListings(available));
-    setCheckedAt(new Date());
-    setLoading(false);
+  const refresh = useCallback((signal?: AbortSignal) => {
+    void fetchListings(signal).then((results) => {
+      if (signal?.aborted) return;
+      setSources(results.map((result, index) => ({ name: LIVE_BOT_SOURCES[index].name, ok: result.status === "fulfilled" })));
+      const available = results.flatMap((result) => result.status === "fulfilled" ? result.value : []);
+      if (available.length) setItems(newestListings(available));
+      setCheckedAt(new Date());
+      setLoading(false);
+    });
   }, []);
 
   useEffect(() => {
@@ -41,7 +45,7 @@ export function LiveBotListings() {
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
         <div><span className="eyebrow">From public Bot directories</span><h2 id="live-bot-title">Fresh Bot listings</h2></div>
-        <button type="button" onClick={() => void refresh()} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
+        <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
       <p>Newly listed Bots and teams from My Bot Farm and GrokHub. These are their descriptions, not our recommendations. We have not installed or tested them. Open the source before giving any Bot access.</p>
       <div className="live-bot-status" role="status">
