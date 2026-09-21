@@ -17,6 +17,23 @@ export type EditorialAuditEntry = {
   explanation: string;
 };
 
+const MISSING_INFORMATION_SOURCE = /(?:\b(?:has|have|had|is|are|was|were)?\s*not\s+(?:yet\s+)?(?:been\s+)?(?:supplied|provided|available|identified|confirmed|reported|published|listed|known|included)\b|\b(?:missing|unavailable|unknown)\b)/i;
+const MISSING_INFORMATION_PROJECTION = /(?:\b(?:coming|soon|later|eventually)\b|\bwill\s+(?:be|become|arrive|appear|open|launch|publish|provide|supply)\b|\b(?:check|contact|visit)\b|\bwatch\s+for\b|\blook\s+for\b|\bavailable\s+(?:at|on|from|through)\b)/i;
+
+/** Reject a narrow, recurring semantic failure that literal-quotation checks
+ * cannot catch: turning a source's statement that information is missing into
+ * a promise or reader direction. A separate cited passage can still support
+ * the future action or direction explicitly.
+ */
+function projectsBeyondMissingInformation(
+  assertion: string,
+  evidence: readonly { originalSourcePassage: string }[],
+) {
+  return MISSING_INFORMATION_PROJECTION.test(assertion)
+    && evidence.some(item => MISSING_INFORMATION_SOURCE.test(item.originalSourcePassage))
+    && !evidence.some(item => MISSING_INFORMATION_PROJECTION.test(item.originalSourcePassage));
+}
+
 /** Segment the publishable body so every sentence must receive an audit entry.
  * The segmenter is mechanical; a passing structure does not prove that a cited
  * passage semantically supports the claim.
@@ -87,6 +104,9 @@ export function checkEditorialAudit(
           issues.push(`${evidenceLabel}: source quotation is absent or not exact`);
         }
       });
+      if (projectsBeyondMissingInformation(entry.exactDraftQuote, evidence)) {
+        issues.push(`${label}: assertion projects a promise or reader direction from missing information`);
+      }
       if (entry.evidence?.length && entry.sourceId !== null
         && !entry.evidence.some(item => item.sourceId === entry.sourceId)) {
         issues.push(`${label}: legacy source ID conflicts with the evidence array`);

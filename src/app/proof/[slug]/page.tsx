@@ -46,6 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const checkIcon: Record<ProofCheckState, typeof CheckCircle> = {
   passed: CheckCircle,
+  failed: WarningCircle,
   partial: WarningCircle,
   "not-run": Hourglass,
   unavailable: MinusCircle,
@@ -53,6 +54,7 @@ const checkIcon: Record<ProofCheckState, typeof CheckCircle> = {
 
 const checkLabel: Record<ProofCheckState, string> = {
   passed: "Passed",
+  failed: "Failed",
   partial: "Partial record",
   "not-run": "Not run",
   unavailable: "Unavailable",

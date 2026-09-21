@@ -100,6 +100,45 @@ it("validates exact coverage without pretending quotation match proves meaning",
   expect(result.humanApproved).toBe(false);
 });
 
+it("rejects a future promise inferred only from missing information", () => {
+  const result = checkEditorialAudit([{
+    exactDraftQuote: "Reservations start October 27 (catalog URL coming).",
+    status: "supported",
+    sourceId: "S1",
+    originalSourcePassage: "Reservations open October 27 through an online catalog, but the catalog URL has not been supplied.",
+    explanation: "The auditor incorrectly treats an absent URL as a future promise.",
+  }], "Reservations start October 27 (catalog URL coming).", [{
+    id: "S1",
+    text: "Reservations open October 27 through an online catalog, but the catalog URL has not been supplied.",
+  }]);
+
+  expect(result.noUnsupportedAssertions).toBe(false);
+  expect(result.issues).toContain(
+    "Entry 1: assertion projects a promise or reader direction from missing information",
+  );
+});
+
+it("allows a future availability claim when another exact passage explicitly supports it", () => {
+  const missing = "The catalog URL has not been supplied.";
+  const future = "The library will publish the URL on October 25.";
+  const result = checkEditorialAudit([{
+    exactDraftQuote: "The catalog URL will be published October 25.",
+    status: "supported",
+    sourceId: null,
+    originalSourcePassage: null,
+    evidence: [
+      { sourceId: "S1", originalSourcePassage: missing },
+      { sourceId: "S2", originalSourcePassage: future },
+    ],
+    explanation: "S2 explicitly supports the future publication date.",
+  }], "The catalog URL will be published October 25.", [
+    { id: "S1", text: missing },
+    { id: "S2", text: future },
+  ]);
+
+  expect(result.noUnsupportedAssertions).toBe(true);
+});
+
 it("rejects source passages attached to unresolved claims", () => {
   const result = checkEditorialAudit([
     {

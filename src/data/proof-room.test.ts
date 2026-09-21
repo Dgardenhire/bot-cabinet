@@ -208,7 +208,7 @@ describe("Proof Room evidence records", () => {
     expect(PROOF_NEXT_STEP_COPY.reproduced.heading).toContain("Review the record");
     expect(PROOF_NEXT_STEP_COPY["test-designed"].heading).toContain("Supply the source material");
     expect(PROOF_NEXT_STEP_COPY["failed-runtime"].heading).toContain("Remove the three invented missing-information directions");
-    expect(PROOF_NEXT_STEP_COPY["runtime-passed"].heading).toContain("Repeat the same acceptance test independently");
+    expect(PROOF_NEXT_STEP_COPY["runtime-passed"].heading).toContain("failed independent run");
   });
 
   it("keeps every referenced local proof asset in the public tree", () => {
@@ -235,13 +235,14 @@ describe("Proof Room evidence records", () => {
     expect(demo?.subjectKind).toBe("crew");
     expect(demo?.state).toBe("runtime-passed");
     expect(demo?.checks.find((check) => check.label === "Role run")?.state).toBe("passed");
-    expect(demo?.checks.find((check) => check.label === "Reproduction")?.state).toBe("not-run");
+    expect(demo?.checks.find((check) => check.label === "Reproduction")?.state).toBe("failed");
     expect(demo?.deliverable?.description).toContain("correction loop");
     expect(demo?.supportingArtifacts.map((artifact) => artifact.href)).toEqual(expect.arrayContaining([
       "/proof-room/publishing-desk/audit-gate-result.json",
       "/proof-room/publishing-desk/runtime-failure-summary.md",
       "/proof-room/publishing-desk/latest-correction-and-unseen-result.md",
       "/proof-room/publishing-desk/fresh-five-role-result.md",
+      "/proof-room/publishing-desk/independent-reproduction-failure.md",
     ]));
     expect(demo?.profileArchiveSha256).toBeUndefined();
   });
