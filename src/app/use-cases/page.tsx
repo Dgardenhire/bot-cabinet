@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Bot Crews · Workflows",
   description: "Step-by-step Hermes Bot workflows for everyday research, writing, client work, planning, software, operations, and learning.",
   path: "/use-cases/",
-  image: "/brand/social/bot-crews-1200x630.jpg",
+  image: "/brand/social/bot-crews-v2-1200x630.jpg",
   imageAlt: "Bot Crews — Bots that work together",
 });
 

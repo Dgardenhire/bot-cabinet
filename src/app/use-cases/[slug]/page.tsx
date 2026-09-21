@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${useCase.title} · Bot Crews`,
     description: useCase.outcome,
     path: `/use-cases/${useCase.slug}/`,
-    image: "/brand/social/bot-crews-1200x630.jpg",
+    image: "/brand/social/bot-crews-v2-1200x630.jpg",
     imageAlt: `Bot Crews — ${useCase.title}`,
   });
 }

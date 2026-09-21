@@ -12,7 +12,7 @@ const routes = [
   ["bots", "/brand/social/bot-pack-2-0-1200x630.jpg"],
   ["workshop", "/brand/social/bot-lab-1200x630.jpg"],
   ["portraits", "/brand/social/bot-portrait-studio-1200x630.jpg"],
-  ["use-cases", "/brand/social/bot-crews-1200x630.jpg"],
+  ["use-cases", "/brand/social/bot-crews-v2-1200x630.jpg"],
   ["crew-kits", "/brand/crew-kits-og-v2-1200x630.jpg"],
   ["proof", "/brand/social/proof-room-1200x630.jpg"],
   ["community", "/brand/social/community-registry-1200x630.jpg"],
