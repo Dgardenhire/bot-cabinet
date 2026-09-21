@@ -1,15 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { AGENT_WATCH_ITEMS } from "@/data/agent-watch";
+import { AGENT_WATCH_RSS_URL } from "@/lib/agent-watch-live";
 import { GET } from "./route";
 
 describe("Agent Watch feed route", () => {
-  it("serves static RSS with every current note", async () => {
+  it("sends feed readers to the human-reviewed live RSS feed", async () => {
     const response = GET();
-    const body = await response.text();
-    expect(response.headers.get("content-type")).toBe("application/rss+xml; charset=utf-8");
-    expect(response.headers.get("cache-control")).toContain("s-maxage=3600");
-    expect(body.match(/<item>/g)).toHaveLength(AGENT_WATCH_ITEMS.length);
-    expect(body).toContain("What remains unproven:");
+    expect(response.status).toBe(307);
+    expect(response.headers.get("location")).toBe(AGENT_WATCH_RSS_URL);
+    expect(response.headers.get("cache-control")).toContain("max-age=300");
   });
 });

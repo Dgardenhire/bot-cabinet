@@ -66,4 +66,26 @@ describe("Crew Kits and workflow operations", () => {
       expect(operations.recovery).toBeTruthy();
     }
   });
+
+  it("starts ordinary jobs with one Bot instead of forcing a crew", () => {
+    const singleBotJobs = [
+      "personal-morning-newspaper",
+      "morning-industry-briefing",
+      "weekly-newsletter",
+      "social-media-content-set",
+      "client-meeting-follow-up",
+      "client-proposal",
+      "operations-status-report",
+      "study-and-certification-plan",
+      "customer-request-response",
+      "leadership-weekly-review",
+    ];
+
+    for (const slug of singleBotJobs) {
+      const useCase = getBotUseCase(slug);
+      expect(useCase?.botSlugs).toHaveLength(1);
+      expect(useCase?.steps).toHaveLength(1);
+      expect(useCase?.setupNote).toContain("Add");
+    }
+  });
 });

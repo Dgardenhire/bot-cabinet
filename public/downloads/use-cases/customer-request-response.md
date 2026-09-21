@@ -9,7 +9,7 @@ Result: A clear response draft based on approved policies, with exceptions sent 
 - **When to use it:** Use this workflow when you need a clear response draft based on approved policies, with exceptions sent to a person.
 - **Lead Bot:** Client Deliverables
 - **Cadence:** When a new request arrives and a person assigns it
-- **Typical first run:** 30–60 minutes for a first manual run
+- **Typical first run:** 15–30 minutes for a first manual run
 
 ### Access for the first run
 
@@ -17,11 +17,13 @@ Result: A clear response draft based on approved policies, with exceptions sent 
 - Only the files, sources, and services required for this run
 - No sending, publishing, spending, or live-system changes without approval
 
-## Bots
+## Recommended starting Bot
 
 1. Client Deliverables
-2. Researcher
-3. Editor
+
+Client Deliverables can answer a routine request from approved policies. Add Researcher for a difficult policy search or Editor for sensitive wording.
+
+Optional specialists: researcher, editor.
 
 ## Information to gather
 
@@ -33,38 +35,13 @@ Result: A clear response draft based on approved policies, with exceptions sent 
 
 ### 1. Client Deliverables
 
-Identify the request and gather the relevant customer context
+Identify the request, find the answer in the approved policy files, and prepare a clear reply
 
-Output: A request summary
-
-Message to send:
-
-Use the approved inputs I provide. Identify the request and gather the relevant customer context. Return this result: A request summary. Ask me about missing information before you continue.
-
-### 2. Researcher
-
-Find the approved policy or answer
-
-Output: A source-backed response outline
+Output: A response draft with the supporting policy and any exception marked for approval
 
 Message to send:
 
-Start with this result from Client Deliverables: A request summary. Find the approved policy or answer. Return this result: A source-backed response outline. Ask me about missing information before you continue.
-
-### 3. Editor
-
-Create a clear and courteous reply
-
-Output: A response draft for approval
-
-Message to send:
-
-Start with this result from Researcher: A source-backed response outline. Create a clear and courteous reply. Return this result: A response draft for approval. Ask me about missing information before you continue.
-
-## Handoff rules
-
-1. Client Deliverables hands the approved output—a request summary—to Researcher.
-2. Researcher hands the approved output—a source-backed response outline—to Editor.
+Use the approved inputs I provide. Identify the request, find the answer in the approved policy files, and prepare a clear reply. Return this result: A response draft with the supporting policy and any exception marked for approval. Ask me about missing information before you continue.
 
 ## Overall request
 
@@ -86,12 +63,11 @@ The first run passes when a person can verify the final result against the suppl
 
 ## If the workflow stalls
 
-If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
+If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help.
 
 ## Hermes Desktop setup
 
-1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
-2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
-3. Run each step in that Bot's own chat and review the result.
-4. Pass the approved result to the next Bot with the message provided for that step.
-5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.
+1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review the profile's SOUL.md, Bot Passport, and requested access.
+3. Run the complete request in that Bot's chat with low-risk material and review the result.
+4. Add a schedule, outside connection, or optional specialist only after the manual version works.

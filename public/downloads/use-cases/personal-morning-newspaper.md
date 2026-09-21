@@ -7,9 +7,9 @@ Result: A one-page edition built from selected calendar items, actionable messag
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need a one-page edition built from selected calendar items, actionable messages and one chosen interest, ready for review and optional printing.
-- **Lead Bot:** Scout
+- **Lead Bot:** Editor
 - **Cadence:** Each workday, after a person starts or approves the run
-- **Typical first run:** 30–60 minutes for a first manual run
+- **Typical first run:** 15–30 minutes for a first manual run
 
 ### Access for the first run
 
@@ -17,11 +17,13 @@ Result: A one-page edition built from selected calendar items, actionable messag
 - Only the files, sources, and services required for this run
 - No sending, publishing, spending, or live-system changes without approval
 
-## Bots
+## Recommended starting Bot
 
-1. Scout
-2. Editor
-3. Ops
+1. Editor
+
+Start with one Bot. Add a separate Scout only for broader research, or Ops only after a manual edition works and you need a controlled delivery routine.
+
+Optional specialists: scout, ops.
 
 ## Information to gather
 
@@ -31,40 +33,15 @@ Result: A one-page edition built from selected calendar items, actionable messag
 
 ## Workflow
 
-### 1. Scout
+### 1. Editor
 
-Organize only the supplied calendar, message and interest sources
+Read the approved sources, choose and organize the useful items, write the one-page edition, save the file, and ask before printing or scheduling
 
-Output: A dated source sheet with missing context marked
-
-Message to send:
-
-Use the approved inputs I provide. Organize only the supplied calendar, message and interest sources. Return this result: A dated source sheet with missing context marked. Ask me about missing information before you continue.
-
-### 2. Editor
-
-Lay out a one-page edition without inventing details
-
-Output: A readable edition and separate correction notes
+Output: A readable edition, source notes, and a saved file ready for review
 
 Message to send:
 
-Start with this result from Scout: A dated source sheet with missing context marked. Lay out a one-page edition without inventing details. Return this result: A readable edition and separate correction notes. Ask me about missing information before you continue.
-
-### 3. Ops
-
-Prepare the approved file and report the exact delivery step
-
-Output: A reviewed file for manual delivery or one authorized trial
-
-Message to send:
-
-Start with this result from Editor: A readable edition and separate correction notes. Prepare the approved file and report the exact delivery step. Return this result: A reviewed file for manual delivery or one authorized trial. Ask me about missing information before you continue.
-
-## Handoff rules
-
-1. Scout hands the approved output—a dated source sheet with missing context marked—to Editor.
-2. Editor hands the approved output—a readable edition and separate correction notes—to Ops.
+Use the approved inputs I provide. Read the approved sources, choose and organize the useful items, write the one-page edition, save the file, and ask before printing or scheduling. Return this result: A readable edition, source notes, and a saved file ready for review. Ask me about missing information before you continue.
 
 ## Overall request
 
@@ -86,7 +63,7 @@ The first run passes when a person can verify the final result against the suppl
 
 ## If the workflow stalls
 
-If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.
+If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help.
 
 ## Ways to do this job with another AI service
 
@@ -132,8 +109,7 @@ These options may not work the same way. Read what has and has not been tested.
 
 ## Hermes Desktop setup
 
-1. Open each Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
-2. Review each imported profile's SOUL.md, Bot Passport, and requested access.
-3. Run each step in that Bot's own chat and review the result.
-4. Pass the approved result to the next Bot with the message provided for that step.
-5. After the sequence works, you may create a group with the same Bots. In a group, @mention the Bot you want.
+1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
+2. Review the profile's SOUL.md, Bot Passport, and requested access.
+3. Run the complete request in that Bot's chat with low-risk material and review the result.
+4. Add a schedule, outside connection, or optional specialist only after the manual version works.

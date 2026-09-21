@@ -92,9 +92,10 @@ SOURCE MATERIAL:
       {
         heading: "Hermes: make one edition before you schedule it",
         paragraphs: [
-          "Use a separate Hermes profile for this routine, or a briefing profile whose access you have already checked. Start with the sample instructions above and information you choose. Ask Hermes to save the final instructions as a reusable skill and show you where it saved the file. Read that file before letting it run on its own.",
+          "Use one Hermes Bot for this routine. It can read the approved sources, choose and organize the items, write the page, save the file and ask for approval before printing or scheduling. You do not need a crew for the basic version. Start with the sample instructions above and information you choose. Ask Hermes to save the final instructions as a reusable skill and show you where it saved the file. Read that file before letting it run on its own.",
           "After you approve one edition, ask Hermes to suggest one named morning job. The plan should include the time and time zone, the approved instructions, where the file will go and how Hermes will report a failure. Check that a duplicate job does not already exist. Confirm the next run before you approve it, and save the job number so you can pause it later.",
           "A schedule does not connect email or printers. Check that Hermes can read only the sources you approve and reach the place where the file should go. A cloud agent cannot automatically reach your home printer. Print the first approved file yourself. For automatic printing, use a safe local connection set up only for that printer. Never expose a printer to the public internet.",
+          "A separate Scout, Editor and Ops setup becomes useful only if the newspaper grows into several editions, needs different access for different sources, requires an independent fact-check, or follows a formal approval chain.",
         ],
         note: "This Hermes setup has not been tested from start to finish. Keep making the document and printing it as separate steps, so a failed run cannot print an old edition. Do not change another profile's passwords, jobs or settings.",
         sources: [

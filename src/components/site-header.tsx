@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   ["My Workbench", "/workbench"],
   ["Bot Lab", "/workshop"],
   ["Portrait Studio", "/portraits"],
-  ["Bot Crews", "/use-cases"],
+  ["Bot Workflows", "/use-cases"],
   ["Crew Kits", "/crew-kits"],
   ["Proof Room", "/proof"],
   ["Agent Watch", "/watch"],
