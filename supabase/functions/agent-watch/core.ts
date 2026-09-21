@@ -73,21 +73,3 @@ export function mergePublishedWithFallback(published: AgentWatchItem[], fallback
   for (const item of published) items.set(item.slug, item);
   return [...items.values()].sort((a, b) => b.observedOn.localeCompare(a.observedOn) || a.title.localeCompare(b.title));
 }
-
-function escapeXml(value: string) {
-  return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
-}
-
-function utcDate(date: string) {
-  return new Date(`${date}T12:00:00Z`).toUTCString();
-}
-
-export function buildRss(items: AgentWatchItem[], selfUrl: string) {
-  const latestDate = items[0]?.observedOn ?? new Date().toISOString().slice(0, 10);
-  const entries = items.flatMap((item) => {
-    const link = `https://botcabinet.com/watch/#${item.slug}`;
-    const description = [`What changed: ${item.signal}`, `Why it matters: ${item.whyItMatters}`, `What Bot Cabinet did: ${item.cabinetResponse}`, `What remains unproven: ${item.limits}`, `Review again by: ${item.reviewAgainBy}`].join("\n\n");
-    return ["    <item>", `      <title>${escapeXml(item.title)}</title>`, `      <link>${escapeXml(link)}</link>`, `      <guid isPermaLink="false">${escapeXml(`bot-cabinet:watch:${item.slug}:${item.observedOn}`)}</guid>`, `      <description>${escapeXml(description)}</description>`, `      <category>${escapeXml(item.evidence)}</category>`, `      <pubDate>${utcDate(item.observedOn)}</pubDate>`, "    </item>"];
-  });
-  return ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">', "  <channel>", "    <title>Bot Cabinet Agent Watch</title>", "    <link>https://botcabinet.com/watch/</link>", "    <description>Reviewed, source-linked updates about useful AI agents and ways to use them.</description>", "    <language>en-us</language>", `    <lastBuildDate>${utcDate(latestDate)}</lastBuildDate>`, `    <atom:link href="${escapeXml(selfUrl)}" rel="self" type="application/rss+xml" />`, ...entries, "  </channel>", "</rss>", ""].join("\n");
-}

@@ -1,5 +1,5 @@
-import { assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
-import { buildRss, latestPublications, mergePublishedWithFallback, parseAgentWatchItem } from "./core.ts";
+import { assertEquals } from "jsr:@std/assert@1";
+import { latestPublications, mergePublishedWithFallback, parseAgentWatchItem } from "./core.ts";
 
 const item = {
   slug: "useful-new-agent",
@@ -26,12 +26,6 @@ Deno.test("keeps only the newest valid revision", () => {
     { slug: item.slug, revision: 2, payload: { ...item, title: "Revised title" }, published_at: "2026-09-20T11:00:00Z" },
   ];
   assertEquals(latestPublications(rows).map((entry) => entry.title), ["Revised title"]);
-});
-
-Deno.test("builds RSS from the same reviewed item", () => {
-  const rss = buildRss([item], "https://example.supabase.co/functions/v1/agent-watch?format=rss");
-  assertStringIncludes(rss, "<title>A useful new agent</title>");
-  assertStringIncludes(rss, "https://botcabinet.com/watch/#useful-new-agent");
 });
 
 Deno.test("keeps built-in notes until a reviewed revision replaces them", () => {

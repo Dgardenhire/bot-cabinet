@@ -1,4 +1,4 @@
-import { buildRss, latestPublications, mergePublishedWithFallback } from "./core.ts";
+import { latestPublications, mergePublishedWithFallback } from "./core.ts";
 import { AGENT_WATCH_SEED } from "./seed.ts";
 
 const cors = {
@@ -21,10 +21,6 @@ Deno.serve(async (request) => {
   if (!response.ok) return Response.json({ error: "Feed unavailable" }, { status: 503, headers: cors });
 
   const items = mergePublishedWithFallback(latestPublications(await response.json()), AGENT_WATCH_SEED);
-  const url = new URL(request.url);
   const headers = { ...cors, "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=3600" };
-  if (url.searchParams.get("format") === "rss") {
-    return new Response(buildRss(items, url.toString()), { headers: { ...headers, "Content-Type": "application/rss+xml; charset=utf-8" } });
-  }
   return Response.json({ version: 1, updatedAt: new Date().toISOString(), items }, { headers });
 });

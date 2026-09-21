@@ -3,80 +3,16 @@ import type { AgentWatchItem } from "./core.ts";
 
 export const AGENT_WATCH_SEED: AgentWatchItem[] = [
   {
-    "slug": "bounce-rate-is-not-useful-action",
-    "observedOn": "2026-09-20",
-    "reviewAgainBy": "2026-10-04",
-    "title": "A bounce can still contain a useful action",
-    "signal": "Vercel counts a visit as a bounce when a person leaves without opening a second page. A person can still download a Bot, start setup or report a result and be counted as a bounce.",
-    "evidence": "observed",
-    "whyItMatters": "A low bounce rate does not prove the site was useful. A high bounce rate does not prove a focused guide or download page failed. Bot Cabinet also needs to count useful actions and finished work.",
-    "cabinetResponse": "Added separate counts for downloads, setup starts, reported results, problems, return visits and repeat runs. This gives Bot Cabinet a clearer picture than bounce rate alone.",
-    "responseStatus": "published",
-    "limits": "The current 51% bounce rate comes from a short time period. It does not show whether people read carefully, finished a task or came back to use the same Bot again.",
-    "sources": [
-      {
-        "label": "Vercel Web Analytics: bounce-rate calculation",
-        "href": "https://vercel.com/docs/analytics#bounce-rate"
-      },
-      {
-        "label": "Vercel Web Analytics: custom events",
-        "href": "https://vercel.com/docs/analytics/custom-events"
-      }
-    ],
-    "cabinetLinks": [
-      {
-        "label": "Run the first-user walkthrough",
-        "href": "/start"
-      },
-      {
-        "label": "Open your Bot workbench",
-        "href": "/workbench"
-      }
-    ]
-  },
-  {
-    "slug": "repeat-use-not-return-visits",
-    "observedOn": "2026-09-20",
-    "reviewAgainBy": "2026-10-04",
-    "title": "A return visit is not the same as repeat usefulness",
-    "signal": "Reports about AI agents often count very small actions. A download, first use or return visit does not prove the same tool can keep doing useful work.",
-    "evidence": "observed",
-    "whyItMatters": "Bot Cabinet needs to learn whether a person finishes a real job, uses the same Bot again and gets a useful result—not just whether a page opened or a file downloaded.",
-    "cabinetResponse": "Added a private Three-Run Trial. It helps one person compare three attempts at the same job, including edits, supervision, cost and whether the work recovered after an interruption. Names and notes stay in the browser and are not sent to analytics.",
-    "responseStatus": "published",
-    "limits": "No one has submitted a live result yet. The trial records one person's own answers after three attempts. It does not prove the work is good for everyone, always reliable or worth paying for.",
-    "sources": [
-      {
-        "label": "Microsoft WorkLab: active-agent measurement",
-        "href": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
-      },
-      {
-        "label": "Anthropic: evaluating agents across repeated trials",
-        "href": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
-      }
-    ],
-    "cabinetLinks": [
-      {
-        "label": "Run the first-user walkthrough",
-        "href": "/start"
-      },
-      {
-        "label": "Open the Three-Run Trial",
-        "href": "/workbench"
-      }
-    ]
-  },
-  {
     "slug": "personal-agents-move-into-background",
     "observedOn": "2026-09-20",
     "reviewAgainBy": "2026-10-04",
     "title": "Personal agents are moving into background work",
     "signal": "Muse and Gemini Spark describe agents that keep working after the conversation ends. Instinct describes an assistant reached by text or phone that connects to applications and devices.",
     "evidence": "provider-claim",
-    "whyItMatters": "The important change is not another chat screen. These services want to handle continuing jobs, use connected information, follow schedules and ask for approval. Bot Cabinet should help people compare the real job, access, controls and proof.",
-    "cabinetResponse": "Published a guide that starts with the job a person wants done, then asks what each service can access, how it asks for approval and what proof it provides. Bot Cabinet still needs hands-on comparisons before recommending one service for a specific job.",
+    "whyItMatters": "The important change is not another chat screen. These services want to handle continuing jobs, use connected information, follow schedules and ask for approval. The useful comparison is the job, access, controls and proof—not the brand name.",
+    "cabinetResponse": "Choose one small recurring job and compare the services by what information they can use, what actions they can take, how they ask permission, what they cost, and how they show that the work was completed.",
     "responseStatus": "published",
-    "limits": "Bot Cabinet read the linked company pages but has not tested current access, reliability, account connections, prices or how often the work is completed.",
+    "limits": "Not yet tested here: current access, reliability, account connections, prices or how often the work is completed.",
     "sources": [
       {
         "label": "Meta: Introducing Muse",
@@ -106,9 +42,9 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "signal": "Karen X. Cheng's Grok Bot listing describes a personalized newspaper assembled from email and calendar and printed while the user sleeps.",
     "evidence": "observed",
     "whyItMatters": "This is more than a general briefing Bot. It uses personal information, runs on a schedule, chooses a short set of items and makes something that can be read away from a screen.",
-    "cabinetResponse": "Published an attributed use case and setup guide. It points to the creator's Grok Bot and explains what would need to be checked before trying the idea with Hermes, Muse, Instinct or another service.",
+    "cabinetResponse": "Read the original Grok Bot listing, then try one manual edition with made-up or selected information. Check every item before connecting private accounts, adding a schedule, or sending anything to a printer.",
     "responseStatus": "published",
-    "limits": "Bot Cabinet checked the public listing, but has not run the original Bot from start to finish. The other setup ideas and automatic printing have not been tested.",
+    "limits": "Not yet tested here: a complete run of the original Bot, the other setup ideas or automatic printing.",
     "sources": [
       {
         "label": "Karen X. Cheng: The Morning Newspaper",
@@ -130,13 +66,13 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "slug": "personal-agents-are-splitting-by-job",
     "observedOn": "2026-09-20",
     "reviewAgainBy": "2026-09-27",
-    "title": "Personal agents are splitting into different jobs",
-    "signal": "Ollie says it helps a family stay organized. Wajo says its agent can handle calls, vendors, bookings and approved purchases. Town says it learns how a person works and helps across connected business tools.",
+    "title": "New personal agents are choosing different kinds of work",
+    "signal": "Ollie is presented as an organizer for families. Wajo's Fo is presented as an agent for phone calls, vendors, bookings and approved purchases. Town is designed to learn a person's working style across connected business tools.",
     "evidence": "provider-claim",
-    "whyItMatters": "Calling all three a personal assistant hides the real choice. One helps a family coordinate, one handles real-world errands, and one learns how a person works. Each needs different access and approval rules.",
-    "cabinetResponse": "Added these services to the agent-selection guide and compared their jobs with Home Admin, Personal Planning Desk and Small-Business Admin Desk. Bot Cabinet did not add a duplicate Bot simply because a company used a new name.",
+    "whyItMatters": "The label “personal assistant” hides important differences. Family coordination, real-world errands and help across business tools require different information, permissions and safeguards.",
+    "cabinetResponse": "Begin with the job, not the brand. Decide whether you need family coordination, outside actions or help across work tools, then compare access, approvals, cost and a low-risk first test.",
     "responseStatus": "published",
-    "limits": "Bot Cabinet read the company pages but has not opened accounts, connected personal information, spent money, placed calls or purchases, or tested the same job several times. Prices, access and connections can change.",
+    "limits": "Not yet tested here: account setup, personal-data connections, spending, calls, purchases or repeated runs of the same job. Prices, access and connections can change.",
     "sources": [
       {
         "label": "Ollie: family assistant",
@@ -165,10 +101,10 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "title": "Bot marketplaces are becoming libraries of useful routines",
     "signal": "The Grok Bot marketplace now includes many specific personal and work routines. Its guide explains that a shared template can include instructions, selected memories, skills and plugins without being an exact copy.",
     "evidence": "observed",
-    "whyItMatters": "The useful part is often a clear way of doing a job, not a fancy title. Bot Cabinet should find good ideas, credit their creators, check setup and permissions, and adapt an idea only when another AI service can actually support it.",
-    "cabinetResponse": "A new Keeper checker can record new or changed marketplace listings for a person to review. It also points out ideas that may overlap with Bot Cabinet. It does not publish or reject anything by itself.",
+    "whyItMatters": "The useful part is often a clear way of doing a job, not a fancy title. A good adaptation credits the creator, checks the setup and permissions, and moves the idea only to a service that can actually support it.",
+    "cabinetResponse": "Look for a specific routine that solves a real problem. Check the creator, required access and first-run instructions before using it. Adapt the idea to another service only when that service can perform the same job safely.",
     "responseStatus": "testing",
-    "limits": "The checker and private review list passed tests on the Mac, but are not installed on the cloud Keeper. X search is not connected. A marketplace listing does not prove people use or value a Bot.",
+    "limits": "A marketplace listing does not prove that people use the Bot, that the instructions are safe, or that the routine works repeatedly. Not every linked listing has been tested.",
     "sources": [
       {
         "label": "Grok Bot Marketplace",
@@ -193,10 +129,10 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "title": "Agent Skills can carry instructions between services",
     "signal": "The Agent Skills format uses a file named SKILL.md to hold instructions. Skills.sh shares single skills and skill packs for several AI services. Its rankings count installs, not whether the skill keeps producing useful work.",
     "evidence": "observed",
-    "whyItMatters": "A reusable set of instructions may work in more places than a Bot made for one service. Bot Cabinet should make those instructions easy to find and test them with each service before saying they work there.",
-    "cabinetResponse": "Each Bot Pack now includes a SKILL.md file and shows it beside the readable Markdown and JSON files. Visitors are told to review permissions and test the file with the AI service they choose.",
+    "whyItMatters": "A reusable set of instructions may work in more places than a Bot made for one service. But the instructions still need a separate test in each service before anyone can say they work there.",
+    "cabinetResponse": "Open the SKILL.md file before installing it. Check its instructions and requested access, then run one low-risk test in the service you plan to use.",
     "responseStatus": "published",
-    "limits": "Bot Cabinet has not listed these files in another skill directory, tested them with every service named by skills.sh or measured repeat use. A Hermes test does not prove the file works with another service.",
+    "limits": "Not yet tested here: every service named by skills.sh or repeated use across services. A Hermes test does not prove that the same file works somewhere else.",
     "sources": [
       {
         "label": "Agent Skills format specification",
@@ -225,10 +161,10 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "title": "Hermes and OpenClaw change too quickly for permanent “works with” labels",
     "signal": "Hermes Agent and OpenClaw both released several updates in September. Their public release pages show frequent changes to how they run, connect to other tools and fix problems.",
     "evidence": "observed",
-    "whyItMatters": "A download that worked once can later become outdated. Bot Cabinet needs version numbers, dated test notes and new tests after an important outside update.",
-    "cabinetResponse": "A Keeper checker can watch both official release feeds and add a new update to a private review list. A person still has to decide whether a Bot needs another test.",
+    "whyItMatters": "A download that worked once can later become outdated. Useful compatibility notes need a version number, a test date and another test after an important runtime update.",
+    "cabinetResponse": "Check the tested version and date before installing a Bot. After an important runtime update, repeat the Bot's first test before trusting it with recurring work or broader access.",
     "responseStatus": "testing",
-    "limits": "The release checker passed tests on the Mac, but is not installed on the cloud Keeper. Bot Cabinet will not say a package still works until someone checks it.",
+    "limits": "Release notes do not show whether a particular Bot still works. A package should be treated as unconfirmed after a major runtime change until its first test is repeated.",
     "sources": [
       {
         "label": "Hermes Agent releases",
