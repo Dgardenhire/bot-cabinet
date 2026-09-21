@@ -19,9 +19,9 @@ describe("morning newspaper cross-platform implementation guide", () => {
     expect(html).toContain("Karen X. Cheng");
     expect(html).toContain("Create a sample of my morning newspaper");
     expect(html).toContain("Can you implement this approved morning edition");
-    expect(html).toContain("untested implementation briefs");
-    expect(html).toContain("Automatic printing remains unverified");
-    expect(html).toContain("Hermes: adapt the brief");
+    expect(html).toContain("setup ideas, not tested connections");
+    expect(html).toContain("We have not tested automatic printing");
+    expect(html).toContain("Hermes: make one edition before you schedule it");
     expect(html).toContain("Muse or Instinct");
     expect(html).toContain("not a spending cap");
   });

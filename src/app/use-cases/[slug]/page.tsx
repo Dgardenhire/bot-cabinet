@@ -149,9 +149,9 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
       {useCase.adaptations && (
         <section className="content-section shell workflow-adaptations">
           <div>
-            <Eyebrow>Run the outcome across platforms</Eyebrow>
-            <h2 className="section-heading">Keep the useful job; choose the implementation that fits</h2>
-            <p className="section-deck">These are separately labeled paths—not claims that every platform behaves the same. Cabinet can add another host or independent tool without changing the workflow itself.</p>
+            <Eyebrow>Use this idea with another AI service</Eyebrow>
+            <h2 className="section-heading">Choose the service that can do the job</h2>
+            <p className="section-deck">Each option is labeled clearly. A similar-looking AI service may not have the same access, schedule, file or printing features.</p>
           </div>
           <div className="workflow-adaptation-grid">
             {useCase.adaptations.map((adaptation) => (
@@ -160,12 +160,12 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
                   <h3>{adaptation.platform}</h3>
                   <span>{adaptation.statusLabel}</span>
                 </div>
-                <p><strong>Approach:</strong> {adaptation.approach}</p>
+                <p><strong>How it could work:</strong> {adaptation.approach}</p>
                 <p><strong>Start here:</strong> {adaptation.setup}</p>
-                <p><strong>Known limit:</strong> {adaptation.limitations}</p>
+                <p><strong>What we have not tested:</strong> {adaptation.limitations}</p>
                 <div className="workflow-adaptation-links">
                   {adaptation.source && <a href={adaptation.source.href} target="_blank" rel="noreferrer">{adaptation.source.label} <ArrowSquareOut size={13} /></a>}
-                  {adaptation.cabinetGuide && <Link href={adaptation.cabinetGuide}>Open Cabinet setup guide <ArrowRight size={13} /></Link>}
+                  {adaptation.cabinetGuide && <Link href={adaptation.cabinetGuide}>Open the setup guide <ArrowRight size={13} /></Link>}
                 </div>
               </article>
             ))}

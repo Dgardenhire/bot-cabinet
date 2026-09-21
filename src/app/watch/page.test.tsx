@@ -15,33 +15,35 @@ describe("Agent Watch", () => {
     }
   });
 
-  it("renders the open-ended boundary and honest unfinished status", () => {
+  it("renders the live feed, clear evidence labels and honest unfinished status", () => {
     const html = renderToStaticMarkup(<AgentWatchPage />);
-    expect(html).toContain("Named platforms are examples—not the boundary");
+    expect(html).toContain("This page is the Agent Watch feed");
     expect(html).toContain("The Morning Newspaper turns agent work into a finished ritual");
     expect(html).toContain("Personal agents are splitting into different jobs");
-    expect(html).toContain("No duplicate Bot was added");
+    expect(html).toContain("did not add a duplicate Bot");
     expect(html).toContain("https://ollie.ai/");
     expect(html).toContain("https://wajo.ai/");
     expect(html).toContain("https://www.town.com/docs/getting-started");
     expect(html).toContain("A return visit is not the same as repeat usefulness");
     expect(html).toContain("A bounce can still contain a useful action");
-    expect(html).toContain("custom events from the calculation");
+    expect(html).toContain("be counted as a bounce");
     expect(html).toContain("https://vercel.com/docs/analytics#bounce-rate");
     expect(html).toContain('href="/workbench"');
-    expect(html).toContain("second and third real Bot runs");
-    expect(html).toContain("browser-private Three-Run Trial");
-    expect(html).toContain("supervision, cost range and interruption recovery");
+    expect(html).toContain("compare three attempts at the same job");
+    expect(html).toContain("private Three-Run Trial");
+    expect(html).toContain("supervision, cost and whether the work recovered after an interruption");
     expect(html).toContain('href="/start"');
-    expect(html).toContain("Native X search is not connected");
-    expect(html).toContain("Reusable procedures are becoming portable Agent Skills");
-    expect(html).toContain("rankings measure installations");
-    expect(html).toContain("does not certify another host");
+    expect(html).toContain("X search is not connected");
+    expect(html).toContain("Agent Skills can carry instructions between services");
+    expect(html).toContain("rankings count installs");
+    expect(html).toContain("does not prove the file works with another service");
     expect(html).toContain("https://agentskills.io/specification");
-    expect(html).toContain("not yet installed on the cloud Keeper");
-    expect(html).toContain("Prepared locally · not deployed");
+    expect(html).toContain("not installed on the cloud Keeper");
+    expect(html).not.toContain("Prepared locally · not deployed");
+    expect(html).toContain("Added to Bot Cabinet");
+    expect(html).toContain("Still being tested");
     expect(html).toContain('href="/watch/feed.xml"');
-    expect(html).toContain("Subscribe to Agent Watch RSS");
+    expect(html).toContain("Follow by RSS");
     expect(html).toContain("Checking this browser for new Agent Watch notes");
     expect(metadata.alternates).toBeTruthy();
     expect(html).toContain("https://gemini.google/overview/agent/spark/");

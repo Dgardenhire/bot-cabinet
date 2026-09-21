@@ -21,8 +21,8 @@ describe("outcome-first workflow adaptations", () => {
     expect(html).toContain("Karen X. Cheng");
     expect(html).toContain("https://x.ai/bot/marketplace/bots/the-morning-newspaper");
     expect(html).toContain("Another agent or emerging tool");
-    expect(html).toContain("Capability review only");
-    expect(html).toContain("has not been run end to end");
+    expect(html).toContain("What to check — not tested");
+    expect(html).toContain("has not run this from start to finish");
     expect(html).toContain("/guides/morning-newspaper-across-agents");
   });
 });
