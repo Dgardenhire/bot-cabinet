@@ -104,7 +104,7 @@ This is an inactive plan. Run the job successfully by hand before activating any
 - **Archive:** https://botcabinet.com/downloads/starter-bots/v2/daily-newspaper.tar.gz
 - **Readable files:** https://botcabinet.com/downloads/starter-bots/v2/daily-newspaper.zip
 - **Package status:** files-and-archive-checked
-- **Import status:** Not yet tested in Hermes.
+- **Import status:** Passed with Hermes Agent 0.21.4 on 2026-09-23
 - **Import test scope:** Archive import and bundled Skill presence only; output quality and live-service behavior still require human testing.
 
 ## Grok Bot manual build brief

@@ -26,6 +26,7 @@ import {
   getStarterBotRoleContract,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
+import { getBotRuntimeEvidence } from "@/data/bot-release-evidence";
 import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
 import {
   portableBotPackV2ArtifactPaths,
@@ -68,6 +69,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
   }
 
   const portablePackV2 = starterBotToPortablePackV2(bot);
+  const runtimeEvidence = getBotRuntimeEvidence(bot.slug);
   const portablePackV2Paths = portableBotPackV2ArtifactPaths(bot.slug);
   const profileArchiveUrl = `https://botcabinet.com${portablePackV2.platforms.hermes.archiveUrl}`;
   const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}-v2.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}-v2.tar.gz --name ${bot.slug}-v2`;
@@ -206,7 +208,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
       <section className="content-section shell starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
-        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same seven files. {portablePackV2.platforms.hermes.importEvidence ? "This archive passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026." : "Hermes import testing is pending for this new profile."} Human technical review and role-specific output/runtime tests remain pending. Grok Bot adaptation remains untested.</p>
+        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same seven files. {botImportAndRunStatus(portablePackV2)} {runtimeEvidence ? <Link href={runtimeEvidence.proofPath}>Inspect the recorded run.</Link> : null}</p>
       </section>
     </main>
   );

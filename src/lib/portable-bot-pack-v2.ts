@@ -10,9 +10,16 @@ export const PORTABLE_BOT_PACK_V2_SCHEMA_VERSION = 2 as const;
 export const PORTABLE_BOT_PACK_V2_PACK_VERSION = "2.0.0" as const;
 export const PORTABLE_BOT_PACK_V2_PUBLISHED_DATE = "2026-09-04" as const;
 
-const IMPORT_TESTED_SLUGS = new Set(["scout", "researcher", "planner", "client", "coder", "ops", "professor", "architect", "founding-engineer", "chief-of-staff", "coach", "nova", "pulse", "story", "curator", "reentry", "receipt", "writer", "editor"]);
+const IMPORT_TESTED_SLUGS = new Set(["scout", "researcher", "planner", "client", "coder", "ops", "professor", "architect", "founding-engineer", "chief-of-staff", "coach", "nova", "pulse", "story", "curator", "reentry", "receipt", "writer", "editor", "daily-newspaper"]);
 
 function expectedHermesImportEvidence(slug: string) {
+  if (slug === "daily-newspaper") {
+    return {
+      hermesVersion: "0.21.4" as const,
+      testedDate: "2026-09-23" as const,
+      scope: "archive-import-and-bundled-skill-presence" as const,
+    };
+  }
   if (slug === "writer" || slug === "editor") {
     return {
       hermesVersion: "0.21.3" as const,
@@ -111,8 +118,8 @@ export type PortableBotPackV2 = {
       packageStatus: "files-and-archive-checked";
       importStatus: "import-test-passed" | "not-tested";
       importEvidence: null | {
-        hermesVersion: "0.21.0" | "0.21.1" | "0.21.3";
-        testedDate: "2026-09-04" | "2026-09-09" | "2026-09-20";
+        hermesVersion: "0.21.0" | "0.21.1" | "0.21.3" | "0.21.4";
+        testedDate: "2026-09-04" | "2026-09-09" | "2026-09-20" | "2026-09-23";
         scope: "archive-import-and-bundled-skill-presence";
       };
     };

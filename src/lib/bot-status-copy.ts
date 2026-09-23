@@ -1,4 +1,4 @@
-import { getReproducedBotEvidence } from "../data/bot-release-evidence";
+import { getBotRuntimeEvidence, getReproducedBotEvidence } from "../data/bot-release-evidence";
 import type { PortableBotPackV2 } from "./portable-bot-pack-v2";
 
 function formatDate(date: string) {
@@ -13,7 +13,10 @@ export function botImportAndRunStatus(pack: PortableBotPackV2) {
   const importStatus = importEvidence
     ? `This archive passed an isolated import and bundled-Skill presence check in Hermes Agent ${importEvidence.hermesVersion} on ${formatDate(importEvidence.testedDate)}.`
     : "New prepared profile: Hermes import testing is pending.";
-  const roleStatus = getReproducedBotEvidence(pack.identity.slug)
+  const runtimeEvidence = getBotRuntimeEvidence(pack.identity.slug);
+  const roleStatus = runtimeEvidence
+    ? `${runtimeEvidence.summary} This is one run, not evidence of general reliability or approval for scheduling.`
+    : getReproducedBotEvidence(pack.identity.slug)
     ? "Two published first-mission role runs passed their disclosed checks. Human technical review remains pending."
     : "Human technical and role-specific output tests remain pending.";
 
