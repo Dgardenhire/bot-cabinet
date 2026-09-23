@@ -66,23 +66,21 @@ export function LiveBotListings() {
   return (
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
-        <div><span className="eyebrow">A small live sample from public directories</span><h2 id="live-bot-title">New Bots and workflows</h2></div>
+        <div><span className="eyebrow">Refreshed in your browser</span><h2 id="live-bot-title">Fresh listings</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>Six current listings from My Bot Farm, GrokHub, Muse at Work and the Grok Bot Field Notes role collection, rotated so one source cannot take over the page. These are source descriptions, not recommendations, and they have not been tested by Bot Cabinet.</p>
+      <p>A six-item glance at sources that permit direct refresh here. These are source descriptions, not recommendations or test results. Open “Sources we check” below for official marketplaces and sources that require a reviewed edition.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : sources.map((source) => `${source.name}: ${source.ok ? "connected" : "unavailable"}`).join(" · ")}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}
       </div>
-      {items.length ? <div className="live-bot-grid">{items.map((item) => (
-        <article key={item.id} className="live-bot-card">
-          <div className="live-bot-card-meta"><span>{item.kind} · {item.source}</span>{item.listedAt ? <time dateTime={item.listedAt}>Listed {new Date(item.listedAt).toLocaleDateString()}</time> : <span>Current source entry</span>}</div>
-          <h3>{item.name}</h3><p>{item.job}</p><div className="live-bot-card-bottom"><span>By {item.creator}</span><div>
-            <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>
-            {item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}
-          </div></div>
-        </article>
-      ))}</div> : !loading ? <p className="live-bot-empty">The sources could not be reached. Try Refresh or open <a href="https://mybot.farm/catalog">My Bot Farm</a>, <a href="https://www.grokhub.io/">GrokHub</a>, <a href="https://museatwork.app/">Muse at Work</a> or <a href="https://github.com/unicodef1wn/grokbot-field-notes/tree/main/roster">Grok Bot Field Notes</a> directly.</p> : null}
+      {items.length ? <ol className="live-bot-list">{items.map((item) => (
+        <li key={item.id}>
+          <div className="live-bot-list-meta"><span>{item.kind} · {item.source}</span>{item.listedAt ? <time dateTime={item.listedAt}>{new Date(item.listedAt).toLocaleDateString()}</time> : <span>Current entry</span>}</div>
+          <div className="live-bot-list-copy"><div><h3>{item.name}</h3><p>{item.job}</p></div><span>By {item.creator}</span></div>
+          <div className="live-bot-list-links"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">Open source <ArrowSquareOut size={13} /></a>{item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original <ArrowSquareOut size={13} /></a>}</div>
+        </li>
+      ))}</ol> : !loading ? <p className="live-bot-empty">The refreshable sources could not be reached. The coverage list above links to every source directly.</p> : null}
     </section>
   );
 }

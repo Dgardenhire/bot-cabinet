@@ -34,6 +34,58 @@ export type AgentWatchItem = {
 
 export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
   {
+    slug: "grok-import-bot",
+    observedOn: "2026-09-23",
+    reviewAgainBy: "2026-09-30",
+    title: "Import Bot moves an existing agent setup into Grok Bot",
+    signal: "The official Grok Bot marketplace lists a Bot that reads selected setups from Claude Cowork, Codex, ChatGPT, OpenClaw, and Hermes, removes secrets, and proposes matching Grok Bots.",
+    evidence: "provider-claim",
+    whyItMatters: "People should not have to rebuild their working instructions every time they change tools. A careful migration path could make Bot Cabinet useful across the agent market instead of tying it to one runtime.",
+    cabinetResponse: "Test a clean-room migration with a made-up Hermes profile. Compare every moved field, confirm that credentials and private history stay out, and require approval before creating anything in the destination service.",
+    responseStatus: "testing",
+    limits: "Bot Cabinet inspected the official marketplace description but has not installed or run Import Bot. The listing does not prove that every named source exports the same information or that secret removal catches every case.",
+    sources: [{ label: "Official Grok Bot Marketplace listing", href: "https://x.ai/bot/marketplace/bots/import-bot" }],
+    cabinetLinks: [{ label: "Browse portable Bot Packs", href: "/bots" }],
+    botDetails: {
+      name: "Import Bot",
+      creator: "Shub Gaur",
+      platform: "Grok Bot",
+      job: "Moves selected agent instructions into Grok Bot while claiming to leave the old tools unchanged and remove secrets.",
+      requiredAccess: "The selected source setup and a Grok Bot account. The exact account and file access should be checked before use.",
+      outsideActions: "Creates or updates Bots in the destination service after reviewing the imported setup.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "test-adaptation",
+      cabinetFit: "Build a platform-neutral migration test before deciding whether this should become a new Cabinet Bot or a Desktop plugin feature.",
+      closestCabinetMatch: { label: "Portable Bot Packs", href: "/bots" },
+    },
+  },
+  {
+    slug: "grok-tinkabot",
+    observedOn: "2026-09-23",
+    reviewAgainBy: "2026-09-30",
+    title: "tinkabot turns an API into an agent plugin",
+    signal: "The official Grok Bot marketplace lists a Bot that scopes an API, builds a small MCP-and-skill plugin, proves it locally, and asks before marketplace publication.",
+    evidence: "provider-claim",
+    whyItMatters: "A Bot that can package a useful connection is more valuable than another static prompt. The same pattern could help Bot Cabinet turn proven jobs into real Hermes Desktop plugins.",
+    cabinetResponse: "Use the job pattern to strengthen the Bot Cabinet plugin workflow: define one narrow connection, build the smallest package, test locally, and keep publication as a separate human decision.",
+    responseStatus: "testing",
+    limits: "Bot Cabinet inspected the official listing but has not run this Bot or reviewed a package it created. API permissions, generated code, dependencies, and marketplace rules still require separate review.",
+    sources: [{ label: "Official Grok Bot Marketplace listing", href: "https://x.ai/bot/marketplace/bots/tinkabot" }],
+    cabinetLinks: [{ label: "Read the Hermes profile guide", href: "/guides/install-a-profile" }],
+    botDetails: {
+      name: "tinkabot",
+      creator: "Lauren Tan",
+      platform: "Grok Bot",
+      job: "Builds a small agent plugin around an API and proves it locally before asking to publish.",
+      requiredAccess: "API documentation, a disposable development workspace, and any credentials needed only for a bounded local test.",
+      outsideActions: "Writes plugin files and may propose marketplace publication; publication should remain approval-gated.",
+      evidenceStatus: "inspected",
+      cabinetDecision: "improve-existing",
+      cabinetFit: "Use the pattern to improve Bot Cabinet's plugin builder and test process rather than add another general coding Bot.",
+      closestCabinetMatch: { label: "Founding Engineer", href: "/bots/founding-engineer" },
+    },
+  },
+  {
     slug: "unstick-me-bot",
     observedOn: "2026-09-20",
     reviewAgainBy: "2026-09-27",
@@ -371,4 +423,4 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
   },
 ];
 
-export const AGENT_WATCH_UPDATED = "2026-09-20";
+export const AGENT_WATCH_UPDATED = "2026-09-23";

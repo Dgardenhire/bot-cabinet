@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ArrowSquareOut,
   CheckCircle,
-  Flask,
-  GitBranch,
-  LockKey,
-  ShieldWarning,
+  Clock,
+  Robot,
   UserFocus,
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
@@ -13,11 +12,11 @@ import { EvidencePill, Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Inspection Desk · Review process",
-  description: "How Bot Cabinet records each source version and reports automated source scan, human technical review, and Hermes Desktop test status.",
+  title: "What Bot Cabinet actually checks",
+  description: "See which Bot Cabinet checks run now, which are controlled tests, and which Keeper jobs are not yet connected.",
   path: "/trust/",
   image: "/brand/social/inspection-desk-1200x630.jpg",
-  imageAlt: "Inspection Desk — understand a Bot before you install it",
+  imageAlt: "Inspection Desk — what Bot Cabinet actually checks",
 });
 
 const evidence = [
@@ -49,28 +48,27 @@ export default function TrustPage() {
       <section className="inner-hero">
         <div className="shell inner-hero-grid">
           <div>
-            <Eyebrow>Review process</Eyebrow>
-            <h1 className="inner-title">Inspection Desk</h1>
+            <Eyebrow>Checks and test status</Eyebrow>
+            <h1 className="inner-title">What we actually check</h1>
             <p className="inner-deck">
-              Read the review status before you try a Bot. Each listing records the source version and reports the automated source scan,
-              human technical review, and Hermes Desktop test separately. Review the Bot’s requested access and approval points before using it.
+              See what has actually been checked, when it was checked, and what the result does not prove.
+              Bot Cabinet separates release checks, controlled Bot tests, recurring Keeper work, and human judgment.
             </p>
           </div>
           <aside className="inner-aside trust-caveat">
             <Warning size={22} weight="thin" aria-hidden="true" />
-            <strong>Automated source scans have limits.</strong>
-            A scan can find known file patterns, possible credentials, and risky instructions. It
-            cannot predict every behavior. Human technical review is unavailable at this time.
+            <strong>No badge means “safe” or “works for everyone.”</strong>
+            A package check can find known problems. A controlled task can expose failures. Neither replaces reading the requested access, testing the job yourself, or making the final decision.
           </aside>
         </div>
       </section>
 
       <section className="content-section shell">
-        <Eyebrow>Three review statuses</Eyebrow>
+        <Eyebrow>Current operating status · September 23, 2026</Eyebrow>
         <div className="content-grid-3">
-          <article className="content-card"><h2>Automated source scan</h2><p>A scanner checks a limited set of public files for known risk patterns without running the project.</p></article>
-          <article className="content-card"><h2>Human technical review</h2><p>A qualified person reads the relevant files and records findings. This review is unavailable at this time.</p></article>
-          <article className="content-card"><h2>Hermes Desktop test</h2><p>The exact project version is installed in a disposable profile and tested with a small task.</p></article>
+          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks are running</h2><p>The latest release passed 291 application tests, 16 edge tests, 20 social-card checks, and 4,425 internal-link checks with no broken internal links. These checks cover the site release, not every external link or every Bot’s usefulness.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the public release runs <ArrowSquareOut size={14} /></a></article>
+          <article className="content-card"><Clock size={24} weight="thin" /><h2>Keeper’s recurring jobs are not connected</h2><p>Cabinet Keeper exists, but its recurring source, site, download, and catalog checks are not yet installed and verified in the cloud. Until that changes, this page will not present them as live monitoring.</p></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Bot tests are controlled trials</h2><p>Some exact packages were imported and run against disclosed fictional fixtures. Those records show what happened in those tests. They are not customer results, independent review, or proof of dependable real-world use.</p><Link className="text-link" href="/proof">Read the Test Records</Link></article>
         </div>
       </section>
 
@@ -90,20 +88,17 @@ export default function TrustPage() {
       <section className="content-section shell">
         <div className="promise-grid">
           <div>
-            <Eyebrow>Planned submission review</Eyebrow>
-            <h2 className="section-heading">How the Inspection Desk would review a submission</h2>
+            <Eyebrow>Cabinet Keeper’s proper job</Eyebrow>
+            <h2 className="section-heading">What Keeper can check automatically</h2>
             <p className="section-deck">
-              Public submissions are closed. A planned automated source scan would read a fixed,
-              limited set of public files without running submitted code. Profiles that require
-              technical judgment would remain unpublished while human technical review is unavailable.
+              Keeper should do the repetitive inspection work and produce a dated report. It should not quietly publish, deploy, install unknown code, or turn an automated scan into a safety claim.
             </p>
           </div>
           <ol className="trust-process">
-            <li><GitBranch size={24} weight="thin" /><div><strong>Record one exact public version</strong><p>The scan records the repository, a fixed source version, the file that describes the Hermes package, its license, included paths, and required account names. A later source version needs a new scan.</p></div></li>
-            <li><LockKey size={24} weight="thin" /><div><strong>Check for private material</strong><p>The scan looks for possible credentials, memories, sessions, logs, personal information, and local computer paths.</p></div></li>
-            <li><ShieldWarning size={24} weight="thin" /><div><strong>Check for risky actions</strong><p>The scan looks for instructions or code that can delete files, send data, run commands, contact outside services, stay active, or start on a schedule.</p></div></li>
-            <li><UserFocus size={24} weight="thin" /><div><strong>State what the scanner cannot decide</strong><p>Projects that use powerful tools or unclear instructions would stay unpublished while human technical review is unavailable.</p></div></li>
-            <li><Flask size={24} weight="thin" /><div><strong>Run a Hermes Desktop test separately</strong><p>A separate test would install the exact project version in a disposable profile and try a small task. The automated source scan would not run submitted code.</p></div></li>
+            <li><Robot size={24} weight="thin" /><div><strong>Site and download health</strong><p>Check pages, internal links, package files, manifests, checksums, metadata, and catalog consistency. Report changes and failures with a date.</p></div></li>
+            <li><Robot size={24} weight="thin" /><div><strong>Source and version changes</strong><p>Check approved marketplaces, directories, repositories, and release feeds. Deduplicate findings and put new or changed items into a private review queue.</p></div></li>
+            <li><Robot size={24} weight="thin" /><div><strong>Bounded package inspection</strong><p>Read a fixed set of public files for known credential patterns, private data, risky actions, schedules, network calls, and unclear permissions without running unknown code.</p></div></li>
+            <li><UserFocus size={24} weight="thin" /><div><strong>A person still decides</strong><p>A person approves publication, deployment, purchases, account connections, destructive changes, and any claim that requires judgment. Keeper may advance at most one substantial product proposal each week.</p></div></li>
           </ol>
         </div>
       </section>
