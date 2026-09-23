@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { newestListings, parseGrokHubListings, parseMyBotFarmListings } from "./live-bot-listings";
+import { newestListings, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings } from "./live-bot-listings";
 
 describe("live directory listings", () => {
   it("accepts My Bot Farm Bots and teams with their real listed dates", () => {
@@ -27,5 +27,31 @@ describe("live directory listings", () => {
     const items = parseGrokHubListings({ items: [{ type: "use-case", slug: "safe", headline: "Safe", summary: "Job", url: "https://www.grokhub.io/use-cases/safe", template_url: "javascript:alert(1)", added_at: "2026-09-18" }] });
     expect(items[0].originalUrl).toBeUndefined();
     expect(newestListings([...items, ...items])).toHaveLength(1);
+  });
+
+  it("reads only public Muse workflow metadata and links back to the original entry", () => {
+    expect(parseMuseAtWorkConfig('const SUPABASE_URL = "https://example.supabase.co"; const SUPABASE_ANON_KEY = "public.jwt-value";')).toEqual({
+      apiUrl: "https://example.supabase.co", apiKey: "public.jwt-value",
+    });
+    const items = parseMuseAtWorkListings([{ id: "abc-123", title: "Morning brief", outcome: "Start with the decisions that matter.", x_handle: "@maker", created_at: "2026-09-22T12:00:00Z", prompt: "not retained" }]);
+    expect(items).toEqual([expect.objectContaining({
+      name: "Morning brief", creator: "@maker", source: "Muse at Work", kind: "Workflow", sourceUrl: "https://museatwork.app/#w=abc-123",
+    })]);
+    expect(items[0]).not.toHaveProperty("prompt");
+  });
+
+  it("caps the feed and prevents one directory from taking every slot", () => {
+    const make = (source: "My Bot Farm" | "GrokHub" | "Muse at Work", index: number) => ({
+      id: `${source}:${index}`, name: `${source} ${index}`, job: "Does a job", creator: "Maker", source,
+      sourceUrl: "https://example.com", listedAt: `2026-09-${String(22 - index).padStart(2, "0")}T00:00:00.000Z`, kind: source === "Muse at Work" ? "Workflow" as const : "Bot" as const,
+    });
+    const selected = newestListings([
+      ...Array.from({ length: 10 }, (_, index) => make("My Bot Farm", index)),
+      ...Array.from({ length: 4 }, (_, index) => make("GrokHub", index)),
+      ...Array.from({ length: 4 }, (_, index) => make("Muse at Work", index)),
+    ]);
+    expect(selected).toHaveLength(6);
+    expect(selected.filter((item) => item.source === "My Bot Farm").length).toBeLessThanOrEqual(3);
+    expect(new Set(selected.map((item) => item.source)).size).toBe(3);
   });
 });

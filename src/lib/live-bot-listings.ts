@@ -1,6 +1,7 @@
 export const LIVE_BOT_SOURCES = [
-  { name: "My Bot Farm", url: "https://mybot.farm/api/stalls?sort=newest" },
-  { name: "GrokHub", url: "https://www.grokhub.io/feed" },
+  { name: "My Bot Farm", url: "https://mybot.farm/api/stalls?sort=newest", format: "json" },
+  { name: "GrokHub", url: "https://www.grokhub.io/feed", format: "json" },
+  { name: "Muse at Work", url: "https://museatwork.app/config.js", format: "muse" },
 ] as const;
 
 export type LiveBotListing = {
@@ -8,11 +9,11 @@ export type LiveBotListing = {
   name: string;
   job: string;
   creator: string;
-  source: "My Bot Farm" | "GrokHub";
+  source: "My Bot Farm" | "GrokHub" | "Muse at Work";
   sourceUrl: string;
   originalUrl?: string;
   listedAt: string;
-  kind: "Bot" | "Team";
+  kind: "Bot" | "Team" | "Workflow";
 };
 
 function object(value: unknown): Record<string, unknown> | null {
@@ -80,7 +81,55 @@ export function parseGrokHubListings(value: unknown): LiveBotListing[] {
   });
 }
 
-export function newestListings(items: LiveBotListing[], limit = 24): LiveBotListing[] {
+export function parseMuseAtWorkConfig(value: string): { apiUrl: string; apiKey: string } {
+  const urlMatch = value.match(/SUPABASE_URL\s*=\s*["'](https:\/\/[a-z0-9-]+\.supabase\.co)["']/i);
+  const keyMatch = value.match(/SUPABASE_ANON_KEY\s*=\s*["']([A-Za-z0-9._-]+)["']/);
+  if (!urlMatch || !keyMatch) throw new Error("Muse at Work public directory configuration is unavailable");
+  return { apiUrl: urlMatch[1], apiKey: keyMatch[1] };
+}
+
+export function parseMuseAtWorkListings(value: unknown): LiveBotListing[] {
+  if (!Array.isArray(value)) return [];
+  return value.slice(0, 200).flatMap((raw) => {
+    const item = object(raw);
+    const id = shortText(item?.id, 80);
+    const name = shortText(item?.title, 100);
+    const job = shortText(item?.outcome, 240);
+    const listedAt = date(item?.created_at);
+    if (!id || !/^[a-z0-9-]+$/i.test(id) || !name || !job || !listedAt) return [];
+    const handle = shortText(item?.x_handle, 80)?.replace(/^@/, "");
+    return [{
+      id: `muse-at-work:${id}`,
+      name,
+      job,
+      creator: handle ? `@${handle}` : "Creator not listed",
+      source: "Muse at Work" as const,
+      sourceUrl: `https://museatwork.app/#w=${id}`,
+      listedAt,
+      kind: "Workflow" as const,
+    }];
+  });
+}
+
+export function newestListings(items: LiveBotListing[], limit = 6, maxPerSource = 3): LiveBotListing[] {
   const byId = new Map(items.map((item) => [item.id, item]));
-  return [...byId.values()].sort((a, b) => b.listedAt.localeCompare(a.listedAt) || a.name.localeCompare(b.name)).slice(0, limit);
+  const sorted = [...byId.values()].sort((a, b) => b.listedAt.localeCompare(a.listedAt) || a.name.localeCompare(b.name));
+  const bySource = new Map<LiveBotListing["source"], LiveBotListing[]>();
+  for (const item of sorted) bySource.set(item.source, [...(bySource.get(item.source) ?? []), item]);
+  const sourceQueues = [...bySource.entries()].sort((a, b) => b[1][0].listedAt.localeCompare(a[1][0].listedAt));
+  const selected: LiveBotListing[] = [];
+  let round = 0;
+  while (selected.length < limit && round < maxPerSource) {
+    let added = false;
+    for (const [, queue] of sourceQueues) {
+      const item = queue[round];
+      if (!item) continue;
+      selected.push(item);
+      added = true;
+      if (selected.length >= limit) break;
+    }
+    if (!added) break;
+    round += 1;
+  }
+  return selected;
 }

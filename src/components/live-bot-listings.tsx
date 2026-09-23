@@ -2,12 +2,27 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ArrowSquareOut, ArrowsClockwise } from "@phosphor-icons/react";
-import { LIVE_BOT_SOURCES, newestListings, parseGrokHubListings, parseMyBotFarmListings, type LiveBotListing } from "@/lib/live-bot-listings";
+import { LIVE_BOT_SOURCES, newestListings, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, type LiveBotListing } from "@/lib/live-bot-listings";
 
 type SourceState = { name: string; ok: boolean };
 
 async function fetchListings(signal?: AbortSignal) {
   return Promise.allSettled(LIVE_BOT_SOURCES.map(async (source) => {
+    if (source.format === "muse") {
+      const configResponse = await fetch(source.url, { signal, cache: "no-store" });
+      if (!configResponse.ok) throw new Error(`${source.name} unavailable`);
+      const { apiUrl, apiKey } = parseMuseAtWorkConfig(await configResponse.text());
+      const directoryUrl = `${apiUrl}/rest/v1/workflows?select=id,title,outcome,x_handle,created_at&status=eq.approved&order=created_at.desc&limit=100`;
+      const response = await fetch(directoryUrl, {
+        signal,
+        headers: { Accept: "application/json", apikey: apiKey, Authorization: `Bearer ${apiKey}` },
+        cache: "no-store",
+      });
+      if (!response.ok) throw new Error(`${source.name} unavailable`);
+      const listings = parseMuseAtWorkListings(await response.json());
+      if (!listings.length) throw new Error(`${source.name} returned no usable workflow listings`);
+      return listings;
+    }
     const response = await fetch(source.url, { signal, headers: { Accept: "application/json" }, cache: "no-store" });
     if (!response.ok) throw new Error(`${source.name} unavailable`);
     const data: unknown = await response.json();
@@ -44,10 +59,10 @@ export function LiveBotListings() {
   return (
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
-        <div><span className="eyebrow">From public Bot directories</span><h2 id="live-bot-title">Fresh Bot listings</h2></div>
+        <div><span className="eyebrow">A small live sample from public directories</span><h2 id="live-bot-title">New Bots and workflows</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>Newly listed Bots and teams from My Bot Farm and GrokHub. These are their descriptions, not our recommendations. We have not installed or tested them. Open the source before giving any Bot access.</p>
+      <p>Six recent listings from My Bot Farm, GrokHub and Muse at Work, rotated so one directory cannot take over the page. These are source descriptions, not recommendations, and they have not been tested by Bot Cabinet.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : sources.map((source) => `${source.name}: ${source.ok ? "connected" : "unavailable"}`).join(" · ")}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}
@@ -60,7 +75,7 @@ export function LiveBotListings() {
             {item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}
           </div></div>
         </article>
-      ))}</div> : !loading ? <p className="live-bot-empty">The directories could not be reached. Try Refresh or open <a href="https://mybot.farm/catalog">My Bot Farm</a> and <a href="https://www.grokhub.io/">GrokHub</a> directly.</p> : null}
+      ))}</div> : !loading ? <p className="live-bot-empty">The directories could not be reached. Try Refresh or open <a href="https://mybot.farm/catalog">My Bot Farm</a>, <a href="https://www.grokhub.io/">GrokHub</a> and <a href="https://museatwork.app/">Muse at Work</a> directly.</p> : null}
     </section>
   );
 }
