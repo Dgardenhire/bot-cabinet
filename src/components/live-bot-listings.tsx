@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ArrowSquareOut, ArrowsClockwise } from "@phosphor-icons/react";
-import { LIVE_BOT_SOURCES, newestListings, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, type LiveBotListing } from "@/lib/live-bot-listings";
+import { LIVE_BOT_SOURCES, newestListings, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, type LiveBotListing } from "@/lib/live-bot-listings";
 
 type SourceState = { name: string; ok: boolean };
 
@@ -21,6 +21,13 @@ async function fetchListings(signal?: AbortSignal) {
       if (!response.ok) throw new Error(`${source.name} unavailable`);
       const listings = parseMuseAtWorkListings(await response.json());
       if (!listings.length) throw new Error(`${source.name} returned no usable workflow listings`);
+      return listings;
+    }
+    if (source.format === "field-notes") {
+      const response = await fetch(source.url, { signal, headers: { Accept: "text/plain" }, cache: "no-store" });
+      if (!response.ok) throw new Error(`${source.name} unavailable`);
+      const listings = parseGrokBotFieldNotes(await response.text());
+      if (!listings.length) throw new Error(`${source.name} returned no usable roles`);
       return listings;
     }
     const response = await fetch(source.url, { signal, headers: { Accept: "application/json" }, cache: "no-store" });
@@ -62,20 +69,20 @@ export function LiveBotListings() {
         <div><span className="eyebrow">A small live sample from public directories</span><h2 id="live-bot-title">New Bots and workflows</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>Six recent listings from My Bot Farm, GrokHub and Muse at Work, rotated so one directory cannot take over the page. These are source descriptions, not recommendations, and they have not been tested by Bot Cabinet.</p>
+      <p>Six current listings from My Bot Farm, GrokHub, Muse at Work and the Grok Bot Field Notes role collection, rotated so one source cannot take over the page. These are source descriptions, not recommendations, and they have not been tested by Bot Cabinet.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : sources.map((source) => `${source.name}: ${source.ok ? "connected" : "unavailable"}`).join(" · ")}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}
       </div>
       {items.length ? <div className="live-bot-grid">{items.map((item) => (
         <article key={item.id} className="live-bot-card">
-          <div className="live-bot-card-meta"><span>{item.kind} · {item.source}</span><time dateTime={item.listedAt}>Listed {new Date(item.listedAt).toLocaleDateString()}</time></div>
+          <div className="live-bot-card-meta"><span>{item.kind} · {item.source}</span>{item.listedAt ? <time dateTime={item.listedAt}>Listed {new Date(item.listedAt).toLocaleDateString()}</time> : <span>Current source entry</span>}</div>
           <h3>{item.name}</h3><p>{item.job}</p><div className="live-bot-card-bottom"><span>By {item.creator}</span><div>
             <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>
             {item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}
           </div></div>
         </article>
-      ))}</div> : !loading ? <p className="live-bot-empty">The directories could not be reached. Try Refresh or open <a href="https://mybot.farm/catalog">My Bot Farm</a>, <a href="https://www.grokhub.io/">GrokHub</a> and <a href="https://museatwork.app/">Muse at Work</a> directly.</p> : null}
+      ))}</div> : !loading ? <p className="live-bot-empty">The sources could not be reached. Try Refresh or open <a href="https://mybot.farm/catalog">My Bot Farm</a>, <a href="https://www.grokhub.io/">GrokHub</a>, <a href="https://museatwork.app/">Muse at Work</a> or <a href="https://github.com/unicodef1wn/grokbot-field-notes/tree/main/roster">Grok Bot Field Notes</a> directly.</p> : null}
     </section>
   );
 }

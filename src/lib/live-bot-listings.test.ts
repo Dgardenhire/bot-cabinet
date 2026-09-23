@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { newestListings, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings } from "./live-bot-listings";
+import { newestListings, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings } from "./live-bot-listings";
 
 describe("live directory listings", () => {
   it("accepts My Bot Farm Bots and teams with their real listed dates", () => {
@@ -40,8 +40,22 @@ describe("live directory listings", () => {
     expect(items[0]).not.toHaveProperty("prompt");
   });
 
+  it("reads attributed roles from the Grok Bot Field Notes roster without inventing a date", () => {
+    const items = parseGrokBotFieldNotes([
+      "| Role | One line |",
+      "|---|---|",
+      "| [`Commitment Tracker`](commitment-tracker.md) | Tracks promises and asks without sending anything. |",
+      "| [Bad](../outside.md) | Must be rejected. |",
+    ].join("\n"));
+    expect(items).toEqual([expect.objectContaining({
+      name: "Commitment Tracker", source: "Grok Bot Field Notes", kind: "Role",
+      sourceUrl: "https://github.com/unicodef1wn/grokbot-field-notes/blob/main/roster/commitment-tracker.md",
+    })]);
+    expect(items[0].listedAt).toBeUndefined();
+  });
+
   it("caps the feed and prevents one directory from taking every slot", () => {
-    const make = (source: "My Bot Farm" | "GrokHub" | "Muse at Work", index: number) => ({
+    const make = (source: "My Bot Farm" | "GrokHub" | "Muse at Work" | "Grok Bot Field Notes", index: number) => ({
       id: `${source}:${index}`, name: `${source} ${index}`, job: "Does a job", creator: "Maker", source,
       sourceUrl: "https://example.com", listedAt: `2026-09-${String(22 - index).padStart(2, "0")}T00:00:00.000Z`, kind: source === "Muse at Work" ? "Workflow" as const : "Bot" as const,
     });
@@ -49,9 +63,10 @@ describe("live directory listings", () => {
       ...Array.from({ length: 10 }, (_, index) => make("My Bot Farm", index)),
       ...Array.from({ length: 4 }, (_, index) => make("GrokHub", index)),
       ...Array.from({ length: 4 }, (_, index) => make("Muse at Work", index)),
+      ...Array.from({ length: 4 }, (_, index) => make("Grok Bot Field Notes", index)),
     ]);
     expect(selected).toHaveLength(6);
     expect(selected.filter((item) => item.source === "My Bot Farm").length).toBeLessThanOrEqual(3);
-    expect(new Set(selected.map((item) => item.source)).size).toBe(3);
+    expect(new Set(selected.map((item) => item.source)).size).toBe(4);
   });
 });
