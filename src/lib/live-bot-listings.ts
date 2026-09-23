@@ -3,18 +3,23 @@ export const LIVE_BOT_SOURCES = [
   { name: "GrokHub", url: "https://www.grokhub.io/feed", format: "json" },
   { name: "Muse at Work", url: "https://museatwork.app/config.js", format: "muse" },
   { name: "Grok Bot Field Notes", url: "https://raw.githubusercontent.com/unicodef1wn/grokbot-field-notes/main/roster/README.md", format: "field-notes" },
+  { name: "Hermes Agent", url: "https://api.github.com/repos/NousResearch/hermes-agent/releases?per_page=10", format: "github-releases", creator: "Nous Research" },
+  { name: "OpenClaw", url: "https://api.github.com/repos/openclaw/openclaw/releases?per_page=10", format: "github-releases", creator: "OpenClaw maintainers" },
+  { name: "OpenBot", url: "https://api.github.com/repos/nightly-labs/openbot/releases?per_page=10", format: "github-releases", creator: "OpenBot maintainers" },
 ] as const;
+
+export type LiveBotSourceName = typeof LIVE_BOT_SOURCES[number]["name"];
 
 export type LiveBotListing = {
   id: string;
   name: string;
   job: string;
   creator: string;
-  source: "My Bot Farm" | "GrokHub" | "Muse at Work" | "Grok Bot Field Notes";
+  source: LiveBotSourceName;
   sourceUrl: string;
   originalUrl?: string;
   listedAt?: string;
-  kind: "Bot" | "Team" | "Workflow" | "Role";
+  kind: "Bot" | "Team" | "Workflow" | "Role" | "Release";
 };
 
 function object(value: unknown): Record<string, unknown> | null {
@@ -134,7 +139,40 @@ export function parseGrokBotFieldNotes(value: string): LiveBotListing[] {
   });
 }
 
-export function newestListings(items: LiveBotListing[], limit = 6, maxPerSource = 3): LiveBotListing[] {
+function releaseSummary(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const line = value
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .split("\n")
+    .map((item) => item.trim())
+    .find((item) => item && !item.startsWith("#") && !/^\*\*Release Date:/.test(item));
+  if (!line) return null;
+  return shortText(line.replace(/^>\s*/, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[`*_]/g, ""), 240);
+}
+
+export function parseGitHubReleases(value: unknown, source: Extract<LiveBotSourceName, "Hermes Agent" | "OpenClaw" | "OpenBot">, creator: string): LiveBotListing[] {
+  if (!Array.isArray(value)) return [];
+  return value.slice(0, 20).flatMap((raw) => {
+    const item = object(raw);
+    const tag = shortText(item?.tag_name, 100);
+    const name = shortText(item?.name, 100) ?? tag;
+    const url = sourceUrl(item?.html_url, "github.com");
+    const listedAt = date(item?.published_at);
+    if (!tag || !name || !url || !listedAt) return [];
+    return [{
+      id: `github-release:${source.toLowerCase().replace(/\s+/g, "-")}:${tag}`,
+      name,
+      job: releaseSummary(item?.body) ?? `A new ${source} release is available. Open the notes to see what changed.`,
+      creator,
+      source,
+      sourceUrl: url,
+      listedAt,
+      kind: "Release" as const,
+    }];
+  });
+}
+
+export function newestListings(items: LiveBotListing[], limit = LIVE_BOT_SOURCES.length, maxPerSource = 1): LiveBotListing[] {
   const byId = new Map(items.map((item) => [item.id, item]));
   const sorted = [...byId.values()].sort((a, b) => (b.listedAt ?? "").localeCompare(a.listedAt ?? "") || a.name.localeCompare(b.name));
   const bySource = new Map<LiveBotListing["source"], LiveBotListing[]>();

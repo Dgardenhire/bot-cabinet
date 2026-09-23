@@ -17,15 +17,19 @@ describe("Agent Watch", () => {
 
   it("renders useful public guidance without exposing internal operations or analytics", () => {
     const html = renderToStaticMarkup(<AgentWatchPage />);
-    expect(html).toContain("Sources we check (12)");
+    expect(html).toContain("Sources we check (13)");
     expect(html).toContain("Grok Bot Marketplace");
     expect(html).toContain("OpenBot plugins");
     expect(html).toContain("Hermes Agent releases");
+    expect(html).toContain("OpenBot releases");
     expect(html).toContain("Instinct");
     expect(html).toContain("Fresh listings");
-    expect(html).toContain("What may be worth trying");
+    expect(html).toContain("Bots worth a closer look");
+    expect(html).toContain("whether it has been tested");
+    expect(html).toContain("We have not run the Bots yet");
     expect(html).toContain("Import Bot");
-    expect(html).toContain("tinkabot");
+    expect(html).toContain("Diagnose My Agent&#x27;s Mistake");
+    expect(html).toContain("Muse at Work");
     expect(html).toContain("Official Grok Bot Marketplace listing");
     expect(html).toContain("Creator");
     expect(html).toContain("Access and outside actions");
@@ -34,7 +38,7 @@ describe("Agent Watch", () => {
     expect(html).toContain("Improve an existing Bot");
     expect(html).toContain("Test an adaptation");
     expect(html).toContain("Inspected");
-    expect(html).toContain("Show 10 more reviewed notes");
+    expect(html).toMatch(/Show \d+ more reviewed notes/);
     expect(html).toContain("Cabinet Keeper is not yet supplying continuous updates");
     expect(html).not.toContain("bounce");
     expect(html).not.toContain("Vercel");

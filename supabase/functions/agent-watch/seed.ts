@@ -81,6 +81,45 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     }
   },
   {
+    "slug": "muse-diagnose-agent-mistake",
+    "observedOn": "2026-09-23",
+    "reviewAgainBy": "2026-09-30",
+    "title": "Diagnose My Agent's Mistake looks for one fix after a bad result",
+    "signal": "Muse at Work lists a workflow that asks what happened, why it happened, and what single change would prevent the same AI mistake.",
+    "evidence": "observed",
+    "whyItMatters": "A failed result is useful only when someone can turn it into a specific correction. This is narrower and more practical than asking an assistant to improve itself in general.",
+    "cabinetResponse": "Try the workflow with a harmless failed example, then compare its diagnosis with the original prompt and result. If it finds a concrete cause, add the method to Ops rather than creating another broad troubleshooting Bot.",
+    "responseStatus": "testing",
+    "limits": "Bot Cabinet inspected the public Muse at Work listing but has not run the workflow. The listing does not identify a creator or show how well the diagnosis holds up across different kinds of failure.",
+    "sources": [
+      {
+        "label": "Muse at Work listing",
+        "href": "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Compare with Ops",
+        "href": "/bots/ops"
+      }
+    ],
+    "botDetails": {
+      "name": "Diagnose My Agent's Mistake",
+      "creator": "Creator not listed",
+      "platform": "Muse at Work",
+      "job": "Finds a likely cause for a bad AI result and proposes one concrete fix.",
+      "requiredAccess": "The failed prompt, the result, and any details needed to understand what went wrong.",
+      "outsideActions": "None described. The workflow returns a diagnosis and proposed correction.",
+      "evidenceStatus": "inspected",
+      "cabinetDecision": "improve-existing",
+      "cabinetFit": "Test the diagnosis method as an Ops troubleshooting skill instead of creating a duplicate Bot.",
+      "closestCabinetMatch": {
+        "label": "Ops",
+        "href": "/bots/ops"
+      }
+    }
+  },
+  {
     "slug": "unstick-me-bot",
     "observedOn": "2026-09-20",
     "reviewAgainBy": "2026-09-27",

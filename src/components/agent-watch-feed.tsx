@@ -25,12 +25,29 @@ const botDecisionLabels: Record<WatchBotDecision, string> = {
   watch: "Watch",
 };
 
+function variedPlatforms(items: AgentWatchItem[], limit = 2) {
+  const selected: AgentWatchItem[] = [];
+  const platforms = new Set<string>();
+  for (const item of items) {
+    const platform = item.botDetails?.platform;
+    if (!platform || platforms.has(platform)) continue;
+    selected.push(item);
+    platforms.add(platform);
+    if (selected.length === limit) return selected;
+  }
+  for (const item of items) {
+    if (!selected.includes(item)) selected.push(item);
+    if (selected.length === limit) break;
+  }
+  return selected;
+}
+
 export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchItem[] }) {
   const [items, setItems] = useState(fallbackItems);
   const [showAll, setShowAll] = useState(false);
   const noteworthyBots = items.filter((item) => item.botDetails);
   const watchNotes = items.filter((item) => !item.botDetails);
-  const visibleBots = showAll ? noteworthyBots : noteworthyBots.slice(0, 2);
+  const visibleBots = showAll ? noteworthyBots : variedPlatforms(noteworthyBots);
   const visibleNotes = showAll ? watchNotes : watchNotes.slice(0, 2);
   const hiddenCount = Math.max(0, items.length - Math.min(2, noteworthyBots.length) - Math.min(2, watchNotes.length));
 
@@ -54,10 +71,10 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
         <section className="noteworthy-bots" aria-labelledby="noteworthy-bots-title">
           <div className="noteworthy-bots-heading">
             <div>
-              <span>Specific Bots worth a closer look</span>
+              <span>From the latest listings</span>
               <h2 id="noteworthy-bots-title">New and noteworthy Bots</h2>
             </div>
-            <p>Two selections lead this edition. “Inspected” means the public listing was opened and compared with the Cabinet. It does not mean the Bot was run.</p>
+            <p>We opened and reviewed these public listings. We have not run the Bots yet.</p>
           </div>
           <div className="noteworthy-bot-grid">
             {visibleBots.map((item) => {

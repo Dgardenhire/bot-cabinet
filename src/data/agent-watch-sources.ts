@@ -15,6 +15,7 @@ export const AGENT_WATCH_SOURCES: AgentWatchSource[] = [
   { name: "Grok Bot Field Notes", href: "https://github.com/unicodef1wn/grokbot-field-notes", group: "Repositories and releases", coverage: "Live listings" },
   { name: "Hermes Agent releases", href: "https://github.com/NousResearch/hermes-agent/releases", group: "Repositories and releases", coverage: "Release feed" },
   { name: "OpenClaw releases", href: "https://github.com/openclaw/openclaw/releases", group: "Repositories and releases", coverage: "Release feed" },
+  { name: "OpenBot releases", href: "https://github.com/nightly-labs/openbot/releases", group: "Repositories and releases", coverage: "Release feed" },
   { name: "Muse", href: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", group: "Agent products", coverage: "Edition research" },
   { name: "Instinct", href: "https://instinct.com/", group: "Agent products", coverage: "Edition research" },
   { name: "Gemini Spark", href: "https://gemini.google/overview/agent/spark/", group: "Agent products", coverage: "Edition research" },

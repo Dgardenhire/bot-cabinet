@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { newestListings, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings } from "./live-bot-listings";
+import { newestListings, parseGitHubReleases, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, type LiveBotSourceName } from "./live-bot-listings";
 
 describe("live directory listings", () => {
   it("accepts My Bot Farm Bots and teams with their real listed dates", () => {
@@ -54,19 +54,28 @@ describe("live directory listings", () => {
     expect(items[0].listedAt).toBeUndefined();
   });
 
-  it("caps the feed and prevents one directory from taking every slot", () => {
-    const make = (source: "My Bot Farm" | "GrokHub" | "Muse at Work" | "Grok Bot Field Notes", index: number) => ({
+  it("reads official GitHub releases without treating release notes as tested results", () => {
+    const items = parseGitHubReleases([{
+      tag_name: "v1.2.3", name: "Hermes Agent v1.2.3", html_url: "https://github.com/NousResearch/hermes-agent/releases/tag/v1.2.3",
+      published_at: "2026-09-21T18:10:55Z", body: "# Hermes Agent v1.2.3\n\n**Release Date:** September 21\n\n> A small reliability release.",
+    }], "Hermes Agent", "Nous Research");
+    expect(items).toEqual([expect.objectContaining({
+      name: "Hermes Agent v1.2.3", source: "Hermes Agent", kind: "Release", creator: "Nous Research",
+      job: "A small reliability release.",
+    })]);
+  });
+
+  it("shows at most one current item per connected source", () => {
+    const make = (source: LiveBotSourceName, index: number) => ({
       id: `${source}:${index}`, name: `${source} ${index}`, job: "Does a job", creator: "Maker", source,
-      sourceUrl: "https://example.com", listedAt: `2026-09-${String(22 - index).padStart(2, "0")}T00:00:00.000Z`, kind: source === "Muse at Work" ? "Workflow" as const : "Bot" as const,
+      sourceUrl: "https://example.com", listedAt: `2026-09-${String(22 - index).padStart(2, "0")}T00:00:00.000Z`, kind: source === "Muse at Work" ? "Workflow" as const : source.endsWith("Agent") || source === "OpenClaw" || source === "OpenBot" ? "Release" as const : "Bot" as const,
     });
+    const sources: LiveBotSourceName[] = ["My Bot Farm", "GrokHub", "Muse at Work", "Grok Bot Field Notes", "Hermes Agent", "OpenClaw", "OpenBot"];
     const selected = newestListings([
-      ...Array.from({ length: 10 }, (_, index) => make("My Bot Farm", index)),
-      ...Array.from({ length: 4 }, (_, index) => make("GrokHub", index)),
-      ...Array.from({ length: 4 }, (_, index) => make("Muse at Work", index)),
-      ...Array.from({ length: 4 }, (_, index) => make("Grok Bot Field Notes", index)),
+      ...sources.flatMap((source) => Array.from({ length: 4 }, (_, index) => make(source, index))),
     ]);
-    expect(selected).toHaveLength(6);
-    expect(selected.filter((item) => item.source === "My Bot Farm").length).toBeLessThanOrEqual(3);
-    expect(new Set(selected.map((item) => item.source)).size).toBe(4);
+    expect(selected).toHaveLength(7);
+    expect(new Set(selected.map((item) => item.source)).size).toBe(7);
+    expect(selected.every((item) => selected.filter((other) => other.source === item.source).length === 1)).toBe(true);
   });
 });
