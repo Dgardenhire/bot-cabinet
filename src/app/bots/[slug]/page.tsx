@@ -133,6 +133,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
       <BotPlatformChooser
         hermesImportCommand={importCommand}
         pack={portablePackV2}
+        runtimeEvidence={runtimeEvidence}
       />
 
       <section className="content-section shell starter-pack-v2-section">

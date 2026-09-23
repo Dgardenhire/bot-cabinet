@@ -7,7 +7,7 @@ Result: A one-page edition built from selected calendar items, actionable messag
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need a one-page edition built from selected calendar items, actionable messages and one chosen interest, ready for review and optional printing.
-- **Lead Bot:** Editor
+- **Lead Bot:** Daily Newspaper
 - **Cadence:** Each workday, after a person starts or approves the run
 - **Typical first run:** 15–30 minutes for a first manual run
 
@@ -19,7 +19,7 @@ Result: A one-page edition built from selected calendar items, actionable messag
 
 ## Recommended starting Bot
 
-1. Editor
+1. Daily Newspaper
 
 Start with one Bot. Add a separate Scout only for broader research, or Ops only after a manual edition works and you need a controlled delivery routine.
 
@@ -33,7 +33,7 @@ Optional specialists: scout, ops.
 
 ## Workflow
 
-### 1. Editor
+### 1. Daily Newspaper
 
 Read the approved sources, choose and organize the useful items, write the one-page edition, save the file, and ask before printing or scheduling
 
@@ -77,12 +77,13 @@ These options may not work the same way. Read what has and has not been tested.
 - **Source:** [The Morning Newspaper — Karen X. Cheng](https://x.ai/bot/marketplace/bots/the-morning-newspaper)
 - **Setup guide:** https://botcabinet.com/guides/morning-newspaper-across-agents/
 
-### Hermes — Setup idea — not tested
+### Hermes — One bounded run passed
 
-- **How it could work:** Use a separate Hermes profile and saved instructions to make the approved edition. Add a morning schedule only after a person checks a sample.
-- **Start here:** Begin with selected or made-up information. Check the saved instructions, the proposed schedule, where the file will go and how Hermes will report a failure.
-- **What we have not tested:** Bot Cabinet has not run this from start to finish. A cloud Hermes agent cannot reach a home printer unless a safe local connection is set up for that printer.
-- **Setup guide:** https://botcabinet.com/guides/morning-newspaper-across-agents/
+- **How it could work:** Install the standalone Daily Newspaper profile, then give it selected or made-up calendar entries, messages and reading for one manual edition.
+- **Start here:** Open the Daily Newspaper page, review the profile and its access limits, install it through the Bot Cabinet plugin or download the archive, and run the sample before adding any schedule or connection.
+- **What we have not tested:** One bounded run with fictional inputs passed. Bot Cabinet has not tested live account connections, unattended scheduling, repeated reliability, saving, sending, printing or publication.
+- **Source:** [Read the bounded Hermes test record](/proof-room/daily-newspaper/runtime-summary.md)
+- **Setup guide:** https://botcabinet.com/bots/daily-newspaper/
 
 ### Muse — What to check — not tested
 

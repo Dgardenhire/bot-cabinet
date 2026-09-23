@@ -13,7 +13,8 @@ describe("outcome-first workflow adaptations", () => {
     ]);
     expect(useCase.adaptations?.every(item => item.status && item.limitations)).toBe(true);
     expect(useCase.adaptations?.find(item => item.platform === "Grok Bot")?.status).toBe("original-source");
-    expect(useCase.adaptations?.find(item => item.platform === "Hermes")?.status).toBe("implementation-brief");
+    expect(useCase.botSlugs).toEqual(["daily-newspaper"]);
+    expect(useCase.adaptations?.find(item => item.platform === "Hermes")?.status).toBe("cabinet-tested");
   });
 
   it("renders attribution, implementation status and the portable path", async () => {
@@ -22,7 +23,8 @@ describe("outcome-first workflow adaptations", () => {
     expect(html).toContain("https://x.ai/bot/marketplace/bots/the-morning-newspaper");
     expect(html).toContain("Another agent or emerging tool");
     expect(html).toContain("What to check — not tested");
-    expect(html).toContain("has not run this from start to finish");
-    expect(html).toContain("/guides/morning-newspaper-across-agents");
+    expect(html).toContain("One bounded run passed");
+    expect(html).toContain("/bots/daily-newspaper");
+    expect(html).toContain("/proof-room/daily-newspaper/runtime-summary.md");
   });
 });
