@@ -18,8 +18,8 @@ describe("Agent Watch", () => {
   it("renders useful public guidance without exposing internal operations or analytics", () => {
     const html = renderToStaticMarkup(<AgentWatchPage />);
     expect(html).toContain("Useful changes and ideas");
-    expect(html).toContain("Fresh Bot listings");
-    expect(html).toContain("My Bot Farm and GrokHub");
+    expect(html).toContain("New Bots and workflows");
+    expect(html).toContain("My Bot Farm, GrokHub and Muse at Work");
     expect(html).toContain("New and noteworthy Bots");
     expect(html).toContain("Unstick Me Bot");
     expect(html).toContain("Bill Import Bot");
