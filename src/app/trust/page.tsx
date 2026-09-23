@@ -12,8 +12,8 @@ import { EvidencePill, Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "What Bot Cabinet actually checks",
-  description: "See which Bot Cabinet checks run now, which are controlled tests, and which Keeper work is not yet connected.",
+  title: "How Bot Cabinet checks its work",
+  description: "See what Bot Cabinet checks automatically, which Bots have been tried, and where public proof is still missing.",
   path: "/trust/",
   image: "/brand/social/inspection-desk-1200x630.jpg",
   imageAlt: "Inspection Desk — what Bot Cabinet actually checks",
@@ -48,11 +48,11 @@ export default function TrustPage() {
       <section className="inner-hero">
         <div className="shell inner-hero-grid">
           <div>
-            <Eyebrow>Checks and test status</Eyebrow>
-            <h1 className="inner-title">What we actually check</h1>
+            <Eyebrow>Checks and test results</Eyebrow>
+            <h1 className="inner-title">How we check the work</h1>
             <p className="inner-deck">
-              See what has actually been checked, when it was checked, and what the result does not prove.
-              Bot Cabinet separates release checks, controlled Bot tests, recurring Keeper work, and human judgment.
+              This page shows which checks run automatically, which Bots have been tried, and where proof is still missing.
+              If a result is not public and dated, we say so.
             </p>
           </div>
           <aside className="inner-aside trust-caveat">
@@ -64,11 +64,11 @@ export default function TrustPage() {
       </section>
 
       <section className="content-section shell">
-        <Eyebrow>Current operating status · September 23, 2026</Eyebrow>
+        <Eyebrow>What is running now</Eyebrow>
         <div className="content-grid-3">
-          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks are running</h2><p>The latest release passed 293 application tests, 16 edge tests, 20 social-card checks, and 4,424 internal-link checks with no broken internal links. These checks cover the site release, not every external link or every Bot’s usefulness.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the public release runs <ArrowSquareOut size={14} /></a></article>
-          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Keeper’s basic checks are running</h2><p>Cloud Keeper checks the public site every 15 minutes and the public GitHub repository every 30 minutes. Its September 23 records show clean site checks and correctly recorded each new release commit. Broader source discovery, download inventory, package review, and the private review queue are not yet connected.</p></article>
-          <article className="content-card"><Warning size={24} weight="thin" /><h2>Bot tests are controlled trials</h2><p>Some exact packages were imported and run against disclosed fictional fixtures. Those records show what happened in those tests. They are not customer results, independent review, or proof of dependable real-world use.</p><Link className="text-link" href="/proof">Read the Test Records</Link></article>
+          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Every site release is checked</h2><p>The public build checks the pages, internal links, social images, downloads, and application behavior. The exact test count changes as the site grows, so this page does not freeze an old number.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the latest public run <ArrowSquareOut size={14} /></a></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Keeper’s records are not public yet</h2><p>Cloud Keeper checks the public site every 15 minutes and the public repository every 30 minutes. Those jobs are running, but their dated records are still inside Keeper. Until a public status file is connected here, treat this as an operating report—not independent public proof.</p></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Only some Bots have been tried</h2><p>Some exact packages were imported and run against disclosed fictional examples. Each record says what passed, what failed, and what was not tested. It is not a promise that the Bot will work for everyone.</p><Link className="text-link" href="/proof">Read the test records</Link></article>
         </div>
       </section>
 
@@ -88,18 +88,27 @@ export default function TrustPage() {
       <section className="content-section shell">
         <div className="promise-grid">
           <div>
-            <Eyebrow>Cabinet Keeper</Eyebrow>
-            <h2 className="section-heading">What runs now—and what does not</h2>
+            <Eyebrow>Automatic checks</Eyebrow>
+            <h2 className="section-heading">What Keeper can check</h2>
             <p className="section-deck">
-              Keeper handles repeat checks and keeps dated records. It does not quietly publish, deploy, install unknown code, or turn an automated scan into a safety claim.
+              Keeper should do the dull, repeatable checking. People should decide whether a Bot is useful, whether its access is sensible, and whether a change should go live.
             </p>
           </div>
           <ol className="trust-process">
-            <li><Robot size={24} weight="thin" /><div><strong>Running: public-site check</strong><p>Every 15 minutes, Keeper checks eight important pages, their social images, the public catalog, and a sample of downloadable files. It records failures and changes in a dated log.</p></div></li>
-            <li><Robot size={24} weight="thin" /><div><strong>Running: public-repository check</strong><p>Every 30 minutes, Keeper checks the public GitHub file tree and records when the live branch changes. This confirms that a release changed; it does not judge whether the change is useful.</p></div></li>
-            <li><Clock size={24} weight="thin" /><div><strong>Not connected yet</strong><p>Keeper is not yet running the wider source search, complete download inventory, package inspection, or private review queue. Those remain unfinished until a cloud run produces dated records.</p></div></li>
-            <li><UserFocus size={24} weight="thin" /><div><strong>A person still decides</strong><p>A person approves publication, deployment, purchases, account connections, destructive changes, and any claim that requires judgment. Keeper may advance at most one substantial product proposal each week.</p></div></li>
+            <li><Robot size={24} weight="thin" /><div><strong>Running now</strong><p>Keeper checks whether key pages, social images, catalog files, and sample downloads can be reached. It also watches the public repository for a new release.</p></div></li>
+            <li><Clock size={24} weight="thin" /><div><strong>Built, but not running in the cloud</strong><p>The prepared Keeper package can inspect the full download list, package contents, catalog mismatches, Agent Watch sources, and stale results. These checks are not ongoing until that package is installed and a cloud run is recorded.</p></div></li>
+            <li><Clock size={24} weight="thin" /><div><strong>Not public yet</strong><p>Keeper does not yet publish a read-only status file with the latest run time, result, and evidence link for each check. Without that record, visitors should treat the current Keeper result as unknown.</p></div></li>
+            <li><UserFocus size={24} weight="thin" /><div><strong>A person still decides</strong><p>A person decides whether the result is useful and approves publication, deployment, purchases, new account access, and destructive changes. Keeper can propose one substantial improvement each week; it cannot approve its own work.</p></div></li>
           </ol>
+        </div>
+      </section>
+
+      <section className="content-section shell">
+        <Eyebrow>What a check proves</Eyebrow>
+        <div className="content-grid-3">
+          <article className="content-card"><h2>Reachable is not useful</h2><p>A page or download can respond correctly and still be confusing, outdated, or unhelpful. Keeper can find the first kind of problem. A real task test and human review are needed for the second.</p></article>
+          <article className="content-card"><h2>Package checks are narrow</h2><p>A package check can confirm expected files, hashes, and readable contents. It cannot prove that the instructions are good or that a Bot will handle a real job well.</p></article>
+          <article className="content-card"><h2>No public record, no green light</h2><p>A private log may help maintain the site, but visitors cannot inspect it. A missing or late public record means the current result is unknown.</p></article>
         </div>
       </section>
 
