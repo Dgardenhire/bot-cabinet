@@ -7,8 +7,9 @@ This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every 
 ## Package status
 
 - The generated files and archive structure are checked at build time.
-- This prepared archive has not yet been imported and tested in Hermes.
-- Output quality and live-service behavior remain untested for this revision.
+- This V2 archive passed an isolated import with Hermes Agent 0.21.4 on 2026-09-23.
+- The import check did not test output quality. A separate bounded first-mission run is recorded below.
+- Separately, one bounded first-mission run passed its disclosed checks on 2026-09-23. Inspect the evidence at https://botcabinet.com/proof-room/daily-newspaper/runtime-summary.md. This is one run, not evidence of general reliability.
 - The included Skill is prepared and not-tested.
 - The Routine is a plan only: manual-test-required and not-tested.
 - No schedule or active Routine is included in this package.

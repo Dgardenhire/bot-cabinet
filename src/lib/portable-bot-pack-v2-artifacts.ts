@@ -5,7 +5,7 @@ import {
   PORTABLE_BOT_PACK_V2_SCHEMA_VERSION,
   type PortableBotPackV2,
 } from "./portable-bot-pack-v2";
-import { getReproducedBotEvidence } from "../data/bot-release-evidence";
+import { getBotRuntimeEvidence, getReproducedBotEvidence } from "../data/bot-release-evidence";
 import { BOT_CABINET_ORIGIN } from "./site-constants";
 
 const PUBLIC_ORIGIN = BOT_CABINET_ORIGIN;
@@ -691,6 +691,7 @@ export function compilePortableBotPackV2HermesFiles(
     "",
   ].join("\n");
   const reproducedRoleRunProofSlug = getReproducedBotEvidence(pack.identity.slug)?.proofSlug;
+  const runtimeEvidence = getBotRuntimeEvidence(pack.identity.slug);
   const readme = [
     `# ${pack.identity.name} — ${pack.identity.title}`,
     "",
@@ -706,9 +707,14 @@ export function compilePortableBotPackV2HermesFiles(
       ? "- Output quality and live-service behavior remain untested for this revision."
       : reproducedRoleRunProofSlug
       ? "- That import test confirmed the archive and bundled Skill were present. By itself, that import did not test output quality or live-service behavior."
+      : runtimeEvidence
+      ? "- The import check did not test output quality. A separate bounded first-mission run is recorded below."
       : "- That import test confirmed the archive and bundled Skill were present. It did not test output quality or live-service behavior.",
     ...(reproducedRoleRunProofSlug
       ? [`- Separately, two first-mission role runs passed the published checks on 2026-09-09. Inspect the evidence at ${PUBLIC_ORIGIN}/proof/${reproducedRoleRunProofSlug}/.`]
+      : []),
+    ...(runtimeEvidence
+      ? [`- Separately, one bounded first-mission run passed its disclosed checks on ${runtimeEvidence.testedDate}. Inspect the evidence at ${PUBLIC_ORIGIN}${runtimeEvidence.proofPath}. This is one run, not evidence of general reliability.`]
       : []),
     `- The included Skill is ${skill.preparationStatus} and ${skill.testStatus}.`,
     `- The Routine is a plan only: ${routine.activationStatus} and ${routine.testStatus}.`,

@@ -46,10 +46,9 @@ test("generated V2 index resolves every versioned artifact", async () => {
     assert.equal(pack.routines[0].activationStatus, "manual-test-required");
     assert.equal(pack.routines[0].testStatus, "not-tested");
     const hasSeptember9Evidence = ["curator", "reentry", "receipt"].includes(bot.slug);
-    const importTested = bot.slug !== "daily-newspaper";
-    assert.equal(pack.platforms.hermes.importStatus, importTested ? "import-test-passed" : "not-tested");
-    assert.equal(pack.platforms.hermes.importEvidence?.hermesVersion ?? null, importTested ? (["writer", "editor"].includes(bot.slug) ? "0.21.3" : hasSeptember9Evidence ? "0.21.1" : "0.21.0") : null);
-    assert.equal(pack.platforms.hermes.importEvidence?.testedDate ?? null, importTested ? (["writer", "editor"].includes(bot.slug) ? "2026-09-20" : hasSeptember9Evidence ? "2026-09-09" : "2026-09-04") : null);
+    assert.equal(pack.platforms.hermes.importStatus, "import-test-passed");
+    assert.equal(pack.platforms.hermes.importEvidence?.hermesVersion ?? null, bot.slug === "daily-newspaper" ? "0.21.4" : ["writer", "editor"].includes(bot.slug) ? "0.21.3" : hasSeptember9Evidence ? "0.21.1" : "0.21.0");
+    assert.equal(pack.platforms.hermes.importEvidence?.testedDate ?? null, bot.slug === "daily-newspaper" ? "2026-09-23" : ["writer", "editor"].includes(bot.slug) ? "2026-09-20" : hasSeptember9Evidence ? "2026-09-09" : "2026-09-04");
     assert.equal(pack.provenance.publishedDate, bot.slug === "daily-newspaper" ? "2026-09-21" : hasSeptember9Evidence ? "2026-09-05" : "2026-09-04");
     assert.equal(pack.platforms.grokBot.importable, false);
     assert.match(portableMarkdown, /Portable Bot Pack V2/);
@@ -57,7 +56,7 @@ test("generated V2 index resolves every versioned artifact", async () => {
       path.join(projectRoot, `public/downloads/starter-bots/v2/${bot.slug}/README.md`),
       "utf8",
     );
-    assert.match(packageReadme, importTested ? /did not test output quality or live-service behavior/ : /Output quality and live-service behavior remain untested/);
+    assert.match(packageReadme, bot.slug === "daily-newspaper" ? /one bounded first-mission run passed/ : /did not test output quality or live-service behavior/);
     if (hasSeptember9Evidence) {
       const proofSlug = {
         curator: "curator-lineup-review",

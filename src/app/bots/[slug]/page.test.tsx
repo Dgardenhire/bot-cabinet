@@ -21,4 +21,14 @@ describe("starter Bot detail", () => {
     expect(html).toContain("Test one failure");
     expect(html).toContain("Repeat before automating");
   });
+
+  it("publishes the Daily Newspaper import and bounded runtime evidence", async () => {
+    const page = await StarterBotPage({ params: Promise.resolve({ slug: "daily-newspaper" }) });
+    const html = renderToStaticMarkup(page);
+
+    expect(html).toContain("Hermes Agent 0.21.4");
+    expect(html).toContain("September 23, 2026");
+    expect(html).toContain("one run, not evidence of general reliability");
+    expect(html).toContain('href="/proof-room/daily-newspaper/runtime-summary.md"');
+  });
 });
