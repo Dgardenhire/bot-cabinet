@@ -32,7 +32,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
   const watchNotes = items.filter((item) => !item.botDetails);
   const visibleBots = showAll ? noteworthyBots : noteworthyBots.slice(0, 2);
   const visibleNotes = showAll ? watchNotes : watchNotes.slice(0, 2);
-  const hiddenCount = items.length - visibleBots.length - visibleNotes.length;
+  const hiddenCount = Math.max(0, items.length - Math.min(2, noteworthyBots.length) - Math.min(2, watchNotes.length));
 
   useEffect(() => {
     const controller = new AbortController();
@@ -57,7 +57,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
               <span>Specific Bots worth a closer look</span>
               <h2 id="noteworthy-bots-title">New and noteworthy Bots</h2>
             </div>
-            <p>Some may deserve a new Cabinet Bot. Others show how an existing Bot could get better. “Inspected” means the public listing and sources were checked, not that the Bot was run.</p>
+            <p>Two selections lead this edition. “Inspected” means the public listing was opened and compared with the Cabinet. It does not mean the Bot was run.</p>
           </div>
           <div className="noteworthy-bot-grid">
             {visibleBots.map((item) => {
@@ -73,12 +73,10 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
                   <dl>
                     <div><dt>Creator</dt><dd>{bot.creator}</dd></div>
                     <div><dt>Why it stands out</dt><dd>{item.whyItMatters}</dd></div>
-                    <div><dt>Accounts and access</dt><dd>{bot.requiredAccess}</dd></div>
-                    <div><dt>Outside the chat</dt><dd>{bot.outsideActions}</dd></div>
-                    <div><dt>Closest Cabinet match</dt><dd><Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
-                    <div className="noteworthy-bot-decision"><dt>Cabinet decision</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit}</dd></div>
-                    <div><dt>What remains uncertain</dt><dd>{item.limits}</dd></div>
+                    <div><dt>Access and outside actions</dt><dd>{bot.requiredAccess} {bot.outsideActions}</dd></div>
+                    <div className="noteworthy-bot-decision"><dt>What Bot Cabinet will do</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Closest current match: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
                   </dl>
+                  <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
                   <div className="agent-watch-links">
                     {item.sources.map((source) => <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} <ArrowSquareOut size={13} /></a>)}
                     {item.cabinetLinks?.map((link) => <Link href={link.href} key={link.href}>{link.label} <ArrowRight size={13} /></Link>)}
@@ -97,12 +95,9 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
               <span>{statusLabels[item.responseStatus]}</span>
             </div>
             <h2>{item.title}</h2>
-            <dl>
-              <div><dt>What changed</dt><dd>{item.signal}</dd></div>
-              <div><dt>Why it matters</dt><dd>{item.whyItMatters}</dd></div>
-              <div><dt>Try this</dt><dd>{item.cabinetResponse}</dd></div>
-              <div className="agent-watch-limit"><dt>What remains uncertain</dt><dd>{item.limits}</dd></div>
-            </dl>
+            <p className="agent-watch-signal">{item.signal}</p>
+            <dl><div><dt>Why it matters</dt><dd>{item.whyItMatters}</dd></div><div><dt>Try this</dt><dd>{item.cabinetResponse}</dd></div></dl>
+            <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
             <div className="agent-watch-dates">
               <span><CalendarCheck size={16} weight="thin" /> Updated {item.observedOn}</span>
             </div>
@@ -113,7 +108,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
           </article>
         ))}
       </div>
-      {hiddenCount > 0 ? <button className="button button-secondary" type="button" onClick={() => setShowAll(true)}>Show {hiddenCount} more reviewed notes</button> : null}
+      {hiddenCount > 0 ? <button className="button button-secondary agent-watch-more" type="button" onClick={() => setShowAll((value) => !value)}>{showAll ? "Show fewer" : `Show ${hiddenCount} more reviewed notes`}</button> : null}
     </>
   );
 }

@@ -35,11 +35,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const demo = getProofRoomDemo(slug);
   return demo
     ? buildPageMetadata({
-        title: `${demo.title} · Proof Room`,
+        title: `${demo.title} · Test Records`,
         description: demo.summary,
         path: `/proof/${demo.slug}/`,
         image: "/brand/social/proof-room-1200x630.jpg",
-        imageAlt: `Bot Cabinet Proof Room — ${demo.title}`,
+        imageAlt: `Bot Cabinet Test Records — ${demo.title}`,
       })
     : {};
 }
@@ -84,7 +84,7 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
     <main id="main-content" className="page-main proof-detail-page">
       <section className="inner-hero proof-detail-hero">
         <div className="shell">
-          <Link href="/proof" className="back-link"><ArrowLeft size={15} /> Back to Proof Room</Link>
+          <Link href="/proof" className="back-link"><ArrowLeft size={15} /> Back to Test Records</Link>
           <div className="inner-hero-grid">
             <div>
               <Eyebrow>{PROOF_STATE_NAMES[demo.state]}</Eyebrow>
@@ -249,7 +249,7 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
           <h2 className="section-heading">{nextStep.heading}</h2>
           <p>{nextStep.body}</p>
         </div>
-        <Link href="/proof" className="button button-secondary">Return to all demonstrations <ArrowRight size={16} /></Link>
+        <Link href="/proof" className="button button-secondary">Return to all test records <ArrowRight size={16} /></Link>
       </section>
     </main>
   );

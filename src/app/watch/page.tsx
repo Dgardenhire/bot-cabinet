@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Binoculars, CheckCircle, Flask, Warning } from "@phosphor-icons/react/dist/ssr";
 import { AgentWatchFeed } from "@/components/agent-watch-feed";
+import { AgentWatchSources } from "@/components/agent-watch-sources";
 import { LiveBotListings } from "@/components/live-bot-listings";
 import { Eyebrow } from "@/components/ui";
 import { AGENT_WATCH_ITEMS, AGENT_WATCH_UPDATED } from "@/data/agent-watch";
@@ -29,27 +30,30 @@ export default function AgentWatchPage() {
           <div className="agent-watch-method">
             <Binoculars size={31} weight="thin" aria-hidden="true" />
             <h2>Find the signal</h2>
-            <p>Skip the hype. Start with the job, the access it needs and one useful test you can try safely.</p>
+            <p>Start with the job. Then check the source, access, outside actions, and whether anyone has actually run it.</p>
           </div>
         </div>
       </section>
 
       <section className="content-section shell" aria-labelledby="watch-method-title">
         <LiveBotListings />
-        <div className="agent-watch-key">
-          <h2 id="watch-method-title">What the labels mean</h2>
-          <div><CheckCircle size={20} weight="thin" /><span><strong>Source reviewed</strong> means the note links to the original public source.</span></div>
-          <div><Flask size={20} weight="thin" /><span><strong>Tried by Bot Cabinet</strong> means the stated test was run for this guide.</span></div>
-          <div><Warning size={20} weight="thin" /><span><strong>Maker’s claim</strong> means the maker describes the feature, but the claim has not been independently tested here.</span></div>
-        </div>
 
-        <div className="section-heading">
-          <Eyebrow>Worth your attention</Eyebrow>
-          <h2>Useful changes and ideas</h2>
-          <p>See specific Bots first, followed by larger changes that may affect how people use agents.</p>
+        <div className="section-heading agent-watch-editorial-heading">
+          <Eyebrow>Selected, not scraped</Eyebrow>
+          <h2 id="watch-method-title">What may be worth trying</h2>
+          <p>Each selection says what the job is, what it may require, and what Bot Cabinet will do next. A listing is never treated as proof that a Bot works.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />
+
+        <AgentWatchSources />
+
+        <div className="agent-watch-key">
+          <h2>Read the labels literally</h2>
+          <div><CheckCircle size={20} weight="thin" /><span><strong>Source reviewed</strong> means the original public source was opened.</span></div>
+          <div><Flask size={20} weight="thin" /><span><strong>Tried by Bot Cabinet</strong> means the stated test was actually run.</span></div>
+          <div><Warning size={20} weight="thin" /><span><strong>Maker’s claim</strong> remains the maker’s description, not ours.</span></div>
+        </div>
       </section>
     </main>
   );

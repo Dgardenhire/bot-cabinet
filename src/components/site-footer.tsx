@@ -33,7 +33,7 @@ export function SiteFooter() {
           <Link href="/portraits">Portrait Studio</Link>
           <Link href="/use-cases">Bot Workflows</Link>
           <Link href="/crew-kits">Crew Kits</Link>
-          <Link href="/proof">Proof Room</Link>
+          <Link href="/proof">Test Records</Link>
           <Link href="/community">Community Registry</Link>
           <Link href="/guides">Field Manual</Link>
         </div>

@@ -185,7 +185,7 @@ export default function Home() {
           </div>
           <p className="section-deck">
             This recorded Scout excerpt shows the intended path from a focused request to a concise
-            research brief. The Proof Room separates the material we preserved from the checks that
+            research brief. The Test Records page separates the material we preserved from the checks that
             still need to be run.
           </p>
         </div>
@@ -213,11 +213,11 @@ export default function Home() {
             </article>
             <article>
               <span>03</span>
-              <div><h3>Inspect the evidence</h3><p>The Proof Room shows the excerpt, planned reproduction sources, and the records still required.</p></div>
+              <div><h3>Inspect the limits</h3><p>Test Records shows the excerpt, the missing run evidence, and why this clip does not prove real-world usefulness.</p></div>
             </article>
           </div>
         </div>
-        <div className="bot-proof-room-link"><TextLink href="/proof">Inspect the Proof Room evidence</TextLink></div>
+        <div className="bot-proof-room-link"><TextLink href="/proof">Inspect the test record</TextLink></div>
       </section>
 
       <section className="pathway-section shell" aria-labelledby="starting-points">

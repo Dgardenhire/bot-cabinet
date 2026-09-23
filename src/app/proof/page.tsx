@@ -7,11 +7,11 @@ import { PROOF_ROOM_DEMOS, PROOF_STATE_NAMES } from "@/data/proof-room";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata = buildPageMetadata({
-  title: "Proof Room · See what a Bot does",
-  description: "Inspect the material, exact prompt, conversation evidence, result, human decisions, and test status behind Bot Cabinet demonstrations.",
+  title: "Test Records · Bot Cabinet",
+  description: "Inspect controlled Bot tests, including the input, exact request, preserved output, failures, and limits.",
   path: "/proof/",
   image: "/brand/social/proof-room-1200x630.jpg",
-  imageAlt: "Bot Cabinet Proof Room — see the path from a request to useful work",
+  imageAlt: "Bot Cabinet Test Records — controlled Bot tests and their limits",
 });
 
 const stateIcon = {
@@ -25,17 +25,45 @@ const stateIcon = {
 } as const;
 
 export default function ProofRoomPage() {
+  const runRecords = PROOF_ROOM_DEMOS.filter((demo) => demo.state !== "test-designed" && demo.state !== "test-prepared");
+  const unfinishedPlans = PROOF_ROOM_DEMOS.filter((demo) => demo.state === "test-designed" || demo.state === "test-prepared");
+
+  const renderCard = (demo: (typeof PROOF_ROOM_DEMOS)[number]) => {
+    const StateIcon = stateIcon[demo.state];
+    return (
+      <article className={`proof-room-card proof-state-${demo.state}`} key={demo.slug}>
+        <div className="proof-room-card-image">
+          <Image src={demo.cardImage} alt="" width={900} height={700} sizes="(max-width: 860px) 100vw, (max-width: 1120px) 48vw, 33vw" />
+        </div>
+        <div className="proof-room-card-copy">
+          <span className="proof-state-label"><StateIcon size={17} aria-hidden="true" />{PROOF_STATE_NAMES[demo.state]} · {demo.stateDetail}</span>
+          <h3>{demo.title}</h3>
+          <p className="proof-room-outcome">{demo.outcome}</p>
+          <p>{demo.summary}</p>
+          <dl className="proof-room-card-facts">
+            <div><dt>Platform</dt><dd>{demo.platform}</dd></div>
+            <div><dt>{demo.subjectKind === "crew" ? "Bundle" : "Profile"}</dt><dd>v{demo.profileVersion}</dd></div>
+            <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
+          </dl>
+          <Link href={`/proof/${demo.slug}`} className="button button-secondary">
+            Inspect the test record <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+      </article>
+    );
+  };
+
   return (
     <main id="main-content" className="page-main proof-room-page">
       <section className="inner-hero proof-room-hero">
         <div className="shell inner-hero-grid">
           <div>
-            <Eyebrow>Assignments, conversations, and results</Eyebrow>
-            <h1 className="inner-title">Proof Room</h1>
+            <Eyebrow>Controlled tests, including failures</Eyebrow>
+            <h1 className="inner-title">Test Records</h1>
             <p className="inner-deck">
-              See what a Bot actually does. Each demonstration shows the supplied or planned source
-              material, the exact request, the available conversation evidence, the finished result
-              when one has been preserved, and the decisions that stayed with a person.
+              These are lab tests, usually using fictional material. They show how one exact package
+              behaved on one disclosed task. They do not prove that a Bot is reliable, useful to a
+              real user, or ready for unattended work.
             </p>
           </div>
           <aside className="inner-aside proof-room-legend">
@@ -58,8 +86,8 @@ export default function ProofRoomPage() {
         <div className="shell">
           <WarningCircle size={20} aria-hidden="true" />
           <p>
-            Every demonstration carries a specific evidence label. Missing records remain visible
-            until the required run and checks have been preserved.
+            A passed fixture is test evidence, not real-world proof. Missing and failed records stay
+            visible so a green label cannot hide what was never tested.
           </p>
         </div>
       </section>
@@ -67,39 +95,29 @@ export default function ProofRoomPage() {
       <section className="content-section shell proof-room-library" aria-labelledby="proof-room-library-title">
         <div className="proof-room-library-heading">
           <div>
-            <Eyebrow>Practical assignments</Eyebrow>
-            <h2 id="proof-room-library-title" className="section-heading">Follow each test from its source material</h2>
+            <Eyebrow>Runs with preserved evidence</Eyebrow>
+            <h2 id="proof-room-library-title" className="section-heading">See the input, output, and limits</h2>
           </div>
-          <p>Curator, Reentry, and Receipt have exact-package reproductions. Publishing Desk has one exact-package crew pass and one failed independent reproduction. Earlier incomplete and failed records remain visible.</p>
+          <p>Curator, Reentry, and Receipt passed two controlled fixture runs. Publishing Desk passed once and then failed an independent reproduction. None of those results establishes real-world usefulness or long-term reliability.</p>
         </div>
 
         <div className="proof-room-card-grid">
-          {PROOF_ROOM_DEMOS.map((demo) => {
-            const StateIcon = stateIcon[demo.state];
-            return (
-              <article className={`proof-room-card proof-state-${demo.state}`} key={demo.slug}>
-                <div className="proof-room-card-image">
-                  <Image src={demo.cardImage} alt="" width={900} height={700} sizes="(max-width: 860px) 100vw, (max-width: 1120px) 48vw, 33vw" />
-                </div>
-                <div className="proof-room-card-copy">
-                  <span className="proof-state-label"><StateIcon size={17} aria-hidden="true" />{PROOF_STATE_NAMES[demo.state]} · {demo.stateDetail}</span>
-                  <h3>{demo.title}</h3>
-                  <p className="proof-room-outcome">{demo.outcome}</p>
-                  <p>{demo.summary}</p>
-                  <dl className="proof-room-card-facts">
-                    <div><dt>Platform</dt><dd>{demo.platform}</dd></div>
-                    <div><dt>{demo.subjectKind === "crew" ? "Bundle" : "Profile"}</dt><dd>v{demo.profileVersion}</dd></div>
-                    <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
-                  </dl>
-                  <Link href={`/proof/${demo.slug}`} className="button button-secondary">
-                    Inspect this demonstration <ArrowRight size={16} aria-hidden="true" />
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
+          {runRecords.map(renderCard)}
         </div>
       </section>
+
+      {unfinishedPlans.length ? (
+        <section className="content-section shell proof-room-library" aria-labelledby="unfinished-test-plans-title">
+          <div className="proof-room-library-heading">
+            <div>
+              <Eyebrow>No runtime evidence yet</Eyebrow>
+              <h2 id="unfinished-test-plans-title" className="section-heading">Unfinished test plans</h2>
+            </div>
+            <p>These entries are retained as work still to do. They are not demonstrations and do not count as evidence that the Bot works.</p>
+          </div>
+          <div className="proof-room-card-grid">{unfinishedPlans.map(renderCard)}</div>
+        </section>
+      ) : null}
     </main>
   );
 }
