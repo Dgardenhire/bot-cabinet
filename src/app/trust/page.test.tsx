@@ -14,6 +14,9 @@ describe("Trust page", () => {
     expect(html).toContain("Built, but not running in the cloud");
     expect(html).toContain("Only some Bots have been tried");
     expect(html).toContain("What Keeper can check");
+    expect(html).toContain("What Keeper can prove today");
+    expect(html).toContain("Not connected yet");
+    expect(html.match(/No public record/g)?.length).toBeGreaterThanOrEqual(5);
     expect(html).toContain("No public record, no green light");
     expect(html).toContain("A person still decides");
     expect(html).not.toContain("293 application tests");

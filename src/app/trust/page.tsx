@@ -9,6 +9,8 @@ import {
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
+import { KeeperTrustStatusTable } from "@/components/keeper-trust-status";
+import { KEEPER_TRUST_FALLBACK } from "@/lib/keeper-status-live";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -70,6 +72,15 @@ export default function TrustPage() {
           <article className="content-card"><Warning size={24} weight="thin" /><h2>Keeper’s records are not public yet</h2><p>Cloud Keeper checks the public site every 15 minutes and the public repository every 30 minutes. Those jobs are running, but their dated records are still inside Keeper. Until a public status file is connected here, treat this as an operating report—not independent public proof.</p></article>
           <article className="content-card"><Warning size={24} weight="thin" /><h2>Only some Bots have been tried</h2><p>Some exact packages were imported and run against disclosed fictional examples. Each record says what passed, what failed, and what was not tested. It is not a promise that the Bot will work for everyone.</p><Link className="text-link" href="/proof">Read the test records</Link></article>
         </div>
+      </section>
+
+      <section className="content-section shell" aria-labelledby="keeper-status-title">
+        <div className="trust-status-heading">
+          <Eyebrow>Recorded checks</Eyebrow>
+          <h2 className="section-heading" id="keeper-status-title">What Keeper can prove today</h2>
+          <p className="section-deck">The table stays unknown until a person reviews and publishes a dated Keeper record. A missing or late record never appears as a pass.</p>
+        </div>
+        <KeeperTrustStatusTable fallback={KEEPER_TRUST_FALLBACK} />
       </section>
 
       <section className="content-section shell">
