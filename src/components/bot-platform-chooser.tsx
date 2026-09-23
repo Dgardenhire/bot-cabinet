@@ -16,9 +16,15 @@ import {
 export function BotPlatformChooser({
   hermesImportCommand,
   pack,
+  runtimeEvidence,
 }: {
   hermesImportCommand?: string;
   pack: PortableBotPackV2;
+  runtimeEvidence?: {
+    proofPath: string;
+    summary: string;
+    testedDate: string;
+  };
 }) {
   const botName = pack.identity.name;
   const botSlug = pack.identity.slug;
@@ -48,13 +54,19 @@ export function BotPlatformChooser({
           <div className="bot-platform-card-topline">
             <Package size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-status is-available">
-              {pack.platforms.hermes.importEvidence ? "Archive import passed" : "Prepared profile · import test pending"}
+              {runtimeEvidence
+                ? "Bounded task passed"
+                : pack.platforms.hermes.importEvidence
+                  ? "Archive import passed"
+                  : "Prepared profile · import test pending"}
             </span>
           </div>
           <h3>Hermes Agent</h3>
           <p>
             Import the prepared profile, review its files, choose the access it
-            needs, and run the first assignment. {pack.platforms.hermes.importEvidence
+            needs, and run the first assignment. {runtimeEvidence
+              ? `${runtimeEvidence.summary} This is one run, not evidence of general reliability or approval for automation.`
+              : pack.platforms.hermes.importEvidence
               ? `The archive and bundled Skill passed an isolated import check in Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion}. Role-specific output testing remains pending.`
               : "Import and role-specific output testing remain pending for this new profile."}
           </p>
@@ -76,6 +88,11 @@ export function BotPlatformChooser({
                 analyticsEvent="bot_install_command_copy"
                 analyticsSurface="bot_platform_chooser"
               />
+            )}
+            {runtimeEvidence && (
+              <Link href={runtimeEvidence.proofPath} className="text-link">
+                Read the test record <ArrowRight size={15} />
+              </Link>
             )}
           </div>
         </article>

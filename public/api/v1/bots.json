@@ -401,7 +401,6 @@
           "client"
         ],
         "workflows": [
-          "personal-morning-newspaper",
           "morning-industry-briefing",
           "weekly-newsletter",
           "social-media-content-set",
@@ -1694,7 +1693,9 @@
       },
       "relationships": {
         "worksWith": [],
-        "workflows": [],
+        "workflows": [
+          "personal-morning-newspaper"
+        ],
         "crewKits": [],
         "proofCases": []
       },
