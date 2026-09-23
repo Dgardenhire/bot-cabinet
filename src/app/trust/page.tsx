@@ -13,7 +13,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "What Bot Cabinet actually checks",
-  description: "See which Bot Cabinet checks run now, which are controlled tests, and which Keeper jobs are not yet connected.",
+  description: "See which Bot Cabinet checks run now, which are controlled tests, and which Keeper work is not yet connected.",
   path: "/trust/",
   image: "/brand/social/inspection-desk-1200x630.jpg",
   imageAlt: "Inspection Desk — what Bot Cabinet actually checks",
@@ -66,8 +66,8 @@ export default function TrustPage() {
       <section className="content-section shell">
         <Eyebrow>Current operating status · September 23, 2026</Eyebrow>
         <div className="content-grid-3">
-          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks are running</h2><p>The latest release passed 291 application tests, 16 edge tests, 20 social-card checks, and 4,425 internal-link checks with no broken internal links. These checks cover the site release, not every external link or every Bot’s usefulness.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the public release runs <ArrowSquareOut size={14} /></a></article>
-          <article className="content-card"><Clock size={24} weight="thin" /><h2>Keeper’s recurring jobs are not connected</h2><p>Cabinet Keeper exists, but its recurring source, site, download, and catalog checks are not yet installed and verified in the cloud. Until that changes, this page will not present them as live monitoring.</p></article>
+          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks are running</h2><p>The latest release passed 293 application tests, 16 edge tests, 20 social-card checks, and 4,424 internal-link checks with no broken internal links. These checks cover the site release, not every external link or every Bot’s usefulness.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the public release runs <ArrowSquareOut size={14} /></a></article>
+          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Keeper’s basic checks are running</h2><p>Cloud Keeper checks the public site every 15 minutes and the public GitHub repository every 30 minutes. Its September 23 records show clean site checks and correctly recorded each new release commit. Broader source discovery, download inventory, package review, and the private review queue are not yet connected.</p></article>
           <article className="content-card"><Warning size={24} weight="thin" /><h2>Bot tests are controlled trials</h2><p>Some exact packages were imported and run against disclosed fictional fixtures. Those records show what happened in those tests. They are not customer results, independent review, or proof of dependable real-world use.</p><Link className="text-link" href="/proof">Read the Test Records</Link></article>
         </div>
       </section>
@@ -88,16 +88,16 @@ export default function TrustPage() {
       <section className="content-section shell">
         <div className="promise-grid">
           <div>
-            <Eyebrow>Cabinet Keeper’s proper job</Eyebrow>
-            <h2 className="section-heading">What Keeper can check automatically</h2>
+            <Eyebrow>Cabinet Keeper</Eyebrow>
+            <h2 className="section-heading">What runs now—and what does not</h2>
             <p className="section-deck">
-              Keeper should do the repetitive inspection work and produce a dated report. It should not quietly publish, deploy, install unknown code, or turn an automated scan into a safety claim.
+              Keeper handles repeat checks and keeps dated records. It does not quietly publish, deploy, install unknown code, or turn an automated scan into a safety claim.
             </p>
           </div>
           <ol className="trust-process">
-            <li><Robot size={24} weight="thin" /><div><strong>Site and download health</strong><p>Check pages, internal links, package files, manifests, checksums, metadata, and catalog consistency. Report changes and failures with a date.</p></div></li>
-            <li><Robot size={24} weight="thin" /><div><strong>Source and version changes</strong><p>Check approved marketplaces, directories, repositories, and release feeds. Deduplicate findings and put new or changed items into a private review queue.</p></div></li>
-            <li><Robot size={24} weight="thin" /><div><strong>Bounded package inspection</strong><p>Read a fixed set of public files for known credential patterns, private data, risky actions, schedules, network calls, and unclear permissions without running unknown code.</p></div></li>
+            <li><Robot size={24} weight="thin" /><div><strong>Running: public-site check</strong><p>Every 15 minutes, Keeper checks eight important pages, their social images, the public catalog, and a sample of downloadable files. It records failures and changes in a dated log.</p></div></li>
+            <li><Robot size={24} weight="thin" /><div><strong>Running: public-repository check</strong><p>Every 30 minutes, Keeper checks the public GitHub file tree and records when the live branch changes. This confirms that a release changed; it does not judge whether the change is useful.</p></div></li>
+            <li><Clock size={24} weight="thin" /><div><strong>Not connected yet</strong><p>Keeper is not yet running the wider source search, complete download inventory, package inspection, or private review queue. Those remain unfinished until a cloud run produces dated records.</p></div></li>
             <li><UserFocus size={24} weight="thin" /><div><strong>A person still decides</strong><p>A person approves publication, deployment, purchases, account connections, destructive changes, and any claim that requires judgment. Keeper may advance at most one substantial product proposal each week.</p></div></li>
           </ol>
         </div>
