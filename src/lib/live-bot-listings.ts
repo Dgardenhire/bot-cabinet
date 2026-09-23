@@ -2,6 +2,7 @@ export const LIVE_BOT_SOURCES = [
   { name: "My Bot Farm", url: "https://mybot.farm/api/stalls?sort=newest", format: "json" },
   { name: "GrokHub", url: "https://www.grokhub.io/feed", format: "json" },
   { name: "Muse at Work", url: "https://museatwork.app/config.js", format: "muse" },
+  { name: "Grok Bot Field Notes", url: "https://raw.githubusercontent.com/unicodef1wn/grokbot-field-notes/main/roster/README.md", format: "field-notes" },
 ] as const;
 
 export type LiveBotListing = {
@@ -9,11 +10,11 @@ export type LiveBotListing = {
   name: string;
   job: string;
   creator: string;
-  source: "My Bot Farm" | "GrokHub" | "Muse at Work";
+  source: "My Bot Farm" | "GrokHub" | "Muse at Work" | "Grok Bot Field Notes";
   sourceUrl: string;
   originalUrl?: string;
-  listedAt: string;
-  kind: "Bot" | "Team" | "Workflow";
+  listedAt?: string;
+  kind: "Bot" | "Team" | "Workflow" | "Role";
 };
 
 function object(value: unknown): Record<string, unknown> | null {
@@ -111,12 +112,34 @@ export function parseMuseAtWorkListings(value: unknown): LiveBotListing[] {
   });
 }
 
+export function parseGrokBotFieldNotes(value: string): LiveBotListing[] {
+  const base = "https://github.com/unicodef1wn/grokbot-field-notes/blob/main/roster/";
+  return value.split("\n").slice(0, 1000).flatMap((line) => {
+    const match = line.match(/^\|\s*\[\`?([^\]`]+)\`?\]\(([^)]+\.md)\)\s*\|\s*(.+?)\s*\|\s*$/);
+    if (!match) return [];
+    const [, rawName, file, rawJob] = match;
+    if (!/^[a-z0-9-]+\.md$/.test(file)) return [];
+    const name = shortText(rawName, 100);
+    const job = shortText(rawJob.replace(/\*\*/g, "").replace(/\`/g, ""), 240);
+    if (!name || !job) return [];
+    return [{
+      id: `grok-bot-field-notes:${file.slice(0, -3)}`,
+      name,
+      job,
+      creator: "Grok Bot Field Notes contributors",
+      source: "Grok Bot Field Notes" as const,
+      sourceUrl: `${base}${file}`,
+      kind: "Role" as const,
+    }];
+  });
+}
+
 export function newestListings(items: LiveBotListing[], limit = 6, maxPerSource = 3): LiveBotListing[] {
   const byId = new Map(items.map((item) => [item.id, item]));
-  const sorted = [...byId.values()].sort((a, b) => b.listedAt.localeCompare(a.listedAt) || a.name.localeCompare(b.name));
+  const sorted = [...byId.values()].sort((a, b) => (b.listedAt ?? "").localeCompare(a.listedAt ?? "") || a.name.localeCompare(b.name));
   const bySource = new Map<LiveBotListing["source"], LiveBotListing[]>();
   for (const item of sorted) bySource.set(item.source, [...(bySource.get(item.source) ?? []), item]);
-  const sourceQueues = [...bySource.entries()].sort((a, b) => b[1][0].listedAt.localeCompare(a[1][0].listedAt));
+  const sourceQueues = [...bySource.entries()].sort((a, b) => (b[1][0].listedAt ?? "").localeCompare(a[1][0].listedAt ?? ""));
   const selected: LiveBotListing[] = [];
   let round = 0;
   while (selected.length < limit && round < maxPerSource) {

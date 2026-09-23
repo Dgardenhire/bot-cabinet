@@ -27,8 +27,12 @@ const botDecisionLabels: Record<WatchBotDecision, string> = {
 
 export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchItem[] }) {
   const [items, setItems] = useState(fallbackItems);
+  const [showAll, setShowAll] = useState(false);
   const noteworthyBots = items.filter((item) => item.botDetails);
   const watchNotes = items.filter((item) => !item.botDetails);
+  const visibleBots = showAll ? noteworthyBots : noteworthyBots.slice(0, 2);
+  const visibleNotes = showAll ? watchNotes : watchNotes.slice(0, 2);
+  const hiddenCount = items.length - visibleBots.length - visibleNotes.length;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -56,7 +60,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
             <p>Some may deserve a new Cabinet Bot. Others show how an existing Bot could get better. “Inspected” means the public listing and sources were checked, not that the Bot was run.</p>
           </div>
           <div className="noteworthy-bot-grid">
-            {noteworthyBots.map((item) => {
+            {visibleBots.map((item) => {
               const bot = item.botDetails!;
               return (
                 <article className="noteworthy-bot-card" id={item.slug} key={item.slug}>
@@ -86,7 +90,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
         </section>
       ) : null}
       <div className="agent-watch-list">
-        {watchNotes.map((item) => (
+        {visibleNotes.map((item) => (
           <article className="agent-watch-card" id={item.slug} key={item.slug}>
             <div className="agent-watch-card-meta">
               <EvidencePill kind={evidenceKinds[item.evidence]}>{evidenceLabels[item.evidence]}</EvidencePill>
@@ -109,6 +113,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
           </article>
         ))}
       </div>
+      {hiddenCount > 0 ? <button className="button button-secondary" type="button" onClick={() => setShowAll(true)}>Show {hiddenCount} more reviewed notes</button> : null}
     </>
   );
 }
