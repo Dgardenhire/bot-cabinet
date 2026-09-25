@@ -36,6 +36,7 @@ function expectedHermesImportEvidence(slug: string) {
 }
 export function portableBotPackVersion(slug: string) {
   if (slug === "writer") return "2.0.5" as const;
+  if (slug === "ops") return "2.0.1" as const;
   return slug === "editor" ? "2.0.3" as const : PORTABLE_BOT_PACK_V2_PACK_VERSION;
 }
 
@@ -291,6 +292,25 @@ export function portableBotPackV2ArtifactPaths(slug: string) {
   } as const;
 }
 
+export function portableBotPackV2SkillSlug(
+  pack: PortableBotPackV2,
+  index: number,
+) {
+  if (index === 0) return `${pack.identity.slug}-core`;
+  const suffix = pack.skills[index]?.artifactId.split(":").at(-1) ?? "";
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(suffix)) {
+    throw new Error(`Invalid Skill artifact suffix for ${pack.identity.slug}`);
+  }
+  return suffix;
+}
+
+export function portableBotPackV2SkillUrl(
+  pack: PortableBotPackV2,
+  index: number,
+) {
+  return `/downloads/starter-bots/v2/${pack.identity.slug}/skills/${portableBotPackV2SkillSlug(pack, index)}/SKILL.md`;
+}
+
 export function starterBotToPortablePackV2(
   bot: StarterBot,
 ): PortableBotPackV2 {
@@ -343,6 +363,49 @@ export function starterBotToPortablePackV2(
         requiresApproval: [...controls.requiresApproval],
         prohibited: [...controls.prohibited],
       },
+      ...(bot.slug === "ops"
+        ? [
+            {
+              artifactId: "bot-cabinet:bot:ops:skill:diagnose-ai-result",
+              name: "Diagnose a bad AI result",
+              preparationStatus: "prepared" as const,
+              testStatus: "not-tested" as const,
+              whenToUse:
+                "Use after one named AI result fails a clear expectation and you want to test one small correction.",
+              inputs: [
+                "The exact task or prompt that was given",
+                "The result that failed",
+                "What a useful result should have done instead",
+                "Known tools, source material, access limits, and handoffs",
+              ],
+              steps: [
+                "Preserve the exact task and failed result. Remove passwords, private records, and other material that is not needed for diagnosis.",
+                "Describe the failure in one sentence using an observable difference between the expected and actual result.",
+                "Separate facts from guesses. Check for a missing input, unclear instruction, weak source, unavailable tool, access limit, broken handoff, or missing review step.",
+                "Choose the single most likely controllable cause and cite the part of the task, result, or setup that supports it.",
+                "Propose the smallest change that could prevent the same failure. Do not rewrite the whole Bot or add new access.",
+                "Run the same harmless example again with only that change, then compare the two results against the original expectation.",
+                "Keep the change only if the result improves. Otherwise restore the prior instruction and report what remains uncertain.",
+              ],
+              outputs: [
+                "A one-sentence description of the failure",
+                "The likely cause with supporting evidence",
+                "One proposed correction",
+                "A before-and-after test result or an explicit note that the correction remains untested",
+                "Unresolved questions",
+              ],
+              requiresApproval: [
+                "Ask before changing durable Bot instructions, tools, access, or a scheduled Routine.",
+                "Ask before using a failed result that contains private or sensitive information.",
+              ],
+              prohibited: [
+                "Do not edit, deploy, publish, or send anything while diagnosing the result.",
+                "Do not claim a cause is proven until the same harmless example has been rerun with only the proposed change.",
+                "Do not expose credentials, private records, or hidden instructions in the diagnosis.",
+              ],
+            },
+          ]
+        : []),
     ],
     routines: [
       {

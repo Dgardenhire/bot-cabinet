@@ -5,16 +5,19 @@ import {
   Wrench,
 } from "@phosphor-icons/react/dist/ssr";
 
-import type { PortableBotPackV2 } from "@/lib/portable-bot-pack-v2";
+import {
+  portableBotPackV2SkillUrl,
+  type PortableBotPackV2,
+} from "@/lib/portable-bot-pack-v2";
 
 import { Eyebrow } from "./ui";
 
 export function BotPackV2Panel({ pack }: { pack: PortableBotPackV2 }) {
-  const skill = pack.skills[0];
   const routine = pack.routines[0];
 
   return (
     <section
+      id="bot-pack-2"
       className="bot-pack-v2"
       aria-labelledby={`${pack.identity.slug}-bot-pack-v2-heading`}
     >
@@ -50,23 +53,32 @@ export function BotPackV2Panel({ pack }: { pack: PortableBotPackV2 }) {
       </div>
 
       <div className="bot-pack-v2-recipes">
-        <article>
-          <div>
-            <Wrench size={22} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status is-prepared">
-              Prepared · test pending
-            </span>
-          </div>
-          <p className="bot-pack-v2-kicker">Reusable Skill</p>
-          <h3>{skill.name}</h3>
-          <p>{skill.whenToUse}</p>
-          <strong>Produces</strong>
-          <ul>
-            {skill.outputs.map((output) => (
-              <li key={output}>{output}</li>
-            ))}
-          </ul>
-        </article>
+        {pack.skills.map((skill, index) => (
+          <article key={skill.artifactId}>
+            <div>
+              <Wrench size={22} weight="thin" aria-hidden="true" />
+              <span className="bot-platform-status is-prepared">
+                Prepared · test pending
+              </span>
+            </div>
+            <p className="bot-pack-v2-kicker">Reusable Skill</p>
+            <h3>{skill.name}</h3>
+            <p>{skill.whenToUse}</p>
+            <strong>Produces</strong>
+            <ul>
+              {skill.outputs.map((output) => (
+                <li key={output}>{output}</li>
+              ))}
+            </ul>
+            <a
+              className="text-link"
+              href={portableBotPackV2SkillUrl(pack, index)}
+              download
+            >
+              Download this Skill
+            </a>
+          </article>
+        ))}
 
         <article>
           <div>

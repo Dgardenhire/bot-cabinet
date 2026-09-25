@@ -3,7 +3,7 @@
 Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.
 
 - **Artifact ID:** bot-cabinet:bot:ops:portable-pack
-- **Pack version:** 2.0.0
+- **Pack version:** 2.0.1
 - **Preparation status:** prepared
 - **Audience:** People who manage recurring automated work and need a consistent status report.
 - **Source:** https://botcabinet.com/bots/ops/

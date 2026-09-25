@@ -32,6 +32,11 @@ describe("Agent Watch", () => {
     expect(html).toContain("Import Bot");
     expect(html).toContain("Diagnose My Agent&#x27;s Mistake");
     expect(html).toContain("Muse at Work");
+    expect(html).toContain("Use the prepared Ops Skill");
+    expect(html).toContain(
+      "/downloads/starter-bots/v2/ops/skills/diagnose-ai-result/SKILL.md",
+    );
+    expect(html).toContain("has not yet been task-tested");
     expect(html).toContain("Nasiko");
     expect(html).toContain("Agent infrastructure");
     expect(html).toContain("Official Grok Bot Marketplace listing");
