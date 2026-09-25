@@ -2,6 +2,7 @@ import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
 import { renderToFile } from "@react-pdf/renderer";
+import React from "react";
 
 import {
   GROK_OPERATOR_PDF_OUTPUT_PATH,
@@ -11,7 +12,7 @@ import {
 async function main() {
   const outputPath = path.resolve(process.cwd(), GROK_OPERATOR_PDF_OUTPUT_PATH);
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await renderToFile(<GrokBotOperatorGuidePdf />, outputPath);
+  await renderToFile(React.createElement(GrokBotOperatorGuidePdf), outputPath);
   process.stdout.write(`${outputPath}\n`);
 }
 

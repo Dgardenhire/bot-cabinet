@@ -13,7 +13,7 @@
     "generate:ci": "npm run generate:manifest && npm run generate:discovery && npm run generate:fit-contract && npm run generate:agent-watch-seed && tsx scripts/build-starter-packages.mjs && node scripts/build-use-case-plans.mjs && node scripts/build-crew-kit-plans.mjs && node scripts/build-crew-kit-pdfs.mjs && npm run build:grok-operator-pdf && tsx scripts/content/generate-portable-bot-packs.ts && npm run generate:portable-v2 && npm run generate:crew-bundles",
     "generate:crew-bundles": "tsx scripts/content/generate-crew-bundles.ts",
     "build:reliable-bots-pdf": "tsx scripts/build-reliable-bots-guide-pdf.tsx",
-    "build:grok-operator-pdf": "tsx scripts/build-grok-bot-operator-guide-pdf.tsx",
+    "build:grok-operator-pdf": "tsx scripts/build-grok-bot-operator-guide-pdf.mts",
     "build:site": "next build && node scripts/audit-social-metadata.mjs && node scripts/audit-links.mjs --summary",
     "build": "npm run generate:content && npm run build:site",
     "start": "node scripts/serve-static.mjs",
