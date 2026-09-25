@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ArrowSquareOut, ArrowsClockwise } from "@phosphor-icons/react";
-import { LIVE_BOT_SOURCES, newestListings, parseGitHubReleases, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, type LiveBotListing } from "@/lib/live-bot-listings";
+import { LIVE_BOT_SOURCES, newestListings, parseGitHubReleases, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, parseOfficialGrokMarketplaceListings, type LiveBotListing } from "@/lib/live-bot-listings";
 
 type SourceState = { name: string; ok: boolean };
 
@@ -18,6 +18,13 @@ function settleWithin<T>(promise: Promise<T>, milliseconds = 8_000): Promise<T> 
 
 async function fetchListings(signal?: AbortSignal) {
   return Promise.allSettled(LIVE_BOT_SOURCES.map((source) => settleWithin((async () => {
+    if (source.format === "bot-cabinet-feed") {
+      const response = await fetch(source.url, { signal, headers: { Accept: "application/json" }, cache: "no-store" });
+      if (!response.ok) throw new Error(`${source.name} unavailable`);
+      const listings = parseOfficialGrokMarketplaceListings(await response.json());
+      if (!listings.length) throw new Error(`${source.name} returned no usable Bot listings`);
+      return listings;
+    }
     if (source.format === "github-releases") {
       const response = await fetch(source.url, { signal, headers: { Accept: "application/vnd.github+json" }, cache: "no-store" });
       if (!response.ok) throw new Error(`${source.name} unavailable`);
@@ -83,10 +90,10 @@ export function LiveBotListings() {
   return (
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
-        <div><span className="eyebrow">Updated when you open this page</span><h2 id="live-bot-title">Fresh listings</h2></div>
+        <div><span className="eyebrow">Updated when you open this page</span><h2 id="live-bot-title">Current listings</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>See one recent item from every connected source. These are listings, not recommendations. Open “Sources we check” below for official marketplaces and the full source list.</p>
+      <p>See one current item from every connected source. Dates appear only when a source provides them. These are listings, not recommendations.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : sources.map((source) => `${source.name}: ${source.ok ? "connected" : "unavailable"}`).join(" · ")}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}

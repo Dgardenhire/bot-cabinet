@@ -23,7 +23,7 @@ describe("Agent Watch", () => {
     expect(html).toContain("Hermes Agent releases");
     expect(html).toContain("OpenBot releases");
     expect(html).toContain("Instinct");
-    expect(html).toContain("Fresh listings");
+    expect(html).toContain("Current listings");
     expect(html).toContain("Bots and agent tools worth a closer look");
     expect(html).toContain("whether it has been tested");
     expect(html).toContain("We have not run the Bots yet");
@@ -41,7 +41,8 @@ describe("Agent Watch", () => {
     expect(html).toContain("Test an adaptation");
     expect(html).toContain("Inspected");
     expect(html).toMatch(/Show \d+ more reviewed notes/);
-    expect(html).toContain("Cabinet Keeper is not yet supplying continuous updates");
+    expect(html).toContain("Eight sources refresh here");
+    expect(html).not.toContain("Cabinet Keeper is not yet supplying");
     expect(html).not.toContain("bounce");
     expect(html).not.toContain("Vercel");
     expect(html).not.toContain("Three-Run Trial");

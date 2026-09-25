@@ -50,6 +50,8 @@ This is an internal evidence record. It is not public site copy and does not upg
 
 - The local Agent Watch candidate now distinguishes Bots, agent products, releases and agent infrastructure across fourteen named sources.
 - Nasiko is represented as examined infrastructure, not as a tested Bot.
+- The local Agent Watch feed now has a bounded parser for the official Grok Bot Marketplace instead of treating GrokHub as a substitute. Against the public marketplace page on September 24, it extracted all 81 current templates with their names, creators, descriptions and stable x.ai links. The source does not publish reliable listing dates, so the site labels these as current listings and does not claim that marketplace order proves recency.
+- The official-marketplace parser rejects oversized responses, malformed records, unsafe identifiers and off-domain listing links. Five Deno parser/feed tests, ten focused site tests, Deno type checking, TypeScript and ESLint passed for this change.
 - The Grok fleet example and Nasiko link supplied by Damon were submitted through Keeper's deterministic intake into a private two-item review queue at `keeper-state/goal-cycle-20260924`.
 - Submitting the identical Nasiko record again returned `status: unchanged` and `queue_changed: false`, proving exact-source deduplication without a model call or external message.
 - Both items remain `awaiting-human-review`; no recommendation, implementation authority or publication approval was invented.

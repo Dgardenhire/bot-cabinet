@@ -11,7 +11,7 @@ export function AgentWatchSources() {
         </div>
         <span className="agent-watch-sources-open">View sources</span>
       </summary>
-      <p className="agent-watch-sources-note">Seven sources can refresh here today. The others are checked through reviewed editions because they do not provide a safe browser-readable feed. Cabinet Keeper is not yet supplying continuous updates, so we do not call the whole list live.</p>
+      <p className="agent-watch-sources-note">Eight sources refresh here, including the official Grok Bot Marketplace. The remaining sources appear in the reviewed notes when there is something useful to report.</p>
       <div className="agent-watch-source-groups">
         {AGENT_WATCH_SOURCE_GROUPS.map((group) => (
           <div key={group}>

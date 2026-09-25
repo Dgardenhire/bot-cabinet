@@ -6,7 +6,7 @@ export type AgentWatchSource = {
 };
 
 export const AGENT_WATCH_SOURCES: AgentWatchSource[] = [
-  { name: "Grok Bot Marketplace", href: "https://x.ai/bot/marketplace", group: "Official marketplaces", coverage: "Checked for each update" },
+  { name: "Grok Bot Marketplace", href: "https://x.ai/bot/marketplace", group: "Official marketplaces", coverage: "Live listings" },
   { name: "Grok Bot guides and use cases", href: "https://x.ai/bot/guides", group: "Official marketplaces", coverage: "Guide available" },
   { name: "My Bot Farm", href: "https://mybot.farm/catalog", group: "Bot directories", coverage: "Live listings" },
   { name: "GrokHub", href: "https://www.grokhub.io/", group: "Bot directories", coverage: "Live listings" },

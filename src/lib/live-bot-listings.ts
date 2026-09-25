@@ -1,4 +1,5 @@
 export const LIVE_BOT_SOURCES = [
+  { name: "Grok Bot Marketplace", url: "https://mdjchixwgvicovkwrgle.supabase.co/functions/v1/agent-watch", format: "bot-cabinet-feed" },
   { name: "My Bot Farm", url: "https://mybot.farm/api/stalls?sort=newest", format: "json" },
   { name: "GrokHub", url: "https://www.grokhub.io/feed", format: "json" },
   { name: "Muse at Work", url: "https://museatwork.app/config.js", format: "muse" },
@@ -42,6 +43,30 @@ function date(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const parsed = Date.parse(value);
   return Number.isFinite(parsed) && parsed <= Date.now() + 86_400_000 ? new Date(parsed).toISOString() : null;
+}
+
+export function parseOfficialGrokMarketplaceListings(value: unknown): LiveBotListing[] {
+  const root = object(value);
+  const marketplace = object(root?.marketplace);
+  if (!marketplace || marketplace.available !== true || !Array.isArray(marketplace.listings)) return [];
+  return marketplace.listings.slice(0, 200).flatMap((raw) => {
+    const item = object(raw);
+    const id = shortText(item?.id, 100);
+    const name = shortText(item?.name, 120);
+    const job = shortText(item?.job, 500);
+    const creator = shortText(item?.creator, 120);
+    const url = sourceUrl(item?.sourceUrl, "x.ai");
+    if (!id || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(id) || !name || !job || !creator || !url) return [];
+    return [{
+      id: `grok-marketplace:${id}`,
+      name,
+      job,
+      creator,
+      source: "Grok Bot Marketplace" as const,
+      sourceUrl: url,
+      kind: "Bot" as const,
+    }];
+  });
 }
 
 export function parseMyBotFarmListings(value: unknown): LiveBotListing[] {

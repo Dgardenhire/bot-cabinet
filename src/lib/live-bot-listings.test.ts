@@ -1,7 +1,18 @@
 import { describe, expect, it } from "vitest";
-import { newestListings, parseGitHubReleases, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, type LiveBotSourceName } from "./live-bot-listings";
+import { newestListings, parseGitHubReleases, parseGrokBotFieldNotes, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, parseOfficialGrokMarketplaceListings, type LiveBotSourceName } from "./live-bot-listings";
 
 describe("live directory listings", () => {
+  it("accepts bounded official Grok marketplace listings without inventing a date", () => {
+    const items = parseOfficialGrokMarketplaceListings({ marketplace: { available: true, listings: [
+      { id: "useful-bot", name: "Useful Bot", job: "Does one useful job.", creator: "A Creator", sourceUrl: "https://x.ai/bot/marketplace/bots/useful-bot" },
+      { id: "bad", name: "Bad", job: "Bad link.", creator: "Bad", sourceUrl: "https://example.com/bad" },
+    ] } });
+    expect(items).toEqual([expect.objectContaining({
+      id: "grok-marketplace:useful-bot", name: "Useful Bot", creator: "A Creator", source: "Grok Bot Marketplace", kind: "Bot",
+    })]);
+    expect(items[0].listedAt).toBeUndefined();
+  });
+
   it("accepts My Bot Farm Bots and teams with their real listed dates", () => {
     const items = parseMyBotFarmListings({ stalls: [
       { kind: "agent", slug: "patch", name: "Patch", description: "Fixes a defined issue", pageUrl: "https://mybot.farm/agents/patch", listedAt: "2026-09-18T00:00:00Z", author: { username: "Ada" } },
