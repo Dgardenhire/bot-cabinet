@@ -39,9 +39,9 @@ export default function AgentWatchPage() {
         <LiveBotListings />
 
         <div className="agent-watch-editorial-heading">
-          <Eyebrow>Reviewed selections</Eyebrow>
-          <h2 className="section-heading" id="watch-method-title">Bots and agent tools worth a closer look</h2>
-          <p className="section-deck">These selections offer useful ways to do a job, build a Bot or keep a group of agents under control. Each note says what we found, what it needs and whether it has been tested.</p>
+          <Eyebrow>Worth a look</Eyebrow>
+          <h2 className="section-heading" id="watch-method-title">Useful Bots from around the web</h2>
+          <p className="section-deck">A few Bots and workflows that solve a clear problem. Open the original, see what it does and whether we tried it, then decide if it fits your work.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />

@@ -71,10 +71,10 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
         <section className="noteworthy-bots" aria-labelledby="noteworthy-bots-title">
           <div className="noteworthy-bots-heading">
             <div>
-              <span>Selected from public listings</span>
-              <h2 id="noteworthy-bots-title">New and noteworthy Bots</h2>
+              <span>Bots</span>
+              <h2 id="noteworthy-bots-title">Worth trying</h2>
             </div>
-            <p>We opened and reviewed these public listings. We have not run the Bots yet.</p>
+            <p>Each one tackles a clear job. The label tells you whether we only read the listing or actually tried the Bot.</p>
           </div>
           <div className="noteworthy-bot-grid">
             {visibleBots.map((item) => {
