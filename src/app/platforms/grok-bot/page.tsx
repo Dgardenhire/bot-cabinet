@@ -14,6 +14,12 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "../../../components/ui";
+import {
+  GROK_OPERATOR_SECTIONS,
+  GROK_OPERATOR_SHORTCUTS,
+  GROK_OPERATOR_SOURCES,
+  GROK_OPERATOR_UPDATED,
+} from "../../../data/grok-bot-operator-guide";
 import { STARTER_BOTS } from "../../../data/starter-bots";
 import { buildPageMetadata } from "../../../lib/metadata";
 
@@ -152,6 +158,64 @@ export default function GrokBotTemplatesPage() {
               <li>Test before adding a Skill, Routine, or public link</li>
             </ul>
           </article>
+        </div>
+      </section>
+
+      <section className="grok-operator-section shell" aria-labelledby="grok-operator-heading">
+        <div className="grok-operator-heading">
+          <div>
+            <Eyebrow>Operator guide · Checked {GROK_OPERATOR_UPDATED}</Eyebrow>
+            <h2 id="grok-operator-heading">Run Grok Bot without losing the plot</h2>
+          </div>
+          <div>
+            <p>
+              A practical reference for choosing a Bot, saving a Skill, adding a
+              Routine, protecting account access and handing work between Bots.
+            </p>
+            <a
+              className="button button-secondary"
+              href="/downloads/guides/grok-bot-operator-guide.pdf"
+              download
+            >
+              Download the PDF <DownloadSimple size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div className="grok-operator-grid">
+          {GROK_OPERATOR_SECTIONS.map((section) => (
+            <article key={section.number}>
+              <div><span>{section.number}</span><h3>{section.title}</h3></div>
+              <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="grok-operator-reference">
+          <div>
+            <Eyebrow>Useful shortcuts</Eyebrow>
+            <dl>
+              {GROK_OPERATOR_SHORTCUTS.map(([key, meaning]) => (
+                <div key={key}><dt>{key}</dt><dd>{meaning}</dd></div>
+              ))}
+            </dl>
+          </div>
+          <div>
+            <Eyebrow>Five-line handoff</Eyebrow>
+            <p>Outcome · Sources · Constraints · Deliverable · Review point</p>
+            <small>
+              Bot Cabinet is independent and is not affiliated with xAI or Cursor.
+              Product behavior can change. Check the current documentation before
+              connecting sensitive accounts or allowing consequential actions.
+            </small>
+            <div className="grok-operator-sources">
+              {GROK_OPERATOR_SOURCES.map((source) => (
+                <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>
+                  {source.label} <ArrowSquareOut size={13} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

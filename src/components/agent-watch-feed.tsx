@@ -91,7 +91,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
                     <div><dt>Creator</dt><dd>{bot.creator}</dd></div>
                     <div><dt>Why it stands out</dt><dd>{item.whyItMatters}</dd></div>
                     <div><dt>Access and outside actions</dt><dd>{bot.requiredAccess} {bot.outsideActions}</dd></div>
-                    <div className="noteworthy-bot-decision"><dt>What Bot Cabinet will do</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Closest current match: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
+                    <div className="noteworthy-bot-decision"><dt>Best next step</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Closest current match: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
                   </dl>
                   <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
                   <div className="agent-watch-links">

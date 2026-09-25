@@ -40,8 +40,8 @@ export default function AgentWatchPage() {
 
         <div className="agent-watch-editorial-heading">
           <Eyebrow>Reviewed selections</Eyebrow>
-          <h2 className="section-heading" id="watch-method-title">Bots worth a closer look</h2>
-          <p className="section-deck">These Bots offer different ways to handle practical jobs. Each listing explains what the Bot does, what it needs, and whether it has been tested.</p>
+          <h2 className="section-heading" id="watch-method-title">Bots and agent tools worth a closer look</h2>
+          <p className="section-deck">These selections offer useful ways to do a job, build a Bot or keep a group of agents under control. Each note says what we found, what it needs and whether it has been tested.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />
