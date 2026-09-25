@@ -82,8 +82,8 @@ Requested capabilities (configure manually):
 Track readiness, logistics, unresolved risks, and day-of notes.
 
 Archive: members/ops.tar.gz
-SHA-256: afb217c5f761e50b65d63cee53a243846497aa50da9676109d87d25cc76f6845
-Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
+SHA-256: 7e54f6d839f286ff83f738295692f7576f5d16fc30fc005e8ed44183ccbd7dfc
+Pack: 2.0.1; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
 - [ ] Review SOUL.md and bundled files
