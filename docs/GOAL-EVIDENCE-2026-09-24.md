@@ -55,10 +55,11 @@ This is an internal evidence record. It is not public site copy and does not upg
 - The Grok fleet example and Nasiko link supplied by Damon were submitted through Keeper's deterministic intake into a private two-item review queue at `keeper-state/goal-cycle-20260924`.
 - Submitting the identical Nasiko record again returned `status: unchanged` and `queue_changed: false`, proving exact-source deduplication without a model call or external message.
 - Both items remain `awaiting-human-review`; no recommendation, implementation authority or publication approval was invented.
-- The expanded Keeper package passed all 91 bounded Python tests on September 24. Its updated 50-file `MANIFEST.sha256` then verified every declared file, including the expanded source registry and landscape tests.
+- Keeper's own official-marketplace sensor was corrected to read the current embedded catalog instead of relying only on the marketplace's older link layout. It keeps that older parser as a fallback, baselines the first successful run without flooding the queue, and emits private candidates only for added or changed templates.
+- The expanded Keeper package passed all 92 bounded Python tests on September 24. Its updated 55-file `MANIFEST.sha256` then verified every declared file, including the current official-marketplace parser, expanded source registry and landscape tests.
 - The three changed site test files passed all eight targeted tests after correcting two public-copy mismatches.
 - The complete existing application suite then passed 63 source test files with 300 tests plus 15 package and editorial tests. ESLint and the no-output TypeScript check also passed.
-- The current edits have not received the full build, commit or deployment verification.
+- The site changes through commit `9419002` are committed locally but have not been pushed or deployed.
 
 ## Not yet proved
 
@@ -70,4 +71,4 @@ This is an internal evidence record. It is not public site copy and does not upg
 
 ## Current execution boundary
 
-The host had 15 GiB free on `/System/Volumes/Data` at the latest check, below the required 20 GiB reserve. Builds, PDF rendering and the full verification suite remain stopped. The unrelated `agent-demo` Lima VM was identified as the likely active space consumer, but it has not been stopped or modified without permission.
+The host had 11 GiB free on `/System/Volumes/Data` at the latest check, below the required 20 GiB reserve. Builds, PDF rendering, packaging and the full verification suite remain stopped. The running Hermes `agent-demo` Lima VM has not been stopped, deleted, resized or otherwise modified, in accordance with Damon's explicit direction.
