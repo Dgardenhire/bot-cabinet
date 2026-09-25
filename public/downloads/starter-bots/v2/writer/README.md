@@ -7,7 +7,7 @@ This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every 
 ## Package status
 
 - The generated files and archive structure are checked at build time.
-- This V2 archive passed an isolated import with Hermes Agent 0.21.0 on 2026-09-04.
+- This V2 archive passed an isolated import with Hermes Agent 0.21.3 on 2026-09-20.
 - That import test confirmed the archive and bundled Skill were present. It did not test output quality or live-service behavior.
 - The included Skill is prepared and not-tested.
 - The Routine is a plan only: manual-test-required and not-tested.

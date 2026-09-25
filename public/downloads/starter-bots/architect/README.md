@@ -1,4 +1,4 @@
-# ARCHITECT — CTO and technology strategy assistant
+# Architect — CTO and technology strategy assistant
 
 Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.
 

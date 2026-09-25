@@ -71,7 +71,7 @@ export function starterBotToDefinition(bot: StarterBot): BotDefinitionV1 {
     relationships: {
       worksWith: [...bot.worksWith],
       workflows: BOT_USE_CASES.filter((useCase) =>
-        useCase.botSlugs.includes(bot.slug),
+        useCase.botSlugs.includes(bot.slug) || useCase.optionalBotSlugs?.includes(bot.slug),
       ).map((useCase) => useCase.slug),
       crewKits: CREW_KITS.filter((kit) =>
         kit.roles.some((role) => role.botSlug === bot.slug),

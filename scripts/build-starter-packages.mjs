@@ -1,12 +1,11 @@
-import { execFile as execFileCallback } from "node:child_process";
-import { mkdir, readFile, rm, utimes, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { promisify } from "node:util";
-import ts from "typescript";
+import { pathToFileURL } from "node:url";
 
-import { createDeterministicTarGzip } from "./content/deterministic-archives.ts";
-
-const execFile = promisify(execFileCallback);
+import {
+  createDeterministicTarGzip,
+  createDeterministicZip,
+} from "./content/deterministic-archives.ts";
 
 const projectRoot = process.cwd();
 const sourcePath = path.join(projectRoot, "src/data/starter-bots.ts");
@@ -14,13 +13,9 @@ const passportSourcePath = path.join(projectRoot, "src/lib/bot-passport.ts");
 const outputRoot = path.join(projectRoot, "public/downloads/starter-bots");
 
 async function loadTsModule(filePath) {
-  const source = await readFile(filePath, "utf8");
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
-  }).outputText;
-  const compiledModule = { exports: {} };
-  new Function("exports", "module", compiled)(compiledModule.exports, compiledModule);
-  return compiledModule.exports;
+  // This generator runs under tsx. Use its module loader so shared source
+  // imports resolve normally instead of evaluating transpiled code without require.
+  return import(pathToFileURL(filePath).href);
 }
 
 const { STARTER_BOTS: starters } = await loadTsModule(sourcePath);
@@ -159,13 +154,8 @@ for (const bot of starters) {
     ),
   );
 
-  const files = Object.keys(packageFiles);
-  const fixedTime = new Date("2026-01-01T00:00:00.000Z");
-  await Promise.all(files.map((file) => utimes(path.join(botDir, file), fixedTime, fixedTime)));
-  await utimes(botDir, fixedTime, fixedTime);
   const zipPath = path.join(outputRoot, `${bot.slug}.zip`);
-  await rm(zipPath, { force: true });
-  await execFile("zip", ["-X", "-q", zipPath, ...files], { cwd: botDir });
+  await writeFile(zipPath, createDeterministicZip(packageFiles));
 
   const profileArchivePath = path.join(outputRoot, `${bot.slug}.tar.gz`);
   await writeFile(

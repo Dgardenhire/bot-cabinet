@@ -7,7 +7,7 @@ Result: An evidence-based venture brief and a small test with success, revise, a
 ## Operating guide
 
 - **When to use it:** Use this workflow when you need an evidence-based venture brief and a small test with success, revise, and stop rules set in advance.
-- **Lead Bot:** NOVA
+- **Lead Bot:** Nova
 - **Cadence:** When a person supplies the approved brief and starts the workflow
 - **Typical first run:** 30–60 minutes for a first manual run
 
@@ -19,9 +19,11 @@ Result: An evidence-based venture brief and a small test with success, revise, a
 
 ## Bots
 
-1. NOVA
+1. Nova
 2. Researcher
-3. PULSE
+3. Pulse
+
+This workflow keeps the idea review, outside evidence check, and experiment design separate so enthusiasm for the idea does not also grade the evidence. For a quick early screen, Nova can work alone.
 
 ## Information to gather
 
@@ -31,7 +33,7 @@ Result: An evidence-based venture brief and a small test with success, revise, a
 
 ## Workflow
 
-### 1. NOVA
+### 1. Nova
 
 Separate known facts, assumptions, forecasts, and missing evidence
 
@@ -49,9 +51,9 @@ Output: A source-based evidence brief with conflicts and gaps
 
 Message to send:
 
-Start with this result from NOVA: A venture brief and assumption ledger. Check the highest-risk assumptions against approved public sources. Return this result: A source-based evidence brief with conflicts and gaps. Ask me about missing information before you continue.
+Start with this result from Nova: A venture brief and assumption ledger. Check the highest-risk assumptions against approved public sources. Return this result: A source-based evidence brief with conflicts and gaps. Ask me about missing information before you continue.
 
-### 3. PULSE
+### 3. Pulse
 
 Turn the most important open question into one measurable low-cost test
 
@@ -63,8 +65,8 @@ Start with this result from Researcher: A source-based evidence brief with confl
 
 ## Handoff rules
 
-1. NOVA hands the approved output—a venture brief and assumption ledger—to Researcher.
-2. Researcher hands the approved output—a source-based evidence brief with conflicts and gaps—to PULSE.
+1. Nova hands the approved output—a venture brief and assumption ledger—to Researcher.
+2. Researcher hands the approved output—a source-based evidence brief with conflicts and gaps—to Pulse.
 
 ## Overall request
 

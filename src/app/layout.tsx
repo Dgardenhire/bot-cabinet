@@ -3,6 +3,7 @@ import { DM_Sans, DM_Serif_Display, Space_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { FunnelAnalytics } from "@/components/funnel-analytics";
+import { ReturningUseAnalytics } from "@/components/returning-use-analytics";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -37,27 +38,27 @@ export const metadata: Metadata = {
     "Choose, build, and use AI specialists for real work with practical Hermes Bot profiles, examples, setup help, and review information.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Bot Cabinet",
+    title: "Bot Cabinet Keeper · Limited workflow under test",
     description:
-      "Choose, build, and use AI specialists for real work—starting with importable Hermes Bot profiles.",
+      "A continuing cloud Hermes agent for bounded site checks, evidence reports, and human-approved changes.",
     siteName: "Bot Cabinet",
     type: "website",
     url: "https://botcabinet.com",
     images: [
       {
-        url: "/brand/bot-cabinet-launch-card-1200x630.jpg",
+        url: "/brand/social/bot-cabinet-keeper-1200x630.jpg",
         width: 1200,
         height: 630,
-        alt: "Bot Cabinet — a refined cabinet of useful AI Bots",
+        alt: "Bot Cabinet Keeper — a continuing agent for a continuing job",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bot Cabinet",
+    title: "Bot Cabinet Keeper · Limited workflow under test",
     description:
-      "Discover, create, and learn how to use practical Hermes Bots.",
-    images: ["/brand/bot-cabinet-launch-card-1200x630.jpg"],
+      "Bounded site checks, evidence reports, and human approval before changes.",
+    images: ["/brand/social/bot-cabinet-keeper-1200x630.jpg"],
   },
 };
 
@@ -110,6 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <SiteFooter />
         <FunnelAnalytics />
+        <ReturningUseAnalytics />
         <Analytics />
       </body>
     </html>

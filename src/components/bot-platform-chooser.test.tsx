@@ -19,10 +19,17 @@ describe("BotPlatformChooser", () => {
     expect(html).toContain("output testing remains pending");
     expect(html).toContain("Prepared · test pending");
     expect(html).toContain("Portable Bot Pack");
+    expect(html).toContain("ChatGPT Workspace Agent");
+    expect(html).toContain("Use a Cowork plugin or Skill");
+    expect(html).toContain('href="/guides/use-a-bot-on-another-platform"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout.tar.gz"');
     expect(html).toContain('href="/downloads/grok-bot-templates/v2/scout.md"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.md"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.json"');
+    expect(html).toContain('href="/downloads/starter-bots/v2/scout/skills/scout-core/SKILL.md"');
+    expect(html).toContain("shared file format does not prove identical behavior");
+    expect(html).toContain("Prepared file");
+    expect(html).toContain('data-funnel-event="bot_portable_skill_download"');
     expect(html).not.toMatch(/compatible with Grok|install (?:in|for) Grok/i);
   });
 
@@ -48,6 +55,9 @@ describe("BotPlatformChooser", () => {
     );
     expect(html).toContain(
       'href="/downloads/portable-bot-packs/v2/scout.json"',
+    );
+    expect(html).toContain(
+      'href="/downloads/starter-bots/v2/scout/skills/scout-core/SKILL.md"',
     );
   });
 });

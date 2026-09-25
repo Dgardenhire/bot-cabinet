@@ -1,4 +1,4 @@
-# STORY — Bot Passport
+# Story — Bot Passport
 
 **Role:** Chief narrative officer
 **Risk level:** Moderate

@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ArrowSquareOut,
   CheckCircle,
-  Flask,
-  GitBranch,
-  LockKey,
-  ShieldWarning,
-  UserFocus,
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
+import { KeeperTrustStatusTable } from "@/components/keeper-trust-status";
+import { KEEPER_TRUST_FALLBACK } from "@/lib/keeper-status-live";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Inspection Desk · Review process",
-  description: "How Bot Cabinet records each source version and reports automated source scan, human technical review, and Hermes Desktop test status.",
+  title: "How Bot Cabinet checks its work",
+  description: "See what Bot Cabinet checks automatically, which Bots have been tried, and where public proof is still missing.",
   path: "/trust/",
   image: "/brand/social/inspection-desk-1200x630.jpg",
-  imageAlt: "Inspection Desk — understand a Bot before you install it",
+  imageAlt: "Inspection Desk — what Bot Cabinet actually checks",
 });
 
 const evidence = [
@@ -49,28 +47,34 @@ export default function TrustPage() {
       <section className="inner-hero">
         <div className="shell inner-hero-grid">
           <div>
-            <Eyebrow>Review process</Eyebrow>
-            <h1 className="inner-title">Inspection Desk</h1>
+            <Eyebrow>Checks and test results</Eyebrow>
+            <h1 className="inner-title">How we check the work</h1>
             <p className="inner-deck">
-              Read the review status before you try a Bot. Each listing records the source version and reports the automated source scan,
-              human technical review, and Hermes Desktop test separately. Review the Bot’s requested access and approval points before using it.
+              This page shows which checks run automatically, which Bots have been tried, and where proof is still missing.
+              If a result is not public and dated, we say so.
             </p>
           </div>
           <aside className="inner-aside trust-caveat">
             <Warning size={22} weight="thin" aria-hidden="true" />
-            <strong>Automated source scans have limits.</strong>
-            A scan can find known file patterns, possible credentials, and risky instructions. It
-            cannot predict every behavior. Human technical review is unavailable at this time.
+            <strong>No badge means “safe” or “works for everyone.”</strong>
+            A package check can find known problems. A controlled task can expose failures. Neither replaces reading the requested access, testing the job yourself, or making the final decision.
           </aside>
         </div>
       </section>
 
       <section className="content-section shell">
-        <Eyebrow>Three review statuses</Eyebrow>
-        <div className="content-grid-3">
-          <article className="content-card"><h2>Automated source scan</h2><p>A scanner checks a limited set of public files for known risk patterns without running the project.</p></article>
-          <article className="content-card"><h2>Human technical review</h2><p>A qualified person reads the relevant files and records findings. This review is unavailable at this time.</p></article>
-          <article className="content-card"><h2>Hermes Desktop test</h2><p>The exact project version is installed in a disposable profile and tested with a small task.</p></article>
+        <div aria-labelledby="keeper-status-title">
+        <div className="trust-status-heading">
+          <Eyebrow>Current site status</Eyebrow>
+          <h2 className="section-heading" id="keeper-status-title">Latest approved Keeper checks</h2>
+          <p className="section-deck">Keeper checks the public site, repository, downloads, and changing Bot sources. Only a dated result that a person has reviewed appears here. Missing or late evidence never appears as a pass.</p>
+        </div>
+        <KeeperTrustStatusTable fallback={KEEPER_TRUST_FALLBACK} />
+        </div>
+        <div className="content-grid-3 trust-summary-grid">
+          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks</h2><p>Every public release checks pages, links, social images, downloads, and site behavior.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the latest public run <ArrowSquareOut size={14} /></a></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Bot test results</h2><p>A site check cannot show whether a Bot does useful work. The Proof Room records the exact Bots and sample tasks that have been tried.</p><Link className="text-link" href="/proof">Read the test results</Link></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Human decisions</h2><p>Keeper can find a problem and prepare a proposed fix. A person still approves publication, deployment, purchases, access, and destructive changes.</p></article>
         </div>
       </section>
 
@@ -88,23 +92,11 @@ export default function TrustPage() {
       </section>
 
       <section className="content-section shell">
-        <div className="promise-grid">
-          <div>
-            <Eyebrow>Planned submission review</Eyebrow>
-            <h2 className="section-heading">How the Inspection Desk would review a submission</h2>
-            <p className="section-deck">
-              Public submissions are closed. A planned automated source scan would read a fixed,
-              limited set of public files without running submitted code. Profiles that require
-              technical judgment would remain unpublished while human technical review is unavailable.
-            </p>
-          </div>
-          <ol className="trust-process">
-            <li><GitBranch size={24} weight="thin" /><div><strong>Record one exact public version</strong><p>The scan records the repository, a fixed source version, the file that describes the Hermes package, its license, included paths, and required account names. A later source version needs a new scan.</p></div></li>
-            <li><LockKey size={24} weight="thin" /><div><strong>Check for private material</strong><p>The scan looks for possible credentials, memories, sessions, logs, personal information, and local computer paths.</p></div></li>
-            <li><ShieldWarning size={24} weight="thin" /><div><strong>Check for risky actions</strong><p>The scan looks for instructions or code that can delete files, send data, run commands, contact outside services, stay active, or start on a schedule.</p></div></li>
-            <li><UserFocus size={24} weight="thin" /><div><strong>State what the scanner cannot decide</strong><p>Projects that use powerful tools or unclear instructions would stay unpublished while human technical review is unavailable.</p></div></li>
-            <li><Flask size={24} weight="thin" /><div><strong>Run a Hermes Desktop test separately</strong><p>A separate test would install the exact project version in a disposable profile and try a small task. The automated source scan would not run submitted code.</p></div></li>
-          </ol>
+        <Eyebrow>What a check proves</Eyebrow>
+        <div className="content-grid-3">
+          <article className="content-card"><h2>Reachable is not useful</h2><p>A page or download can respond correctly and still be confusing, outdated, or unhelpful. Keeper can find the first kind of problem. A real task test and human review are needed for the second.</p></article>
+          <article className="content-card"><h2>Package checks are narrow</h2><p>A package check can confirm expected files, hashes, and readable contents. It cannot prove that the instructions are good or that a Bot will handle a real job well.</p></article>
+          <article className="content-card"><h2>No public record, no green light</h2><p>A private log may help maintain the site, but visitors cannot inspect it. A missing or late public record means the current result is unknown.</p></article>
         </div>
       </section>
 

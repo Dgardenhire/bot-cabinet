@@ -35,17 +35,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const demo = getProofRoomDemo(slug);
   return demo
     ? buildPageMetadata({
-        title: `${demo.title} · Proof Room`,
+        title: `${demo.title} · Test Records`,
         description: demo.summary,
         path: `/proof/${demo.slug}/`,
         image: "/brand/social/proof-room-1200x630.jpg",
-        imageAlt: `Bot Cabinet Proof Room — ${demo.title}`,
+        imageAlt: `Bot Cabinet Test Records — ${demo.title}`,
       })
     : {};
 }
 
 const checkIcon: Record<ProofCheckState, typeof CheckCircle> = {
   passed: CheckCircle,
+  failed: WarningCircle,
   partial: WarningCircle,
   "not-run": Hourglass,
   unavailable: MinusCircle,
@@ -53,6 +54,7 @@ const checkIcon: Record<ProofCheckState, typeof CheckCircle> = {
 
 const checkLabel: Record<ProofCheckState, string> = {
   passed: "Passed",
+  failed: "Failed",
   partial: "Partial record",
   "not-run": "Not run",
   unavailable: "Unavailable",
@@ -63,6 +65,8 @@ const statusIcon = {
   "test-prepared": Hourglass,
   "recorded-excerpt": WarningCircle,
   "prompt-contract-recorded": WarningCircle,
+  "failed-runtime": WarningCircle,
+  "runtime-passed": CheckCircle,
   reproduced: ShieldCheck,
 } as const;
 
@@ -72,20 +76,23 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
   if (!demo) notFound();
   const nextStep = PROOF_NEXT_STEP_COPY[demo.state];
   const StatusIcon = statusIcon[demo.state];
+  const subjectHref = demo.subjectHref ?? `/bots/${demo.botSlug}`;
+  const subjectLabel = demo.subjectKind === "crew" ? "Open the Crew Kit" : "Open the Bot profile";
+  const downloadLabel = demo.subjectKind === "crew" ? "Download the Crew Kit" : "Download for Hermes";
 
   return (
     <main id="main-content" className="page-main proof-detail-page">
       <section className="inner-hero proof-detail-hero">
         <div className="shell">
-          <Link href="/proof" className="back-link"><ArrowLeft size={15} /> Back to Proof Room</Link>
+          <Link href="/proof" className="back-link"><ArrowLeft size={15} /> Back to Test Records</Link>
           <div className="inner-hero-grid">
             <div>
               <Eyebrow>{PROOF_STATE_NAMES[demo.state]}</Eyebrow>
               <h1 className="inner-title">{demo.title}</h1>
               <p className="inner-deck">{demo.outcome}</p>
               <div className="button-row">
-                <Link href={`/bots/${demo.botSlug}`} className="button button-primary">Open the Bot profile <ArrowRight size={16} /></Link>
-                <a href={`/downloads/starter-bots/${demo.botSlug}.tar.gz`} download className="button button-secondary">Download for Hermes <DownloadSimple size={16} /></a>
+                <Link href={subjectHref} className="button button-primary">{subjectLabel} <ArrowRight size={16} /></Link>
+                <a href={demo.profileArchiveHref} download className="button button-secondary">{downloadLabel} <DownloadSimple size={16} /></a>
               </div>
             </div>
             <aside className="inner-aside proof-detail-status">
@@ -94,7 +101,8 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
               <p>{demo.evidenceNote}</p>
               <dl>
                 <div><dt>Platform</dt><dd>{demo.platform}</dd></div>
-                <div><dt>Profile</dt><dd>v{demo.profileVersion}</dd></div>
+                <div><dt>{demo.subjectKind === "crew" ? "Bundle" : "Profile"}</dt><dd>v{demo.profileVersion}</dd></div>
+                {demo.profileArchiveSha256 && <div><dt>Archive SHA-256</dt><dd><code>{demo.profileArchiveSha256}</code></dd></div>}
                 <div><dt>Passport</dt><dd>v{demo.passportVersion}</dd></div>
                 {demo.run && <>
                   <div><dt>Run date</dt><dd>{demo.run.runAt}</dd></div>
@@ -150,8 +158,9 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
       <section className="content-section shell proof-prompt-section">
         <div className="proof-section-heading">
           <div><Eyebrow>{PROOF_PROMPT_EYEBROWS[demo.state]}</Eyebrow><h2 className="section-heading">{PROOF_PROMPT_HEADINGS[demo.state]}</h2></div>
-          <CopyTextButton text={demo.exactPrompt} label={demo.state === "recorded-excerpt" ? "Copy reproduction prompt" : "Copy exact prompt"} />
+          <CopyTextButton text={demo.exactPrompt} label={demo.state === "recorded-excerpt" ? "Copy reproduction prompt" : demo.state === "reproduced" ? "Copy run request" : "Copy exact prompt"} />
         </div>
+        {demo.state === "reproduced" && <p className="section-intro">Use this request with the disclosed input file above. The complete preserved prompt, including the fixture, is in the linked transcript.</p>}
         {demo.state === "recorded-excerpt" && <p className="section-intro">This request is for the future isolated reproduction. It did not generate the recorded excerpt.</p>}
         <blockquote>{demo.exactPrompt}</blockquote>
       </section>
@@ -196,9 +205,9 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
 
       <section className="content-section shell proof-material-grid">
         <div>
-          <Eyebrow>Starter package</Eyebrow>
-          <h2 className="section-heading">The files used to set up this Bot</h2>
-          <p className="section-intro">These are the Bot profile and readable setup files. They are separate from any finished result produced during a run.</p>
+          <Eyebrow>{demo.subjectKind === "crew" ? "Crew and evidence files" : "Starter package"}</Eyebrow>
+          <h2 className="section-heading">{demo.subjectKind === "crew" ? "The bundle and records behind this handoff" : "The files used to set up this Bot"}</h2>
+          <p className="section-intro">{demo.subjectKind === "crew" ? "These records separate the downloadable setup bundle from the outputs and checks produced during the test." : "These are the Bot profile and readable setup files. They are separate from any finished result produced during a run."}</p>
         </div>
         <div className="proof-artifact-list">
           {demo.supportingArtifacts.map((artifact) => (
@@ -240,7 +249,7 @@ export default async function ProofRoomDetailPage({ params }: { params: Promise<
           <h2 className="section-heading">{nextStep.heading}</h2>
           <p>{nextStep.body}</p>
         </div>
-        <Link href="/proof" className="button button-secondary">Return to all demonstrations <ArrowRight size={16} /></Link>
+        <Link href="/proof" className="button button-secondary">Return to all test records <ArrowRight size={16} /></Link>
       </section>
     </main>
   );

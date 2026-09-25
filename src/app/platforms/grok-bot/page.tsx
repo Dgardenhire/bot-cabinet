@@ -14,6 +14,12 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "../../../components/ui";
+import {
+  GROK_OPERATOR_SECTIONS,
+  GROK_OPERATOR_SHORTCUTS,
+  GROK_OPERATOR_SOURCES,
+  GROK_OPERATOR_UPDATED,
+} from "../../../data/grok-bot-operator-guide";
 import { STARTER_BOTS } from "../../../data/starter-bots";
 import { buildPageMetadata } from "../../../lib/metadata";
 
@@ -80,6 +86,40 @@ export default function GrokBotTemplatesPage() {
         </div>
       </section>
 
+      <section className="grok-platform-map shell" aria-labelledby="grok-current-heading">
+        <div className="grok-platform-map-heading">
+          <div>
+            <Eyebrow>Source review · September 20, 2026 · Not runtime-tested</Eyebrow>
+            <h2 id="grok-current-heading">You may not need to build another Bot</h2>
+          </div>
+          <p>
+            Grok Bot now has an official marketplace and native template links.
+            Check for an existing workflow before assembling a Cabinet recipe.
+            Cabinet&apos;s downloads here remain manual build briefs, not native templates.
+          </p>
+        </div>
+        <div className="grok-platform-map-grid">
+          <article>
+            <h3>Start with the existing ecosystem</h3>
+            <p>
+              Browse by the task you need done. A listing is a creator&apos;s claim,
+              not proof that the workflow will work with your accounts or data.
+            </p>
+            <a href="https://x.ai/bot/marketplace">Browse the official Grok Bot marketplace</a>
+          </article>
+          <article>
+            <h3>Inspect the setup before adding it</h3>
+            <p>
+              xAI&apos;s September 8 guide describes templates as reusable recipes.
+              Review included context and integrations. Plugins may need setup;
+              custom scripts and non-standard integrations may need separate transfer.
+              Start with sample data and check the result before connecting sensitive accounts.
+            </p>
+            <a href="https://x.ai/bot/guides/templates-for-grok-bot">Read what native templates include and omit</a>
+          </article>
+        </div>
+      </section>
+
       <section className="grok-platform-map shell" aria-labelledby="portable-map-heading">
         <div className="grok-platform-map-heading">
           <div>
@@ -118,6 +158,64 @@ export default function GrokBotTemplatesPage() {
               <li>Test before adding a Skill, Routine, or public link</li>
             </ul>
           </article>
+        </div>
+      </section>
+
+      <section className="grok-operator-section shell" aria-labelledby="grok-operator-heading">
+        <div className="grok-operator-heading">
+          <div>
+            <Eyebrow>Operator guide · Checked {GROK_OPERATOR_UPDATED}</Eyebrow>
+            <h2 id="grok-operator-heading">Run Grok Bot without losing the plot</h2>
+          </div>
+          <div>
+            <p>
+              A practical reference for choosing a Bot, saving a Skill, adding a
+              Routine, protecting account access and handing work between Bots.
+            </p>
+            <a
+              className="button button-secondary"
+              href="/downloads/guides/grok-bot-operator-guide.pdf"
+              download
+            >
+              Download the PDF <DownloadSimple size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div className="grok-operator-grid">
+          {GROK_OPERATOR_SECTIONS.map((section) => (
+            <article key={section.number}>
+              <div><span>{section.number}</span><h3>{section.title}</h3></div>
+              <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="grok-operator-reference">
+          <div>
+            <Eyebrow>Useful shortcuts</Eyebrow>
+            <dl>
+              {GROK_OPERATOR_SHORTCUTS.map(([key, meaning]) => (
+                <div key={key}><dt>{key}</dt><dd>{meaning}</dd></div>
+              ))}
+            </dl>
+          </div>
+          <div>
+            <Eyebrow>Five-line handoff</Eyebrow>
+            <p>Outcome · Sources · Constraints · Deliverable · Review point</p>
+            <small>
+              Bot Cabinet is independent and is not affiliated with xAI or Cursor.
+              Product behavior can change. Check the current documentation before
+              connecting sensitive accounts or allowing consequential actions.
+            </small>
+            <div className="grok-operator-sources">
+              {GROK_OPERATOR_SOURCES.map((source) => (
+                <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>
+                  {source.label} <ArrowSquareOut size={13} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

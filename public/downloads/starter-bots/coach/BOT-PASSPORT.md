@@ -1,4 +1,4 @@
-# COACH — Bot Passport
+# Coach — Bot Passport
 
 **Role:** Life and career planning assistant
 **Risk level:** Moderate

@@ -1,4 +1,4 @@
-# PULSE — Bot Passport
+# Pulse — Bot Passport
 
 **Role:** Growth management assistant
 **Risk level:** Elevated

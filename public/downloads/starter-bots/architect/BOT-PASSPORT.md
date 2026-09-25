@@ -1,4 +1,4 @@
-# ARCHITECT — Bot Passport
+# Architect — Bot Passport
 
 **Role:** CTO and technology strategy assistant
 **Risk level:** Elevated

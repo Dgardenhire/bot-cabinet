@@ -17,19 +17,23 @@ import { Eyebrow } from "@/components/ui";
 import { BotPackV2Panel } from "@/components/bot-pack-v2-panel";
 import { BotPassportPanel } from "@/components/bot-passport-panel";
 import { BotPlatformChooser } from "@/components/bot-platform-chooser";
+import { BotWorkbench } from "@/components/bot-workbench";
 import { LegacyRoute } from "@/components/legacy-route";
 import {
   STARTER_BOTS,
   STARTER_CATEGORY_LABELS,
   getStarterBot,
+  getStarterBotRoleContract,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
+import { getBotRuntimeEvidence } from "@/data/bot-release-evidence";
 import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
 import {
   portableBotPackV2ArtifactPaths,
   starterBotToPortablePackV2,
 } from "@/lib/portable-bot-pack-v2";
 import { buildPageMetadata } from "@/lib/metadata";
+import { botImportAndRunStatus } from "@/lib/bot-status-copy";
 
 export function generateStaticParams() {
   return [
@@ -65,10 +69,12 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
   }
 
   const portablePackV2 = starterBotToPortablePackV2(bot);
+  const runtimeEvidence = getBotRuntimeEvidence(bot.slug);
   const portablePackV2Paths = portableBotPackV2ArtifactPaths(bot.slug);
   const profileArchiveUrl = `https://botcabinet.com${portablePackV2.platforms.hermes.archiveUrl}`;
   const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}-v2.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}-v2.tar.gz --name ${bot.slug}-v2`;
   const passport = portableBotPackV2ToPassport(portablePackV2);
+  const roleContract = getStarterBotRoleContract(bot);
 
   return (
     <main id="main-content" className="page-main starter-detail">
@@ -93,7 +99,8 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
                 <a href={portablePackV2Paths.portableMarkdownUrl} download className="button button-secondary">Download Bot Pack 2.0 <DownloadSimple size={16} /></a>
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>
-              <p className="starter-install-note">{portablePackV2.platforms.hermes.importEvidence ? "This archive passed an isolated import and bundled-Skill presence check in Hermes Agent 0.21.0 on September 4, 2026." : "New prepared profile: Hermes import testing is pending."} Human technical and role-specific output tests remain pending. The Grok Bot build brief remains untested.</p>
+              <p className="starter-install-note">{botImportAndRunStatus(portablePackV2)}</p>
+              <a href="#bot-workbench" className="text-link" data-funnel-event="bot_workbench_open" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>After downloading: continue setup and test {bot.name} <ArrowRight size={15} /></a>
               <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
             </div>
           </div>
@@ -109,9 +116,24 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </section>
       )}
 
+      <section className="content-section shell">
+        <Eyebrow>Job contract</Eyebrow>
+        <h2 className="section-heading">Know exactly what this Bot is responsible for</h2>
+        <p className="section-intro">A clear job prevents a Bot from quietly taking on work, authority, or information it was never given.</p>
+        <div className="starter-practical-grid">
+          <article className="starter-practical-card"><h3>Owns</h3><p>{roleContract.owns}</p></article>
+          <article className="starter-practical-card"><h3>Does not own</h3><ul>{roleContract.doesNotOwn.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Source of truth</h3><ul>{roleContract.sourceOfTruth.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Needs approval for</h3><ul>{roleContract.approvalPoints.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Starts when</h3><p>{roleContract.trigger}</p></article>
+          <article className="starter-practical-card"><h3>Hands back</h3><ul>{roleContract.finishedDeliverables.map((item) => <li key={item}>{item}</li>)}</ul></article>
+        </div>
+      </section>
+
       <BotPlatformChooser
         hermesImportCommand={importCommand}
         pack={portablePackV2}
+        runtimeEvidence={runtimeEvidence}
       />
 
       <section className="content-section shell starter-pack-v2-section">
@@ -155,7 +177,10 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <li><span>1</span><div><strong>Download the Hermes profile.</strong><p>Import the .tar.gz archive from the Profiles screen, or copy the terminal command above.</p></div></li>
           <li><span>2</span><div><strong>Review the imported profile.</strong><p>Read README.md and SOUL.md, then confirm the name, description, and standing instructions.</p></div></li>
           <li><span>3</span><div><strong>Choose the access it needs.</strong><p>Add only the skills, tools, and connections required for this job.</p></div></li>
-          <li><span>4</span><div><strong>Run a low-risk test.</strong><p>Use sample material and confirm that the result matches the intended output before adding private files, accounts, or schedules.</p></div></li>
+          <li><span>4</span><div><strong>Run the named first test.</strong><p>{bot.workshopDraft.firstRunTest}</p></div></li>
+          <li><span>5</span><div><strong>Keep proof.</strong><p>Save the exact input, the finished output, the Bot and Hermes versions, the date, and any correction you had to make.</p></div></li>
+          <li><span>6</span><div><strong>Test one failure.</strong><p>Remove a required input or deny an optional connection. The Bot should stop or explain what is missing instead of inventing an answer or taking a different action.</p></div></li>
+          <li><span>7</span><div><strong>Repeat before automating.</strong><p>Run the same job successfully again after any change to its instructions, tools, source material, or schedule.</p></div></li>
         </ol>
         <div className="source-link-row starter-file-links">
           <a href={`/downloads/starter-bots/v2/${bot.slug}/README.md`} target="_blank" rel="noreferrer">Read the starter guide</a>
@@ -164,6 +189,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <a href={portablePackV2.platforms.hermes.readableFilesUrl} download>Download readable files (ZIP)</a>
           <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer">Official Bot Mode guide</a>
         </div>
+        <BotWorkbench botSlug={bot.slug} botName={bot.name} packVersion={portablePackV2.packVersion} />
       </section>
 
       <section className="content-section shell starter-teammates">
@@ -183,7 +209,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
       <section className="content-section shell starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
-        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same seven files. {portablePackV2.platforms.hermes.importEvidence ? "This archive passed isolated import and bundled-Skill presence checks in Hermes Agent 0.21.0 on September 4, 2026." : "Hermes import testing is pending for this new profile."} Human technical review and role-specific output/runtime tests remain pending. Grok Bot adaptation remains untested.</p>
+        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same seven files. {botImportAndRunStatus(portablePackV2)} {runtimeEvidence ? <Link href={runtimeEvidence.proofPath}>Inspect the recorded run.</Link> : null}</p>
       </section>
     </main>
   );

@@ -272,8 +272,12 @@ export function buildBotBlueprint(draft: WorkshopDraft): BotBlueprint {
     DRAFT_KEYS.map((key) => [key, cleanParagraph(draft[key])]),
   ) as Record<WorkshopFieldKey, string>;
 
-  const completedFields = DRAFT_KEYS.filter((key) => normalized[key]).length;
-  const missingFields = DRAFT_KEYS.filter((key) => !normalized[key]).map(
+  // Imported plans can carry explicit placeholders. Text presence alone is not
+  // a completed planning decision; retain the text so draft exports lose nothing.
+  const hasPlanningAnswer = (key: WorkshopFieldKey) =>
+    Boolean(normalized[key]) && !/\bnot\s+yet\s+specified\b/i.test(normalized[key]);
+  const completedFields = DRAFT_KEYS.filter(hasPlanningAnswer).length;
+  const missingFields = DRAFT_KEYS.filter((key) => !hasPlanningAnswer(key)).map(
     (key) => FIELD_LABELS[key],
   );
 
@@ -450,7 +454,7 @@ export function blueprintToMarkdown(
   generatedAt = new Date(),
 ): string {
   const planningStatus = blueprint.missingFields.length
-    ? `**Fields to complete:** ${blueprint.missingFields.map(escapeMarkdown).join(", ")}`
+    ? `**Incomplete draft — not ready for setup.** Replace blank or unresolved placeholder answers before applying this plan.\n\n**Fields to complete:** ${blueprint.missingFields.map(escapeMarkdown).join(", ")}`
     : "**Planning fields:** All eight contain text.";
   const successChecks = blueprintSuccessChecks(blueprint);
   const firstMessage = blueprintFirstMessage(blueprint);

@@ -1,4 +1,5 @@
 import type { StarterBot } from "../data/starter-bots";
+import { EDITORIAL_SOURCE_CHECKS, WRITER_HANDOFF_CONTRACT } from "./editorial-source-checks";
 
 export function starterBotReviewCheckpoint(bot: StarterBot) {
   const deliverables = bot.produces
@@ -12,6 +13,8 @@ export function starterBotSkillSteps(bot: StarterBot) {
   return [
     `Confirm that the request fits this job: ${bot.workshopDraft.jobOutcome}`,
     "Gather the approved inputs and ask for anything required that is missing.",
+    ...(["writer", "editor"].includes(bot.slug) ? EDITORIAL_SOURCE_CHECKS : []),
+    ...(bot.slug === "writer" ? [WRITER_HANDOFF_CONTRACT] : []),
     `Create the intended result: ${bot.produces.join("; ")}.`,
     "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
     "Give the work to a person for review at the stated checkpoint.",

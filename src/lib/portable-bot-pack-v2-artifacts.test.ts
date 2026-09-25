@@ -1,4 +1,6 @@
 import Ajv2020 from "ajv/dist/2020";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -15,7 +17,7 @@ import {
   portableBotPackV2ToGrokMarkdown,
   portableBotPackV2ToMarkdown,
 } from "./portable-bot-pack-v2-artifacts";
-import { starterBotToPortablePackV2 } from "./portable-bot-pack-v2";
+import { portableBotPackV2ArtifactPaths, starterBotToPortablePackV2 } from "./portable-bot-pack-v2";
 
 describe("Portable Bot Pack V2 artifact compilers", () => {
   const packs = STARTER_BOTS.map(starterBotToPortablePackV2);
@@ -132,6 +134,27 @@ describe("Portable Bot Pack V2 artifact compilers", () => {
     expect(fileNames.some((name) => /cron|schedule|routine/i.test(name))).toBe(
       false,
     );
+  });
+
+  it("publishes every starter Skill at its direct URL with the core Agent Skills fields", () => {
+    for (const pack of packs) {
+      const skillSlug = `${pack.identity.slug}-core`;
+      const skillPath = `skills/${skillSlug}/SKILL.md`;
+      const skill = compilePortableBotPackV2HermesFiles(pack)[skillPath];
+      const frontmatter = skill.match(/^---\nname: ([^\n]+)\ndescription: ("(?:\\.|[^"\\])*")\n---\n/);
+
+      expect(frontmatter, `${pack.identity.slug} frontmatter`).toBeTruthy();
+      expect(frontmatter?.[1]).toBe(skillSlug);
+      expect(frontmatter?.[1]).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+      expect(frontmatter?.[1].length).toBeLessThanOrEqual(64);
+      const description = JSON.parse(frontmatter?.[2] ?? '""') as string;
+      expect(description.trim().length).toBeGreaterThan(0);
+      expect(description.length).toBeLessThanOrEqual(1024);
+
+      const publicUrl = portableBotPackV2ArtifactPaths(pack.identity.slug).portableSkillUrl;
+      expect(publicUrl).toBe(`/downloads/starter-bots/v2/${pack.identity.slug}/${skillPath}`);
+      expect(existsSync(path.join(process.cwd(), "public", publicUrl))).toBe(true);
+    }
   });
 
   it("keeps Grok output manual, untested, and explicitly non-importable", () => {

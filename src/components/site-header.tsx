@@ -3,17 +3,24 @@ import Link from "next/link";
 import { ArrowUpRight, List, X } from "@phosphor-icons/react/dist/ssr";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const NAV_ITEMS = [
+const PRIMARY_NAV_ITEMS = [
   ["Fit Test", "/fit"],
   ["The Cabinet", "/bots"],
+  ["My Workbench", "/workbench"],
   ["Bot Lab", "/workshop"],
-  ["Portrait Studio", "/portraits"],
-  ["Bot Crews", "/use-cases"],
-  ["Crew Kits", "/crew-kits"],
-  ["Proof Room", "/proof"],
+  ["Agent Watch", "/watch"],
   ["Field Manual", "/guides"],
+] as const;
+
+const MORE_NAV_ITEMS = [
+  ["Portrait Studio", "/portraits"],
+  ["Bot Workflows", "/use-cases"],
+  ["Crew Kits", "/crew-kits"],
+  ["Test Records", "/proof"],
   ["Inspection Desk", "/trust"],
 ] as const;
+
+const NAV_ITEMS = [...PRIMARY_NAV_ITEMS, ...MORE_NAV_ITEMS] as const;
 
 export function SiteHeader() {
   return (
@@ -43,11 +50,19 @@ export function SiteHeader() {
           />
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {NAV_ITEMS.map(([label, href]) => (
+          {PRIMARY_NAV_ITEMS.map(([label, href]) => (
             <Link href={href} key={href}>
               {label}
             </Link>
           ))}
+          <details className="desktop-nav-more">
+            <summary>More</summary>
+            <div>
+              {MORE_NAV_ITEMS.map(([label, href]) => (
+                <Link href={href} key={href}>{label}</Link>
+              ))}
+            </div>
+          </details>
         </nav>
         <ThemeToggle />
         <details className="mobile-nav">

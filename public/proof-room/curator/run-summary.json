@@ -1,0 +1,15 @@
+{
+  "bot": "curator",
+  "profileVersion": "2.0.0",
+  "archive": "/downloads/starter-bots/v2/curator.tar.gz",
+  "archiveSha256": "7236d29be020f10bc9d87eadf3ec1b68c49e902aa293806ca0490d1e10532afa",
+  "runDate": "2026-09-09",
+  "hermesVersion": "0.21.1",
+  "provider": "nous",
+  "model": "deepseek/deepseek-v4-flash",
+  "publishedRuns": 2,
+  "finalArchiveValidationRuns": [
+    { "run": 1, "apiCalls": 1, "estimatedCostUsd": 0.0002451771, "acceptanceChecks": "passed" },
+    { "run": 2, "apiCalls": 1, "estimatedCostUsd": 0.0003846843, "acceptanceChecks": "passed" }
+  ]
+}

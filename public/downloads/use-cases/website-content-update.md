@@ -23,6 +23,8 @@ Result: Revised page copy and a website change with recorded check results that 
 2. Writer
 3. Coder
 
+This workflow uses separate roles because factual checking, public writing, and changing production code need different reviews before publication. For a minor edit from already approved copy, one Coder is enough.
+
 ## Information to gather
 
 - The existing page and code project

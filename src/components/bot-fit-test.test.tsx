@@ -4,6 +4,14 @@ import { describe, expect, it } from "vitest";
 import { BotFitTest } from "./bot-fit-test";
 
 describe("BotFitTest", () => {
+  it("does not silently answer any branching question for the visitor", () => {
+    const markup = renderToStaticMarkup(<BotFitTest />);
+    const radios = markup.match(/<input[^>]+type="radio"[^>]*>/g) ?? [];
+    expect(radios).toHaveLength(12);
+    expect(radios.every((radio) => !radio.includes("checked"))).toBe(true);
+    expect(radios.every((radio) => radio.includes("required"))).toBe(true);
+    expect(markup).not.toContain('id="fit-test-result"');
+  });
   it("presents a plain-language, browser-local path to the right work format", () => {
     const markup = renderToStaticMarkup(<BotFitTest />);
 
@@ -22,5 +30,9 @@ describe("BotFitTest", () => {
     expect(markup).toContain("Routine");
     expect(markup).toContain("Bot");
     expect(markup).toContain("Crew");
+    expect(markup).toContain("Then choose where to run it");
+    expect(markup).toContain("access, effort, approvals, cost, and recovery");
+    expect(markup).toContain('href="/guides/choose-your-agent-path"');
+    expect(markup).toContain('data-funnel-event="bot_fit_platform_guide_open"');
   });
 });

@@ -3,7 +3,7 @@
 - **Artifact ID:** bot-cabinet:bot:editor:portable-pack
 - **Role:** Plain-language editor
 - **Planned risk:** Moderate
-- **Pack version:** 2.0.0
+- **Pack version:** 2.0.3
 
 ## Requested capabilities
 

@@ -10,11 +10,11 @@ import { CREW_KITS } from "@/data/crew-kits";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Bot Crews · Workflows",
-  description: "Step-by-step Hermes Bot workflows for everyday research, writing, client work, planning, software, operations, and learning.",
+  title: "Bot Workflows · Start with the simplest setup",
+  description: "Practical Hermes workflows that begin with one Bot when one is enough and use several Bots only when separate roles add value.",
   path: "/use-cases/",
-  image: "/brand/social/bot-crews-1200x630.jpg",
-  imageAlt: "Bot Crews — Bots that work together",
+  image: "/brand/social/bot-crews-v2-1200x630.jpg",
+  imageAlt: "Bot Cabinet workflows",
 });
 
 const USE_CASE_IMAGE_ALTS: Record<string, string> = {
@@ -51,19 +51,19 @@ export default function UseCasesPage() {
       <section className="inner-hero use-cases-hero">
         <div className="shell inner-hero-grid">
           <div>
-            <Eyebrow>Practical workflows for one Bot or a team</Eyebrow>
-            <h1 className="inner-title">Bot Crews</h1>
+            <Eyebrow>Use the smallest setup that works</Eyebrow>
+            <h1 className="inner-title">Bot Workflows</h1>
             <p className="inner-deck">
-              Choose a result and see how the Bots work together. Each workflow names the Bots, the order of work, the files or messages they
-              produce, the decisions that remain with a person, and a small first test.
+              Choose a result and start with the simplest useful setup. Many jobs need only one Bot. Several Bots make sense when the work needs
+              separate access, an independent check, a formal handoff, or more work than one role can manage well.
             </p>
           </div>
           <aside className="inner-aside use-case-guide">
             <UsersThree size={28} weight="thin" aria-hidden="true" />
-            <strong>Every setup guide includes</strong>
+            <strong>Every workflow guide includes</strong>
             <ul>
               <li>The information you provide</li>
-              <li>The handoff between each Bot</li>
+              <li>The smallest recommended setup</li>
               <li>A message you can copy</li>
               <li>A downloadable setup plan</li>
             </ul>
@@ -102,8 +102,8 @@ export default function UseCasesPage() {
             <article className="use-case-card" key={useCase.slug}>
               <div className="use-case-card-image">
                 <Image
-                  src={`/use-cases/${useCase.slug}.${JPG_USE_CASE_IMAGES.has(useCase.slug) ? "jpg" : "webp"}`}
-                  alt={USE_CASE_IMAGE_ALTS[useCase.slug] ?? ""}
+                  src={useCase.image?.src ?? `/use-cases/${useCase.slug}.${JPG_USE_CASE_IMAGES.has(useCase.slug) ? "jpg" : "webp"}`}
+                  alt={useCase.image?.alt ?? USE_CASE_IMAGE_ALTS[useCase.slug] ?? ""}
                   width={1080}
                   height={720}
                   sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1120px) 50vw, 33vw"
@@ -114,7 +114,8 @@ export default function UseCasesPage() {
                 <h2>{useCase.title}</h2>
                 <p className="use-case-audience">{useCase.audience}</p>
                 <p>{useCase.outcome}</p>
-                <div className="use-case-bot-row" aria-label="Bots in this workflow">
+                <div className="use-case-bot-row" aria-label="Recommended Bots in this workflow">
+                  <strong>{useCase.botSlugs.length === 1 ? "Start with:" : "Recommended:"}</strong>
                   {useCase.botSlugs.map((slug, botIndex) => {
                     const bot = getStarterBot(slug);
                     if (!bot) return null;
@@ -126,6 +127,7 @@ export default function UseCasesPage() {
                     );
                   })}
                 </div>
+                {useCase.setupNote && <p className="use-case-setup-note">{useCase.setupNote}</p>}
                 <div className="use-case-card-actions">
                   <Link href={`/use-cases/${useCase.slug}`} className="button button-secondary">Open workflow <ArrowRight size={15} /></Link>
                   <a href={`/downloads/use-cases/${useCase.slug}.md`} download className="use-case-download"><DownloadSimple size={15} /> Download setup plan (Markdown)</a>
@@ -139,8 +141,8 @@ export default function UseCasesPage() {
       <section className="content-section shell use-case-principle">
         <CheckCircle size={31} weight="thin" aria-hidden="true" />
         <div>
-          <h2>Start with one Bot chat at a time</h2>
-          <p>Give each Bot one clear job. Save the output from every step. Review the handoff before the next Bot begins. This makes errors easier to find and the workflow easier to improve.</p>
+          <h2>Start with one Bot unless the work gives you a reason not to</h2>
+          <p>Add another Bot for a real purpose: separate access, independent review, a formal handoff, or a workload that one role cannot handle well. A longer roster is not automatically a better setup.</p>
         </div>
         <Link href="/workshop" className="button button-primary">Plan a custom Bot in Bot Lab <ArrowRight size={16} /></Link>
       </section>

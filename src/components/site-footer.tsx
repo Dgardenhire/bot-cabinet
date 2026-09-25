@@ -28,11 +28,12 @@ export function SiteFooter() {
           <span>Explore</span>
           <Link href="/start">Start Here</Link>
           <Link href="/bots">The Cabinet</Link>
+          <Link href="/workbench">My Workbench</Link>
           <Link href="/workshop">Bot Lab</Link>
           <Link href="/portraits">Portrait Studio</Link>
-          <Link href="/use-cases">Bot Crews</Link>
+          <Link href="/use-cases">Bot Workflows</Link>
           <Link href="/crew-kits">Crew Kits</Link>
-          <Link href="/proof">Proof Room</Link>
+          <Link href="/proof">Test Records</Link>
           <Link href="/community">Community Registry</Link>
           <Link href="/guides">Field Manual</Link>
         </div>

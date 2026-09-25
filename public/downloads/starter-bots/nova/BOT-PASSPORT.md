@@ -1,4 +1,4 @@
-# NOVA — Bot Passport
+# Nova — Bot Passport
 
 **Role:** New venture testing assistant
 **Risk level:** Moderate

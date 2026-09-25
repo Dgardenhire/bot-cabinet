@@ -8,10 +8,10 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Field Manual · Guides",
-  description: "Plain-language guides to Hermes Bot Mode, profile distributions, inspection, installation, and responsible sharing.",
+  description: "Plain-language guides to choosing agent tools, inspecting Bot workflows, setting up Hermes profiles, and testing useful results.",
   path: "/guides/",
   image: "/brand/social/field-manual-1200x630.jpg",
-  imageAlt: "Field Manual — learn how Hermes Bots work",
+  imageAlt: "Field Manual — choose, inspect and test agent workflows",
 });
 
 export default function GuidesPage() {
@@ -22,7 +22,7 @@ export default function GuidesPage() {
           <div>
             <Eyebrow>Step-by-step guides</Eyebrow>
             <h1 className="inner-title">Field Manual</h1>
-            <p className="inner-deck">Learn how Hermes Bots work and how to set them up. Start with the basics, examine a public package, and run a small first test.</p>
+            <p className="inner-deck">Choose an agent path that fits your work. Compare services and reusable workflows, inspect a package, and test a useful result. Hermes setup guides remain here when that is the right path.</p>
           </div>
           <figure className="guides-hero-art">
             <Image
@@ -32,7 +32,7 @@ export default function GuidesPage() {
               height={887}
               priority
             />
-            <figcaption>Step-by-step guides with links to official Hermes documentation.</figcaption>
+            <figcaption>Practical guides with dated context and links to original sources.</figcaption>
           </figure>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function GuidesPage() {
               <div className="guide-card-main">
                 <div className="guide-book-thumbnail" aria-hidden="true">
                   <Image
-                    src={`/guides/books/${guide.slug}.webp`}
+                    src={guide.coverImage ?? `/guides/books/${guide.slug}.webp`}
                     alt=""
                     width={360}
                     height={450}

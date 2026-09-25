@@ -16,9 +16,15 @@ import {
 export function BotPlatformChooser({
   hermesImportCommand,
   pack,
+  runtimeEvidence,
 }: {
   hermesImportCommand?: string;
   pack: PortableBotPackV2;
+  runtimeEvidence?: {
+    proofPath: string;
+    summary: string;
+    testedDate: string;
+  };
 }) {
   const botName = pack.identity.name;
   const botSlug = pack.identity.slug;
@@ -48,13 +54,19 @@ export function BotPlatformChooser({
           <div className="bot-platform-card-topline">
             <Package size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-status is-available">
-              {pack.platforms.hermes.importEvidence ? "Archive import passed" : "Prepared profile · import test pending"}
+              {runtimeEvidence
+                ? "Bounded task passed"
+                : pack.platforms.hermes.importEvidence
+                  ? "Archive import passed"
+                  : "Prepared profile · import test pending"}
             </span>
           </div>
           <h3>Hermes Agent</h3>
           <p>
             Import the prepared profile, review its files, choose the access it
-            needs, and run the first assignment. {pack.platforms.hermes.importEvidence
+            needs, and run the first assignment. {runtimeEvidence
+              ? `${runtimeEvidence.summary} This is one run, not evidence of general reliability or approval for automation.`
+              : pack.platforms.hermes.importEvidence
               ? `The archive and bundled Skill passed an isolated import check in Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion}. Role-specific output testing remains pending.`
               : "Import and role-specific output testing remain pending for this new profile."}
           </p>
@@ -77,6 +89,47 @@ export function BotPlatformChooser({
                 analyticsSurface="bot_platform_chooser"
               />
             )}
+            {runtimeEvidence && (
+              <Link href={runtimeEvidence.proofPath} className="text-link">
+                Read the test record <ArrowRight size={15} />
+              </Link>
+            )}
+          </div>
+        </article>
+
+        <article>
+          <div className="bot-platform-card-topline">
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+          </div>
+          <h3>ChatGPT Workspace Agent</h3>
+          <p>
+            Build the same job as a Workspace Agent, add its Agent Skill, then
+            choose the files, apps, approvals and sharing rules it needs. This
+            adapter has not yet been installed or task-tested for {botName}.
+          </p>
+          <div className="bot-platform-actions">
+            <Link href="/guides/use-a-bot-on-another-platform" className="text-link">
+              Follow the ChatGPT setup <ArrowRight size={15} />
+            </Link>
+          </div>
+        </article>
+
+        <article>
+          <div className="bot-platform-card-topline">
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+          </div>
+          <h3>Claude</h3>
+          <p>
+            Use a Cowork plugin or Skill for a general work role. Use Claude Code
+            only when the job belongs to a codebase or local project. This adapter
+            has not yet been installed or task-tested for {botName}.
+          </p>
+          <div className="bot-platform-actions">
+            <Link href="/guides/use-a-bot-on-another-platform" className="text-link">
+              Follow the Claude setup <ArrowRight size={15} />
+            </Link>
           </div>
         </article>
 
@@ -114,7 +167,9 @@ export function BotPlatformChooser({
           <h3>Portable Bot Pack</h3>
           <p>
             Keep the complete recipe as readable Markdown or structured JSON,
-            including its Bot Passport and platform-specific setup notes.
+            including its Bot Passport and platform-specific setup notes. The
+            included Agent Skill uses the <code>SKILL.md</code> convention, but
+            a shared file format does not prove identical behavior on every host.
           </p>
           <div className="bot-platform-actions">
             <a
@@ -131,7 +186,18 @@ export function BotPlatformChooser({
             >
               Download JSON <DownloadSimple size={15} />
             </a>
+            <a
+              href={paths.portableSkillUrl}
+              download
+              className="text-link"
+              data-funnel-event="bot_portable_skill_download"
+              data-funnel-surface="bot_platform_chooser"
+              data-funnel-destination={botSlug}
+            >
+              Download the Agent Skill <DownloadSimple size={15} />
+            </a>
           </div>
+          <p className="bot-platform-portability-note">Prepared file. Review its instructions and permissions, then test it in the target agent before relying on it.</p>
         </article>
       </div>
     </section>

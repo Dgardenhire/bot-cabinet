@@ -1,5 +1,5 @@
-import { existsSync, readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -19,11 +19,15 @@ function checkState(demo: (typeof PROOF_ROOM_DEMOS)[number], label: "Role run" |
 }
 
 describe("Proof Room evidence records", () => {
-  it("publishes the three approved demonstrations in order", () => {
+  it("publishes the demonstrations in their approved order", () => {
     expect(PROOF_ROOM_DEMOS.map((demo) => demo.slug)).toEqual([
       "scout-research-brief",
       "writer-article-draft",
+      "publishing-desk-failed-handoff",
       "chief-of-staff-operating-brief",
+      "curator-lineup-review",
+      "reentry-project-resumption",
+      "receipt-refund-case",
     ]);
   });
 
@@ -136,6 +140,41 @@ describe("Proof Room evidence records", () => {
     }
   });
 
+  it("publishes exact-package reproduction records for the three new Bots", () => {
+    const expected = {
+      "curator-lineup-review": /likely[\s\S]+not proven/i,
+      "reentry-project-resumption": /last approved checkpoint/i,
+      "receipt-refund-case": /issued[\s\S]+not documented/i,
+    };
+
+    for (const [slug, requiredEvidence] of Object.entries(expected)) {
+      const demo = getProofRoomDemo(slug);
+      expect(demo?.state).toBe("reproduced");
+      expect(demo?.profileVersion).toBe("2.0.0");
+      expect(demo?.run?.hermesVersion).toBe("0.21.1");
+      expect(demo?.run?.provider).toBe("nous");
+      expect(demo?.run?.model).toBe("deepseek/deepseek-v4-flash");
+      expect(demo?.checks.slice(0, 4).every((check) => check.state === "passed")).toBe(true);
+      expect(demo?.profileArchiveHref).toBe(`/downloads/starter-bots/v2/${demo?.botSlug}.tar.gz`);
+      const archive = readFileSync(path.join(publicRoot, demo!.profileArchiveHref.slice(1)));
+      expect(createHash("sha256").update(archive).digest("hex")).toBe(demo?.profileArchiveSha256);
+
+      const transcriptPath = path.join(publicRoot, demo!.transcript!.href.slice(1));
+      const transcript = readFileSync(transcriptPath, "utf8");
+      expect(transcript).toMatch(requiredEvidence);
+      const publicTextArtifacts = [
+        transcript,
+        readFileSync(path.join(publicRoot, demo!.deliverable!.href.slice(1)), "utf8"),
+        ...demo!.inputArtifacts
+          .filter((artifact) => artifact.href?.startsWith("/"))
+          .map((artifact) => readFileSync(path.join(publicRoot, artifact.href!.slice(1)), "utf8")),
+      ];
+      for (const artifact of publicTextArtifacts) {
+        expect(artifact).not.toMatch(/session[_-]?id|api[_-]?key|sk-ant/i);
+      }
+    }
+  });
+
   it("discloses the incomplete Scout record and never uses a blanket verified label", () => {
     const scout = getProofRoomDemo("scout-research-brief");
     expect(scout?.state).toBe("recorded-excerpt");
@@ -168,6 +207,8 @@ describe("Proof Room evidence records", () => {
     expect(Object.keys(PROOF_STATE_NAMES).sort()).toEqual(Object.keys(PROOF_NEXT_STEP_COPY).sort());
     expect(PROOF_NEXT_STEP_COPY.reproduced.heading).toContain("Review the record");
     expect(PROOF_NEXT_STEP_COPY["test-designed"].heading).toContain("Supply the source material");
+    expect(PROOF_NEXT_STEP_COPY["failed-runtime"].heading).toContain("Remove the three invented missing-information directions");
+    expect(PROOF_NEXT_STEP_COPY["runtime-passed"].heading).toContain("failed independent run");
   });
 
   it("keeps every referenced local proof asset in the public tree", () => {
@@ -186,5 +227,23 @@ describe("Proof Room evidence records", () => {
         expect(existsSync(path.join(publicRoot, href.slice(1))), href).toBe(true);
       }
     }
+  });
+
+  it("records one Publishing Desk crew pass without claiming reproduction or human approval", () => {
+    const demo = getProofRoomDemo("publishing-desk-failed-handoff");
+    expect(demo).toBeDefined();
+    expect(demo?.subjectKind).toBe("crew");
+    expect(demo?.state).toBe("runtime-passed");
+    expect(demo?.checks.find((check) => check.label === "Role run")?.state).toBe("passed");
+    expect(demo?.checks.find((check) => check.label === "Reproduction")?.state).toBe("failed");
+    expect(demo?.deliverable?.description).toContain("correction loop");
+    expect(demo?.supportingArtifacts.map((artifact) => artifact.href)).toEqual(expect.arrayContaining([
+      "/proof-room/publishing-desk/audit-gate-result.json",
+      "/proof-room/publishing-desk/runtime-failure-summary.md",
+      "/proof-room/publishing-desk/latest-correction-and-unseen-result.md",
+      "/proof-room/publishing-desk/fresh-five-role-result.md",
+      "/proof-room/publishing-desk/independent-reproduction-failure.md",
+    ]));
+    expect(demo?.profileArchiveSha256).toBeUndefined();
   });
 });

@@ -99,7 +99,7 @@ This is an inactive plan. Run the job successfully by hand before activating any
 - **Archive:** https://botcabinet.com/downloads/starter-bots/v2/curator.tar.gz
 - **Readable files:** https://botcabinet.com/downloads/starter-bots/v2/curator.zip
 - **Package status:** files-and-archive-checked
-- **Import status:** Not yet tested in Hermes.
+- **Import status:** Passed with Hermes Agent 0.21.1 on 2026-09-09
 - **Import test scope:** Archive import and bundled Skill presence only; output quality and live-service behavior still require human testing.
 
 ## Grok Bot manual build brief

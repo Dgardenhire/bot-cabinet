@@ -3,9 +3,9 @@
   "feedVersion": "1.1.0",
   "releasedAt": "2026-09-03T00:00:00.000Z",
   "catalogVersion": "1.1.0",
-  "revision": "e9429ac259c95492b96640c33ccd898c7171ea907f239110c76e83e9a8fe2b5f",
+  "revision": "9f288f7dfb3172b4c757502696009e70ff184e04826fa288e6af5266fc43f229",
   "source": "https://botcabinet.com/api/v1/bots.json",
-  "count": 19,
+  "count": 20,
   "entries": [
     {
       "id": "bot:scout@1.0.0",
@@ -327,7 +327,7 @@
       "kind": "bot",
       "slug": "architect",
       "version": "1.0.0",
-      "name": "ARCHITECT",
+      "name": "Architect",
       "title": "CTO and technology strategy assistant",
       "category": "technical",
       "summary": "Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
@@ -432,7 +432,7 @@
       "kind": "bot",
       "slug": "coach",
       "version": "1.0.0",
-      "name": "COACH",
+      "name": "Coach",
       "title": "Life and career planning assistant",
       "category": "planning",
       "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
@@ -467,7 +467,7 @@
       "kind": "bot",
       "slug": "nova",
       "version": "1.0.0",
-      "name": "NOVA",
+      "name": "Nova",
       "title": "New venture testing assistant",
       "category": "planning",
       "summary": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
@@ -502,7 +502,7 @@
       "kind": "bot",
       "slug": "pulse",
       "version": "1.0.0",
-      "name": "PULSE",
+      "name": "Pulse",
       "title": "Growth management assistant",
       "category": "planning",
       "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
@@ -537,7 +537,7 @@
       "kind": "bot",
       "slug": "story",
       "version": "1.0.0",
-      "name": "STORY",
+      "name": "Story",
       "title": "Chief narrative officer",
       "category": "writing",
       "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
@@ -564,6 +564,41 @@
           "artifactKind": "portable-bot-pack",
           "markdown": "https://botcabinet.com/downloads/portable-bot-packs/story.md",
           "json": "https://botcabinet.com/downloads/portable-bot-packs/story.json"
+        }
+      }
+    },
+    {
+      "id": "bot:daily-newspaper@1.0.0",
+      "kind": "bot",
+      "slug": "daily-newspaper",
+      "version": "1.0.0",
+      "name": "Daily Newspaper",
+      "title": "Personal daily briefing maker",
+      "category": "writing",
+      "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
+      "audience": "People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.",
+      "links": {
+        "detail": "https://botcabinet.com/bots/daily-newspaper/",
+        "customize": "https://botcabinet.com/workshop/?starter=daily-newspaper"
+      },
+      "platforms": {
+        "hermes": {
+          "minimumVersion": ">=0.20.0",
+          "artifactKind": "profile-distribution",
+          "packageStatus": "files-and-archive-checked",
+          "importStatus": "not-individually-imported",
+          "profile": "https://botcabinet.com/downloads/starter-bots/daily-newspaper.tar.gz",
+          "readableSource": "https://botcabinet.com/downloads/starter-bots/daily-newspaper.zip"
+        },
+        "grok": {
+          "artifactKind": "adaptation-brief",
+          "testStatus": "adaptation-prepared-not-tested",
+          "adaptation": "https://botcabinet.com/downloads/grok-bot-templates/daily-newspaper.md"
+        },
+        "portable": {
+          "artifactKind": "portable-bot-pack",
+          "markdown": "https://botcabinet.com/downloads/portable-bot-packs/daily-newspaper.md",
+          "json": "https://botcabinet.com/downloads/portable-bot-packs/daily-newspaper.json"
         }
       }
     },
