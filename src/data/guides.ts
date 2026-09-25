@@ -35,6 +35,104 @@ const fieldNotes =
 
 export const GUIDES: Guide[] = [
   {
+    slug: "use-a-bot-on-another-platform",
+    title: "Use a Bot outside Hermes or Grok Bot",
+    summary: "Move the Bot's job, rules and first test into ChatGPT, Claude or another agent service without pretending every platform works the same way.",
+    audience: "Anyone choosing where to run a Bot",
+    readTime: "7 min",
+    updated: "2026-09-24",
+    coverImage: "/atelier/victorian-library-guides-v1.png",
+    sections: [
+      {
+        heading: "Move the job, not the brand name",
+        paragraphs: [
+          "A Bot Cabinet role is a job with clear limits. The portable Bot Pack records what the Bot owns, what it must not do, the information it may use, the result it should return, the actions that need approval and a small first test. That is the part worth carrying to another service.",
+          "The buttons, connections and permission controls differ from one service to another. Do not paste a Hermes profile into ChatGPT or Claude and assume it is installed. Rebuild the same job with that service's own agent, skill, connection and approval settings, then run the first test again.",
+        ],
+        bullets: [
+          "Use a continuing agent when the job needs its own files, memory, connections, schedule or shared identity.",
+          "Use a skill when your existing assistant only needs a repeatable method.",
+          "Use a one-time task when the work does not need to continue after the result is delivered.",
+          "Use several agents only when separate access, independent review or a real handoff makes the result better or safer.",
+        ],
+      },
+      {
+        heading: "Start with the Portable Bot Pack",
+        paragraphs: [
+          "Download the Markdown Bot Pack and Agent Skill from the Bot's page. Read them before uploading anything. Keep the job, inputs, output, stop rules and approval points. Replace the platform section with the setup for the service you choose.",
+          "Connections never move automatically. Add only the calendar, files, messages or other accounts the job truly needs. If a service cannot enforce one of the Bot's approval rules, keep that action outside the Bot and do it yourself.",
+        ],
+        note: "A prepared guide is not a tested deployment. Bot Cabinet should report each adapter separately as prepared, installed, first task passed or repeated task passed.",
+      },
+      {
+        heading: "ChatGPT Business, Enterprise or Edu: build a Workspace Agent",
+        paragraphs: [
+          "For a continuing work role, use a ChatGPT Workspace Agent. Give it the Bot Pack's job and limits, add the Agent Skill, then add only the files and apps needed for that job. Choose whether each connection belongs to the person running the agent or to a shared service account.",
+          "Leave write actions on Ask by default. Add narrower action limits for sending, editing, posting or deleting. Run the Bot Pack's first test privately before sharing the agent or adding a schedule. ChatGPT Work can handle a long one-time task, but a reusable company role belongs in a Workspace Agent or Skill.",
+        ],
+        bullets: [
+          "Name the agent and paste the short job contract from the Bot Pack.",
+          "Upload the Agent Skill and only the approved reference files.",
+          "Connect the minimum apps required for the job.",
+          "Set write approvals and action limits before the first run.",
+          "Run the named first test, correct the setup, then decide who may use it.",
+          "Add a schedule only after the same job succeeds more than once.",
+        ],
+        sources: [
+          { label: "OpenAI: ChatGPT Workspace Agents", href: "https://help.openai.com/en/articles/20001143" },
+          { label: "OpenAI: Skills in ChatGPT", href: "https://help.openai.com/en/articles/20001066" },
+          { label: "OpenAI: ChatGPT Work and Codex", href: "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex" },
+        ],
+      },
+      {
+        heading: "Claude: use a Cowork plugin or skill",
+        paragraphs: [
+          "For a general work role, Cowork is the better fit. A Claude plugin can bundle the Bot's skills, connections and optional helper agents. Start with one skill and the fewest connections. Use Manual approval while you test. A schedule can come later if the job truly needs to run on its own.",
+          "Claude Code is the right home only when the Bot's job lives in a codebase or local project folder. A release checker, documentation maintainer or code reviewer may fit there. A general Chief of Staff usually belongs in Cowork, not Claude Code. Claude Artifacts can be useful outputs, but an Artifact is not the standing agent itself.",
+        ],
+        bullets: [
+          "Create or customize a plugin from the Bot Pack and Agent Skill.",
+          "Add project or folder instructions only when the job belongs to that project.",
+          "Connect the minimum services and start in Manual approval mode.",
+          "Run the named first test and save the complete output.",
+          "Share the plugin or add a schedule only after its permissions and result have been checked.",
+        ],
+        sources: [
+          { label: "Anthropic: Get started with Claude Cowork", href: "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork" },
+          { label: "Anthropic: Use plugins in Claude", href: "https://support.claude.com/en/articles/13837440-use-plugins-in-claude" },
+          { label: "Anthropic: Set up Claude Code", href: "https://docs.anthropic.com/en/docs/claude-code/getting-started" },
+        ],
+      },
+      {
+        heading: "Example: Chief of Staff",
+        paragraphs: [
+          "The job stays the same: turn approved meeting notes and work records into a short operating brief with decisions, owners, deadlines, conflicts and questions. It may prepare drafts, but a person decides what is sent, scheduled or changed.",
+          "In ChatGPT, make it a private Workspace Agent with the Chief of Staff Skill and approved calendar, file and messaging connections. In Claude, make it a Cowork plugin with the same Skill and connections. In either service, begin with the fictional meeting transcript named in the Bot Pack. Do not connect a live inbox or calendar until the result is useful and the approval rules work.",
+        ],
+        code: `FIRST TEST
+Give the agent the sample meeting transcript from the Chief of Staff Bot Pack.
+Ask for: decisions, owners, deadlines, conflicts, unanswered questions and draft follow-ups.
+Pass when every claim points back to the transcript, no owner or deadline is invented,
+and no message, event or task is created without approval.`,
+      },
+      {
+        heading: "Other platforms: use the same checklist",
+        paragraphs: [
+          "For Microsoft, Google or a new agent service, first find the platform's equivalent of standing instructions, reusable skills, connected tools, private files, approvals, schedules and sharing. If one of those controls is missing, simplify the job or keep that step with a person.",
+          "Bot Cabinet should add a named adapter only after the platform's current official setup path has been checked. New services should not require a new Bot recipe. They should receive a new adapter to the same portable job.",
+        ],
+        bullets: [
+          "Where do the standing job and limits live?",
+          "How are tools and accounts connected, and whose account is used?",
+          "Which actions can require approval or be blocked entirely?",
+          "Where are files and continuing memory stored?",
+          "Can the job be shared or scheduled, and who may change it?",
+          "How will you save the exact test input, output, version and correction?",
+        ],
+      },
+    ],
+  },
+  {
     slug: "run-bots-reliably",
     title: "How to run Bots reliably",
     summary: "Give a Bot one clear job, test the whole job, keep proof, and add freedom only when the possible harm stays small.",

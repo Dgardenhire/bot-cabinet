@@ -1,5 +1,6 @@
-import { assertEquals } from "jsr:@std/assert@1";
+import { assertEquals, assertRejects } from "jsr:@std/assert@1";
 import { latestPublications, mergePublishedWithFallback, parseAgentWatchItem } from "./core.ts";
+import { parseGrokMarketplaceHtml, readBoundedText } from "./grok-marketplace.ts";
 
 const item = {
   slug: "useful-new-agent",
@@ -47,4 +48,31 @@ Deno.test("keeps only the newest valid revision", () => {
 Deno.test("keeps built-in notes until a reviewed revision replaces them", () => {
   assertEquals(mergePublishedWithFallback([{ ...item, title: "Revised title" }], [item]).map((entry) => entry.title), ["Revised title"]);
   assertEquals(mergePublishedWithFallback([], [item]), [item]);
+});
+
+Deno.test("parses bounded official Grok marketplace templates from public page data", () => {
+  const templates = JSON.stringify([
+    { id: "useful-bot", name: "Useful Bot", creatorName: "A Creator", description: "Does one useful job.", summary: "Does one useful job with a result a person can review." },
+    { id: "useful-bot", name: "Duplicate", creatorName: "Someone Else", description: "Should be ignored." },
+    { id: "../bad", name: "Bad", creatorName: "Bad", description: "Unsafe identifier." },
+  ]).slice(1, -1);
+  const encoded = JSON.stringify(templates).slice(1, -1);
+  const html = `<script>self.__next_f.push([1,"{\\"featured\\":[],\\"templates\\":[${encoded}],\\"initialCategory\\":null}"])</script>`;
+  assertEquals(parseGrokMarketplaceHtml(html), [{
+    id: "useful-bot",
+    name: "Useful Bot",
+    job: "Does one useful job with a result a person can review.",
+    creator: "A Creator",
+    sourceUrl: "https://x.ai/bot/marketplace/bots/useful-bot",
+  }]);
+  assertEquals(parseGrokMarketplaceHtml("<html>no catalog</html>"), []);
+});
+
+Deno.test("stops reading an oversized marketplace response", async () => {
+  assertEquals(await readBoundedText(new Response("small"), 5), "small");
+  await assertRejects(
+    () => readBoundedText(new Response("too large"), 5),
+    Error,
+    "marketplace response exceeded the byte limit",
+  );
 });

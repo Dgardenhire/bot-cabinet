@@ -8,3 +8,9 @@ verify_jwt = false
 
 [functions.agent-watch-publish]
 verify_jwt = false
+
+[functions.keeper-status]
+verify_jwt = false
+
+[functions.keeper-status-publish]
+verify_jwt = false

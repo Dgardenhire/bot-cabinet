@@ -3,12 +3,11 @@ import Link from "next/link";
 import {
   ArrowSquareOut,
   CheckCircle,
-  Clock,
-  Robot,
-  UserFocus,
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
+import { KeeperTrustStatusTable } from "@/components/keeper-trust-status";
+import { KEEPER_TRUST_FALLBACK } from "@/lib/keeper-status-live";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -64,11 +63,18 @@ export default function TrustPage() {
       </section>
 
       <section className="content-section shell">
-        <Eyebrow>What is running now</Eyebrow>
-        <div className="content-grid-3">
-          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Every site release is checked</h2><p>The public build checks the pages, internal links, social images, downloads, and application behavior. The exact test count changes as the site grows, so this page does not freeze an old number.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the latest public run <ArrowSquareOut size={14} /></a></article>
-          <article className="content-card"><Warning size={24} weight="thin" /><h2>Keeper’s records are not public yet</h2><p>Cloud Keeper checks the public site every 15 minutes and the public repository every 30 minutes. Those jobs are running, but their dated records are still inside Keeper. Until a public status file is connected here, treat this as an operating report—not independent public proof.</p></article>
-          <article className="content-card"><Warning size={24} weight="thin" /><h2>Only some Bots have been tried</h2><p>Some exact packages were imported and run against disclosed fictional examples. Each record says what passed, what failed, and what was not tested. It is not a promise that the Bot will work for everyone.</p><Link className="text-link" href="/proof">Read the test records</Link></article>
+        <div aria-labelledby="keeper-status-title">
+        <div className="trust-status-heading">
+          <Eyebrow>Current site status</Eyebrow>
+          <h2 className="section-heading" id="keeper-status-title">Latest approved Keeper checks</h2>
+          <p className="section-deck">Keeper checks the public site, repository, downloads, and changing Bot sources. Only a dated result that a person has reviewed appears here. Missing or late evidence never appears as a pass.</p>
+        </div>
+        <KeeperTrustStatusTable fallback={KEEPER_TRUST_FALLBACK} />
+        </div>
+        <div className="content-grid-3 trust-summary-grid">
+          <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks</h2><p>Every public release checks pages, links, social images, downloads, and site behavior.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the latest public run <ArrowSquareOut size={14} /></a></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Bot test results</h2><p>A site check cannot show whether a Bot does useful work. The Proof Room records the exact Bots and sample tasks that have been tried.</p><Link className="text-link" href="/proof">Read the test results</Link></article>
+          <article className="content-card"><Warning size={24} weight="thin" /><h2>Human decisions</h2><p>Keeper can find a problem and prepare a proposed fix. A person still approves publication, deployment, purchases, access, and destructive changes.</p></article>
         </div>
       </section>
 
@@ -82,24 +88,6 @@ export default function TrustPage() {
               <p>{item.copy}</p>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="content-section shell">
-        <div className="promise-grid">
-          <div>
-            <Eyebrow>Automatic checks</Eyebrow>
-            <h2 className="section-heading">What Keeper can check</h2>
-            <p className="section-deck">
-              Keeper should do the dull, repeatable checking. People should decide whether a Bot is useful, whether its access is sensible, and whether a change should go live.
-            </p>
-          </div>
-          <ol className="trust-process">
-            <li><Robot size={24} weight="thin" /><div><strong>Running now</strong><p>Keeper checks whether key pages, social images, catalog files, and sample downloads can be reached. It also watches the public repository for a new release.</p></div></li>
-            <li><Clock size={24} weight="thin" /><div><strong>Built, but not running in the cloud</strong><p>The prepared Keeper package can inspect the full download list, package contents, catalog mismatches, Agent Watch sources, and stale results. These checks are not ongoing until that package is installed and a cloud run is recorded.</p></div></li>
-            <li><Clock size={24} weight="thin" /><div><strong>Not public yet</strong><p>Keeper does not yet publish a read-only status file with the latest run time, result, and evidence link for each check. Without that record, visitors should treat the current Keeper result as unknown.</p></div></li>
-            <li><UserFocus size={24} weight="thin" /><div><strong>A person still decides</strong><p>A person decides whether the result is useful and approves publication, deployment, purchases, new account access, and destructive changes. Keeper can propose one substantial improvement each week; it cannot approve its own work.</p></div></li>
-          </ol>
         </div>
       </section>
 

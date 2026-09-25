@@ -38,10 +38,10 @@ export default function AgentWatchPage() {
       <section className="content-section shell" aria-labelledby="watch-method-title">
         <LiveBotListings />
 
-        <div className="section-heading agent-watch-editorial-heading">
-          <Eyebrow>Selected, not scraped</Eyebrow>
-          <h2 id="watch-method-title">What may be worth trying</h2>
-          <p>Each selection says what the job is, what it may require, and what Bot Cabinet will do next. A listing is never treated as proof that a Bot works.</p>
+        <div className="agent-watch-editorial-heading">
+          <Eyebrow>Worth a look</Eyebrow>
+          <h2 className="section-heading" id="watch-method-title">Useful Bots from around the web</h2>
+          <p className="section-deck">A few Bots and workflows that solve a clear problem. Open the original, see what it does and whether we tried it, then decide if it fits your work.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />

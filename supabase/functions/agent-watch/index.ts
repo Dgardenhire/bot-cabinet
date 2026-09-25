@@ -1,5 +1,7 @@
 import { latestPublications, mergePublishedWithFallback } from "./core.ts";
+import { parseGrokMarketplaceHtml, readBoundedText } from "./grok-marketplace.ts";
 import { AGENT_WATCH_SEED } from "./seed.ts";
+import { loadLiveBotListings } from "./live-listings.ts";
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
@@ -21,6 +23,33 @@ Deno.serve(async (request) => {
   if (!response.ok) return Response.json({ error: "Feed unavailable" }, { status: 503, headers: cors });
 
   const items = mergePublishedWithFallback(latestPublications(await response.json()), AGENT_WATCH_SEED);
+  let marketplaceListings: ReturnType<typeof parseGrokMarketplaceHtml> = [];
+  let marketplaceAvailable = false;
+  try {
+    const marketplace = await fetch("https://x.ai/bot/marketplace", {
+      headers: { Accept: "text/html" },
+      signal: AbortSignal.timeout(8_000),
+    });
+    const declaredSize = Number(marketplace.headers.get("content-length") ?? 0);
+    if (marketplace.ok && (!declaredSize || declaredSize <= 2_000_000)) {
+      marketplaceListings = parseGrokMarketplaceHtml(await readBoundedText(marketplace));
+      marketplaceAvailable = marketplaceListings.length > 0;
+    }
+  } catch {
+    // The reviewed feed remains available when the outside marketplace is not.
+  }
+  const listings = await loadLiveBotListings();
   const headers = { ...cors, "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=3600" };
-  return Response.json({ version: 1, updatedAt: new Date().toISOString(), items }, { headers });
+  return Response.json({
+    version: 1,
+    updatedAt: new Date().toISOString(),
+    items,
+    marketplace: {
+      source: "Grok Bot Marketplace",
+      sourceUrl: "https://x.ai/bot/marketplace",
+      available: marketplaceAvailable,
+      listings: marketplaceListings,
+    },
+    listings,
+  }, { headers });
 });
