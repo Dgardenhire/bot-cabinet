@@ -30,12 +30,14 @@ This internal record replaces stale status claims in the September 24 record. It
 - The append-only status table and the `keeper-status` and `keeper-status-publish` functions were deployed on September 25.
 - A person approved revision 1. The public endpoint returned HTTP 200 and the live Trust page displayed the dated record.
 - Four checks passed. The repository check correctly reported that dependency pull requests still needed attention.
-- Keeper's maintenance queue led to a concrete security review of pull request 2. Production on Next 16.3.2 had one critical Next advisory and one high sharp advisory. The proposed Next 16.3.6 lockfile resolves sharp to 0.35.4; a fresh production-only audit reported zero vulnerabilities, and GitHub's full repository verification was green. The pull request was not merged or deployed without separate approval.
+- Keeper's maintenance queue led to a concrete security review of pull request 2. Production on Next 16.3.2 had one critical Next advisory and one high sharp advisory. Damon approved the merge; Next 16.3.6 deployed in commit `a365da1`, resolving sharp to 0.35.4. A fresh production-only audit reported zero vulnerabilities, GitHub's full repository verification passed and the live homepage returned HTTP 200.
+- Keeper's post-deployment check then found the remaining `js-yaml` update stale. Pull request 4 was rebased, passed the repository checks, received approval, merged and deployed in commit `516f88a263a49fcdbe9eb1f647355c77f562a3d1`. Pull request 3 closed automatically because the Next upgrade had already supplied sharp 0.35.4.
 - Damon approved one dedicated Keeper-only publishing secret on September 25. The same random secret is stored in Cabinet Keeper and the Supabase publishing function; it grants no billing, model, Ordos or Logos access.
 - Cabinet Keeper then made two harmless probes without publishing a status. The authenticated request passed authorization and returned HTTP 400 because the deliberately invalid body had no approval record. The unauthenticated request returned HTTP 401. The secret was not printed, no file was changed and public revision 1 remained unchanged.
 - The installed manual publisher expects a Keeper-side variable named `CABINET_KEEPER_STATUS_PUBLISH_SECRET`; that binding is now configured, while the unusable alias created during setup was removed. `CABINET_KEEPER_STATE_DIR` is also explicitly bound to `/opt/data/local/cabinet-keeper`, preventing manual tools from writing to a duplicated nested path.
-- In a fresh Keeper session, the publisher's preview-only path read the real candidate and wrote the exact approval packet to `/opt/data/local/cabinet-keeper/reports/trust-status-publication.json`. Its declared candidate hash was `770b7121cd0c67801a6fe2af3d3097f66e463ddef78895f78e66afe2737deeec`. No publication request was made, and the mistaken 1,601-byte nested preview plus its empty directories were removed after exact inspection.
-- Authentication and the hash-bound approval preview are therefore verified. A real Keeper-to-public revision still requires a fresh specific human-approved candidate and has not been claimed here.
+- After both dependency deployments, Keeper reran the five source checks and prepared a fresh private candidate at `2026-09-25T16:36:38+00:00`. Public site, public GitHub state, download inventory, Agent Watch and the agent landscape all passed; the run used zero model calls and sent zero external messages.
+- The preview-only publisher wrote the exact approval packet to `/opt/data/local/cabinet-keeper/reports/trust-status-publication.json`. The candidate JSON SHA-256 is `cf84047c781364679b393c26668d6d8903eae5f7ea1bd409348b13e52b68c900`; the approval-bound content SHA-256 is `64d453341c823e94a1a817f9e41017fe40865349e86aaa9b25e8bf08fc3024ed`.
+- Authentication and the hash-bound approval preview are therefore verified. No publication request was made. A new public revision still requires Damon's explicit approval of that exact content hash.
 
 ## Measurement baseline
 
@@ -51,6 +53,12 @@ The production analytics window from September 18 through September 25 recorded:
 The complete event list contained seven event names. It contained no `first_bot_run_reported`, `first_bot_run_friction_reported`, `repeat_bot_run_reported` or `returned_after_first_bot_result` event.
 
 This is the first post-release first-use and return-use baseline: **zero reported first results and zero measured returns after a successful first result.** It proves that measurement is installed and receiving other events. It does not prove that anyone completed a useful task or returned because of it.
+
+### Measurement defect found after the baseline
+
+- The result and friction question was rendered only after all five setup checkboxes were marked complete. A visitor who became stuck could not report the blocking step.
+- The local correction renders the bounded outcome question throughout the checklist. Its existing one-time record still accepts only `worked` or `stuck`; a stuck visitor can then choose one setup stage without submitting task text.
+- Focused verification passes 15 tests across the checklist, outcome record, friction report and repeat-use prompt. This correction is prepared locally and is not claimed as deployed.
 
 ## Still required before the goal is complete
 
