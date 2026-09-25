@@ -15,7 +15,7 @@
     "build:reliable-bots-pdf": "tsx scripts/build-reliable-bots-guide-pdf.tsx",
     "build:grok-operator-pdf": "node scripts/run-grok-bot-operator-guide-pdf.mjs",
     "build:site": "next build && node scripts/audit-social-metadata.mjs && node scripts/audit-links.mjs --summary",
-    "build": "npm run generate:content && npm run build:site",
+    "build": "npm run generate:ci && npm run build:site",
     "start": "node scripts/serve-static.mjs",
     "fit:bot": "tsx scripts/run-bot-fit-test.ts",
     "lint": "eslint",
