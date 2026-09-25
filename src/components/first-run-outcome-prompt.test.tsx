@@ -9,7 +9,7 @@ describe("FirstRunOutcomePrompt", () => {
 
     expect(markup).toContain("Did your Bot produce the expected result?");
     expect(markup).toContain("Mark the Run and Check steps complete before reporting success.");
-    expect(markup).toMatch(/<button[^>]*disabled=""[^>]*>.*Yes, it worked/s);
+    expect(markup).toMatch(/<button[^>]*disabled=""[^>]*>[\s\S]*Yes, it worked/);
     expect(markup).toContain("I got stuck");
     expect(markup.match(/<button/g)).toHaveLength(2);
     expect(markup).not.toContain("<input");
@@ -20,7 +20,7 @@ describe("FirstRunOutcomePrompt", () => {
   it("allows a successful result after the run and check steps are complete", () => {
     const markup = renderToStaticMarkup(<FirstRunOutcomePrompt canReportWorked />);
 
-    expect(markup).toMatch(/<button[^>]*>.*Yes, it worked/s);
-    expect(markup).not.toMatch(/<button[^>]*disabled=""[^>]*>.*Yes, it worked/s);
+    expect(markup).toMatch(/<button[^>]*>[\s\S]*Yes, it worked/);
+    expect(markup).not.toMatch(/<button[^>]*disabled=""[^>]*>[\s\S]*Yes, it worked/);
   });
 });

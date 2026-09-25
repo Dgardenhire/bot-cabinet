@@ -10,7 +10,7 @@ describe("FirstRunChecklist", () => {
     expect(markup).toContain("0 of 5 steps complete");
     expect(markup).toContain("Did your Bot produce the expected result?");
     expect(markup).toContain("I got stuck");
-    expect(markup).toMatch(/<button[^>]*disabled=""[^>]*>.*Yes, it worked/s);
+    expect(markup).toMatch(/<button[^>]*disabled=""[^>]*>[\s\S]*Yes, it worked/);
     expect(markup).not.toContain("Scout is working");
   });
 });
