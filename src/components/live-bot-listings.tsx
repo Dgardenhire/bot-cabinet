@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { ArrowSquareOut, ArrowsClockwise } from "@phosphor-icons/react";
 import { LIVE_BOT_SOURCES, type LiveBotListing } from "@/lib/live-bot-listings";
+import { AGENT_WATCH_API_URL } from "@/lib/agent-watch-live";
 
 type SourceState = { name: string; ok: boolean; count: number };
 type LiveFeed = { checkedAt: string; sources: SourceState[]; totalCount: number; items: LiveBotListing[] };
@@ -18,9 +19,11 @@ function settleWithin<T>(promise: Promise<T>, milliseconds = 8_000): Promise<T> 
 }
 
 async function fetchListings(signal?: AbortSignal): Promise<LiveFeed> {
-  const response = await settleWithin(fetch("/api/agent-watch/listings", { signal, headers: { Accept: "application/json" }, cache: "no-store" }));
+  const response = await settleWithin(fetch(AGENT_WATCH_API_URL, { signal, headers: { Accept: "application/json" }, cache: "no-store" }));
   if (!response.ok) throw new Error("Current listings are unavailable");
-  return response.json() as Promise<LiveFeed>;
+  const payload = await response.json() as { listings?: LiveFeed };
+  if (!payload.listings) throw new Error("Current listings are unavailable");
+  return payload.listings;
 }
 
 export function LiveBotListings() {

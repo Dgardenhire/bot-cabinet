@@ -100,6 +100,42 @@ export function BotPlatformChooser({
         <article>
           <div className="bot-platform-card-topline">
             <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+          </div>
+          <h3>ChatGPT Workspace Agent</h3>
+          <p>
+            Build the same job as a Workspace Agent, add its Agent Skill, then
+            choose the files, apps, approvals and sharing rules it needs. This
+            adapter has not yet been installed or task-tested for {botName}.
+          </p>
+          <div className="bot-platform-actions">
+            <Link href="/guides/use-a-bot-on-another-platform" className="text-link">
+              Follow the ChatGPT setup <ArrowRight size={15} />
+            </Link>
+          </div>
+        </article>
+
+        <article>
+          <div className="bot-platform-card-topline">
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+          </div>
+          <h3>Claude</h3>
+          <p>
+            Use a Cowork plugin or Skill for a general work role. Use Claude Code
+            only when the job belongs to a codebase or local project. This adapter
+            has not yet been installed or task-tested for {botName}.
+          </p>
+          <div className="bot-platform-actions">
+            <Link href="/guides/use-a-bot-on-another-platform" className="text-link">
+              Follow the Claude setup <ArrowRight size={15} />
+            </Link>
+          </div>
+        </article>
+
+        <article>
+          <div className="bot-platform-card-topline">
+            <FileCode size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-status is-prepared">
               Prepared · test pending
             </span>

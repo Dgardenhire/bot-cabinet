@@ -1,6 +1,7 @@
 import { latestPublications, mergePublishedWithFallback } from "./core.ts";
 import { parseGrokMarketplaceHtml, readBoundedText } from "./grok-marketplace.ts";
 import { AGENT_WATCH_SEED } from "./seed.ts";
+import { loadLiveBotListings } from "./live-listings.ts";
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
@@ -37,6 +38,7 @@ Deno.serve(async (request) => {
   } catch {
     // The reviewed feed remains available when the outside marketplace is not.
   }
+  const listings = await loadLiveBotListings();
   const headers = { ...cors, "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=3600" };
   return Response.json({
     version: 1,
@@ -48,5 +50,6 @@ Deno.serve(async (request) => {
       available: marketplaceAvailable,
       listings: marketplaceListings,
     },
+    listings,
   }, { headers });
 });
