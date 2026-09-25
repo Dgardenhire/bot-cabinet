@@ -58,7 +58,14 @@ This is the first post-release first-use and return-use baseline: **zero reporte
 
 - The result and friction question was rendered only after all five setup checkboxes were marked complete. A visitor who became stuck could not report the blocking step.
 - The local correction renders the bounded outcome question throughout the checklist. Its existing one-time record still accepts only `worked` or `stuck`; a stuck visitor can then choose one setup stage without submitting task text.
-- Focused verification passes 15 tests across the checklist, outcome record, friction report and repeat-use prompt. This correction is prepared locally and is not claimed as deployed.
+- A clean-context walkthrough then found that the first correction also enabled “Yes, it worked” at zero completed steps. The revised correction keeps “I got stuck” available throughout setup but disables a success report until the Run and Check steps are marked complete.
+- Focused verification passes 16 tests across the checklist, outcome record, friction report and repeat-use prompt. This correction is prepared in pull request 23 and is not claimed as deployed.
+
+### Clean-context path inspection
+
+- A fresh agent with no repository or conversation context followed a sourced idea from Agent Watch through Fit Test and the Ops page. It correctly understood that the source had been inspected but not run, and Fit Test correctly recommended a reusable Skill rather than a duplicate Bot.
+- The path did not deliver an executable first result for that specific idea. Agent Watch recommended improving Ops, but the public Ops package still starts with a monitoring task rather than the sourced AI-diagnosis task. Fit Test ends by telling the visitor to draft a `SKILL.md` without taking them directly to a builder or ready adaptation.
+- This is product evidence from an independent clean-context inspection, not a genuine unaffiliated visitor session and not proof of repeat usefulness.
 
 ## Still required before the goal is complete
 
@@ -67,5 +74,6 @@ This is the first post-release first-use and return-use baseline: **zero reporte
 - Observe the return window long enough to record a return-after-result or repeat-run outcome. A zero baseline alone is not evidence of repeat usefulness.
 - Exercise an urgent-defect delivery path end to end. Keeper currently preserves evidence and updates the private queue, but no prompt external alert channel has been demonstrated.
 - Review the one discovery lead currently waiting in Keeper's private queue. No public recommendation or product proposal should be inferred from its presence.
+- Connect one reviewed Agent Watch idea to a directly usable adaptation, builder path or tested setup instead of ending at a recommendation that the visitor must implement alone.
 
 The paid model-backed radar remains paused. Its local budget gate is not a verified provider billing cap and must not be resumed without separate cost controls and approval.
