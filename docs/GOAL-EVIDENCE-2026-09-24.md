@@ -59,7 +59,14 @@ This is an internal evidence record. It is not public site copy and does not upg
 - The expanded Keeper package passed all 92 bounded Python tests on September 24. Its updated 55-file `MANIFEST.sha256` then verified every declared file, including the current official-marketplace parser, expanded source registry and landscape tests.
 - The three changed site test files passed all eight targeted tests after correcting two public-copy mismatches.
 - The complete existing application suite then passed 63 source test files with 300 tests plus 15 package and editorial tests. ESLint and the no-output TypeScript check also passed.
-- The site changes through commit `9419002` are committed locally but have not been pushed or deployed.
+- The website branch now connects the current-listings interface to the existing public Agent Watch Edge function instead of an incompatible Next.js server route. The Edge implementation checks fourteen named live sources and returns a bounded, mixed sample with per-source status. TypeScript, focused parser/UI tests and Deno checking pass.
+- The first attempt at this change failed CI because the site is a static export and the proposed dynamic route could never run there. That route was removed; commit `720c642` passed the complete GitHub CI suite and its Vercel preview. PR #21 remains unmerged, and the updated Edge function has not been deployed, so the public site does not yet receive the fourteen-source live result.
+
+### Platform choice after discovery
+
+- Every Bot detail page on the current branch now offers separate setup paths for Hermes Agent, Grok Bot, ChatGPT Workspace Agents, Claude and the platform-neutral Bot Pack.
+- A new source-linked guide explains how to carry the job, limits, approval points and first test into ChatGPT or Claude without claiming that files install identically across platforms. It uses Chief of Staff as one worked example and distinguishes Cowork from Claude Code and Artifacts.
+- The ChatGPT and Claude adapters are labeled `Setup guide · test pending`; neither has been installed or task-tested. This work is included in commit `720c642` on unmerged PR #21.
 
 ## Not yet proved
 
@@ -68,6 +75,8 @@ This is an internal evidence record. It is not public site copy and does not upg
 - No live Keeper finding has completed the sequence: detected → deduplicated → reviewed by a person → approved update → verified result.
 - No urgent-defect delivery path has been demonstrated end to end.
 - No post-deployment first-use or return-use measurement window exists.
+- The fourteen-source Agent Watch Edge function is not deployed, and PR #21 is not merged. A green preview proves the static build, not the public live feed.
+- No ChatGPT Workspace Agent or Claude plugin generated from a Cabinet Bot has completed its first-task test.
 
 ## Current execution boundary
 
