@@ -11,6 +11,7 @@ This is an internal evidence record. It is not public site copy and does not upg
 - The installed profile completed one bounded task using fictional material.
 - The result cited each supplied item, preserved a missing meeting link as a review note, caught an inconsistent weekday and made no outside changes.
 - Hermes reported two model calls, 30,079 tokens and an estimated cost of `$0.00299147`.
+- The plugin's current tree was rechecked on September 24: all 24 Python policy/package/API tests and all three catalog-model tests passed.
 - Evidence: `../bot-cabinet-hermes/docs/ACCEPTANCE-2026-09-23.md` and the public runtime summary referenced by the first-user walkthrough.
 
 ### A production analytics baseline
