@@ -17,6 +17,7 @@ test("release pipeline generates crew bundles before checking for drift", async 
   const generateContent = packageJson.scripts["generate:content"];
   const generateCi = packageJson.scripts["generate:ci"];
   const buildSite = packageJson.scripts["build:site"];
+  const productionBuild = packageJson.scripts.build;
   const verifyCi = packageJson.scripts["verify:ci"];
   const verifyRelease = packageJson.scripts["verify:release"];
 
@@ -30,6 +31,11 @@ test("release pipeline generates crew bundles before checking for drift", async 
     generateCi,
     /build-(?:bot-portraits|crew-kit-og|section-og)/,
     "CI must not recreate host-rendered artwork",
+  );
+  assert.match(
+    productionBuild,
+    /^npm run generate:ci && npm run build:site$/,
+    "production builds must preserve reviewed artwork instead of regenerating it on the deployment host",
   );
   assert.match(
     verifyCi,
