@@ -3,6 +3,28 @@ import type { AgentWatchItem } from "./core.ts";
 
 export const AGENT_WATCH_SEED: AgentWatchItem[] = [
   {
+    "slug": "nasiko-agent-control-plane",
+    "observedOn": "2026-09-24",
+    "reviewAgainBy": "2026-10-08",
+    "title": "Nasiko puts limits and records around a fleet of agents",
+    "signal": "Nasiko is an open-source control panel for agents that use the A2A standard. Its repository documents shared tool access, hidden provider keys, per-agent permissions, call tracing, cost records and limits that stop repeated or runaway work.",
+    "evidence": "observed",
+    "whyItMatters": "As people run more agents, the hard problem becomes control: what each agent may use, how much it may spend, what happened during a run and how to stop work that is going in circles.",
+    "cabinetResponse": "If you run several agents, write down a spending ceiling, a time limit, a maximum number of handoffs and the tools each agent may use. Keep a run log and make sure one person can stop the work. Treat Nasiko as a developer tool until you can test it safely in a disposable setup.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet reviewed Nasiko's public repository but has not installed or run it. It requires Docker and several supporting services, so its published features do not yet prove that setup, upgrades or daily operation are simple or reliable.",
+    "sources": [
+      {
+        "label": "Nasiko source repository",
+        "href": "https://github.com/Nasiko-Labs/nasiko"
+      },
+      {
+        "label": "Tony Simons' summary",
+        "href": "https://x.com/tonysimons_/status/2103184943027298585"
+      }
+    ]
+  },
+  {
     "slug": "grok-import-bot",
     "observedOn": "2026-09-23",
     "reviewAgainBy": "2026-09-30",
@@ -398,6 +420,38 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
         "href": "/bots/scout"
       }
     }
+  },
+  {
+    "slug": "grok-bot-engineering-fleets",
+    "observedOn": "2026-09-24",
+    "reviewAgainBy": "2026-10-01",
+    "title": "Grok Bot is pushing beyond one assistant into managed Bot fleets",
+    "signal": "An X post points to a 57-minute workshop in which SpaceXAI engineer Lauren Tan describes running many engineering Bots with a Chief of Staff Bot above them. xAI's own launch and engineering guides separately confirm that teams run multiple Bots in parallel and sometimes place one Bot in charge of coordination.",
+    "evidence": "provider-claim",
+    "whyItMatters": "The important pattern is not the promotional Bot count. It is a small operating structure: one owner, specialists with distinct jobs, shared evidence, explicit handoffs and a final review before shipping.",
+    "cabinetResponse": "Inspect the workshop and extract the actual topology, commands, failure controls and proof. Then test the smallest useful version - one coordinator, one builder and one reviewer - before recommending a larger fleet for Hermes or Grok Bot.",
+    "responseStatus": "watching",
+    "limits": "The X post's claims about 20-plus Bots, 85 percent of engineers and overnight output have not been independently verified. xAI documents parallel Bot work, but that does not establish the post's numbers or the quality of the resulting code.",
+    "sources": [
+      {
+        "label": "Kurisina's post and workshop video",
+        "href": "https://x.com/kurisinaa/status/2103079687392018834"
+      },
+      {
+        "label": "xAI: Introducing Grok Bot",
+        "href": "https://x.ai/news/introducing-grok-bot"
+      },
+      {
+        "label": "xAI: Grok Bot for Engineering",
+        "href": "https://x.ai/bot/guides/grok-bot-for-engineering"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Compare with Bot Cabinet Crew Kits",
+        "href": "/crew-kits"
+      }
+    ]
   },
   {
     "slug": "personal-agents-move-into-background",
