@@ -209,21 +209,20 @@ export function FirstRunChecklist() {
       </ol>
 
       {completed.length === steps.length ? (
-        <>
-          <div className="first-run-finish" role="status">
-            <CheckCircle size={30} weight="fill" aria-hidden="true" />
-            <div>
-              <h2>Scout is working</h2>
-              <p>You now have a Bot, a first result, and a clear way to check its work. Keep the conversation going or choose a different specialist from The Cabinet.</p>
-            </div>
-            <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
-              Choose another Bot
-            </Link>
+        <div className="first-run-finish" role="status">
+          <CheckCircle size={30} weight="fill" aria-hidden="true" />
+          <div>
+            <h2>Scout is working</h2>
+            <p>You now have a Bot, a first result, and a clear way to check its work. Keep the conversation going or choose a different specialist from The Cabinet.</p>
           </div>
-          <FirstRunOutcomePrompt />
-          <RepeatUsePrompt />
-        </>
+          <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
+            Choose another Bot
+          </Link>
+        </div>
       ) : null}
+
+      <FirstRunOutcomePrompt canReportWorked={completed.includes(3) && completed.includes(4)} />
+      <RepeatUsePrompt />
     </div>
   );
 }
