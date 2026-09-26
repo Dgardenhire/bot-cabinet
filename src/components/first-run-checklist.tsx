@@ -134,6 +134,21 @@ function loadCompletedSteps() {
   }
 }
 
+export function FirstRunCompletion() {
+  return (
+    <div className="first-run-finish" role="status">
+      <CheckCircle size={30} weight="fill" aria-hidden="true" />
+      <div>
+        <h2>All five steps marked complete</h2>
+        <p>You can keep working with Scout or choose another Bot. Your checkmarks record your progress; they do not tell us whether Scout produced a useful result.</p>
+      </div>
+      <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
+        Choose another Bot
+      </Link>
+    </div>
+  );
+}
+
 export function FirstRunChecklist() {
   const [completed, setCompleted] = useState<number[]>([]);
   const [ready, setReady] = useState(false);
@@ -208,18 +223,7 @@ export function FirstRunChecklist() {
         })}
       </ol>
 
-      {completed.length === steps.length ? (
-        <div className="first-run-finish" role="status">
-          <CheckCircle size={30} weight="fill" aria-hidden="true" />
-          <div>
-            <h2>Scout is working</h2>
-            <p>You now have a Bot, a first result, and a clear way to check its work. Keep the conversation going or choose a different specialist from The Cabinet.</p>
-          </div>
-          <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
-            Choose another Bot
-          </Link>
-        </div>
-      ) : null}
+      {completed.length === steps.length ? <FirstRunCompletion /> : null}
 
       <FirstRunOutcomePrompt canReportWorked={completed.includes(3) && completed.includes(4)} />
       <RepeatUsePrompt />
