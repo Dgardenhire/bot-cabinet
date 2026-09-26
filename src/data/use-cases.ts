@@ -65,7 +65,7 @@ export const BOT_USE_CASES: BotUseCase[] = [
         status: "cabinet-tested",
         statusLabel: "One bounded run passed",
         approach: "Install the standalone Daily Newspaper profile, then give it selected or made-up calendar entries, messages and reading for one manual edition.",
-        setup: "Open the Daily Newspaper page, review the profile and its access limits, install it through the Bot Cabinet plugin or download the archive, and run the sample before adding any schedule or connection.",
+        setup: "Open the Daily Newspaper page, review the profile and its access limits, download the Hermes archive, import it from Profiles in Hermes Desktop, and run the sample before adding any schedule or connection.",
         limitations: "One bounded run with fictional inputs passed. Bot Cabinet has not tested live account connections, unattended scheduling, repeated reliability, saving, sending, printing or publication.",
         source: { label: "Read the bounded Hermes test record", href: "/proof-room/daily-newspaper/runtime-summary.md" },
         cabinetGuide: "/bots/daily-newspaper",
