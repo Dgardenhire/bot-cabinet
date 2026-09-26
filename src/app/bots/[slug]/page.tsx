@@ -171,7 +171,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         <div>
           <Eyebrow>Set it up in Hermes Desktop</Eyebrow>
           <h2 className="section-heading">Import the profile and run one small test</h2>
-          <p className="section-deck">The Hermes download contains seven files: its profile and distribution manifests, role instructions, Bot Passport, setup guide, license, and bundled Skill. The ZIP contains the same seven files for inspection.</p>
+          <p className="section-deck">The Hermes download contains its manifests, role instructions, Bot Passport, setup guide, license, and included Skills. The ZIP contains the same files for inspection.</p>
         </div>
         <ol className="starter-setup-steps">
           <li><span>1</span><div><strong>Download the Hermes profile.</strong><p>Import the .tar.gz archive from the Profiles screen, or copy the terminal command above.</p></div></li>
@@ -209,7 +209,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
       <section className="content-section shell starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
-        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same seven files. {botImportAndRunStatus(portablePackV2)} {runtimeEvidence ? <Link href={runtimeEvidence.proofPath}>Inspect the recorded run.</Link> : null}</p>
+        <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same declared files. {botImportAndRunStatus(portablePackV2)} {runtimeEvidence ? <Link href={runtimeEvidence.proofPath}>Inspect the recorded run.</Link> : null}</p>
       </section>
     </main>
   );

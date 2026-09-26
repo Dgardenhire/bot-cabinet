@@ -9,7 +9,6 @@ import {
   DownloadSimple,
   ShieldCheck,
   UsersThree,
-  Wrench,
   ArrowSquareOut,
 } from "@phosphor-icons/react/dist/ssr";
 
@@ -56,8 +55,8 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
               <p className="inner-deck">{useCase.outcome}</p>
               <p className="use-case-detail-audience"><strong>Designed for:</strong> {useCase.audience}</p>
               <div className="button-row">
-                <a href={`/downloads/use-cases/${useCase.slug}.md`} download className="button button-primary">Download the setup plan <DownloadSimple size={16} /></a>
-                <Link href={`/workshop?starter=${useCase.botSlugs[0]}`} className="button button-secondary">Open the first Bot’s setup plan in Bot Lab <Wrench size={16} /></Link>
+                <Link href={`/bots/${useCase.botSlugs[0]}`} className="button button-primary">Set up {getStarterBot(useCase.botSlugs[0])?.name ?? "the first Bot"} <ArrowRight size={16} /></Link>
+                <a href={`/downloads/use-cases/${useCase.slug}.md`} download className="button button-secondary">Download the workflow guide <DownloadSimple size={16} /></a>
               </div>
             </div>
             <aside className="inner-aside use-case-roster">

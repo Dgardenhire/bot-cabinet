@@ -1,6 +1,7 @@
 import {
   parsePortableBotPackV2,
   portableBotPackV2ArtifactPaths,
+  portableBotPackV2SkillSlug,
   PORTABLE_BOT_PACK_V2_PACK_VERSION,
   PORTABLE_BOT_PACK_V2_SCHEMA_VERSION,
   type PortableBotPackV2,
@@ -591,18 +592,70 @@ export function compilePortableBotPackV2HermesFiles(
   pack: PortableBotPackV2,
 ): Record<string, string> {
   parsePortableBotPackV2(pack);
-  const skill = pack.skills[0];
   const routine = pack.routines[0];
   const paths = portableBotPackV2ArtifactPaths(pack.identity.slug);
-  const skillSlug = `${pack.identity.slug}-core`;
-  const skillPath = `skills/${skillSlug}/SKILL.md`;
+  const skillFiles = pack.skills.map((candidate, index) => {
+    const skillSlug = portableBotPackV2SkillSlug(pack, index);
+    const skillPath = `skills/${skillSlug}/SKILL.md`;
+    const sourceNote = candidate.artifactId.endsWith(":diagnose-ai-result")
+      ? [
+          "## Source and test status",
+          "",
+          "This method was adapted from the public Diagnose My Agent's Mistake listing on Muse at Work: https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c",
+          "",
+          "Bot Cabinet inspected the public listing but did not run its original workflow. This adaptation is prepared and has not yet passed a task test.",
+          "",
+        ]
+      : [];
+    const content = [
+      "---",
+      `name: ${skillSlug}`,
+      `description: ${yamlString(`${candidate.name}. ${candidate.whenToUse}`)}`,
+      "---",
+      "",
+      `# ${candidate.name}`,
+      "",
+      `**Artifact ID:** ${candidate.artifactId}`,
+      "",
+      `**Preparation status:** ${candidate.preparationStatus}`,
+      "",
+      `**Test status:** ${candidate.testStatus}`,
+      "",
+      ...sourceNote,
+      "## Use this Skill when",
+      "",
+      candidate.whenToUse,
+      "",
+      "## Inputs",
+      "",
+      markdownList(candidate.inputs),
+      "",
+      "## Steps",
+      "",
+      orderedMarkdownList(candidate.steps),
+      "",
+      "## Expected outputs",
+      "",
+      markdownList(candidate.outputs),
+      "",
+      "## Requires approval",
+      "",
+      markdownList(candidate.requiresApproval),
+      "",
+      "## Prohibited actions",
+      "",
+      markdownList(candidate.prohibited),
+      "",
+    ].join("\n");
+    return { skillPath, content };
+  });
   const ownedFiles = [
     "profile.yaml",
     "SOUL.md",
     "README.md",
     "BOT-PASSPORT.md",
     "LICENSE",
-    skillPath,
+    ...skillFiles.map(({ skillPath }) => skillPath),
   ];
   const manifest = [
     `name: ${pack.identity.slug}`,
@@ -716,13 +769,22 @@ export function compilePortableBotPackV2HermesFiles(
     ...(runtimeEvidence
       ? [`- Separately, one bounded first-mission run passed its disclosed checks on ${runtimeEvidence.testedDate}. Inspect the evidence at ${PUBLIC_ORIGIN}${runtimeEvidence.proofPath}. This is one run, not evidence of general reliability.`]
       : []),
-    `- The included Skill is ${skill.preparationStatus} and ${skill.testStatus}.`,
+    ...(pack.skills.length === 1
+      ? [
+          `- The included Skill is ${pack.skills[0].preparationStatus} and ${pack.skills[0].testStatus}.`,
+        ]
+      : pack.skills.map(
+          (candidate) =>
+            `- The included Skill “${candidate.name}” is ${candidate.preparationStatus} and ${candidate.testStatus}.`,
+        )),
     `- The Routine is a plan only: ${routine.activationStatus} and ${routine.testStatus}.`,
     "- No schedule or active Routine is included in this package.",
     "",
     "## Set it up",
     "",
-    "1. Review SOUL.md, BOT-PASSPORT.md, and the included Skill.",
+    pack.skills.length === 1
+      ? "1. Review SOUL.md, BOT-PASSPORT.md, and the included Skill."
+      : "1. Review SOUL.md, BOT-PASSPORT.md, and every included Skill.",
     "2. Import the profile archive only after its role and controls match your intended job.",
     "3. Select only the tools and connections required for the job.",
     `4. Run this first mission with sample material: ${pack.job.firstMission}`,
@@ -731,46 +793,6 @@ export function compilePortableBotPackV2HermesFiles(
     `Portable source: ${PUBLIC_ORIGIN}${paths.portableMarkdownUrl}`,
     "",
   ].join("\n");
-  const skillMarkdown = [
-    "---",
-    `name: ${skillSlug}`,
-    `description: ${yamlString(`${skill.name}. ${skill.whenToUse}`)}`,
-    "---",
-    "",
-    `# ${skill.name}`,
-    "",
-    `**Artifact ID:** ${skill.artifactId}`,
-    "",
-    `**Preparation status:** ${skill.preparationStatus}`,
-    "",
-    `**Test status:** ${skill.testStatus}`,
-    "",
-    "## Use this Skill when",
-    "",
-    skill.whenToUse,
-    "",
-    "## Inputs",
-    "",
-    markdownList(skill.inputs),
-    "",
-    "## Steps",
-    "",
-    orderedMarkdownList(skill.steps),
-    "",
-    "## Expected outputs",
-    "",
-    markdownList(skill.outputs),
-    "",
-    "## Requires approval",
-    "",
-    markdownList(skill.requiresApproval),
-    "",
-    "## Prohibited actions",
-    "",
-    markdownList(skill.prohibited),
-    "",
-  ].join("\n");
-
   return {
     "distribution.yaml": manifest,
     "profile.yaml": profile,
@@ -778,7 +800,9 @@ export function compilePortableBotPackV2HermesFiles(
     "README.md": readme,
     "BOT-PASSPORT.md": passport,
     LICENSE: MIT_LICENSE,
-    [skillPath]: skillMarkdown,
+    ...Object.fromEntries(
+      skillFiles.map(({ skillPath, content }) => [skillPath, content]),
+    ),
   };
 }
 

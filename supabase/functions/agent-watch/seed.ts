@@ -110,8 +110,8 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "signal": "Muse at Work lists a workflow that asks what happened, why it happened, and what single change would prevent the same AI mistake.",
     "evidence": "observed",
     "whyItMatters": "A failed result is useful only when someone can turn it into a specific correction. This is narrower and more practical than asking an assistant to improve itself in general.",
-    "cabinetResponse": "Try the workflow with a harmless failed example, then compare its diagnosis with the original prompt and result. If it finds a concrete cause, add the method to Ops rather than creating another broad troubleshooting Bot.",
-    "responseStatus": "testing",
+    "cabinetResponse": "Bot Cabinet prepared this as a reusable Ops Skill. Download it, use a harmless failed example, and compare the result before and after one proposed correction.",
+    "responseStatus": "prepared",
     "limits": "Bot Cabinet inspected the public Muse at Work listing but has not run the workflow. The listing does not identify a creator or show how well the diagnosis holds up across different kinds of failure.",
     "sources": [
       {
@@ -121,8 +121,12 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     ],
     "cabinetLinks": [
       {
-        "label": "Compare with Ops",
-        "href": "/bots/ops"
+        "label": "Use the prepared Ops Skill",
+        "href": "/bots/ops#bot-pack-2"
+      },
+      {
+        "label": "Download the Skill",
+        "href": "/downloads/starter-bots/v2/ops/skills/diagnose-ai-result/SKILL.md"
       }
     ],
     "botDetails": {
@@ -134,7 +138,7 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
       "outsideActions": "None described. The workflow returns a diagnosis and proposed correction.",
       "evidenceStatus": "inspected",
       "cabinetDecision": "improve-existing",
-      "cabinetFit": "Test the diagnosis method as an Ops troubleshooting skill instead of creating a duplicate Bot.",
+      "cabinetFit": "Bot Cabinet prepared an Ops troubleshooting Skill for this method. It is ready for a manual test but has not yet been task-tested.",
       "closestCabinetMatch": {
         "label": "Ops",
         "href": "/bots/ops"

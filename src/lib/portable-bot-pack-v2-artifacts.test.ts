@@ -157,6 +157,21 @@ describe("Portable Bot Pack V2 artifact compilers", () => {
     }
   });
 
+  it("packages the attributed diagnosis Skill with Ops", () => {
+    const pack = packs.find((candidate) => candidate.identity.slug === "ops")!;
+    const files = compilePortableBotPackV2HermesFiles(pack);
+    const skillPath = "skills/diagnose-ai-result/SKILL.md";
+
+    expect(files).toHaveProperty(skillPath);
+    expect(files[skillPath]).toContain("# Diagnose a bad AI result");
+    expect(files[skillPath]).toContain("museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c");
+    expect(files[skillPath]).toContain("has not yet passed a task test");
+    expect(files["distribution.yaml"]).toContain(`  - ${skillPath}`);
+    expect(files["README.md"]).toContain(
+      "The included Skill “Diagnose a bad AI result” is prepared and not-tested.",
+    );
+  });
+
   it("keeps Grok output manual, untested, and explicitly non-importable", () => {
     const pack = packs[0];
     const brief = portableBotPackV2ToGrokMarkdown(pack);
