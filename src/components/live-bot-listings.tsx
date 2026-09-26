@@ -8,6 +8,10 @@ import { AGENT_WATCH_API_URL } from "@/lib/agent-watch-live";
 type SourceState = { name: string; ok: boolean; count: number };
 type LiveFeed = { checkedAt: string; sources: SourceState[]; totalCount: number; items: LiveBotListing[] };
 
+export function LiveBotListingLinks({ item }: { item: Pick<LiveBotListing, "sourceUrl" | "originalUrl"> }) {
+  return <div className="live-bot-list-links"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>{item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}</div>;
+}
+
 function settleWithin<T>(promise: Promise<T>, milliseconds = 8_000): Promise<T> {
   return new Promise((resolve, reject) => {
     const timer = window.setTimeout(() => reject(new Error("Source timed out")), milliseconds);
@@ -75,7 +79,7 @@ export function LiveBotListings() {
         <li key={item.id}>
           <div className="live-bot-list-meta"><span>{item.kind} · {item.source}</span>{item.listedAt ? <time dateTime={item.listedAt}>{new Date(item.listedAt).toLocaleDateString()}</time> : <span>Current entry</span>}</div>
           <div className="live-bot-list-copy"><div><h3>{item.name}</h3><p>{item.job}</p></div><span>By {item.creator}</span></div>
-          <div className="live-bot-list-links"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">Open source <ArrowSquareOut size={13} /></a>{item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original <ArrowSquareOut size={13} /></a>}</div>
+          <LiveBotListingLinks item={item} />
         </li>
       ))}</ol> : !loading ? <p className="live-bot-empty">No current entries match this filter. The source list below links to every source directly.</p> : null}
       {visibleItems.length < filteredItems.length ? <button className="button button-secondary live-bot-more" type="button" onClick={() => setVisibleLimit((value) => value + 12)}>Show 12 more</button> : null}
