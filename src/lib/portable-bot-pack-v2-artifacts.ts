@@ -808,7 +808,10 @@ export function compilePortableBotPackV2TextArtifacts(
   ];
 }
 
-export function portableBotPackV2Catalog(packs: readonly PortableBotPackV2[]) {
+export function portableBotPackV2Catalog(
+  packs: readonly PortableBotPackV2[],
+  archiveSha256BySlug: ReadonlyMap<string, string>,
+) {
   return {
     apiVersion: 2,
     schemaVersion: PORTABLE_BOT_PACK_V2_SCHEMA_VERSION,
@@ -818,6 +821,10 @@ export function portableBotPackV2Catalog(packs: readonly PortableBotPackV2[]) {
     bots: packs.map((candidate) => {
       const pack = parsePortableBotPackV2(candidate);
       const paths = portableBotPackV2ArtifactPaths(pack.identity.slug);
+      const sha256 = archiveSha256BySlug.get(pack.identity.slug);
+      if (!sha256 || !/^[0-9a-f]{64}$/.test(sha256)) {
+        throw new Error(`Missing or invalid Hermes archive SHA-256 for ${pack.identity.slug}`);
+      }
       return {
         artifactId: pack.artifactId,
         slug: pack.identity.slug,
@@ -831,7 +838,7 @@ export function portableBotPackV2Catalog(packs: readonly PortableBotPackV2[]) {
           jsonUrl: paths.portableJsonUrl,
           markdownUrl: paths.portableMarkdownUrl,
         },
-        hermes: pack.platforms.hermes,
+        hermes: { ...pack.platforms.hermes, sha256 },
         grokBot: pack.platforms.grokBot,
       };
     }),

@@ -170,7 +170,8 @@ describe("Portable Bot Pack V2 artifact compilers", () => {
   });
 
   it("builds a V2 API catalog and discovery index without V1 URLs", () => {
-    const catalog = portableBotPackV2Catalog(packs);
+    const digests = new Map(packs.map((pack) => [pack.identity.slug, "a".repeat(64)]));
+    const catalog = portableBotPackV2Catalog(packs, digests);
     const index = portableBotPackV2ApiIndex(packs.length);
 
     expect(catalog.count).toBe(STARTER_BOTS.length);
@@ -179,6 +180,10 @@ describe("Portable Bot Pack V2 artifact compilers", () => {
     );
     expect(catalog.bots.map((bot) => bot.slug)).toEqual(
       STARTER_BOTS.map((bot) => bot.slug),
+    );
+    expect(catalog.bots.every((bot) => bot.hermes.sha256 === "a".repeat(64))).toBe(true);
+    expect(() => portableBotPackV2Catalog(packs, new Map())).toThrow(
+      "Missing or invalid Hermes archive SHA-256",
     );
     expect(
       catalog.bots.every(
