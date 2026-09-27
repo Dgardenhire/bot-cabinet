@@ -60,3 +60,24 @@ export function parsePublicKeeperStatus(value: unknown): KeeperTrustStatus | nul
   if (checks.length !== expectedKeys.size || new Set(checks.map((item) => item.key)).size !== expectedKeys.size) return null;
   return { revision: Number(row.revision), publishedAt: row.publishedAt as string, generatedAt: candidate.generated_at as string, checks };
 }
+
+const HOUR_MS = 60 * 60 * 1000;
+
+/** A reviewed snapshot must not keep showing an old green result as current health. */
+export function ageKeeperStatus(status: KeeperTrustStatus, nowMs: number): KeeperTrustStatus {
+  return {
+    ...status,
+    checks: status.checks.map((check) => {
+      if (check.result !== "passed" || !check.lastRun) return check;
+      return nowMs > Date.parse(check.lastRun) + check.lateAfterHours * HOUR_MS
+        ? { ...check, result: "late" as const }
+        : check;
+    }),
+  };
+}
+
+export function keeperSnapshotIsOld(status: KeeperTrustStatus, nowMs: number): boolean {
+  if (!status.publishedAt) return false;
+  const shortestWindowHours = Math.min(...status.checks.map((check) => check.lateAfterHours));
+  return nowMs > Date.parse(status.publishedAt) + shortestWindowHours * HOUR_MS;
+}
