@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Start here",
-  description: "Choose a useful first Bot and follow a short setup path for Hermes or ChatGPT Workspace Agents.",
+  description: "Choose a Bot and see how to get started in Hermes Desktop, a ChatGPT workspace, or Grok Bot.",
   path: "/start/",
   image: "/brand/social/first-bot-1200x630.jpg",
   imageAlt: "Start using a Bot with Bot Cabinet",
@@ -40,6 +40,15 @@ export default function StartPage() {
             Start with ChatGPT <ArrowRight size={16} aria-hidden="true" />
           </Link>
           <small>Workspace Agents are in research preview for Business, Enterprise, and Edu. Your admin must enable access and let you create agents. Setup and task testing are still yours to do.</small>
+        </article>
+        <article>
+          <span className="start-choice-number">03 · In Grok Bot</span>
+          <h2>Build a Grok Bot</h2>
+          <p>Choose a Cabinet Bot, use its build brief to set up the role in Grok Bot, then try a real task.</p>
+          <Link href="/platforms/grok-bot" className="button button-primary" data-funnel-event="first_run_choose_grok" data-funnel-surface="start_page">
+            Start with Grok Bot <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <small>This is a manual build guide, not an import. Bot Cabinet has prepared the briefs but has not runtime-tested them in Grok Bot.</small>
         </article>
       </section>
 

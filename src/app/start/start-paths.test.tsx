@@ -9,11 +9,14 @@ import HermesStartPage from "./hermes/page";
 import ChatGPTStartPage, { generateStaticParams } from "./chatgpt/[slug]/page";
 
 describe("first-use paths", () => {
-  it("lets visitors choose Hermes or ChatGPT before a long setup guide", () => {
+  it("lets visitors choose Hermes, ChatGPT, or Grok Bot before a long setup guide", () => {
     const html = renderToStaticMarkup(<StartPage />);
     expect(html).toContain("Get one useful result from a Bot");
     expect(html).toContain('href="/start/hermes"');
     expect(html).toContain('href="/start/chatgpt/chief-of-staff"');
+    expect(html).toContain('href="/platforms/grok-bot"');
+    expect(html).toContain("manual build guide, not an import");
+    expect(html).toContain("has not runtime-tested them in Grok Bot");
     expect(html).not.toContain("Follow the checkpoints");
     expect(renderToStaticMarkup(<HermesStartPage />)).toContain("Put Scout to work");
   });
