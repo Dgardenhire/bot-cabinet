@@ -310,6 +310,7 @@ html[data-cabinet-reveal="run"] .cabinet-reveal { display: block; }
 .bot-proof-heading .section-heading, .bot-proof-heading .section-deck { margin: 0; }
 .bot-proof-grid { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(310px,.55fr); gap: 18px; align-items: stretch; }
 .bot-proof-video-frame { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050707; }
+.bot-proof-section > .bot-proof-video-frame { max-width: 840px; }
 .bot-proof-video-frame video { width: 100%; aspect-ratio: 16/9; display: block; background: #050707; }
 .bot-proof-video-frame figcaption { padding: 11px 15px; border-top: 1px solid var(--line-soft); color: #b8b3aa; font: 12px/1.5 var(--mono); }
 .bot-proof-steps { display: grid; border: 1px solid var(--line); border-radius: 8px; background: var(--ink-soft); }
