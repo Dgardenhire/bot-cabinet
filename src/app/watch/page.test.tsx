@@ -25,9 +25,9 @@ describe("Agent Watch", () => {
     expect(html).toContain("GitHub agent repositories");
     expect(html).toContain("GitLab agent repositories");
     expect(html).toContain("Instinct");
-    expect(html).toContain("Current listings");
-    expect(html).toContain("Useful Bots from around the web");
-    expect(html).toContain("whether we tried it");
+    expect(html).toContain("Fresh listings");
+    expect(html).toContain("What stands out");
+    expect(html).toContain("whether we read about it or actually tried it");
     expect(html).toContain("whether we only read the listing or actually tried the Bot");
     expect(html).toContain("Import Bot");
     expect(html).toContain("Diagnose My Agent&#x27;s Mistake");

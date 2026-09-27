@@ -84,10 +84,10 @@ export function LiveBotListings() {
   return (
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
-        <div><span className="eyebrow">Updated when you open this page</span><h2 id="live-bot-title">Current listings</h2></div>
+        <div><span className="eyebrow">From the source sites</span><h2 id="live-bot-title">Fresh listings</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>A short, mixed sample from every connected source. Dates appear only when a source provides them. These are listings, not recommendations.</p>
+      <p>Recent entries from the sites we check. These are direct listings, not Bots we have tested or recommended.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : `${totalCount.toLocaleString()} entries found across ${connectedCount} of ${LIVE_BOT_SOURCES.length} live sources`}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}
