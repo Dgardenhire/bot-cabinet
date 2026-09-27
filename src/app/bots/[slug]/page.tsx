@@ -6,18 +6,15 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCircle,
-  DownloadSimple,
   FileText,
   ShieldCheck,
   Sparkle,
-  Wrench,
 } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
 import { BotPackV2Panel } from "@/components/bot-pack-v2-panel";
 import { BotPassportPanel } from "@/components/bot-passport-panel";
 import { BotPlatformChooser } from "@/components/bot-platform-chooser";
-import { BotWorkbench } from "@/components/bot-workbench";
 import { LegacyRoute } from "@/components/legacy-route";
 import {
   STARTER_BOTS,
@@ -28,10 +25,7 @@ import {
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
 import { getBotRuntimeEvidence } from "@/data/bot-release-evidence";
 import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
-import {
-  portableBotPackV2ArtifactPaths,
-  starterBotToPortablePackV2,
-} from "@/lib/portable-bot-pack-v2";
+import { starterBotToPortablePackV2 } from "@/lib/portable-bot-pack-v2";
 import { buildPageMetadata } from "@/lib/metadata";
 import { botImportAndRunStatus } from "@/lib/bot-status-copy";
 
@@ -53,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: bot.summary,
     path: `/bots/${bot.slug}/`,
     image: bot.showcase ? `/brand/social/showcase-${bot.slug}-${bot.slug === "receipt" ? "v2" : "v1"}-1200x630.jpg` : "/brand/social/the-cabinet-1200x630.jpg",
-    imageAlt: `The Cabinet — ${bot.name}, a practical Hermes Bot starter`,
+    imageAlt: `The Cabinet — ${bot.name}, a practical Bot starter`,
   });
 }
 
@@ -70,7 +64,6 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
 
   const portablePackV2 = starterBotToPortablePackV2(bot);
   const runtimeEvidence = getBotRuntimeEvidence(bot.slug);
-  const portablePackV2Paths = portableBotPackV2ArtifactPaths(bot.slug);
   const profileArchiveUrl = `https://botcabinet.com${portablePackV2.platforms.hermes.archiveUrl}`;
   const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}-v2.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}-v2.tar.gz --name ${bot.slug}-v2`;
   const passport = portableBotPackV2ToPassport(portablePackV2);
@@ -84,42 +77,59 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <div className="registry-detail-grid">
             <div className="registry-detail-image starter-detail-image">
               <Image src={bot.image} alt={`Illustration for ${bot.name} in The Cabinet’s Hermes Bot collection`} width={1200} height={1200} priority />
-              <span>The Cabinet · Hermes Bot starter</span>
+              <span>The Cabinet · Bot starter</span>
             </div>
             <div className="registry-detail-copy">
               <Eyebrow>{STARTER_CATEGORY_LABELS[bot.category]}</Eyebrow>
-              <p className="starter-status-label">{bot.showcase ? "Bot Showcase · free starter" : "Free starter · role and instructions included"}</p>
               <h1>{bot.name}</h1>
               <h2 className="starter-detail-title">{bot.title}</h2>
               <p className="registry-detail-summary">{bot.summary}</p>
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
-              <div className="button-row">
-                <a href={portablePackV2.platforms.hermes.archiveUrl} download className="button button-primary" data-funnel-event="bot_profile_download" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Download for Hermes Desktop <DownloadSimple size={16} /></a>
-                <a href={portablePackV2.platforms.grokBot.briefUrl} download className="button button-secondary">Download the Grok build brief <DownloadSimple size={16} /></a>
-                <a href={portablePackV2Paths.portableMarkdownUrl} download className="button button-secondary">Download Bot Pack 2.0 <DownloadSimple size={16} /></a>
-                <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
+              <div className="starter-hero-actions">
+                <a href="#choose-platform" className="button button-primary" data-funnel-event="bot_choose_platform" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Choose where to use it <ArrowRight size={16} aria-hidden="true" /></a>
               </div>
-              <p className="starter-install-note">{botImportAndRunStatus(portablePackV2)}</p>
-              <a href="#bot-workbench" className="text-link" data-funnel-event="bot_workbench_open" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>After downloading: continue setup and test {bot.name} <ArrowRight size={15} /></a>
-              <Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <Wrench size={15} /> </Link>
+              <p className="starter-install-note">
+                {runtimeEvidence ? "One recorded task run is available." : portablePackV2.platforms.hermes.importEvidence ? "Hermes archive import checked; a full task run is still pending." : "Prepared, but not yet task-tested."}{" "}
+                <a href="#review-details">Read the test status</a>
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      <BotPlatformChooser
+        hermesImportCommand={importCommand}
+        pack={portablePackV2}
+        runtimeEvidence={runtimeEvidence}
+      />
+
+      <section className="content-section shell starter-first-task" id="first-task">
+        <div>
+          <Eyebrow>First task</Eyebrow>
+          <h2 className="section-heading">Try one small job</h2>
+          <p className="section-deck">{bot.workshopDraft.firstRunTest}</p>
+        </div>
+        <div className="starter-first-task-facts">
+          <p><strong>Bring</strong>{bot.setup[0]}</p>
+          <p><strong>Look for</strong>{bot.produces[0]}</p>
+        </div>
+      </section>
+
+      <details className="starter-detail-more shell" id="review-details" suppressHydrationWarning>
+        <summary>Read the job, safety rules, files, and test record</summary>
+        <div className="starter-detail-more-content">
       {bot.showcase && (
-        <section className="content-section shell">
-          <Eyebrow>Bot Showcase</Eyebrow>
+        <section className="content-section">
+          <Eyebrow>Example</Eyebrow>
           <h2 className="section-heading">{bot.showcase.tagline}</h2>
           <p className="section-deck">{bot.showcase.sample}</p>
-          <p>This fictional example illustrates the intended result; it is not a recorded Bot run.</p>
+          <p>This fictional example shows the intended result; it is not a recorded Bot run.</p>
         </section>
       )}
-
-      <section className="content-section shell">
+      <p><Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <ArrowRight size={15} aria-hidden="true" /></Link></p>
+      <section className="content-section">
         <Eyebrow>Job contract</Eyebrow>
-        <h2 className="section-heading">Know exactly what this Bot is responsible for</h2>
-        <p className="section-intro">A clear job prevents a Bot from quietly taking on work, authority, or information it was never given.</p>
+        <h2 className="section-heading">What this Bot is responsible for</h2>
         <div className="starter-practical-grid">
           <article className="starter-practical-card"><h3>Owns</h3><p>{roleContract.owns}</p></article>
           <article className="starter-practical-card"><h3>Does not own</h3><ul>{roleContract.doesNotOwn.map((item) => <li key={item}>{item}</li>)}</ul></article>
@@ -130,17 +140,11 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
-      <BotPlatformChooser
-        hermesImportCommand={importCommand}
-        pack={portablePackV2}
-        runtimeEvidence={runtimeEvidence}
-      />
-
-      <section className="content-section shell starter-pack-v2-section">
+      <section className="content-section starter-pack-v2-section">
         <BotPackV2Panel pack={portablePackV2} />
       </section>
 
-      <section className="content-section shell starter-practical-grid">
+      <section className="content-section starter-practical-grid">
         <article className="starter-practical-card">
           <Sparkle size={27} weight="thin" aria-hidden="true" />
           <h2>Try asking</h2>
@@ -163,11 +167,11 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </article>
       </section>
 
-      <section className="content-section shell starter-passport-section">
+      <section className="content-section starter-passport-section">
         <BotPassportPanel passport={passport} downloadHref={`/downloads/starter-bots/v2/${bot.slug}/BOT-PASSPORT.md`} />
       </section>
 
-      <section className="content-section shell starter-setup-section" id="files-and-review">
+      <section className="content-section starter-setup-section" id="files-and-review">
         <div>
           <Eyebrow>Set it up in Hermes Desktop</Eyebrow>
           <h2 className="section-heading">Import the profile and run one small test</h2>
@@ -189,10 +193,9 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <a href={portablePackV2.platforms.hermes.readableFilesUrl} download>Download readable files (ZIP)</a>
           <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer">Official Bot Mode guide</a>
         </div>
-        <BotWorkbench botSlug={bot.slug} botName={bot.name} packVersion={portablePackV2.packVersion} />
       </section>
 
-      <section className="content-section shell starter-teammates">
+      <section className="content-section starter-teammates">
         <div>
           <Eyebrow>Useful combinations</Eyebrow>
           <h2>Pair {bot.name} with another role</h2>
@@ -207,10 +210,12 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         <Link href="/use-cases" className="text-link">See complete Bot Crews workflows <ArrowRight size={15} /></Link>
       </section>
 
-      <section className="content-section shell starter-review-note">
+      <section className="content-section starter-review-note">
         <ShieldCheck size={24} weight="thin" aria-hidden="true" />
         <p><strong>Current review status:</strong> Automated package tests check that each ZIP and Hermes profile archive contains the same declared files. {botImportAndRunStatus(portablePackV2)} {runtimeEvidence ? <Link href={runtimeEvidence.proofPath}>Inspect the recorded run.</Link> : null}</p>
       </section>
+        </div>
+      </details>
     </main>
   );
 }

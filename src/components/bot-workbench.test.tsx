@@ -11,6 +11,8 @@ describe("BotWorkbench", () => {
     expect(html).toContain("Pack 2.0.0");
     expect(html).toContain("not independent Cabinet verification");
     expect(html).toContain("Progress stays in this browser");
+    expect(html).toContain("Run checks: 0 of 2");
+    expect(html).toContain('max="2" value="0"');
     expect(html.match(/type="checkbox"/g)).toHaveLength(5);
     expect(html).not.toContain("<textarea");
     expect(html).not.toContain('type="text"');

@@ -225,7 +225,7 @@ export function FirstRunChecklist() {
 
       {completed.length === steps.length ? <FirstRunCompletion /> : null}
 
-      <FirstRunOutcomePrompt canReportWorked={completed.includes(3) && completed.includes(4)} />
+      <FirstRunOutcomePrompt />
       <RepeatUsePrompt />
     </div>
   );
