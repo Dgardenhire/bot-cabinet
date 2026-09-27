@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 
 import { CopyTextButton } from "@/components/copy-text-button";
+import { ChatGPTFirstTestPrompt } from "@/components/chatgpt-first-test-prompt";
 import { Eyebrow } from "@/components/ui";
 import { STARTER_BOTS, getStarterBot } from "@/data/starter-bots";
 import { workspaceAgentBuilderText, workspaceAgentFirstTest } from "@/lib/chatgpt-workspace-setup";
@@ -84,6 +85,8 @@ export default async function ChatGPTStartPage({ params }: { params: Promise<{ s
             </div>
           </li>
         </ol>
+
+        <ChatGPTFirstTestPrompt bot={slug} />
 
         <footer className="workspace-start-footer">
           <h2>Want a different job?</h2>
