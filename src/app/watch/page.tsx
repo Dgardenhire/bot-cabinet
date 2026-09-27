@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Binoculars, CheckCircle, Flask, Warning } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import { ArrowRight, CheckCircle, Flask, Warning } from "@phosphor-icons/react/dist/ssr";
 import { AgentWatchFeed } from "@/components/agent-watch-feed";
 import { AgentWatchSources } from "@/components/agent-watch-sources";
 import { LiveBotListings } from "@/components/live-bot-listings";
@@ -28,9 +29,15 @@ export default function AgentWatchPage() {
             </p>
           </div>
           <div className="agent-watch-method">
-            <Binoculars size={31} weight="thin" aria-hidden="true" />
-            <h2>Find the signal</h2>
-            <p>Start with the job. Then check the source, access, outside actions, and whether anyone has actually run it.</p>
+            <Eyebrow>Try an idea</Eyebrow>
+            <h2>Pick a first task</h2>
+            <p>Make a one-page morning paper from sample material—the Hermes version passed one manual test. Or use a short guide to find one fix for a bad AI answer; that method has not been task-tested here.</p>
+            <Link href="/use-cases/personal-morning-newspaper" className="text-link" data-funnel-event="watch_tested_example_opened" data-funnel-surface="agent_watch" data-funnel-destination="morning_newspaper_first_task">
+              Try Daily Newspaper <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+            <Link href="/guides/fix-one-bad-ai-result" className="text-link" data-funnel-event="watch_diagnosis_guide_opened" data-funnel-surface="agent_watch" data-funnel-destination="diagnose_ai_result_guide">
+              Fix a bad AI answer <ArrowRight size={15} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>

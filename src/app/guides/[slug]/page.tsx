@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowSquareOut, Info, Warning } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
+import { CopyTextButton } from "@/components/copy-text-button";
 import { getGuide, GUIDES } from "@/data/guides";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -42,7 +43,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <div className="guide-meta">
             <span>{guide.readTime} read</span>
             <span>Updated {guide.updated}</span>
-            <EvidencePill kind="official">Official sources linked</EvidencePill>
+            <EvidencePill kind="official">Sources linked</EvidencePill>
           </div>
         </header>
 
@@ -52,7 +53,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               <h2>{section.heading}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
-              {section.code && <pre className="guide-code"><code>{section.code}</code></pre>}
+              {section.code && <div className="guide-code-block"><pre className="guide-code"><code>{section.code}</code></pre><CopyTextButton text={section.code} label="Copy this text" analyticsEvent="guide_example_copy" analyticsSurface="field_manual" /></div>}
               {section.note && <aside className="guide-note"><Warning size={19} weight="thin" /><p>{section.note}</p></aside>}
               {section.sources && (
                 <div className="guide-sources">

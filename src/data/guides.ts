@@ -35,6 +35,53 @@ const fieldNotes =
 
 export const GUIDES: Guide[] = [
   {
+    slug: "fix-one-bad-ai-result",
+    title: "Fix one bad AI result",
+    summary: "Use one failed answer to find a small correction, then check whether it actually helps. Try it as a one-time task in the AI chat you already use.",
+    audience: "Anyone whose AI assistant missed the mark",
+    readTime: "4 min",
+    updated: "2026-09-27",
+    coverImage: "/atelier/victorian-library-guides-v1.png",
+    sections: [
+      {
+        heading: "Start with one harmless example",
+        paragraphs: [
+          "Choose a task where you can tell what went wrong: a missed date, an invented source, a skipped instruction or the wrong format. Remove names, passwords and private records before sharing the prompt and answer with another service.",
+          "You do not need to install a new Bot. This is a one-time check you can run in the AI chat you already have. If the same kind of mistake keeps returning, the method can become a reusable skill later.",
+        ],
+      },
+      {
+        heading: "Ask for one correction",
+        paragraphs: [
+          "Fill in the four blanks below and paste the request into your AI chat. Ask it for one likely cause and one small change—not a complete rewrite of your setup.",
+        ],
+        code: `I want to fix one bad AI result. Do not change files, settings, or accounts.\n\nMy original task: [paste the exact task]\nThe answer I got: [paste the failed answer]\nWhat I expected instead: [describe the observable difference]\nWhat information and tools were available: [list only what matters]\n\nState the mistake in one sentence. Separate what you can see from what you are guessing. Name the single most likely cause and point to the task or answer that supports it. Suggest the smallest instruction change that might prevent it. Tell me what remains uncertain. Do not claim the change works until I rerun the same harmless task with only that change.`,
+      },
+      {
+        heading: "Run the same task again",
+        paragraphs: [
+          "Keep the original task and sample material. Change only the one instruction you chose, then run it again. Compare the new answer with what you expected. If it improves, keep the change; if not, put the old instruction back.",
+          "Ask before changing a standing Bot, a shared skill, access permissions or a scheduled job. A convincing explanation of a mistake is not proof that the proposed fix works.",
+        ],
+        bullets: [
+          "Can you point to the exact part of the first answer that failed?",
+          "Did the second run fix that problem without creating another one?",
+          "Did anything get sent, saved or changed without your approval?",
+        ],
+      },
+      {
+        heading: "Where this idea came from",
+        paragraphs: [
+          "This guide is Bot Cabinet's adaptation of the public Diagnose My Agent's Mistake workflow on Muse at Work. We reviewed its listing but have not run the original Muse workflow or tested this adaptation in each AI service. The steps above are a way to try the idea, not a claim of proven reliability.",
+        ],
+        sources: [
+          { label: "Original Muse at Work listing", href: "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c" },
+          { label: "Prepared Ops Skill file", href: "/downloads/starter-bots/v2/ops/skills/diagnose-ai-result/SKILL.md" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "use-a-bot-on-another-platform",
     title: "Use a Bot outside Hermes or Grok Bot",
     summary: "Move the Bot's job, rules and first test into ChatGPT, Claude or another agent service without pretending every platform works the same way.",
