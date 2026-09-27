@@ -22,7 +22,7 @@ const frictionLabels: Record<FirstBotRunFrictionReason, string> = {
   "something-else": "Something else",
 };
 
-export function FirstRunOutcomePrompt({ canReportWorked }: { canReportWorked: boolean }) {
+export function FirstRunOutcomePrompt() {
   const [reported, setReported] = useState<FirstBotRunOutcome>();
   const [friction, setFriction] = useState<FirstBotRunFrictionReason>();
 
@@ -51,18 +51,14 @@ export function FirstRunOutcomePrompt({ canReportWorked }: { canReportWorked: bo
       <div>
         <span>One-click outcome check</span>
         <h2 id="first-run-outcome-question">Did your Bot produce the expected result?</h2>
-        <p>
-          {canReportWorked
-            ? "Only your choice—worked or stuck—is recorded."
-            : "You can report a problem now. Mark the Run and Check steps complete before reporting success."}
-        </p>
+        <p>After trying the Bot, tell us what happened. If setup stopped you, choose “I got stuck.” Your checkmarks above only track your progress.</p>
       </div>
       <div className="first-run-outcome-actions" role="group" aria-label="Report your first Bot result">
         <button
           type="button"
           onClick={() => report("worked")}
           aria-pressed={reported === "worked"}
-          disabled={Boolean(reported) || !canReportWorked}
+          disabled={Boolean(reported)}
         >
           <CheckCircle size={18} aria-hidden="true" /> Yes, it worked
         </button>
