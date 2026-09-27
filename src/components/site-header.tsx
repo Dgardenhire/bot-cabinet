@@ -4,15 +4,16 @@ import { ArrowUpRight, List, X } from "@phosphor-icons/react/dist/ssr";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const PRIMARY_NAV_ITEMS = [
+  ["Start Here", "/start"],
   ["Fit Test", "/fit"],
   ["The Cabinet", "/bots"],
   ["My Workbench", "/workbench"],
   ["Bot Lab", "/workshop"],
   ["Agent Watch", "/watch"],
-  ["Field Manual", "/guides"],
 ] as const;
 
 const MORE_NAV_ITEMS = [
+  ["Field Manual", "/guides"],
   ["Portrait Studio", "/portraits"],
   ["Bot Workflows", "/use-cases"],
   ["Crew Kits", "/crew-kits"],
@@ -28,7 +29,7 @@ export function SiteHeader() {
       <div className="independent-bar">
         <span className="independent-note">
           <span className="status-lamp" aria-hidden="true" />
-          Independent guide to useful Bots · Starting with Hermes Agent
+          Independent guide to useful Bots · Across platforms
         </span>
         <a
           className="newsletter-top-link"

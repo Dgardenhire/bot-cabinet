@@ -109,8 +109,8 @@ export function BotPlatformChooser({
             adapter has not yet been installed or task-tested for {botName}.
           </p>
           <div className="bot-platform-actions">
-            <Link href="/guides/use-a-bot-on-another-platform" className="text-link">
-              Follow the ChatGPT setup <ArrowRight size={15} />
+            <Link href={`/start/chatgpt/${botSlug}`} className="text-link">
+              Set up {botName} in ChatGPT <ArrowRight size={15} />
             </Link>
           </div>
         </article>

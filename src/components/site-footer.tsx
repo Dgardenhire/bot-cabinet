@@ -17,7 +17,7 @@ export function SiteFooter() {
           </Link>
           <p>
             A free, independent guide to finding, understanding, and building useful
-            Bots, starting with Hermes Agent.
+            Bots across platforms.
           </p>
           <p className="footer-fineprint">
             Not affiliated with Nous Research. Hermes Agent is an open-source project;
