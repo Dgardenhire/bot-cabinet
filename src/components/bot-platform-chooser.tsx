@@ -36,16 +36,16 @@ export function BotPlatformChooser({
   return (
     <section
       className="bot-platform-chooser shell"
+      id="choose-platform"
       aria-labelledby={`${botSlug}-platform-heading`}
     >
       <div className="bot-platform-chooser-heading">
         <div>
-          <Eyebrow>Choose a platform</Eyebrow>
+          <Eyebrow>Choose where to use it</Eyebrow>
           <h2 id={`${botSlug}-platform-heading`}>Use {botName} on your platform</h2>
         </div>
         <p>
-          The job, limits, first task, Skill recipe, and Routine recipe stay
-          together. Each platform gets its own setup path and status.
+          Pick the app you have. Each path tells you what is ready and what still needs testing.
         </p>
       </div>
 
@@ -75,6 +75,9 @@ export function BotPlatformChooser({
               href={hermesArchiveUrl}
               download
               className="text-link"
+              data-funnel-event="bot_profile_download"
+              data-funnel-surface="bot_platform_chooser"
+              data-funnel-destination={botSlug}
             >
               Download the profile <DownloadSimple size={15} />
             </a>
@@ -162,11 +165,11 @@ export function BotPlatformChooser({
           </div>
         </article>
 
-        <article>
-          <div className="bot-platform-card-topline">
-            <FileCode size={24} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status">Platform-neutral core</span>
-          </div>
+      </div>
+
+      <details className="bot-platform-files">
+        <summary>Want the files to adapt this Bot elsewhere?</summary>
+        <div className="bot-platform-files-content">
           <h3>Portable Bot Pack</h3>
           <p>
             Keep the complete recipe as readable Markdown or structured JSON,
@@ -174,7 +177,7 @@ export function BotPlatformChooser({
             included Agent Skill uses the <code>SKILL.md</code> convention, but
             a shared file format does not prove identical behavior on every host.
           </p>
-          <div className="bot-platform-actions">
+          <div className="bot-platform-file-actions">
             <a
               href={paths.portableMarkdownUrl}
               download
@@ -201,8 +204,8 @@ export function BotPlatformChooser({
             </a>
           </div>
           <p className="bot-platform-portability-note">Prepared file. Review its instructions and permissions, then test it in the target agent before relying on it.</p>
-        </article>
-      </div>
+        </div>
+      </details>
     </section>
   );
 }

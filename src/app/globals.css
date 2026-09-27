@@ -922,6 +922,20 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
 .starter-detail-title { margin: 0 0 11px; color: var(--paper); font-size: 19px; font-weight: 600; }
 .starter-who { max-width: 700px; margin: 0 0 27px; color: var(--muted); font-size: 15px; line-height: 1.64; }
 .starter-install-note { max-width: 740px; margin: 14px 0 13px; color: var(--faint); font-size: 14px; line-height: 1.55; }
+.starter-install-note a { color: var(--brass-bright); text-decoration: underline; text-underline-offset: 3px; }
+.starter-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 24px; }
+.starter-first-task { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr); gap: clamp(28px,5vw,72px); align-items: start; border-bottom: 1px solid var(--line-soft); }
+.starter-first-task .section-deck { max-width: 720px; }
+.starter-first-task-facts { border-top: 1px solid var(--line); }
+.starter-first-task-facts p { display: grid; grid-template-columns: 130px 1fr; gap: 12px; margin: 0; padding: 16px 0; border-bottom: 1px solid var(--line-soft); color: var(--muted); font-size: 15px; line-height: 1.55; }
+.starter-first-task-facts strong { color: var(--paper); font-size: 13px; }
+.starter-workbench-section { border-bottom: 1px solid var(--line-soft); }
+.starter-workbench-section .section-deck { max-width: 720px; }
+.starter-detail-more { display: block; margin-block: 32px 76px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.starter-detail-more > summary { padding: 24px 4px; color: var(--paper); cursor: pointer; font: 400 clamp(24px,2.6vw,34px)/1.15 var(--serif); }
+.starter-detail-more > summary::marker { color: var(--brass-bright); font-size: 17px; }
+.starter-detail-more > summary:focus-visible { outline: 2px solid var(--brass-bright); outline-offset: 3px; }
+.starter-detail-more-content { border-top: 1px solid var(--line-soft); }
 .starter-detail-copy .copy-text-button.button { min-height: 50px; padding: 0 18px; border-radius: 2px; }
 .bot-platform-chooser { padding-block: 58px; border-bottom: 1px solid var(--line-soft); }
 .bot-platform-chooser-heading {
@@ -931,10 +945,10 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
 .bot-platform-chooser-heading .eyebrow { margin-bottom: 12px; }
 .bot-platform-chooser-heading h2 { margin: 0; color: var(--paper); font: 400 clamp(38px,3.5vw,54px)/1 var(--serif); letter-spacing: -.025em; }
 .bot-platform-chooser-heading > p { max-width: 620px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
-.bot-platform-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.bot-platform-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
 .bot-platform-portability-note { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft); font-size: 13px; }
 .bot-platform-grid article {
-  min-height: 330px; display: flex; flex-direction: column; padding: 24px;
+  min-height: 280px; display: flex; flex-direction: column; padding: 24px;
   border: 1px solid var(--line); border-radius: 7px; background: var(--ink-soft);
 }
 .bot-platform-card-topline { display: flex; justify-content: space-between; align-items: start; gap: 14px; }
@@ -946,6 +960,13 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
 .bot-platform-grid article > p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
 .bot-platform-actions { display: grid; justify-items: start; gap: 12px; margin-top: auto; padding-top: 26px; }
 .bot-platform-actions .copy-text-button { width: max-content; max-width: 100%; }
+.bot-platform-files { margin-top: 20px; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.bot-platform-files > summary { padding: 17px 2px; color: var(--brass-bright); cursor: pointer; font: 13px var(--mono); }
+.bot-platform-files > summary:focus-visible { outline: 2px solid var(--brass-bright); outline-offset: 3px; }
+.bot-platform-files-content { max-width: 900px; padding: 6px 2px 24px; }
+.bot-platform-files-content h3 { margin: 6px 0 10px; color: var(--paper); font: 400 30px/1.1 var(--serif); }
+.bot-platform-files-content > p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
+.bot-platform-file-actions { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 18px; }
 .starter-pack-v2-section { border-bottom: 1px solid var(--line-soft); }
 .bot-pack-v2 { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--ink-soft); }
 .bot-pack-v2-heading {
@@ -2085,6 +2106,11 @@ html[data-theme="light"] .grok-sharing-facts article { border-color: rgba(43,104
 .bot-passport-details summary { padding-top: 15px; color: var(--brass-bright); cursor: pointer; font: 12px var(--mono); }
 .starter-passport-section { padding-top: 28px; padding-bottom: 28px; }
 
+@media (max-width: 800px) {
+  .starter-first-task { grid-template-columns: 1fr; }
+  .starter-first-task-facts p { grid-template-columns: 1fr; gap: 3px; }
+}
+
 /* Guided first run */
 .start-choice-hero { max-width: 990px; padding-block: 78px 42px; }
 .start-choice-hero h1 { max-width: 850px; margin: 12px 0 18px; color: var(--paper); font: 400 clamp(48px,6vw,80px)/.98 var(--serif); letter-spacing: -.035em; }
@@ -2228,7 +2254,6 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .bot-platform-chooser-heading { grid-template-columns: 1fr; gap: 20px; }
   .bot-pack-v2-heading { grid-template-columns: 1fr; gap: 20px; }
   .bot-platform-grid { grid-template-columns: 1fr 1fr; }
-  .bot-platform-grid article:last-child { grid-column: 1/-1; min-height: 280px; }
   .grok-platform-hero { grid-template-columns: 1fr; align-items: start; }
   .grok-platform-status-panel { max-width: 760px; }
   .grok-platform-map-heading, .grok-template-heading { grid-template-columns: 1fr; gap: 20px; }
@@ -2296,7 +2321,6 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .bot-pack-v2-job, .bot-pack-v2-recipes { grid-template-columns: 1fr; }
   .bot-pack-v2-job article, .bot-pack-v2-recipes article { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line-soft); }
   .bot-pack-v2-job article:last-child, .bot-pack-v2-recipes article:last-child { border-bottom: 0; }
-  .bot-platform-grid article:last-child { grid-column: auto; }
   .grok-platform-map-grid { grid-template-columns: 1fr; }
   .grok-platform-map-connector { min-height: 58px; }
   .grok-platform-map-connector svg { transform: rotate(90deg); }
