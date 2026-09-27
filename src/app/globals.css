@@ -2089,10 +2089,10 @@ html[data-theme="light"] .grok-sharing-facts article { border-color: rgba(43,104
 .start-choice-hero { max-width: 990px; padding-block: 78px 42px; }
 .start-choice-hero h1 { max-width: 850px; margin: 12px 0 18px; color: var(--paper); font: 400 clamp(48px,6vw,80px)/.98 var(--serif); letter-spacing: -.035em; }
 .start-choice-hero p { max-width: 670px; margin: 0; color: var(--muted); font-size: 20px; line-height: 1.55; }
-.start-choice-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.start-choice-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
 .start-choice-grid article { display: flex; flex-direction: column; align-items: flex-start; min-height: 340px; padding: 34px; border: 1px solid var(--line); background: var(--ink-soft); }
 .start-choice-number { color: var(--brass-bright); font: 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.start-choice-grid h2 { margin: 24px 0 12px; color: var(--paper); font: 400 39px/1.05 var(--serif); }
+.start-choice-grid h2 { margin: 24px 0 12px; color: var(--paper); font: 400 34px/1.05 var(--serif); }
 .start-choice-grid p { max-width: 530px; margin: 0 0 26px; color: var(--muted); font-size: 16px; line-height: 1.6; }
 .start-choice-grid small { display: block; max-width: 530px; margin-top: auto; padding-top: 20px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 .start-choice-more { padding-block: 64px 88px; }
@@ -2202,6 +2202,8 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
 }
 
 @media (max-width: 1120px) {
+  .start-choice-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .start-choice-grid article:last-child { grid-column: 1/-1; }
   .agent-watch-hero { grid-template-columns: 1fr; align-items: start; }
   .agent-watch-source-groups { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .agent-watch-source-groups > div:nth-child(2) { border-right: 0; }
@@ -2242,6 +2244,7 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
 
 @media (max-width: 780px) {
   .start-choice-grid { grid-template-columns: 1fr; }
+  .start-choice-grid article:last-child { grid-column: auto; }
   .start-choice-grid article { min-height: 0; padding: 26px; }
   .start-choice-hero { padding-block: 58px 30px; }
   .workspace-start-wrap { padding-block: 32px 72px; }

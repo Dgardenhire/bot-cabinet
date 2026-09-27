@@ -7,15 +7,30 @@ import { workspaceAgentBuilderText, workspaceAgentFirstTest } from "@/lib/chatgp
 import StartPage from "./page";
 import HermesStartPage from "./hermes/page";
 import ChatGPTStartPage, { generateStaticParams } from "./chatgpt/[slug]/page";
+import GrokStartPage from "./grok/page";
 
 describe("first-use paths", () => {
-  it("lets visitors choose Hermes or ChatGPT before a long setup guide", () => {
+  it("lets visitors choose Hermes, ChatGPT, or Grok Bot before a long setup guide", () => {
     const html = renderToStaticMarkup(<StartPage />);
     expect(html).toContain("Get one useful result from a Bot");
     expect(html).toContain('href="/start/hermes"');
     expect(html).toContain('href="/start/chatgpt/chief-of-staff"');
+    expect(html).toContain('href="/start/grok"');
+    expect(html).toContain("manual build guide, not an import");
+    expect(html).toContain("has not runtime-tested them in Grok Bot");
     expect(html).not.toContain("Follow the checkpoints");
     expect(renderToStaticMarkup(<HermesStartPage />)).toContain("Put Scout to work");
+  });
+
+  it("gives Grok visitors a bounded first task without claiming an import or test", () => {
+    const html = renderToStaticMarkup(<GrokStartPage />);
+    expect(html).toContain("Try Scout in Grok Bot");
+    expect(html).toContain("Copy Scout&#x27;s job");
+    expect(html).toContain("Copy first task");
+    expect(html).toContain("https://docs.x.ai/grok-bot/get-started");
+    expect(html).toContain("/downloads/grok-bot-templates/scout.md");
+    expect(html).toContain("has not installed or task-tested Scout in Grok Bot");
+    expect(html).toContain("do not add a schedule or outside accounts yet");
   });
 
   it("builds an honest, first-testable ChatGPT route for every starter Bot", async () => {
