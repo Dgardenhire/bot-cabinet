@@ -6,7 +6,6 @@ import {
   ArrowUpRight,
   BookOpenText,
   CheckCircle,
-  FileMagnifyingGlass,
   Flask,
   GitBranch,
   HardDrives,
@@ -87,30 +86,17 @@ export default function Home() {
             <p className="hero-kicker">Bot Cabinet · find a useful place to start</p>
             <h1 className="hero-title">Find a Bot that makes your day easier</h1>
             <p className="hero-deck">
-              See what people are building, pick an idea that fits your life or work, and
-              try it for yourself. Browse new Bots, follow clear guides, or download a
-              ready-made starting point for Hermes. We show what has actually been tested.
+              Find a useful idea, choose where to run it, and try one real task.
+              Each Bot page tells you what has—and has not—been tested.
             </p>
             <div className="button-row">
               <Link href="/start" className="button button-primary" data-funnel-event="homepage_start_first_bot" data-funnel-surface="homepage">
                 Start your first Bot <ArrowRight size={16} aria-hidden="true" />
               </Link>
-              <Link href="#bot-in-action" className="button button-secondary" data-funnel-event="homepage_watch_bot" data-funnel-surface="homepage">
-                Watch a Bot work <BookOpenText size={16} aria-hidden="true" />
+              <Link href="/watch/" className="button button-secondary" data-funnel-event="homepage_agent_watch" data-funnel-surface="homepage">
+                See new Bot ideas <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-            <div className="hero-evidence" aria-label="What the site provides">
-              <span>
-                <GitBranch size={17} weight="thin" aria-hidden="true" /> Practical starter roles
-              </span>
-              <span>
-                <FileMagnifyingGlass size={17} weight="thin" aria-hidden="true" /> Step-by-step setup guides
-              </span>
-              <span>
-                <ShieldCheck size={17} weight="thin" aria-hidden="true" /> Source and test status shown
-              </span>
-            </div>
-            <TextLink href="/watch/">See new Bot ideas</TextLink>
           </div>
           <div className="hero-visual" aria-label="A cream and burgundy workshop robot">
             <Image

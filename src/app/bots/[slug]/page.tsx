@@ -81,14 +81,12 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
             </div>
             <div className="registry-detail-copy">
               <Eyebrow>{STARTER_CATEGORY_LABELS[bot.category]}</Eyebrow>
-              <p className="starter-status-label">{bot.showcase ? "Bot Showcase · free starter" : "Free starter · role and instructions included"}</p>
               <h1>{bot.name}</h1>
               <h2 className="starter-detail-title">{bot.title}</h2>
               <p className="registry-detail-summary">{bot.summary}</p>
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
               <div className="starter-hero-actions">
-                <a href="#choose-platform" className="button button-primary" data-funnel-event="bot_choose_platform" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Use {bot.name} <ArrowRight size={16} aria-hidden="true" /></a>
-                <a href="#first-task" className="text-link">See the first task <ArrowRight size={15} aria-hidden="true" /></a>
+                <a href="#choose-platform" className="button button-primary" data-funnel-event="bot_choose_platform" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Choose where to use it <ArrowRight size={16} aria-hidden="true" /></a>
               </div>
               <p className="starter-install-note">
                 {runtimeEvidence ? "One recorded task run is available." : portablePackV2.platforms.hermes.importEvidence ? "Hermes archive import checked; a full task run is still pending." : "Prepared, but not yet task-tested."}{" "}
@@ -99,14 +97,11 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
-      {bot.showcase && (
-        <section className="content-section shell">
-          <Eyebrow>Bot Showcase</Eyebrow>
-          <h2 className="section-heading">{bot.showcase.tagline}</h2>
-          <p className="section-deck">{bot.showcase.sample}</p>
-          <p>This fictional example illustrates the intended result; it is not a recorded Bot run.</p>
-        </section>
-      )}
+      <BotPlatformChooser
+        hermesImportCommand={importCommand}
+        pack={portablePackV2}
+        runtimeEvidence={runtimeEvidence}
+      />
 
       <section className="content-section shell starter-first-task" id="first-task">
         <div>
@@ -117,19 +112,20 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         <div className="starter-first-task-facts">
           <p><strong>Bring</strong>{bot.setup[0]}</p>
           <p><strong>Look for</strong>{bot.produces[0]}</p>
-          <p><strong>Review before using</strong>{bot.boundaries[0]}</p>
         </div>
       </section>
-
-      <BotPlatformChooser
-        hermesImportCommand={importCommand}
-        pack={portablePackV2}
-        runtimeEvidence={runtimeEvidence}
-      />
 
       <details className="starter-detail-more shell" id="review-details" suppressHydrationWarning>
         <summary>Read the job, safety rules, files, and test record</summary>
         <div className="starter-detail-more-content">
+      {bot.showcase && (
+        <section className="content-section">
+          <Eyebrow>Example</Eyebrow>
+          <h2 className="section-heading">{bot.showcase.tagline}</h2>
+          <p className="section-deck">{bot.showcase.sample}</p>
+          <p>This fictional example shows the intended result; it is not a recorded Bot run.</p>
+        </section>
+      )}
       <p><Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <ArrowRight size={15} aria-hidden="true" /></Link></p>
       <section className="content-section">
         <Eyebrow>Job contract</Eyebrow>
