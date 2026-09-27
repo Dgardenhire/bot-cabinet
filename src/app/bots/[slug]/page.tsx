@@ -95,7 +95,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
               <div className="button-row">
                 <a href={portablePackV2.platforms.hermes.archiveUrl} download className="button button-primary" data-funnel-event="bot_profile_download" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Download for Hermes Desktop <DownloadSimple size={16} /></a>
-                <Link href={`/start/grok/${bot.slug}`} className="button button-secondary">Set up in Grok Bot <ArrowRight size={16} /></Link>
+                <Link href={`/start/grok/${bot.slug}`} className="button button-secondary" data-funnel-event="grok_guided_setup_open" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Set up in Grok Bot <ArrowRight size={16} /></Link>
                 <a href={portablePackV2Paths.portableMarkdownUrl} download className="button button-secondary">Download Bot Pack 2.0 <DownloadSimple size={16} /></a>
                 <a href="#files-and-review" className="button button-secondary">View files and review status <ShieldCheck size={16} /></a>
               </div>

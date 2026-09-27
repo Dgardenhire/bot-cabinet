@@ -24,7 +24,7 @@ function isGrokTemplateUrl(value: string | undefined): value is string {
 export function LiveBotListingLinks({ item }: { item: Pick<LiveBotListing, "sourceUrl" | "originalUrl"> }) {
   const templateUrl = [item.originalUrl, item.sourceUrl].find(isGrokTemplateUrl);
   return <div className="live-bot-list-links">
-    {templateUrl && <a href={templateUrl} target="_blank" rel="noopener noreferrer">Open Grok Bot template <ArrowSquareOut size={13} /></a>}
+    {templateUrl && <a href={templateUrl} target="_blank" rel="noopener noreferrer" data-funnel-event="native_template_open" data-funnel-surface="agent_watch" data-funnel-destination="grok_bot">Open Grok Bot template <ArrowSquareOut size={13} /></a>}
     {item.sourceUrl !== templateUrl && <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>}
     {item.originalUrl && item.originalUrl !== templateUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}
   </div>;

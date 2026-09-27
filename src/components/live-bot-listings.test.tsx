@@ -22,6 +22,7 @@ describe("current listing source links", () => {
     }} />);
 
     expect(html).toContain("Open Grok Bot template");
+    expect(html).toContain('data-funnel-event="native_template_open"');
     expect(html.indexOf("Open Grok Bot template")).toBeLessThan(html.indexOf("View listing"));
     expect(html).not.toContain("Original link");
   });
