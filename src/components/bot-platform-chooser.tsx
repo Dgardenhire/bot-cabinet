@@ -7,6 +7,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { CopyTextButton } from "./copy-text-button";
+import { BotWorkbench } from "./bot-workbench";
 import { Eyebrow } from "./ui";
 import {
   portableBotPackV2ArtifactPaths,
@@ -49,10 +50,11 @@ export function BotPlatformChooser({
         </p>
       </div>
 
-      <div className="bot-platform-grid">
-        <article>
-          <div className="bot-platform-card-topline">
+      <div className="bot-platform-list">
+        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+          <summary>
             <Package size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">Hermes Agent</span>
             <span className="bot-platform-status is-available">
               {runtimeEvidence
                 ? "Bounded task passed"
@@ -60,8 +62,9 @@ export function BotPlatformChooser({
                   ? "Archive import passed"
                   : "Prepared profile · import test pending"}
             </span>
-          </div>
-          <h3>Hermes Agent</h3>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Import the prepared profile, review its files, choose the access it
             needs, and run the first assignment. {runtimeEvidence
@@ -98,14 +101,21 @@ export function BotPlatformChooser({
               </Link>
             )}
           </div>
-        </article>
-
-        <article>
-          <div className="bot-platform-card-topline">
-            <FileCode size={24} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+          <div className="bot-platform-tracker">
+            <p className="bot-platform-tracker-label">Keep track of your first Hermes run</p>
+            <BotWorkbench botSlug={botSlug} botName={botName} packVersion={pack.packVersion} />
           </div>
-          <h3>ChatGPT Workspace Agent</h3>
+          </div>
+        </details>
+
+        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+          <summary>
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">ChatGPT Workspace Agent</span>
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Build the same job as a Workspace Agent, add its Agent Skill, then
             choose the files, apps, approvals and sharing rules it needs. This
@@ -116,14 +126,17 @@ export function BotPlatformChooser({
               Set up {botName} in ChatGPT <ArrowRight size={15} />
             </Link>
           </div>
-        </article>
-
-        <article>
-          <div className="bot-platform-card-topline">
-            <FileCode size={24} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
           </div>
-          <h3>Claude</h3>
+        </details>
+
+        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+          <summary>
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">Claude</span>
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Use a Cowork plugin or Skill for a general work role. Use Claude Code
             only when the job belongs to a codebase or local project. This adapter
@@ -134,16 +147,19 @@ export function BotPlatformChooser({
               Follow the Claude setup <ArrowRight size={15} />
             </Link>
           </div>
-        </article>
+          </div>
+        </details>
 
-        <article>
-          <div className="bot-platform-card-topline">
+        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+          <summary>
             <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">Grok Bot</span>
             <span className="bot-platform-status is-prepared">
               Prepared · test pending
             </span>
-          </div>
-          <h3>Grok Bot</h3>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Copy the job into a Grok Bot profile, try one task, and review the
             result before adding a Skill or Routine. Runtime testing is still pending.
@@ -163,7 +179,8 @@ export function BotPlatformChooser({
               See how the adaptation works <ArrowRight size={15} />
             </Link>
           </div>
-        </article>
+          </div>
+        </details>
 
       </div>
 

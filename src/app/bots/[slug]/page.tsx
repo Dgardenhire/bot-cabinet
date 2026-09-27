@@ -15,7 +15,6 @@ import { Eyebrow } from "@/components/ui";
 import { BotPackV2Panel } from "@/components/bot-pack-v2-panel";
 import { BotPassportPanel } from "@/components/bot-passport-panel";
 import { BotPlatformChooser } from "@/components/bot-platform-chooser";
-import { BotWorkbench } from "@/components/bot-workbench";
 import { LegacyRoute } from "@/components/legacy-route";
 import {
   STARTER_BOTS,
@@ -127,13 +126,6 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         pack={portablePackV2}
         runtimeEvidence={runtimeEvidence}
       />
-
-      <section className="content-section shell starter-workbench-section">
-        <Eyebrow>After setup</Eyebrow>
-        <h2 className="section-heading">Keep track of your first Hermes run</h2>
-        <p className="section-deck">These checkmarks record what you did in this browser. They are not independent verification by Bot Cabinet.</p>
-        <BotWorkbench botSlug={bot.slug} botName={bot.name} packVersion={portablePackV2.packVersion} />
-      </section>
 
       <details className="starter-detail-more shell" id="review-details" suppressHydrationWarning>
         <summary>Read the job, safety rules, files, and test record</summary>
