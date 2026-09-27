@@ -39,7 +39,7 @@ export default function StartPage() {
           <Link href="/start/chatgpt/chief-of-staff" className="button button-primary" data-funnel-event="first_run_choose_chatgpt" data-funnel-surface="start_page">
             Start with ChatGPT <ArrowRight size={16} aria-hidden="true" />
           </Link>
-          <small>For Business, Enterprise, or Edu workspaces where an admin has enabled Workspace Agents. Setup and task testing are still yours to do.</small>
+          <small>Workspace Agents are in research preview for Business, Enterprise, and Edu. Your admin must enable access and let you create agents. Setup and task testing are still yours to do.</small>
         </article>
       </section>
 

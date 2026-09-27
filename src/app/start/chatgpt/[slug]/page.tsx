@@ -53,7 +53,7 @@ export default async function ChatGPTStartPage({ params }: { params: Promise<{ s
             <span className="workspace-start-step-number">1</span>
             <div>
               <h2>Check access</h2>
-              <p>You need a Business, Enterprise, or Edu workspace with Workspace Agents enabled by its admin. If you do not see the agent builder, ask your workspace admin. You can still use the <Link href={`/bots/${slug}`}>Bot&apos;s readable plan</Link> in another tool.</p>
+              <p>Workspace Agents are in research preview for Business, Enterprise, and Edu. Your admin must enable them and give you permission to create one. If you do not see the builder, ask your admin. You can still use the <Link href={`/bots/${slug}`}>Bot&apos;s readable plan</Link> in another tool.</p>
               <a href="https://developers.openai.com/cookbook/articles/chatgpt-agents-sales-meeting-prep" className="text-link" target="_blank" rel="noopener noreferrer">Read OpenAI&apos;s Workspace Agent guide <ArrowRight size={16} aria-hidden="true" /></a>
             </div>
           </li>
