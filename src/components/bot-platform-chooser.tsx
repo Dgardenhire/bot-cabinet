@@ -8,6 +8,7 @@ import {
 
 import { CopyTextButton } from "./copy-text-button";
 import { BotWorkbench } from "./bot-workbench";
+import { OpenBotWorkbenchOnHash } from "./open-bot-workbench-on-hash";
 import { Eyebrow } from "./ui";
 import {
   portableBotPackV2ArtifactPaths,
@@ -51,7 +52,7 @@ export function BotPlatformChooser({
       </div>
 
       <div className="bot-platform-list">
-        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
           <summary>
             <Package size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-option-name">Hermes Agent</span>
@@ -108,7 +109,7 @@ export function BotPlatformChooser({
           </div>
         </details>
 
-        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
           <summary>
             <FileCode size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-option-name">ChatGPT Workspace Agent</span>
@@ -129,7 +130,7 @@ export function BotPlatformChooser({
           </div>
         </details>
 
-        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
           <summary>
             <FileCode size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-option-name">Claude</span>
@@ -150,7 +151,7 @@ export function BotPlatformChooser({
           </div>
         </details>
 
-        <details className="bot-platform-option" name={`${botSlug}-platform`}>
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
           <summary>
             <FileCode size={24} weight="thin" aria-hidden="true" />
             <span className="bot-platform-option-name">Grok Bot</span>
@@ -183,6 +184,8 @@ export function BotPlatformChooser({
         </details>
 
       </div>
+
+      <OpenBotWorkbenchOnHash />
 
       <details className="bot-platform-files">
         <summary>Want the files to adapt this Bot elsewhere?</summary>

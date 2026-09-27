@@ -7,6 +7,8 @@ import {
   BOT_MAX_RECORDED_RUNS,
   BOT_CHECKPOINT_IDS,
   BOT_RUN_CHECKPOINT_IDS,
+  BOT_SETUP_CHECKPOINT_IDS,
+  canReportBotRun,
   clearBotProgress,
   emptyBotProgress,
   markBotProgressStarted,
@@ -34,6 +36,7 @@ const runSteps = [
 
 const checkpointIds = BOT_CHECKPOINT_IDS;
 const runCheckpointIds = BOT_RUN_CHECKPOINT_IDS;
+const setupCheckpointIds = BOT_SETUP_CHECKPOINT_IDS;
 
 export function BotWorkbench({ botSlug, botName, packVersion }: {
   botSlug: string;
@@ -41,8 +44,9 @@ export function BotWorkbench({ botSlug, botName, packVersion }: {
   packVersion: string;
 }) {
   const [record, setRecord] = useState<BotProgressRecord>(() => emptyBotProgress(packVersion));
-  const complete = Object.keys(record.checked).length;
-  const cycleReady = complete === checkpointIds.length;
+  const runComplete = runCheckpointIds.filter(id => record.checked[id]).length;
+  const setupComplete = setupCheckpointIds.filter(id => record.checked[id]).length;
+  const cycleReady = canReportBotRun(record);
   const runLimitReached = record.runs.length >= BOT_MAX_RECORDED_RUNS;
   const nextRun = record.runs.length + 1;
 
@@ -100,8 +104,8 @@ export function BotWorkbench({ botSlug, botName, packVersion }: {
         <div><span>Your Bot workbench</span><h3>Continue after the download</h3></div>
         <small>Pack {packVersion}</small>
       </div>
-      <p><strong>{complete} of {checkpointIds.length} current-cycle checkpoints recorded.</strong> These are your confirmations, not independent Cabinet verification. Progress stays in this browser.</p>
-      <progress className={styles.progress} max={checkpointIds.length} value={complete} aria-label={`${botName} setup and run progress`} />
+      <p><strong>Run checks: {runComplete} of {runCheckpointIds.length}.</strong> Installation record: {setupComplete} of {setupCheckpointIds.length}. Report an outcome after running a task and checking its result. Leave installation boxes blank for steps you did not personally do. These are your confirmations, not independent Cabinet verification. Progress stays in this browser.</p>
+      <progress className={styles.progress} max={runCheckpointIds.length} value={runComplete} aria-label={`${botName} current run progress`} />
       <div className={styles.grid}>
         <fieldset><legend>Set up once</legend>{checklist(setupSteps)}</fieldset>
         <fieldset><legend>Check each real run</legend>{checklist(runSteps)}</fieldset>

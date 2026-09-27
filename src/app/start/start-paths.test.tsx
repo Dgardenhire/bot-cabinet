@@ -16,8 +16,8 @@ describe("first-use paths", () => {
     expect(html).toContain('href="/start/hermes"');
     expect(html).toContain('href="/start/chatgpt/chief-of-staff"');
     expect(html).toContain('href="/start/grok"');
-    expect(html).toContain("manual build guide, not an import");
-    expect(html).toContain("has not runtime-tested them in Grok Bot");
+    expect(html).toContain("Manual setup, not a one-click import");
+    expect(html).toContain("have not been tested in Grok Bot");
     expect(html).not.toContain("Follow the checkpoints");
     expect(renderToStaticMarkup(<HermesStartPage />)).toContain("Put Scout to work");
   });
