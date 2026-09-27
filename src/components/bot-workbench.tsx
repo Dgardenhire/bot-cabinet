@@ -18,6 +18,7 @@ import {
   type BotProgressRecord,
   type BotRunOutcome,
 } from "@/lib/bot-progress";
+import { reportFirstBotRunFromWorkbenchOnce } from "@/lib/first-run-outcome";
 import styles from "./bot-workbench.module.css";
 
 const setupSteps = [
@@ -71,6 +72,9 @@ export function BotWorkbench({ botSlug, botName, packVersion }: {
 
   function reportRun(outcome: BotRunOutcome) {
     if (!cycleReady || runLimitReached) return;
+    if (record.runs.length === 0) {
+      reportFirstBotRunFromWorkbenchOnce(window.localStorage, outcome, track);
+    }
     sendBotRunOutcomeReport(botSlug, packVersion, outcome, record.runs.length, track);
     const next = recordBotRun(record, outcome, runCheckpointIds);
     setRecord(next);

@@ -102,6 +102,21 @@ export function reportFirstBotRunOnce(
   return { record, sent: true } as const;
 }
 
+/** A Bot workbench run is a visitor report, not an independently verified test. */
+export function reportFirstBotRunFromWorkbenchOnce(
+  storage: MinimalStorage,
+  outcome: "useful" | "needs-work",
+  send: (event: string, properties: { outcome: FirstBotRunOutcome }) => void,
+  reportedAt = Date.now(),
+) {
+  return reportFirstBotRunOnce(
+    storage,
+    outcome === "useful" ? "worked" : "stuck",
+    send,
+    reportedAt,
+  );
+}
+
 export function readFirstBotRunRecord(storage: MinimalStorage): FirstBotRunRecord | undefined {
   try {
     const value = JSON.parse(storage.getItem(FIRST_BOT_RUN_STORAGE_KEY) ?? "null");
