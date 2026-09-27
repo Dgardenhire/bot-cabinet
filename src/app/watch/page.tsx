@@ -4,7 +4,7 @@ import { AgentWatchFeed } from "@/components/agent-watch-feed";
 import { AgentWatchSources } from "@/components/agent-watch-sources";
 import { LiveBotListings } from "@/components/live-bot-listings";
 import { Eyebrow } from "@/components/ui";
-import { AGENT_WATCH_ITEMS, AGENT_WATCH_UPDATED } from "@/data/agent-watch";
+import { AGENT_WATCH_ITEMS } from "@/data/agent-watch";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -20,7 +20,7 @@ export default function AgentWatchPage() {
     <main id="main-content" className="page-main agent-watch-page">
       <section className="inner-hero">
         <div className="shell">
-          <Eyebrow>New and noteworthy · Updated {AGENT_WATCH_UPDATED}</Eyebrow>
+          <Eyebrow>New and noteworthy</Eyebrow>
           <h1 className="inner-title">Agent Watch</h1>
           <p className="inner-deck">
             Find new Bots and ways to use AI. Browse fresh listings from around the web, then see which ideas we have looked into more closely.

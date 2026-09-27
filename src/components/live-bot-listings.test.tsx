@@ -1,7 +1,29 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import { LiveBotListingLinks } from "./live-bot-listings";
+import type { LiveBotListing } from "@/lib/live-bot-listings";
+import { filterLiveListings, LiveBotListingLinks } from "./live-bot-listings";
+
+const example = (kind: LiveBotListing["kind"]): LiveBotListing => ({
+  id: kind,
+  name: kind,
+  job: "A useful job",
+  creator: "Example creator",
+  source: "Grok Bot Marketplace",
+  sourceUrl: "https://x.ai/bot/marketplace",
+  kind,
+});
+
+describe("current listing filters", () => {
+  it("leads with usable Bots and workflows without hiding other kinds from All", () => {
+    const items = (["Repository", "Bot", "Release", "Workflow", "Tool", "Team", "Role"] as const).map(example);
+
+    expect(filterLiveListings(items, "Bots & workflows").map((item) => item.kind))
+      .toEqual(["Bot", "Workflow", "Team", "Role"]);
+    expect(filterLiveListings(items, "All")).toEqual(items);
+    expect(filterLiveListings(items, "Release").map((item) => item.kind)).toEqual(["Release"]);
+  });
+});
 
 describe("current listing source links", () => {
   it("does not describe a marketplace listing as open-source software", () => {
