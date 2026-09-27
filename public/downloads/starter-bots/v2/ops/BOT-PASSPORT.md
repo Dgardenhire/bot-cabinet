@@ -3,7 +3,7 @@
 - **Artifact ID:** bot-cabinet:bot:ops:portable-pack
 - **Role:** Operations monitoring assistant
 - **Planned risk:** Elevated
-- **Pack version:** 2.0.0
+- **Pack version:** 2.0.1
 
 ## Requested capabilities
 

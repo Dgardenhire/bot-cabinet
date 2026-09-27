@@ -1,5 +1,5 @@
 name: ops
-version: "2.0.0"
+version: "2.0.1"
 description: "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes."
 hermes_requires: ">=0.21.0"
 author: "Bot Cabinet"
@@ -11,3 +11,4 @@ distribution_owned:
   - BOT-PASSPORT.md
   - LICENSE
   - skills/ops-core/SKILL.md
+  - skills/diagnose-ai-result/SKILL.md

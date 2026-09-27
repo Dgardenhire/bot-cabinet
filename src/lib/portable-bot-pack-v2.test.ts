@@ -41,12 +41,12 @@ describe("Portable Bot Pack V2", () => {
 
       expect(parsePortableBotPackV2(pack)).toBe(pack);
       expect(pack.schemaVersion).toBe(2);
-      expect(pack.packVersion).toBe(bot.slug === "writer" ? "2.0.5" : bot.slug === "editor" ? "2.0.3" : "2.0.0");
+      expect(pack.packVersion).toBe(bot.slug === "writer" ? "2.0.5" : bot.slug === "editor" ? "2.0.3" : bot.slug === "ops" ? "2.0.1" : "2.0.0");
       expect(pack.preparationStatus).toBe("prepared");
       expect(pack.identity.slug).toBe(bot.slug);
       expect(pack.identity.portrait.url).toBe(bot.image);
       expect(pack.job.firstMission).toBe(bot.workshopDraft.firstRunTest);
-      expect(pack.skills).toHaveLength(1);
+      expect(pack.skills).toHaveLength(bot.slug === "ops" ? 2 : 1);
       expect(pack.routines).toHaveLength(1);
       expect(pack.skills[0].preparationStatus).toBe("prepared");
       expect(pack.skills[0].testStatus).toBe("not-tested");
@@ -64,6 +64,23 @@ describe("Portable Bot Pack V2", () => {
         "adaptation-prepared-not-tested",
       );
     }
+  });
+
+  it("adds an honestly untested diagnosis Skill to Ops", () => {
+    const ops = STARTER_BOTS.find((bot) => bot.slug === "ops")!;
+    const skill = starterBotToPortablePackV2(ops).skills[1];
+
+    expect(skill.artifactId).toBe(
+      "bot-cabinet:bot:ops:skill:diagnose-ai-result",
+    );
+    expect(skill.preparationStatus).toBe("prepared");
+    expect(skill.testStatus).toBe("not-tested");
+    expect(skill.steps).toContain(
+      "Run the same harmless example again with only that change, then compare the two results against the original expectation.",
+    );
+    expect(skill.prohibited).toContain(
+      "Do not claim a cause is proven until the same harmless example has been rerun with only the proposed change.",
+    );
   });
 
   it("normalizes each approval rule once before calculating risk", () => {

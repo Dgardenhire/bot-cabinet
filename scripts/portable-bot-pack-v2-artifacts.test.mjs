@@ -41,7 +41,7 @@ test("generated V2 index resolves every versioned artifact", async () => {
     );
 
     assert.equal(pack.schemaVersion, 2);
-    assert.equal(pack.packVersion, bot.slug === "writer" ? "2.0.5" : bot.slug === "editor" ? "2.0.3" : "2.0.0");
+    assert.equal(pack.packVersion, bot.slug === "writer" ? "2.0.5" : bot.slug === "editor" ? "2.0.3" : bot.slug === "ops" ? "2.0.1" : "2.0.0");
     assert.equal(pack.artifactId, bot.artifactId);
     assert.equal(pack.routines[0].activationStatus, "manual-test-required");
     assert.equal(pack.routines[0].testStatus, "not-tested");
@@ -77,6 +77,9 @@ test("generated V2 index resolves every versioned artifact", async () => {
       "distribution.yaml",
       "profile.yaml",
       `skills/${bot.slug}-core/SKILL.md`,
+      ...(bot.slug === "ops"
+        ? ["skills/diagnose-ai-result/SKILL.md"]
+        : []),
     ].sort();
     const archivePath = path.join(
       projectRoot,

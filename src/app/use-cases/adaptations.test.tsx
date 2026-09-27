@@ -25,6 +25,8 @@ describe("outcome-first workflow adaptations", () => {
     expect(html).toContain("What to check — not tested");
     expect(html).toContain("One bounded run passed");
     expect(html).toContain("/bots/daily-newspaper");
+    expect(html).toContain("Set up Daily Newspaper");
+    expect(html).not.toContain("Open the first Bot’s setup plan in Bot Lab");
     expect(html).toContain("/proof-room/daily-newspaper/runtime-summary.md");
   });
 });
