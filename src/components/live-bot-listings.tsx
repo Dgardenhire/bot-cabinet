@@ -8,8 +8,26 @@ import { AGENT_WATCH_API_URL } from "@/lib/agent-watch-live";
 type SourceState = { name: string; ok: boolean; count: number };
 type LiveFeed = { checkedAt: string; sources: SourceState[]; totalCount: number; items: LiveBotListing[] };
 
+function isGrokTemplateUrl(value: string | undefined): value is string {
+  if (!value) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "x.ai" && (
+      /^\/bot\/marketplace\/bots\/[a-z0-9-]+\/?$/i.test(url.pathname)
+      || /^\/bot\/[a-z0-9_-]{12,}\/?$/i.test(url.pathname)
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function LiveBotListingLinks({ item }: { item: Pick<LiveBotListing, "sourceUrl" | "originalUrl"> }) {
-  return <div className="live-bot-list-links"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>{item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}</div>;
+  const templateUrl = [item.originalUrl, item.sourceUrl].find(isGrokTemplateUrl);
+  return <div className="live-bot-list-links">
+    {templateUrl && <a href={templateUrl} target="_blank" rel="noopener noreferrer">Open Grok Bot template <ArrowSquareOut size={13} /></a>}
+    {item.sourceUrl !== templateUrl && <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>}
+    {item.originalUrl && item.originalUrl !== templateUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}
+  </div>;
 }
 
 function settleWithin<T>(promise: Promise<T>, milliseconds = 8_000): Promise<T> {

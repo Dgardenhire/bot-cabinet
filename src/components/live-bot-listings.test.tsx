@@ -14,4 +14,24 @@ describe("current listing source links", () => {
     expect(html).toContain("Original link");
     expect(html).not.toContain("Open source");
   });
+
+  it("puts a native Grok template link first when a directory supplies one", () => {
+    const html = renderToStaticMarkup(<LiveBotListingLinks item={{
+      sourceUrl: "https://www.grokhub.io/use-cases/example",
+      originalUrl: "https://x.ai/bot/EahHaI-kwO0hgWj6I45jC",
+    }} />);
+
+    expect(html).toContain("Open Grok Bot template");
+    expect(html.indexOf("Open Grok Bot template")).toBeLessThan(html.indexOf("View listing"));
+    expect(html).not.toContain("Original link");
+  });
+
+  it("uses the official marketplace detail page as the native template path", () => {
+    const html = renderToStaticMarkup(<LiveBotListingLinks item={{
+      sourceUrl: "https://x.ai/bot/marketplace/bots/the-morning-newspaper",
+    }} />);
+
+    expect(html).toContain("Open Grok Bot template");
+    expect(html).not.toContain("View listing");
+  });
 });
