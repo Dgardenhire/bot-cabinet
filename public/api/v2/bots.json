@@ -33,7 +33,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "961e8512a33911efc1ef8b4b0b9b566ee0e24d0d3a3f60aef482f30a4020ea5d"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -74,7 +75,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -115,7 +117,8 @@
           "hermesVersion": "0.21.3",
           "testedDate": "2026-09-20",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "550c3182a5b6e0d20c8e418464f299921d05e65b8b795590de6bf0282258e8a5"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -156,7 +159,8 @@
           "hermesVersion": "0.21.3",
           "testedDate": "2026-09-20",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "5cf5ac1d11b406df726894260d3cdb94b85abeda8650e6b5800552d2550f4975"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -197,7 +201,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -238,7 +243,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "f72a70696e86663a8d8e7e833c8e27eb7edca24114b3937da761549bc7643dc6"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -279,7 +285,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "dde7d90140283ebea8cefae60c66ba2dc558de7e47d621e52f6ca15839c67e73"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -320,7 +327,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "7e54f6d839f286ff83f738295692f7576f5d16fc30fc005e8ed44183ccbd7dfc"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -361,7 +369,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "46661088274f609a8c02a7287b001c22392b21f25213f9d20421fb9c31bc30cd"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -402,7 +411,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "36e3d3f8a324217e4cd3c55d917546297a50b0ce08678b640aa5f49e8ee382f6"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -443,7 +453,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "1961e655244acd16243ae0024ece46a43f40f28b1031b08c71d6647927d77dd1"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -484,7 +495,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -525,7 +537,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "89d8e806b829f5da753ca3fb783f8af263ef5cea473ff513c7b2747515cdd06b"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -566,7 +579,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "dc063a3d49b36adefbd00802258c4abb3918e22734e44c9764896533c7c2cfc3"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -607,7 +621,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "b7d295b903da56a02b61b51a0084de9d7ae89b3491b2a6409d520b292eb0eded"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -648,7 +663,8 @@
           "hermesVersion": "0.21.0",
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "b53f531951ce54975c2cbc1e1643e641fa536832cb61f2fbd7a6d1536852fafc"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -689,7 +705,8 @@
           "hermesVersion": "0.21.4",
           "testedDate": "2026-09-23",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "b731dd23e0209055752a287e8675934d8180f675a2518eac7ea400d73f92d28d"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -730,7 +747,8 @@
           "hermesVersion": "0.21.1",
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "7236d29be020f10bc9d87eadf3ec1b68c49e902aa293806ca0490d1e10532afa"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -771,7 +789,8 @@
           "hermesVersion": "0.21.1",
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "0cad677d1edd4649410f0dec954b29a7ea1731168f90d2b4dbc98b82f46eb698"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -812,7 +831,8 @@
           "hermesVersion": "0.21.1",
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
-        }
+        },
+        "sha256": "622788dce90e9e74de9c8e6ab419fb79a0f678d38a7b96229619d557e36ed001"
       },
       "grokBot": {
         "platformId": "grok-bot",

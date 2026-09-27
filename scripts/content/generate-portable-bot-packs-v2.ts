@@ -3,6 +3,7 @@ import {
   rm,
   writeFile,
 } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 import { STARTER_BOTS } from "../../src/data/starter-bots";
@@ -46,10 +47,12 @@ async function buildHermesArchives(
 
   const zipPath = path.join(outputRoot, `${slug}.zip`);
   const archivePath = path.join(outputRoot, `${slug}.tar.gz`);
+  const archive = createDeterministicTarGzip(slug, files);
   await Promise.all([
     writeOutputFile(zipPath, createDeterministicZip(files)),
-    writeOutputFile(archivePath, createDeterministicTarGzip(slug, files)),
+    writeOutputFile(archivePath, archive),
   ]);
+  return createHash("sha256").update(archive).digest("hex");
 }
 
 async function main() {
@@ -84,6 +87,7 @@ async function main() {
   );
 
   const packs = STARTER_BOTS.map(starterBotToPortablePackV2);
+  const archiveSha256BySlug = new Map<string, string>();
   for (const pack of packs) {
     const issues = validatePortableBotPackV2(pack);
     if (issues.length) {
@@ -101,7 +105,10 @@ async function main() {
         ),
       ),
     );
-    await buildHermesArchives(hermesDirectory, pack);
+    archiveSha256BySlug.set(
+      pack.identity.slug,
+      await buildHermesArchives(hermesDirectory, pack),
+    );
   }
 
   await Promise.all([
@@ -111,7 +118,7 @@ async function main() {
     ),
     writeOutputFile(
       path.join(apiDirectory, "bots.json"),
-      `${JSON.stringify(portableBotPackV2Catalog(packs), null, 2)}\n`,
+      `${JSON.stringify(portableBotPackV2Catalog(packs, archiveSha256BySlug), null, 2)}\n`,
     ),
     writeOutputFile(
       path.join(apiDirectory, "portable-bot-pack.schema.json"),

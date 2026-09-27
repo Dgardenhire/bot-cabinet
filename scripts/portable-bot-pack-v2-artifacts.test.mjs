@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { execFile as execFileCallback } from "node:child_process";
 import { mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
 import os from "node:os";
@@ -88,6 +89,12 @@ test("generated V2 index resolves every versioned artifact", async () => {
     const zipPath = path.join(
       projectRoot,
       `public${bot.hermes.readableFilesUrl}`,
+    );
+    const archiveBytes = await readFile(archivePath);
+    assert.equal(
+      bot.hermes.sha256,
+      createHash("sha256").update(archiveBytes).digest("hex"),
+      `${bot.slug} publisher digest must match the shipped archive`,
     );
     const [{ stdout: tarOutput }, { stdout: zipOutput }] = await Promise.all([
       execFile("tar", ["-tzf", archivePath]),
