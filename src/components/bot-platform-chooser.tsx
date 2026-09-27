@@ -142,16 +142,19 @@ export function BotPlatformChooser({
           </div>
           <h3>Grok Bot</h3>
           <p>
-            Use the build brief to create this role with Grok Bot&apos;s profile,
-            Skill, Routine, and sharing controls. Runtime testing is still pending.
+            Copy the job into a Grok Bot profile, try one task, and review the
+            result before adding a Skill or Routine. Runtime testing is still pending.
           </p>
           <div className="bot-platform-actions">
+            <Link href={`/start/grok/${botSlug}`} className="text-link">
+              Follow the guided setup <ArrowRight size={15} />
+            </Link>
             <a
               href={grokBriefUrl}
               download
               className="text-link"
             >
-              Download the Grok build brief <DownloadSimple size={15} />
+              Download the full recipe <DownloadSimple size={15} />
             </a>
             <Link href="/platforms/grok-bot" className="text-link">
               See how the adaptation works <ArrowRight size={15} />

@@ -24,6 +24,7 @@ describe("BotPlatformChooser", () => {
     expect(html).toContain('href="/guides/use-a-bot-on-another-platform"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout.tar.gz"');
     expect(html).toContain('href="/downloads/grok-bot-templates/v2/scout.md"');
+    expect(html).toContain('href="/start/grok/scout"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.md"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.json"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout/skills/scout-core/SKILL.md"');

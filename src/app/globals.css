@@ -2114,6 +2114,8 @@ html[data-theme="light"] .grok-sharing-facts article { border-color: rgba(43,104
 .workspace-start-copy details summary { color: var(--brass-bright); cursor: pointer; font: 13px var(--mono); }
 .workspace-start-copy pre { max-height: 340px; overflow: auto; margin: 14px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--paper); font: 13px/1.6 var(--mono); }
 .workspace-start-copy > pre { margin-top: 0; }
+.grok-setup-inputs { max-width: 760px; margin: 0 0 20px; padding-left: 24px; color: var(--paper); }
+.grok-setup-inputs li { margin: 5px 0; }
 .workspace-start-small, .workspace-start-small a { font-size: 13px !important; }
 .workspace-start-footer { padding-top: 45px; }
 .workspace-start-footer h2 { margin: 0 0 8px; color: var(--paper); font: 400 32px var(--serif); }
