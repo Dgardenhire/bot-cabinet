@@ -1,127 +1,52 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, CurrencyDollar, Desktop, EnvelopeSimple, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
-import { CopyTextButton } from "@/components/copy-text-button";
-import { FirstRunChecklist } from "@/components/first-run-checklist";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Start here · Your first Bot",
-  description: "Put Scout to work in Hermes Desktop with a clear five-step guide, an exact first prompt, and a visible success checkpoint.",
+  title: "Start here",
+  description: "Choose a useful first Bot and follow a short setup path for Hermes or ChatGPT Workspace Agents.",
   path: "/start/",
   image: "/brand/social/first-bot-1200x630.jpg",
-  imageAlt: "Start your first Bot with Bot Cabinet and Scout",
+  imageAlt: "Start using a Bot with Bot Cabinet",
 });
-
-const desktopSetupUrl = "https://botcabinet.com/start/";
-const desktopSetupEmail = `mailto:?subject=${encodeURIComponent("Continue Bot Cabinet setup on my computer")}&body=${encodeURIComponent(`Open this public setup guide on the computer where I will use Hermes Desktop:\n\n${desktopSetupUrl}`)}`;
 
 export default function StartPage() {
   return (
-    <main id="main-content" className="page-main first-run-page">
-      <section className="first-run-hero">
-        <div className="shell first-run-hero-grid">
-          <div className="first-run-hero-copy">
-            <Eyebrow>Your first Bot in about 10 minutes</Eyebrow>
-            <h1>Put Scout to work</h1>
-            <p>
-              Follow five plain-language steps to install Hermes Desktop, import a research Bot,
-              give it a real job, and check the result. Every step tells you what success looks like.
-            </p>
-            <div className="button-row">
-              <a href="#first-run-steps" className="button button-primary" data-funnel-event="first_run_guide_opened" data-funnel-surface="start_page">
-                Start the guide <ArrowRight size={16} aria-hidden="true" />
-              </a>
-              <Link href="/bots/scout" className="button button-secondary" data-funnel-event="first_run_scout_details" data-funnel-surface="start_page">
-                Meet Scout
-              </Link>
-            </div>
-            <div className="first-run-facts" aria-label="What to expect">
-              <span><Clock size={18} weight="thin" aria-hidden="true" /> About 10 minutes</span>
-              <span><CurrencyDollar size={18} weight="thin" aria-hidden="true" /> Bot Cabinet and Hermes are free</span>
-              <span><ShieldCheck size={18} weight="thin" aria-hidden="true" /> Start with public, low-risk material</span>
-            </div>
-          </div>
-          <figure className="first-run-hero-art">
-            <Image
-              src="/atelier/scout.jpg"
-              alt="Scout, a friendly brass and cream research Bot in a Victorian study"
-              width={1200}
-              height={1800}
-              priority
-            />
-            <figcaption>Scout · Research and source finding</figcaption>
-          </figure>
-        </div>
+    <main id="main-content" className="page-main start-choice-page">
+      <section className="content-section shell start-choice-hero">
+        <Eyebrow>Start here</Eyebrow>
+        <h1>Get one useful result from a Bot</h1>
+        <p>Pick where you want to use it. We&apos;ll show you what to set up, what to ask first, and how to tell whether the answer helped.</p>
       </section>
 
-      <section className="first-run-cost-note" aria-label="What you need">
-        <div className="shell">
-          <strong>What you need:</strong>
-          <span>A computer, Hermes Desktop, and a supported AI provider. Provider costs vary.</span>
-        </div>
+      <section className="shell start-choice-grid" aria-label="Choose where to use your Bot">
+        <article>
+          <span className="start-choice-number">01 · On your computer</span>
+          <h2>Use Hermes Desktop</h2>
+          <p>Start with Scout, a research Bot. Follow five steps from download to a short, source-checked brief.</p>
+          <Link href="/start/hermes" className="button button-primary" data-funnel-event="first_run_choose_hermes" data-funnel-surface="start_page">
+            Start with Hermes <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <small>Needs a computer, Hermes Desktop, and a supported AI provider. Provider costs vary.</small>
+        </article>
+        <article>
+          <span className="start-choice-number">02 · In your ChatGPT workspace</span>
+          <h2>Make a Workspace Agent</h2>
+          <p>Start with Chief of Staff, or choose another Cabinet Bot. Copy its job and limits into the agent builder, then try a sample task privately.</p>
+          <Link href="/start/chatgpt/chief-of-staff" className="button button-primary" data-funnel-event="first_run_choose_chatgpt" data-funnel-surface="start_page">
+            Start with ChatGPT <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <small>For Business, Enterprise, or Edu workspaces where an admin has enabled Workspace Agents. Setup and task testing are still yours to do.</small>
+        </article>
       </section>
 
-      <section className="shell first-run-desktop-handoff" aria-labelledby="desktop-handoff-title">
-        <Desktop size={30} weight="thin" aria-hidden="true" />
-        <div>
-          <Eyebrow>Reading this on your phone?</Eyebrow>
-          <h2 id="desktop-handoff-title">Continue setup on your computer</h2>
-          <p>
-            Hermes Desktop installation and Bot imports happen on a computer. Send yourself this public guide,
-            then begin the checklist there so its browser-local progress stays with that device.
-          </p>
-        </div>
-        <div className="first-run-desktop-actions">
-          <CopyTextButton
-            text={desktopSetupUrl}
-            label="Copy desktop setup link"
-            analyticsEvent="first_run_desktop_link_copy"
-            analyticsSurface="start_page"
-          />
-          <a
-            className="button button-secondary"
-            href={desktopSetupEmail}
-            data-funnel-event="first_run_desktop_link_email"
-            data-funnel-surface="start_page"
-            data-funnel-destination="desktop_setup_guide"
-          >
-            Email the setup link <EnvelopeSimple size={16} aria-hidden="true" />
-          </a>
-        </div>
-      </section>
-
-      <section className="content-section shell" id="first-run-steps">
-        <div className="first-run-section-heading">
-          <div>
-            <Eyebrow>Follow the checkpoints</Eyebrow>
-            <h2 className="section-heading">From download to a useful research brief</h2>
-          </div>
-          <p className="section-deck">
-            Complete each step in order. Your progress stays in this browser. Funnel measurement
-            records which steps people use, never your prompt, provider key, conversation, or research result.
-          </p>
-        </div>
-        <FirstRunChecklist />
-      </section>
-
-      <section className="content-section shell first-run-next">
-        <div>
-          <Eyebrow>What happens next</Eyebrow>
-          <h2 className="section-heading">Keep the conversation going</h2>
-          <p className="section-deck">
-            Scout keeps its role and conversation inside Hermes. Ask it to refine the brief,
-            compare sources, or hand the verified findings to a Writer Bot. The Cabinet includes
-            more roles when you are ready for another job.
-          </p>
-        </div>
-        <div className="button-row">
-          <Link href="/bots" className="button button-primary">Browse The Cabinet <ArrowRight size={16} aria-hidden="true" /></Link>
-          <Link href="/use-cases" className="button button-secondary">See Bots work together</Link>
-        </div>
+      <section className="content-section shell start-choice-more">
+        <h2>Not sure which Bot you need?</h2>
+        <p>Browse by the job you want done. You can inspect a Bot before choosing a platform.</p>
+        <Link href="/bots" className="text-link">Browse the Bots <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
     </main>
   );
