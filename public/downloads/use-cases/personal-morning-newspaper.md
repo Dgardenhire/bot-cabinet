@@ -80,7 +80,7 @@ These options may not work the same way. Read what has and has not been tested.
 ### Hermes — One bounded run passed
 
 - **How it could work:** Install the standalone Daily Newspaper profile, then give it selected or made-up calendar entries, messages and reading for one manual edition.
-- **Start here:** Open the Daily Newspaper page, review the profile and its access limits, install it through the Bot Cabinet plugin or download the archive, and run the sample before adding any schedule or connection.
+- **Start here:** Open the Daily Newspaper page, review the profile and its access limits, download the Hermes archive, import it from Profiles in Hermes Desktop, and run the sample before adding any schedule or connection.
 - **What we have not tested:** One bounded run with fictional inputs passed. Bot Cabinet has not tested live account connections, unattended scheduling, repeated reliability, saving, sending, printing or publication.
 - **Source:** [Read the bounded Hermes test record](/proof-room/daily-newspaper/runtime-summary.md)
 - **Setup guide:** https://botcabinet.com/bots/daily-newspaper/
