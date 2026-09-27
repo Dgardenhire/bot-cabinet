@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CheckCircle, Flask, Warning } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import { ArrowRight, CheckCircle, Flask, Warning } from "@phosphor-icons/react/dist/ssr";
 import { AgentWatchFeed } from "@/components/agent-watch-feed";
 import { AgentWatchSources } from "@/components/agent-watch-sources";
 import { LiveBotListings } from "@/components/live-bot-listings";
@@ -30,6 +31,22 @@ export default function AgentWatchPage() {
 
       <section className="content-section shell" aria-labelledby="watch-method-title">
         <LiveBotListings />
+
+        <div className="agent-watch-first-tasks">
+          <div>
+            <Eyebrow>Try an idea</Eyebrow>
+            <h2>Pick a first task</h2>
+            <p>Daily Newspaper has one recorded Hermes test. The guide to fixing a bad AI answer is a method you can try in your own chat; we have not task-tested it.</p>
+          </div>
+          <div className="agent-watch-first-task-links">
+            <Link href="/use-cases/personal-morning-newspaper" className="text-link" data-funnel-event="watch_tested_example_opened" data-funnel-surface="agent_watch" data-funnel-destination="morning_newspaper_first_task">
+              Try Daily Newspaper <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+            <Link href="/guides/fix-one-bad-ai-result" className="text-link" data-funnel-event="watch_diagnosis_guide_opened" data-funnel-surface="agent_watch" data-funnel-destination="diagnose_ai_result_guide">
+              Fix a bad AI answer <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
 
         <div className="agent-watch-editorial-heading">
           <Eyebrow>Closer look</Eyebrow>

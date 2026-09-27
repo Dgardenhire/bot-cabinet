@@ -25,6 +25,12 @@ describe("Agent Watch", () => {
     expect(html).toContain("GitHub agent repositories");
     expect(html).toContain("GitLab agent repositories");
     expect(html).toContain("Instinct");
+    expect(html).toContain("Pick a first task");
+    expect(html).toContain("Try Daily Newspaper");
+    expect(html).toContain("Fix a bad AI answer");
+    expect(html).toContain("/guides/fix-one-bad-ai-result");
+    expect(html).toContain('data-funnel-event="watch_tested_example_opened"');
+    expect(html).toContain("/use-cases/personal-morning-newspaper");
     expect(html).toContain("Fresh listings");
     expect(html).toContain("What stands out");
     expect(html).toContain("whether we read about it or actually tried it");
@@ -32,7 +38,7 @@ describe("Agent Watch", () => {
     expect(html).toContain("Import Bot");
     expect(html).toContain("Diagnose My Agent&#x27;s Mistake");
     expect(html).toContain("Muse at Work");
-    expect(html).toContain("Use the prepared Ops Skill");
+    expect(html).toContain("Try the step-by-step guide");
     expect(html).toContain(
       "/downloads/starter-bots/v2/ops/skills/diagnose-ai-result/SKILL.md",
     );
