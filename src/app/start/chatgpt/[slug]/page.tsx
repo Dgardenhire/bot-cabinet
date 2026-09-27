@@ -71,7 +71,7 @@ export default async function ChatGPTStartPage({ params }: { params: Promise<{ s
             <span className="workspace-start-step-number">3</span>
             <div>
               <h2>Try one small task</h2>
-              <p>Use Preview privately. For the first try, use fictional or public information. Paste this task and inspect the answer yourself.</p>
+              <p>Use Preview privately. Start with fictional or public information. Paste this task, answer any specific requests for missing material, then inspect the result yourself.</p>
               <div className="workspace-start-copy"><CopyTextButton text={firstTest} label="Copy first test" analyticsEvent="chatgpt_agent_first_test_copy" analyticsSurface="chatgpt_start" /><pre>{firstTest}</pre></div>
               <p><strong>Look for:</strong> {pack.job.checkpoint} If it misses that mark, change the instructions and try again.</p>
             </div>

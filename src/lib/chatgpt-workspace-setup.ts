@@ -28,5 +28,5 @@ export function workspaceAgentFirstTest(pack: PortableBotPackV2): string {
   if (pack.identity.slug === "chief-of-staff") {
     return "Use only these fictional updates. Project A: Maya owns the draft due Friday; the team has not approved the release date. Project B: Luis owns the budget review; the cost estimate is missing. Our confirmed priority is to finish Project A's draft before starting new work. Make a one-page priority brief and decision log. Separate confirmed facts from missing decisions. Do not assign work, promise a date, or contact anyone.";
   }
-  return `Run a private test with sample, non-sensitive information. The intended first assignment is: ${pack.job.firstMission} Ask me for missing inputs. Show the result for review; do not take outside actions.`;
+  return `I want to try your first assignment with public or non-sensitive information: ${pack.job.firstMission} Before you begin, ask me for any missing source material or choices. Do not invent them or claim you ran a task you could not run. Show your result for my review; do not take outside actions.`;
 }

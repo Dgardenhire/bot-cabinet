@@ -39,4 +39,12 @@ describe("first-use paths", () => {
     expect(instructions).toContain("Do not share or schedule");
     expect(workspaceAgentFirstTest(pack)).toContain("Do not assign work");
   });
+
+  it("does not imply other Bot tests can run without their source material", () => {
+    const bot = getStarterBot("editor");
+    expect(bot).toBeDefined();
+    const prompt = workspaceAgentFirstTest(starterBotToPortablePackV2(bot!));
+    expect(prompt).toContain("ask me for any missing source material or choices");
+    expect(prompt).toContain("Do not invent them");
+  });
 });
