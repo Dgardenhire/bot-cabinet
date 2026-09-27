@@ -45,7 +45,7 @@ export default function StartPage() {
           <span className="start-choice-number">03 · In Grok Bot</span>
           <h2>Build a Grok Bot</h2>
           <p>Choose a Cabinet Bot, use its build brief to set up the role in Grok Bot, then try a real task.</p>
-          <Link href="/platforms/grok-bot" className="button button-primary" data-funnel-event="first_run_choose_grok" data-funnel-surface="start_page">
+          <Link href="/start/grok" className="button button-primary" data-funnel-event="first_run_choose_grok" data-funnel-surface="start_page">
             Start with Grok Bot <ArrowRight size={16} aria-hidden="true" />
           </Link>
           <small>This is a manual build guide, not an import. Bot Cabinet has prepared the briefs but has not runtime-tested them in Grok Bot.</small>

@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/fit",
     "/start",
+    "/start/hermes",
+    "/start/grok",
     "/bots",
     "/workbench",
     "/workshop",
