@@ -65,7 +65,7 @@ export default function TrustPage() {
       <section className="content-section shell">
         <div aria-labelledby="keeper-status-title">
         <div className="trust-status-heading">
-          <Eyebrow>Current site status</Eyebrow>
+          <Eyebrow>Latest public record</Eyebrow>
           <h2 className="section-heading" id="keeper-status-title">Latest approved Keeper checks</h2>
           <p className="section-deck">Keeper checks the public site, repository, downloads, and changing Bot sources. Only a dated result that a person has reviewed appears here. Missing or late evidence never appears as a pass.</p>
         </div>
