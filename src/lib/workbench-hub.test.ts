@@ -12,7 +12,7 @@ describe("workbench hub summaries", () => {
 
   it("shows the next setup, run, outcome and bounded-completion actions", () => {
     const started = { ...emptyBotProgress("2.0.0"), started: true as const, checked: { downloaded: true as const } };
-    expect(workbenchNextAction(summarizeBotWorkbench(started))).toBe("Finish the one-time setup");
+    expect(workbenchNextAction(summarizeBotWorkbench(started))).toBe("Set up the Bot or start a real task");
 
     const setupComplete = {
       ...started,
@@ -25,6 +25,12 @@ describe("workbench hub summaries", () => {
       checked: { ...setupComplete.checked, "task-run": true as const, "result-reviewed": true as const },
     };
     expect(workbenchNextAction(summarizeBotWorkbench(cycleComplete))).toBe("Record the outcome for real run 1");
+
+    const pluginRun = {
+      ...started,
+      checked: { "task-run": true as const, "result-reviewed": true as const },
+    };
+    expect(workbenchNextAction(summarizeBotWorkbench(pluginRun))).toBe("Record the outcome for real run 1");
 
     const first = recordBotRun(cycleComplete, "useful", ["task-run", "result-reviewed"], 1_000);
     const second = recordBotRun(first, "needs-work", ["task-run", "result-reviewed"], 2_000);

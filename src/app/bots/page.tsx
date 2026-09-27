@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, DownloadSimple, ShieldCheck, UserFocus } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 
 import { StarterBotCatalog } from "@/components/starter-bot-catalog";
 import { Eyebrow } from "@/components/ui";
@@ -17,35 +17,24 @@ export const metadata: Metadata = buildPageMetadata({
 export default function BotsPage() {
   return (
     <main id="main-content" className="page-main">
-      <section className="inner-hero registry-hero starter-hero">
-        <div className="shell inner-hero-grid">
-          <div>
-            <Eyebrow>Hermes Bots</Eyebrow>
-            <h1 className="inner-title">The Cabinet</h1>
-            <p className="inner-deck">
-              Start with a useful job. Choose a role, see the tasks it can handle, review the information it needs,
-              and download a purpose-built public starter package. Each page explains the work in
-              everyday language before it shows any technical details.
-            </p>
-          </div>
-          <aside className="inner-aside starter-explainer">
-            <UserFocus size={27} weight="thin" aria-hidden="true" />
-            <strong>Nineteen practical Hermes Bots</strong>
-            <p>Each page includes example requests, intended outputs, setup steps, role instructions, and a downloadable source package.</p>
-          </aside>
-        </div>
-      </section>
-
-      <section className="starter-status-strip">
+      <section className="inner-hero registry-hero starter-catalog-hero">
         <div className="shell">
-          <DownloadSimple size={20} weight="thin" aria-hidden="true" />
-          <p><strong>Free Bot Pack 2.0 files are available now.</strong> The original 16 Hermes archives passed isolated profile-import tests. Curator, Reentry, and Receipt are newer prepared profiles whose import tests remain pending. Import success does not prove work quality; human technical review and real-job testing are still in progress.</p>
+          <Eyebrow>Find a useful job</Eyebrow>
+          <h1 className="inner-title">The Cabinet</h1>
+          <p className="inner-deck">
+            Search by what you need done. Open a Bot to see its first task, then choose where to use it.
+          </p>
         </div>
       </section>
 
       <section className="content-section shell registry-section">
         <StarterBotCatalog />
       </section>
+
+      <details className="shell starter-catalog-review">
+        <summary>What has been tested?</summary>
+        <p>The original 16 Hermes archives passed isolated profile-import tests. Curator, Reentry, and Receipt are newer prepared profiles whose import tests remain pending. Import success does not prove work quality; human technical review and real-job testing are still in progress. Each Bot page shows its own current status.</p>
+      </details>
 
       <section className="content-section shell starter-community-cta">
         <ShieldCheck size={32} weight="thin" aria-hidden="true" />

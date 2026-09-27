@@ -118,7 +118,7 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     limits: "Bot Cabinet inspected the public Muse at Work listing but has not run the workflow. The listing does not identify a creator or show how well the diagnosis holds up across different kinds of failure.",
     sources: [{ label: "Muse at Work listing", href: "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c" }],
     cabinetLinks: [
-      { label: "Use the prepared Ops Skill", href: "/bots/ops#bot-pack-2" },
+      { label: "Try the step-by-step guide", href: "/guides/fix-one-bad-ai-result" },
       { label: "Download the Skill", href: "/downloads/starter-bots/v2/ops/skills/diagnose-ai-result/SKILL.md" },
     ],
     botDetails: {
@@ -404,7 +404,8 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     ],
     cabinetLinks: [
       { label: "Read the cross-platform guide", href: "/guides/morning-newspaper-across-agents" },
-      { label: "Open the Cabinet use case", href: "/use-cases/personal-morning-newspaper" },
+      { label: "Try the manual Hermes first task", href: "/use-cases/personal-morning-newspaper" },
+      { label: "Read the Hermes test result", href: "/proof-room/daily-newspaper/runtime-summary.md" },
     ],
   },
   {

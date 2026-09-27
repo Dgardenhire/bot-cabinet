@@ -7,6 +7,7 @@ import {
   botProgressStorageKey,
   buildBotWorkbenchStartedReport,
   buildBotRunOutcomeReport,
+  canReportBotRun,
   clearBotProgress,
   emptyBotProgress,
   markBotProgressStarted,
@@ -70,6 +71,16 @@ describe("standalone Bot progress", () => {
     const third = recordBotRun(second, "useful", ["task-run", "result-reviewed"], 3_000);
     expect(recordBotRun(third, "useful", ["task-run", "result-reviewed"], 4_000)).toBe(third);
     expect(third.runs.map(run => run.run)).toEqual([1, 2, 3]);
+  });
+
+  it("allows an honest run outcome when the Desktop plugin handled setup", () => {
+    const initial = emptyBotProgress("2.0.0");
+    expect(canReportBotRun(initial)).toBe(false);
+    const taskRun = { ...initial, checked: { "task-run": true as const } };
+    expect(canReportBotRun(taskRun)).toBe(false);
+    const reviewed = { ...taskRun, checked: { ...taskRun.checked, "result-reviewed": true as const } };
+    expect(canReportBotRun(reviewed)).toBe(true);
+    expect(canReportBotRun(recordBotRun(reviewed, "useful", ["task-run", "result-reviewed"]))).toBe(false);
   });
 
   it("marks a workbench started once and reports only the public Bot and pack identifiers", () => {

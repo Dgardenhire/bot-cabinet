@@ -77,3 +77,9 @@ This is the first post-release first-use and return-use baseline: **zero reporte
 - Connect one reviewed Agent Watch idea to a directly usable adaptation, builder path or tested setup instead of ending at a recommendation that the visitor must implement alone.
 
 The paid model-backed radar remains paused. Its local budget gate is not a verified provider billing cap and must not be resumed without separate cost controls and approval.
+
+## Production measurement recheck — September 27
+
+Vercel Web Analytics, Production, **Last 7 Days**, displayed September 20, 2 a.m. through September 27, 2:59 a.m. (the dashboard did not state the display timezone). It showed 81 visitors, 339 page views and a 64 percent bounce rate. The complete Events view contained eleven event names. Three visitors made four `bot_profile_download` events; two chose the Hermes first-run path and one chose the ChatGPT path. It contained no `first_bot_run_reported`, `bot_real_run_outcome_reported`, `chatgpt_agent_first_test_reported`, `repeat_bot_run_reported` or `returned_after_first_bot_result` event.
+
+This remains **zero reported outcomes in that window**, not evidence that no visitor completed a task. The Bot-page workbench already had a bounded useful/needs-work outcome control, but it reported only the Bot-specific event. PR #30 now also records its first completed run through the one-time first-result measure; this correction is prepared and tested, **not live**. A genuine first-user session and a later return observation are still required.

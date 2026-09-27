@@ -14,6 +14,14 @@ describe("BotPlatformChooser", () => {
     );
 
     expect(html).toContain("Use Scout on your platform");
+    expect(html.match(/<details class="bot-platform-option" name="scout-platform">/g)).toHaveLength(4);
+    expect(html).not.toContain('class="bot-platform-option" name="scout-platform" open');
+    const hermesPath = html.indexOf('bot-platform-option-name">Hermes Agent');
+    const chatgptPath = html.indexOf('bot-platform-option-name">ChatGPT Workspace Agent');
+    const workbench = html.indexOf('id="bot-workbench"');
+    expect(workbench).toBeGreaterThan(-1);
+    expect(hermesPath).toBeLessThan(workbench);
+    expect(workbench).toBeLessThan(chatgptPath);
     expect(html).toContain("Archive import passed");
     expect(html).toContain("Hermes Agent 0.21.0");
     expect(html).toContain("output testing remains pending");
@@ -24,6 +32,7 @@ describe("BotPlatformChooser", () => {
     expect(html).toContain('href="/guides/use-a-bot-on-another-platform"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout.tar.gz"');
     expect(html).toContain('href="/downloads/grok-bot-templates/v2/scout.md"');
+    expect(html).toContain('href="/start/grok/scout"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.md"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.json"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout/skills/scout-core/SKILL.md"');

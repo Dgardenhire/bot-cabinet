@@ -12,6 +12,7 @@ import {
   nextRepeatBotRun,
   reportRepeatBotRun,
   reportFirstBotRunOnce,
+  reportFirstBotRunFromWorkbenchOnce,
   saveFirstBotRunRecord,
   sendFirstBotRunFrictionReport,
   sendFirstBotRunReport,
@@ -85,6 +86,24 @@ describe("first Bot run outcome event contract", () => {
     });
     expect(send).toHaveBeenCalledTimes(1);
     expect(send).toHaveBeenCalledWith(FIRST_BOT_RUN_EVENT, { outcome: "worked" });
+  });
+
+  it("counts the first completed Bot workbench run in the same first-result measure", () => {
+    const storage = memoryStorage();
+    const send = vi.fn();
+    expect(reportFirstBotRunFromWorkbenchOnce(storage, "useful", send, 1_000)).toEqual({
+      record: { outcome: "worked", reportedAt: 1_000 },
+      sent: true,
+    });
+    expect(reportFirstBotRunFromWorkbenchOnce(storage, "needs-work", send, 2_000).sent).toBe(false);
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send).toHaveBeenCalledWith(FIRST_BOT_RUN_EVENT, { outcome: "worked" });
+    expect(trackReturningVisit(storage, send, 1_000 + 24 * 60 * 60 * 1000)?.event)
+      .toBe("returned_after_first_bot_result");
+
+    const anotherBrowser = memoryStorage();
+    reportFirstBotRunFromWorkbenchOnce(anotherBrowser, "needs-work", send, 3_000);
+    expect(send).toHaveBeenLastCalledWith(FIRST_BOT_RUN_EVENT, { outcome: "stuck" });
   });
 
   it("tracks a later return once and does not call it repeat use", () => {
