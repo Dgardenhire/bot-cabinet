@@ -7,6 +7,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { CopyTextButton } from "./copy-text-button";
+import { BotWorkbench } from "./bot-workbench";
+import { OpenBotWorkbenchOnHash } from "./open-bot-workbench-on-hash";
 import { Eyebrow } from "./ui";
 import {
   portableBotPackV2ArtifactPaths,
@@ -36,23 +38,24 @@ export function BotPlatformChooser({
   return (
     <section
       className="bot-platform-chooser shell"
+      id="choose-platform"
       aria-labelledby={`${botSlug}-platform-heading`}
     >
       <div className="bot-platform-chooser-heading">
         <div>
-          <Eyebrow>Choose a platform</Eyebrow>
+          <Eyebrow>Choose where to use it</Eyebrow>
           <h2 id={`${botSlug}-platform-heading`}>Use {botName} on your platform</h2>
         </div>
         <p>
-          The job, limits, first task, Skill recipe, and Routine recipe stay
-          together. Each platform gets its own setup path and status.
+          Pick the app you have. Each path tells you what is ready and what still needs testing.
         </p>
       </div>
 
-      <div className="bot-platform-grid">
-        <article>
-          <div className="bot-platform-card-topline">
+      <div className="bot-platform-list">
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
+          <summary>
             <Package size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">Hermes Agent</span>
             <span className="bot-platform-status is-available">
               {runtimeEvidence
                 ? "Bounded task passed"
@@ -60,8 +63,9 @@ export function BotPlatformChooser({
                   ? "Archive import passed"
                   : "Prepared profile · import test pending"}
             </span>
-          </div>
-          <h3>Hermes Agent</h3>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Import the prepared profile, review its files, choose the access it
             needs, and run the first assignment. {runtimeEvidence
@@ -75,6 +79,9 @@ export function BotPlatformChooser({
               href={hermesArchiveUrl}
               download
               className="text-link"
+              data-funnel-event="bot_profile_download"
+              data-funnel-surface="bot_platform_chooser"
+              data-funnel-destination={botSlug}
             >
               Download the profile <DownloadSimple size={15} />
             </a>
@@ -95,14 +102,21 @@ export function BotPlatformChooser({
               </Link>
             )}
           </div>
-        </article>
-
-        <article>
-          <div className="bot-platform-card-topline">
-            <FileCode size={24} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+          <div className="bot-platform-tracker">
+            <p className="bot-platform-tracker-label">Keep track of your first Hermes run</p>
+            <BotWorkbench botSlug={botSlug} botName={botName} packVersion={pack.packVersion} />
           </div>
-          <h3>ChatGPT Workspace Agent</h3>
+          </div>
+        </details>
+
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
+          <summary>
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">ChatGPT Workspace Agent</span>
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Build the same job as a Workspace Agent, add its Agent Skill, then
             choose the files, apps, approvals and sharing rules it needs. This
@@ -113,14 +127,17 @@ export function BotPlatformChooser({
               Set up {botName} in ChatGPT <ArrowRight size={15} />
             </Link>
           </div>
-        </article>
-
-        <article>
-          <div className="bot-platform-card-topline">
-            <FileCode size={24} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
           </div>
-          <h3>Claude</h3>
+        </details>
+
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
+          <summary>
+            <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">Claude</span>
+            <span className="bot-platform-status is-prepared">Setup guide · test pending</span>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
             Use a Cowork plugin or Skill for a general work role. Use Claude Code
             only when the job belongs to a codebase or local project. This adapter
@@ -131,39 +148,48 @@ export function BotPlatformChooser({
               Follow the Claude setup <ArrowRight size={15} />
             </Link>
           </div>
-        </article>
+          </div>
+        </details>
 
-        <article>
-          <div className="bot-platform-card-topline">
+        <details className="bot-platform-option" name={`${botSlug}-platform`} suppressHydrationWarning>
+          <summary>
             <FileCode size={24} weight="thin" aria-hidden="true" />
+            <span className="bot-platform-option-name">Grok Bot</span>
             <span className="bot-platform-status is-prepared">
               Prepared · test pending
             </span>
-          </div>
-          <h3>Grok Bot</h3>
+            <span className="bot-platform-option-cue" aria-hidden="true">+</span>
+          </summary>
+          <div className="bot-platform-option-content">
           <p>
-            Use the build brief to create this role with Grok Bot&apos;s profile,
-            Skill, Routine, and sharing controls. Runtime testing is still pending.
+            Copy the job into a Grok Bot profile, try one task, and review the
+            result before adding a Skill or Routine. Runtime testing is still pending.
           </p>
           <div className="bot-platform-actions">
+            <Link href={`/start/grok/${botSlug}`} className="text-link">
+              Follow the guided setup <ArrowRight size={15} />
+            </Link>
             <a
               href={grokBriefUrl}
               download
               className="text-link"
             >
-              Download the Grok build brief <DownloadSimple size={15} />
+              Download the full recipe <DownloadSimple size={15} />
             </a>
             <Link href="/platforms/grok-bot" className="text-link">
               See how the adaptation works <ArrowRight size={15} />
             </Link>
           </div>
-        </article>
-
-        <article>
-          <div className="bot-platform-card-topline">
-            <FileCode size={24} weight="thin" aria-hidden="true" />
-            <span className="bot-platform-status">Platform-neutral core</span>
           </div>
+        </details>
+
+      </div>
+
+      <OpenBotWorkbenchOnHash />
+
+      <details className="bot-platform-files">
+        <summary>Want the files to adapt this Bot elsewhere?</summary>
+        <div className="bot-platform-files-content">
           <h3>Portable Bot Pack</h3>
           <p>
             Keep the complete recipe as readable Markdown or structured JSON,
@@ -171,7 +197,7 @@ export function BotPlatformChooser({
             included Agent Skill uses the <code>SKILL.md</code> convention, but
             a shared file format does not prove identical behavior on every host.
           </p>
-          <div className="bot-platform-actions">
+          <div className="bot-platform-file-actions">
             <a
               href={paths.portableMarkdownUrl}
               download
@@ -198,8 +224,8 @@ export function BotPlatformChooser({
             </a>
           </div>
           <p className="bot-platform-portability-note">Prepared file. Review its instructions and permissions, then test it in the target agent before relying on it.</p>
-        </article>
-      </div>
+        </div>
+      </details>
     </section>
   );
 }

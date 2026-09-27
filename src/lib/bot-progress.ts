@@ -71,6 +71,12 @@ export function markBotProgressStarted(record: BotProgressRecord): BotProgressRe
   return record.started ? record : { ...record, started: true };
 }
 
+/** Installation may happen through the Desktop plugin, so only a real run and review gate an outcome. */
+export function canReportBotRun(record: BotProgressRecord) {
+  return record.runs.length < BOT_MAX_RECORDED_RUNS
+    && BOT_RUN_CHECKPOINT_IDS.every(id => record.checked[id] === true);
+}
+
 export function buildBotWorkbenchStartedReport(botSlug: string, packVersion: string) {
   return {
     event: BOT_WORKBENCH_STARTED_EVENT,

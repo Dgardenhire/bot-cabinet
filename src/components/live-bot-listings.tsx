@@ -8,8 +8,26 @@ import { AGENT_WATCH_API_URL } from "@/lib/agent-watch-live";
 type SourceState = { name: string; ok: boolean; count: number };
 type LiveFeed = { checkedAt: string; sources: SourceState[]; totalCount: number; items: LiveBotListing[] };
 
+function isGrokTemplateUrl(value: string | undefined): value is string {
+  if (!value) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "x.ai" && (
+      /^\/bot\/marketplace\/bots\/[a-z0-9-]+\/?$/i.test(url.pathname)
+      || /^\/bot\/[a-z0-9_-]{12,}\/?$/i.test(url.pathname)
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function LiveBotListingLinks({ item }: { item: Pick<LiveBotListing, "sourceUrl" | "originalUrl"> }) {
-  return <div className="live-bot-list-links"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>{item.originalUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}</div>;
+  const templateUrl = [item.originalUrl, item.sourceUrl].find(isGrokTemplateUrl);
+  return <div className="live-bot-list-links">
+    {templateUrl && <a href={templateUrl} target="_blank" rel="noopener noreferrer" data-funnel-event="native_template_open" data-funnel-surface="agent_watch" data-funnel-destination="grok_bot">Open Grok Bot template <ArrowSquareOut size={13} /></a>}
+    {item.sourceUrl !== templateUrl && <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View listing <ArrowSquareOut size={13} /></a>}
+    {item.originalUrl && item.originalUrl !== templateUrl && <a href={item.originalUrl} target="_blank" rel="noopener noreferrer">Original link <ArrowSquareOut size={13} /></a>}
+  </div>;
 }
 
 function settleWithin<T>(promise: Promise<T>, milliseconds = 8_000): Promise<T> {
@@ -66,10 +84,10 @@ export function LiveBotListings() {
   return (
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
-        <div><span className="eyebrow">Updated when you open this page</span><h2 id="live-bot-title">Current listings</h2></div>
+        <div><span className="eyebrow">From the source sites</span><h2 id="live-bot-title">Fresh listings</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>A short, mixed sample from every connected source. Dates appear only when a source provides them. These are listings, not recommendations.</p>
+      <p>Recent entries from the sites we check. These are direct listings, not Bots we have tested or recommended.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : `${totalCount.toLocaleString()} entries found across ${connectedCount} of ${LIVE_BOT_SOURCES.length} live sources`}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}

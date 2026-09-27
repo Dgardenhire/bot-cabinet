@@ -27,9 +27,8 @@ export function summarizeBotWorkbench(record: BotProgressRecord): WorkbenchSumma
   const lastRun = record.runs[record.runs.length - 1];
   let stage: WorkbenchStage = "setup";
   if (outcomesCompleted >= BOT_MAX_RECORDED_RUNS) stage = "complete";
-  else if (setupCompleted === BOT_SETUP_CHECKPOINT_IDS.length) {
-    stage = runChecksCompleted === BOT_RUN_CHECKPOINT_IDS.length ? "outcome" : "run";
-  }
+  else if (runChecksCompleted === BOT_RUN_CHECKPOINT_IDS.length) stage = "outcome";
+  else if (setupCompleted === BOT_SETUP_CHECKPOINT_IDS.length || runChecksCompleted > 0 || outcomesCompleted > 0) stage = "run";
   return {
     active,
     setupCompleted,
@@ -43,7 +42,7 @@ export function summarizeBotWorkbench(record: BotProgressRecord): WorkbenchSumma
 }
 
 export function workbenchNextAction(summary: WorkbenchSummary) {
-  if (summary.stage === "setup") return "Finish the one-time setup";
+  if (summary.stage === "setup") return "Set up the Bot or start a real task";
   if (summary.stage === "run") return `Complete the checks for real run ${summary.nextRun}`;
   if (summary.stage === "outcome") return `Record the outcome for real run ${summary.nextRun}`;
   return "Three-run check complete";
