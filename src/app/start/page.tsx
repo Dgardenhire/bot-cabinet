@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Start here",
-  description: "Choose a Bot and see how to get started in Hermes Desktop, a ChatGPT workspace, or Grok Bot.",
+  description: "Choose a job to try in Hermes Desktop, a ChatGPT workspace, Grok Bot, or your ChatGPT Dot.",
   path: "/start/",
   image: "/brand/social/first-bot-1200x630.jpg",
   imageAlt: "Start using a Bot with Bot Cabinet",
@@ -50,6 +50,15 @@ export default function StartPage() {
           </Link>
           <small>Manual setup, not a one-click import. These briefs have not been tested in Grok Bot.</small>
         </article>
+      </section>
+
+      <section className="shell start-choice-news" aria-labelledby="dots-start-title">
+        <div>
+          <Eyebrow>New · September 29, 2026</Eyebrow>
+          <h2 id="dots-start-title">Have a ChatGPT Dot?</h2>
+          <p>Try a Bot Cabinet job with your first Dot. It is a guided task, not a Bot import or a separate specialist Dot.</p>
+        </div>
+        <Link href="/start/dots" className="text-link">Try a first task with Dots <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
 
       <section className="content-section shell start-choice-more">
