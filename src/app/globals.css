@@ -2128,6 +2128,9 @@ html[data-theme="light"] .grok-sharing-facts article { border-color: rgba(43,104
 .start-choice-hero h1 { max-width: 850px; margin: 12px 0 16px; color: var(--paper); font: 400 clamp(44px,5vw,68px)/1.02 var(--serif); letter-spacing: -.035em; }
 .start-choice-hero p { max-width: 670px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.5; }
 .start-choice-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.start-choice-news { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px; margin-top: 22px; padding: 22px 28px; border: 1px solid var(--line); background: var(--ink-soft); }
+.start-choice-news h2 { margin: 7px 0 6px; color: var(--paper); font: 400 27px/1.1 var(--serif); }
+.start-choice-news p { max-width: 65ch; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .start-choice-grid article { display: flex; flex-direction: column; align-items: flex-start; min-height: 340px; padding: 34px; border: 1px solid var(--line); background: var(--ink-soft); }
 .start-choice-number { color: var(--brass-bright); font: 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .start-choice-grid h2 { margin: 24px 0 12px; color: var(--paper); font: 400 34px/1.05 var(--serif); }

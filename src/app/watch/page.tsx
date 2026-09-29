@@ -30,6 +30,15 @@ export default function AgentWatchPage() {
       </section>
 
       <section className="content-section shell" aria-labelledby="watch-method-title">
+        <div className="agent-watch-first-tasks">
+          <div>
+            <Eyebrow>September 29 · OpenAI Dots</Eyebrow>
+            <h2>Another way to put an agent to work</h2>
+            <p>OpenAI has begun rolling out personal Dots. We read its launch guide and made a small first-task walkthrough. Specialist Dots are still limited to enterprise pilots; Bot Cabinet has not tested a Dot or built a one-click import.</p>
+          </div>
+          <Link href="/start/dots" className="text-link">Try a Cabinet job with a Dot <ArrowRight size={15} aria-hidden="true" /></Link>
+        </div>
+
         <LiveBotListings />
 
         <div className="agent-watch-first-tasks">

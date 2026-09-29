@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/start",
     "/start/hermes",
     "/start/grok",
+    "/start/dots",
     "/bots",
     "/workbench",
     "/workshop",
@@ -46,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}/`.replace(`${baseUrl}//`, `${baseUrl}/`),
-    lastModified: new Date("2026-09-03"),
+    lastModified: new Date(["/start", "/start/dots", "/watch"].includes(route) ? "2026-09-29" : "2026-09-03"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.split("/").filter(Boolean).length === 1 ? 0.8 : 0.6,
   }));
