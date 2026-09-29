@@ -56,6 +56,7 @@ export default function DotsStartPage() {
             <div>
               <h2>Give it real work only after that</h2>
               <p>If the practice brief helps, try one real but low-risk task. Connect an app or schedule a recurring check only when the job truly needs it. Review the permissions and keep sending, spending, publishing, and deleting behind your approval.</p>
+              <p>Ask your Dot to tell you what finished and what failed. In an <a href="https://www.youtube.com/watch?v=z5X1eMU6isI&t=10s" target="_blank" rel="noopener noreferrer">early hands-on review</a>, Peter Yang found a failed task hard to spot among several conversations. That is his experience, not a Bot Cabinet test.</p>
               <p className="workspace-start-small">This uses the Chief of Staff job as a task pattern. It does not import a Cabinet Bot or turn your personal Dot into a separate specialist. OpenAI says specialist Dots are currently in focused enterprise pilots.</p>
             </div>
           </li>
