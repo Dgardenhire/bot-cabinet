@@ -27,7 +27,8 @@ describe("first-use paths", () => {
     expect(html).toContain("Try Scout in Grok Bot");
     expect(html).toContain("Copy Scout&#x27;s job");
     expect(html).toContain("Copy first task");
-    expect(html).toContain("https://docs.x.ai/grok-bot/get-started");
+    expect(html).toContain("https://x.ai/bot/guides/grok-bot-101");
+    expect(html).toContain("Scout&#x27;s Cabinet brief below is not one of those installable links");
     expect(html).toContain("/downloads/grok-bot-templates/scout.md");
     expect(html).toContain("has not installed or task-tested Scout in Grok Bot");
     expect(html).toContain("do not add a schedule or outside accounts yet");

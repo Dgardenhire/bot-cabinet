@@ -43,7 +43,8 @@ export default function GrokStartPage() {
             <div>
               <h2>Check access</h2>
               <p>You need Grok Bot and an eligible plan. If you do not have the app yet, follow its official setup guide before continuing.</p>
-              <a href="https://docs.x.ai/grok-bot/get-started" className="text-link" target="_blank" rel="noopener noreferrer">Open the official Grok Bot setup guide <ArrowRight size={16} aria-hidden="true" /></a>
+              <a href="https://x.ai/bot/guides/grok-bot-101" className="text-link" target="_blank" rel="noopener noreferrer">Open Grok Bot 101 <ArrowRight size={16} aria-hidden="true" /></a>
+              <p className="workspace-start-small">xAI also has <a href="https://x.ai/bot/guides">work examples and template guides</a>. Native Grok Bot templates can open in the app; Scout&apos;s Cabinet brief below is not one of those installable links.</p>
             </div>
           </li>
           <li>
