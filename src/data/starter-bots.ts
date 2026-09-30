@@ -18,6 +18,8 @@ export type StarterBotCategory = "writing" | "research" | "planning" | "technica
 
 export interface StarterBot {
   showcase?: { tagline: string; sample: string };
+  /** Credit for the outside work this Bot was inspired by. Shown on the Bot page. */
+  inspiredBy?: { creator: string; work: string; href: string };
   slug: string;
   name: string;
   title: string;
@@ -519,6 +521,7 @@ export const STARTER_BOTS: StarterBot[] = [
 {
   "slug": "daily-newspaper",
   "name": "Daily Newspaper",
+  "inspiredBy": { "creator": "Karen X. Cheng", "work": "The Morning Newspaper", "href": "https://x.ai/bot/marketplace/bots/the-morning-newspaper" },
   "title": "Personal daily briefing maker",
   "category": "writing",
   "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
