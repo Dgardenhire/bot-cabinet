@@ -85,6 +85,9 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
               <h2 className="starter-detail-title">{bot.title}</h2>
               <p className="registry-detail-summary">{bot.summary}</p>
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
+              {bot.inspiredBy && (
+                <p className="starter-inspired-by">Inspired by {bot.inspiredBy.creator}’s <a href={bot.inspiredBy.href} target="_blank" rel="noopener noreferrer">{bot.inspiredBy.work}</a>.</p>
+              )}
               <div className="starter-hero-actions">
                 <a href="#choose-platform" className="button button-primary" data-funnel-event="bot_choose_platform" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Choose where to use it <ArrowRight size={16} aria-hidden="true" /></a>
               </div>
