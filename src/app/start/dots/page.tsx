@@ -10,7 +10,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "What ChatGPT Dots can do—and a useful first job",
   description: "See early hands-on results and limits, compare Dots with other agents, then try a clear first job without granting account access.",
   path: "/start/dots/",
-  image: "/brand/social/first-bot-1200x630.jpg",
+  image: "/brand/social/chatgpt-dots-first-job-v1-1200x630.jpg",
   imageAlt: "A practical first job for a ChatGPT Dot",
 });
 
@@ -57,6 +57,7 @@ export default function DotsStartPage() {
               <div><dt>Your choice</dt><dd>which apps it may use</dd></div>
               <div><dt>Not yet</dt><dd>a one-click import for Cabinet Bots</dd></div>
             </dl>
+            <p><strong>Who can get Dots now:</strong> ChatGPT Pro users outside the EEA, Switzerland, and UK; Business Premium users in supported ChatGPT regions; and Enterprise workspaces whose admin enables the beta. OpenAI says eligible Edu and Healthcare workspaces can also try the Enterprise beta. Access is gradual and may take several days to appear.</p>
             <a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot" target="_blank" rel="noopener noreferrer" className="text-link">Check OpenAI&apos;s current setup guide <ArrowUpRight size={16} aria-hidden="true" /></a>
           </aside>
         </header>
@@ -75,7 +76,7 @@ export default function DotsStartPage() {
         <section id="try-a-job" className="dots-task-section" aria-labelledby="dots-task-title">
           <div className="dots-section-heading"><div><Eyebrow>Your first result</Eyebrow><h2 id="dots-task-title">Find the follow-up that got lost</h2></div><p>Begin with words you paste, not access to your inbox. This tests whether your Dot can turn messy notes into work you can actually act on.</p></div>
           <div className="dots-task-path">
-            <article><span>01</span><h3>Check access</h3><p>OpenAI is rolling Dots out gradually. Create your first Dot on desktop web or in the ChatGPT desktop app. If you do not see it yet, check the current help page.</p></article>
+            <article><span>01</span><h3>Check access</h3><p>Dots are rolling out to eligible Pro and Business Premium users, plus admin-enabled Enterprise beta workspaces. Create your first Dot on desktop web or in the ChatGPT desktop app. If you do not see it yet, check OpenAI&apos;s current help page.</p></article>
             <article><span>02</span><h3>Run one bounded task</h3><p>Copy the practice prompt below, or paste notes from one real meeting. No connected accounts are needed.</p></article>
             <article><span>03</span><h3>Inspect the answer</h3><p>Check each claim against your notes. Make sure missing owners or dates are marked unknown, and that the Dot says what failed.</p></article>
           </div>

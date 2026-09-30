@@ -2153,6 +2153,7 @@ html[data-theme="light"] .grok-sharing-facts article { border-color: rgba(43,104
 .dots-at-glance dl div { display: grid; grid-template-columns: 104px 1fr; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); }
 .dots-at-glance dt { color: var(--paper); font-weight: 700; }
 .dots-at-glance dd { margin: 0; color: var(--muted); line-height: 1.45; }
+.dots-at-glance > p { margin: 0 0 20px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--paper); font-size: 14px; line-height: 1.55; }
 .dots-field-section, .dots-task-section, .dots-next-section, .compare-picks, .compare-table-section { padding-top: 76px; }
 .dots-section-heading, .compare-section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 26px; }
 .dots-section-heading h2, .compare-section-head h2, .dots-next-section h2, .compare-choice h2, .dots-footer h2 { max-width: 850px; margin: 12px 0 0; color: var(--paper); font: 400 clamp(34px,4vw,52px)/1.05 var(--serif); letter-spacing: -.025em; }
