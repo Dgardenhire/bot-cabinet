@@ -63,7 +63,8 @@ export default function StartPage() {
 
       <section className="content-section shell start-choice-more">
         <h2>Not sure which Bot you need?</h2>
-        <p>Browse by the job you want done. You can inspect a Bot before choosing a platform.</p>
+        <p>Compare the main ways to use an agent, or browse by the job you want done.</p>
+        <Link href="/compare" className="text-link">Compare personal AI agents <ArrowRight size={16} aria-hidden="true" /></Link><br />
         <Link href="/bots" className="text-link">Browse the Bots <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
     </main>
