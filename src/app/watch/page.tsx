@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Agent Watch",
   description: "A short, practical guide to noteworthy AI agents, Bots and ways to use them.",
   path: "/watch/",
-  image: "/brand/social/field-manual-1200x630.jpg",
+  image: "/brand/social/agent-watch-live-listings-v1-1200x630.jpg",
   imageAlt: "Agent Watch — noteworthy AI agents, Bots and useful ideas",
 });
 

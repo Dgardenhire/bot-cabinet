@@ -31,7 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${useCase.title} · Workflow Guide`,
     description: useCase.outcome,
     path: `/use-cases/${useCase.slug}/`,
-    image: "/brand/social/bot-crews-v2-1200x630.jpg",
+    image: useCase.slug === "personal-morning-newspaper"
+      ? "/brand/social/showcase-daily-newspaper-v1-1200x630.jpg"
+      : "/brand/social/bot-crews-v2-1200x630.jpg",
     imageAlt: `Bot Cabinet workflow — ${useCase.title}`,
   });
 }

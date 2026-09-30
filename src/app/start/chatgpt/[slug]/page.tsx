@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `Use ${bot.name} in ChatGPT`,
     description: `Set up ${bot.name} as a private ChatGPT Workspace Agent and try one real task before sharing it.`,
     path: `/start/chatgpt/${slug}/`,
-    image: "/brand/social/first-bot-1200x630.jpg",
+    image: "/brand/social/chatgpt-workspace-agent-v1-1200x630.jpg",
     imageAlt: `Use ${bot.name} in a ChatGPT workspace`,
   });
 }

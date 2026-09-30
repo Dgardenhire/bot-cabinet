@@ -9,12 +9,12 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Compare personal AI agents",
   description: "A plain-English, dated comparison of ChatGPT Dots, Grok Bot, Muse, Instinct, Gemini Spark, Poke, OpenClaw, and Hermes Agent.",
   path: "/compare/",
-  image: "/brand/social/first-bot-1200x630.jpg",
+  image: "/brand/social/compare-personal-agents-v1-1200x630.jpg",
   imageAlt: "Compare the main ways to use a personal AI agent",
 });
 
 const agents = [
-  { name: "ChatGPT Dots", maker: "OpenAI", job: "Keep one personal work assistant close to your ChatGPT projects.", shape: "One personal Dot at launch", runs: "OpenAI cloud; your computer only if you connect it", entry: "Rolling out to Pro and Business Premium; Enterprise beta", caution: "General users cannot import a Cabinet Bot as a separate specialist Dot.", source: "OpenAI help", sourceUrl: "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot", path: "/start/dots" },
+  { name: "ChatGPT Dots", maker: "OpenAI", job: "Keep one personal work assistant close to your ChatGPT projects.", shape: "One personal Dot at launch", runs: "OpenAI cloud; your computer only if you connect it", entry: "Rolling out to Pro outside the EEA, Switzerland, and UK; Business Premium in supported regions; admin-enabled Enterprise beta", caution: "Access may take several days. General users cannot import a Cabinet Bot as a separate specialist Dot.", source: "OpenAI help", sourceUrl: "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot", path: "/start/dots" },
   { name: "Grok Bot", maker: "SpaceXAI / Cursor", job: "Give different work roles their own Bot and let them hand off tasks.", shape: "Multiple Bots and group chats", runs: "Shared cloud computer for Bots", entry: "Beta for eligible Grok and Cursor paid plans", caution: "Separate Bots are not separate security containers.", source: "Grok Bot guides", sourceUrl: "https://x.ai/bot/guides", path: "/start/grok" },
   { name: "Muse", maker: "Meta", job: "Handle everyday tasks and longer personal goals by message.", shape: "One personal agent", runs: "Dedicated cloud VM; Muse app or WhatsApp", entry: "US rollout; free use with paid options", caution: "Check which connections and actions your account actually has.", source: "Meta launch", sourceUrl: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", path: "https://muse.ai/" },
   { name: "Instinct", maker: "Instinct", job: "Delegate personal follow-ups through text or a call.", shape: "One personal assistant", runs: "Its own phone and computer, per its site", entry: "Public text-to-start link; price not verified", caution: "Confirm access, privacy, and supported services before connecting them.", source: "Instinct site", sourceUrl: "https://instinct.com/", path: "https://instinct.com/" },

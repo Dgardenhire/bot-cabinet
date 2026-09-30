@@ -11,7 +11,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "My Workbench",
   description: "Resume Bots you have started and compare any recurring agent job across three real uses without creating an account.",
   path: "/workbench/",
-  image: "/brand/social/the-cabinet-1200x630.jpg",
+  image: "/brand/social/my-workbench-three-runs-v1-1200x630.jpg",
   imageAlt: "My Workbench in Bot Cabinet",
 });
 
