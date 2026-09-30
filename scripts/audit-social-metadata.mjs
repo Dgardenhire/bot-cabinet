@@ -55,12 +55,18 @@ for (const [route, imagePath] of routes) {
 }
 
 const rootHtml = await readFile(path.join(root, "out", "index.html"), "utf8");
-const rootSocialImage = "https://botcabinet.com/brand/social/bot-cabinet-keeper-1200x630.jpg";
+const rootSocialImage = "https://botcabinet.com/brand/bot-cabinet-launch-card-1200x630.jpg";
 if (!rootHtml.includes(`<meta property="og:image" content="${rootSocialImage}"`)) {
-  errors.push("homepage: Keeper Open Graph image is missing");
+  errors.push("homepage: Bot Cabinet Open Graph image is missing");
 }
 if (!rootHtml.includes(`<meta name="twitter:image" content="${rootSocialImage}"`)) {
-  errors.push("homepage: Keeper X/Twitter image is missing");
+  errors.push("homepage: Bot Cabinet X/Twitter image is missing");
+}
+if (!rootHtml.includes('<meta property="og:title" content="Bot Cabinet"')) {
+  errors.push("homepage: Bot Cabinet Open Graph title is missing");
+}
+if (!rootHtml.includes('<meta name="twitter:title" content="Bot Cabinet"')) {
+  errors.push("homepage: Bot Cabinet X/Twitter title is missing");
 }
 if (!rootHtml.includes('<link rel="icon" href="/icon.svg')) {
   errors.push("sitewide SVG favicon is missing");

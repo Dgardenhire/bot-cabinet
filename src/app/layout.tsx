@@ -35,30 +35,30 @@ export const metadata: Metadata = {
     template: "%s — Bot Cabinet",
   },
   description:
-    "Choose, build, and use AI specialists for real work with practical Hermes Bot profiles, examples, setup help, and review information.",
+    "Discover useful AI Bots, see what people are building, and find a practical way to try the ideas yourself.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Bot Cabinet Keeper · Limited workflow under test",
+    title: "Bot Cabinet",
     description:
-      "A continuing cloud Hermes agent for bounded site checks, evidence reports, and human-approved changes.",
+      "Discover useful AI Bots, compare ways to use them, and start with a practical first job.",
     siteName: "Bot Cabinet",
     type: "website",
     url: "https://botcabinet.com",
     images: [
       {
-        url: "/brand/social/bot-cabinet-keeper-1200x630.jpg",
+        url: "/brand/bot-cabinet-launch-card-1200x630.jpg",
         width: 1200,
         height: 630,
-        alt: "Bot Cabinet Keeper — a continuing agent for a continuing job",
+        alt: "Bot Cabinet — a cabinet of useful AI Bots",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bot Cabinet Keeper · Limited workflow under test",
+    title: "Bot Cabinet",
     description:
-      "Bounded site checks, evidence reports, and human approval before changes.",
-    images: ["/brand/social/bot-cabinet-keeper-1200x630.jpg"],
+      "Discover useful AI Bots, compare ways to use them, and start with a practical first job.",
+    images: ["/brand/bot-cabinet-launch-card-1200x630.jpg"],
   },
 };
 

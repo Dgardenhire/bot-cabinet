@@ -27,6 +27,8 @@ describe("ChatGPT Dots first-use guide", () => {
     expect(html).toContain("An assistant that keeps going after the chat ends");
     expect(html).toContain("What happened when people tried it");
     expect(html).toContain("Peter Yang");
+    expect(html).toContain("Chase AI");
+    expect(html).toContain("task first hit a startup error");
     expect(html).toContain("every.to/vibe-check");
     expect(html).toContain('href="/compare"');
     expect(html).toContain("made-up commitments");
