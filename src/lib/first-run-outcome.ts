@@ -1,4 +1,5 @@
 export const FIRST_BOT_RUN_EVENT = "first_bot_run_reported";
+export const FIRST_BOT_RUN_RECOVERY_EVENT = "first_bot_run_recovery_reported";
 export const FIRST_BOT_RUN_FRICTION_EVENT = "first_bot_run_friction_reported";
 export const REPEAT_BOT_RUN_EVENT = "repeat_bot_run_reported";
 export const RETURN_AFTER_FIRST_RESULT_EVENT = "returned_after_first_bot_result";
@@ -25,6 +26,7 @@ export type ReturnElapsedBucket = "next-day" | "within-week" | "later";
 export type FirstBotRunRecord = {
   outcome: FirstBotRunOutcome;
   reportedAt: number;
+  firstAttempt?: { outcome: "stuck"; reportedAt: number };
   returnTrackedAt?: number;
   repeatRuns?: {
     run: RepeatBotRunNumber;
@@ -96,7 +98,30 @@ export function reportFirstBotRunOnce(
   reportedAt = Date.now(),
 ) {
   const existing = readFirstBotRunRecord(storage);
-  if (existing) return { record: existing, sent: false } as const;
+  if (existing) {
+    if (existing.outcome !== "stuck" || outcome !== "worked"
+      || !Number.isFinite(reportedAt) || reportedAt < existing.reportedAt) {
+      return { record: existing, sent: false } as const;
+    }
+    // Preserve the failed attempt; start return-use timing at the actual recovery.
+    const record: FirstBotRunRecord = {
+      outcome: "worked",
+      reportedAt,
+      firstAttempt: { outcome: "stuck", reportedAt: existing.reportedAt },
+    };
+    try {
+      storage.setItem(FIRST_BOT_RUN_STORAGE_KEY, JSON.stringify(record));
+    } catch {
+      // Without persistence, repeated clicks could invent multiple recoveries.
+      return { record: existing, sent: false } as const;
+    }
+    try {
+      send(FIRST_BOT_RUN_RECOVERY_EVENT, { outcome: "worked" });
+    } catch {
+      // A missing analytics service must not erase the visitor's saved answer.
+    }
+    return { record, sent: true } as const;
+  }
   const record = saveFirstBotRunRecord(storage, outcome, reportedAt);
   sendFirstBotRunReport(outcome, send);
   return { record, sent: true } as const;
@@ -125,6 +150,13 @@ export function readFirstBotRunRecord(storage: MinimalStorage): FirstBotRunRecor
       || !FIRST_BOT_RUN_OUTCOMES.includes(value.outcome)
       || typeof value.reportedAt !== "number"
       || !Number.isFinite(value.reportedAt)
+      || (value.firstAttempt !== undefined && (
+        value.outcome !== "worked"
+        || value.firstAttempt?.outcome !== "stuck"
+        || typeof value.firstAttempt.reportedAt !== "number"
+        || !Number.isFinite(value.firstAttempt.reportedAt)
+        || value.firstAttempt.reportedAt > value.reportedAt
+      ))
       || (value.returnTrackedAt !== undefined && (
         typeof value.returnTrackedAt !== "number" || !Number.isFinite(value.returnTrackedAt)
       ))

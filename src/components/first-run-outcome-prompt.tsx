@@ -35,7 +35,7 @@ export function FirstRunOutcomePrompt() {
   }, []);
 
   function report(outcome: FirstBotRunOutcome) {
-    if (reported) return;
+    if (reported === "worked" || (reported === "stuck" && outcome === "stuck")) return;
     const result = reportFirstBotRunOnce(window.localStorage, outcome, track);
     setReported(result.record.outcome);
   }
@@ -58,9 +58,9 @@ export function FirstRunOutcomePrompt() {
           type="button"
           onClick={() => report("worked")}
           aria-pressed={reported === "worked"}
-          disabled={Boolean(reported)}
+          disabled={reported === "worked"}
         >
-          <CheckCircle size={18} aria-hidden="true" /> Yes, it worked
+          <CheckCircle size={18} aria-hidden="true" /> {reported === "stuck" ? "I tried again and it worked" : "Yes, it worked"}
         </button>
         <button
           type="button"
@@ -74,6 +74,7 @@ export function FirstRunOutcomePrompt() {
       {reported ? (
         <p className="first-run-outcome-thanks" role="status">
           Thanks. Your response was recorded as “{reported === "worked" ? "worked" : "stuck"}.”
+          {reported === "stuck" ? " If you solve the problem, you can report that here too." : null}
         </p>
       ) : null}
       {reported === "stuck" ? (
