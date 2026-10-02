@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import {
   FIRST_BOT_RUN_EVENT,
+  FIRST_BOT_RUN_RECOVERY_EVENT,
   FIRST_BOT_RUN_FRICTION_EVENT,
   FIRST_BOT_RUN_STORAGE_KEY,
   FIRST_BOT_RUN_OUTCOMES,
@@ -104,6 +105,77 @@ describe("first Bot run outcome event contract", () => {
     const anotherBrowser = memoryStorage();
     reportFirstBotRunFromWorkbenchOnce(anotherBrowser, "needs-work", send, 3_000);
     expect(send).toHaveBeenLastCalledWith(FIRST_BOT_RUN_EVENT, { outcome: "stuck" });
+  });
+
+  it("preserves a failed first attempt and reports recovery once, not another first attempt", () => {
+    const storage = memoryStorage();
+    const send = vi.fn();
+    reportFirstBotRunOnce(storage, "stuck", send, 1_000);
+    const recovery = reportFirstBotRunOnce(storage, "worked", send, 100_000_000);
+    expect(recovery).toEqual({
+      record: { outcome: "worked", reportedAt: 100_000_000, firstAttempt: { outcome: "stuck", reportedAt: 1_000 } },
+      sent: true,
+    });
+    expect(send.mock.calls).toEqual([
+      [FIRST_BOT_RUN_EVENT, { outcome: "stuck" }],
+      [FIRST_BOT_RUN_RECOVERY_EVENT, { outcome: "worked" }],
+    ]);
+    expect(reportFirstBotRunOnce(storage, "worked", send, 100_000_001).sent).toBe(false);
+    expect(trackReturningVisit(storage, send, 100_000_001)).toBeUndefined();
+    expect(trackReturningVisit(storage, send, 100_000_000 + 12 * 60 * 60 * 1_000)?.event)
+      .toBe("returned_after_first_bot_result");
+    expect(readFirstBotRunRecord(storage)?.firstAttempt).toEqual({ outcome: "stuck", reportedAt: 1_000 });
+  });
+
+  it("allows recovery from a later workbench task without changing the original failure", () => {
+    const storage = memoryStorage();
+    const send = vi.fn();
+    saveFirstBotRunRecord(storage, "stuck", 1_000);
+    expect(reportFirstBotRunFromWorkbenchOnce(storage, "needs-work", send, 2_000).sent).toBe(false);
+    expect(reportFirstBotRunFromWorkbenchOnce(storage, "useful", send, 3_000).record.firstAttempt?.reportedAt).toBe(1_000);
+    expect(send).toHaveBeenCalledWith(FIRST_BOT_RUN_RECOVERY_EVENT, { outcome: "worked" });
+  });
+
+  it("does not emit recovery if its record cannot be persisted", () => {
+    const storage = memoryStorage();
+    saveFirstBotRunRecord(storage, "stuck", 1_000);
+    const send = vi.fn();
+    const unavailable = { getItem: storage.getItem, setItem: () => { throw new Error("storage unavailable"); } };
+    expect(reportFirstBotRunOnce(unavailable, "worked", send, 2_000).sent).toBe(false);
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it("does not accept recovery before the failed attempt or with an invalid timestamp", () => {
+    const storage = memoryStorage();
+    saveFirstBotRunRecord(storage, "stuck", 1_000);
+    const send = vi.fn();
+    for (const reportedAt of [999, NaN, Infinity]) {
+      expect(reportFirstBotRunOnce(storage, "worked", send, reportedAt).sent).toBe(false);
+    }
+    expect(readFirstBotRunRecord(storage)).toEqual({ outcome: "stuck", reportedAt: 1_000 });
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it("keeps recovery saved when analytics fails, and measures repeat use from recovery", () => {
+    const storage = memoryStorage();
+    saveFirstBotRunRecord(storage, "stuck", 1_000);
+    const unavailable = vi.fn(() => { throw new Error("analytics unavailable"); });
+    expect(reportFirstBotRunOnce(storage, "worked", unavailable, 100_000_000).record.outcome).toBe("worked");
+    expect(reportFirstBotRunOnce(storage, "worked", unavailable, 100_000_001).sent).toBe(false);
+    expect(unavailable).toHaveBeenCalledTimes(1);
+    const halfDay = 12 * 60 * 60 * 1_000;
+    expect(nextRepeatBotRun(readFirstBotRunRecord(storage), 100_000_000 + halfDay - 1)).toBeUndefined();
+    const send = vi.fn();
+    expect(reportRepeatBotRun(storage, "usable", send, 100_000_000 + halfDay)?.properties.run).toBe(2);
+    expect(readFirstBotRunRecord(storage)?.firstAttempt).toEqual({ outcome: "stuck", reportedAt: 1_000 });
+  });
+
+  it("rejects malformed or reversed recovery history", () => {
+    const storage = memoryStorage();
+    for (const firstAttempt of [{ outcome: "worked", reportedAt: 500 }, { outcome: "stuck", reportedAt: 2_000 }, null]) {
+      storage.setItem(FIRST_BOT_RUN_STORAGE_KEY, JSON.stringify({ outcome: "worked", reportedAt: 1_000, firstAttempt }));
+      expect(readFirstBotRunRecord(storage)).toBeUndefined();
+    }
   });
 
   it("tracks a later return once and does not call it repeat use", () => {
