@@ -10,6 +10,7 @@ function InlineText({ text }: { text: string }) {
 }
 
 const listItem = /^(?:[-*] |\d+\. )(.*)$/;
+const paragraphLabel = /^([^:]{1,65}:)\s+/;
 const tableDivider = /^\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?$/;
 const cells = (line: string) => line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(cell => cell.trim());
 
@@ -58,10 +59,11 @@ export function PlanText({ text, headingLevel = 3 }: { text: string; headingLeve
     const key = index++;
     while (index < lines.length && lines[index].trim() && !listItem.test(lines[index].trim()) && !/^#{1,6}\s|^\|/.test(lines[index].trim())) {
       if (lines[index].trim().length < 90 && lines[index].trim().endsWith(":")) break;
+      if (paragraphLabel.test(lines[index].trim())) break;
       paragraph.push(lines[index++].trim());
     }
     const value = paragraph.join(" ");
-    const label = /^([^:]{1,65}:)\s+/.exec(value);
+    const label = paragraphLabel.exec(value);
     blocks.push(<p key={key}>{label ? <><strong><InlineText text={label[1]} /></strong>{" "}<InlineText text={value.slice(label[0].length)} /></> : <InlineText text={value} />}</p>);
   }
   return <div className={styles.prose}>{blocks}</div>;
