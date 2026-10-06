@@ -7,8 +7,8 @@ import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "The Cabinet · Hermes Bots",
-  description: "Purpose-built public Hermes Bot role templates with example tasks, intended outputs, setup guidance, and downloadable starter files.",
+  title: "The Cabinet · Bots for useful work",
+  description: "Find a specialist, copy its role instructions, try a first task, or download an existing starter pack. See what each example has and has not tested.",
   path: "/bots/",
   image: "/brand/social/bot-pack-2-0-1200x630.jpg",
   imageAlt: "Bot Pack 2.0 — one useful job in four usable formats",

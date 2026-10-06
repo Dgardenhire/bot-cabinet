@@ -5,6 +5,8 @@ import { ArrowRight, CheckCircle, UsersThree } from "@phosphor-icons/react/dist/
 
 import { Eyebrow } from "@/components/ui";
 import { CREW_KITS } from "@/data/crew-kits";
+import { CREW_PLANS } from "@/data/specialist-collection";
+import styles from "@/components/manual-bot-plan.module.css";
 
 export const metadata: Metadata = {
   title: "Crew Kits · Standing Bot teams",
@@ -59,6 +61,11 @@ export default function CrewKitsPage() {
         </div>
       </section>
 
+      <section className={`shell ${styles.section}`}>
+        <h2>New crews and workflows</h2>
+        <p>Six new crew plans and four workflows for existing kits. Each has roles, a first task, and a recorded text exercise. Set them up manually; native imports and real-app handoffs are not tested yet.</p>
+        <div className={styles.grid}>{CREW_PLANS.map(plan => <Link className={styles.card} href={`/crew-kits/${plan.slug}/`} key={plan.slug}><span className={styles.status}>{plan.extends ? "Extends an existing kit" : "New crew plan"} · {plan.roles.length} roles</span><h3>{plan.name}</h3><p>{plan.summary}</p><span>See the task and setup →</span></Link>)}</div>
+      </section>
       <section className="content-section shell crew-kit-library">
         {CREW_KITS.map((kit) => (
           <article className="crew-kit-card" key={kit.slug}>

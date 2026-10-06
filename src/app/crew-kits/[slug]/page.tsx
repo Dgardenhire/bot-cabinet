@@ -10,9 +10,11 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { CREW_MEMBER_STEPS, CREW_PERMISSIONS_NOTICE, readGeneratedCrewManifest } from "@/lib/crew-bundle";
 import { CrewSetupProgress } from "@/components/crew-setup-progress";
 import styles from "@/components/crew-setup-progress.module.css";
+import { CREW_PLANS, getCrewPlan } from "@/data/specialist-collection";
+import { CrewPlanPage } from "@/components/manual-bot-plan";
 
 export function generateStaticParams() {
-  return CREW_KITS.map((kit) => ({ slug: kit.slug }));
+  return [...CREW_KITS, ...CREW_PLANS].map((kit) => ({ slug: kit.slug }));
 }
 
 function statusLabel(status: string) {
@@ -29,11 +31,11 @@ function statusLabel(status: string) {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const kit = getCrewKit(slug);
+  const kit = getCrewKit(slug) ?? getCrewPlan(slug);
   return kit
     ? buildPageMetadata({
         title: `${kit.name} · Crew Kit`,
-        description: kit.promise,
+        description: "promise" in kit ? kit.promise : kit.summary,
         path: `/crew-kits/${kit.slug}/`,
         image: "/brand/crew-kits-og-v2-1200x630.jpg",
         imageAlt: `Bot Cabinet Crew Kits — ${kit.name}`,
@@ -43,6 +45,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CrewKitPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const plan = getCrewPlan(slug);
+  if (plan) return <CrewPlanPage crew={plan} />;
   const kit = getCrewKit(slug);
   if (!kit) notFound();
   const manifest = readGeneratedCrewManifest(kit.slug);
@@ -56,6 +60,7 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
       <section className="inner-hero crew-kit-detail-hero">
         <div className="shell">
           <Link href="/crew-kits" className="back-link"><ArrowLeft size={15} /> Back to Crew Kits</Link>
+          {CREW_PLANS.filter(plan => plan.extends === slug).map(plan => <p key={plan.slug}>New manual workflow: <Link href={`/crew-kits/${plan.slug}/`}>{plan.name}</Link> — {plan.summary}</p>)}
           <div className="inner-hero-grid">
             <div>
               <Eyebrow>{kit.eyebrow}</Eyebrow>

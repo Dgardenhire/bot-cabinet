@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "ad-spend-review",
+    "name": "Ad Spend Review",
+    "summary": "Find campaign costs and results that need a closer look.",
+    "category": "planning"
+  },
+  {
+    "slug": "bot-porter",
+    "name": "Bot Porter",
+    "summary": "Move the useful instructions for a Bot into a different app without pretending everything transfers.",
+    "category": "technical"
+  },
+  {
+    "slug": "bug-examiner",
+    "name": "Bug Examiner",
+    "summary": "Reproduce a reported software problem and show exactly what failed.",
+    "category": "technical"
+  },
+  {
+    "slug": "call-coach",
+    "name": "Call Coach",
+    "summary": "Help a salesperson improve one specific part of a recorded call.",
+    "category": "learning"
+  },
+  {
+    "slug": "campaign-builder",
+    "name": "Campaign Builder",
+    "summary": "Turn approved messages into a small campaign that is ready for a person to review.",
+    "category": "writing"
+  },
+  {
+    "slug": "change-reviewer",
+    "name": "Change Reviewer",
+    "summary": "Check whether a proposed software change fixes the problem without breaking something else.",
+    "category": "technical"
+  },
+  {
+    "slug": "clip-planner",
+    "name": "Clip Planner",
+    "summary": "Find useful short clips in a recording without changing what the speaker meant.",
+    "category": "writing"
+  },
+  {
+    "slug": "competitor-brief",
+    "name": "Competitor Brief",
+    "summary": "Show what changed in a short list of competing products.",
+    "category": "research"
+  },
+  {
+    "slug": "deal-reviewer",
+    "name": "Deal Reviewer",
+    "summary": "Check a sales opportunity against the team's stated requirements.",
+    "category": "planning"
+  },
+  {
+    "slug": "habit-coach",
+    "name": "Habit Coach",
+    "summary": "Fit a chosen everyday habit into the time you have.",
+    "category": "planning"
+  },
+  {
+    "slug": "lead-qualifier",
+    "name": "Lead Qualifier",
+    "summary": "Find which approved prospects fit the offer and which should be left alone.",
+    "category": "planning"
+  },
+  {
+    "slug": "outreach-coordinator",
+    "name": "Outreach Coordinator",
+    "summary": "Prepare a small, accurate batch of outreach and prevent duplicate contact.",
+    "category": "planning"
+  },
+  {
+    "slug": "pipeline-review",
+    "name": "Pipeline Review",
+    "summary": "Find stalled opportunities and unreliable numbers in a sales pipeline.",
+    "category": "planning"
+  },
+  {
+    "slug": "pitch-coach",
+    "name": "Pitch Coach",
+    "summary": "Find the weak claims and unanswered questions in a pitch.",
+    "category": "planning"
+  },
+  {
+    "slug": "search-presence",
+    "name": "Search Presence",
+    "summary": "Check how a business appears in a defined set of searches and AI answers.",
+    "category": "research"
+  },
+  {
+    "slug": "skill-builder",
+    "name": "Skill Builder",
+    "summary": "Turn a successful repeated task into reusable instructions with a checkable result.",
+    "category": "technical"
+  },
+  {
+    "slug": "subscription-review",
+    "name": "Subscription Review",
+    "summary": "Find software subscriptions worth checking before the next renewal.",
+    "category": "planning"
+  },
+  {
+    "slug": "visual-producer",
+    "name": "Visual Producer",
+    "summary": "Prepare useful thumbnails and still images for an approved piece of content.",
+    "category": "writing"
+  }
+]
