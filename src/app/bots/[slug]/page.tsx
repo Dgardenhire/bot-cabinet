@@ -28,16 +28,21 @@ import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
 import { starterBotToPortablePackV2 } from "@/lib/portable-bot-pack-v2";
 import { buildPageMetadata } from "@/lib/metadata";
 import { botImportAndRunStatus } from "@/lib/bot-status-copy";
+import { SPECIALISTS, getSpecialist } from "@/data/specialist-collection";
+import { SpecialistPage } from "@/components/manual-bot-plan";
 
 export function generateStaticParams() {
   return [
     ...STARTER_BOTS.map((bot) => ({ slug: bot.slug })),
+    ...SPECIALISTS.map((bot) => ({ slug: bot.slug })),
     ...REGISTRY_ENTRIES.map((entry) => ({ slug: entry.slug })),
   ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const specialist = getSpecialist(slug);
+  if (specialist) return buildPageMetadata({ title: `${specialist.name} · Bot Cabinet`, description: specialist.summary, path: `/bots/${slug}/`, image: "/brand/social/the-cabinet-1200x630.jpg", imageAlt: "Bot Cabinet specialist instructions" });
   const bot = getStarterBot(slug);
   const communityEntry = getRegistryEntry(slug);
   if (!bot && communityEntry) return { title: `${communityEntry.name} moved` };
@@ -53,6 +58,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function StarterBotPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const specialist = getSpecialist(slug);
+  if (specialist) return <SpecialistPage bot={specialist} />;
   const bot = getStarterBot(slug);
   if (!bot) {
     const communityEntry = getRegistryEntry(slug);

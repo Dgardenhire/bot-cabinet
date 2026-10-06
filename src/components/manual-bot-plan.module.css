@@ -1,0 +1,16 @@
+.section { max-width: 76rem; padding-block: 2rem; }
+.section h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1rem; }
+.text { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 75ch; line-height: 1.7; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-block: 2rem; }
+.steps article, .card { padding: 1.4rem; border: 1px solid #756236; background: #111915; }
+.steps h2, .card h2, .card h3 { font-size: 1.5rem; margin: .6rem 0; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.card { display: block; text-decoration: none; }
+.card:focus-visible, .card:hover { border-color: #d3a845; }
+.status { color: #b7c8be; font-size: .95rem; line-height: 1.6; }
+.details { border-top: 1px solid #756236; padding-block: 1.2rem; }
+.details summary { cursor: pointer; font-weight: 600; }
+.details pre { font: inherit; }
+.roles { display: grid; gap: 1rem; padding-left: 1.4rem; }
+.roles p { margin-block: .4rem; }
+@media (max-width: 760px) { .steps, .grid { grid-template-columns: 1fr; } }

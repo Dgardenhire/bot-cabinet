@@ -6,6 +6,7 @@ import { STARTER_BOTS } from "@/data/starter-bots";
 import { BOT_USE_CASES } from "@/data/use-cases";
 import { CREW_KITS } from "@/data/crew-kits";
 import { PROOF_ROOM_DEMOS } from "@/data/proof-room";
+import { SPECIALISTS, CREW_PLANS } from "@/data/specialist-collection";
 
 const baseUrl = "https://botcabinet.com";
 
@@ -39,16 +40,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     ...staticRoutes,
     ...STARTER_BOTS.map((bot) => `/bots/${bot.slug}`),
+    ...SPECIALISTS.map((bot) => `/bots/${bot.slug}`),
     ...BOT_USE_CASES.map((useCase) => `/use-cases/${useCase.slug}`),
     ...CREW_KITS.map((kit) => `/crew-kits/${kit.slug}`),
+    ...CREW_PLANS.map((kit) => `/crew-kits/${kit.slug}`),
     ...PROOF_ROOM_DEMOS.map((demo) => `/proof/${demo.slug}`),
     ...REGISTRY_ENTRIES.map((entry) => `/community/${entry.slug}`),
     ...GUIDES.map((guide) => `/guides/${guide.slug}`),
   ];
+  const updatedRoutes = new Set([...SPECIALISTS.map(bot => `/bots/${bot.slug}`), ...CREW_PLANS.map(crew => `/crew-kits/${crew.slug}`), "/bots", "/crew-kits"]);
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}/`.replace(`${baseUrl}//`, `${baseUrl}/`),
-    lastModified: new Date(["/start", "/start/dots", "/compare", "/watch"].includes(route) ? "2026-09-29" : "2026-09-03"),
+    lastModified: new Date(updatedRoutes.has(route) ? "2026-10-06" : ["/start", "/start/dots", "/compare", "/watch"].includes(route) ? "2026-09-29" : "2026-09-03"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.split("/").filter(Boolean).length === 1 ? 0.8 : 0.6,
   }));

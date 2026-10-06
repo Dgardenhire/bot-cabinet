@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useMemo, useState } from "react";
+import specialists from "@/data/specialist-index.json";
+import styles from "./manual-bot-plan.module.css";
 
 import {
   STARTER_BOTS,
@@ -30,13 +32,14 @@ export function StarterBotCatalog() {
       return categoryMatches && searchMatches;
     });
   }, [category, query]);
+  const visibleSpecialists = specialists.filter(bot => (category === "all" || bot.category === category) && [bot.name, bot.summary].join(" ").toLowerCase().includes(query.trim().toLowerCase()));
 
   return (
     <div>
-      <div className="registry-controls" aria-label="Filter Hermes Bots">
+      <div className="registry-controls" aria-label="Filter Bots">
         <label className="registry-search">
           <MagnifyingGlass size={18} aria-hidden="true" />
-          <span className="sr-only">Search Hermes Bots</span>
+          <span className="sr-only">Search Bots</span>
           <input
             type="search"
             value={query}
@@ -53,10 +56,11 @@ export function StarterBotCatalog() {
       </div>
 
       <p className="registry-results-line" aria-live="polite">
-        <span>{visible.length} Hermes Bot{visible.length === 1 ? "" : "s"}</span>
-        <span>Role instructions · setup steps · example requests</span>
+        <span>{visible.length + visibleSpecialists.length} Bot{visible.length + visibleSpecialists.length === 1 ? "" : "s"}</span>
+        <span>{visible.length} starter packs · {visibleSpecialists.length} manual specialists</span>
       </p>
 
+      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>New specialists</h2><p>Copy the role, try the first task, and check the answer. Recorded examples are Codex text exercises, not Hermes or Grok app tests.</p><div className={styles.grid}>{visibleSpecialists.map(bot => <Link className={styles.card} key={bot.slug} href={`/bots/${bot.slug}/`}><span className={styles.status}>Manual setup</span><h3>{bot.name}</h3><p>{bot.summary}</p><span>Try the first task →</span></Link>)}</div></section>}
       <div className="registry-grid starter-grid">
         {visible.map((bot) => (
           <Link href={`/bots/${bot.slug}`} className="registry-card starter-card" key={bot.slug}>
@@ -81,10 +85,10 @@ export function StarterBotCatalog() {
         ))}
       </div>
 
-      {!visible.length && (
+      {!visible.length && !visibleSpecialists.length && (
         <div className="registry-empty">
-          <h2>No Hermes Bots match that search</h2>
-          <button type="button" onClick={() => { setQuery(""); setCategory("all"); }}>Show all Hermes Bots</button>
+          <h2>No Bots match that search</h2>
+          <button type="button" onClick={() => { setQuery(""); setCategory("all"); }}>Show all Bots</button>
         </div>
       )}
     </div>
