@@ -21,6 +21,10 @@ describe("plan text formatting", () => {
   it("keeps nested headings below the surrounding sample heading", () => {
     expect(renderToStaticMarkup(<PlanText headingLevel={4} text={"### Result\n\nAnswer"} />)).toContain("<h4>Result</h4>");
   });
+  it("separates consecutive labeled fields without needing blank lines", () => {
+    const html = renderToStaticMarkup(<PlanText text={'Headline: Reminder software\nDescription: Sends appointment reminders.'} />);
+    expect(html).toContain('<p><strong>Headline:</strong> Reminder software</p><p><strong>Description:</strong> Sends appointment reminders.</p>');
+  });
   it("escapes HTML and preserves text inside emphasis, code, and tables", () => {
     const html = renderToStaticMarkup(<PlanText text={'**<script>bad</script>** and `<img src=x>`\n\n| Input | Result |\n|---|---|\n| <script> | <img> |'} />);
     expect(html).toContain("<strong>&lt;script&gt;bad&lt;/script&gt;</strong>");

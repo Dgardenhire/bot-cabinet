@@ -27,7 +27,7 @@
 .card { display: block; text-decoration: none; }
 .card h2, .card h3 { font: 400 1.5rem/1.2 var(--serif); margin: .6rem 0; }
 .card:focus-visible, .card:hover { border-color: var(--brass-bright); }
-.status { max-width: 75ch; color: var(--muted); font-size: .95rem; line-height: 1.7; }
+.status { max-width: 75ch; margin-block: 1.25rem; color: var(--muted); font-size: .95rem; line-height: 1.7; }
 .details { border-top: 1px solid var(--line); padding-block: 1.5rem; }
 .details summary { cursor: pointer; color: var(--ivory); font-weight: 600; line-height: 1.6; }
 .details[open] summary { margin-bottom: 1.5rem; }
@@ -45,7 +45,8 @@
 .tableWrap { max-width: 100%; overflow-x: auto; margin-block: 1.5rem; border: 1px solid var(--line); }
 .tableWrap table { width: 100%; min-width: 34rem; border-collapse: collapse; text-align: left; font-size: .9rem; line-height: 1.65; }
 .tableWrap th { color: var(--ivory); background: var(--ink-raised); font-weight: 600; }
-.tableWrap th, .tableWrap td { padding: .9rem 1rem; vertical-align: top; border-bottom: 1px solid var(--line-soft); }
+.tableWrap th, .tableWrap td { min-width: 7rem; padding: .9rem 1rem; vertical-align: top; overflow-wrap: normal; border-bottom: 1px solid var(--line-soft); }
+.tableWrap th { white-space: nowrap; }
 .tableWrap tbody tr:last-child td { border-bottom: 0; }
 @media (max-width: 760px) {
   .steps, .grid, .roles { grid-template-columns: 1fr; }
