@@ -12,6 +12,9 @@ describe("manual specialist and crew pages", () => {
     expect(html).toContain("not an Add Bot link or native import archive");
     expect(html).not.toContain("hermes profile import");
     expect(html).toContain("not an independent review");
+    expect(html).not.toContain("<pre");
+    expect(html).toContain("<h3>1. Set the job</h3>");
+    expect(html).toContain("<ul><li>Goal:</li>");
   });
   it.each(CREW_PLANS)("$name keeps manual setup and role links", crew => {
     const html = renderToStaticMarkup(<CrewPlanPage crew={crew} />);
@@ -20,6 +23,15 @@ describe("manual specialist and crew pages", () => {
     expect(html).toContain("simulated text handoffs");
     for (const role of crew.roles) expect(html).toMatch(new RegExp(`href="/bots/${role.slug}/?"`));
     if (crew.extends) expect(html).toMatch(new RegExp(`href="/crew-kits/${crew.extends}/?"`));
+    expect(html).not.toContain("### ");
+    expect(html).not.toContain("<pre");
+    expect(html).toContain('<ol start="1">');
+  });
+  it("formats the campaign-cost sample as a real table", () => {
+    const bot = SPECIALISTS.find(bot => bot.slug === "ad-spend-review")!;
+    const html = renderToStaticMarkup(<SpecialistPage bot={bot} />);
+    expect(html).toContain('<th scope="col">Campaign</th>');
+    expect(html).not.toContain("|---");
   });
   it("shows the failed original and distinguishes its correction from a fresh test", () => {
     const bot = SPECIALISTS.find(bot => bot.slug === "deal-reviewer")!;
