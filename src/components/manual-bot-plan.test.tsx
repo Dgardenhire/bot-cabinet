@@ -18,8 +18,8 @@ describe("manual specialist and crew pages", () => {
     expect(html).toContain("Copy setup plan");
     expect(html).toContain(`/downloads/crew-plans/${crew.slug}.md`);
     expect(html).toContain("simulated text handoffs");
-    for (const role of crew.roles) expect(html).toContain(`/bots/${role.slug}/`);
-    if (crew.extends) expect(html).toContain(`/crew-kits/${crew.extends}/`);
+    for (const role of crew.roles) expect(html).toMatch(new RegExp(`href="/bots/${role.slug}/?"`));
+    if (crew.extends) expect(html).toMatch(new RegExp(`href="/crew-kits/${crew.extends}/?"`));
   });
   it("shows the failed original and distinguishes its correction from a fresh test", () => {
     const bot = SPECIALISTS.find(bot => bot.slug === "deal-reviewer")!;
