@@ -26,7 +26,7 @@ import { buildPageMetadata } from "../../../lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Grok Bot Templates · Bot Cabinet",
   description:
-    "Start with a Bot Cabinet job recipe, then use the prepared build brief to create and test the role in Grok Bot.",
+    "Choose a Bot job, follow the Grok Bot setup instructions, and try its first task.",
   path: "/platforms/grok-bot/",
   image: "/brand/social/grok-bot-templates-1200x630.jpg",
   imageAlt: "Bot Cabinet — portable Bot recipes for Grok Bot",
@@ -46,10 +46,9 @@ export default function GrokBotTemplatesPage() {
           <Eyebrow>Hermes profiles · Grok Bot build briefs</Eyebrow>
           <h1>One Bot job. Two ways to build it</h1>
           <p className="section-deck">
-            Bot Cabinet keeps the job, boundaries, first task, checkpoint, Skill
-            recipe, and Routine recipe in one portable pack. You can download a
-            prepared profile for Hermes Agent or use a separate brief to build and
-            test the same job in Grok Bot.
+            Choose a job and follow its Grok Bot setup instructions. Each brief
+            includes the role, a first task, review checks, and proposed Skills and
+            Routines. Hermes profiles are available separately.
           </p>
           <div className="grok-platform-hero-actions">
             <a className="button button-primary" href="#bot-recipes">
@@ -76,12 +75,12 @@ export default function GrokBotTemplatesPage() {
           <div>
             <Wrench size={25} weight="thin" aria-hidden="true" />
             <span>Grok Bot</span>
-            <strong>Prepared build brief · test pending</strong>
+            <strong>Manual setup · not yet tested</strong>
           </div>
           <p>
-            Bot Cabinet&apos;s Grok path is a manual build brief. Current official
-            documentation describes in-app creation and public share links. The
-            briefs are prepared, with runtime testing still outstanding.
+            Create the Bot in Grok Bot and copy the instructions from its brief.
+            These downloads are not native template links. Bot Cabinet has not
+            tested these setups in the app.
           </p>
         </div>
       </section>
@@ -90,20 +89,20 @@ export default function GrokBotTemplatesPage() {
         <div className="grok-platform-map-heading">
           <div>
             <Eyebrow>Source review · September 20, 2026 · Not runtime-tested</Eyebrow>
-            <h2 id="grok-current-heading">You may not need to build another Bot</h2>
+            <h2 id="grok-current-heading">Find an existing template</h2>
           </div>
           <p>
             Grok Bot now has an official marketplace and native template links.
-            Check for an existing workflow before assembling a Cabinet recipe.
+            Browse for the job you need before creating a Bot yourself.
             Cabinet&apos;s downloads here remain manual build briefs, not native templates.
           </p>
         </div>
         <div className="grok-platform-map-grid">
           <article>
-            <h3>Start with the existing ecosystem</h3>
+            <h3>Browse by the job</h3>
             <p>
-              Browse by the task you need done. A listing is a creator&apos;s claim,
-              not proof that the workflow will work with your accounts or data.
+              Read the creator&apos;s description and check the required accounts
+              and connections. Try a small task before sharing private material.
             </p>
             <a href="https://x.ai/bot/marketplace">Browse the official Grok Bot marketplace</a>
           </article>
@@ -123,24 +122,24 @@ export default function GrokBotTemplatesPage() {
       <section className="grok-platform-map shell" aria-labelledby="portable-map-heading">
         <div className="grok-platform-map-heading">
           <div>
-            <Eyebrow>What stays portable</Eyebrow>
-            <h2 id="portable-map-heading">Keep the job. Change the setup path</h2>
+            <Eyebrow>Use a Bot in another app</Eyebrow>
+            <h2 id="portable-map-heading">Choose the setup for your app</h2>
           </div>
           <p>
-            The portable pack is the readable source for the work itself. Platform
-            adapters give concrete steps for the format each product supports.
+            Each app needs its own setup. The instructions describe the job;
+            you connect the tools and check the result.
           </p>
         </div>
 
         <div className="grok-platform-map-grid">
           <article>
             <FileCode size={26} weight="thin" aria-hidden="true" />
-            <span>Portable core</span>
-            <h3>Job recipe and Bot Passport</h3>
+            <span>Bot instructions</span>
+            <h3>The job and setup checklist</h3>
             <ul>
               <li>Job, scope, and intended result</li>
-              <li>Durable role instructions, approval gates, and operating limits</li>
-              <li>First task and human review checkpoint</li>
+              <li>Role instructions, approval rules, and limits</li>
+              <li>A first task and checks for the answer</li>
               <li>Skill and Routine recipes</li>
             </ul>
           </article>
@@ -165,7 +164,7 @@ export default function GrokBotTemplatesPage() {
         <div className="grok-operator-heading">
           <div>
             <Eyebrow>Operator guide · Checked {GROK_OPERATOR_UPDATED}</Eyebrow>
-            <h2 id="grok-operator-heading">Run Grok Bot without losing the plot</h2>
+            <h2 id="grok-operator-heading">Set up, test, and manage Grok Bots</h2>
           </div>
           <div>
             <p>
@@ -222,13 +221,12 @@ export default function GrokBotTemplatesPage() {
       <section className="content-section shell" id="bot-recipes">
         <div className="grok-template-heading">
           <div>
-            <Eyebrow>16 practical starting points</Eyebrow>
-            <h2 className="section-heading">Choose the job you want a Bot to own</h2>
+            <Eyebrow>{STARTER_BOTS.length} practical starting points</Eyebrow>
+            <h2 className="section-heading">Choose a job</h2>
           </div>
           <p>
-            Every Grok Bot brief is prepared from the same portable recipe as its
-            Hermes profile. Grok runtime testing is still pending and is shown on
-            every card.
+            Use these instructions to create a Bot manually in Grok Bot.
+            App testing is still pending.
           </p>
         </div>
 
@@ -237,7 +235,7 @@ export default function GrokBotTemplatesPage() {
             <article className="portable-template-card" key={bot.slug}>
               <div className="portable-template-card-topline">
                 <span>{bot.category}</span>
-                <strong>Prepared · test pending</strong>
+                <strong>Not yet tested in Grok Bot</strong>
               </div>
               <h3>{bot.name}</h3>
               <p className="portable-template-title">{bot.title}</p>
@@ -251,14 +249,14 @@ export default function GrokBotTemplatesPage() {
                   href={`/downloads/grok-bot-templates/v2/${bot.slug}.md`}
                   download
                 >
-                  Download the full recipe <DownloadSimple size={15} />
+                  Download Grok instructions <DownloadSimple size={15} />
                 </a>
                 <a
                   className="text-link"
                   href={`/downloads/portable-bot-packs/${bot.slug}.md`}
                   download
                 >
-                  Download the portable pack <DownloadSimple size={15} />
+                  Download instructions for other apps <DownloadSimple size={15} />
                 </a>
                 <Link className="text-link" href={`/bots/${bot.slug}`}>
                   View the complete Bot <ArrowRight size={15} />

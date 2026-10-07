@@ -12,7 +12,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "How Bot Cabinet checks its work",
-  description: "See what Bot Cabinet checks automatically, which Bots have been tried, and where public proof is still missing.",
+  description: "See dated site checks, Bot test results, and checks with no published result.",
   path: "/trust/",
   image: "/brand/social/inspection-desk-1200x630.jpg",
   imageAlt: "Inspection Desk — what Bot Cabinet actually checks",
@@ -50,14 +50,16 @@ export default function TrustPage() {
             <Eyebrow>Checks and test results</Eyebrow>
             <h1 className="inner-title">How we check the work</h1>
             <p className="inner-deck">
-              This page shows which checks run automatically, which Bots have been tried, and where proof is still missing.
-              If a result is not public and dated, we say so.
+              Check the dated results for site checks and Bot tests. Some Bots have
+              not been tested; each record lists the checks completed.
             </p>
           </div>
           <aside className="inner-aside trust-caveat">
             <Warning size={22} weight="thin" aria-hidden="true" />
-            <strong>No badge means “safe” or “works for everyone.”</strong>
-            A package check can find known problems. A controlled task can expose failures. Neither replaces reading the requested access, testing the job yourself, or making the final decision.
+            <strong>Review access before installing.</strong>
+            Tests do not guarantee safety or reliability. Read the requested permissions
+            and try a small task before sharing private information or allowing actions.
+            A test result applies to the named version and task.
           </aside>
         </div>
       </section>
@@ -66,8 +68,8 @@ export default function TrustPage() {
         <div aria-labelledby="keeper-status-title">
         <div className="trust-status-heading">
           <Eyebrow>Latest public record</Eyebrow>
-          <h2 className="section-heading" id="keeper-status-title">Latest approved Keeper checks</h2>
-          <p className="section-deck">Keeper checks the public site, repository, downloads, and changing Bot sources. Only a dated result that a person has reviewed appears here. Missing or late evidence never appears as a pass.</p>
+          <h2 className="section-heading" id="keeper-status-title">Latest Keeper results</h2>
+          <p className="section-deck">See the last published results for pages, downloads, and Bot sources. These records are dated and reviewed before publication. Missing results show “No public record”; old passing results show “Out of date.”</p>
         </div>
         <KeeperTrustStatusTable fallback={KEEPER_TRUST_FALLBACK} />
         </div>
@@ -79,7 +81,7 @@ export default function TrustPage() {
       </section>
 
       <section className="content-section shell">
-        <Eyebrow>How evidence is described</Eyebrow>
+        <Eyebrow>What the labels mean</Eyebrow>
         <div className="evidence-grid">
           {evidence.map((item) => (
             <article className="evidence-card" key={item.title}>
@@ -92,16 +94,16 @@ export default function TrustPage() {
       </section>
 
       <section className="content-section shell">
-        <Eyebrow>What a check proves</Eyebrow>
+        <Eyebrow>What the tests cover</Eyebrow>
         <div className="content-grid-3">
-          <article className="content-card"><h2>Reachable is not useful</h2><p>A page or download can respond correctly and still be confusing, outdated, or unhelpful. Keeper can find the first kind of problem. A real task test and human review are needed for the second.</p></article>
-          <article className="content-card"><h2>Package checks are narrow</h2><p>A package check can confirm expected files, hashes, and readable contents. It cannot prove that the instructions are good or that a Bot will handle a real job well.</p></article>
-          <article className="content-card"><h2>No public record, no green light</h2><p>A private log may help maintain the site, but visitors cannot inspect it. A missing or late public record means the current result is unknown.</p></article>
+          <article className="content-card"><h2>Pages and links</h2><p>Site checks show whether pages and downloads open. Task tests and user review help show whether the instructions are useful and clear.</p></article>
+          <article className="content-card"><h2>Download contents</h2><p>Package checks verify the expected files and their contents. They do not test how well a Bot answers a request.</p></article>
+          <article className="content-card"><h2>Missing results</h2><p>A missing or overdue public record means the current result is unknown. Private maintenance logs are not shown here.</p></article>
         </div>
       </section>
 
       <section className="content-section shell truth-boundaries">
-        <Eyebrow>Important boundaries</Eyebrow>
+        <Eyebrow>Before you install</Eyebrow>
         <div className="content-grid-3">
           <article className="content-card"><h2>A profile separates Bot data</h2><p>Each Hermes profile keeps its own settings, memory, and history. The Bot can still use the files and tools that a person gives it permission to use.</p></article>
           <article className="content-card"><h2>Anyone can download a public repository</h2><p>Create a new public package for sharing. Keep credentials, memories, sessions, client material, and private instructions in the live profile.</p></article>

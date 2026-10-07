@@ -43,7 +43,7 @@ export default async function GrokBotSetupPage({ params }: { params: Promise<{ s
           <Eyebrow>Grok Bot · guided setup</Eyebrow>
           <h1>Build {bot.name} in Grok Bot</h1>
           <p>Give it one clear job, try one small task, and judge the result before you add tools or a schedule.</p>
-          <div className="workspace-start-status">Prepared guide · not yet task-tested in Grok Bot</div>
+          <div className="workspace-start-status">Not yet tested in Grok Bot</div>
         </header>
 
         <ol className="workspace-start-steps">
@@ -58,7 +58,7 @@ export default async function GrokBotSetupPage({ params }: { params: Promise<{ s
           <li>
             <span className="workspace-start-step-number">2</span>
             <div>
-              <h2>Give it the job</h2>
+              <h2>Add the instructions</h2>
               <p>Set its name to <strong>{bot.name}</strong>. Copy this into its description, review the limits, and save the profile. You can refine it after the first result.</p>
               <div className="workspace-start-copy"><CopyTextButton text={job} label="Copy job description" analyticsEvent="grok_role_copy" analyticsSurface={`grok_setup_${slug}`} /><pre>{job}</pre></div>
               <p className="workspace-start-small">Keep private data, passwords, and account access out of the description. <a href="https://docs.x.ai/grok-bot/bots" target="_blank" rel="noopener noreferrer">Official profile instructions</a></p>
@@ -84,8 +84,8 @@ export default async function GrokBotSetupPage({ params }: { params: Promise<{ s
         </ol>
 
         <footer className="workspace-start-footer">
-          <h2>Keep the full recipe</h2>
-          <p>The downloadable brief includes the proposed Skill, an inactive Routine plan, and access limits. It is a reference file—not a Grok import or proof that this Bot works there.</p>
+          <h2>Download the full instructions</h2>
+          <p>The brief includes Skill instructions, a proposed Routine, and access limits. Set these up manually in Grok Bot. Downloading it does not activate a Routine. It is not an import file, and this setup has not been tested in the app.</p>
           <div className="button-row"><a href={pack.platforms.grokBot.briefUrl} download className="button button-secondary">Download the full brief <DownloadSimple size={16} aria-hidden="true" /></a><Link href={`/bots/${slug}`} className="button button-secondary">Review {bot.name} in the Cabinet</Link></div>
         </footer>
       </div>

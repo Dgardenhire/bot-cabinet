@@ -21,7 +21,7 @@ export type CrewKit = {
 };
 
 const STANDARD_SETUP = [
-  "Open each linked Bot page in the Bots and responsibilities section. Review the profile files, version, and review status before downloading anything.",
+  "Open each Bot's page below. Check its files, version and test status before downloading.",
   "Download each approved profile and import it into Hermes Desktop.",
   "Open each Bot's settings in Hermes Desktop. Give it only the files, tools, and connections needed for its role.",
   "Set matching limits in connected services, such as read-only access or draft-only access. The Crew Passport is a checklist; it does not apply these limits for you.",
@@ -43,7 +43,7 @@ export const CREW_KITS: CrewKit[] = [
     slug: "publishing-desk",
     name: "Publishing Desk",
     eyebrow: "Complete Crew Kit 01",
-    promise: "A standing editorial team that turns approved ideas and sources into finished material for review.",
+    promise: "Turn approved ideas and sources into articles, newsletters and posts ready for your review.",
     audience: "Independent publishers, experts, small organizations, and teams with a regular publishing schedule",
     description: "The Publishing Desk finds worthwhile topics, checks source material, develops the message, drafts, edits, and prepares channel versions. A person chooses the message, approves claims, and publishes.",
     image: { src: "/use-cases/weekly-newsletter.webp", alt: "A precision typesetting machine preparing editorial pages" },
@@ -57,7 +57,7 @@ export const CREW_KITS: CrewKit[] = [
     workflows: [
       { name: "Weekly newsletter", description: "Select a timely angle and prepare the issue for approval.", useCaseSlug: "weekly-newsletter" },
       { name: "Social content set", description: "Turn one approved message into platform-ready drafts.", useCaseSlug: "social-media-content-set" },
-      { name: "Narrative system", description: "Build reusable proof points and channel language.", useCaseSlug: "narrative-message-system" },
+      { name: "Brand messages", description: "Develop consistent messages backed by facts for your website, email and posts.", useCaseSlug: "narrative-message-system" },
     ],
     sharedInputs: ["Audience, purpose, and publishing schedule", "Approved sources, facts, and proof points", "Voice examples, style rules, and off-limit claims"],
     operatingRhythm: [
@@ -150,9 +150,9 @@ export const CREW_KITS: CrewKit[] = [
     slug: "product-delivery-crew",
     name: "Product Delivery Crew",
     eyebrow: "Complete Crew Kit 04",
-    promise: "Move an approved feature from a clear requirement through technical direction, implementation, checks, and review.",
+    promise: "Plan, build and test an approved software feature, then prepare it for your review.",
     audience: "Founders, product leads, and small software teams using AI-assisted development",
-    description: "The Product Delivery Crew turns an approved feature into requirements, a technical approach, working code, verification evidence, and a release recommendation. A person controls scope, credentials, merges, and deployment.",
+    description: "The Product Delivery Crew plans an approved feature, builds the code, runs tests and recommends whether it is ready to release. You approve the scope, account access, merges and deployment.",
     image: { src: "/use-cases/software-feature-build.webp", alt: "A precise mechanical assembly representing a software feature under construction" },
     roles: [
       { botSlug: "planner", responsibility: "Define the user outcome, acceptance conditions, scope, and dependencies." },
@@ -222,7 +222,7 @@ export const CREW_KITS: CrewKit[] = [
     slug: "event-operations-desk",
     name: "Event Operations Desk",
     eyebrow: "Complete Crew Kit 06",
-    promise: "Turn an approved event brief into a schedule, run of show, responsibility map, and exception list.",
+    promise: "Plan an event with a schedule, assigned responsibilities and backup plans.",
     audience: "Small organizations, conveners, associations, and teams producing meetings or events",
     description: "The Event Operations Desk develops the plan, tracks decisions and dependencies, prepares participant and vendor material, monitors readiness, and keeps last-minute exceptions visible.",
     image: { src: "/use-cases/project-launch-plan.webp", alt: "An organized operations table with schedules and timing controls" },
@@ -257,7 +257,7 @@ export const CREW_KITS: CrewKit[] = [
     slug: "weekly-business-review",
     name: "Weekly Business Review",
     eyebrow: "Complete Crew Kit 07",
-    promise: "Bring current metrics, open work, capacity conflicts, and decisions into one weekly operating brief.",
+    promise: "Review this week's results, unfinished tasks, workload and decisions in one summary.",
     audience: "Founders, independent operators, executives, and small leadership teams",
     description: "The Weekly Business Review gathers approved operating information, explains material changes, identifies conflicts, prepares decision questions, and converts approved priorities into next actions.",
     image: { src: "/use-cases/leadership-weekly-review.jpg", alt: "A measured weekly operating review arranged across a professional desk" },
@@ -396,7 +396,7 @@ export const CREW_KITS: CrewKit[] = [
     slug: "small-business-admin-desk",
     name: "Small-Business Admin Desk",
     eyebrow: "Complete Crew Kit 11",
-    promise: "Keep routine inbox work, customer drafts, weekly status, and follow-up organized without uncontrolled authority.",
+    promise: "Organize incoming requests, draft customer replies and keep track of follow-ups.",
     audience: "Independent professionals, small firms, local businesses, and lean administrative teams",
     description: "The Small-Business Admin Desk sorts approved incoming work, finds the relevant context, drafts routine replies, tracks follow-up, and prepares a weekly operating view. A person controls sending, payments, contracts, account changes, and deletions.",
     image: { src: "/use-cases/operations-status-report.webp", alt: "A compact administrative desk organizing correspondence and weekly status" },
@@ -416,7 +416,7 @@ export const CREW_KITS: CrewKit[] = [
     sharedInputs: ["Approved inboxes or copied messages", "Customer, service, project, policy, and pricing records", "Open task list and approval owners"],
     operatingRhythm: [
       { timing: "Daily intake", action: "Classify work and identify needed context.", owner: "Chief of Staff" },
-      { timing: "Prepare", action: "Research and draft the work product.", owner: "Researcher + Client Deliverables" },
+      { timing: "Prepare", action: "Find the relevant information and draft replies or documents.", owner: "Researcher + Client Deliverables" },
       { timing: "Track", action: "Update tasks, deadlines, and exceptions.", owner: "Ops + Planner" },
       { timing: "Weekly review", action: "Approve priorities and consequential actions.", owner: "Person" },
     ],

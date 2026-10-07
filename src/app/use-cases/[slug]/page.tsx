@@ -97,7 +97,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
           <dl>
             <div><dt>Lead Bot</dt><dd>{getStarterBot(operations.leadBotSlug)?.name}</dd></div>
             <div><dt>Typical first run</dt><dd>{operations.estimatedTime}</dd></div>
-            <div><dt>Cadence</dt><dd>{operations.cadence}</dd></div>
+            <div><dt>When to run it</dt><dd>{operations.cadence}</dd></div>
           </dl>
         </div>
         <p className="workflow-when-to-use">{operations.whenToUse}</p>
@@ -187,7 +187,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
       )}
 
       <section className="content-section shell workflow-checkpoints">
-        <article><CheckCircle size={27} weight="thin" /><h2>Success checkpoint</h2><p>{operations.successCheckpoint}</p></article>
+        <article><CheckCircle size={27} weight="thin" /><h2>Check the result</h2><p>{operations.successCheckpoint}</p></article>
         <article><ShieldCheck size={27} weight="thin" /><h2>If the workflow stalls</h2><p>{operations.recovery}</p></article>
       </section>
 

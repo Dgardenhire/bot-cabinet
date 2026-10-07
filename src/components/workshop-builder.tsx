@@ -475,7 +475,7 @@ export function WorkshopBuilder() {
     );
     if (
       hasContent &&
-      !window.confirm("Clear every field in this browser-local Bot Lab draft?")
+      !window.confirm("Clear every field in this browser’s saved Bot Lab draft?")
     ) {
       return;
     }
@@ -689,9 +689,9 @@ export function WorkshopBuilder() {
         <div>
           <p className="workshop-panel-kicker">Your Bot Lab downloads</p>
           <h2 id="workshop-output-title">
-            {complete ? "Your Bot package is ready for your review" : "Save your draft or finish the setup plan"}
+            {complete ? "Review and download your Bot" : "Save your draft or finish the setup plan"}
           </h2>
-          <p>An importable Hermes profile, a designed Blueprint PDF, an editable Markdown plan, and a separate Bot Passport.</p>
+          <p>Download a Hermes profile, a PDF setup plan, an editable Markdown plan and a Bot Passport with access and approval rules.</p>
           {!complete && <p role="status">{downloadStatus}</p>}
         </div>
         <div className="workshop-output-actions">
@@ -911,14 +911,14 @@ export function WorkshopBuilder() {
           <details className="workshop-refinement">
             <summary>
               <span>
-                <strong>Refine your Blueprint</strong>
+                <strong>Add more detail to your plan</strong>
                 <small>Optional questions for a more complete plan</small>
               </span>
             </summary>
             <div className="workshop-refinement-intro">
               <p>
-                Add the people, quality standards, access limits, continuing conversation,
-                and test criteria that matter for this Bot.
+                Describe who will use the result, what the Bot may access,
+                what it should remember, and how you will check its first test.
               </p>
             </div>
             <div className="workshop-fields workshop-refinement-fields">
@@ -1099,7 +1099,7 @@ export function WorkshopBuilder() {
                 <h3>What it should produce</h3>
                 <BlueprintList
                   items={blueprint.outputs}
-                  emptyLabel="List the finished deliverables."
+                  emptyLabel="List the files or answers you want."
                 />
               </section>
             </div>

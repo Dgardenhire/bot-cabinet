@@ -8,7 +8,7 @@
   {
     "slug": "bot-porter",
     "name": "Bot Porter",
-    "summary": "Move the useful instructions for a Bot into a different app without pretending everything transfers.",
+    "summary": "Prepare an existing Bot for use in another app, with instructions for setting up its tools and accounts.",
     "category": "technical"
   },
   {
@@ -92,7 +92,7 @@
   {
     "slug": "skill-builder",
     "name": "Skill Builder",
-    "summary": "Turn a successful repeated task into reusable instructions with a checkable result.",
+    "summary": "Write instructions from a successful task, with examples for checking the Bot's answers.",
     "category": "technical"
   },
   {

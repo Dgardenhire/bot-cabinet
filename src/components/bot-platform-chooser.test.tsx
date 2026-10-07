@@ -24,7 +24,7 @@ describe("BotPlatformChooser", () => {
     expect(workbench).toBeLessThan(chatgptPath);
     expect(html).toContain("Archive import passed");
     expect(html).toContain("Hermes Agent 0.21.0");
-    expect(html).toContain("output testing remains pending");
+    expect(html).toContain("Its task results have not been tested");
     expect(html).toContain("Prepared · test pending");
     expect(html).toContain("Portable Bot Pack");
     expect(html).toContain("ChatGPT Workspace Agent");
@@ -36,8 +36,8 @@ describe("BotPlatformChooser", () => {
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.md"');
     expect(html).toContain('href="/downloads/portable-bot-packs/v2/scout.json"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout/skills/scout-core/SKILL.md"');
-    expect(html).toContain("shared file format does not prove identical behavior");
-    expect(html).toContain("Prepared file");
+    expect(html).toContain("results can differ between apps");
+    expect(html).toContain("Review the instructions and permissions");
     expect(html).toContain('data-funnel-event="bot_portable_skill_download"');
     expect(html).not.toMatch(/compatible with Grok|install (?:in|for) Grok/i);
   });

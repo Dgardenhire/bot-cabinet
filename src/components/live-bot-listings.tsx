@@ -94,10 +94,10 @@ export function LiveBotListings() {
   return (
     <section className="live-bot-section" aria-labelledby="live-bot-title">
       <div className="live-bot-heading">
-        <div><span className="eyebrow">From the source sites</span><h2 id="live-bot-title">Fresh listings</h2></div>
+        <div><span className="eyebrow">Bot directories and repositories</span><h2 id="live-bot-title">Current listings</h2></div>
         <button type="button" onClick={() => { setLoading(true); void refresh(); }} disabled={loading}><ArrowsClockwise size={16} /> Refresh</button>
       </div>
-      <p>New Bots and ways to use them appear first. Choose All to see tools, repositories, and releases too. These listings have not been tested by Bot Cabinet.</p>
+      <p>Browse Bots and ways to use them. Choose All for tools, repositories and releases. Bot Cabinet has not tested these listings.</p>
       <div className="live-bot-status" role="status">
         {loading ? "Checking directories…" : `${totalCount.toLocaleString()} entries found across ${connectedCount} of ${LIVE_BOT_SOURCES.length} live sources`}
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}
@@ -109,7 +109,7 @@ export function LiveBotListings() {
           <div className="live-bot-list-copy"><div><h3>{item.name}</h3><p>{item.job}</p></div><span>By {item.creator}</span></div>
           <LiveBotListingLinks item={item} />
         </li>
-      ))}</ol> : !loading ? <p className="live-bot-empty">No current entries match this filter. The source list below links to every source directly.</p> : null}
+      ))}</ol> : !loading ? <p className="live-bot-empty">No listings match this filter. Try another filter or open a directory from the source list below.</p> : null}
       {visibleItems.length < filteredItems.length ? <button className="button button-secondary live-bot-more" type="button" onClick={() => setVisibleLimit((value) => value + PAGE_SIZE)}>Show {Math.min(PAGE_SIZE, filteredItems.length - visibleItems.length)} more</button> : null}
       {!loading && sources.some((source) => !source.ok) ? <details className="live-bot-source-health"><summary>Source status</summary><p>{sources.map((source) => `${source.name}: ${source.ok ? `${source.count.toLocaleString()} entries` : "unavailable"}`).join(" · ")}</p></details> : null}
     </section>

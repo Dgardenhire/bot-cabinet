@@ -10,9 +10,9 @@ describe("botImportAndRunStatus", () => {
       const bot = STARTER_BOTS.find((candidate) => candidate.slug === slug)!;
       const copy = botImportAndRunStatus(starterBotToPortablePackV2(bot));
 
-      expect(copy).toContain("Hermes Agent 0.21.1 on September 9, 2026");
-      expect(copy).toContain("Two published first-mission role runs passed their disclosed checks");
-      expect(copy).toContain("Human technical review remains pending");
+      expect(copy).toContain("Hermes Agent 0.21.1 installation on September 9, 2026");
+      expect(copy).toContain("Two published first-task runs passed the listed checks");
+      expect(copy).toContain("A person has not yet completed the technical review");
       expect(copy).toContain("Grok Bot build brief remains untested");
     }
   });
@@ -21,7 +21,7 @@ describe("botImportAndRunStatus", () => {
     const bot = STARTER_BOTS.find((candidate) => candidate.slug === "scout")!;
     const copy = botImportAndRunStatus(starterBotToPortablePackV2(bot));
 
-    expect(copy).toContain("Hermes Agent 0.21.0 on September 4, 2026");
-    expect(copy).toContain("role-specific output tests remain pending");
+    expect(copy).toContain("Hermes Agent 0.21.0 installation on September 4, 2026");
+    expect(copy).toContain("Human technical review and task-result tests have not yet been completed");
   });
 });

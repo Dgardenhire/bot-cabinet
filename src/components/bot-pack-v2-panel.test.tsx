@@ -13,7 +13,7 @@ describe("BotPackV2Panel", () => {
 
     expect(html).toContain("Bot Pack 2.0");
     expect(html).toContain("First assignment");
-    expect(html).toContain("Review checkpoint");
+    expect(html).toContain("Check the result");
     expect(html).toContain("Reusable Skill");
     expect(html).toContain("Planned Routine");
     expect(html).toContain("Prepared · test pending");

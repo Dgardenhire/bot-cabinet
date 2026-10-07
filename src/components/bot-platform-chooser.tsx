@@ -47,7 +47,7 @@ export function BotPlatformChooser({
           <h2 id={`${botSlug}-platform-heading`}>Use {botName} on your platform</h2>
         </div>
         <p>
-          Pick the app you have. Each path tells you what is ready and what still needs testing.
+          Choose your app for setup instructions and test results.
         </p>
       </div>
 
@@ -58,21 +58,21 @@ export function BotPlatformChooser({
             <span className="bot-platform-option-name">Hermes Agent</span>
             <span className="bot-platform-status is-available">
               {runtimeEvidence
-                ? "Bounded task passed"
+                ? "One task test passed"
                 : pack.platforms.hermes.importEvidence
                   ? "Archive import passed"
-                  : "Prepared profile · import test pending"}
+                  : "Profile ready · import not tested"}
             </span>
             <span className="bot-platform-option-cue" aria-hidden="true">+</span>
           </summary>
           <div className="bot-platform-option-content">
           <p>
-            Import the prepared profile, review its files, choose the access it
+            Import the profile, review its files, choose the access it
             needs, and run the first assignment. {runtimeEvidence
-              ? `${runtimeEvidence.summary} This is one run, not evidence of general reliability or approval for automation.`
+              ? `${runtimeEvidence.summary} This record covers one run, not general reliability. Review and approve any automation separately.`
               : pack.platforms.hermes.importEvidence
-              ? `The archive and bundled Skill passed an isolated import check in Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion}. Role-specific output testing remains pending.`
-              : "Import and role-specific output testing remain pending for this new profile."}
+              ? `The archive imported successfully and its Skill was present in an isolated Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion} installation. Its task results have not been tested.`
+              : "This profile has not been tested for import or task results."}
           </p>
           <div className="bot-platform-actions">
             <a
@@ -86,7 +86,7 @@ export function BotPlatformChooser({
               Download the profile <DownloadSimple size={15} />
             </a>
             <a href={hermesReadableFilesUrl} download className="text-link">
-              Inspect the readable files <DownloadSimple size={15} />
+              Read the files <DownloadSimple size={15} />
             </a>
             {hermesImportCommand && (
               <CopyTextButton
@@ -120,7 +120,7 @@ export function BotPlatformChooser({
           <p>
             Build the same job as a Workspace Agent, add its Agent Skill, then
             choose the files, apps, approvals and sharing rules it needs. This
-            adapter has not yet been installed or task-tested for {botName}.
+            setup has not yet been installed or task-tested for {botName}.
           </p>
           <div className="bot-platform-actions">
             <Link href={`/start/chatgpt/${botSlug}`} className="text-link">
@@ -140,7 +140,7 @@ export function BotPlatformChooser({
           <div className="bot-platform-option-content">
           <p>
             Use a Cowork plugin or Skill for a general work role. Use Claude Code
-            only when the job belongs to a codebase or local project. This adapter
+            only when the job involves code or a local project. This setup
             has not yet been installed or task-tested for {botName}.
           </p>
           <div className="bot-platform-actions">
@@ -163,7 +163,7 @@ export function BotPlatformChooser({
           <div className="bot-platform-option-content">
           <p>
             Copy the job into a Grok Bot profile, try one task, and review the
-            result before adding a Skill or Routine. Runtime testing is still pending.
+            result before adding a Skill or Routine. This Bot has not been tested in Grok.
           </p>
           <div className="bot-platform-actions">
             <Link href={`/start/grok/${botSlug}`} className="text-link">
@@ -177,7 +177,7 @@ export function BotPlatformChooser({
               Download the full recipe <DownloadSimple size={15} />
             </a>
             <Link href="/platforms/grok-bot" className="text-link">
-              See how the adaptation works <ArrowRight size={15} />
+              Grok Bot setup help <ArrowRight size={15} />
             </Link>
           </div>
           </div>
@@ -188,14 +188,13 @@ export function BotPlatformChooser({
       <OpenBotWorkbenchOnHash />
 
       <details className="bot-platform-files">
-        <summary>Want the files to adapt this Bot elsewhere?</summary>
+        <summary>Download files for another app</summary>
         <div className="bot-platform-files-content">
           <h3>Portable Bot Pack</h3>
           <p>
-            Keep the complete recipe as readable Markdown or structured JSON,
-            including its Bot Passport and platform-specific setup notes. The
-            included Agent Skill uses the <code>SKILL.md</code> convention, but
-            a shared file format does not prove identical behavior on every host.
+            Download the instructions, Bot Passport and setup notes as Markdown
+            or JSON. The Agent Skill is a <code>SKILL.md</code> file. Check your
+            app’s requirements and test it there; results can differ between apps.
           </p>
           <div className="bot-platform-file-actions">
             <a
@@ -223,7 +222,7 @@ export function BotPlatformChooser({
               Download the Agent Skill <DownloadSimple size={15} />
             </a>
           </div>
-          <p className="bot-platform-portability-note">Prepared file. Review its instructions and permissions, then test it in the target agent before relying on it.</p>
+          <p className="bot-platform-portability-note">Review the instructions and permissions, then run a test in your chosen app before relying on the result.</p>
         </div>
       </details>
     </section>

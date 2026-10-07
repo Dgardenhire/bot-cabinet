@@ -56,10 +56,10 @@ describe("reliable Bots PDF source", () => {
     const elements = collectElements(document);
     const sourceLinks = elements.filter((element) => element.type === Link);
 
-    expect(text).toContain("Write a short job contract");
+    expect(text).toContain("Write the job instructions");
     expect(text).toContain("Choose a Bot, a skill or a routine");
-    expect(text).toContain("Match freedom to possible harm");
-    expect(text).toContain("Test failure before you trust success");
+    expect(text).toContain("Decide what needs your approval");
+    expect(text).toContain("Check what happens when something goes wrong");
     expect(text).toContain("Use the simplest structure that can do the job");
     expect(text).toContain("It is not official xAI guidance");
     expect(sourceLinks).toHaveLength(1);

@@ -6,12 +6,12 @@ export function AgentWatchSources() {
     <details className="agent-watch-sources">
       <summary>
         <div>
-          <span>Coverage for this edition</span>
-          <strong>Sources we check ({AGENT_WATCH_SOURCES.length})</strong>
+          <span>Directories, guides and releases</span>
+          <strong>Browse the sources ({AGENT_WATCH_SOURCES.length})</strong>
         </div>
         <span className="agent-watch-sources-open">View sources</span>
       </summary>
-      <p className="agent-watch-sources-note">Fourteen sources feed the current listings, including the official Grok Bot Marketplace, independent Bot directories and newly created agent repositories. Other sources stay on this list even when they do not offer a dependable public feed.</p>
+      <p className="agent-watch-sources-note">Current listings come from fourteen sources, including Grok Bot Marketplace, independent Bot directories and new agent repositories. You can also open the other sources directly; some have no dependable public feed.</p>
       <div className="agent-watch-source-groups">
         {AGENT_WATCH_SOURCE_GROUPS.map((group) => (
           <div key={group}>

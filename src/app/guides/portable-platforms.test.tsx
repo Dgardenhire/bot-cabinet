@@ -19,7 +19,7 @@ describe("portable Bot platform guide", () => {
     expect(html).toContain("Cowork plugin or skill");
     expect(html).toContain("Claude Code is the right home only when the Bot&#x27;s job lives in a codebase");
     expect(html).toContain("Example: Chief of Staff");
-    expect(html).toContain("A prepared guide is not a tested deployment");
+    expect(html).toContain("Prepared instructions have not necessarily been installed or tested");
     expect(html).toContain("https://help.openai.com/en/articles/20001143");
     expect(html).toContain("https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork");
   });

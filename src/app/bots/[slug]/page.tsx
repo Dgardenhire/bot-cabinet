@@ -138,15 +138,15 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
       )}
       <p><Link href={`/workshop?starter=${bot.slug}`} className="text-link">Customize this Bot in Bot Lab <ArrowRight size={15} aria-hidden="true" /></Link></p>
       <section className="content-section">
-        <Eyebrow>Job contract</Eyebrow>
+        <Eyebrow>Job and limits</Eyebrow>
         <h2 className="section-heading">What this Bot is responsible for</h2>
         <div className="starter-practical-grid">
-          <article className="starter-practical-card"><h3>Owns</h3><p>{roleContract.owns}</p></article>
-          <article className="starter-practical-card"><h3>Does not own</h3><ul>{roleContract.doesNotOwn.map((item) => <li key={item}>{item}</li>)}</ul></article>
-          <article className="starter-practical-card"><h3>Source of truth</h3><ul>{roleContract.sourceOfTruth.map((item) => <li key={item}>{item}</li>)}</ul></article>
-          <article className="starter-practical-card"><h3>Needs approval for</h3><ul>{roleContract.approvalPoints.map((item) => <li key={item}>{item}</li>)}</ul></article>
-          <article className="starter-practical-card"><h3>Starts when</h3><p>{roleContract.trigger}</p></article>
-          <article className="starter-practical-card"><h3>Hands back</h3><ul>{roleContract.finishedDeliverables.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Its job</h3><p>{roleContract.owns}</p></article>
+          <article className="starter-practical-card"><h3>Outside its job</h3><ul>{roleContract.doesNotOwn.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Information it relies on</h3><ul>{roleContract.sourceOfTruth.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>Ask you before</h3><ul>{roleContract.approvalPoints.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article className="starter-practical-card"><h3>When it runs</h3><p>{roleContract.trigger}</p></article>
+          <article className="starter-practical-card"><h3>What it produces</h3><ul>{roleContract.finishedDeliverables.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
       </section>
 
@@ -162,7 +162,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </article>
         <article className="starter-practical-card">
           <FileText size={27} weight="thin" aria-hidden="true" />
-          <h2>Intended output</h2>
+          <h2>What it should produce</h2>
           <ul>{bot.produces.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
         <article className="starter-practical-card">
@@ -172,7 +172,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
         </article>
         <article className="starter-practical-card">
           <ShieldCheck size={27} weight="thin" aria-hidden="true" />
-          <h2>Keep these decisions with a person</h2>
+          <h2>Decisions you make</h2>
           <ul>{bot.boundaries.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
       </section>

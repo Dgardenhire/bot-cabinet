@@ -11,14 +11,14 @@ function formatDate(date: string) {
 export function botImportAndRunStatus(pack: PortableBotPackV2) {
   const importEvidence = pack.platforms.hermes.importEvidence;
   const importStatus = importEvidence
-    ? `This archive passed an isolated import and bundled-Skill presence check in Hermes Agent ${importEvidence.hermesVersion} on ${formatDate(importEvidence.testedDate)}.`
-    : "New prepared profile: Hermes import testing is pending.";
+    ? `This archive imported successfully and its Skill was present in an isolated Hermes Agent ${importEvidence.hermesVersion} installation on ${formatDate(importEvidence.testedDate)}.`
+    : "This profile has not yet been tested for Hermes import.";
   const runtimeEvidence = getBotRuntimeEvidence(pack.identity.slug);
   const roleStatus = runtimeEvidence
-    ? `${runtimeEvidence.summary} This is one run, not evidence of general reliability or approval for scheduling.`
+    ? `${runtimeEvidence.summary} This record covers one run, not general reliability. Review and approve any schedule separately.`
     : getReproducedBotEvidence(pack.identity.slug)
-    ? "Two published first-mission role runs passed their disclosed checks. Human technical review remains pending."
-    : "Human technical and role-specific output tests remain pending.";
+    ? "Two published first-task runs passed the listed checks. A person has not yet completed the technical review."
+    : "Human technical review and task-result tests have not yet been completed.";
 
   return `${importStatus} ${roleStatus} The Grok Bot build brief remains untested.`;
 }

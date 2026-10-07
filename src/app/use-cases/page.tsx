@@ -75,7 +75,7 @@ export default function UseCasesPage() {
         <div>
           <Eyebrow>New · Complete Crew Kits</Eyebrow>
           <h2 className="section-heading">Build a standing team for an ongoing function</h2>
-          <p className="section-deck">Crew Kits combine several Bots, repeatable workflows, an operating rhythm, and shared access rules. {CREW_KITS.length} complete kits are ready to use.</p>
+          <p className="section-deck">Choose from {CREW_KITS.length} kits with Bot profile downloads, setup steps, repeatable jobs, and approval rules. Check each kit&apos;s test status before using it.</p>
         </div>
         {CREW_KITS.slice(0, 3).map((kit) => (
           <article key={kit.slug}>
@@ -141,8 +141,8 @@ export default function UseCasesPage() {
       <section className="content-section shell use-case-principle">
         <CheckCircle size={31} weight="thin" aria-hidden="true" />
         <div>
-          <h2>Start with one Bot unless the work gives you a reason not to</h2>
-          <p>Add another Bot for a real purpose: separate access, independent review, a formal handoff, or a workload that one role cannot handle well. A longer roster is not automatically a better setup.</p>
+          <h2>Use a crew when the job needs one</h2>
+          <p>Separate Bots can help with different access rules, an independent check, or a job with several distinct parts. Choose the roles the job needs.</p>
         </div>
         <Link href="/workshop" className="button button-primary">Plan a custom Bot in Bot Lab <ArrowRight size={16} /></Link>
       </section>

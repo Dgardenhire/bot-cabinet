@@ -53,7 +53,7 @@ export function WorkbenchHub({ bots }: { bots: readonly WorkbenchBot[] }) {
   if (!active.length) return (
     <div className={styles.empty}>
       <h2>No active Bots in this browser yet</h2>
-      <p>Start a Bot’s guided workbench and it will appear here. No account is required, and progress does not leave this browser.</p>
+      <p>Use the setup checklist on a Bot’s page to save it here. No account is required. Progress stays in this browser.</p>
       <div className="button-row">
         <Link href="/start" className="button button-primary">Run your first Bot</Link>
         <Link href="/bots" className="button button-secondary">Browse The Cabinet</Link>
@@ -72,7 +72,7 @@ export function WorkbenchHub({ bots }: { bots: readonly WorkbenchBot[] }) {
           <dl className={styles.metrics}>
             <div><dt>One-time setup</dt><dd>{bot.summary.setupCompleted}/{BOT_SETUP_CHECKPOINT_IDS.length}</dd></div>
             <div><dt>Current run checks</dt><dd>{bot.summary.runChecksCompleted}/{BOT_RUN_CHECKPOINT_IDS.length}</dd></div>
-            <div><dt>Recorded outcomes</dt><dd>{bot.summary.outcomesCompleted}/{BOT_MAX_RECORDED_RUNS}</dd></div>
+            <div><dt>Results recorded</dt><dd>{bot.summary.outcomesCompleted}/{BOT_MAX_RECORDED_RUNS}</dd></div>
           </dl>
           {bot.summary.lastOutcome ? <p className={styles.lastOutcome}>Latest recorded outcome: <strong>{bot.summary.lastOutcome === "useful" ? "useful" : "needed another pass"}</strong></p> : null}
           <Link href={`/bots/${bot.slug}/#bot-workbench`} className={styles.continue} data-funnel-event="bot_workbench_resume" data-funnel-surface="workbench_hub" data-funnel-destination={bot.slug}>Continue {bot.name}</Link>

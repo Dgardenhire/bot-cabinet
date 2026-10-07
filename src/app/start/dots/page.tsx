@@ -45,7 +45,7 @@ export default function DotsStartPage() {
           <div className="dots-hero-copy">
             <Eyebrow>ChatGPT Dots · September 29, 2026</Eyebrow>
             <h1>An assistant that keeps going after the chat ends</h1>
-            <p>A Dot is one personal agent inside ChatGPT. It can use its own cloud computer, work with apps you choose to connect, and bring back work for review. The promise is useful. Early tests also show rough edges.</p>
+            <p>A Dot is one personal agent inside ChatGPT. It can use its own cloud computer, work with apps you choose to connect, and bring back work for review. The reports below include completed jobs and failures.</p>
             <div className="button-row"><a href="#try-a-job" className="button button-primary">Try one useful job <ArrowRight size={16} aria-hidden="true" /></a><Link href="/compare" className="button button-secondary">Compare the alternatives</Link></div>
             <p className="dots-hero-note">Bot Cabinet has not task-tested this Dot workflow. The results below belong to the people who ran them.</p>
           </div>
@@ -63,7 +63,7 @@ export default function DotsStartPage() {
         </header>
 
         <section className="dots-field-section" aria-labelledby="dots-field-title">
-          <div className="dots-section-heading"><div><Eyebrow>Early hands-on reports</Eyebrow><h2 id="dots-field-title">What happened when people tried it</h2></div><p>These are specific accounts, not a reliability score. They show both why Dots is interesting and what to check before trusting an ongoing job.</p></div>
+          <div className="dots-section-heading"><div><Eyebrow>Early hands-on reports</Eyebrow><h2 id="dots-field-title">What happened when people tried it</h2></div><p>Read what testers completed, where tasks failed, and which permissions caused trouble. Bot Cabinet has not independently tested these results.</p></div>
           <div className="dots-field-grid">
             {observations.map((item) => <article key={item.title} className="dots-field-card"><span className="dots-card-kicker">{item.kind}</span><h3>{item.title}</h3><p>{item.detail}</p><div className="dots-field-card-footer"><span>{item.result}</span><a href={item.href} target="_blank" rel="noopener noreferrer">{item.source} <ArrowUpRight size={15} aria-hidden="true" /></a></div></article>)}
           </div>
@@ -74,14 +74,14 @@ export default function DotsStartPage() {
         </section>
 
         <section id="try-a-job" className="dots-task-section" aria-labelledby="dots-task-title">
-          <div className="dots-section-heading"><div><Eyebrow>Your first result</Eyebrow><h2 id="dots-task-title">Find the follow-up that got lost</h2></div><p>Begin with words you paste, not access to your inbox. This tests whether your Dot can turn messy notes into work you can actually act on.</p></div>
+          <div className="dots-section-heading"><div><Eyebrow>Your first result</Eyebrow><h2 id="dots-task-title">Find the follow-up that got lost</h2></div><p>Paste meeting notes to get a list of promises and follow-ups. Start without connecting an inbox.</p></div>
           <div className="dots-task-path">
             <article><span>01</span><h3>Check access</h3><p>Dots are rolling out to eligible Pro and Business Premium users, plus admin-enabled Enterprise beta workspaces. Create your first Dot on desktop web or in the ChatGPT desktop app. If you do not see it yet, check OpenAI&apos;s current help page.</p></article>
-            <article><span>02</span><h3>Run one bounded task</h3><p>Copy the practice prompt below, or paste notes from one real meeting. No connected accounts are needed.</p></article>
+            <article><span>02</span><h3>Try one small task</h3><p>Copy the practice prompt below, or paste notes from one real meeting. No connected accounts are needed.</p></article>
             <article><span>03</span><h3>Inspect the answer</h3><p>Check each claim against your notes. Make sure missing owners or dates are marked unknown, and that the Dot says what failed.</p></article>
           </div>
           <div className="dots-prompt-grid">
-            <article className="dots-prompt-card"><div><span className="dots-panel-label">Practice · no private data</span><h3>Try it with made-up commitments</h3><p>See the shape of the answer before sharing your own notes.</p></div><CopyTextButton text={practiceTask} label="Copy the practice task" analyticsEvent="dots_first_task_copy" analyticsSurface="dots_start" /><details><summary>Read the full practice task</summary><pre>{practiceTask}</pre></details></article>
+            <article className="dots-prompt-card"><div><span className="dots-panel-label">Practice · no private data</span><h3>Try it with made-up commitments</h3><p>Try the example before sharing your own notes.</p></div><CopyTextButton text={practiceTask} label="Copy the practice task" analyticsEvent="dots_first_task_copy" analyticsSurface="dots_start" /><details><summary>Read the full practice task</summary><pre>{practiceTask}</pre></details></article>
             <article className="dots-prompt-card"><div><span className="dots-panel-label">Your work · one meeting</span><h3>Use your own notes</h3><p>Remove details you do not want to share. Keep the Dot from sending or changing anything yet.</p></div><CopyTextButton text={realTask} label="Copy the meeting-notes task" analyticsEvent="dots_meeting_task_copy" analyticsSurface="dots_start" /><details><summary>Read the full meeting-notes task</summary><pre>{realTask}</pre></details></article>
           </div>
         </section>

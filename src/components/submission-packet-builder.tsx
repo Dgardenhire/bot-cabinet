@@ -118,8 +118,8 @@ export function SubmissionPacketBuilder() {
       <form className="submission-form" onSubmit={(event) => event.preventDefault()}>
         <div className="submission-form-heading">
           <FileText size={27} weight="thin" aria-hidden="true" />
-          <div><h2>Submission packet</h2><p>Your answers stay in this browser until you copy or download them. The progress label shows whether every required field and box is complete.</p></div>
-          <span className={complete ? "complete" : ""}>{complete ? "Fields and boxes filled" : "Draft"}</span>
+          <div><h2>Prepare a submission</h2><p>Fill in the project details and required checkboxes, then copy or download them. Your answers stay in this browser.</p></div>
+          <span className={complete ? "complete" : ""}>{complete ? "Form complete" : "Draft"}</span>
         </div>
 
         <label className="submission-field">
@@ -158,12 +158,12 @@ export function SubmissionPacketBuilder() {
         <div className="submission-actions">
           <button type="button" className="button button-primary" onClick={copyPacket}><Copy size={16} /> Copy packet</button>
           <button type="button" className="button button-secondary" onClick={downloadPacket}><DownloadSimple size={16} /> Download Markdown</button>
-          <p aria-live="polite">{status || "This prepares a packet. It does not submit or scan your repository."}</p>
+          <p aria-live="polite">{status || "Copy or download your details. This form does not submit or scan your repository."}</p>
         </div>
       </form>
 
       <aside className="submission-preview">
-        <div className="submission-preview-topline"><span>Live preview</span><span>{complete ? "Fields and boxes filled" : "Fields or boxes still empty"}</span></div>
+        <div className="submission-preview-topline"><span>Preview</span><span>{complete ? "Form complete" : "Finish the required fields and checkboxes"}</span></div>
         <pre>{packet}</pre>
       </aside>
     </div>

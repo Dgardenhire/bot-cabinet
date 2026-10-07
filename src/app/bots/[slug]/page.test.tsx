@@ -15,8 +15,8 @@ describe("starter Bot detail", () => {
     expect(html).toContain('data-funnel-destination="scout"');
     expect(html).toContain("Keep track of your first Hermes run");
     expect(html).toContain('id="bot-workbench"');
-    expect(html).toContain("Job contract");
-    expect(html).toContain("Source of truth");
+    expect(html).toContain("Job and limits");
+    expect(html).toContain("Information it relies on");
     expect(html).toContain("Needs approval for");
     expect(html).toContain("Run the named first test");
     expect(html).toContain("Test one failure");

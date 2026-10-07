@@ -51,12 +51,12 @@ export function KeeperTrustStatusTable({ fallback }: { fallback: KeeperTrustStat
   return (
     <div className="keeper-trust-status">
       <div className="keeper-trust-status-head">
-        <div><span>Latest approved record</span><strong>{status.publishedAt ? when(status.publishedAt) : "Not connected yet"}</strong></div>
+        <div><span>Latest reviewed checks</span><strong>{status.publishedAt ? when(status.publishedAt) : "No results published yet"}</strong></div>
         <p>{!status.publishedAt
-          ? "Until an approved Keeper record is published, every automated result below remains unknown."
+          ? "No reviewed Keeper results have been published. The checks below remain unknown."
           : snapshotOld
-            ? `Revision ${status.revision}. This public record is old, so it cannot confirm current health. Keeper may still be running privately; check the dates below.`
-            : `Revision ${status.revision}. This record reports what Keeper found; it does not prove that a Bot is useful or safe for every job.`}</p>
+            ? `Revision ${status.revision}. These results are out of date. They cannot confirm whether the site works today or whether Keeper has run more recent checks.`
+            : `Revision ${status.revision}. These are Keeper’s check results. They do not establish that every Bot works well or is safe for your task.`}</p>
       </div>
       <div className="keeper-trust-status-table" role="table" aria-label="Latest approved Keeper checks">
         {shown.checks.map((item) => (

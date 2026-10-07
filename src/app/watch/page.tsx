@@ -34,7 +34,7 @@ export default function AgentWatchPage() {
           <div>
             <Eyebrow>September 29 · OpenAI Dots</Eyebrow>
             <h2>Another way to put an agent to work</h2>
-            <p>OpenAI has begun rolling out personal Dots. We read its launch guide and made a small first-task walkthrough. Specialist Dots are still limited to enterprise pilots; Bot Cabinet has not tested a Dot or built a one-click import.</p>
+            <p>Try sorting meeting follow-ups with a personal Dot. Specialist Dots are still limited to enterprise pilots. This walkthrough uses manual setup and has not been tested by Bot Cabinet.</p>
           </div>
           <Link href="/start/dots" className="text-link">Try a Cabinet job with a Dot <ArrowRight size={15} aria-hidden="true" /></Link>
         </div>
@@ -45,7 +45,7 @@ export default function AgentWatchPage() {
           <div>
             <Eyebrow>Try an idea</Eyebrow>
             <h2>Pick a first task</h2>
-            <p>Daily Newspaper has one recorded Hermes test. The guide to fixing a bad AI answer is a method you can try in your own chat; we have not task-tested it.</p>
+            <p>Try Daily Newspaper, which has one recorded Hermes test, or use the checklist to fix a bad AI answer. The checklist has not been task-tested.</p>
           </div>
           <div className="agent-watch-first-task-links">
             <Link href="/use-cases/personal-morning-newspaper" className="text-link" data-funnel-event="watch_tested_example_opened" data-funnel-surface="agent_watch" data-funnel-destination="morning_newspaper_first_task">
@@ -59,8 +59,8 @@ export default function AgentWatchPage() {
 
         <div className="agent-watch-editorial-heading">
           <Eyebrow>Closer look</Eyebrow>
-          <h2 className="section-heading" id="watch-method-title">What stands out</h2>
-          <p className="section-deck">We chose these ideas to examine further. Each note links to its source and says whether we read about it or actually tried it.</p>
+          <h2 className="section-heading" id="watch-method-title">Ideas to try</h2>
+          <p className="section-deck">Find the original source, setup requirements, and test status for each Bot or idea.</p>
         </div>
 
         <AgentWatchFeed fallbackItems={AGENT_WATCH_ITEMS} />
@@ -68,10 +68,10 @@ export default function AgentWatchPage() {
         <AgentWatchSources />
 
         <div className="agent-watch-key">
-          <h2>Read the labels literally</h2>
-          <div><CheckCircle size={20} weight="thin" /><span><strong>Source reviewed</strong> means the original public source was opened.</span></div>
-          <div><Flask size={20} weight="thin" /><span><strong>Tried by Bot Cabinet</strong> means the stated test was actually run.</span></div>
-          <div><Warning size={20} weight="thin" /><span><strong>Maker’s claim</strong> remains the maker’s description, not ours.</span></div>
+          <h2>Test status</h2>
+          <div><CheckCircle size={20} weight="thin" /><span><strong>Source reviewed:</strong> we read the original public source.</span></div>
+          <div><Flask size={20} weight="thin" /><span><strong>Tried by Bot Cabinet:</strong> we ran the named test.</span></div>
+          <div><Warning size={20} weight="thin" /><span><strong>Maker’s claim:</strong> the creator describes the feature; Bot Cabinet has not confirmed it.</span></div>
         </div>
       </section>
     </main>

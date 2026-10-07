@@ -60,7 +60,7 @@ export function StarterBotCatalog() {
         <span>{visible.length} starter packs · {visibleSpecialists.length} manual specialists</span>
       </p>
 
-      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>New specialists</h2><p>Copy the role, try the first task, and check the answer. Recorded examples are Codex text exercises, not Hermes or Grok app tests.</p><div className={styles.grid}>{visibleSpecialists.map(bot => <Link className={styles.card} key={bot.slug} href={`/bots/${bot.slug}/`}><span className={styles.status}>Manual setup</span><h3>{bot.name}</h3><p>{bot.summary}</p><span>Try the first task →</span></Link>)}</div></section>}
+      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>New specialists</h2><p>Copy the instructions and try a sample task. The recorded answers were written and checked in Codex; these Bots have not been tested in Hermes or Grok.</p><div className={styles.grid}>{visibleSpecialists.map(bot => <Link className={styles.card} key={bot.slug} href={`/bots/${bot.slug}/`}><span className={styles.status}>Manual setup</span><h3>{bot.name}</h3><p>{bot.summary}</p><span>Try the first task →</span></Link>)}</div></section>}
       <div className="registry-grid starter-grid">
         {visible.map((bot) => (
           <Link href={`/bots/${bot.slug}`} className="registry-card starter-card" key={bot.slug}>
@@ -78,7 +78,7 @@ export function StarterBotCatalog() {
               <p>{bot.summary}</p>
               <div className="registry-card-foot">
                 <span>Includes examples and setup</span>
-                <span>View this Hermes Bot →</span>
+                <span>Choose an app and set up →</span>
               </div>
             </div>
           </Link>

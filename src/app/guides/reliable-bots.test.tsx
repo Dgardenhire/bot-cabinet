@@ -24,12 +24,12 @@ describe("reliable Bots guide", () => {
     expect(html).toContain("independent synthesis by GitHub user unicodef1wn");
     expect(html).toContain("It is not official xAI guidance");
     expect(html).toContain("https://github.com/unicodef1wn/grokbot-field-notes");
-    expect(html).toContain("Write a short job contract");
+    expect(html).toContain("Write the job instructions");
     expect(html).toContain("Choose a Bot, a skill or a routine");
     expect(html).toContain("Keep changing facts in one trusted place");
-    expect(html).toContain("Match freedom to possible harm");
+    expect(html).toContain("Decide what needs your approval");
     expect(html).toContain("Run one small test that looks like the real job");
-    expect(html).toContain("Test failure before you trust success");
+    expect(html).toContain("Check what happens when something goes wrong");
     expect(html).toContain("Turn corrections into clear rules");
     expect(html).toContain("Control cost before you add a schedule");
     expect(html).toContain("Use the simplest structure that can do the job");

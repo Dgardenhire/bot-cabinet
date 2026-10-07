@@ -18,10 +18,10 @@ describe("Grok Bot platform page", () => {
     expect(html.match(/class="portable-template-card"/g)).toHaveLength(
       STARTER_BOTS.length,
     );
-    expect(html.match(/Prepared · test pending/g)).toHaveLength(
+    expect(html.match(/Not yet tested in Grok Bot/g)).toHaveLength(
       STARTER_BOTS.length,
     );
-    expect(html).toContain("Prepared build brief · test pending");
+    expect(html).toContain("Manual setup · not yet tested");
 
     for (const bot of STARTER_BOTS) {
       expect(html).toContain(
@@ -52,10 +52,10 @@ describe("Grok Bot platform page", () => {
   it("includes a dated operator guide and downloadable PDF", () => {
     const html = renderToStaticMarkup(<GrokBotTemplatesPage />);
 
-    expect(html).toContain("Run Grok Bot without losing the plot");
+    expect(html).toContain("Set up, test, and manage Grok Bots");
     expect(html).toContain("Checked September 24, 2026");
     expect(html).toContain('href="/downloads/guides/grok-bot-operator-guide.pdf"');
-    expect(html).toContain("Choose the right shape");
+    expect(html).toContain("Choose a Bot, Skill or Routine");
     expect(html).toContain("Protect accounts and files");
     expect(html).toContain("Use a group only when it helps");
     expect(html).toContain("Outcome · Sources · Constraints · Deliverable · Review point");

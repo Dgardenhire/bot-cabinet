@@ -30,7 +30,7 @@ const setupSteps = [
 ] as const;
 
 const runSteps = [
-  { id: "task-run", label: "I ran one real, bounded task with material I was comfortable using." },
+  { id: "task-run", label: "I ran one small, real task with material I was comfortable using." },
   { id: "result-reviewed", label: "I checked the result, sources and requested actions before using it." },
 ] as const;
 
@@ -104,7 +104,7 @@ export function BotWorkbench({ botSlug, botName, packVersion }: {
         <div><span>Your Bot workbench</span><h3>Continue after the download</h3></div>
         <small>Pack {packVersion}</small>
       </div>
-      <p><strong>Run checks: {runComplete} of {runCheckpointIds.length}.</strong> Installation record: {setupComplete} of {setupCheckpointIds.length}. Report an outcome after running a task and checking its result. Leave installation boxes blank for steps you did not personally do. These are your confirmations, not independent Cabinet verification. Progress stays in this browser.</p>
+      <p><strong>Task checks: {runComplete} of {runCheckpointIds.length}.</strong> Setup: {setupComplete} of {setupCheckpointIds.length}. Check only steps you completed. After running a task, review its result and tell us whether it helped. These are your confirmations, not independent Cabinet verification. Progress stays in this browser.</p>
       <progress className={styles.progress} max={runCheckpointIds.length} value={runComplete} aria-label={`${botName} current run progress`} />
       <div className={styles.grid}>
         <fieldset><legend>Set up once</legend>{checklist(setupSteps)}</fieldset>
@@ -113,7 +113,7 @@ export function BotWorkbench({ botSlug, botName, packVersion }: {
       {cycleReady && !runLimitReached ? (
         <div className={styles.outcome}>
           <p><strong>Was real run {nextRun} useful?</strong></p>
-          <p>Record the outcome—not the task or its contents. The two run checks reset after your answer; setup stays checked.</p>
+          <p>Tell us whether it helped. Do not include your task or its contents. The two task checks reset after your answer; setup stays checked.</p>
           <div>
             <button type="button" onClick={() => reportRun("useful")}>Useful result</button>
             <button type="button" onClick={() => reportRun("needs-work")}>Needed another pass</button>
@@ -121,7 +121,7 @@ export function BotWorkbench({ botSlug, botName, packVersion }: {
         </div>
       ) : null}
       {outcomeSummary.length ? <p className={styles.history} role="status"><strong>Real-use history:</strong> {outcomeSummary.join(" · ")}</p> : null}
-      {runLimitReached ? <p className={styles.limit}><strong>Three outcomes recorded.</strong> This workbench stops here: it is a bounded usefulness signal, not a permanent activity log.</p> : null}
+      {runLimitReached ? <p className={styles.limit}><strong>Three outcomes recorded.</strong> This tracker saves up to three results.</p> : null}
       <div className={styles.footerActions}>
         <a href="/workbench" data-funnel-event="bot_workbench_hub_open" data-funnel-surface="bot_detail" data-funnel-destination={botSlug}>View all my active Bots</a>
         <button type="button" className={styles.reset} onClick={reset}>Clear this browser’s {botName} progress</button>

@@ -9,9 +9,9 @@ export const GROK_OPERATOR_UPDATED = "September 24, 2026";
 export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
   {
     number: "01",
-    title: "Choose the right shape",
+    title: "Choose a Bot, Skill or Routine",
     bullets: [
-      "Use a Bot for one continuing job and its working context.",
+      "Use a Bot for one ongoing job, with its own instructions and history.",
       "Use a Skill for a method you want to repeat.",
       "Use a Routine only when a tested method needs a schedule or event trigger.",
       "Do the task once, correct it, save the method, then automate it.",
@@ -19,9 +19,9 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
   },
   {
     number: "02",
-    title: "Give the work a finish line",
+    title: "Tell the Bot what to make",
     bullets: [
-      "Name the result, the sources, the limits, the deliverable and the review point.",
+      "Say which sources to use, what answer or file to make, what it must not do, and when to ask for review.",
       "Send a new message when you need to redirect work already in progress.",
       "Stop ends the current work; it does not undo actions already completed.",
       "Review drafts before sending, publishing, purchasing, deleting or changing production systems.",
@@ -34,14 +34,14 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
       "Take control of the computer for passwords, passkeys, two-factor codes, CAPTCHAs and payment confirmation.",
       "Never paste passwords or one-time codes into ordinary chat.",
       "All of your Bots share one cloud computer, including its files, browser sessions and logins.",
-      "Connect only what the job needs. Use narrow Ask first rules for consequential actions.",
+      "Connect only what the job needs. Set Ask first rules for sending, spending, publishing, deleting or changing account access.",
     ],
   },
   {
     number: "04",
     title: "Add a Routine carefully",
     bullets: [
-      "Confirm the owner, schedule, time zone, input, result, approval boundary and missing-source rule.",
+      "Confirm which Bot runs it, when it runs, its time zone, what it reads and makes, when it asks for approval, and what it does if a source is missing.",
       "A test run performs real work. Use safe inputs and keep write actions behind approval.",
       "A Bot can own up to 50 routines. Grok Bot keeps the 20 most recent run records for each routine.",
       "Pause a Routine when its website, connector or source format changes.",
@@ -52,9 +52,9 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
     title: "Use a group only when it helps",
     bullets: [
       "A group chat can include two to six Bots.",
-      "Give the group one shared outcome and name the Bot that owns the next step.",
-      "Use separate Bots when jobs need different roles or an independent check - not as a security boundary.",
-      "For each handoff, state the outcome, sources, constraints, deliverable and review point.",
+      "Give the group one goal and name the Bot responsible for the next step.",
+      "Use separate Bots for different roles or an independent check. They still share one computer and its files and logins.",
+      "At each handoff, tell the next Bot what to do, which sources to use, what to make, what to avoid, and when to ask for review.",
     ],
   },
   {
@@ -64,7 +64,7 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
       "If a Routine misses a run, check whether it is enabled, who owns it, its time zone, its source and its run history.",
       "If a private Skill is missing, check Marketplace, then Your plugins, then Manage plugins and skills.",
       "If computer work stalls, retry the step before rebuilding the computer.",
-      "Change one instruction, rerun the same safe test and keep the result that proves the change.",
+      "Change one instruction, rerun the same safe test, and save both answers so you can compare them.",
     ],
   },
 ];

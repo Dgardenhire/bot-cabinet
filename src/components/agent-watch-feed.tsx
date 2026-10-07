@@ -12,10 +12,10 @@ const statusLabels: Record<WatchResponseStatus, string> = { published: "Guide av
 const evidenceKinds: Record<WatchEvidence, "official" | "tested" | "blueprint"> = { observed: "official", "provider-claim": "blueprint", "cabinet-tested": "tested" };
 const botEvidenceLabels: Record<WatchBotEvidence, string> = {
   listed: "Listed",
-  inspected: "Inspected",
+  inspected: "Listing reviewed",
   imported: "Imported",
-  "task-tested": "Task-tested",
-  repeated: "Repeated",
+  "task-tested": "Task tested",
+  repeated: "Tested more than once",
 };
 const botDecisionLabels: Record<WatchBotDecision, string> = {
   "improve-existing": "Improve an existing Bot",
@@ -74,7 +74,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
               <span>Bots</span>
               <h2 id="noteworthy-bots-title">Worth trying</h2>
             </div>
-            <p>Each one tackles a clear job. The label tells you whether we only read the listing or actually tried the Bot.</p>
+            <p>Bots for specific jobs, with source links and test status.</p>
           </div>
           <div className="noteworthy-bot-grid">
             {visibleBots.map((item) => {
@@ -90,8 +90,8 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
                   <dl>
                     <div><dt>Creator</dt><dd>{bot.creator}</dd></div>
                     <div><dt>Why it stands out</dt><dd>{item.whyItMatters}</dd></div>
-                    <div><dt>Access and outside actions</dt><dd>{bot.requiredAccess} {bot.outsideActions}</dd></div>
-                    <div className="noteworthy-bot-decision"><dt>Best next step</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Closest current match: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
+                    <div><dt>Accounts, tools and actions</dt><dd>{bot.requiredAccess} {bot.outsideActions}</dd></div>
+                    <div className="noteworthy-bot-decision"><dt>Bot Cabinet plans</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Similar Cabinet Bot: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
                   </dl>
                   <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
                   <div className="agent-watch-links">

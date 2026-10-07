@@ -101,14 +101,14 @@ export default function WorkshopPage() {
         <div className="workshop-explainer-copy">
           <p>
             Bot Lab records the Bot’s job, inputs, expected outputs, tools,
-            approval points, and first test. It creates a designed PDF for planning
+            approval rules, and first test. It creates a PDF for planning
             and review, a Markdown copy you can edit, and an importable Hermes profile
             with the Bot&apos;s role instructions.
           </p>
           <p>
             You choose the model, tools, connections, and schedule when you create the Bot in
-            Hermes Desktop. The optional refinement questions help you decide what should carry
-            forward in the Bot’s continuing conversation and memory.
+            Hermes Desktop. The optional questions help you decide what the Bot
+            should remember between tasks.
           </p>
         </div>
       </section>

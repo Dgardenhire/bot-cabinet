@@ -202,9 +202,9 @@ export const STARTER_BOTS: StarterBot[] = [
   {
     slug: "client",
     name: "Client Deliverables",
-    title: "Client deliverable assistant",
+    title: "Client document assistant",
     category: "planning",
-    summary: "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+    summary: "Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.",
     whoItHelps: "Consultants, small firms, and internal teams that produce recurring client-facing documents.",
     asks: [
       "Turn this research and plan into a three-page client briefing.",
@@ -378,7 +378,7 @@ export const STARTER_BOTS: StarterBot[] = [
     name: "Chief of Staff",
     title: "Executive priority and coordination assistant",
     category: "planning",
-    summary: "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+    summary: "Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.",
     whoItHelps: "Leaders and small teams that need clearer priorities and coordination without adding another meeting.",
     asks: [
       "Turn these weekly updates into our five confirmed priorities, blocked decisions, and owner list.",
@@ -407,14 +407,14 @@ export const STARTER_BOTS: StarterBot[] = [
     name: "Coach",
     title: "Life and career planning assistant",
     category: "planning",
-    summary: "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
+    summary: "Helps you think through a life or career decision, compare options and plan your next steps.",
     whoItHelps: "People considering a transition or trying to turn a broad direction into practical next steps.",
     asks: [
       "Compare these two career paths using my income needs, values, skills, and uncertainty.",
       "Turn this twelve-month direction into a realistic plan for the next four weeks.",
       "Guide a weekly review that separates ideas, commitments, unfinished work, and what I can stop doing.",
     ],
-    produces: ["A clear decision frame", "A next-horizon plan sized to available time and energy", "Questions, assumptions, and options for reflection"],
+    produces: ["A comparison of your options", "Next steps that fit your available time and energy", "Questions and assumptions to think through"],
     setup: ["The current situation and desired direction", "Values, obligations, and time, energy, or financial constraints", "Confirmed commitments and decisions that remain open"],
     boundaries: ["A person makes all life, career, employment, medical, legal, and financial decisions.", "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."],
     worksWith: ["planner", "professor"],
@@ -466,7 +466,7 @@ export const STARTER_BOTS: StarterBot[] = [
     title: "Growth management assistant",
     category: "planning",
     summary: "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
-    whoItHelps: "Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.",
+    whoItHelps: "Small teams trying to attract customers, help them get started, keep them coming back or increase revenue.",
     asks: [
       "Map this signup funnel and show where the largest verified drop-off occurs.",
       "Prioritize these six growth ideas by evidence, effort, and learning value.",
@@ -492,10 +492,10 @@ export const STARTER_BOTS: StarterBot[] = [
   {
     slug: "story",
     name: "Story",
-    title: "Chief narrative officer",
+    title: "Brand and message assistant",
     category: "writing",
-    summary: "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
-    whoItHelps: "Leaders and teams whose public materials need one clear story without flattening factual distinctions or inventing proof.",
+    summary: "Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.",
+    whoItHelps: "Leaders and teams who want their website, presentations and posts to tell a consistent, accurate story.",
     asks: [
       "Turn these interviews and source documents into an origin story without adding events or motives.",
       "Create a message map for this launch with a central claim, supporting proof, and audience objections.",
@@ -525,7 +525,7 @@ export const STARTER_BOTS: StarterBot[] = [
   "title": "Personal daily briefing maker",
   "category": "writing",
   "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
-  "whoItHelps": "People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.",
+  "whoItHelps": "People who want a short morning briefing from the information they choose.",
   "asks": [
     "Make a one-page newspaper from these calendar entries, messages, and saved articles.",
     "Create tomorrow's edition from only the sources in this folder and flag anything that needs my answer.",
@@ -568,7 +568,7 @@ export const STARTER_BOTS: StarterBot[] = [
 {
   "slug": "curator",
   "name": "Curator",
-  "title": "Bot lineup improvement manager",
+  "title": "Bot review and improvement assistant",
   "category": "technical",
   "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
   "whoItHelps": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful.",

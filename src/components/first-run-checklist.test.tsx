@@ -24,7 +24,7 @@ describe("FirstRunCompletion", () => {
     const markup = renderToStaticMarkup(<FirstRunCompletion />);
 
     expect(markup).toContain("All five steps marked complete");
-    expect(markup).toContain("Your checkmarks record your progress");
+    expect(markup).toContain("The checkmarks save the steps you completed; they do not verify Scout’s answer");
     expect(markup).toContain("Choose another Bot");
     expect(markup).not.toContain("Scout is working");
     expect(markup).not.toContain("You now have a Bot, a first result");

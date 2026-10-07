@@ -35,7 +35,7 @@ export function getUseCaseOperations(useCase: BotUseCase): UseCaseOperations {
     handoffs: useCase.steps.slice(1).map((step, index) =>
       `${useCase.steps[index].bot} hands the approved output—${useCase.steps[index].output.toLowerCase()}—to ${step.bot}.`,
     ),
-    successCheckpoint: `The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. ${useCase.firstTest}`,
+    successCheckpoint: `Check the result against your original material. You make the decisions listed below. ${useCase.firstTest}`,
     recovery: isSingleBot
       ? "If the result is incomplete, mark the missing information and ask the same Bot to correct it. Add another Bot only when a genuinely separate role or independent check would help."
       : "If a handoff is incomplete, return it to the Bot that produced it with the missing information marked. Do not move to the next Bot until a person approves the corrected result.",

@@ -334,8 +334,8 @@ export function ReliableBotsGuidePdf() {
         title="Make the job clear before the Bot begins"
         deck="A reliable Bot needs a finish line, a stop rule and a record a person can inspect."
       >
-        <SectionBlock heading="Start with the job, not the Bot" />
-        <SectionBlock heading="Write a short job contract" />
+        <SectionBlock heading="Decide what the Bot should do" />
+        <SectionBlock heading="Write the job instructions" />
       </PageFrame>
 
       <PageFrame
@@ -352,7 +352,7 @@ export function ReliableBotsGuidePdf() {
         title="Give freedom in proportion to possible harm"
         deck="The important question is what happens when the Bot is wrong."
       >
-        <SectionBlock heading="Match freedom to possible harm" />
+        <SectionBlock heading="Decide what needs your approval" />
         <SectionBlock heading="Use the simplest structure that can do the job" />
       </PageFrame>
 
@@ -362,7 +362,7 @@ export function ReliableBotsGuidePdf() {
         deck="A green checkmark is not enough. Keep the full result and make the Bot face a safe problem."
       >
         <SectionBlock heading="Run one small test that looks like the real job" />
-        <SectionBlock heading="Test failure before you trust success" />
+        <SectionBlock heading="Check what happens when something goes wrong" />
       </PageFrame>
 
       <PageFrame

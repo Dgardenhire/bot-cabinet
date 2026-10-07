@@ -27,9 +27,9 @@ export default function WorkbenchPage() {
     <main id="main-content" className="page-main">
       <section className="inner-hero">
         <div className="shell">
-          <Eyebrow>Your browser-private dashboard</Eyebrow>
+          <Eyebrow>Saved in this browser</Eyebrow>
           <h1 className="inner-title">My Workbench</h1>
-          <p className="inner-deck">Resume the Bots you have started, see what remains before the next real run, and review your first three recorded outcomes.</p>
+          <p className="inner-deck">Continue setting up your Bots and compare the results of three uses.</p>
         </div>
       </section>
       <section className="content-section shell" aria-label="Your active Bot workbenches">
@@ -39,10 +39,10 @@ export default function WorkbenchPage() {
       <section id="three-run-trial" className="content-section shell" aria-labelledby="three-run-trial-title">
         <div className="section-heading-row">
           <div>
-            <Eyebrow>Compare outcomes—not launch claims</Eyebrow>
+            <Eyebrow>Track three uses</Eyebrow>
             <h2 id="three-run-trial-title" className="section-title">Does this job keep working?</h2>
           </div>
-          <p>Use the same bounded scorecard for a Cabinet Bot, Grok Bot, Muse, Instinct or another tool. One successful demo is not a dependable routine.</p>
+          <p>Record whether each run helped and how much correction it needed. Use the scorecard with Cabinet Bots, Grok Bot, Muse, Instinct or another tool.</p>
         </div>
         <ThreeRunTrial />
       </section>

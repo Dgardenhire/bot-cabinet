@@ -45,7 +45,7 @@ describe("Grok Bot operator guide PDF", () => {
 
   it("contains the operating rules and source limit", () => {
     const content = text(GrokBotOperatorGuidePdf());
-    expect(content).toContain("Choose the right shape");
+    expect(content).toContain("Choose a Bot, Skill or Routine");
     expect(content).toContain("Protect accounts and files");
     expect(content).toContain("Use a group only when it helps");
     expect(content).toContain("THE FIVE-LINE HANDOFF");

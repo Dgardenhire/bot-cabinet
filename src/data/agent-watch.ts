@@ -47,7 +47,7 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "If you run several agents, write down a spending ceiling, a time limit, a maximum number of handoffs and the tools each agent may use. Keep a run log and make sure one person can stop the work. Treat Nasiko as a developer tool until you can test it safely in a disposable setup.",
     responseStatus: "watching",
     limits:
-      "Bot Cabinet reviewed Nasiko's public repository but has not installed or run it. It requires Docker and several supporting services, so its published features do not yet prove that setup, upgrades or daily operation are simple or reliable.",
+      "Bot Cabinet reviewed the repository but has not installed or run Nasiko. It requires Docker and several supporting services. Setup, upgrades and daily operation have not been tested here.",
     sources: [
       { label: "Nasiko source repository", href: "https://github.com/Nasiko-Labs/nasiko" },
       { label: "Tony Simons' summary", href: "https://x.com/tonysimons_/status/2103184943027298585" },
@@ -60,22 +60,22 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     title: "Import Bot moves an existing agent setup into Grok Bot",
     signal: "The official Grok Bot marketplace lists a Bot that reads selected setups from Claude Cowork, Codex, ChatGPT, OpenClaw, and Hermes, removes secrets, and proposes matching Grok Bots.",
     evidence: "provider-claim",
-    whyItMatters: "People should not have to rebuild their working instructions every time they change tools. A careful migration path could make Bot Cabinet useful across the agent market instead of tying it to one runtime.",
-    cabinetResponse: "Test a clean-room migration with a made-up Hermes profile. Compare every moved field, confirm that credentials and private history stay out, and require approval before creating anything in the destination service.",
+    whyItMatters: "You could reuse an existing Bot's instructions when changing apps, rather than write them again. Its account connections and schedules may need new setup.",
+    cabinetResponse: "Try a made-up Hermes profile first. Compare the original and copied instructions, check that passwords and private history stay out, and approve any new Bots before they are created.",
     responseStatus: "testing",
-    limits: "Bot Cabinet inspected the official marketplace description but has not installed or run Import Bot. The listing does not prove that every named source exports the same information or that secret removal catches every case.",
+    limits: "Bot Cabinet read the marketplace description but has not installed or run Import Bot. Supported fields and secret removal have not been tested for each source app.",
     sources: [{ label: "Official Grok Bot Marketplace listing", href: "https://x.ai/bot/marketplace/bots/import-bot" }],
     cabinetLinks: [{ label: "Browse portable Bot Packs", href: "/bots" }],
     botDetails: {
       name: "Import Bot",
       creator: "Shub Gaur",
       platform: "Grok Bot",
-      job: "Moves selected agent instructions into Grok Bot while claiming to leave the old tools unchanged and remove secrets.",
+      job: "The creator says it copies selected agent instructions into Grok Bot, removes secrets and leaves the original setup unchanged.",
       requiredAccess: "The selected source setup and a Grok Bot account. The exact account and file access should be checked before use.",
       outsideActions: "Creates or updates Bots in the destination service after reviewing the imported setup.",
       evidenceStatus: "inspected",
       cabinetDecision: "test-adaptation",
-      cabinetFit: "Build a platform-neutral migration test before deciding whether this should become a new Cabinet Bot or a Desktop plugin feature.",
+      cabinetFit: "Test it against Bot Porter's transfer checklist, including which instructions, tools and schedules need new setup.",
       closestCabinetMatch: { label: "Portable Bot Packs", href: "/bots" },
     },
   },
@@ -84,10 +84,10 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     observedOn: "2026-09-23",
     reviewAgainBy: "2026-09-30",
     title: "tinkabot turns an API into an agent plugin",
-    signal: "The official Grok Bot marketplace lists a Bot that scopes an API, builds a small MCP-and-skill plugin, proves it locally, and asks before marketplace publication.",
+    signal: "The official Grok Bot marketplace describes a Bot that builds and tests a small plugin to connect another service, then asks before publishing it.",
     evidence: "provider-claim",
-    whyItMatters: "A Bot that can package a useful connection is more valuable than another static prompt. The same pattern could help Bot Cabinet turn proven jobs into real Hermes Desktop plugins.",
-    cabinetResponse: "Use the job pattern to strengthen the Bot Cabinet plugin workflow: define one narrow connection, build the smallest package, test locally, and keep publication as a separate human decision.",
+    whyItMatters: "A plugin can let your Bot use information and take actions in another service, such as reading records or preparing updates.",
+    cabinetResponse: "Choose one connection to build. Test the plugin in a separate project copy and review its account permissions before publishing or installing it for everyday use.",
     responseStatus: "testing",
     limits: "Bot Cabinet inspected the official listing but has not run this Bot or reviewed a package it created. API permissions, generated code, dependencies, and marketplace rules still require separate review.",
     sources: [{ label: "Official Grok Bot Marketplace listing", href: "https://x.ai/bot/marketplace/bots/tinkabot" }],
@@ -96,12 +96,12 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       name: "tinkabot",
       creator: "Lauren Tan",
       platform: "Grok Bot",
-      job: "Builds a small agent plugin around an API and proves it locally before asking to publish.",
-      requiredAccess: "API documentation, a disposable development workspace, and any credentials needed only for a bounded local test.",
-      outsideActions: "Writes plugin files and may propose marketplace publication; publication should remain approval-gated.",
+      job: "The creator says it builds and tests a small plugin that connects another service, then asks before publishing.",
+      requiredAccess: "The service's API documentation, a separate test project and narrowly limited credentials if the test needs them.",
+      outsideActions: "Writes plugin files and may ask to publish them in a marketplace. Review and approve publication first.",
       evidenceStatus: "inspected",
       cabinetDecision: "improve-existing",
-      cabinetFit: "Use the pattern to improve Bot Cabinet's plugin builder and test process rather than add another general coding Bot.",
+      cabinetFit: "A connection-building task for Founding Engineer, with account permissions and plugin tests included in the review.",
       closestCabinetMatch: { label: "Founding Engineer", href: "/bots/founding-engineer" },
     },
   },
@@ -112,7 +112,7 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     title: "Diagnose My Agent's Mistake looks for one fix after a bad result",
     signal: "Muse at Work lists a workflow that asks what happened, why it happened, and what single change would prevent the same AI mistake.",
     evidence: "observed",
-    whyItMatters: "A failed result is useful only when someone can turn it into a specific correction. This is narrower and more practical than asking an assistant to improve itself in general.",
+    whyItMatters: "It helps you correct one bad answer and check whether the same mistake happens again.",
     cabinetResponse: "Bot Cabinet prepared this as a reusable Ops Skill. Download it, use a harmless failed example, and compare the result before and after one proposed correction.",
     responseStatus: "prepared",
     limits: "Bot Cabinet inspected the public Muse at Work listing but has not run the workflow. The listing does not identify a creator or show how well the diagnosis holds up across different kinds of failure.",
@@ -180,7 +180,7 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "A public Grok Bot template accepts statement files or screenshots, finds likely duplicates, suggests categories and shows a preview before anything is saved.",
     evidence: "observed",
     whyItMatters:
-      "The useful pattern is the preview before the write. It can reduce repetitive entry while leaving the final categories and changes with the person using it.",
+      "You can check the proposed entries and categories before they are saved, which may reduce repetitive data entry.",
     cabinetResponse:
       "Test an adaptation as a new Bot because Receipt handles returns and warranties, not transaction entry. Begin with made-up records and require approval before any file is changed.",
     responseStatus: "testing",
@@ -214,7 +214,7 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "A shared Grok Bot watches a running job and sends a warning only when it passes a time limit, repeats itself or reports an error.",
     evidence: "observed",
     whyItMatters:
-      "A useful monitor should reduce checking, not create a second stream of noise. Clear warning rules make this pattern useful for long-running work.",
+      "You can leave a long-running job alone and receive a warning when it needs attention.",
     cabinetResponse:
       "Use the idea to improve Ops and Cabinet Keeper rather than add a near-duplicate Bot. A first test should watch one harmless job with a clear time limit and one place for alerts.",
     responseStatus: "watching",
@@ -349,9 +349,9 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "An X post points to a 57-minute workshop in which SpaceXAI engineer Lauren Tan describes running many engineering Bots with a Chief of Staff Bot above them. xAI's own launch and engineering guides separately confirm that teams run multiple Bots in parallel and sometimes place one Bot in charge of coordination.",
     evidence: "provider-claim",
     whyItMatters:
-      "The important pattern is not the promotional Bot count. It is a small operating structure: one owner, specialists with distinct jobs, shared evidence, explicit handoffs and a final review before shipping.",
+      "Separate Bots can build a change, test it and review the result. They need a shared task record and a clear owner for each next step.",
     cabinetResponse:
-      "Inspect the workshop and extract the actual topology, commands, failure controls and proof. Then test the smallest useful version - one coordinator, one builder and one reviewer - before recommending a larger fleet for Hermes or Grok Bot.",
+      "Try one small software task with a coordinator, builder and reviewer. Save the commands, test results and handoff notes. Review the finished change before adding more Bots.",
     responseStatus: "watching",
     limits:
       "The X post's claims about 20-plus Bots, 85 percent of engineers and overnight output have not been independently verified. xAI documents parallel Bot work, but that does not establish the post's numbers or the quality of the resulting code.",
@@ -371,7 +371,7 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "Muse and Gemini Spark describe agents that keep working after the conversation ends. Instinct describes an assistant reached by text or phone that connects to applications and devices.",
     evidence: "provider-claim",
     whyItMatters:
-      "The important change is not another chat screen. These services want to handle continuing jobs, use connected information, follow schedules and ask for approval. The useful comparison is the job, access, controls and proof—not the brand name.",
+      "These services offer to handle continuing jobs using connected apps and schedules. Compare what each can do, what it can access, how it asks permission and how much it costs.",
     cabinetResponse:
       "Choose one small recurring job and compare the services by what information they can use, what actions they can take, how they ask permission, what they cost, and how they show that the work was completed.",
     responseStatus: "published",
@@ -388,12 +388,12 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     slug: "morning-newspaper-is-a-finished-ritual",
     observedOn: "2026-09-20",
     reviewAgainBy: "2026-10-04",
-    title: "The Morning Newspaper turns agent work into a finished ritual",
+    title: "The Morning Newspaper prepares a personal paper edition",
     signal:
       "Karen X. Cheng's Grok Bot listing describes a personalized newspaper assembled from email and calendar and printed while the user sleeps.",
     evidence: "observed",
     whyItMatters:
-      "This is more than a general briefing Bot. It uses personal information, runs on a schedule, chooses a short set of items and makes something that can be read away from a screen.",
+      "You can read selected messages, calendar items and articles on paper before opening your apps.",
     cabinetResponse:
       "Read the original Grok Bot listing, then try one manual edition with made-up or selected information. Check every item before connecting private accounts, adding a schedule, or sending anything to a printer.",
     responseStatus: "published",
@@ -439,12 +439,12 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "The Grok Bot marketplace now includes many specific personal and work routines. Its guide explains that a shared template can include instructions, selected memories, skills and plugins without being an exact copy.",
     evidence: "observed",
     whyItMatters:
-      "The useful part is often a clear way of doing a job, not a fancy title. A good adaptation credits the creator, checks the setup and permissions, and moves the idea only to a service that can actually support it.",
+      "A shared template can give you a starting point for a specific job, including instructions, skills and connections to other tools.",
     cabinetResponse:
       "Look for a specific routine that solves a real problem. Check the creator, required access and first-run instructions before using it. Adapt the idea to another service only when that service can perform the same job safely.",
     responseStatus: "testing",
     limits:
-      "A marketplace listing does not prove that people use the Bot, that the instructions are safe, or that the routine works repeatedly. Not every linked listing has been tested.",
+      "Not every linked template has been tested. Check its instructions, permissions and first result before trusting it with private information or recurring work.",
     sources: [
       { label: "Grok Bot Marketplace", href: "https://x.ai/bot/marketplace" },
       { label: "Grok Bot template guide", href: "https://x.ai/bot/guides/templates-for-grok-bot" },
@@ -460,12 +460,12 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       "The Agent Skills format uses a file named SKILL.md to hold instructions. Skills.sh shares single skills and skill packs for several AI services. Its rankings count installs, not whether the skill keeps producing useful work.",
     evidence: "observed",
     whyItMatters:
-      "A reusable set of instructions may work in more places than a Bot made for one service. But the instructions still need a separate test in each service before anyone can say they work there.",
+      "You may be able to use the same instructions in several apps. Check the required tools and run a sample task in each app you use.",
     cabinetResponse:
       "Open the SKILL.md file before installing it. Check its instructions and requested access, then run one low-risk test in the service you plan to use.",
     responseStatus: "published",
     limits:
-      "Not yet tested here: every service named by skills.sh or repeated use across services. A Hermes test does not prove that the same file works somewhere else.",
+      "The skills have not been tested here in every service named by skills.sh or over repeated runs. Test the same task in your chosen app before relying on it.",
     sources: [
       { label: "Agent Skills format specification", href: "https://agentskills.io/specification" },
       { label: "skills.sh documentation and measurement limits", href: "https://www.skills.sh/docs" },

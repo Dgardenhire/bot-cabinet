@@ -139,9 +139,9 @@ export default function Home() {
           {[
             ["01", "Assignment", "One result"],
             ["02", "Skill", "Reusable method"],
-            ["03", "Routine", "Runs on a trigger"],
-            ["04", "Bot", "Keeps the job and context"],
-            ["05", "Crew", "Specialists with handoffs"],
+            ["03", "Routine", "Runs on a schedule or event"],
+            ["04", "Bot", "Keeps its role and history"],
+            ["05", "Crew", "Shares a job across Bots"],
           ].map(([number, label, note]) => (
             <div key={label}>
               <span>{number}</span>
@@ -156,12 +156,11 @@ export default function Home() {
         <div className="bot-proof-heading">
           <div>
             <Eyebrow>See a Bot at work</Eyebrow>
-            <h2 id="bot-proof-title" className="section-heading">Follow a Bot through a focused assignment</h2>
+            <h2 id="bot-proof-title" className="section-heading">See Scout’s research brief</h2>
           </div>
           <p className="section-deck">
-            This recorded Scout excerpt shows the intended path from a focused request to a concise
-            research brief. The Test Records page separates the material we preserved from the checks that
-            still need to be run.
+            Watch a recorded excerpt of Scout’s answer. The complete run
+            record was not preserved; the test page explains what is available.
           </p>
         </div>
         <figure className="bot-proof-video-frame">
@@ -180,8 +179,8 @@ export default function Home() {
       </section>
 
       <section className="pathway-section shell" aria-labelledby="starting-points">
-        <SectionRule>Choose your Bot Cabinet starting point</SectionRule>
-        <h2 id="starting-points" className="sr-only">Choose your Bot Cabinet starting point</h2>
+        <SectionRule>Choose what you need</SectionRule>
+        <h2 id="starting-points" className="sr-only">Choose what you need</h2>
         <div className="pathway-grid">
           {pathways.map((pathway) => (
             <Link className="pathway-card" href={pathway.href} key={pathway.title}>
@@ -198,19 +197,19 @@ export default function Home() {
         </div>
         <Link className="platform-slide" href="/watch">
           <div>
-            <span>Living field notes</span>
+            <span>New Bots and agent updates</span>
             <h3>Agent Watch</h3>
-            <p>See what changed across agents and Bot workflows, why it may matter, what Cabinet has done, and what remains untested.</p>
+            <p>Find new Bots, useful examples, and updates to the apps you use.</p>
           </div>
-          <strong>Read current signals <ArrowRight size={17} aria-hidden="true" /></strong>
+          <strong>See the latest updates <ArrowRight size={17} aria-hidden="true" /></strong>
         </Link>
         <Link className="platform-slide" href="/platforms/grok-bot">
           <div>
-            <span>New platform pathway</span>
+            <span>Use a Bot in Grok</span>
             <h3>Grok Bot Templates</h3>
-            <p>Use Bot Cabinet roles and Passports as portable recipes for Grok Bot’s new template system.</p>
+            <p>Choose a job, copy the instructions, and follow the Grok Bot setup guide.</p>
           </div>
-          <strong>Adapt a Bot <ArrowRight size={17} aria-hidden="true" /></strong>
+          <strong>Set up a Grok Bot <ArrowRight size={17} aria-hidden="true" /></strong>
         </Link>
         <Link
           className="platform-slide portrait-home-slide"
@@ -229,7 +228,7 @@ export default function Home() {
             <div>
               <span>Bot Portrait Studio</span>
               <h3>Give your Bot a face</h3>
-              <p>Choose a friendly portrait, download it for Hermes Desktop, or build a personalized image recipe.</p>
+              <p>Choose a friendly portrait, download it for Hermes Desktop, or write a prompt for your own portrait.</p>
             </div>
           </div>
           <strong>Choose a portrait <ArrowRight size={17} aria-hidden="true" /></strong>

@@ -30,8 +30,8 @@ describe("BotFitTest", () => {
     expect(markup).toContain("Routine");
     expect(markup).toContain("Bot");
     expect(markup).toContain("Crew");
-    expect(markup).toContain("Then choose where to run it");
-    expect(markup).toContain("access, effort, approvals, cost, and recovery");
+    expect(markup).toContain("Which app should you use?");
+    expect(markup).toContain("what it costs, how much setup it needs, and how to stop or fix a failed task");
     expect(markup).toContain('href="/guides/choose-your-agent-path"');
     expect(markup).toContain('data-funnel-event="bot_fit_platform_guide_open"');
   });

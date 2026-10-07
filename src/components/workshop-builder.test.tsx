@@ -25,6 +25,6 @@ describe("WorkshopBuilder download readiness", () => {
     expect(setupButtons).toHaveLength(6);
     expect(setupButtons.every((button) => button.includes('disabled=""'))).toBe(true);
     expect(markup).toContain("This draft is not ready for setup");
-    expect(markup).not.toContain("Your Bot package is ready");
+    expect(markup).not.toContain("Review and download your Bot");
   });
 });
