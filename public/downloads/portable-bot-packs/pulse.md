@@ -3,7 +3,7 @@
 Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.
 
 **Pack version:** 1.0.0
-**Audience:** Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.
+**Audience:** Small teams trying to attract customers, help them get started, keep them coming back or increase revenue.
 **Source:** https://botcabinet.com/bots/pulse/
 
 ## Job

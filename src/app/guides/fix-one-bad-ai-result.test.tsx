@@ -15,7 +15,7 @@ describe("Fix one bad AI result guide", () => {
     expect(html).toContain("Copy this text");
     expect(html).toContain("Run the same task again");
     expect(html).toContain("Original Muse at Work listing");
-    expect(html).toContain("have not run the original Muse workflow");
+    expect(html).toContain("has not run the original Muse workflow");
     expect(html).toContain("/downloads/starter-bots/v2/ops/skills/diagnose-ai-result/SKILL.md");
     expect(sitemap().some((entry) => entry.url === "https://botcabinet.com/guides/fix-one-bad-ai-result/")).toBe(true);
   });

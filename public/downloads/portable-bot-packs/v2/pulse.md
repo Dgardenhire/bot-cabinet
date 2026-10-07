@@ -5,7 +5,7 @@ Turns a growth goal and approved data into a clear baseline, prioritized experim
 - **Artifact ID:** bot-cabinet:bot:pulse:portable-pack
 - **Pack version:** 2.0.0
 - **Preparation status:** prepared
-- **Audience:** Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.
+- **Audience:** Small teams trying to attract customers, help them get started, keep them coming back or increase revenue.
 - **Source:** https://botcabinet.com/bots/pulse/
 
 ## Job

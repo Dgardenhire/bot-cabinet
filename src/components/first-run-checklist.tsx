@@ -39,7 +39,7 @@ const steps = [
   },
   {
     title: "Connect an AI provider",
-    copy: "Choose one supported provider inside Hermes and add its API key. Provider charges vary; a short Scout test should use very little.",
+    copy: "Choose a supported AI provider inside Hermes and add its API key. Check the provider’s charges before running your test.",
     action: (
       <a
         className="text-link"
@@ -140,7 +140,7 @@ export function FirstRunCompletion() {
       <CheckCircle size={30} weight="fill" aria-hidden="true" />
       <div>
         <h2>All five steps marked complete</h2>
-        <p>You can keep working with Scout or choose another Bot. Your checkmarks record your progress; they do not tell us whether Scout produced a useful result.</p>
+        <p>Keep working with Scout or choose another Bot. The checkmarks save the steps you completed; they do not verify Scout’s answer.</p>
       </div>
       <Link className="button button-primary" href="/bots" data-funnel-event="first_run_choose_next_bot" data-funnel-surface="start_page">
         Choose another Bot

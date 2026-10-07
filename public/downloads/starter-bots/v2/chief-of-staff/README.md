@@ -1,6 +1,6 @@
 # Chief of Staff — Executive priority and coordination assistant
 
-Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
+Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.
 
 This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.
 

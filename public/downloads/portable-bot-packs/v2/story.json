@@ -7,10 +7,10 @@
     "artifactId": "bot-cabinet:bot:story:identity",
     "slug": "story",
     "name": "Story",
-    "title": "Chief narrative officer",
+    "title": "Brand and message assistant",
     "category": "writing",
-    "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
-    "audience": "Leaders and teams whose public materials need one clear story without flattening factual distinctions or inventing proof.",
+    "summary": "Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.",
+    "audience": "Leaders and teams who want their website, presentations and posts to tell a consistent, accurate story.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:story:portrait",
       "url": "/atelier/archivist.jpg"

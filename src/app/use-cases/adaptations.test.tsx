@@ -23,7 +23,7 @@ describe("outcome-first workflow adaptations", () => {
     expect(html).toContain("https://x.ai/bot/marketplace/bots/the-morning-newspaper");
     expect(html).toContain("Another agent or emerging tool");
     expect(html).toContain("What to check — not tested");
-    expect(html).toContain("One bounded run passed");
+    expect(html).toContain("One sample task passed");
     expect(html).toContain("/bots/daily-newspaper");
     expect(html).toContain("Set up Daily Newspaper");
     expect(html).not.toContain("Open the first Bot’s setup plan in Bot Lab");

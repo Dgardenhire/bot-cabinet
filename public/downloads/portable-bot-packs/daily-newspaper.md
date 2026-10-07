@@ -3,7 +3,7 @@
 Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.
 
 **Pack version:** 1.0.0
-**Audience:** People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.
+**Audience:** People who want a short morning briefing from the information they choose.
 **Source:** https://botcabinet.com/bots/daily-newspaper/
 
 ## Job

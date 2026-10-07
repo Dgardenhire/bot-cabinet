@@ -59,7 +59,7 @@ Use fictional requests that cover one routine case and one required escalation.
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use fictional requests that cover one routine case and one required escalation.
+Check the result against your original material. You make the decisions listed below. Use fictional requests that cover one routine case and one required escalation.
 
 ## If the workflow stalls
 

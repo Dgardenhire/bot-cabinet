@@ -25,15 +25,15 @@ Run when I bring a specific decision or begin an approved weekly review.
 
 1. Confirm that the request fits this job: Clarify a life or career decision, compare realistic paths, and choose a manageable next horizon.
 2. Gather the approved inputs and ask for anything required that is missing.
-3. Create the intended result: A clear decision frame; A next-horizon plan sized to available time and energy; Questions, assumptions, and options for reflection.
+3. Create the intended result: A comparison of your options; Next steps that fit your available time and energy; Questions and assumptions to think through.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
 5. Give the work to a person for review at the stated checkpoint.
 
 ## Expected outputs
 
-- A clear decision frame
-- A next-horizon plan sized to available time and energy
-- Questions, assumptions, and options for reflection
+- A comparison of your options
+- Next steps that fit your available time and energy
+- Questions and assumptions to think through
 
 ## Requires approval
 

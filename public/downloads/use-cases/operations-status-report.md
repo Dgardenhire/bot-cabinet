@@ -59,7 +59,7 @@ Check two harmless read-only status sources and confirm that the Bots make no ch
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Check two harmless read-only status sources and confirm that the Bots make no changes.
+Check the result against your original material. You make the decisions listed below. Check two harmless read-only status sources and confirm that the Bots make no changes.
 
 ## If the workflow stalls
 

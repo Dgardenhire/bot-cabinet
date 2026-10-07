@@ -219,9 +219,9 @@
       "artifactId": "bot-cabinet:bot:client:portable-pack",
       "slug": "client",
       "name": "Client Deliverables",
-      "title": "Client deliverable assistant",
+      "title": "Client document assistant",
       "category": "planning",
-      "summary": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+      "summary": "Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.",
       "portraitUrl": "/atelier/diplomat.jpg",
       "preparationStatus": "prepared",
       "portablePack": {
@@ -244,7 +244,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "f72a70696e86663a8d8e7e833c8e27eb7edca24114b3937da761549bc7643dc6"
+        "sha256": "6fe7fad0d25dc04832a6897f37791eb1b63145e00e870ab6b0e27bd987b48dd6"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -473,7 +473,7 @@
       "name": "Chief of Staff",
       "title": "Executive priority and coordination assistant",
       "category": "planning",
-      "summary": "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+      "summary": "Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.",
       "portraitUrl": "/atelier/fleet.jpg",
       "preparationStatus": "prepared",
       "portablePack": {
@@ -496,7 +496,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb"
+        "sha256": "f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -515,7 +515,7 @@
       "name": "Coach",
       "title": "Life and career planning assistant",
       "category": "planning",
-      "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
+      "summary": "Helps you think through a life or career decision, compare options and plan your next steps.",
       "portraitUrl": "/atelier/navigator.jpg",
       "preparationStatus": "prepared",
       "portablePack": {
@@ -538,7 +538,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "89d8e806b829f5da753ca3fb783f8af263ef5cea473ff513c7b2747515cdd06b"
+        "sha256": "b7ec6117d72ae77aa4dc6d7116dbf12726d6ce6690d79f286b93db6d0b92e6ce"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -639,9 +639,9 @@
       "artifactId": "bot-cabinet:bot:story:portable-pack",
       "slug": "story",
       "name": "Story",
-      "title": "Chief narrative officer",
+      "title": "Brand and message assistant",
       "category": "writing",
-      "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
+      "summary": "Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.",
       "portraitUrl": "/atelier/archivist.jpg",
       "preparationStatus": "prepared",
       "portablePack": {
@@ -664,7 +664,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "b53f531951ce54975c2cbc1e1643e641fa536832cb61f2fbd7a6d1536852fafc"
+        "sha256": "57c7f0fac0168568a5ce36fa9a2ade5b68043656d9e149e1da3574900724c9d8"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -723,7 +723,7 @@
       "artifactId": "bot-cabinet:bot:curator:portable-pack",
       "slug": "curator",
       "name": "Curator",
-      "title": "Bot lineup improvement manager",
+      "title": "Bot review and improvement assistant",
       "category": "technical",
       "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
       "portraitUrl": "/downloads/bot-portraits/hermes/curator-1024.png",
@@ -748,7 +748,7 @@
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "7236d29be020f10bc9d87eadf3ec1b68c49e902aa293806ca0490d1e10532afa"
+        "sha256": "3d76f1c99cd40f64574df11e31552c087f4e72762be5c74b059b84a333a4f789"
       },
       "grokBot": {
         "platformId": "grok-bot",

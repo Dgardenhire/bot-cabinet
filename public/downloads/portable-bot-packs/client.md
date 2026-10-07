@@ -1,6 +1,6 @@
 # Client Deliverables — Portable Bot Pack
 
-Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.
+Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.
 
 **Pack version:** 1.0.0
 **Audience:** Consultants, small firms, and internal teams that produce recurring client-facing documents.

@@ -1,6 +1,6 @@
 # Story — Bot Passport
 
-**Role:** Chief narrative officer
+**Role:** Brand and message assistant
 **Risk level:** Moderate
 **Passport version:** 1
 

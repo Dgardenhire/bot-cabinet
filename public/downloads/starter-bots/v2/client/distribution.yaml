@@ -1,6 +1,6 @@
 name: client
 version: "2.0.0"
-description: "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format."
+description: "Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format."
 hermes_requires: ">=0.21.0"
 author: "Bot Cabinet"
 license: "MIT"

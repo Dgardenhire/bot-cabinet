@@ -9,7 +9,7 @@ This is a manual construction brief. It is not an import package and makes no cl
 ## Profile fields to enter
 
 - **Name:** Curator
-- **Title:** Bot lineup improvement manager
+- **Title:** Bot review and improvement assistant
 - **Job:** Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.
 
 ## Instructions to review and enter

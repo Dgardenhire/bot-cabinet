@@ -59,7 +59,7 @@ Create three posts from one approved announcement and review them beside recent 
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Create three posts from one approved announcement and review them beside recent posts from the same account.
+Check the result against your original material. You make the decisions listed below. Create three posts from one approved announcement and review them beside recent posts from the same account.
 
 ## If the workflow stalls
 

@@ -36,7 +36,7 @@ Use one current, low-stakes decision to compare two options and define one rever
 
 ## Human checkpoint
 
-Pause for a person to review these deliverables: A clear decision frame; A next-horizon plan sized to available time and energy; Questions, assumptions, and options for reflection. Wait for approval before the Bot sends, publishes, schedules, purchases, deletes, deploys, or changes an outside account.
+Pause for a person to review these deliverables: A comparison of your options; Next steps that fit your available time and energy; Questions and assumptions to think through. Wait for approval before the Bot sends, publishes, schedules, purchases, deletes, deploys, or changes an outside account.
 
 ## Stop and remove access
 

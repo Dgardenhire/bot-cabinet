@@ -40,13 +40,13 @@ export function BotPassportPanel({
           <ul>{passport.mustAsk.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
         <article className="passport-prohibited-card">
-          <span>Prohibited actions</span>
+          <span>Must not do</span>
           <ul>{passport.prohibited.map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
       </div>
       <div className="bot-passport-controls">
         <div>
-          <strong>Requested capabilities</strong>
+          <strong>Tools and access requested</strong>
           <p>{passport.requestedCapabilities.join(" · ")}</p>
         </div>
         <div>
@@ -55,7 +55,7 @@ export function BotPassportPanel({
         </div>
       </div>
       <details className="bot-passport-details">
-        <summary>Read the control limits</summary>
+        <summary>What these rules can and cannot prevent</summary>
         <ul>{passport.controlNotes.map((item) => <li key={item}>{item}</li>)}</ul>
       </details>
       {downloadHref && (

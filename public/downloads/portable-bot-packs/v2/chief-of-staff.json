@@ -9,7 +9,7 @@
     "name": "Chief of Staff",
     "title": "Executive priority and coordination assistant",
     "category": "planning",
-    "summary": "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+    "summary": "Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.",
     "audience": "Leaders and small teams that need clearer priorities and coordination without adding another meeting.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:chief-of-staff:portrait",

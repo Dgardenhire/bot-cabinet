@@ -15,9 +15,9 @@ describe("starter Bot detail", () => {
     expect(html).toContain('data-funnel-destination="scout"');
     expect(html).toContain("Keep track of your first Hermes run");
     expect(html).toContain('id="bot-workbench"');
-    expect(html).toContain("Job contract");
-    expect(html).toContain("Source of truth");
-    expect(html).toContain("Needs approval for");
+    expect(html).toContain("Job and limits");
+    expect(html).toContain("Information it relies on");
+    expect(html).toContain("Ask you before");
     expect(html).toContain("Run the named first test");
     expect(html).toContain("Test one failure");
     expect(html).toContain("Repeat before automating");
@@ -29,9 +29,9 @@ describe("starter Bot detail", () => {
 
     expect(html).toContain("Hermes Agent 0.21.4");
     expect(html).toContain("September 23, 2026");
-    expect(html).toContain("one run, not evidence of general reliability");
+    expect(html).toContain("one run, not general reliability");
     expect(html).toContain('href="/proof-room/daily-newspaper/runtime-summary.md"');
-    expect(html).toContain("Bounded task passed");
+    expect(html).toContain("One task test passed");
     expect(html).not.toContain("Role-specific output testing remains pending");
   });
 });

@@ -49,7 +49,7 @@ export function FirstRunOutcomePrompt() {
   return (
     <section className="first-run-outcome-prompt" aria-labelledby="first-run-outcome-question">
       <div>
-        <span>One-click outcome check</span>
+        <span>After your first task</span>
         <h2 id="first-run-outcome-question">Did your Bot produce the expected result?</h2>
         <p>After trying the Bot, tell us what happened. If setup stopped you, choose “I got stuck.” Your checkmarks above only track your progress.</p>
       </div>

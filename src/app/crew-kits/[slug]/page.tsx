@@ -71,7 +71,7 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
               <div className="button-row">
                 <a href={`/downloads/crew-kits/bundles/${kit.slug}.zip`} download className="button button-primary" data-funnel-event="crew_bundle_download" data-funnel-surface="crew_detail" data-funnel-destination={kit.slug}>Download this Crew Kit <DownloadSimple size={16} /></a>
                 <a href="#guided-setup" className="button button-secondary" data-funnel-event="crew_guided_setup_started" data-funnel-surface="crew_detail" data-funnel-destination={kit.slug}>Start guided setup <ArrowRight size={16} /></a>
-                <a href={`/downloads/crew-kits/${kit.slug}.pdf`} download className="button button-secondary">Download the designed PDF <DownloadSimple size={16} /></a>
+                <a href={`/downloads/crew-kits/${kit.slug}.pdf`} download className="button button-secondary">Download the PDF <DownloadSimple size={16} /></a>
                 <a href={`/downloads/crew-kits/${kit.slug}.md`} download className="button button-secondary">Download editable Markdown <DownloadSimple size={16} /></a>
                 <a href="#crew-passport" className="button button-secondary">Review the Crew Passport <ShieldCheck size={16} /></a>
               </div>
@@ -88,8 +88,8 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
       </section>
 
       <section className="content-section shell" id="guided-setup">
-        <Eyebrow>Your setup bench</Eyebrow>
-        <h2 className="section-heading">Bring the team in, one checked step at a time</h2>
+        <Eyebrow>Guided setup</Eyebrow>
+        <h2 className="section-heading">Set up each Bot</h2>
         <p className="section-intro">Keep existing profiles intact. If a name already exists, use a new name rather than replacing that Bot. Start with sample material and manually approve each handoff.</p>
         <div className="button-row"><a href={`/downloads/crew-kits/bundles/${kit.slug}-setup.md`} download className="button button-secondary" data-funnel-event="crew_setup_checklist_download" data-funnel-surface="crew_setup" data-funnel-destination={kit.slug}>Keep the setup checklist <DownloadSimple size={16} /></a><a href={`/downloads/crew-kits/bundles/${kit.slug}.json`} className="button button-secondary" data-funnel-event="crew_manifest_inspected" data-funnel-surface="crew_setup" data-funnel-destination={kit.slug}>Inspect the manifest</a></div>
         <CrewSetupProgress kitSlug={kit.slug} members={manifest.members} steps={CREW_MEMBER_STEPS} />
@@ -109,34 +109,34 @@ export default async function CrewKitPage({ params }: { params: Promise<{ slug: 
 
       <section className="content-section shell">
         <Eyebrow>Roles and responsibilities</Eyebrow>
-        <h2 className="section-heading">Each Bot owns one part of the desk</h2>
+        <h2 className="section-heading">What each Bot does</h2>
         <div className="crew-role-grid">{resolvedRoles.map(({ bot, botSlug, responsibility }) => <article key={botSlug}><span>{bot.name}</span><h3>{bot.title}</h3><p>{responsibility}</p><Link href={`/bots/${bot.slug}`}>Open this Bot <ArrowRight size={14} /></Link></article>)}</div>
       </section>
 
       <section className="content-section shell crew-workflow-library">
         <Eyebrow>Included workflows</Eyebrow>
-        <h2 className="section-heading">Jobs this Crew Kit can run</h2>
+        <h2 className="section-heading">Jobs this kit is designed for</h2>
         <div>{kit.workflows.map((workflow, index) => <article key={workflow.name}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{workflow.name}</h3><p>{workflow.description}</p></div>{workflow.useCaseSlug && <Link href={`/use-cases/${workflow.useCaseSlug}`}>Open workflow <ArrowRight size={14} /></Link>}</article>)}</div>
       </section>
 
       <section className="content-section shell crew-operating-grid">
-        <article><Eyebrow>Shared inputs</Eyebrow><h2>Prepare the desk</h2><ul>{kit.sharedInputs.map((item) => <li key={item}><CheckCircle size={17} />{item}</li>)}</ul></article>
-        <article><Eyebrow>Operating rhythm</Eyebrow><h2>Run the work in stages</h2><ol>{kit.operatingRhythm.map((item) => <li key={item.timing}><span>{item.timing}</span><strong>{item.action}</strong><small>{item.owner}</small></li>)}</ol></article>
+        <article><Eyebrow>Shared inputs</Eyebrow><h2>Gather these inputs</h2><ul>{kit.sharedInputs.map((item) => <li key={item}><CheckCircle size={17} />{item}</li>)}</ul></article>
+        <article><Eyebrow>When to run each step</Eyebrow><h2>Run the work in stages</h2><ol>{kit.operatingRhythm.map((item) => <li key={item.timing}><span>{item.timing}</span><strong>{item.action}</strong><small>{item.owner}</small></li>)}</ol></article>
       </section>
 
       <section className="content-section shell crew-passport" id="crew-passport">
         <div className="crew-passport-heading"><div><Eyebrow>Crew Passport</Eyebrow><h2 className="section-heading">Shared access and approval rules</h2></div><span>Planning checklist</span></div>
-        <p className="section-intro">This record is not automatically installed or enforced. Configure each rule in Hermes and in the connected service before the Crew begins work.</p>
+        <p className="section-intro">Set these permissions in Hermes and each connected service before the Crew begins work. This checklist does not change app settings.</p>
         <div className="crew-passport-grid">
           <article><h3>Allowed access</h3><ul>{kit.passport.allowedAccess.map((item) => <li key={item}>{item}</li>)}</ul></article>
-          <article><h3>A person must perform or release</h3><ul>{kit.passport.approvalActions.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article><h3>Actions requiring your approval</h3><ul>{kit.passport.approvalActions.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article><h3>Bots must never</h3><ul>{kit.passport.prohibitedActions.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
-        <div className="crew-passport-note"><ShieldCheck size={22} /><div><strong>Use real enforcement where it exists</strong><ul>{kit.passport.enforcementNotes.map((item) => <li key={item}>{item}</li>)}</ul></div></div>
+        <div className="crew-passport-note"><ShieldCheck size={22} /><div><strong>Check the app’s permission settings</strong><ul>{kit.passport.enforcementNotes.map((item) => <li key={item}>{item}</li>)}</ul></div></div>
       </section>
 
       <section className="content-section shell crew-setup">
-        <div><Eyebrow>Set up the kit</Eyebrow><h2 className="section-heading">Prove the handoffs before adding automation</h2></div>
+        <div><Eyebrow>Set up the kit</Eyebrow><h2 className="section-heading">Test the full sequence before scheduling it</h2></div>
         <ol>{kit.setupSteps.map((step, index) => <li key={step}><span>{index + 1}</span><p>{step}</p></li>)}</ol>
       </section>
     </main>

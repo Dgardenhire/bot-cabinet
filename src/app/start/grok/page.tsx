@@ -34,7 +34,7 @@ export default function GrokStartPage() {
           <Eyebrow>Grok Bot · manual setup</Eyebrow>
           <h1>Try Scout in Grok Bot</h1>
           <p>Scout looks through sources you choose and returns a short, linked brief. Build it in Grok Bot, try one public-source task, and judge the result yourself.</p>
-          <div className="workspace-start-status">Prepared guide · Bot Cabinet has not run this Grok Bot adaptation</div>
+          <div className="workspace-start-status">Not yet tested in Grok Bot</div>
         </header>
 
         <ol className="workspace-start-steps">
@@ -53,7 +53,7 @@ export default function GrokStartPage() {
               <h2>Create Scout</h2>
               <p>In Grok Bot, choose New, then Create new Bot. Name it Scout and use this description as a starting point. Review it before saving. No app connections are needed for the practice task.</p>
               <div className="workspace-start-copy"><CopyTextButton text={role} label="Copy Scout's job" analyticsEvent="grok_scout_role_copy" analyticsSurface="grok_start" /><pre>{role}</pre></div>
-              <p className="workspace-start-small">Want the full recipe? <a href="/downloads/grok-bot-templates/scout.md" download>Download Scout&apos;s Grok build brief <DownloadSimple size={15} aria-hidden="true" /></a>. It is a manual brief, not an importable template.</p>
+              <p className="workspace-start-small">Want the full instructions? <a href="/downloads/grok-bot-templates/scout.md" download>Download Scout&apos;s Grok build brief <DownloadSimple size={15} aria-hidden="true" /></a>. Use it for manual setup; it cannot be imported.</p>
             </div>
           </li>
           <li>
@@ -77,7 +77,7 @@ export default function GrokStartPage() {
 
         <footer className="workspace-start-footer">
           <h2>Want a different job?</h2>
-          <p>Browse the other Grok build briefs, or inspect the Bot before choosing a platform.</p>
+          <p>Browse other Grok build briefs, or read Scout&apos;s job and setup requirements.</p>
           <div className="button-row"><Link href="/platforms/grok-bot" className="button button-primary">See Grok build briefs <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/bots/scout" className="button button-secondary">Meet Scout</Link></div>
         </footer>
       </div>

@@ -96,7 +96,7 @@ export function ThreeRunTrial() {
     <form className={styles.panel} onSubmit={startTrial}>
       <div className={styles.heading}>
         <div><span>One recurring job · three real uses</span><h2>Start a Three-Run Trial</h2></div>
-        <strong>Browser-private</strong>
+        <strong>Saved in this browser</strong>
       </div>
       <p>Test the job you care about in the tool you already have. Bot Cabinet stores these fields only in this browser and never sends their contents to analytics.</p>
       <div className={styles.fields}>
@@ -152,7 +152,7 @@ export function ThreeRunTrial() {
         <div className={styles.summary}>
           <h3>Three real uses recorded</h3>
           <p>{summary.delivered} used as delivered · {summary.revised} used after revision · {summary.discarded} not used</p>
-          <p>This small trial describes your three attempts. It does not establish general reliability or prove that another person will get the same result.</p>
+          <p>These are your three results. They do not show how reliably the Bot will work on other tasks or for other people.</p>
         </div>
       )}
 

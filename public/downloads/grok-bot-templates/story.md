@@ -1,6 +1,6 @@
 # Story — Build brief for Grok Bot
 
-Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.
+Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.
 
 **Adaptation status: Prepared from the portable recipe; not tested in Grok Bot.**
 

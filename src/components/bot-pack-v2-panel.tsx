@@ -29,9 +29,8 @@ export function BotPackV2Panel({ pack }: { pack: PortableBotPackV2 }) {
           </h2>
         </div>
         <p>
-          This versioned pack keeps the Bot&apos;s job, first assignment,
-          success checkpoint, reusable Skill, planned Routine, and platform
-          setup files together.
+          Get the setup files, try the first task, and check the result.
+          The pack also includes a reusable Skill and a plan for a Routine.
         </p>
       </div>
 
@@ -46,7 +45,7 @@ export function BotPackV2Panel({ pack }: { pack: PortableBotPackV2 }) {
         <article>
           <div className="bot-pack-v2-label">
             <CheckCircle size={21} weight="thin" aria-hidden="true" />
-            <span>Review checkpoint</span>
+            <span>Check the result</span>
           </div>
           <p>{pack.job.checkpoint}</p>
         </article>
@@ -96,9 +95,8 @@ export function BotPackV2Panel({ pack }: { pack: PortableBotPackV2 }) {
       </div>
 
       <p className="bot-pack-v2-note">
-        The Skill and Routine are prepared plans. Test them with sample
-        material and approve the results before adding a schedule or outside
-        access.
+        The Skill and Routine have not been task-tested. Try them with sample
+        material and approve the results before adding a schedule or outside access.
       </p>
     </section>
   );

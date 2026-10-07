@@ -59,7 +59,7 @@ Plan one week of study and complete one short quiz before building the full sche
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Plan one week of study and complete one short quiz before building the full schedule.
+Check the result against your original material. You make the decisions listed below. Plan one week of study and complete one short quiz before building the full schedule.
 
 ## If the workflow stalls
 

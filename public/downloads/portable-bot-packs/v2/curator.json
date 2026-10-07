@@ -7,7 +7,7 @@
     "artifactId": "bot-cabinet:bot:curator:identity",
     "slug": "curator",
     "name": "Curator",
-    "title": "Bot lineup improvement manager",
+    "title": "Bot review and improvement assistant",
     "category": "technical",
     "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
     "audience": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful.",

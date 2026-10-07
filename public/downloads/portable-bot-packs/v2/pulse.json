@@ -10,7 +10,7 @@
     "title": "Growth management assistant",
     "category": "planning",
     "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
-    "audience": "Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.",
+    "audience": "Small teams trying to attract customers, help them get started, keep them coming back or increase revenue.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:pulse:portrait",
       "url": "/atelier/cicada.jpg"

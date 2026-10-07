@@ -1,6 +1,6 @@
 # Chief of Staff — Portable Bot Pack
 
-Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
+Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.
 
 **Pack version:** 1.0.0
 **Audience:** Leaders and small teams that need clearer priorities and coordination without adding another meeting.

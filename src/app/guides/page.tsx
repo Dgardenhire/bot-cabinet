@@ -22,7 +22,7 @@ export default function GuidesPage() {
           <div>
             <Eyebrow>Step-by-step guides</Eyebrow>
             <h1 className="inner-title">Field Manual</h1>
-            <p className="inner-deck">Choose an agent path that fits your work. Compare services and reusable workflows, inspect a package, and test a useful result. Hermes setup guides remain here when that is the right path.</p>
+            <p className="inner-deck">Choose an app, set up a Bot, and check its first result. Find guides for comparing agents, reviewing downloads, and using Bots for everyday work.</p>
           </div>
           <figure className="guides-hero-art">
             <Image
@@ -32,7 +32,7 @@ export default function GuidesPage() {
               height={887}
               priority
             />
-            <figcaption>Practical guides with dated context and links to original sources.</figcaption>
+            <figcaption>Step-by-step guides with dates and links to original sources.</figcaption>
           </figure>
         </div>
       </section>

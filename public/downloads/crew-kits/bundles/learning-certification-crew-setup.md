@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Act as Quiz Coach and help the learner review errors.
 
 Archive: members/coach.tar.gz
-SHA-256: 89d8e806b829f5da753ca3fb783f8af263ef5cea473ff513c7b2747515cdd06b
+SHA-256: b7ec6117d72ae77aa4dc6d7116dbf12726d6ce6690d79f286b93db6d0b92e6ce
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

@@ -59,7 +59,7 @@ Use one approved historical data export to design a test and draft two variants 
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use one approved historical data export to design a test and draft two variants without changing a live campaign.
+Check the result against your original material. You make the decisions listed below. Use one approved historical data export to design a test and draft two variants without changing a live campaign.
 
 ## If the workflow stalls
 

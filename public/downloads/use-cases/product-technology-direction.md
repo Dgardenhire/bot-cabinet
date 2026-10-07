@@ -2,11 +2,11 @@
 
 Designed for: Founders and small product teams choosing what to test and how to build it
 
-Result: A product and technology decision record plus the smallest reversible prototype needed to resolve the next uncertainty.
+Result: A comparison of product and technology choices, plus a small prototype to test the chosen approach.
 
 ## Operating guide
 
-- **When to use it:** Use this workflow when you need a product and technology decision record plus the smallest reversible prototype needed to resolve the next uncertainty.
+- **When to use it:** Use this workflow when you need a comparison of product and technology choices, plus a small prototype to test the chosen approach.
 - **Lead Bot:** Nova
 - **Cadence:** When a person supplies the approved brief and starts the workflow
 - **Typical first run:** 30–60 minutes for a first manual run
@@ -80,11 +80,11 @@ Help choose the next product and technology direction from the confirmed evidenc
 
 ## First test
 
-Use sample data in a disposable project copy to build one narrow proof and review its acceptance results before choosing a production direction.
+Build one small prototype with sample data in a separate project copy. Check its test results before choosing how to build the real product.
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use sample data in a disposable project copy to build one narrow proof and review its acceptance results before choosing a production direction.
+Check the result against your original material. You make the decisions listed below. Build one small prototype with sample data in a separate project copy. Check its test results before choosing how to build the real product.
 
 ## If the workflow stalls
 

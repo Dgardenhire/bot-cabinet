@@ -30,8 +30,8 @@ export default function ComparePage() {
       <div className="shell compare-wrap">
         <header className="compare-hero">
           <Eyebrow>A field guide · checked September 29, 2026</Eyebrow>
-          <h1>Which agent fits the job you actually have?</h1>
-          <p>The names are multiplying. Here are eight different ways to hand work to an AI assistant, from a personal Dot to a self-run Hermes or OpenClaw setup. Start with where the work lives and how much setup you want.</p>
+          <h1>Which agent fits your job?</h1>
+          <p>Compare eight AI assistants. Choose based on the apps you use, the job you need done, and how much setup you want.</p>
           <div className="compare-flow" aria-label="A simple way to start"><span>Give it a job</span><span>Set its limits</span><span>Check the result</span></div>
         </header>
 
@@ -46,7 +46,7 @@ export default function ComparePage() {
         </section>
 
         <section className="compare-table-section" aria-labelledby="compare-title">
-          <div className="compare-section-head"><div><Eyebrow>Look closer</Eyebrow><h2 id="compare-title">Eight agents, different starting points</h2></div><p>These are provider descriptions and Bot Cabinet&apos;s reading of them—not eight products we personally tested. Prices and access can change. Open the source before you sign up.</p></div>
+          <div className="compare-section-head"><div><Eyebrow>Look closer</Eyebrow><h2 id="compare-title">Eight agents, different starting points</h2></div><p>Based on the linked provider information. Bot Cabinet has not tested all eight products. Check current prices and access before signing up.</p></div>
           <div className="compare-table-scroll" role="region" aria-label="Agent comparison table" tabIndex={0}>
             <table className="compare-table">
               <caption className="sr-only">Compare each agent by useful job, number of agents, where it runs, entry requirements, and a caution.</caption>
@@ -61,10 +61,10 @@ export default function ComparePage() {
         </section>
 
         <section className="compare-choice" aria-labelledby="compare-choice-title">
-          <div><Eyebrow>Pick a first step</Eyebrow><h2 id="compare-choice-title">Don&apos;t start with a fleet of agents</h2><p>Choose one useful outcome and the tool you already have. Add more Bots, app access, or a schedule only when the first result gives you a reason.</p></div>
+          <div><Eyebrow>Pick a first step</Eyebrow><h2 id="compare-choice-title">Choose a useful first task</h2><p>Choose the tool and Bot roles the job needs. Try the task and check the result before adding a schedule or more account access.</p></div>
           <div className="compare-choice-links"><Link href="/start/dots" className="text-link">Try a Chief of Staff job with Dots <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/start/grok" className="text-link">Try a Bot in Grok Bot <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/start/hermes" className="text-link">Try a Bot in Hermes <ArrowRight size={16} aria-hidden="true" /></Link></div>
         </section>
-        <p className="compare-credit">The four-way overview grows out of our earlier AI for the Real World newsletter graphic. <a href="https://every.to/vibe-check/vibe-check-dots-always-on-agents-in-chatgpt" target="_blank" rel="noopener noreferrer">Every&apos;s September 29 Dots field report</a> helped prompt this wider update. This is Bot Cabinet&apos;s own job-first comparison, not a copy of Every&apos;s chart or a claim that we tested all eight products.</p>
+        <p className="compare-credit">This comparison builds on our AI for the Real World newsletter graphic and <a href="https://every.to/vibe-check/vibe-check-dots-always-on-agents-in-chatgpt" target="_blank" rel="noopener noreferrer">Every&apos;s September 29 Dots field report</a>.</p>
       </div>
     </main>
   );

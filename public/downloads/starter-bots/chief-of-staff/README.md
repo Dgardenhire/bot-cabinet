@@ -1,6 +1,6 @@
 # Chief of Staff — Executive priority and coordination assistant
 
-Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
+Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.
 
 This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.
 

@@ -59,7 +59,7 @@ Use five approved sources to produce a three-item brief. Open every link and che
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use five approved sources to produce a three-item brief. Open every link and check every key claim.
+Check the result against your original material. You make the decisions listed below. Use five approved sources to produce a three-item brief. Open every link and check every key claim.
 
 ## If the workflow stalls
 

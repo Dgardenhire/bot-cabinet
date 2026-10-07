@@ -37,7 +37,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "fix-one-bad-ai-result",
     title: "Fix one bad AI result",
-    summary: "Use one failed answer to find a small correction, then check whether it actually helps. Try it as a one-time task in the AI chat you already use.",
+    summary: "Find what went wrong in an AI answer, change one instruction, and try the same task again in your usual AI chat.",
     audience: "Anyone whose AI assistant missed the mark",
     readTime: "4 min",
     updated: "2026-09-27",
@@ -72,7 +72,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Where this idea came from",
         paragraphs: [
-          "This guide is Bot Cabinet's adaptation of the public Diagnose My Agent's Mistake workflow on Muse at Work. We reviewed its listing but have not run the original Muse workflow or tested this adaptation in each AI service. The steps above are a way to try the idea, not a claim of proven reliability.",
+          "Adapted from Diagnose My Agent's Mistake on Muse at Work. Bot Cabinet reviewed the public listing but has not run the original Muse workflow or tested these steps in each AI service.",
         ],
         sources: [
           { label: "Original Muse at Work listing", href: "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c" },
@@ -84,20 +84,20 @@ export const GUIDES: Guide[] = [
   {
     slug: "use-a-bot-on-another-platform",
     title: "Use a Bot outside Hermes or Grok Bot",
-    summary: "Move the Bot's job, rules and first test into ChatGPT, Claude or another agent service without pretending every platform works the same way.",
+    summary: "Set up a Bot in ChatGPT, Claude or another app. Copy its instructions, connect the accounts it needs, and try its first task.",
     audience: "Anyone choosing where to run a Bot",
     readTime: "7 min",
     updated: "2026-09-24",
     coverImage: "/atelier/victorian-library-guides-v1.png",
     sections: [
       {
-        heading: "Move the job, not the brand name",
+        heading: "Choose where to use your Bot",
         paragraphs: [
-          "A Bot Cabinet role is a job with clear limits. The portable Bot Pack records what the Bot owns, what it must not do, the information it may use, the result it should return, the actions that need approval and a small first test. That is the part worth carrying to another service.",
-          "The buttons, connections and permission controls differ from one service to another. Do not paste a Hermes profile into ChatGPT or Claude and assume it is installed. Rebuild the same job with that service's own agent, skill, connection and approval settings, then run the first test again.",
+          "The Bot Pack contains the Bot's instructions: its job, the information it may use, the answer or file it should make, the actions that need your approval, and a first task to try.",
+          "To use the Bot in ChatGPT or Claude, create an agent or skill in that app, copy its instructions, connect the required accounts, and set its approval controls. Then try the first task. The Hermes profile is an install file for Hermes.",
         ],
         bullets: [
-          "Use a continuing agent when the job needs its own files, memory, connections, schedule or shared identity.",
+          "Use an ongoing agent when the job needs its own files, memory, connections, schedule or a name your team can use.",
           "Use a skill when your existing assistant only needs a repeatable method.",
           "Use a one-time task when the work does not need to continue after the result is delivered.",
           "Use several agents only when separate access, independent review or a real handoff makes the result better or safer.",
@@ -109,7 +109,7 @@ export const GUIDES: Guide[] = [
           "Download the Markdown Bot Pack and Agent Skill from the Bot's page. Read them before uploading anything. Keep the job, inputs, output, stop rules and approval points. Replace the platform section with the setup for the service you choose.",
           "Connections never move automatically. Add only the calendar, files, messages or other accounts the job truly needs. If a service cannot enforce one of the Bot's approval rules, keep that action outside the Bot and do it yourself.",
         ],
-        note: "A prepared guide is not a tested deployment. Bot Cabinet should report each adapter separately as prepared, installed, first task passed or repeated task passed.",
+        note: "Check the test status for your chosen app: instructions prepared, installed, first task passed, or repeated task passed. Prepared instructions have not necessarily been installed or tested.",
       },
       {
         heading: "ChatGPT Business, Enterprise or Edu: build a Workspace Agent",
@@ -118,7 +118,7 @@ export const GUIDES: Guide[] = [
           "Leave write actions on Ask by default. Add narrower action limits for sending, editing, posting or deleting. Run the Bot Pack's first test privately before sharing the agent or adding a schedule. ChatGPT Work can handle a long one-time task, but a reusable company role belongs in a Workspace Agent or Skill.",
         ],
         bullets: [
-          "Name the agent and paste the short job contract from the Bot Pack.",
+          "Name the agent and paste the job instructions from the Bot Pack.",
           "Upload the Agent Skill and only the approved reference files.",
           "Connect the minimum apps required for the job.",
           "Set write approvals and action limits before the first run.",
@@ -153,7 +153,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Example: Chief of Staff",
         paragraphs: [
-          "The job stays the same: turn approved meeting notes and work records into a short operating brief with decisions, owners, deadlines, conflicts and questions. It may prepare drafts, but a person decides what is sent, scheduled or changed.",
+          "Chief of Staff turns approved meeting notes and work records into a short brief with decisions, owners, deadlines, conflicts and questions. It may prepare drafts, but a person decides what is sent, scheduled or changed.",
           "In ChatGPT, make it a private Workspace Agent with the Chief of Staff Skill and approved calendar, file and messaging connections. In Claude, make it a Cowork plugin with the same Skill and connections. In either service, begin with the fictional meeting transcript named in the Bot Pack. Do not connect a live inbox or calendar until the result is useful and the approval rules work.",
         ],
         code: `FIRST TEST
@@ -166,10 +166,10 @@ and no message, event or task is created without approval.`,
         heading: "Other platforms: use the same checklist",
         paragraphs: [
           "For Microsoft, Google or a new agent service, first find the platform's equivalent of standing instructions, reusable skills, connected tools, private files, approvals, schedules and sharing. If one of those controls is missing, simplify the job or keep that step with a person.",
-          "Bot Cabinet should add a named adapter only after the platform's current official setup path has been checked. New services should not require a new Bot recipe. They should receive a new adapter to the same portable job.",
+          "Check the app's current official instructions before setting up the Bot. Reuse the Bot's job instructions, then follow the app's own steps for accounts, tools and approvals.",
         ],
         bullets: [
-          "Where do the standing job and limits live?",
+          "Where do you save the Bot's job instructions and limits?",
           "How are tools and accounts connected, and whose account is used?",
           "Which actions can require approval or be blocked entirely?",
           "Where are files and continuing memory stored?",
@@ -182,27 +182,27 @@ and no message, event or task is created without approval.`,
   {
     slug: "run-bots-reliably",
     title: "How to run Bots reliably",
-    summary: "Give a Bot one clear job, test the whole job, keep proof, and add freedom only when the possible harm stays small.",
+    summary: "Give your Bot a clear job, check its results, and decide which actions need your approval.",
     audience: "Anyone putting a Bot to work",
     readTime: "8 min",
     updated: "2026-09-20",
     coverImage: "/atelier/victorian-library-guides-v1.png",
     sections: [
       {
-        heading: "Start with the job, not the Bot",
+        heading: "Decide what the Bot should do",
         paragraphs: [
-          "A Bot is not reliable because it sounds sure of itself. It is reliable when it finishes a clear job, leaves useful proof, stops when something is wrong, and asks a person before a risky action.",
+          "Give the Bot a job you can check. Save its answer or file, compare it with the source material, and confirm that it stops when information is missing or an action needs your approval.",
           "This guide draws on an independent synthesis by GitHub user unicodef1wn of a 72-hour public build by three members of the Grok Bot team. The repository gathers rules, role notes and failures seen during that event. It is not official xAI guidance. Bot Cabinet has not checked every conclusion against the full stream or tested this whole guide as one system.",
         ],
-        note: "Treat the field notes as a useful outside source, not a promise about Grok Bot or any other service. The same operating ideas still need a real test in the tool you use.",
+        note: "The field notes are an independent account of the event. Test these steps in the app you use before relying on them.",
         sources: [
           { label: "unicodef1wn: Grok Bot Field Notes — independent synthesis", href: fieldNotes },
         ],
       },
       {
-        heading: "Write a short job contract",
+        heading: "Write the job instructions",
         paragraphs: [
-          "A good job contract tells the Bot what finished work looks like. It also says what the Bot must not do. Keep it short enough that a person can check it before each test.",
+          "Tell the Bot exactly what to make, how to check it, and what it must not do. Keep the instructions short enough to review before each test.",
         ],
         code: `JOB: [one clear result]
 FOR: [person who will use it]
@@ -222,11 +222,11 @@ RECORD: [input, output, sources, date, version and problems]`,
       {
         heading: "Choose a Bot, a skill or a routine",
         paragraphs: [
-          "Use a Bot when the job needs its own continuing identity, memory, tools, access rules or work history. Use a skill when an assistant only needs a repeatable method. A skill can tell the same assistant how to review a contract, prepare a brief or test a page without creating another named Bot.",
-          "A routine is only a schedule. It does not make weak instructions reliable. Run the job by hand until the output is useful and the stop rules work. Then add a schedule if the job truly needs one.",
+          "Use a Bot when the job needs its own name, memory, tools, access rules or work history. Use a skill when your existing assistant needs saved instructions for a task, such as reviewing a contract, preparing a brief or testing a page.",
+          "Run the job by hand until the output is useful and the stop rules work. Add a routine when you need the same job to run on a schedule.",
         ],
         bullets: [
-          "Bot: a continuing worker with its own role and work history.",
+          "Bot: an ongoing assistant with its own role and work history.",
           "Skill: saved steps for doing one kind of work.",
           "Routine: a tested job that runs at a chosen time or after an event.",
         ],
@@ -239,7 +239,7 @@ RECORD: [input, output, sources, date, version and problems]`,
       {
         heading: "Keep changing facts in one trusted place",
         paragraphs: [
-          "Choose one trusted place for each changing fact. A project board may own task status. A calendar may own meeting times. A customer system may own contact details. The Bot may summarize those facts, but its old chat should not replace the current record.",
+          "Choose where to keep each changing fact: task status on a project board, meeting times in a calendar, and contact details in a customer system. Tell the Bot to check those records rather than rely on an old chat.",
           "Tell the Bot which source wins when two sources disagree. Require links, file names or record names beside important claims. If the trusted source is missing or old, the Bot should say so and stop instead of guessing.",
         ],
         bullets: [
@@ -250,9 +250,9 @@ RECORD: [input, output, sources, date, version and problems]`,
         ],
       },
       {
-        heading: "Match freedom to possible harm",
+        heading: "Decide what needs your approval",
         paragraphs: [
-          "Give the Bot more freedom only when a mistake would be easy to spot and easy to undo. The question is not whether the Bot seems smart. The question is what happens when it is wrong.",
+          "Allow the Bot to act on its own only when a mistake would be easy to spot and undo. Require approval for actions that could expose private information, cost money or change someone else's work.",
         ],
         bullets: [
           "Low harm: let it sort, search, summarize and prepare private drafts when the source files are approved.",
@@ -264,21 +264,21 @@ RECORD: [input, output, sources, date, version and problems]`,
       {
         heading: "Run one small test that looks like the real job",
         paragraphs: [
-          "A toy task can prove that the Bot can talk. It does not prove that the Bot can do the work. Use a small example with the same kind of sources, tools, choices and output as the real job. Use copies or made-up private details for the first run.",
+          "Use a small example with the same kind of sources, tools, choices and output as the real job. Use copies or made-up private details for the first run.",
         ],
         bullets: [
-          "Save the exact job contract, test input, Bot version, model, tools and date.",
+          "Save the exact job instructions, test input, Bot version, model, tools and date.",
           "Check the output against the source. Open every important link and file.",
           "Save the complete result, not only a green checkmark or a short summary.",
           "Record the time, corrections and cost needed to get an acceptable result.",
           "For important work, have another person or a separate review step check the result.",
         ],
-        note: "A download, a successful import and one good answer prove different things. None of them alone proves that the whole job works reliably.",
+        note: "An imported Bot still needs a task test. Try repeated runs and failure cases before relying on it for ongoing work.",
       },
       {
-        heading: "Test failure before you trust success",
+        heading: "Check what happens when something goes wrong",
         paragraphs: [
-          "A useful failure test removes something the Bot needs or gives it a safe conflict. The right result is often a clear stop, not a clever answer.",
+          "Remove a required source or give the Bot conflicting information in a safe test. Check that it stops and explains the problem.",
         ],
         bullets: [
           "Remove one required source. The Bot should name what is missing and avoid filling the gap with a guess.",
@@ -319,8 +319,8 @@ RECORD: [input, output, sources, date, version and problems]`,
       {
         heading: "Use the simplest structure that can do the job",
         paragraphs: [
-          "Do not split a simple job among several Bots just because a crew sounds impressive. Use one Bot or one skill when one worker can do the job and one person can review it. Use several Bots when the separation itself adds value.",
-          "A crew may be the right first choice when roles need different account access, an independent check, enough work to divide, separate records, or a formal handoff. Write what each role owns, what it must not do, what it hands over and who accepts the handoff. Then test the whole path with the same care as a single Bot.",
+          "Use one Bot or one skill when it can handle the job and one person can review the result. Use several Bots when dividing the work helps with access, review or handoffs.",
+          "A crew may be the right first choice when roles need different account access, an independent check, enough work to divide, separate records, or a formal handoff. Write each Bot's responsibilities, limits, next recipient, expected answer or file, and who reviews it. Then test the whole job, including every handoff.",
         ],
         bullets: [
           "Good reason: one Bot researches while another independently checks claims against the original sources.",
@@ -342,9 +342,9 @@ RECORD: [input, output, sources, date, version and problems]`,
     coverImage: "/atelier/victorian-library-guides-v1.png",
     sections: [
       {
-        heading: "The idea: your day, ready before you open a feed",
+        heading: "A one-page newspaper for your morning",
         paragraphs: [
-          "Karen X. Cheng's The Morning Newspaper is listed in Grok Bot's official marketplace. The listing says it uses email and calendar information to make a personal newspaper and print it overnight. The full idea is what makes it interesting: it uses information you choose, arrives on a schedule and gives you something short to read away from your phone.",
+          "Karen X. Cheng's The Morning Newspaper is listed in Grok Bot's official marketplace. The listing says it uses email and calendar information to make a personal newspaper and print it overnight, ready to read away from your phone.",
           "This guide offers a new setup plan inspired by that public description. It does not copy the creator's files or artwork, and the creator has not approved it. Use the original Grok listing if you want her version. Read its terms and instructions before you install or share anything.",
         ],
         note: "Checked September 20, 2026. We found the official listing but have not run it. The Hermes, Muse and Instinct instructions below are setup ideas, not tested connections. We have not tested automatic printing.",
@@ -387,7 +387,7 @@ SOURCE MATERIAL:
         heading: "Grok Bot: start with the original",
         paragraphs: [
           "Open the creator's official listing and read the instructions and required connections before you set it up. The listing offers a starter file, but Bot Cabinet has not checked the full download. Installing it does not automatically connect your inbox, set up a printer or create a schedule.",
-          "Ask for a preview with selected sample inputs first. Confirm what data will leave your account, how printing reaches your device, where the files are stored and how to stop the routine. A successful preview is not yet evidence that the overnight delivery works.",
+          "Ask for a preview with selected sample inputs first. Confirm what data will leave your account, how printing reaches your device, where the files are stored and how to stop the routine. Test overnight delivery separately after the preview succeeds.",
         ],
         sources: [{ label: "Open the original Grok Bot", href: "https://x.ai/bot/marketplace/bots/the-morning-newspaper" }],
       },
@@ -406,7 +406,7 @@ SOURCE MATERIAL:
         ],
       },
       {
-        heading: "Muse or Instinct: check what your account can really do",
+        heading: "Muse or Instinct: check your account's features",
         paragraphs: [
           "Meta says Muse can use connected apps and work in the background. Instinct describes an assistant you can text or call. Neither company has shown that every account and device can complete this whole newspaper-and-printing job. Start with the same sample instructions in the service you already use.",
           "After you get a useful sample, ask the questions below. Check the choices shown in your own account before you connect anything. If the service can send a daily message but cannot make or print a file, it is only doing part of the job. You can print the file yourself, but that is not automatic printing.",
@@ -427,7 +427,7 @@ Do not create the routine, connect accounts or print yet.`,
         ],
       },
       {
-        heading: "Test the whole routine, not just the page",
+        heading: "Test the newspaper, delivery and printing",
         bullets: [
           "First preview: compare every appointment, deadline and attributed claim with the supplied sources. Check the date, timezone, omissions, page fit and readability in print preview.",
           "First delivery: explicitly authorize one trial to the intended destination. Confirm the file arrived and, if testing printing, that the correct dated edition actually came out of the correct printer exactly once.",
@@ -442,22 +442,22 @@ Do not create the routine, connect accounts or print yet.`,
   {
     slug: "choose-your-agent-path",
     title: "Which agent path fits your work?",
-    summary: "Compare ready-to-use assistants, reusable Bot instructions and tools for software builders. Start with the job, not the newest launch.",
-    audience: "Choosing across platforms",
+    summary: "Compare ready-to-use assistants, reusable Bot instructions and tools for software builders. Choose one that fits the job you need done.",
+    audience: "Anyone choosing an AI app",
     readTime: "6 min",
     updated: "2026-09-20",
     coverImage: "/atelier/victorian-library-guides-v1.png",
     sections: [
       {
-        heading: "Three choices, not one ladder to climb",
+        heading: "Choose an assistant, a Bot or a builder tool",
         paragraphs: [
           "You do not need to build your own AI system to benefit from an agent. A service may already handle your job. Saved instructions may help an assistant do the same job more than once. Tools for software builders matter when you are making a product or need control that a ready-made service does not offer.",
-          "Bot Cabinet starts with the simplest choice that can do the real job. That does not prove one service is best. The examples below come from a dated review of public sources, not a full ranking or a hands-on test.",
+          "Choose the simplest option that can do your job. These examples come from public product descriptions; Bot Cabinet has not ranked the services or tested them hands-on.",
         ],
         note: "Pages checked September 20, 2026. Product descriptions come from the companies unless we say otherwise. Access, prices and features can change. Bot Cabinet has not tested these services side by side.",
       },
       {
-        heading: "A ready-to-use assistant: delegate without assembling a Bot",
+        heading: "Ask a ready-to-use assistant",
         paragraphs: [
           "Meta describes Muse as a personal agent with background work, connected apps and a dedicated cloud computer. Its September 8 announcement describes a US rollout on iOS, Android and web, plus WhatsApp messaging, free access and subscription options. Confidential VM, Shop Pay and 1Password support were future additions in that announcement—not capabilities this guide verifies as available.",
           "Instinct describes an assistant you text or call, with connected context and proactive follow-up. Its public start link leads to sign-in. We have not verified a generally available price or whether a particular person's accounts and devices are supported. Treat those as questions to resolve before committing.",
@@ -472,15 +472,15 @@ Do not create the routine, connect accounts or print yet.`,
         heading: "Ready-made assistants are splitting into different jobs",
         paragraphs: [
           "These new assistants do different jobs even when companies use similar words. Ollie focuses on families and shared household information. Wajo's Fo focuses on errands such as calls, bookings, purchases and dealing with vendors. Town focuses on learning how a person works, then helping across email, calendars, documents and business tools.",
-          "That distinction changes what you should test. Family coordination depends on shared participation and accurate household context. A real-world concierge needs spending limits, confirmation rules, reliable escalation and recovery when a merchant or phone tree blocks it. A work-model assistant needs careful account permissions, correct memory and a way to inspect or correct what it has learned about your voice, contacts and priorities.",
-          "These descriptions come from the companies. They are not Bot Cabinet endorsements or test results. They are examples, not a complete list. Bot Cabinet should judge new services by the work they finish, the access they need and the proof we can find.",
+          "For a family assistant, check that everyone can participate and that it uses accurate household information. For an assistant that calls or buys things, set spending limits and confirmation rules, and check that it asks for help when a merchant or phone menu blocks it. For a work assistant, check its account permissions and saved memory, including how to correct what it has learned about your voice, contacts and priorities.",
+          "These descriptions come from the companies. Bot Cabinet has not tested or endorsed the services, and other assistants are available.",
         ],
         bullets: [
           "Family coordinator — compare with Home Admin, which organizes lists, reminders and research but does not claim to connect a whole family or act on its own.",
           "Real-world concierge — compare with the Personal Planning Desk, which prepares choices and plans while a person controls calls, bookings, purchases, cancellations and messages.",
-          "Work-model operator — compare with the Small-Business Admin Desk, which defines reviewable outputs and approval boundaries but is not a turnkey service that learns from connected accounts.",
+          "Work assistant — compare with the Small-Business Admin Desk, which prepares work for review and requires approval for outside actions. It does not learn from connected accounts as a ready-to-use service.",
         ],
-        note: "Overlap is a reason to compare the experience, not automatically reject the new pattern or create a duplicate Bot. Cabinet has not created a new Bot from these findings. It has not tested any of these services, their current plans, their account-specific integrations, or their performance on repeated real tasks.",
+        note: "Cabinet has not created a new Bot from these examples or tested these services, their current plans, their account-specific connections, or repeated real tasks.",
         sources: [
           { label: "Ollie: provider description of its family assistant", href: "https://ollie.ai/" },
           { label: "Wajo: provider description of Fo and action agents", href: "https://wajo.ai/" },
@@ -488,11 +488,11 @@ Do not create the routine, connect accounts or print yet.`,
         ],
       },
       {
-        heading: "Reusable instructions: keep the job, choose the service",
+        heading: "Use saved Bot instructions",
         paragraphs: [
           "Grok Bot's official guide explains how to share instructions, selected memories, skills and plugins. A template still needs review and setup. Special scripts or connections may not move to another service. Bot Cabinet's Grok downloads are step-by-step build guides, not Grok template links.",
-          "A portable skill is a folder of instructions and helpful files for an AI agent. Using the same file type does not prove it will work the same way with every service. One skill, a group of Bot profiles and a tested crew are different things.",
-          "Consider this path when your repeated job needs consistent instructions, sources, deliverables and approval points. Check for an existing workflow before making another. Review a sample output, install requirements, recurring costs and how to stop it—not only the role's name.",
+          "A portable skill is a folder of instructions and helpful files for an AI agent. Check that your app supports its instructions and tools. Test each skill and, for a crew, test how the Bots pass work to one another.",
+          "Use saved instructions when you need to repeat a job with the same sources, output format and approval rules. Check for an existing workflow before making another. Review a sample answer, setup requirements, recurring costs and how to stop it.",
         ],
         sources: [
           { label: "Official Grok template guide", href: "https://x.ai/bot/guides/templates-for-grok-bot" },
@@ -504,7 +504,7 @@ Do not create the routine, connect accounts or print yet.`,
         heading: "Tools for people who build software",
         paragraphs: [
           "A harness is the code around an AI model. It decides what tools the model can use, what information it sees, when it keeps going and when it stops or asks for help. Software companies do not always use the word in exactly the same way.",
-          "Jev is one tool for software builders. TypeSafe says it helps a system choose or score options; it does not write the final answer. LangChain showed an early example of using it inside a larger system. That may help a builder, but it is not a reason for most people to install another assistant or for Bot Cabinet to use it without a clear need.",
+          "Jev is one tool for software builders. TypeSafe says it helps a system choose or score options; it does not write the final answer. LangChain showed an early example of using it inside a larger system. Consider it when you are building software that needs to choose between options.",
         ],
         sources: [
           { label: "Cloudflare: runtime and harness distinctions", href: "https://developers.cloudflare.com/agents/harnesses/" },
@@ -513,20 +513,20 @@ Do not create the routine, connect accounts or print yet.`,
         ],
       },
       {
-        heading: "Compare outcomes, not launch excitement",
+        heading: "Try the same job and compare results",
         bullets: [
-          "Name one real job and the deliverable that would make it finished. Include what must not happen without your approval.",
+          "Name one real job and the answer, file or action you need. Include what must not happen without your approval.",
           "List the accounts, data, devices and permissions it needs. Check those exact connections rather than assuming broad integration claims cover them.",
           "When the service allows a test, start with safe sample material and do not let it send messages or make purchases on its own. Compare it with your normal way of doing the work.",
           "Record setup effort, corrections, human review time, charges and whether the output was actually useful. Repeat the same job on a second and third real occasion before calling it a dependable routine.",
           "Check what happens after interrupted work, changed instructions or expired access. Know how to stop schedules, correct memory and export or delete information.",
         ],
-        note: "Downloads, installations and a single successful demonstration do not establish retention or reliable completion. Cabinet's task tests and your own setup checkmarks also provide different kinds of evidence.",
+        note: "Repeat the task before relying on the Bot. Setup checkmarks record what you have done; they do not verify that the Bot's answers are correct.",
         sources: [{ label: "Anthropic's guide to agent evaluations", href: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" }],
       },
       {
-        heading: "What to use in Cabinet next",
-        paragraphs: ["Use the Fit Test to clarify the shape of the job. Explore existing use cases before inventing a new role. Inspect the Proof Room for actual outputs and testing limits. If an external service already does the work well, you do not need a Cabinet Bot to justify using it."],
+        heading: "Find a Bot for your job",
+        paragraphs: ["Use the Fit Test to choose a Bot or crew. Browse examples of jobs they can help with, then check the Proof Room for saved test results and testing limits. You can also use an outside service if it already does the job you need."],
         sources: [
           { label: "Clarify the job with the Fit Test", href: "/fit/" },
           { label: "Explore existing use cases", href: "/use-cases/" },
@@ -548,7 +548,7 @@ Do not create the routine, connect accounts or print yet.`,
         heading: "A Bot uses a Hermes profile",
         paragraphs: [
           "A Hermes profile stores one agent’s settings, memory, chat history, skills, credentials, role instructions, AI model choice, and avatar. Bot Mode displays those profiles as named Bots in Hermes Desktop. Each Bot has a continuing chat.",
-          "The continuing conversation is central to the experience. You can return to the same named specialist, continue the work, and review earlier messages in the same thread.",
+          "Return to the same Bot to continue the work and review earlier messages in its chat.",
           "The profile keeps one Bot’s information separate from another Bot’s information. The Bots can also work together through group chats and direct messages.",
         ],
         sources: [
@@ -642,7 +642,7 @@ Do not create the routine, connect accounts or print yet.`,
   },
   {
     slug: "install-a-profile",
-    title: "Install a profile with control",
+    title: "Install a Hermes profile",
     summary:
       "Use the documented terminal command, review the installation prompt, and begin with a small test.",
     audience: "Ready to try one",
@@ -770,7 +770,7 @@ Do not create the routine, connect accounts or print yet.`,
     title: "The first-run checklist",
     summary:
       "Test with sample material before giving a Bot access to files, accounts, or messaging.",
-    audience: "Practical operators",
+    audience: "Anyone trying a Bot",
     readTime: "4 min",
     updated: "2026-08-25",
     sections: [

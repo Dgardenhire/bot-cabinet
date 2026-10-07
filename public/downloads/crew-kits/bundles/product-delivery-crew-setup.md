@@ -2,7 +2,7 @@
 
 Bundle 1.0.0
 
-Move an approved feature from a clear requirement through technical direction, implementation, checks, and review.
+Plan, build and test an approved software feature, then prepare it for your review.
 
 Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.
 

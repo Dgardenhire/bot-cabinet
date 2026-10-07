@@ -1,4 +1,4 @@
-# Curator — Bot lineup improvement manager
+# Curator — Bot review and improvement assistant
 
 Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.
 

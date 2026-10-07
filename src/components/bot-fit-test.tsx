@@ -36,9 +36,9 @@ import { handoffBotFitDraftToBotLab } from "../lib/bot-fit-handoff";
 const FIT_KINDS: Array<{ kind: BotFitKind; label: string; note: string }> = [
   { kind: "assignment", label: "Assignment", note: "One result, one time" },
   { kind: "skill", label: "Skill", note: "A method you will reuse" },
-  { kind: "routine", label: "Routine", note: "Tested work on a trigger" },
+  { kind: "routine", label: "Routine", note: "A tested task that starts automatically" },
   { kind: "bot", label: "Bot", note: "An ongoing job and conversation" },
-  { kind: "crew", label: "Crew", note: "Specialists that hand work off" },
+  { kind: "crew", label: "Crew", note: "Several Bots with different jobs" },
 ];
 
 const FREQUENCY_OPTIONS = [
@@ -129,7 +129,7 @@ function OperatingControls({
 }) {
   return (
     <div className="fit-test-result-list">
-      <h4>Operating controls</h4>
+      <h4>Schedule and limits</h4>
       <ul>
         <li>Trigger: {controls.trigger || "Not defined"}</li>
         <li>Failure response: {controls.failureResponse || "Not defined"}</li>
@@ -275,8 +275,8 @@ export function BotFitTest() {
 
       <aside className="fit-test-platform-handoff" aria-label="Choose an agent platform separately">
         <div>
-          <strong>First choose the shape of the work. Then choose where to run it.</strong>
-          <p>Compare an existing assistant, a reusable workflow, or a developer setup by access, effort, approvals, cost, and recovery—not by brand alone.</p>
+          <strong>Which app should you use?</strong>
+          <p>Compare what each app can do, what it costs, how much setup it needs, and how to stop or fix a failed task.</p>
         </div>
         <Link
           href="/guides/choose-your-agent-path"
@@ -285,7 +285,7 @@ export function BotFitTest() {
           data-funnel-surface="bot-fit-test"
           data-funnel-destination="choose-your-agent-path"
         >
-          Compare agent paths <ArrowRight size={15} aria-hidden="true" />
+          Compare your options <ArrowRight size={15} aria-hidden="true" />
         </Link>
       </aside>
 
@@ -337,7 +337,7 @@ export function BotFitTest() {
           />
           <YesNoChoice
             legend="Does it need several specialists with different jobs?"
-            hint="Choose Yes when the work needs clear roles and handoffs."
+            hint="Choose Yes when different Bots need to do separate parts of the job."
             name="needs-multiple-specialists"
             value={answers.needsMultipleSpecialists}
             onChange={(value) => update("needsMultipleSpecialists", value)}
@@ -487,8 +487,8 @@ export function BotFitTest() {
               <h4>Why this fits</h4>
               <p>{submittedRecommendation.why}</p>
             </div>
-            <ResultList title="What it owns" items={submittedRecommendation.owns} />
-            <ResultList title="Keep outside this setup" items={submittedRecommendation.excludes} />
+            <ResultList title="Its job" items={submittedRecommendation.owns} />
+            <ResultList title="What it should not do" items={submittedRecommendation.excludes} />
             <ResultList title="Access" items={submittedRecommendation.access} />
             <ResultList title="Approval points" items={submittedRecommendation.approvals} />
             {submittedRecommendation.operatingControls && (
@@ -502,7 +502,7 @@ export function BotFitTest() {
               <p>{submittedRecommendation.firstTest}</p>
             </div>
             <div>
-              <span>Done check</span>
+              <span>Check the result</span>
               <ul>
                 {submittedRecommendation.doneCheck.map((item) => (
                   <li key={item}>{item}</li>

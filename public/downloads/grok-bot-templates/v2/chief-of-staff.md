@@ -1,6 +1,6 @@
 # Chief of Staff — Manual build brief for Grok Bot
 
-Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
+Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.
 
 **Status: Prepared adaptation; not tested in Grok Bot.**
 

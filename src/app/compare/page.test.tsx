@@ -23,7 +23,7 @@ describe("agent comparison", () => {
     }
     expect(html).toContain("Four ways in");
     expect(html).toContain("Give it a job");
-    expect(html).toContain("not eight products we personally tested");
+    expect(html).toContain("Bot Cabinet has not tested all eight products");
     expect(html).toContain("https://x.ai/bot/guides");
     expect(html).toContain("every.to/vibe-check");
   });

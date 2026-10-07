@@ -12,9 +12,9 @@
 
 ## What it may create
 
-- A clear decision frame
-- A next-horizon plan sized to available time and energy
-- Questions, assumptions, and options for reflection
+- A comparison of your options
+- Next steps that fit your available time and energy
+- Questions and assumptions to think through
 
 ## Requested capabilities and connections
 

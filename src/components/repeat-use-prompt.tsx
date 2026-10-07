@@ -35,9 +35,9 @@ export function RepeatUsePrompt() {
   return (
     <section className="repeat-use-prompt" aria-labelledby="repeat-use-question">
       <div>
-        <span>Real-use check · Run {run} of 3</span>
+        <span>Run {run} of 3</span>
         <h2 id="repeat-use-question">Did you use this Bot again for a real job?</h2>
-        <p>Report the outcome, not the task or its contents. This distinguishes repeat usefulness from simply revisiting the site.</p>
+        <p>Tell us whether the result helped. Do not include your task or its contents.</p>
       </div>
       <div className="first-run-outcome-actions" role="group" aria-label={`Report Bot run ${run}`}>
         <button type="button" onClick={() => report("usable")} aria-pressed={reported === "usable"} disabled={Boolean(reported)}>

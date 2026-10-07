@@ -54,12 +54,12 @@ export function BotPortraitStudio() {
       <div className="portrait-builder-heading">
         <div>
           <p className="portrait-kicker">Make your own</p>
-          <h2 id="portrait-builder-title">Build a personalized portrait recipe</h2>
+          <h2 id="portrait-builder-title">Design your Bot’s portrait</h2>
         </div>
         <p>
-          Choose the character, color, setting, and personality. Portrait Studio
-          builds a complete prompt in your browser. Image creation happens when you
-          paste that prompt into Hermes Generate or another image tool.
+          Choose a character, color, setting and personality, then copy the
+          image instructions into Hermes Generate or another image tool.
+          Your choices stay in this browser.
         </p>
       </div>
 
@@ -155,14 +155,14 @@ export function BotPortraitStudio() {
             <span>Color reference</span>
           </div>
           <div className="portrait-recipe-copy">
-            <p className="portrait-kicker"><Sparkle size={14} aria-hidden="true" /> Your portrait recipe</p>
+            <p className="portrait-kicker"><Sparkle size={14} aria-hidden="true" /> Your image instructions</p>
             <h3>{draft.botName.trim() || "Your Bot"}</h3>
             <p className="portrait-rendering-note">{selectedRendering?.note}</p>
             <textarea aria-label="Generated portrait prompt" readOnly value={prompt} rows={13} />
             <div className="portrait-recipe-actions">
               <CopyTextButton
                 text={prompt}
-                label="Copy portrait recipe"
+                label="Copy image instructions"
                 className="button button-primary"
                 analyticsEvent="portrait_recipe_copied"
                 analyticsSurface="portrait_studio"
@@ -174,7 +174,7 @@ export function BotPortraitStudio() {
                 data-funnel-event="portrait_recipe_downloaded"
                 data-funnel-surface="portrait_studio"
               >
-                <DownloadSimple size={16} aria-hidden="true" /> Download recipe
+                <DownloadSimple size={16} aria-hidden="true" /> Download image instructions
               </button>
             </div>
             <p className="portrait-local-note">

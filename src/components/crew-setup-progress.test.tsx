@@ -7,7 +7,7 @@ it("starts every checkpoint unchecked and distinguishes user records from verifi
   expect(html).toContain("0 of 5 checkpoints recorded");
   expect(html).not.toContain('checked=""');
   expect(html).toContain("not automated verification");
-  expect(html).toContain("stay only in this browser");
+  expect(html).toContain("stay in this browser");
   expect(html).toContain("Clear this browser’s saved progress");
   expect(html).toContain("Schedules remain inactive");
 });

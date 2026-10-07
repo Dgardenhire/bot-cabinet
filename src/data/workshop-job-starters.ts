@@ -163,7 +163,7 @@ export const WORKSHOP_JOB_STARTERS: WorkshopJobStarter[] = [
   {
     id: "review-document",
     label: "Review a document",
-    description: "Find problems and suggest clear, traceable revisions.",
+    description: "Find problems in a document and suggest edits you can review.",
     draft: makeStarterDraft({
       botName: "Document Reviewer",
       jobOutcome:
@@ -227,7 +227,7 @@ export const WORKSHOP_JOB_STARTERS: WorkshopJobStarter[] = [
   {
     id: "develop-venture",
     label: "Develop a new venture",
-    description: "Test an idea and map the cheapest useful next move.",
+    description: "Check a business idea and plan an inexpensive first test.",
     draft: makeStarterDraft({
       botName: "New Venture Planner",
       jobOutcome:

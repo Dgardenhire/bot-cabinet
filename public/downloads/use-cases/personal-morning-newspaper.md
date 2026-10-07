@@ -21,7 +21,7 @@ Result: A one-page edition built from selected calendar items, actionable messag
 
 1. Daily Newspaper
 
-Start with one Bot. Add a separate Scout only for broader research, or Ops only after a manual edition works and you need a controlled delivery routine.
+Daily Newspaper handles a basic edition. Add Scout for broader research, or Ops to help arrange delivery after you have checked a manual edition.
 
 Optional specialists: scout, ops.
 
@@ -59,7 +59,7 @@ Use fictional appointments and messages to make one page. Check every detail in 
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use fictional appointments and messages to make one page. Check every detail in print preview; do not schedule or print it yet.
+Check the result against your original material. You make the decisions listed below. Use fictional appointments and messages to make one page. Check every detail in print preview; do not schedule or print it yet.
 
 ## If the workflow stalls
 
@@ -77,12 +77,12 @@ These options may not work the same way. Read what has and has not been tested.
 - **Source:** [The Morning Newspaper — Karen X. Cheng](https://x.ai/bot/marketplace/bots/the-morning-newspaper)
 - **Setup guide:** https://botcabinet.com/guides/morning-newspaper-across-agents/
 
-### Hermes — One bounded run passed
+### Hermes — One sample task passed
 
 - **How it could work:** Install the standalone Daily Newspaper profile, then give it selected or made-up calendar entries, messages and reading for one manual edition.
 - **Start here:** Open the Daily Newspaper page, review the profile and its access limits, download the Hermes archive, import it from Profiles in Hermes Desktop, and run the sample before adding any schedule or connection.
-- **What we have not tested:** One bounded run with fictional inputs passed. Bot Cabinet has not tested live account connections, unattended scheduling, repeated reliability, saving, sending, printing or publication.
-- **Source:** [Read the bounded Hermes test record](/proof-room/daily-newspaper/runtime-summary.md)
+- **What we have not tested:** One sample task with fictional inputs passed. Live account connections, unattended scheduling, repeated runs, saving, sending, printing and publication have not been tested.
+- **Source:** [Read the Hermes test record](/proof-room/daily-newspaper/runtime-summary.md)
 - **Setup guide:** https://botcabinet.com/bots/daily-newspaper/
 
 ### Muse — What to check — not tested
@@ -105,7 +105,7 @@ These options may not work the same way. Read what has and has not been tested.
 
 - **How it could work:** Take the job description to any AI service that can read the information you choose, make a short document and wait for your approval before delivery.
 - **Start here:** Test it with made-up information. Check what it can read, whether it can run on a schedule, save a file, protect private data, control costs, report errors and stop cleanly.
-- **What we have not tested:** A similar chat screen does not mean the service can do the same job. Treat it as untested until you see the complete result.
+- **What we have not tested:** This setup has not been tested in other services. Check the sample edition and each account connection before adding a schedule or delivery.
 - **Setup guide:** https://botcabinet.com/guides/morning-newspaper-across-agents/
 
 ## Hermes Desktop setup

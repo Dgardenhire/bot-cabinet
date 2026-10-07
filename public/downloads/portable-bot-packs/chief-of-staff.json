@@ -5,7 +5,7 @@
     "slug": "chief-of-staff",
     "name": "Chief of Staff",
     "title": "Executive priority and coordination assistant",
-    "summary": "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+    "summary": "Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.",
     "audience": "Leaders and small teams that need clearer priorities and coordination without adding another meeting."
   },
   "recipe": {
