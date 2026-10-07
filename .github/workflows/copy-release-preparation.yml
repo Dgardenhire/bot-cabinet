@@ -28,6 +28,10 @@ jobs:
       - run: npm ci
       - run: npm run generate:ci
       - run: npm run build:reliable-bots-pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reliable-bots-guide-review
+          path: output/pdf/how-to-run-bots-reliably.pdf
       - name: Save regenerated downloads on the review branch
         run: |
           git add -- public/api public/schemas public/feed.xml public/llms.txt public/downloads
@@ -37,4 +41,7 @@ jobs:
             git commit -m 'fix: synchronize downloads with plain-English copy'
             git push origin HEAD:fix/plain-english-site-copy-20261006
           fi
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
       - run: npm run verify:ci
