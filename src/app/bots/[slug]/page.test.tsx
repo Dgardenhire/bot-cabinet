@@ -31,7 +31,7 @@ describe("starter Bot detail", () => {
     expect(html).toContain("September 23, 2026");
     expect(html).toContain("one run, not general reliability");
     expect(html).toContain('href="/proof-room/daily-newspaper/runtime-summary.md"');
-    expect(html).toContain("Bounded task passed");
+    expect(html).toContain("One task test passed");
     expect(html).not.toContain("Role-specific output testing remains pending");
   });
 });

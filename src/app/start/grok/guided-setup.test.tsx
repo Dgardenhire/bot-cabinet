@@ -22,6 +22,6 @@ describe("Grok Bot guided setup", () => {
     expect(html).toContain("A working prototype or changed project files");
     expect(html).toContain('href="/downloads/grok-bot-templates/v2/founding-engineer.md"');
     expect(html).toContain("Not yet tested in Grok Bot");
-    expect(html).toContain("not a Grok import");
+    expect(html).toContain("It is not an import file");
   });
 });
