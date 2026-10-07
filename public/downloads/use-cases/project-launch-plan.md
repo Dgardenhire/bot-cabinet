@@ -21,7 +21,7 @@ Result: A launch plan with confirmed priorities, milestones, owners, dependencie
 
 1. Chief of Staff
 
-One Chief of Staff can prepare a small launch plan. Add Planner for a large dependency-heavy schedule, or Story when several audiences need a separate message system.
+Chief of Staff can prepare a small launch plan. Add Planner when many tasks depend on each other, or Story when you need different messages for several audiences.
 
 Optional specialists: planner, story.
 
@@ -59,7 +59,7 @@ Build a plan for a small internal launch and review every assignment with the na
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Build a plan for a small internal launch and review every assignment with the named owner.
+Check the result against your original material. You make the decisions listed below. Build a plan for a small internal launch and review every assignment with the named owner.
 
 ## If the workflow stalls
 

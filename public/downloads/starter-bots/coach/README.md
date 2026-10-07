@@ -1,6 +1,6 @@
 # Coach — Life and career planning assistant
 
-Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.
+Helps you think through a life or career decision, compare options and plan your next steps.
 
 This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.
 
@@ -20,9 +20,9 @@ People considering a transition or trying to turn a broad direction into practic
 
 ## Intended output
 
-- A clear decision frame
-- A next-horizon plan sized to available time and energy
-- Questions, assumptions, and options for reflection
+- A comparison of your options
+- Next steps that fit your available time and energy
+- Questions and assumptions to think through
 
 ## Setup information to provide
 

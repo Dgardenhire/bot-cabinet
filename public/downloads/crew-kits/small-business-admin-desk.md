@@ -1,6 +1,6 @@
 # Small-Business Admin Desk — Crew Kit
 
-Keep routine inbox work, customer drafts, weekly status, and follow-up organized without uncontrolled authority.
+Organize incoming requests, draft customer replies and keep track of follow-ups.
 
 Designed for: Independent professionals, small firms, local businesses, and lean administrative teams
 
@@ -32,7 +32,7 @@ The Small-Business Admin Desk sorts approved incoming work, finds the relevant c
 ## Operating rhythm
 
 1. **Daily intake — Chief of Staff:** Classify work and identify needed context.
-2. **Prepare — Researcher + Client Deliverables:** Research and draft the work product.
+2. **Prepare — Researcher + Client Deliverables:** Find the relevant information and draft replies or documents.
 3. **Track — Ops + Planner:** Update tasks, deadlines, and exceptions.
 4. **Weekly review — Person:** Approve priorities and consequential actions.
 
@@ -71,7 +71,7 @@ The Small-Business Admin Desk sorts approved incoming work, finds the relevant c
 
 ## Setup
 
-1. Open each linked Bot page in the Bots and responsibilities section. Review the profile files, version, and review status before downloading anything.
+1. Open each Bot's page below. Check its files, version and test status before downloading.
 2. Download each approved profile and import it into Hermes Desktop.
 3. Open each Bot's settings in Hermes Desktop. Give it only the files, tools, and connections needed for its role.
 4. Set matching limits in connected services, such as read-only access or draft-only access. The Crew Passport is a checklist; it does not apply these limits for you.

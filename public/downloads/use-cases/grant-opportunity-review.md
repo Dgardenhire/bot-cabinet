@@ -59,7 +59,7 @@ Review three closed or low-priority opportunities and compare the results with t
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Review three closed or low-priority opportunities and compare the results with the original funder pages.
+Check the result against your original material. You make the decisions listed below. Review three closed or low-priority opportunities and compare the results with the original funder pages.
 
 ## If the workflow stalls
 

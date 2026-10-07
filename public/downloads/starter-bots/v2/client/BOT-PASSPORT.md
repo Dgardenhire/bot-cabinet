@@ -1,7 +1,7 @@
 # Client Deliverables — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:client:portable-pack
-- **Role:** Client deliverable assistant
+- **Role:** Client document assistant
 - **Planned risk:** Moderate
 - **Pack version:** 2.0.0
 

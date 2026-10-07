@@ -10,7 +10,7 @@ The .tar.gz download is a Hermes profile archive. Import it from the Profiles sc
 
 ## Who this helps
 
-People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.
+People who want a short morning briefing from the information they choose.
 
 ## Good first requests
 

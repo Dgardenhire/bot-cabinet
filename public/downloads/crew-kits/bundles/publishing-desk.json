@@ -76,7 +76,7 @@
       "packVersion": "2.0.0",
       "archivePath": "members/story.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/story.tar.gz",
-      "sha256": "b53f531951ce54975c2cbc1e1643e641fa536832cb61f2fbd7a6d1536852fafc",
+      "sha256": "57c7f0fac0168568a5ce36fa9a2ade5b68043656d9e149e1da3574900724c9d8",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",

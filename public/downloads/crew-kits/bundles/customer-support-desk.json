@@ -20,7 +20,7 @@
       "packVersion": "2.0.0",
       "archivePath": "members/chief-of-staff.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/chief-of-staff.tar.gz",
-      "sha256": "b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb",
+      "sha256": "f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",

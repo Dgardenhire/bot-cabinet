@@ -48,10 +48,10 @@
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Client Deliverables — Client deliverable assistant</title>
+      <title>Client Deliverables — Client document assistant</title>
       <link>https://botcabinet.com/bots/client/</link>
       <guid isPermaLink="false">bot-cabinet:bot:client:1.0.0</guid>
-      <description>Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.</description>
+      <description>Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.</description>
       <category>planning</category>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
@@ -99,7 +99,7 @@
       <title>Chief of Staff — Executive priority and coordination assistant</title>
       <link>https://botcabinet.com/bots/chief-of-staff/</link>
       <guid isPermaLink="false">bot-cabinet:bot:chief-of-staff:1.0.0</guid>
-      <description>Keeps a leader&apos;s confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.</description>
+      <description>Keeps a leader&apos;s confirmed priorities, decisions, responsibilities and follow-ups in one current summary.</description>
       <category>planning</category>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
@@ -107,7 +107,7 @@
       <title>Coach — Life and career planning assistant</title>
       <link>https://botcabinet.com/bots/coach/</link>
       <guid isPermaLink="false">bot-cabinet:bot:coach:1.0.0</guid>
-      <description>Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.</description>
+      <description>Helps you think through a life or career decision, compare options and plan your next steps.</description>
       <category>planning</category>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
@@ -128,10 +128,10 @@
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Story — Chief narrative officer</title>
+      <title>Story — Brand and message assistant</title>
       <link>https://botcabinet.com/bots/story/</link>
       <guid isPermaLink="false">bot-cabinet:bot:story:1.0.0</guid>
-      <description>Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.</description>
+      <description>Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.</description>
       <category>writing</category>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
@@ -144,7 +144,7 @@
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Curator — Bot lineup improvement manager</title>
+      <title>Curator — Bot review and improvement assistant</title>
       <link>https://botcabinet.com/bots/curator/</link>
       <guid isPermaLink="false">bot-cabinet:bot:curator:1.0.0</guid>
       <description>Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.</description>

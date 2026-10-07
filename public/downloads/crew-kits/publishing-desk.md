@@ -1,6 +1,6 @@
 # Publishing Desk — Crew Kit
 
-A standing editorial team that turns approved ideas and sources into finished material for review.
+Turn approved ideas and sources into articles, newsletters and posts ready for your review.
 
 Designed for: Independent publishers, experts, small organizations, and teams with a regular publishing schedule
 
@@ -20,7 +20,7 @@ The Publishing Desk finds worthwhile topics, checks source material, develops th
 
 - **[Weekly newsletter](https://botcabinet.com/use-cases/weekly-newsletter/):** Select a timely angle and prepare the issue for approval.
 - **[Social content set](https://botcabinet.com/use-cases/social-media-content-set/):** Turn one approved message into platform-ready drafts.
-- **[Narrative system](https://botcabinet.com/use-cases/narrative-message-system/):** Build reusable proof points and channel language.
+- **[Brand messages](https://botcabinet.com/use-cases/narrative-message-system/):** Develop consistent messages backed by facts for your website, email and posts.
 
 ## Shared inputs
 
@@ -70,7 +70,7 @@ The Publishing Desk finds worthwhile topics, checks source material, develops th
 
 ## Setup
 
-1. Open each linked Bot page in the Bots and responsibilities section. Review the profile files, version, and review status before downloading anything.
+1. Open each Bot's page below. Check its files, version and test status before downloading.
 2. Download each approved profile and import it into Hermes Desktop.
 3. Open each Bot's settings in Hermes Desktop. Give it only the files, tools, and connections needed for its role.
 4. Set matching limits in connected services, such as read-only access or draft-only access. The Crew Passport is a checklist; it does not apply these limits for you.

@@ -59,7 +59,7 @@ Use a short internal meeting transcript and compare every action item with the o
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use a short internal meeting transcript and compare every action item with the original notes.
+Check the result against your original material. You make the decisions listed below. Use a short internal meeting transcript and compare every action item with the original notes.
 
 ## If the workflow stalls
 

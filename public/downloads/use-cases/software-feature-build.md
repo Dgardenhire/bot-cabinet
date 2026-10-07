@@ -59,7 +59,7 @@ Build one reversible feature in a project copy and confirm every acceptance chec
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Build one reversible feature in a project copy and confirm every acceptance check before merging.
+Check the result against your original material. You make the decisions listed below. Build one reversible feature in a project copy and confirm every acceptance check before merging.
 
 ## If the workflow stalls
 

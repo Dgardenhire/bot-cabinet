@@ -2,11 +2,11 @@
 
 Designed for: Experts, executives, and organizations that publish a regular email
 
-Result: A complete newsletter draft built from approved topics and source material a person approved.
+Result: A complete newsletter draft built from approved topics and sources.
 
 ## Operating guide
 
-- **When to use it:** Use this workflow when you need a complete newsletter draft built from approved topics and source material a person approved.
+- **When to use it:** Use this workflow when you need a complete newsletter draft built from approved topics and sources.
 - **Lead Bot:** Writer
 - **Cadence:** Once each week, with a person approving the source material first
 - **Typical first run:** 15–30 minutes for a first manual run
@@ -59,7 +59,7 @@ Create one 500-word draft from three supplied sources and compare it with an exi
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Create one 500-word draft from three supplied sources and compare it with an existing newsletter sample.
+Check the result against your original material. You make the decisions listed below. Create one 500-word draft from three supplied sources and compare it with an existing newsletter sample.
 
 ## If the workflow stalls
 

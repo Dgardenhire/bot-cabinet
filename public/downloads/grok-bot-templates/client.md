@@ -1,6 +1,6 @@
 # Client Deliverables — Build brief for Grok Bot
 
-Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.
+Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.
 
 **Adaptation status: Prepared from the portable recipe; not tested in Grok Bot.**
 

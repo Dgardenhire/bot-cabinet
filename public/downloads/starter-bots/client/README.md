@@ -1,6 +1,6 @@
-# Client Deliverables — Client deliverable assistant
+# Client Deliverables — Client document assistant
 
-Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.
+Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.
 
 This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.
 

@@ -6,7 +6,7 @@
     "name": "Daily Newspaper",
     "title": "Personal daily briefing maker",
     "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
-    "audience": "People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access."
+    "audience": "People who want a short morning briefing from the information they choose."
   },
   "recipe": {
     "job": "Turn the information I choose into a short, source-linked personal newspaper for the day ahead.",

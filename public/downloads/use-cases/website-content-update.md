@@ -84,7 +84,7 @@ Update one low-risk page in a project copy and compare it with the approved desi
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Update one low-risk page in a project copy and compare it with the approved design before publishing.
+Check the result against your original material. You make the decisions listed below. Update one low-risk page in a project copy and compare it with the approved design before publishing.
 
 ## If the workflow stalls
 

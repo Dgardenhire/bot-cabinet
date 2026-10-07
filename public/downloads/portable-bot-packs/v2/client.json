@@ -7,9 +7,9 @@
     "artifactId": "bot-cabinet:bot:client:identity",
     "slug": "client",
     "name": "Client Deliverables",
-    "title": "Client deliverable assistant",
+    "title": "Client document assistant",
     "category": "planning",
-    "summary": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+    "summary": "Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.",
     "audience": "Consultants, small firms, and internal teams that produce recurring client-facing documents.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:client:portrait",

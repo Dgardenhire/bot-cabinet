@@ -59,7 +59,7 @@ Draft a proposal from a fictional or closed project and verify every price and c
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Draft a proposal from a fictional or closed project and verify every price and commitment against the source notes.
+Check the result against your original material. You make the decisions listed below. Draft a proposal from a fictional or closed project and verify every price and commitment against the source notes.
 
 ## If the workflow stalls
 

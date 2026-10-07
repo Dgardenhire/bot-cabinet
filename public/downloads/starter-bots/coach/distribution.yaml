@@ -1,6 +1,6 @@
 name: coach
 version: "1.0.0"
-description: "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon."
+description: "Helps you think through a life or career decision, compare options and plan your next steps."
 hermes_requires: ">=0.20.0"
 author: "Bot Cabinet"
 license: "MIT"

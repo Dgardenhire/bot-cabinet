@@ -82,7 +82,7 @@ Requested capabilities (configure manually):
 Turn approved notes into a recap and follow-up draft.
 
 Archive: members/client.tar.gz
-SHA-256: f72a70696e86663a8d8e7e833c8e27eb7edca24114b3937da761549bc7643dc6
+SHA-256: 6fe7fad0d25dc04832a6897f37791eb1b63145e00e870ab6b0e27bd987b48dd6
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

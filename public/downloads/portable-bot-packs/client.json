@@ -4,8 +4,8 @@
   "bot": {
     "slug": "client",
     "name": "Client Deliverables",
-    "title": "Client deliverable assistant",
-    "summary": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+    "title": "Client document assistant",
+    "summary": "Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.",
     "audience": "Consultants, small firms, and internal teams that produce recurring client-facing documents."
   },
   "recipe": {
@@ -79,7 +79,7 @@
   "controls": {
     "version": 1,
     "botName": "Client Deliverables",
-    "role": "Client deliverable assistant",
+    "role": "Client document assistant",
     "riskLevel": "Moderate",
     "reads": [
       "Approved source material",

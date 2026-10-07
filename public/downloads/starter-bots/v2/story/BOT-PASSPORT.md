@@ -1,7 +1,7 @@
 # Story — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:story:portable-pack
-- **Role:** Chief narrative officer
+- **Role:** Brand and message assistant
 - **Planned risk:** Moderate
 - **Pack version:** 2.0.0
 

@@ -1,7 +1,7 @@
 # Curator — Bot Passport V2
 
 - **Artifact ID:** bot-cabinet:bot:curator:portable-pack
-- **Role:** Bot lineup improvement manager
+- **Role:** Bot review and improvement assistant
 - **Planned risk:** Moderate
 - **Pack version:** 2.0.0
 

@@ -2,7 +2,7 @@
 
 Bundle 1.0.2
 
-A standing editorial team that turns approved ideas and sources into finished material for review.
+Turn approved ideas and sources into articles, newsletters and posts ready for your review.
 
 Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.
 
@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Shape the central message for the intended audience.
 
 Archive: members/story.tar.gz
-SHA-256: b53f531951ce54975c2cbc1e1643e641fa536832cb61f2fbd7a6d1536852fafc
+SHA-256: 57c7f0fac0168568a5ce36fa9a2ade5b68043656d9e149e1da3574900724c9d8
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

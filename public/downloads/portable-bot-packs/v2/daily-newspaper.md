@@ -5,7 +5,7 @@ Turns the calendar notes, messages, and source material you choose into a short 
 - **Artifact ID:** bot-cabinet:bot:daily-newspaper:portable-pack
 - **Pack version:** 2.0.0
 - **Preparation status:** prepared
-- **Audience:** People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.
+- **Audience:** People who want a short morning briefing from the information they choose.
 - **Source:** https://botcabinet.com/bots/daily-newspaper/
 
 ## Job

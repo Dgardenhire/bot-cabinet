@@ -1,6 +1,6 @@
-# Story — Chief narrative officer
+# Story — Brand and message assistant
 
-Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.
+Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.
 
 This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.
 
@@ -10,7 +10,7 @@ The .tar.gz download is a Hermes profile archive. Import it from the Profiles sc
 
 ## Who this helps
 
-Leaders and teams whose public materials need one clear story without flattening factual distinctions or inventing proof.
+Leaders and teams who want their website, presentations and posts to tell a consistent, accurate story.
 
 ## Good first requests
 

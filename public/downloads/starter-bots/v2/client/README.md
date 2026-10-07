@@ -1,6 +1,6 @@
-# Client Deliverables — Client deliverable assistant
+# Client Deliverables — Client document assistant
 
-Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.
+Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.
 
 This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.
 

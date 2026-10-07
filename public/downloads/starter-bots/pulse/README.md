@@ -10,7 +10,7 @@ The .tar.gz download is a Hermes profile archive. Import it from the Profiles sc
 
 ## Who this helps
 
-Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.
+Small teams trying to attract customers, help them get started, keep them coming back or increase revenue.
 
 ## Good first requests
 

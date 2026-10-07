@@ -10,7 +10,7 @@
     "title": "Personal daily briefing maker",
     "category": "writing",
     "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
-    "audience": "People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.",
+    "audience": "People who want a short morning briefing from the information they choose.",
     "portrait": {
       "artifactId": "bot-cabinet:bot:daily-newspaper:portrait",
       "url": "/downloads/bot-portraits/hermes/daily-newspaper-1024.png"

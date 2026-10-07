@@ -1,12 +1,12 @@
-# Narrative and message system
+# Consistent brand messages
 
 Designed for: Leaders and teams that need one consistent story across their website, email, presentations, and social channels
 
-Result: A central narrative, verified proof points, and a reusable message kit for the approved audiences and channels.
+Result: A clear central message backed by verified facts, with examples for your website, email and posts.
 
 ## Operating guide
 
-- **When to use it:** Use this workflow when you need a central narrative, verified proof points, and a reusable message kit for the approved audiences and channels.
+- **When to use it:** Use this workflow when you need a clear central message backed by verified facts, with examples for your website, email and posts.
 - **Lead Bot:** Story
 - **Cadence:** When a person supplies the approved brief and starts the workflow
 - **Typical first run:** 15–30 minutes for a first manual run
@@ -21,7 +21,7 @@ Result: A central narrative, verified proof points, and a reusable message kit f
 
 1. Story
 
-One Story can organize approved facts into a central narrative and sample messages. Add Researcher when proof points need substantial checking, or Writer for a large set of finished channel drafts.
+Story can develop a central message and examples from approved facts. Add Researcher to check supporting claims, or Writer when you need many finished drafts.
 
 Optional specialists: researcher, writer.
 
@@ -59,7 +59,7 @@ Use three approved source documents and one audience to create a one-page messag
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use three approved source documents and one audience to create a one-page message map and three short channel drafts, then verify every claim.
+Check the result against your original material. You make the decisions listed below. Use three approved source documents and one audience to create a one-page message map and three short channel drafts, then verify every claim.
 
 ## If the workflow stalls
 

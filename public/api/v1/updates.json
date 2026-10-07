@@ -3,7 +3,7 @@
   "feedVersion": "1.1.0",
   "releasedAt": "2026-09-03T00:00:00.000Z",
   "catalogVersion": "1.1.0",
-  "revision": "9f288f7dfb3172b4c757502696009e70ff184e04826fa288e6af5266fc43f229",
+  "revision": "25fa5b99d747b3faefdee53dc1dd9b58460b989f0f91ab06d4d2b4f95aab95ee",
   "source": "https://botcabinet.com/api/v1/bots.json",
   "count": 20,
   "entries": [
@@ -188,9 +188,9 @@
       "slug": "client",
       "version": "1.0.0",
       "name": "Client Deliverables",
-      "title": "Client deliverable assistant",
+      "title": "Client document assistant",
       "category": "planning",
-      "summary": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+      "summary": "Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.",
       "audience": "Consultants, small firms, and internal teams that produce recurring client-facing documents.",
       "links": {
         "detail": "https://botcabinet.com/bots/client/",
@@ -400,7 +400,7 @@
       "name": "Chief of Staff",
       "title": "Executive priority and coordination assistant",
       "category": "planning",
-      "summary": "Keeps a leader's confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+      "summary": "Keeps a leader's confirmed priorities, decisions, responsibilities and follow-ups in one current summary.",
       "audience": "Leaders and small teams that need clearer priorities and coordination without adding another meeting.",
       "links": {
         "detail": "https://botcabinet.com/bots/chief-of-staff/",
@@ -435,7 +435,7 @@
       "name": "Coach",
       "title": "Life and career planning assistant",
       "category": "planning",
-      "summary": "Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.",
+      "summary": "Helps you think through a life or career decision, compare options and plan your next steps.",
       "audience": "People considering a transition or trying to turn a broad direction into practical next steps.",
       "links": {
         "detail": "https://botcabinet.com/bots/coach/",
@@ -506,7 +506,7 @@
       "title": "Growth management assistant",
       "category": "planning",
       "summary": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
-      "audience": "Small teams that need a disciplined view of acquisition, activation, retention, or revenue without chasing every metric.",
+      "audience": "Small teams trying to attract customers, help them get started, keep them coming back or increase revenue.",
       "links": {
         "detail": "https://botcabinet.com/bots/pulse/",
         "customize": "https://botcabinet.com/workshop/?starter=pulse"
@@ -538,10 +538,10 @@
       "slug": "story",
       "version": "1.0.0",
       "name": "Story",
-      "title": "Chief narrative officer",
+      "title": "Brand and message assistant",
       "category": "writing",
-      "summary": "Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.",
-      "audience": "Leaders and teams whose public materials need one clear story without flattening factual distinctions or inventing proof.",
+      "summary": "Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.",
+      "audience": "Leaders and teams who want their website, presentations and posts to tell a consistent, accurate story.",
       "links": {
         "detail": "https://botcabinet.com/bots/story/",
         "customize": "https://botcabinet.com/workshop/?starter=story"
@@ -576,7 +576,7 @@
       "title": "Personal daily briefing maker",
       "category": "writing",
       "summary": "Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.",
-      "audience": "People who want a calm, useful morning briefing without opening several apps or handing an agent unlimited access.",
+      "audience": "People who want a short morning briefing from the information they choose.",
       "links": {
         "detail": "https://botcabinet.com/bots/daily-newspaper/",
         "customize": "https://botcabinet.com/workshop/?starter=daily-newspaper"
@@ -608,7 +608,7 @@
       "slug": "curator",
       "version": "1.0.0",
       "name": "Curator",
-      "title": "Bot lineup improvement manager",
+      "title": "Bot review and improvement assistant",
       "category": "technical",
       "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
       "audience": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful.",

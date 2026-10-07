@@ -4,7 +4,7 @@
   "bot": {
     "slug": "curator",
     "name": "Curator",
-    "title": "Bot lineup improvement manager",
+    "title": "Bot review and improvement assistant",
     "summary": "Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.",
     "audience": "Anyone managing several Bots whose jobs overlap, drift, or stop being useful."
   },
@@ -76,7 +76,7 @@
   "controls": {
     "version": 1,
     "botName": "Curator",
-    "role": "Bot lineup improvement manager",
+    "role": "Bot review and improvement assistant",
     "riskLevel": "Moderate",
     "reads": [
       "Bot names, purposes, instructions, and boundaries",

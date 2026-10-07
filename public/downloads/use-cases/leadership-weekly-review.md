@@ -2,11 +2,11 @@
 
 Designed for: Leaders and small teams that need a clear weekly view of priorities, capacity, and blocked decisions
 
-Result: A current operating brief and a realistic proposed plan for the next week, with ideas kept separate from commitments.
+Result: A summary of current priorities and a proposed plan for next week, with ideas kept separate from commitments.
 
 ## Operating guide
 
-- **When to use it:** Use this workflow when you need a current operating brief and a realistic proposed plan for the next week, with ideas kept separate from commitments.
+- **When to use it:** Use this workflow when you need a summary of current priorities and a proposed plan for next week, with ideas kept separate from commitments.
 - **Lead Bot:** Chief of Staff
 - **Cadence:** Once each week, with a person approving the source material first
 - **Typical first run:** 15–30 minutes for a first manual run
@@ -59,7 +59,7 @@ Review one week from copied notes and compare every listed commitment with the s
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Review one week from copied notes and compare every listed commitment with the source before changing any shared system.
+Check the result against your original material. You make the decisions listed below. Review one week from copied notes and compare every listed commitment with the source before changing any shared system.
 
 ## If the workflow stalls
 

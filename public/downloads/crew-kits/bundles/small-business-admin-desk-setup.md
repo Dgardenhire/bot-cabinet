@@ -2,7 +2,7 @@
 
 Bundle 1.0.0
 
-Keep routine inbox work, customer drafts, weekly status, and follow-up organized without uncontrolled authority.
+Organize incoming requests, draft customer replies and keep track of follow-ups.
 
 Bot Cabinet generates plans and packages. Hermes Desktop settings and connected-service permissions are applied by you. Passports are checklists, not locks.
 
@@ -19,7 +19,7 @@ Import-tested means archive import was checked, not that this Bot or crew has pr
 Act as Intake and route messages, tasks, and decisions.
 
 Archive: members/chief-of-staff.tar.gz
-SHA-256: b30deb058b066b82ae1aab0f40d8bb4e0bc01ae9de8f31a29d81a18ce5f230eb
+SHA-256: f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Prepare customer and partner communication drafts.
 
 Archive: members/client.tar.gz
-SHA-256: f72a70696e86663a8d8e7e833c8e27eb7edca24114b3937da761549bc7643dc6
+SHA-256: 6fe7fad0d25dc04832a6897f37791eb1b63145e00e870ab6b0e27bd987b48dd6
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -122,7 +122,7 @@ Requested capabilities (configure manually):
 ## Run one manual handoff cycle
 
 1. **Chief of Staff / Daily intake:** Classify work and identify needed context.
-2. **Researcher + Client Deliverables / Prepare:** Research and draft the work product.
+2. **Researcher + Client Deliverables / Prepare:** Find the relevant information and draft replies or documents.
 3. **Ops + Planner / Track:** Update tasks, deadlines, and exceptions.
 4. **Person / Weekly review:** Approve priorities and consequential actions.
 

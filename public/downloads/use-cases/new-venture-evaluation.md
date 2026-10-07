@@ -84,7 +84,7 @@ Use one idea and approved public sources to design a no-spend test. Approve the 
 
 ## Success checkpoint
 
-The first run passes when a person can verify the final result against the supplied material and every decision listed below remains with that person. Use one idea and approved public sources to design a no-spend test. Approve the decision rules before running it.
+Check the result against your original material. You make the decisions listed below. Use one idea and approved public sources to design a no-spend test. Approve the decision rules before running it.
 
 ## If the workflow stalls
 

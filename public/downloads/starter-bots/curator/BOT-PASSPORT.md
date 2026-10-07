@@ -1,6 +1,6 @@
 # Curator — Bot Passport
 
-**Role:** Bot lineup improvement manager
+**Role:** Bot review and improvement assistant
 **Risk level:** Moderate
 **Passport version:** 1
 

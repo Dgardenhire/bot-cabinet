@@ -1,6 +1,6 @@
 # Client Deliverables — Bot Passport
 
-**Role:** Client deliverable assistant
+**Role:** Client document assistant
 **Risk level:** Moderate
 **Passport version:** 1
 

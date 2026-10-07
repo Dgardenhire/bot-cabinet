@@ -1,6 +1,6 @@
-# Story — Chief narrative officer
+# Story — Brand and message assistant
 
-Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.
+Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.
 
 This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.
 

@@ -1,11 +1,11 @@
 # Story — Portable Bot Pack V2
 
-Finds and maintains the central narrative across a founder, organization, product, or campaign using confirmed facts and approved source material.
+Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.
 
 - **Artifact ID:** bot-cabinet:bot:story:portable-pack
 - **Pack version:** 2.0.0
 - **Preparation status:** prepared
-- **Audience:** Leaders and teams whose public materials need one clear story without flattening factual distinctions or inventing proof.
+- **Audience:** Leaders and teams who want their website, presentations and posts to tell a consistent, accurate story.
 - **Source:** https://botcabinet.com/bots/story/
 
 ## Job

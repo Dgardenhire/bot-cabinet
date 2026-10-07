@@ -1,6 +1,6 @@
 # Coach — Life and career planning assistant
 
-Helps a person clarify a life or career decision, compare paths, and choose a realistic next horizon.
+Helps you think through a life or career decision, compare options and plan your next steps.
 
 This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.
 

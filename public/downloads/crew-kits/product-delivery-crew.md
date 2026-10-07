@@ -1,12 +1,12 @@
 # Product Delivery Crew — Crew Kit
 
-Move an approved feature from a clear requirement through technical direction, implementation, checks, and review.
+Plan, build and test an approved software feature, then prepare it for your review.
 
 Designed for: Founders, product leads, and small software teams using AI-assisted development
 
 ## Standing assignment
 
-The Product Delivery Crew turns an approved feature into requirements, a technical approach, working code, verification evidence, and a release recommendation. A person controls scope, credentials, merges, and deployment.
+The Product Delivery Crew plans an approved feature, builds the code, runs tests and recommends whether it is ready to release. You approve the scope, account access, merges and deployment.
 
 ## Bots and responsibilities
 
@@ -70,7 +70,7 @@ The Product Delivery Crew turns an approved feature into requirements, a technic
 
 ## Setup
 
-1. Open each linked Bot page in the Bots and responsibilities section. Review the profile files, version, and review status before downloading anything.
+1. Open each Bot's page below. Check its files, version and test status before downloading.
 2. Download each approved profile and import it into Hermes Desktop.
 3. Open each Bot's settings in Hermes Desktop. Give it only the files, tools, and connections needed for its role.
 4. Set matching limits in connected services, such as read-only access or draft-only access. The Crew Passport is a checklist; it does not apply these limits for you.
