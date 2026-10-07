@@ -155,7 +155,7 @@ describe("Proof Room evidence records", () => {
       expect(demo?.run?.provider).toBe("nous");
       expect(demo?.run?.model).toBe("deepseek/deepseek-v4-flash");
       expect(demo?.checks.slice(0, 4).every((check) => check.state === "passed")).toBe(true);
-      expect(demo?.profileArchiveHref).toBe(`/downloads/starter-bots/v2/${demo?.botSlug}.tar.gz`);
+      expect(demo?.profileArchiveHref).toBe(`/proof-room/profile-archives/2026-09-09/${demo?.botSlug}.tar.gz`);
       const archive = readFileSync(path.join(publicRoot, demo!.profileArchiveHref.slice(1)));
       expect(createHash("sha256").update(archive).digest("hex")).toBe(demo?.profileArchiveSha256);
 

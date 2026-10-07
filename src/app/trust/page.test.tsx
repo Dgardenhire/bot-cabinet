@@ -11,7 +11,7 @@ describe("Trust page", () => {
     expect(html).toContain("latest public run");
     expect(html).toContain("Bot test results");
     expect(html).toContain("Human decisions");
-    expect(html).toContain("Not connected yet");
+    expect(html).toContain("No public record");
     expect(html.match(/No public record/g)?.length).toBeGreaterThanOrEqual(5);
     expect(html).toContain("No public record, no green light");
     expect(html).not.toContain("Built, but not running in the cloud");
