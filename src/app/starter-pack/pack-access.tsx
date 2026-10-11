@@ -14,7 +14,7 @@ export function PackAccess() {
       const token = new URLSearchParams(window.location.hash.slice(1)).get("access");
       if (!token) return;
       window.history.replaceState(null, "", window.location.pathname + window.location.search);
-      setPack(null); setError("");
+      setPack(null); setError(""); setState("idle");
       loadStarterPack(token).then(setPack)
         .catch(reason => setError(reason instanceof Error ? reason.message : "Your pack couldn’t load."));
     };
