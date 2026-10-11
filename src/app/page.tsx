@@ -1,3 +1,4 @@
+import { StarterPackInvitation } from "@/components/starter-pack-invitation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -270,6 +271,7 @@ export default function Home() {
         </div>
       </section>
 
-    </main>
+    <StarterPackInvitation />
+      </main>
   );
 }

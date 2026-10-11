@@ -1,3 +1,4 @@
+import { StarterPackInvitation } from "@/components/starter-pack-invitation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -146,6 +147,7 @@ export default function UseCasesPage() {
         </div>
         <Link href="/workshop" className="button button-primary">Plan a custom Bot in Bot Lab <ArrowRight size={16} /></Link>
       </section>
+      <StarterPackInvitation />
     </main>
   );
 }
