@@ -58,7 +58,7 @@ export function PackAccess() {
         </div>
         <div className={styles.accessCard}>
           <p className={document.eyebrow}>Free with Open Source</p><h2 id="pack-access-heading">Get your starter pack</h2>
-          <p>One newsletter email on Mondays. Unsubscribe anytime.</p>
+          <p>One email on Mondays. Unsubscribe anytime.</p>
           {error && <p role="alert" className={styles.error}>{error}</p>}
           {state === "opening" ? <p role="status" className={styles.notice}>Opening your starter pack…</p> : state === "sent" ? <div role="status" className={styles.notice}><strong>Check your inbox for your access link.</strong><p>If you already subscribe, the link opens your pack without another signup.</p></div> : <form className={styles.signup} onSubmit={async event => {
             event.preventDefault();
