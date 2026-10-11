@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Print-only shell rules apply exclusively while the starter pack is present. */
+@media print {
+  html:has([data-starter-pack]), body:has([data-starter-pack]) {
+    background: white !important;
+    color: #1d1c19 !important;
+    color-scheme: light !important;
+  }
+  body:has([data-starter-pack]) :is(.site-header, .site-footer, .skip-link) {
+    display: none !important;
+  }
+}
+
 :root {
   --ink: #080a0a;
   --ink-soft: #0d1010;

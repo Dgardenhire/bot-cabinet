@@ -1,0 +1,37 @@
+.intro { max-width: 920px; }
+.notice { border: 1px solid var(--brass); background: var(--ink-raised); padding: 1rem 1.25rem; margin-top: 1.5rem; line-height: 1.6; }
+.contents { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem 2rem; padding-left: 1.4rem; }
+.contents a { line-height: 1.6; }
+.entry { scroll-margin-top: 110px; }
+.entry h2 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.15; }
+.status { display: inline-block; border: 1px solid var(--line); padding: .5rem .75rem; margin: 1rem 0; }
+.meta { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; }
+.meta dt { font-weight: 600; }
+.meta dd { margin: .4rem 0 0; line-height: 1.6; }
+.prompt { border: 1px solid var(--line); background: var(--ink-raised); padding: 1.25rem; margin: 1.5rem 0; }
+.prompt pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
+.entry p, .entry li, .intro li { line-height: 1.7; }
+.entry li { margin-bottom: .5rem; }
+@media (max-width: 760px) { .contents, .meta { grid-template-columns: 1fr; } .prompt { padding: 1rem; } }
+@media print {
+  @page { size: auto; margin: 16mm; }
+  .page { --ink: white; --ink-raised: white; --ivory: #1d1c19; --paper: #302e29; --muted: #5f5b53; --brass: #93691e; --line: #bbb; padding: 0 !important; }
+  .page :global(.shell) { width: 100%; max-width: none; }
+  .page :global(.inner-hero), .page :global(.content-section) { padding: 8mm 0; }
+  .page :global(.inner-title) { font-size: 28pt; }
+  .page :global(.inner-deck) { font-size: 11pt; }
+  .entry { break-before: page; }
+  .entry h2 { font-size: 23pt; }
+  .page h2, .page h3 { break-after: avoid; }
+  .page p, .page li { orphans: 3; widows: 3; }
+  .entry h2, .entry h3, .entry dt { break-after: avoid; }
+  .prompt { padding: 5mm; }
+  .prompt pre { font-size: 10pt; line-height: 1.45; }
+  .prompt button { display: none; }
+  .meta { grid-template-columns: 1fr 1fr; }
+}
+
+.signup { display: grid; gap: .75rem; max-width: 560px; margin: 1.5rem 0; }
+.signup input { background: var(--ink-raised); color: var(--ivory); border: 1px solid var(--line); padding: .85rem; font: inherit; width: 100%; }
+.signup label { font-weight: 600; }
+.signup button { justify-content: center; }

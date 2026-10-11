@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/workshop",
     "/portraits",
     "/use-cases",
+    "/starter-pack",
     "/crew-kits",
     "/proof",
     "/watch",
