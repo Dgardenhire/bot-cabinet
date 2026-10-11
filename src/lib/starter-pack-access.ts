@@ -32,11 +32,14 @@ export async function requestStarterPack(email: string, name: string, fetcher: t
   const result = await response.json();
   if (result.accepted !== true) throw new Error("We couldn’t request your pack. Please try again.");
 }
+export class PackAccessError extends Error {
+  constructor(message: string, public readonly status: number) { super(message); }
+}
 export async function loadStarterPack(token: string, fetcher: typeof fetch = fetch): Promise<StarterPack> {
   const response = await fetcher(PACK_CONTENT_URL, {
     headers: { Authorization: `Bearer ${token}` }, cache: "no-store",
   });
-  if (response.status === 401 || response.status === 403) throw new Error("This access link has expired or is invalid. Request a fresh link below.");
+  if (response.status === 401 || response.status === 403) throw new PackAccessError("This access link has expired or is invalid. Request a fresh link below.", response.status);
   if (!response.ok) throw new Error("Your pack couldn’t load. Please reopen your email link to try again.");
   const result = await response.json();
   if (!isStarterPack(result)) throw new Error("Your pack couldn’t load. Please try again later.");

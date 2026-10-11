@@ -2,27 +2,45 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Eyebrow } from "@/components/ui";
-import { loadStarterPack, requestStarterPack, type StarterPack } from "@/lib/starter-pack-access";
+import { loadStarterPack, requestStarterPack, PackAccessError, type StarterPack } from "@/lib/starter-pack-access";
+import { forgetPackSession, readPackSession, rememberPackSession } from "@/lib/starter-pack-session";
 import { StarterPackContent } from "./pack-content";
 import styles from "./pack.module.css";
 export function PackAccess() {
   const [pack, setPack] = useState<StarterPack | null>(null);
-  const [state, setState] = useState<"idle" | "sending" | "sent">("idle");
+  const [state, setState] = useState<"idle" | "opening" | "sending" | "sent">("idle");
   const [error, setError] = useState("");
   useEffect(() => {
-    const openLink = () => {
-      const token = new URLSearchParams(window.location.hash.slice(1)).get("access");
+    let storage: Storage | undefined;
+    try { storage = window.sessionStorage; } catch { /* Private browser settings may disable storage. */ }
+    let expiryTimer: number | undefined;
+    const openLink = (event?: HashChangeEvent) => {
+      const incoming = new URLSearchParams(window.location.hash.slice(1)).get("access");
+      if (event && !incoming) return; // Ordinary guide anchors must not reopen access.
+      const session = readPackSession(storage);
+      const token = incoming || session?.token;
       if (!token) return;
-      window.history.replaceState(null, "", window.location.pathname + window.location.search);
-      setPack(null); setError(""); setState("idle");
-      loadStarterPack(token).then(setPack)
-        .catch(reason => setError(reason instanceof Error ? reason.message : "Your pack couldn’t load."));
+      if (incoming) window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      setPack(null); setError(""); setState("opening");
+      loadStarterPack(token).then(value => {
+        // Remember only server-validated access, for this tab and a fixed 30 minutes.
+        const expiresAt = incoming ? rememberPackSession(token, storage) : session?.expiresAt;
+        if (expiryTimer !== undefined) window.clearTimeout(expiryTimer);
+        if (expiresAt !== undefined) expiryTimer = window.setTimeout(() => forgetPackSession(storage), Math.max(0, expiresAt - Date.now()));
+        setPack(value); setState("idle");
+      }).catch(reason => {
+        if (reason instanceof PackAccessError && (reason.status === 401 || reason.status === 403)) forgetPackSession(storage);
+        setError(reason instanceof Error ? reason.message : "Your pack couldn’t load."); setState("idle");
+      });
     };
     openLink();
     window.addEventListener("hashchange", openLink);
-    return () => window.removeEventListener("hashchange", openLink);
+    return () => { window.removeEventListener("hashchange", openLink); if (expiryTimer !== undefined) window.clearTimeout(expiryTimer); };
   }, []);
-  if (pack) return <StarterPackContent pack={pack} />;
+  if (pack) return <StarterPackContent pack={pack} onClose={() => {
+    try { forgetPackSession(window.sessionStorage); } catch { /* Storage may be unavailable. */ }
+    setPack(null); setError(""); setState("idle"); window.scrollTo(0, 0);
+  }} />;
   return <main id="main-content" data-starter-pack className={`page-main ${styles.page}`}>
     <section className="inner-hero"><div className={`shell ${styles.intro}`}>
       <Eyebrow>Free with Open Source</Eyebrow><h1 className="inner-title">10 Bots you can set up tonight</h1>
@@ -30,7 +48,7 @@ export function PackAccess() {
       <p>Open Source is Damon Gardenhire&apos;s weekly newsletter. One email on Mondays. Unsubscribe anytime.</p>
       <p>Already subscribed? Use your gift link, or request a fresh access link here. You won&apos;t be added twice.</p>
       {error && <p role="alert">{error}</p>}
-      {state === "sent" ? <div role="status" className={styles.notice}><strong>Check your inbox for your access link.</strong><p>If you already subscribe, the link opens your pack without another signup.</p></div> : <form className={styles.signup} onSubmit={async event => {
+      {state === "opening" ? <p role="status">Opening your starter pack…</p> : state === "sent" ? <div role="status" className={styles.notice}><strong>Check your inbox for your access link.</strong><p>If you already subscribe, the link opens your pack without another signup.</p></div> : <form className={styles.signup} onSubmit={async event => {
         event.preventDefault();
         const values = new FormData(event.currentTarget);
         setState("sending"); setError("");

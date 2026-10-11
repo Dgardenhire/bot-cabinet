@@ -7,12 +7,14 @@ export function CopyTextButton({
   text,
   label = "Copy message",
   className = "",
+  accessibleLabel,
   analyticsEvent,
   analyticsSurface,
 }: {
   text: string;
   label?: string;
   className?: string;
+  accessibleLabel?: string;
   analyticsEvent?: string;
   analyticsSurface?: string;
 }) {
@@ -55,6 +57,7 @@ export function CopyTextButton({
     <button
       className={`copy-text-button ${className}`.trim()}
       type="button"
+      aria-label={accessibleLabel}
       onClick={copyText}
       data-funnel-event={analyticsEvent}
       data-funnel-surface={analyticsSurface}
