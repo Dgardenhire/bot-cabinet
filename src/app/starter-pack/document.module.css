@@ -34,7 +34,7 @@
 /* Index */
 
 .index ol { list-style:none; padding:0; margin:20px 0 0; display:grid; gap:8px; }
-.index a { display:grid; grid-template-columns:44px 1fr auto; align-items:center; gap:14px; padding:13px 18px; background:var(--raised); border:1px solid var(--line-soft); border-radius:12px; text-decoration:none; color:var(--text); transition:transform .15s, border-color .15s; }
+.index a { display:grid; grid-template-columns:44px 1fr; align-items:center; gap:14px; padding:13px 18px; background:var(--raised); border:1px solid var(--line-soft); border-radius:12px; text-decoration:none; color:var(--text); transition:transform .15s, border-color .15s; }
 .index a:hover { transform:translateX(4px); border-color:var(--brass-soft); }
 .ix-n { font:700 14px var(--mono); color:var(--brass); }
 .ix-t { font-weight:500; }
@@ -130,3 +130,4 @@
 
 .accessControl { margin-left:auto; border:1px solid var(--line); border-radius:6px; background:var(--raised); color:var(--brass); font:700 11px var(--mono); padding:8px 12px; cursor:pointer; letter-spacing:0; }
 @media print { .accessControl { display:none; } }
+

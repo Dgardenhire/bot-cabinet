@@ -44,17 +44,17 @@ export function PackAccess() {
   return <main id="main-content" data-starter-pack data-pack-offer className={document.document}>
     <div className={document.shell}>
       <header className={document.cover}>
-        <div className={document.brand}><span className={document.doors} aria-hidden="true" />Bot Cabinet · Starter pack</div>
-        <h1>10 Bots you can set up <em>tonight</em></h1>
-        <p className={document.lede}>Ten small, useful Bots for the jobs that pile up every week. Each setup comes with a starter prompt, a first task to try, and plain rules for what it should never do on its own.</p>
-        <p className={document.lede}>Start with the AI app you already use. Get the free pack when you subscribe to Open Source, Damon Gardenhire&apos;s weekly newsletter.</p>
-        <div className={document["platforms-row"]}>{["Grok Bot", "Hermes Agent", "ChatGPT", "Claude", "Free with Open Source"].map(name => <span className={document.chip} key={name}>{name}</span>)}</div>
+        <div className={document.brand}>Bot Cabinet · Starter pack</div>
+        <h1>10 Useful Jobs for <em>Your AI Assistant</em></h1>
+        <p className={document.lede}>Copy-and-paste prompts, first steps, and safety tips.</p>
+        <p className={document.lede}>Get help with the jobs that pile up every week. Choose one, try its prompt with safe inputs, and check the result. Get the free pack when you subscribe to Open Source, Damon Gardenhire&apos;s weekly newsletter.</p>
+        <div className={document["platforms-row"]}>{["10 everyday jobs", "Prompts to try", "You stay in charge", "Free with Open Source"].map(name => <span className={document.chip} key={name}>{name}</span>)}</div>
       </header>
       <section className={`${document.section} ${styles.offer}`} aria-labelledby="pack-access-heading">
         <div className={styles.offerNotes}>
-          <p className={document.eyebrow}>One useful job at a time</p><h2>Pick a Bot.<br />Try one real task.</h2>
-          <ol className={styles.steps}><li><strong>Choose what bugs you every week.</strong><span>The inbox, the receipts, the Sunday-night schedule.</span></li><li><strong>Copy the starter prompt.</strong><span>Use safe inputs in the app you already have.</span></li><li><strong>Check the first result yourself.</strong><span>Keep approval for anything that sends, pays, deletes, or signs.</span></li></ol>
-          <div className={styles.scope}><h3>What has been checked</h3><p>Synthetic sample outputs were checked in native Codex. App connections, scheduling, and compatibility across apps still need checking. Each guide explains its limits.</p></div>
+          <p className={document.eyebrow}>One useful job at a time</p><h2>Pick a job.<br />Try the first step.</h2>
+          <ol className={styles.steps}><li><strong>Choose what bugs you every week.</strong><span>The inbox, the receipts, the Sunday-night schedule.</span></li><li><strong>Copy the starter prompt.</strong><span>Start with sample information in your AI app.</span></li><li><strong>Check the first result yourself.</strong><span>Keep approval for anything that sends, pays, deletes, or signs.</span></li></ol>
+          <div className={styles.scope}><h3>What has been checked</h3><p>The prompts were tried with made-up examples in Codex. App connections, scheduling, and use in other apps have not been tested. These are instructions to try with an AI assistant; ongoing or scheduled work needs separate setup. Each guide explains its limits.</p></div>
         </div>
         <div className={styles.accessCard}>
           <p className={document.eyebrow}>Free with Open Source</p><h2 id="pack-access-heading">Get your starter pack</h2>
@@ -78,9 +78,10 @@ export function PackAccess() {
       <section className={`${document.section} ${styles.preview}`} aria-labelledby="pack-preview-heading">
         <p className={document.eyebrow}>Inside your pack</p><h2 id="pack-preview-heading">Ten everyday jobs. A place to start.</h2>
         <ol>{["Inbox triage", "Subscription audit", "Unclaimed property search", "Meeting follow-up drafts", "Weekly family planning", "Price-drop watching", "Research briefs", "Receipt and expense tracking", "Morning news briefing", "Job or apartment alerts"].map((title, index) => <li key={title}><span className={styles.previewNumber}>{String(index + 1).padStart(2, "0")}</span><span>{title}</span></li>)}</ol>
-        <div className={styles.included}>{["Copy-paste starter prompts", "One first task to try", "Tools and inputs to prepare", "Human approval and limits"].map(item => <span key={item}>{item}</span>)}</div>
+        <div className={styles.included}>{["Copy-and-paste prompts", "One first step to try", "What you need to get started", "Safety tips and limits"].map(item => <span key={item}>{item}</span>)}</div>
       </section>
-      <footer className={document.footer}><p>Browse <Link href="/use-cases">practical Bot ideas</Link> while your pack arrives.</p><p>Bot Cabinet is free and independent. App features and plans vary; setup times are estimates.</p></footer>
+      <footer className={document.footer}><p>Browse <Link href="/use-cases">practical AI ideas</Link> while your pack arrives.</p><p>Bot Cabinet is free and independent. App features and plans vary. Scheduled work and account connections need separate setup.</p></footer>
     </div>
   </main>;
 }
+

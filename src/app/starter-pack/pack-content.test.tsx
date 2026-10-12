@@ -18,3 +18,23 @@ describe("formatted starter pack",()=>{
   expect(html).toContain("<strong>Start small.</strong>");expect(html).not.toContain("**Sample app:");expect(html).toContain("First line\n\nSecond line &lt;sample&gt;");
  });
 });
+
+
+ it("uses job language while keeping the original guide anchors and test facts", () => {
+  const entries = sample.entries.map((entry, i) => ({ ...entry, id: i === 8 ? "bot-morning-briefing" : entry.id, bot_type: "One-time job. Repeat when needed.", status: "Sample-data checked", tested: "Sample-data checked; scheduling has not been tested." }));
+  const html = renderToStaticMarkup(createElement(StarterPackContent, { pack: { ...sample, entries } }));
+  const text = html.replace(/<[^>]*>/g, "");
+  expect(text).toContain("10 Useful Jobs for Your AI Assistant");
+  expect(text).toContain("Copy-and-paste prompts, first steps, and safety tips.");
+  expect(text).toContain("The ten jobs");
+  expect(text).toContain("How to use it");
+  expect(text).toContain("One-time job. Repeat when needed.");
+  expect(text).toContain("What you need");
+  expect(text).toContain("Sample-data checked; scheduling has not been tested.");
+  expect(text).not.toMatch(/The ten Bots|first Bot|set up tonight|Bot Cabinet type|Where it runs/);
+  expect(html).toContain('id="bot-morning-briefing"');
+  expect(html).toContain('href="#bot-morning-briefing"');
+  expect(html).toContain('id="pack-first-bot"');
+  expect(html).not.toContain("_doors_");
+  expect(html).toContain("First line\n\nSecond line &lt;sample&gt;");
+ });
