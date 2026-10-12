@@ -69,3 +69,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Keep private working material outside the checkout.
+private/
+internal/
+.private/
+local-only/
+
+# Documentation is opt-in after owner publication review.
+/docs/**
+!/docs/BOT-PORTRAIT-PROVENANCE.md
+!/docs/BOT-PORTRAIT-USAGE.txt
+!/docs/FIRST-USER-WALKTHROUGH-2026-09-23.md
+!/docs/PUBLIC-CATALOG.md
+!/docs/REVIEW-POLICY.md

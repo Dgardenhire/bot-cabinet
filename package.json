@@ -24,8 +24,9 @@
     "test:edge": "deno test supabase/functions/bot-blueprint/core.test.ts supabase/functions/agent-watch/core.test.ts supabase/functions/agent-watch-publish/core.test.ts supabase/functions/keeper-status/core.test.ts supabase/functions/keeper-status-publish/core.test.ts",
     "test:release": "node --test scripts/release/*.test.mjs scripts/serve-static.test.mjs",
     "check:generated": "node scripts/release/check-generated.mjs",
-    "verify:ci": "npm run generate:ci && npm run check:generated && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site",
-    "verify:release": "npm run generate:content && npm run check:generated && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site"
+    "check:source-privacy": "node scripts/release/check-source-privacy.mjs",
+    "verify:ci": "npm run generate:ci && npm run check:generated && npm run check:source-privacy && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site",
+    "verify:release": "npm run generate:content && npm run check:generated && npm run check:source-privacy && npm run lint && npx tsc --noEmit && npm test && npm run test:intake && npm run test:edge && npm run test:release && npm run build:site"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
