@@ -1,0 +1,17 @@
+.heading { max-width: 55rem; margin-bottom: 1.6rem; }
+.heading > p { color: var(--muted); }
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.columns article { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); background: var(--ink-soft); min-width: 0; }
+.columns h3, .setup h3 { font: 1.6rem/1.2 var(--serif); margin: 0 0 1rem; }
+.columns p { line-height: 1.8; color: var(--paper); }
+.columns strong { display: block; margin-top: 1.5rem; color: var(--brass-bright); }
+.columns ul { padding-left: 1.2rem; color: var(--paper); }
+.columns li { margin: .5rem 0; }
+.setup { margin-top: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.setup > p { max-width: 58rem; }
+.setup small { display: block; color: var(--muted); margin-top: 1rem; }
+.source { font-size: .85rem; color: var(--muted); max-width: 65rem; margin-top: 1.5rem; }
+.source a { color: var(--brass-bright); text-decoration: underline; text-underline-offset: 3px; }
+.source a svg { display: inline; }
+.fullGuide > summary { cursor: pointer; padding: 1rem 0; color: var(--brass-bright); border-top: 1px solid var(--line); }
+@media (max-width: 720px) { .columns { grid-template-columns: minmax(0, 1fr); } }

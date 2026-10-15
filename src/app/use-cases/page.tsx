@@ -1,153 +1,54 @@
-import { StarterPackInvitation } from "@/components/starter-pack-invitation";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, DownloadSimple, UsersThree } from "@phosphor-icons/react/dist/ssr";
-
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow } from "@/components/ui";
-import { getStarterBot } from "@/data/starter-bots";
+import { WorkflowCatalog } from "@/components/workflow-catalog";
+import { StarterPackInvitation } from "@/components/starter-pack-invitation";
 import { BOT_USE_CASES } from "@/data/use-cases";
 import { CREW_KITS } from "@/data/crew-kits";
+import { workflowCategory } from "@/lib/workflow-catalog";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Bot Workflows · Start with the simplest setup",
-  description: "Practical Hermes workflows that begin with one Bot when one is enough and use several Bots only when separate roles add value.",
+  title: "Find a useful job for your Bot",
+  description: "Browse practical jobs for home, business, writing and learning. See an example, copy a first task and choose how to set it up.",
   path: "/use-cases/",
   image: "/brand/social/bot-crews-v2-1200x630.jpg",
-  imageAlt: "Bot Cabinet workflows",
+  imageAlt: "Bot Cabinet practical jobs and workflows",
 });
 
-const USE_CASE_IMAGE_ALTS: Record<string, string> = {
-  "morning-industry-briefing": "Three Bots compare source material around a studio worktable",
-  "weekly-newsletter": "A mechanical typesetting machine organizes pages for a newsletter",
-  "social-media-content-set": "A mechanical dispatcher sorts content into three output trays",
-  "client-meeting-follow-up": "A small Bot organizes meeting notes at a wooden desk",
-  "client-proposal": "Two Bots assemble a proposal at a drafting table",
-  "grant-opportunity-review": "A mechanical instrument sorts grant files by eligibility and deadline",
-  "website-content-update": "A Bot reviews page copy and a website layout at a compact workstation",
-  "project-launch-plan": "Several Bots arrange milestones on a tabletop launch plan",
-  "software-feature-build": "A programmable mechanical instrument processes code and test results",
-  "operations-status-report": "An instrument cabinet records system checks and produces a status report",
-  "study-and-certification-plan": "A tutor Bot studies a book and weekly plan at a library desk",
-  "customer-request-response": "A correspondence Bot reviews a request and prepares a reply",
-  "new-venture-evaluation": "Three friendly Bots evaluate a new venture around a workshop table",
-  "growth-experiment": "A precision machine compares three growth signals",
-  "leadership-weekly-review": "A small Bot arranges briefing cards on an executive desk",
-  "product-technology-direction": "Two friendly Bots inspect a blueprint and prototype",
-  "narrative-message-system": "A mechanical writing instrument organizes several message formats",
-};
-
-const JPG_USE_CASE_IMAGES = new Set([
-  "new-venture-evaluation",
-  "growth-experiment",
-  "leadership-weekly-review",
-  "product-technology-direction",
-  "narrative-message-system",
-]);
+const jpgImages = new Set(["new-venture-evaluation", "growth-experiment", "leadership-weekly-review", "product-technology-direction", "narrative-message-system"]);
 
 export default function UseCasesPage() {
-  return (
-    <main id="main-content" className="page-main">
-      <section className="inner-hero use-cases-hero">
-        <div className="shell inner-hero-grid">
-          <div>
-            <Eyebrow>Use the smallest setup that works</Eyebrow>
-            <h1 className="inner-title">Bot Workflows</h1>
-            <p className="inner-deck">
-              Choose a result and start with the simplest useful setup. Many jobs need only one Bot. Several Bots make sense when the work needs
-              separate access, an independent check, a formal handoff, or more work than one role can manage well.
-            </p>
-          </div>
-          <aside className="inner-aside use-case-guide">
-            <UsersThree size={28} weight="thin" aria-hidden="true" />
-            <strong>Every workflow guide includes</strong>
-            <ul>
-              <li>The information you provide</li>
-              <li>The smallest recommended setup</li>
-              <li>A message you can copy</li>
-              <li>A downloadable setup plan</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section className="content-section shell use-case-kit-intro">
-        <div>
-          <Eyebrow>New · Complete Crew Kits</Eyebrow>
-          <h2 className="section-heading">Build a standing team for an ongoing function</h2>
-          <p className="section-deck">Choose from {CREW_KITS.length} kits with Bot profile downloads, setup steps, repeatable jobs, and approval rules. Check each kit&apos;s test status before using it.</p>
-        </div>
-        {CREW_KITS.slice(0, 3).map((kit) => (
-          <article key={kit.slug}>
-            <span>{kit.roles.length} Bots · {kit.workflows.length} workflows</span>
-            <h3>{kit.name}</h3>
-            <p>{kit.promise}</p>
-            <Link href={`/crew-kits/${kit.slug}`} className="button button-primary">Open the Crew Kit <ArrowRight size={15} /></Link>
-          </article>
-        ))}
-        <Link href="/crew-kits" className="text-link">Learn how Crew Kits differ from workflows <ArrowRight size={15} /></Link>
-      </section>
-
-      <section className="content-section shell use-case-library">
-        <div className="use-case-library-heading">
-          <div>
-            <Eyebrow>{BOT_USE_CASES.length} practical starting points</Eyebrow>
-            <h2 className="section-heading">Choose a single workflow by the job</h2>
-          </div>
-          <p>Start with manual handoffs. Add schedules or more access after the workflow produces consistent results.</p>
-        </div>
-
-        <div className="use-case-card-grid">
-          {BOT_USE_CASES.map((useCase, index) => (
-            <article className="use-case-card" key={useCase.slug}>
-              <div className="use-case-card-image">
-                <Image
-                  src={useCase.image?.src ?? `/use-cases/${useCase.slug}.${JPG_USE_CASE_IMAGES.has(useCase.slug) ? "jpg" : "webp"}`}
-                  alt={useCase.image?.alt ?? USE_CASE_IMAGE_ALTS[useCase.slug] ?? ""}
-                  width={1080}
-                  height={720}
-                  sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1120px) 50vw, 33vw"
-                />
-              </div>
-              <div className="use-case-card-body">
-                <span className="use-case-number">{String(index + 1).padStart(2, "0")}</span>
-                <h2>{useCase.title}</h2>
-                <p className="use-case-audience">{useCase.audience}</p>
-                <p>{useCase.outcome}</p>
-                <div className="use-case-bot-row" aria-label="Recommended Bots in this workflow">
-                  <strong>{useCase.botSlugs.length === 1 ? "Start with:" : "Recommended:"}</strong>
-                  {useCase.botSlugs.map((slug, botIndex) => {
-                    const bot = getStarterBot(slug);
-                    if (!bot) return null;
-                    return (
-                      <span key={slug}>
-                        {bot.name}
-                        {botIndex < useCase.botSlugs.length - 1 && <ArrowRight size={13} aria-hidden="true" />}
-                      </span>
-                    );
-                  })}
-                </div>
-                {useCase.setupNote && <p className="use-case-setup-note">{useCase.setupNote}</p>}
-                <div className="use-case-card-actions">
-                  <Link href={`/use-cases/${useCase.slug}`} className="button button-secondary">Open workflow <ArrowRight size={15} /></Link>
-                  <a href={`/downloads/use-cases/${useCase.slug}.md`} download className="use-case-download"><DownloadSimple size={15} /> Download setup plan (Markdown)</a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-section shell use-case-principle">
-        <CheckCircle size={31} weight="thin" aria-hidden="true" />
-        <div>
-          <h2>Use a crew when the job needs one</h2>
-          <p>Separate Bots can help with different access rules, an independent check, or a job with several distinct parts. Choose the roles the job needs.</p>
-        </div>
-        <Link href="/workshop" className="button button-primary">Plan a custom Bot in Bot Lab <ArrowRight size={16} /></Link>
-      </section>
-      <StarterPackInvitation />
-    </main>
-  );
+  const jobs = BOT_USE_CASES.map(job => ({
+    slug: job.slug, title: job.title, audience: job.audience, outcome: job.outcome,
+    category: workflowCategory(job), hasSample: !!job.sample,
+    image: job.image?.src ?? `/use-cases/${job.slug}.${jpgImages.has(job.slug) ? "jpg" : "webp"}`,
+  }));
+  return <main id="main-content" className="page-main">
+    <section className="inner-hero use-cases-hero">
+      <div className="shell">
+        <Eyebrow>Jobs to try</Eyebrow>
+        <h1 className="inner-title">What would you like help with?</h1>
+        <p className="inner-deck">Sort school messages, check an invoice, practise a conversation or prepare a piece of writing. Pick a job, see what a useful result looks like and try it with sample information.</p>
+      </div>
+    </section>
+    <section className="content-section shell" aria-label="Browse practical jobs">
+      <WorkflowCatalog jobs={jobs} />
+    </section>
+    <section className="content-section shell use-case-kit-intro">
+      <div>
+        <Eyebrow>For work with separate roles</Eyebrow>
+        <h2 className="section-heading">Build a standing team for an ongoing function</h2>
+        <p className="section-deck">Crew Kits help when a job needs different responsibilities or an independent check. Choose from {CREW_KITS.length} kits and review each kit&apos;s test status.</p>
+      </div>
+      {CREW_KITS.slice(0, 3).map(kit => <article key={kit.slug}>
+        <span>{kit.roles.length} Bots · {kit.workflows.length} workflows</span>
+        <h3>{kit.name}</h3><p>{kit.promise}</p>
+        <Link href={`/crew-kits/${kit.slug}`} className="button button-secondary">Open the Crew Kit <ArrowRight size={15} /></Link>
+      </article>)}
+      <Link href="/crew-kits" className="text-link">Browse all Crew Kits <ArrowRight size={15} /></Link>
+    </section>
+    <StarterPackInvitation />
+  </main>;
 }

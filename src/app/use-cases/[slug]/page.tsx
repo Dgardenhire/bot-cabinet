@@ -14,10 +14,19 @@ import {
 
 import { Eyebrow } from "@/components/ui";
 import { CopyTextButton } from "@/components/copy-text-button";
-import { getStarterBot } from "@/data/starter-bots";
+import { getStarterBot as getStarterTemplate } from "@/data/starter-bots";
+import { getSpecialist } from "@/data/specialist-collection";
 import { BOT_USE_CASES, getBotUseCase, getUseCaseStepPrompt } from "@/data/use-cases";
 import { getUseCaseOperations } from "@/data/use-case-operations";
 import { buildPageMetadata } from "@/lib/metadata";
+import styles from "./sample.module.css";
+
+function getWorkflowBot(slug: string) {
+  const starter = getStarterTemplate(slug);
+  if (starter) return starter;
+  const specialist = getSpecialist(slug);
+  return specialist ? { slug: specialist.slug, name: specialist.name, title: specialist.summary } : undefined;
+}
 
 export function generateStaticParams() {
   return BOT_USE_CASES.map((useCase) => ({ slug: useCase.slug }));
@@ -44,6 +53,8 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
   if (!useCase) notFound();
   const operations = getUseCaseOperations(useCase);
   const isSingleBot = useCase.botSlugs.length === 1;
+  const startingBot = getWorkflowBot(useCase.botSlugs[0]);
+  const starterTemplate = getStarterTemplate(useCase.botSlugs[0]);
 
   return (
     <main id="main-content" className="page-main use-case-detail">
@@ -57,7 +68,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
               <p className="inner-deck">{useCase.outcome}</p>
               <p className="use-case-detail-audience"><strong>Designed for:</strong> {useCase.audience}</p>
               <div className="button-row">
-                <Link href={`/bots/${useCase.botSlugs[0]}`} className="button button-primary">Set up {getStarterBot(useCase.botSlugs[0])?.name ?? "the first Bot"} <ArrowRight size={16} /></Link>
+                <Link href={`/bots/${useCase.botSlugs[0]}`} className="button button-primary">Set up {getWorkflowBot(useCase.botSlugs[0])?.name ?? "the first Bot"} <ArrowRight size={16} /></Link>
                 <a href={`/downloads/use-cases/${useCase.slug}.md`} download className="button button-secondary">Download the workflow guide <DownloadSimple size={16} /></a>
               </div>
             </div>
@@ -66,7 +77,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
               <strong>{isSingleBot ? "Recommended starting Bot" : "Bots in this workflow"}</strong>
               <div>
                 {useCase.botSlugs.map((botSlug, index) => {
-                  const bot = getStarterBot(botSlug);
+                  const bot = getWorkflowBot(botSlug);
                   if (!bot) return null;
                   return <Link href={`/bots/${bot.slug}`} key={bot.slug}><span>{index + 1}</span><div><b>{bot.name}</b><small>{bot.title}</small></div><ArrowRight size={14} /></Link>;
                 })}
@@ -75,7 +86,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
               {useCase.optionalBotSlugs && useCase.optionalBotSlugs.length > 0 && (
                 <div className="use-case-optional-bots">
                   <strong>Optional specialists</strong>
-                  <p>{useCase.optionalBotSlugs.map((botSlug) => getStarterBot(botSlug)?.name).filter(Boolean).join(" · ")}</p>
+                  <p>{useCase.optionalBotSlugs.map((botSlug) => getWorkflowBot(botSlug)?.name).filter(Boolean).join(" · ")}</p>
                 </div>
               )}
             </aside>
@@ -83,6 +94,46 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
+      {useCase.sample && <section className="content-section shell" aria-labelledby="sample-title">
+        <div className={styles.heading}>
+          <Eyebrow>Try a sample first</Eyebrow>
+          <h2 id="sample-title" className="section-heading">See what a useful result looks like</h2>
+          <p>Illustrative example, not a recorded Bot run. This sample was written to explain the task; your Bot&apos;s answer needs checking.</p>
+        </div>
+        <div className={styles.columns}>
+          <article>
+            <h3>Your first request</h3>
+            <p>{useCase.sample.input}</p>
+            <CopyTextButton text={`${useCase.kickoffMessage}\n\n${useCase.sample.input}`} label="Copy sample task" accessibleLabel={`Copy the complete sample task for ${useCase.title}`} />
+          </article>
+          <article>
+            <h3>Example result</h3>
+            <p>{useCase.sample.output}</p>
+            <strong>Check the answer</strong>
+            <ul>{useCase.sample.checks.map(check => <li key={check}>{check}</li>)}</ul>
+          </article>
+        </div>
+        <div className={styles.setup}>
+          <h3>Choose where to try it</h3>
+          <p>Already have an assistant? Copy the sample task into its chat. For a continuing role, review {startingBot?.name ?? "the Bot"}&apos;s instructions and limits first.</p>
+          <div className="button-row">
+            <Link className="button button-secondary" href={`/bots/${useCase.botSlugs[0]}`}>Set up {startingBot?.name ?? "the Bot"} <ArrowRight size={15} /></Link>
+            {starterTemplate && <>
+              <Link className="text-link" href={`/start/chatgpt/${starterTemplate.slug}`}>ChatGPT setup <ArrowRight size={15} /></Link>
+              <Link className="text-link" href={`/start/grok/${starterTemplate.slug}`}>Grok Bot setup <ArrowRight size={15} /></Link>
+            </>}
+            <Link className="text-link" href="/compare">Other apps <ArrowRight size={15} /></Link>
+          </div>
+          <small>These are setup guides, not automatic imports. Available tools and account access differ by app.</small>
+        </div>
+        {useCase.inspiredBy && <div className={styles.source}>
+          <p>Inspired by a use shared by <a href={useCase.inspiredBy.href} target="_blank" rel="noreferrer">{useCase.inspiredBy.creator} <ArrowSquareOut size={13} /></a>, found through <a href="https://botusecases.netlify.app/" target="_blank" rel="noreferrer">Bot Usecases, curated by KP</a>. The sample above is Bot Cabinet&apos;s own fictional example.</p>
+          <p>Community report; this adaptation has not been runtime-tested.</p>
+        </div>}
+      </section>}
+
+      <details className={styles.fullGuide} open={!useCase.sample}>
+      <summary className="shell">Full workflow and setup details</summary>
       <section className="content-section shell use-case-inputs">
         <div>
           <Eyebrow>Before you begin</Eyebrow>
@@ -95,7 +146,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         <div className="workflow-operating-heading">
           <div><Eyebrow>Operating guide</Eyebrow><h2 className="section-heading">Know when to run it and who leads</h2></div>
           <dl>
-            <div><dt>Lead Bot</dt><dd>{getStarterBot(operations.leadBotSlug)?.name}</dd></div>
+            <div><dt>Lead Bot</dt><dd>{getWorkflowBot(operations.leadBotSlug)?.name}</dd></div>
             <div><dt>Typical first run</dt><dd>{operations.estimatedTime}</dd></div>
             <div><dt>When to run it</dt><dd>{operations.cadence}</dd></div>
           </dl>
@@ -214,6 +265,7 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
         )}
         <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer" className="text-link">Read the official Bot Mode guide <ArrowRight size={15} /></a>
       </section>
+      </details>
     </main>
   );
 }

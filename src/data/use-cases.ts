@@ -1,3 +1,5 @@
+import type { JobCategory } from "./workflow-categories";
+
 export interface BotUseCase {
   slug: string;
   title: string;
@@ -13,6 +15,29 @@ export interface BotUseCase {
   setupNote?: string;
   optionalBotSlugs?: string[];
   adaptations?: WorkflowAdaptation[];
+  category?: JobCategory;
+  inspiredBy?: { creator: string; href: string };
+  sample?: { input: string; output: string; checks: string[] };
+}
+
+type CommunityJob = Pick<BotUseCase, "slug" | "title" | "audience" | "outcome" | "category" | "inspiredBy"> & {
+  botSlug: string; botName: string; imageSlug: string; request: string;
+  sample: NonNullable<BotUseCase["sample"]>;
+};
+
+function communityJob(job: CommunityJob): BotUseCase {
+  const { botSlug, botName, imageSlug, request, ...details } = job;
+  return {
+    ...details,
+    botSlugs: [botSlug],
+    image: { src: `/use-cases/${imageSlug}.webp`, alt: "" },
+    inputs: ["Start with the fictional records below", "For your own task, choose only the records you want the Bot to use", "Remove private details you do not need for the task"],
+    setupNote: `Use ${botName} with the task below. This is a workflow for an existing role, not a separate installed Bot.`,
+    steps: [{ bot: botName, action: request, output: job.outcome }],
+    humanDecisions: ["Check the result against the supplied records", "Approve any account connection, schedule or outside action separately", "Review anything before it is sent, submitted, purchased or published"],
+    firstTest: job.sample.checks.join(" "),
+    kickoffMessage: `${request} Use only the records I supply. Label missing or uncertain information. Do not connect accounts, browse, send, submit, publish, spend money or create a schedule. Return a draft for my review.`,
+  };
 }
 
 export type WorkflowAdaptationStatus =
@@ -33,6 +58,136 @@ export interface WorkflowAdaptation {
 }
 
 export const BOT_USE_CASES: BotUseCase[] = [
+  communityJob({
+    slug: "school-paperwork", title: "Keep up with school paperwork", category: "Home and family",
+    audience: "Parents sorting school emails, activity messages and forms",
+    outcome: "A short list of dates, things to bring and forms that need a parent's attention.",
+    botSlug: "planner", botName: "Planner", imageSlug: "study-and-certification-plan",
+    inspiredBy: { creator: "@jones_attila", href: "https://x.com/jones_attila/status/2109603126051237928" },
+    request: "Organize these school messages by child and date. Separate confirmed dates from unanswered questions, and identify any conflicting instructions",
+    sample: {
+      input: "Fictional records. S1: Mira's museum trip is October 22, 2026. Bring a packed lunch. Return the signed permission form by October 19. S2: Sam has choir on October 21 at 4 p.m.; pickup location not supplied. S3: A later message says Mira's trip date is still being confirmed; no new date is given.",
+      output: "Mira: permission form requested by October 19 (S1). Trip date unresolved: S1 gives October 22; S3 says it is still being confirmed. Check with the school before making travel plans. Packed lunch requested in S1. Sam: choir October 21 at 4 p.m. (S2); ask where pickup is.",
+      checks: ["Keep Mira and Sam separate.", "Flag the conflicting trip messages instead of choosing a date.", "Do not sign forms or add calendar events."],
+    },
+  }),
+  communityJob({
+    slug: "check-unbilled-work", title: "Find work missing from an invoice", category: "Business",
+    audience: "Consultants and small businesses checking completed work against invoices",
+    outcome: "An itemized list of possible missed charges, with calculations and questions to check before billing.",
+    botSlug: "client", botName: "Client Deliverables", imageSlug: "client-meeting-follow-up",
+    inspiredBy: { creator: "@CPUGenuis", href: "https://x.com/CPUGenuis/status/2108913906773074057" },
+    request: "Compare the work log, agreed rates and invoice. Show matched items, possible omissions and anything that needs confirmation. Do not treat a possible omission as an approved charge",
+    sample: {
+      input: "Fictional records. Agreement A1: approved support is $120 per hour; travel is included. Work log W1: Cedar client, 2 hours support on October 5 and 1 hour on October 6; 1 hour travel. Invoice I1: Cedar, October 5 support, $240. No approval record for the October 6 support is supplied.",
+      output: "October 5: 2 × $120 = $240, matched to I1. October 6: 1 × $120 = $120 potentially missing; approval is not documented, so confirm before billing. Travel: no extra charge under A1. This is a review list, not a new invoice.",
+      checks: ["Identify the potential $120 omission.", "Keep missing approval visible.", "Do not add a travel charge or send an invoice."],
+    },
+  }),
+  communityJob({
+    slug: "check-contractor-invoices", title: "Check a contractor's supplier invoices", category: "Business",
+    audience: "Small contractors comparing supplier bills with orders and delivery notes",
+    outcome: "A discrepancy list showing price differences, duplicate lines and items without delivery evidence.",
+    botSlug: "client", botName: "Client Deliverables", imageSlug: "client-proposal",
+    inspiredBy: { creator: "@mthomas_99og", href: "https://x.com/mthomas_99og/status/2108837576526164248" },
+    request: "Compare purchase orders, delivery notes and supplier invoices by item and quantity. Calculate discrepancies, distinguish missing evidence from a missing delivery, and prepare questions for the supplier",
+    sample: {
+      input: "Fictional records. PO1: 10 fixtures at $18 each, no other items. D1: 8 fixtures signed for. Invoice I1: 10 fixtures at $20 each plus a $15 delivery fee. No delivery-fee agreement is supplied.",
+      output: "Unit-price difference: 10 × ($20 − $18) = $20. Delivery evidence covers 8 of the 10 billed fixtures; receipt of the other 2 is unconfirmed, not proven absent. The $15 delivery fee has no supplied agreement. Ask about all three before approving payment.",
+      checks: ["Calculate the $20 price difference.", "Do not claim two fixtures were never delivered.", "Flag the fee without paying or disputing it automatically."],
+    },
+  }),
+  communityJob({
+    slug: "preserve-family-stories", title: "Organize family stories", category: "Home and family",
+    audience: "Families preserving interviews, voice recordings and photographs",
+    outcome: "A readable story and an index of names, places and uncertain dates, linked to the original material.",
+    botSlug: "writer", botName: "Writer", imageSlug: "weekly-newsletter",
+    inspiredBy: { creator: "@SK712494019616", href: "https://x.com/SK712494019616/status/2108870611627815292" },
+    request: "Organize a supplied family interview into a short account and a source index. Preserve the speaker's words, mark uncertain dates, and list questions for the family without inventing memories",
+    sample: {
+      input: "Fictional transcript T1: 'We moved to Tulsa around 1968, maybe 1969. Your uncle Ray drove the truck. I remember a yellow kitchen.' Photo note P1: Tulsa house, date unknown. The narrator's name and permission to share are not supplied.",
+      output: "T1 recalls a move to Tulsa around 1968 or 1969, with Uncle Ray driving and a yellow kitchen. The year remains uncertain. P1 is labeled Tulsa but has no date. Before sharing: identify the narrator, ask about the year, and obtain permission. Do not add dialogue or details to fill the gaps.",
+      checks: ["Keep both possible years.", "Preserve the source of each memory.", "Do not publish the recording or invent a family scene."],
+    },
+  }),
+  communityJob({
+    slug: "prepare-warranty-claim", title: "Prepare a warranty claim", category: "Home and family",
+    audience: "People gathering receipts and warranty terms for a faulty product",
+    outcome: "A claim draft with the purchase details, supporting records and missing information clearly marked.",
+    botSlug: "receipt", botName: "Receipt", imageSlug: "customer-request-response",
+    inspiredBy: { creator: "@JongeyB", href: "https://x.com/JongeyB/status/2108923116520947752" },
+    request: "Organize the purchase record and supplied warranty terms, identify missing claim details, and draft a factual warranty request. Do not promise eligibility or a refund",
+    sample: {
+      input: "Fictional records. R1: Alder desk lamp, $80, purchased September 1, 2026. W1: one-year warranty for manufacturing defects; proof of purchase required. N1: lamp stopped working October 10; cause unknown. No serial number or inspection is supplied.",
+      output: "The receipt records the purchase within W1's stated one-year period, but the cause is unknown, so coverage is not established. Draft: 'Please review this warranty request for my Alder desk lamp. It stopped working October 10. I can provide R1. Please confirm the claim steps and any serial number or inspection you need.' Not submitted.",
+      checks: ["Distinguish the warranty period from proof of coverage.", "Request missing details without inventing a defect.", "Do not submit a claim or arrange a return."],
+    },
+  }),
+  communityJob({
+    slug: "draft-product-listings", title: "Turn product records into draft listings", category: "Business",
+    audience: "Shop owners preparing product listings from stock records",
+    outcome: "Draft product titles and descriptions with uncertain matches and missing specifications flagged.",
+    botSlug: "writer", botName: "Writer", imageSlug: "website-content-update",
+    inspiredBy: { creator: "@DaFunkyBeatsX", href: "https://x.com/DaFunkyBeatsX/status/2109014180917354986" },
+    request: "Prepare product listing drafts from the supplied stock records. Keep each item separate and use only documented specifications. Ask about unclear barcode matches, prices and condition",
+    sample: {
+      input: "Fictional stock record P1: item B-12, blue ceramic mug, 300 ml, new, quantity 6. Photo note F1: a small mark is visible on one mug, cause unknown. No price, dishwasher rating or barcode match is supplied.",
+      output: "Draft title: Blue ceramic mug — 300 ml. Description: Blue ceramic mug, documented capacity 300 ml. Quantity recorded: 6. Before listing: check the marked mug's condition, set a price and confirm the item match. Dishwasher safety is unknown; leave that claim out.",
+      checks: ["Do not invent a price or dishwasher rating.", "Keep the condition discrepancy visible.", "Do not publish listings or change stock."],
+    },
+  }),
+  communityJob({
+    slug: "plan-home-project", title: "Keep a home renovation organized", category: "Home and family",
+    audience: "Households comparing quotes and tracking renovation decisions",
+    outcome: "A decision list, quote comparison and sequence of work with unresolved dependencies marked.",
+    botSlug: "planner", botName: "Planner", imageSlug: "project-launch-plan",
+    inspiredBy: { creator: "@Daniel__78", href: "https://x.com/Daniel__78/status/2108843040685109736" },
+    request: "Organize the supplied renovation notes into decisions, dependencies and a quote comparison. Flag exclusions and uncertain dates. Do not treat the plan as professional design or safety approval",
+    sample: {
+      input: "Fictional notes. Q1: cabinets $4,000, installation excluded, delivery date unknown. Q2: cabinets plus installation $5,500, delivery estimated November 10. N1: installer needs final measurements before ordering. Measurements have not been checked.",
+      output: "Q1 and Q2 are not like-for-like: installation is excluded from Q1. Confirm measurements first, obtain Q1's installation cost, then compare totals. November 10 is an estimate, not a confirmed work date. Do not order or book installers yet.",
+      checks: ["Preserve the different quote scopes.", "Put verified measurements before ordering.", "Do not book work or claim the plan meets building requirements."],
+    },
+  }),
+  communityJob({
+    slug: "turn-feedback-into-issues", title: "Turn customer feedback into useful bug reports", category: "Building",
+    audience: "Small software teams sorting complaints and feature requests",
+    outcome: "Draft issues that separate reported symptoms, reproduction evidence and feature requests.",
+    botSlug: "coder", botName: "Coder", imageSlug: "software-feature-build",
+    inspiredBy: { creator: "@emanueledpt", href: "https://x.com/emanueledpt/status/2108896139344838986" },
+    request: "Group the supplied customer feedback, preserve source references, and draft issues. Distinguish reports from reproduced failures and new features. Remove private details and ask before posting",
+    sample: {
+      input: "Fictional feedback. F1: 'Export fails after I choose CSV on my phone.' F2: 'Please add XLSX export.' F3: 'CSV download is blank on mobile.' No device, browser, logs or reproduction steps are supplied.",
+      output: "Possible related bug reports: F1 and F3, mobile CSV export; relationship unconfirmed and not reproduced. Request browser, device and steps. Separate feature request: XLSX export (F2). Prepare two drafts; do not open issues or claim a fix.",
+      checks: ["Keep a requested feature separate from a suspected bug.", "Do not call the failure reproduced.", "Do not post issues or change code."],
+    },
+  }),
+  communityJob({
+    slug: "practice-a-language", title: "Practice a real-life language conversation", category: "Learning",
+    audience: "Language learners who want short practice and useful corrections",
+    outcome: "A short role-play, corrections with explanations and a few items to review next time.",
+    botSlug: "professor", botName: "Professor", imageSlug: "study-and-certification-plan",
+    inspiredBy: { creator: "@jenyadyo", href: "https://x.com/jenyadyo/status/2109396532797526461" },
+    request: "Ask my target language and level, then run a short practical role-play one turn at a time. Explain corrections and finish with a short review. Do not claim to have assessed pronunciation from text",
+    sample: {
+      input: "Fictional learner: beginner Spanish. Scenario: ordering a coffee. My first answer is 'Yo querer un café, por favor.' Use text only and correct gently.",
+      output: "A polite option is 'Quisiera un café, por favor.' For a simpler version, 'Un café, por favor' works. 'Querer' is the infinitive; it does not fit after 'yo' here. Next turn: '¿Con leche o solo?' Pronunciation has not been assessed.",
+      checks: ["Stay at the requested level.", "Give a correction and a chance to respond.", "Do not claim fluency or pronunciation results from a text sample."],
+    },
+  }),
+  communityJob({
+    slug: "practice-customer-conversations", title: "Rehearse a difficult customer conversation", category: "Business",
+    audience: "People preparing for a complaint or a difficult client call",
+    outcome: "A short practice conversation and feedback tied to an approved response policy.",
+    botSlug: "call-coach", botName: "Call Coach", imageSlug: "client-meeting-follow-up",
+    inspiredBy: { creator: "@FirstDeployAI", href: "https://x.com/FirstDeployAI/status/2109048978759098826" },
+    request: "Role-play a dissatisfied customer one turn at a time using the supplied scenario and policy. Afterwards, assess listening, factual accuracy and promises. Do not contact the customer or invent authority to offer compensation",
+    sample: {
+      input: "Fictional scenario: a delivery is late. Policy P1: staff may check status and escalate; only a manager may approve refunds. Practice answer A1: 'I understand the delay is frustrating. I'll check the status. I guarantee a full refund today.'",
+      output: "A1 acknowledges the concern and offers a permitted status check. The guaranteed refund exceeds P1 and should be removed. Try: 'I understand the delay is frustrating. I'll check the status and ask a manager to review your refund request.' Next, practise responding when the customer asks for a firm arrival date you do not have.",
+      checks: ["Tie feedback to P1 and A1.", "Flag the unauthorized refund promise.", "Do not contact a real customer or promise a result."],
+    },
+  }),
   {
     slug: "personal-morning-newspaper",
     title: "Personal morning newspaper",

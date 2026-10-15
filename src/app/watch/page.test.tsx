@@ -18,7 +18,8 @@ describe("Agent Watch", () => {
   it("renders useful public guidance without exposing internal operations or analytics", () => {
     const html = renderToStaticMarkup(<AgentWatchPage />);
     expect(html).toContain("Directories, guides and releases");
-    expect(html).toContain("Browse the sources (23)");
+    expect(html).toContain("Browse the sources (24)");
+    expect(html).toContain("Bot Usecases");
     expect(html).toContain("Grok Bot Marketplace");
     expect(html).toContain("OpenBot plugins");
     expect(html).toContain("Hermes Agent releases");

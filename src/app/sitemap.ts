@@ -50,10 +50,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...GUIDES.map((guide) => `/guides/${guide.slug}`),
   ];
   const updatedRoutes = new Set([...SPECIALISTS.map(bot => `/bots/${bot.slug}`), ...CREW_PLANS.map(crew => `/crew-kits/${crew.slug}`), "/bots", "/crew-kits"]);
+  const jobReleaseRoutes = new Set(["", "/start", "/use-cases", ...BOT_USE_CASES.filter(job => job.sample).map(job => `/use-cases/${job.slug}`)]);
+  function modifiedOn(route: string) {
+    if (jobReleaseRoutes.has(route)) return "2026-10-15";
+    if (updatedRoutes.has(route)) return "2026-10-06";
+    if (["/start/dots", "/compare", "/watch"].includes(route)) return "2026-09-29";
+    return "2026-09-03";
+  }
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}/`.replace(`${baseUrl}//`, `${baseUrl}/`),
-    lastModified: new Date(updatedRoutes.has(route) ? "2026-10-06" : ["/start", "/start/dots", "/compare", "/watch"].includes(route) ? "2026-09-29" : "2026-09-03"),
+    lastModified: new Date(modifiedOn(route)),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.split("/").filter(Boolean).length === 1 ? 0.8 : 0.6,
   }));

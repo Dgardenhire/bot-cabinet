@@ -20,6 +20,7 @@ export default function StartPage() {
         <Eyebrow>Start here</Eyebrow>
         <h1>Get one useful result from a Bot</h1>
         <p>Choose the app you use. We&apos;ll help you set up a Bot, try one task, and check the result.</p>
+        <Link href="/use-cases" className="text-link">Need an idea? Browse jobs for home, work and learning <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
 
       <section className="shell start-choice-grid" aria-label="Choose where to use your Bot">

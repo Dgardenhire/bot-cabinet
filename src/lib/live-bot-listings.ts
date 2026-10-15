@@ -2,6 +2,7 @@ export const LIVE_BOT_SOURCES = [
   { name: "Grok Bot Marketplace", url: "https://x.ai/bot/marketplace", format: "official-grok-html" },
   { name: "My Bot Farm", url: "https://mybot.farm/api/stalls?sort=newest", format: "json" },
   { name: "GrokHub", url: "https://www.grokhub.io/feed", format: "json" },
+  { name: "Bot Usecases", url: "https://botusecases.netlify.app/usecases.json", format: "bot-usecases" },
   { name: "BotDirectory", url: "https://botdirectory.ai/updates.json", format: "botdirectory" },
   { name: "GrokBots.best", url: "https://grokbots.best/api/bots", format: "grokbots-best" },
   { name: "grokbot.dev", url: "https://grokbot.dev/rss.xml", format: "rss" },
@@ -144,6 +145,39 @@ export function parseGrokHubListings(value: unknown): LiveBotListing[] {
       name, job, creator: shortText(origin?.label, 80) ?? "Creator not listed",
       source: "GrokHub" as const, sourceUrl: url, originalUrl, listedAt,
       kind: "Bot" as const,
+    }];
+  });
+}
+
+export function parseBotUsecasesListings(value: unknown): LiveBotListing[] {
+  if (!Array.isArray(value)) return [];
+  return value.slice(0, 1000).flatMap((raw) => {
+    const item = object(raw);
+    const id = typeof item?.id === "number" && Number.isSafeInteger(item.id) && item.id >= 0
+      ? String(item.id) : shortText(item?.id, 100);
+    const name = shortText(item?.title, 120);
+    const job = shortText(item?.description, 500);
+    const url = sourceUrl(item?.sourceUrl, "x.com");
+    const listedAt = date(item?.date);
+    if (!id || !/^[a-z0-9_-]+$/i.test(id) || !name || !job || !url) return [];
+    const links = Array.isArray(item?.links) ? item.links : [];
+    let originalUrl: string | undefined;
+    for (const rawLink of links) {
+      const link = sourceUrl(object(rawLink)?.url, "x.ai");
+      if (!link) continue;
+      const path = new URL(link).pathname;
+      if (/^\/bot\/marketplace\/bots\/[a-z0-9-]+\/?$/i.test(path) || /^\/bot\/[a-z0-9_-]{12,}\/?$/i.test(path)) {
+        originalUrl = link;
+        break;
+      }
+    }
+    return [{
+      id: `bot-usecases:${id}`, name, job,
+      creator: shortText(item?.sourceHandle, 80) ?? "Creator not listed",
+      source: "Bot Usecases" as const, sourceUrl: url,
+      ...(originalUrl ? { originalUrl } : {}),
+      ...(listedAt ? { listedAt } : {}),
+      kind: "Workflow" as const,
     }];
   });
 }
