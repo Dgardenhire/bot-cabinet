@@ -247,7 +247,14 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
           <Eyebrow>Set it up in Hermes Desktop</Eyebrow>
           <h2>{isSingleBot ? "Begin with one Bot and one manual run" : "Begin with individual chats, then add a group when the handoffs work"}</h2>
         </div>
-        {isSingleBot ? (
+        {isSingleBot && !starterTemplate ? (
+          <ol>
+            <li>Open <Link href={`/bots/${useCase.botSlugs[0]}`}>{startingBot?.name ?? "the Bot"}&apos;s page</Link>. Copy its role instructions into a new Bot and review its limits. This specialist has no Hermes profile archive.</li>
+            <li>Keep outside accounts and schedules disconnected for the first test.</li>
+            <li>Run the complete sample task in its chat and check the answer against the supplied records.</li>
+            <li>Approve any additional access or outside action separately.</li>
+          </ol>
+        ) : isSingleBot ? (
           <ol>
             <li>Open the linked starter page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.</li>
             <li>Review the profile’s SOUL.md, Bot Passport, and requested access.</li>

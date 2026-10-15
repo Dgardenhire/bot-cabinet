@@ -1,4 +1,5 @@
 import { renderToStaticMarkup } from "react-dom/server";
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { BOT_USE_CASES } from "@/data/use-cases";
 import UseCasesPage from "./page";
@@ -40,5 +41,10 @@ describe("job-first workflow browsing", () => {
     expect(html).toContain("Call Coach");
     expect(html).toContain('href="/bots/call-coach"');
     expect(html).not.toContain("/start/chatgpt/call-coach");
+    expect(html).toContain("Copy its role instructions into a new Bot");
+    expect(html).not.toContain(".tar.gz profile");
+    const download = readFileSync("public/downloads/use-cases/practice-customer-conversations.md", "utf8");
+    expect(download).toContain("Copy its role instructions into a new Bot");
+    expect(download).not.toContain(".tar.gz profile");
   });
 });

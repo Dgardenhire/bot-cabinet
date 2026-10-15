@@ -88,7 +88,7 @@ If the result is incomplete, mark the missing information and ask the same Bot t
 
 ## Hermes Desktop setup
 
-1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.
-2. Review the profile's SOUL.md, Bot Passport, and requested access.
-3. Run the complete request in that Bot's chat with low-risk material and review the result.
-4. Add a schedule, outside connection, or optional specialist only after the manual version works.
+1. Open https://botcabinet.com/bots/call-coach/. Copy its role instructions into a new Bot and review its limits. This specialist has no Hermes profile archive.
+2. Keep outside accounts and schedules disconnected for the first test.
+3. Run the complete sample task in its chat and check the answer against the supplied records.
+4. Approve any additional access or outside action separately.
