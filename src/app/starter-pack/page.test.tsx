@@ -37,3 +37,17 @@ describe("starter pack language", () => {
   expect(html).toMatch(/href="\/starter-pack\/?"/);
   expect(html).not.toMatch(/ten Bot setups|one useful Bot/);
  });
+
+it("uses the starter pack artwork with its actual dimensions for social previews", () => {
+ const image = "https://ai-seminar.linchpin.studio/images/bot-cabinet-starter-pack.jpg";
+ expect(metadata.openGraph.images).toEqual([{
+  url: image,
+  width: 1440,
+  height: 810,
+  alt: "Bot Cabinet Starter Pack: 10 practical AI workflows to try, with a dark teal field guide and ivory workflow cards.",
+ }]);
+ expect(metadata.twitter).toMatchObject({
+  card: "summary_large_image",
+  images: [image],
+ });
+});
