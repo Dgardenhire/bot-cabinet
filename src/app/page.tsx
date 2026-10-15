@@ -22,9 +22,9 @@ const pathways = [
     green: true,
   },
   {
-    title: "Build a Bot Crew",
-    tag: "Crews & Kits",
-    note: "Run one workflow or a standing team",
+    title: "Find a job to try",
+    tag: "Practical jobs",
+    note: "See an example and copy a first task",
     href: "/use-cases",
     image: "/atelier/mechanic.jpg",
     green: false,

@@ -299,6 +299,8 @@
           "client"
         ],
         "workflows": [
+          "preserve-family-stories",
+          "draft-product-listings",
           "weekly-newsletter",
           "social-media-content-set",
           "website-content-update",
@@ -507,6 +509,8 @@
           "client"
         ],
         "workflows": [
+          "school-paperwork",
+          "plan-home-project",
           "client-meeting-follow-up",
           "client-proposal",
           "grant-opportunity-review",
@@ -617,6 +621,8 @@
           "editor"
         ],
         "workflows": [
+          "check-unbilled-work",
+          "check-contractor-invoices",
           "client-meeting-follow-up",
           "client-proposal",
           "operations-status-report",
@@ -718,6 +724,7 @@
           "ops"
         ],
         "workflows": [
+          "turn-feedback-into-issues",
           "website-content-update"
         ],
         "crewKits": [
@@ -909,6 +916,7 @@
           "planner"
         ],
         "workflows": [
+          "practice-a-language",
           "study-and-certification-plan"
         ],
         "crewKits": [
@@ -1960,7 +1968,9 @@
           "researcher",
           "writer"
         ],
-        "workflows": [],
+        "workflows": [
+          "prepare-warranty-claim"
+        ],
         "crewKits": [],
         "proofCases": []
       },

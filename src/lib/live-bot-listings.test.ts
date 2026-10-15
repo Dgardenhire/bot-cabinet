@@ -1,7 +1,89 @@
-import { describe, expect, it } from "vitest";
-import { newestListings, parseBotDirectoryListings, parseGitHubReleases, parseGitHubRepositorySearch, parseGitLabProjects, parseGrokBotDevFeed, parseGrokBotFieldNotes, parseGrokBotsBestListings, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, parseOfficialGrokMarketplaceListings, parseOfficialGrokMarketplacePage, parseReallyBotListings, type LiveBotSourceName } from "./live-bot-listings";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { AGENT_WATCH_SOURCES } from "../data/agent-watch-sources";
+import { loadLiveBotListings } from "../../supabase/functions/agent-watch/live-listings";
+import { loadLiveBotListings as loadServerLiveBotListings } from "./live-bot-listings-server";
+import { LIVE_BOT_SOURCES, newestListings, parseBotDirectoryListings, parseBotUsecasesListings, parseGitHubReleases, parseGitHubRepositorySearch, parseGitLabProjects, parseGrokBotDevFeed, parseGrokBotFieldNotes, parseGrokBotsBestListings, parseGrokHubListings, parseMuseAtWorkConfig, parseMuseAtWorkListings, parseMyBotFarmListings, parseOfficialGrokMarketplaceListings, parseOfficialGrokMarketplacePage, parseReallyBotListings, type LiveBotSourceName } from "./live-bot-listings";
+
+const reportedUse = {
+  id: 2, title: "Client meeting follow-up", description: "A creator reports preparing follow-ups from meeting notes.",
+  sourceHandle: "@maker", sourceUrl: "https://x.com/maker/status/2108825299420926295",
+  date: "2026-10-10T07:41:46+00:00", image: "assets/media/example.webp", links: [],
+};
+
+afterEach(() => { vi.unstubAllGlobals(); });
 
 describe("live directory listings", () => {
+  it("preserves the creator, original post and source date of a reported use without inventing a native template", () => {
+    const items = parseBotUsecasesListings([reportedUse]);
+    expect(items).toEqual([{
+      id: "bot-usecases:2", name: reportedUse.title, job: reportedUse.description,
+      creator: "@maker", source: "Bot Usecases", sourceUrl: reportedUse.sourceUrl,
+      listedAt: "2026-10-10T07:41:46.000Z", kind: "Workflow",
+    }]);
+    expect(items[0]).not.toHaveProperty("originalUrl");
+    expect(items[0]).not.toHaveProperty("image");
+    expect(items[0]).not.toHaveProperty("tested");
+  });
+
+  it("retains an explicitly supplied native template link but not generic or unsafe links", () => {
+    const links = [
+      { url: "javascript:alert(1)", label: "Bad" },
+      { url: "https://x.ai.evil.example/bot/marketplace/bots/fake", label: "Wrong host" },
+      { url: "https://x.ai/bot/guides", label: "Guide" },
+      { url: "https://x.ai/bot/marketplace/bots/pg", label: "Template" },
+    ];
+    expect(parseBotUsecasesListings([{ ...reportedUse, links }])[0]).toMatchObject({
+      sourceUrl: reportedUse.sourceUrl, originalUrl: "https://x.ai/bot/marketplace/bots/pg", kind: "Workflow",
+    });
+    expect(parseBotUsecasesListings([{ ...reportedUse, links: links.slice(0, 3) }])[0].originalUrl).toBeUndefined();
+    expect(parseBotUsecasesListings([{ ...reportedUse, links: [{ url: "https://x.ai/bot/x3G0dAD1zxRXa5pdHw9NQ", label: "Bot" }] }])[0].originalUrl)
+      .toBe("https://x.ai/bot/x3G0dAD1zxRXa5pdHw9NQ");
+  });
+
+  it("rejects invalid source records and leaves missing or invalid source dates unknown", () => {
+    const invalidUrls = ["javascript:alert(1)", "http://x.com/maker/status/123", "https://x.com.evil.example/maker/status/123", "not a url"];
+    expect(parseBotUsecasesListings(invalidUrls.map((sourceUrl) => ({ ...reportedUse, sourceUrl })))).toEqual([]);
+    expect(parseBotUsecasesListings([{ ...reportedUse, id: null }, { ...reportedUse, title: " " }, { ...reportedUse, description: null }])).toEqual([]);
+    expect(parseBotUsecasesListings({ items: [reportedUse] })).toEqual([]);
+    for (const date of [undefined, "not a date", "2999-01-01"]) {
+      expect(parseBotUsecasesListings([{ ...reportedUse, date }])[0].listedAt).toBeUndefined();
+    }
+  });
+
+  it("adds Bot Usecases without dropping existing live sources or letting its volume dominate selection", () => {
+    expect(LIVE_BOT_SOURCES.find((source) => source.name === "Bot Usecases")).toMatchObject({
+      url: "https://botusecases.netlify.app/usecases.json", format: "bot-usecases",
+    });
+    expect(AGENT_WATCH_SOURCES.find((source) => source.name === "Bot Usecases")).toMatchObject({
+      href: "https://botusecases.netlify.app/", coverage: "Live listings",
+    });
+    const items = LIVE_BOT_SOURCES.flatMap((source) => Array.from({ length: source.name === "Bot Usecases" ? 100 : 2 }, (_, index) => ({
+      id: `${source.name}:${index}`, name: `${source.name} ${index}`, job: "A reported job", creator: "Maker", source: source.name,
+      sourceUrl: source.url, listedAt: source.name === "Bot Usecases" ? "2026-10-10T00:00:00.000Z" : "2026-10-09T00:00:00.000Z", kind: "Workflow" as const,
+    })));
+    const selected = newestListings(items, LIVE_BOT_SOURCES.length * 2, 2);
+    expect(new Set(selected.map((item) => item.source))).toEqual(new Set(LIVE_BOT_SOURCES.map((source) => source.name)));
+    expect(selected.filter((item) => item.source === "Bot Usecases")).toHaveLength(2);
+  });
+
+  it.each([
+    ["edge", loadLiveBotListings],
+    ["server", loadServerLiveBotListings],
+  ] as const)("loads reported uses through the %s feed and reports a source failure rather than an invented fresh item", async (_name, load) => {
+    const fetchMock = vi.fn(async (input: string | URL | Request) => new Response(JSON.stringify(
+      String(input) === "https://botusecases.netlify.app/usecases.json" ? [reportedUse] : [],
+    ), { headers: { "Content-Type": "application/json" } }));
+    vi.stubGlobal("fetch", fetchMock);
+    const feed = await load();
+    expect(feed.sources.find((source) => source.name === "Bot Usecases")).toEqual({ name: "Bot Usecases", ok: true, count: 1 });
+    expect(feed.items[0]).toMatchObject({ source: "Bot Usecases", listedAt: "2026-10-10T07:41:46.000Z" });
+    expect(feed.items[0].listedAt).not.toBe(feed.checkedAt);
+    fetchMock.mockImplementation(async () => new Response("Unavailable", { status: 503 }));
+    const unavailable = await load();
+    expect(unavailable.sources.find((source) => source.name === "Bot Usecases")).toEqual({ name: "Bot Usecases", ok: false, count: 0 });
+    expect(unavailable.items).toEqual([]);
+  });
+
   it("accepts bounded official Grok marketplace listings without inventing a date", () => {
     const items = parseOfficialGrokMarketplaceListings({ marketplace: { available: true, listings: [
       { id: "useful-bot", name: "Useful Bot", job: "Does one useful job.", creator: "A Creator", sourceUrl: "https://x.ai/bot/marketplace/bots/useful-bot" },

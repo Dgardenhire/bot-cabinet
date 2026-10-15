@@ -19,6 +19,7 @@ async function loadTsModule(filePath) {
 
 const useCaseModule = await loadTsModule(sourcePath);
 const operationsModule = await loadTsModule(operationsSourcePath);
+const starterModule = await loadTsModule(path.join(projectRoot, "src/data/starter-bots.ts"));
 const useCases = useCaseModule.BOT_USE_CASES;
 
 await mkdir(outputRoot, { recursive: true });
@@ -26,6 +27,7 @@ await mkdir(outputRoot, { recursive: true });
 for (const useCase of useCases) {
   const operations = operationsModule.getUseCaseOperations(useCase);
   const isSingleBot = useCase.botSlugs.length === 1;
+  const hasStarterArchive = !!starterModule.getStarterBot(useCase.botSlugs[0]);
   const lines = [
     `# ${useCase.title}`,
     "",
@@ -33,6 +35,27 @@ for (const useCase of useCases) {
     "",
     `Result: ${useCase.outcome}`,
     "",
+    ...(useCase.sample ? [
+      "## Try a sample first",
+      "",
+      "Illustrative example, not a recorded Bot run. This adaptation has not been runtime-tested.",
+      "",
+      "### Complete first request",
+      "",
+      useCase.kickoffMessage,
+      "",
+      useCase.sample.input,
+      "",
+      "### Example result",
+      "",
+      useCase.sample.output,
+      "",
+      "### Check the answer",
+      "",
+      ...useCase.sample.checks.map(item => `- ${item}`),
+      "",
+      ...(useCase.inspiredBy ? [`Inspired by a community use shared by ${useCase.inspiredBy.creator}: ${useCase.inspiredBy.href}`, "Found through Bot Usecases (https://botusecases.netlify.app/), curated by KP. This fictional sample was written by Bot Cabinet.", ""] : []),
+    ] : []),
     "## Operating guide",
     "",
     `- **When to use it:** ${operations.whenToUse}`,
@@ -112,7 +135,12 @@ for (const useCase of useCases) {
     ] : []),
     "## Hermes Desktop setup",
     "",
-    ...(isSingleBot ? [
+    ...(isSingleBot && !hasStarterArchive ? [
+      `1. Open https://botcabinet.com/bots/${useCase.botSlugs[0]}/. Copy its role instructions into a new Bot and review its limits. This specialist has no Hermes profile archive.`,
+      "2. Keep outside accounts and schedules disconnected for the first test.",
+      "3. Run the complete sample task in its chat and check the answer against the supplied records.",
+      "4. Approve any additional access or outside action separately.",
+    ] : isSingleBot ? [
       "1. Open the linked Bot's page, download its .tar.gz profile, and import it from the Profiles screen in Hermes Desktop.",
       "2. Review the profile's SOUL.md, Bot Passport, and requested access.",
       "3. Run the complete request in that Bot's chat with low-risk material and review the result.",

@@ -2,6 +2,7 @@ import {
   LIVE_BOT_SOURCES,
   newestListings,
   parseBotDirectoryListings,
+  parseBotUsecasesListings,
   parseGitHubReleases,
   parseGitHubRepositorySearch,
   parseGitLabProjects,
@@ -44,6 +45,9 @@ async function fetchSource(source: LiveBotSource): Promise<LiveBotListing[]> {
   }
   if (source.format === "botdirectory") {
     return parseBotDirectoryListings(await responseJson(await fetch(source.url, { signal, headers: { Accept: "application/json" } }), source.name));
+  }
+  if (source.format === "bot-usecases") {
+    return parseBotUsecasesListings(await responseJson(await fetch(source.url, { signal, headers: { Accept: "application/json" } }), source.name));
   }
   if (source.format === "grokbots-best") {
     return parseGrokBotsBestListings(await responseJson(await fetch(source.url, { signal, headers: { Accept: "application/json" } }), source.name));

@@ -10,6 +10,7 @@ export const AGENT_WATCH_SOURCES: AgentWatchSource[] = [
   { name: "Grok Bot guides and use cases", href: "https://x.ai/bot/guides", group: "Official marketplaces", coverage: "Guide available" },
   { name: "My Bot Farm", href: "https://mybot.farm/catalog", group: "Bot directories", coverage: "Live listings" },
   { name: "GrokHub", href: "https://www.grokhub.io/", group: "Bot directories", coverage: "Live listings" },
+  { name: "Bot Usecases", href: "https://botusecases.netlify.app/", group: "Bot directories", coverage: "Live listings" },
   { name: "BotDirectory", href: "https://botdirectory.ai/", group: "Bot directories", coverage: "Live listings" },
   { name: "GrokBots.best", href: "https://grokbots.best/", group: "Bot directories", coverage: "Live listings" },
   { name: "grokbot.dev", href: "https://grokbot.dev/marketplace/", group: "Bot directories", coverage: "Live listings" },
