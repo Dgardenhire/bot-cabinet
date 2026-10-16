@@ -77,7 +77,7 @@ export function AgentComparison({ agents, initialSelection = defaultComparison }
             <tr><th scope="row">Check before using</th>{selected.map((agent) => <td key={agent.name}><span className={styles.mobileLabel} aria-hidden="true">Check before using</span>{agent.caution}</td>)}</tr>
           </tbody>
           <tfoot>
-            <tr><th scope="row" className="sr-only">Guides and sources</th>{selected.map((agent) => <td key={agent.name}>
+            <tr><th scope="row" className={styles.corner}><span className="sr-only">Guides and sources</span></th>{selected.map((agent) => <td key={agent.name}>
               {agent.path.startsWith("/") ? <Link href={agent.path} className={styles.guideLink}>Setup guide <ArrowRight size={14} aria-hidden="true" /></Link> : null}
               <a href={agent.sourceUrl} target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>{agent.source} <ArrowUpRight size={13} aria-hidden="true" /></a>
             </td>)}</tr>
