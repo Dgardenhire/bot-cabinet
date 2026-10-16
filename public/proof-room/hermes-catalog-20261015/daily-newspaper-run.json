@@ -1,0 +1,46 @@
+{
+  "bot": "daily-newspaper",
+  "date": "2026-10-16T03:12:36.511010+00:00",
+  "commit": "35d75fbe66c18e3e45c8340825b7d4d390a04c0d",
+  "sourceFiles": [
+    {
+      "path": "optional-skills/bots/daily-newspaper/SKILL.md",
+      "sha256": "d9ccd4a772963244fe1136263be33c4f8cfbc5ec085b817997d1cf1e8a9bc2a7",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/daily-newspaper/SKILL.md"
+    },
+    {
+      "path": "optional-skills/bots/daily-newspaper/references/sample-input.md",
+      "sha256": "9400aae167188b5a36ab1f707cfaa6e489829fa55e37f6cb2939ae67311c692b",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/daily-newspaper/references/sample-input.md"
+    },
+    {
+      "path": "optional-skills/bots/daily-newspaper/references/expected-output-rubric.md",
+      "sha256": "e8fa6c1abee13a1f92e0eb1f34e657bfdd77c56f46e6c348f0328f790754e8b2",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/daily-newspaper/references/expected-output-rubric.md"
+    },
+    {
+      "path": "optional-skills/bots/daily-newspaper/templates/edition.md",
+      "sha256": "3165aaa85bd4d0d15371320068cfa7993dbf8e0ac567c3782a8c84719d0122e4",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/daily-newspaper/templates/edition.md"
+    },
+    {
+      "path": "bot-catalog/daily-newspaper.yaml",
+      "sha256": "ba334e7fb5d014c1de7404b1d03c6279d5b14fb6ad44d781bb8738f24c0c56a0",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/bot-catalog/daily-newspaper.yaml"
+    }
+  ],
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK with native skills.auto_load",
+  "roleLoaded": true,
+  "completed": true,
+  "apiCalls": 1,
+  "outputCharacters": 812,
+  "inputTokens": 4738,
+  "outputTokens": 1669,
+  "costStatus": "estimated",
+  "estimatedCostUsd": 0.0,
+  "reviewStatus": "awaiting-answer-review",
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "humanApproved": false
+}

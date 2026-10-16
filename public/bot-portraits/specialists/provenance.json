@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "ad-spend-review",
+    "generator": "OpenAI built-in image generation",
+    "source": "ad-spend-review-original.png",
+    "sourceSha256": "31748b0838692cafaddc01651f09d0ecd1097bd4497effcef48544a4b86ba243",
+    "image": "/bot-portraits/specialists/ad-spend-review.webp",
+    "imageSha256": "82741ee3ae54e094c0cacb25dd9ac305be09d22280c4bd40db132e8008f257e5"
+  },
+  {
+    "slug": "bot-porter",
+    "generator": "OpenAI built-in image generation",
+    "source": "bot-porter-original.png",
+    "sourceSha256": "b93221792a0dd556f8c48f73580eaf1210a8f39125fd5789b93ea6d3a53cd0dc",
+    "image": "/bot-portraits/specialists/bot-porter.webp",
+    "imageSha256": "67d0a880002ad281c3441fb54507d0ceba8f9442be9e210881b6deb2d199d5b7"
+  },
+  {
+    "slug": "bug-examiner",
+    "generator": "OpenAI built-in image generation",
+    "source": "bug-examiner-original.png",
+    "sourceSha256": "8b4eccbb8a43e2f49b375e3ec8fc64c21b2ac144a269903c2d26a09b23016298",
+    "image": "/bot-portraits/specialists/bug-examiner.webp",
+    "imageSha256": "7a1c2c3a61144733c0856b675f0caba2e0b1b7aa16c52ebf6ec9504926bb6713"
+  },
+  {
+    "slug": "call-coach",
+    "generator": "OpenAI built-in image generation",
+    "source": "call-coach-background-v2.png",
+    "sourceSha256": "5fd96c5abfd9bb390680a349d7b5fbd6bb364193e30352660f122e4b06eee904",
+    "image": "/bot-portraits/specialists/call-coach.webp",
+    "imageSha256": "2a06dec5a962562afb2aa0804d660995fed956be18ae536c723c205cb6e56c0a"
+  },
+  {
+    "slug": "campaign-builder",
+    "generator": "OpenAI built-in image generation",
+    "source": "campaign-builder-background-v2.png",
+    "sourceSha256": "6721e2297c942a9dc13372bdd514bae5452f238d16db3fc16f4620e43d33ba33",
+    "image": "/bot-portraits/specialists/campaign-builder.webp",
+    "imageSha256": "0bf53d73b7c66c4420bc06164eee10b9ec5a6a44d08d9893aec6336869f95a42"
+  },
+  {
+    "slug": "change-reviewer",
+    "generator": "OpenAI built-in image generation",
+    "source": "change-reviewer-original.png",
+    "sourceSha256": "f750e5a2d53b93b11a7256152f8e6693fd41411a8fe536666457169cb81efbd7",
+    "image": "/bot-portraits/specialists/change-reviewer.webp",
+    "imageSha256": "2564303df965d23441aef38264e4dd0cf4c02cd3ef47ede293dde0c47583894a"
+  },
+  {
+    "slug": "clip-planner",
+    "generator": "OpenAI built-in image generation",
+    "source": "clip-planner-original.png",
+    "sourceSha256": "8d78d0d977afac99c37b5becfa15d54a8bb3375b1a4941d0ef3bf24fedbf9b6d",
+    "image": "/bot-portraits/specialists/clip-planner.webp",
+    "imageSha256": "a674a9f3af1da15498de565366e9bf3b367e06441c9fa4ffaf87e12ec1696b98"
+  },
+  {
+    "slug": "competitor-brief",
+    "generator": "OpenAI built-in image generation",
+    "source": "competitor-brief-original.png",
+    "sourceSha256": "983826cf0784bb39b897ec7746a8cf3cd3e0a567823b01efe364166186cd1572",
+    "image": "/bot-portraits/specialists/competitor-brief.webp",
+    "imageSha256": "19b7d1783cf7d487576c4e58e2135a2479d73c18e988af6e7afd01611e025603"
+  },
+  {
+    "slug": "deal-reviewer",
+    "generator": "OpenAI built-in image generation",
+    "source": "deal-reviewer-original.png",
+    "sourceSha256": "7fc4b4f8545885ba74a0836140afa4c8a75daec596ceebd4ec184cbdfedbad43",
+    "image": "/bot-portraits/specialists/deal-reviewer.webp",
+    "imageSha256": "2feda6916e8c2dd28ee36a214ac450490f3032db475f87dc8c201d85f63a818a"
+  },
+  {
+    "slug": "habit-coach",
+    "generator": "OpenAI built-in image generation",
+    "source": "habit-coach-background-v2.png",
+    "sourceSha256": "7d4585f689f2bd6fa90ad00472a5b05c324280ad4612fd405abed92074eaa154",
+    "image": "/bot-portraits/specialists/habit-coach.webp",
+    "imageSha256": "549fa99d2ccb090f79da5b4d60a819c6c323b8a8b4e31542ec550f955866be17"
+  },
+  {
+    "slug": "lead-qualifier",
+    "generator": "OpenAI built-in image generation",
+    "source": "lead-qualifier-original.png",
+    "sourceSha256": "82146efe330b474cdee2fee6d8e161ccfed32781551480eb495af3482c96a4d0",
+    "image": "/bot-portraits/specialists/lead-qualifier.webp",
+    "imageSha256": "b4bcaf8bfab6076b269ce017911eacb6c2955a3eb115c2fb7a112ab89ee501c2"
+  },
+  {
+    "slug": "outreach-coordinator",
+    "generator": "OpenAI built-in image generation",
+    "source": "outreach-coordinator-background-v2.png",
+    "sourceSha256": "da9c5eefbff80898ff819e22020303a0c3b9b0178494fdc98b9cc791423baf5f",
+    "image": "/bot-portraits/specialists/outreach-coordinator.webp",
+    "imageSha256": "bf03e47be29c789fff24c12710406bea4a5b1cc2f655fa3c732fd98f6044096a"
+  },
+  {
+    "slug": "pipeline-review",
+    "generator": "OpenAI built-in image generation",
+    "source": "pipeline-review-background-v2.png",
+    "sourceSha256": "5aede6a462a60ed12e1250946ae2038ecb54717506145f5c22fb20af6b752635",
+    "image": "/bot-portraits/specialists/pipeline-review.webp",
+    "imageSha256": "b1563a6223eda18a6a272245445a4265e059eead1256f17bb4508abcf951fdc2"
+  },
+  {
+    "slug": "pitch-coach",
+    "generator": "OpenAI built-in image generation",
+    "source": "pitch-coach-original.png",
+    "sourceSha256": "9a70ecc83315ca70af608ceddbf9a531b3a9c6c20a3b8ccfdc6fdf285f00a8ec",
+    "image": "/bot-portraits/specialists/pitch-coach.webp",
+    "imageSha256": "9fccff083636285cd8d6ad4e1ac9cbe8a9af12fc5c2838f961552408a6f026f3"
+  },
+  {
+    "slug": "search-presence",
+    "generator": "OpenAI built-in image generation",
+    "source": "search-presence-original.png",
+    "sourceSha256": "9cdd13207c9eb9b9e515b16d30f1fb51079f1396fa694e3ad9da95dbdeb2daed",
+    "image": "/bot-portraits/specialists/search-presence.webp",
+    "imageSha256": "c2ab3ad4606dda2e4993ee1e08f919a2fbbc684808cfe5e8d1041be48cfc73b7"
+  },
+  {
+    "slug": "skill-builder",
+    "generator": "OpenAI built-in image generation",
+    "source": "skill-builder-original.png",
+    "sourceSha256": "b5c3a637d08e5e50a873f0c2e6c35d5a0a2803530ed89914cc7bad1e086dd1fc",
+    "image": "/bot-portraits/specialists/skill-builder.webp",
+    "imageSha256": "796e02f9b9aa68600227e1a8fda6f64d009fdd8947a3d4a511e998cb17208c63"
+  },
+  {
+    "slug": "subscription-review",
+    "generator": "OpenAI built-in image generation",
+    "source": "subscription-review-original.png",
+    "sourceSha256": "68be1fca1bb4ebb0456d28b06d3588287aa30c7581e659890a4e0994bb2056c5",
+    "image": "/bot-portraits/specialists/subscription-review.webp",
+    "imageSha256": "098aab397b32a81b4b40914dc2456b701e3bb576f7b855431e64935ef25e3a48"
+  },
+  {
+    "slug": "visual-producer",
+    "generator": "OpenAI built-in image generation",
+    "source": "visual-producer-original.png",
+    "sourceSha256": "92397aa6b719eb9808e5bd7e2eb8f157056491fcd5becb8a45cf9f7056afb02e",
+    "image": "/bot-portraits/specialists/visual-producer.webp",
+    "imageSha256": "ed22045adfe50f18f77e1f3e652cbd33ac9fef3fb8b2bb4ce941932894a4cbfe"
+  }
+]

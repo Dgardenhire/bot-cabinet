@@ -155,6 +155,8 @@ export function buildLlmsText(catalog: PublicBotCatalog) {
     "",
     "## Machine-readable catalog",
     "",
+    `- [Agent usage guide](${BOT_CABINET_ORIGIN}/agents.md): Discovery, download verification, setup and user approval.`,
+    `- [Complete resource index](${BOT_CABINET_ORIGIN}/api/v1/resources.json): All starter Bots, manual specialists, Crew Kits and crew plans, with file hashes, setup type and scoped test status.`,
     `- [Bot Pack 2.0 index](${BOT_CABINET_ORIGIN}/api/v2/index.json): Current V2 entry points.`,
     `- [Bot Pack 2.0 catalog](${BOT_CABINET_ORIGIN}/api/v2/bots.json): Current V2 definitions.`,
     `- [Bot Pack 2.0 schema](${BOT_CABINET_ORIGIN}/api/v2/portable-bot-pack.schema.json): V2 validation schema.`,

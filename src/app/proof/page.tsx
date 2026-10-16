@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle, ClockCounterClockwise, Flask, WarningCircle, X
 import { Eyebrow } from "@/components/ui";
 import { PROOF_ROOM_DEMOS, PROOF_STATE_NAMES } from "@/data/proof-room";
 import { buildPageMetadata } from "@/lib/metadata";
+import { CATALOG_TASK_TRIALS, CATALOG_TRIAL_PATH } from "@/data/catalog-task-trials";
 
 export const metadata = buildPageMetadata({
   title: "Test Records · Bot Cabinet",
@@ -89,6 +90,19 @@ export default function ProofRoomPage() {
             A passed fixture is test evidence, not real-world proof. Missing and failed records stay
             visible so a green label cannot hide what was never tested.
           </p>
+        </div>
+      </section>
+
+      <section className="content-section shell proof-room-library" aria-labelledby="catalog-trials-title">
+        <div className="proof-room-library-heading">
+          <div><Eyebrow>October 15, 2026 · Hermes catalog skills</Eyebrow><h2 id="catalog-trials-title" className="section-heading">Four first-task trials</h2></div>
+          <p>The contributed skills ran through Hermes’s skill loader with fictional inputs. Codex checked the answers against the contributed checklists. These are first-answer tests, not Desktop installation, connected-account tests or human approval.</p>
+        </div>
+        <div className="content-grid-2">
+          {CATALOG_TASK_TRIALS.map(trial => <article className="content-card" key={trial.slug}>
+            <Eyebrow>{trial.status}</Eyebrow><h3>{trial.name}</h3><p>{trial.result}</p>
+            <p><a className="text-link" href={`${CATALOG_TRIAL_PATH}/${trial.slug}-input.md`}>Input</a>{" · "}<a className="text-link" href={`${CATALOG_TRIAL_PATH}/${trial.slug}-output.md`}>Actual answer</a>{" · "}<a className="text-link" href={`${CATALOG_TRIAL_PATH}/${trial.slug}-run.json`}>Run details</a></p>
+          </article>)}
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useMemo, useState } from "react";
 import specialists from "@/data/specialist-index.json";
+import { getSpecialistPortrait } from "@/data/specialist-portraits";
 import styles from "./manual-bot-plan.module.css";
 
 import {
@@ -60,7 +61,10 @@ export function StarterBotCatalog() {
         <span>{visible.length} starter packs · {visibleSpecialists.length} manual specialists</span>
       </p>
 
-      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>New specialists</h2><p>Copy the instructions and try a sample task. The recorded answers were written and checked in Codex; these Bots have not been tested in Hermes or Grok.</p><div className={styles.grid}>{visibleSpecialists.map(bot => <Link className={styles.card} key={bot.slug} href={`/bots/${bot.slug}/`}><span className={styles.status}>Manual setup</span><h3>{bot.name}</h3><p>{bot.summary}</p><span>Try the first task →</span></Link>)}</div></section>}
+      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>New specialists</h2><p>Copy the instructions and try a sample task. The recorded answers were written and checked in Codex; these Bots have not been tested in Hermes or Grok.</p><div className="registry-grid starter-grid">{visibleSpecialists.map(bot => <Link className="registry-card starter-card" key={bot.slug} href={`/bots/${bot.slug}/`}>
+        <div className="registry-card-image"><Image src={getSpecialistPortrait(bot.slug).image} alt="" width={768} height={768} sizes="(max-width: 760px) 90vw, 30vw" /><span>Bot Cabinet · Specialist</span></div>
+        <div className="registry-card-copy"><div className="registry-card-meta"><span>Manual setup</span><span>Free instructions</span></div><h3>{bot.name}</h3><p>{bot.summary}</p><div className="registry-card-foot"><span>Includes a sample task</span><span>Try it →</span></div></div>
+      </Link>)}</div></section>}
       <div className="registry-grid starter-grid">
         {visible.map((bot) => (
           <Link href={`/bots/${bot.slug}`} className="registry-card starter-card" key={bot.slug}>

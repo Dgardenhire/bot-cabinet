@@ -54,8 +54,8 @@ export const PROOF_NEXT_STEP_COPY: Record<ProofState, { eyebrow: string; heading
   },
   "failed-runtime": {
     eyebrow: "Correction required",
-    heading: "Remove the three invented missing-information directions, then repeat the full acceptance check",
-    body: "The simplified Writer handoff passed its mechanical gate, and Editor completed all 24 exact-boundary audits. Editor correctly held one newsletter and two social directions because the source did not identify a website, contact or placeholder for the missing catalog URL. Regenerate the corrected Writer and Editor packages, repeat the locked fixture and retain human publication approval as a separate decision.",
+    heading: "Correct the unsupported claim and repeat the crew test",
+    body: "One crew run passed after corrections. The independent repeat then implied that a missing catalog URL would be available later, although the source only said it had not been supplied. The revised check rejects that saved answer. A fresh run still needs to pass; publication also requires human approval.",
   },
   "runtime-passed": {
     eyebrow: "Next required proof",
@@ -290,8 +290,8 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
     title: "Publishing Desk runs a five-role newsletter handoff",
     outcome: "Five roles reach a source-checked draft and the required human-review hold",
     summary: "Scout, Researcher, Story, Writer and Editor completed a locked Tool Library run using the exact revised packages. Editor caught three unsupported directions; one bounded Writer correction removed them, and a fresh Editor audit passed all 25 exact boundaries. Codex semantic review found the corrected publishable claims source-faithful. Human approval remains absent.",
-    state: "runtime-passed",
-    stateDetail: "one fixture passed; independent reproduction exposed a missing-information implication",
+    state: "failed-runtime",
+    stateDetail: "The latest independent repeat failed. An earlier corrected run passed.",
     platform: "Hermes Agent",
     evidenceNote: "The successful Scout-to-Editor run used the exact generated bundle, locked Tool Library packet, separated Writer/Editor responsibilities and immutable evidence options. A second run used the same package and fixture but semantic review caught an unsupported `catalog URL coming` implication after the structural gates passed. The revised gate now rejects that preserved output. The public state remains one runtime pass, not reproduction, publication approval or general reliability.",
     inputStatus: "supplied",

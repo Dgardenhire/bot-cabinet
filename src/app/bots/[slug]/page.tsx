@@ -42,7 +42,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const specialist = getSpecialist(slug);
-  if (specialist) return buildPageMetadata({ title: `${specialist.name} · Bot Cabinet`, description: specialist.summary, path: `/bots/${slug}/`, image: "/brand/social/the-cabinet-1200x630.jpg", imageAlt: "Bot Cabinet specialist instructions" });
+  if (specialist) return buildPageMetadata({ title: `${specialist.name} · Bot Cabinet`, description: specialist.summary, path: `/bots/${slug}/`, image: `/brand/social/specialists/${slug}-1200x630.jpg`, imageAlt: `${specialist.name} — Bot Cabinet specialist` });
   const bot = getStarterBot(slug);
   const communityEntry = getRegistryEntry(slug);
   if (!bot && communityEntry) return { title: `${communityEntry.name} moved` };

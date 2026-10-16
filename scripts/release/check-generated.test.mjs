@@ -23,10 +23,10 @@ test("release pipeline generates crew bundles before checking for drift", async 
 
   assert.match(
     generateContent,
-    /npm run generate:portable-v2 && npm run generate:crew-bundles$/,
+    /npm run generate:portable-v2 && npm run generate:crew-bundles && npm run generate:discovery$/,
   );
   assert.doesNotMatch(buildSite, /generate:crew-bundles/);
-  assert.match(generateCi, /npm run generate:crew-bundles$/);
+  assert.match(generateCi, /npm run generate:crew-bundles && npm run generate:discovery$/);
   assert.doesNotMatch(
     generateCi,
     /build-(?:bot-portraits|crew-kit-og|section-og)/,

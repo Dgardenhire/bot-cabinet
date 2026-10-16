@@ -207,7 +207,7 @@ describe("Proof Room evidence records", () => {
     expect(Object.keys(PROOF_STATE_NAMES).sort()).toEqual(Object.keys(PROOF_NEXT_STEP_COPY).sort());
     expect(PROOF_NEXT_STEP_COPY.reproduced.heading).toContain("Review the record");
     expect(PROOF_NEXT_STEP_COPY["test-designed"].heading).toContain("Supply the source material");
-    expect(PROOF_NEXT_STEP_COPY["failed-runtime"].heading).toContain("Remove the three invented missing-information directions");
+    expect(PROOF_NEXT_STEP_COPY["failed-runtime"].heading).toContain("unsupported claim");
     expect(PROOF_NEXT_STEP_COPY["runtime-passed"].heading).toContain("failed independent run");
   });
 
@@ -229,11 +229,12 @@ describe("Proof Room evidence records", () => {
     }
   });
 
-  it("records one Publishing Desk crew pass without claiming reproduction or human approval", () => {
+  it("shows the failed latest repeat while preserving the earlier Publishing Desk pass", () => {
     const demo = getProofRoomDemo("publishing-desk-failed-handoff");
     expect(demo).toBeDefined();
     expect(demo?.subjectKind).toBe("crew");
-    expect(demo?.state).toBe("runtime-passed");
+    expect(demo?.state).toBe("failed-runtime");
+    expect(demo?.stateDetail).toContain("earlier corrected run passed");
     expect(demo?.checks.find((check) => check.label === "Role run")?.state).toBe("passed");
     expect(demo?.checks.find((check) => check.label === "Reproduction")?.state).toBe("failed");
     expect(demo?.deliverable?.description).toContain("correction loop");

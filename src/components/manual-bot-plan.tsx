@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CopyTextButton } from "@/components/copy-text-button";
 import { Eyebrow } from "@/components/ui";
 import { PlanText } from "./plan-text";
 import { type Specialist, type CrewPlan } from "@/data/specialist-collection";
+import { getSpecialistPortrait } from "@/data/specialist-portraits";
 import styles from "./manual-bot-plan.module.css";
 
 type Exercise = {
@@ -28,15 +30,22 @@ function ExerciseRecord({ evidence }: { evidence: Exercise | null }) {
 }
 
 export function SpecialistPage({ bot }: { bot: Specialist }) {
+  const portrait = getSpecialistPortrait(bot.slug);
   return <main id="main-content" className="page-main">
     <section className="inner-hero"><div className="shell">
       <Link href="/bots/" className="back-link">← All Bots</Link>
+      <div className={styles.heroGrid}>
+      <div>
       <Eyebrow>Specialist · manual setup</Eyebrow><h1 className="inner-title">{bot.name}</h1><p className="inner-deck">{bot.summary}</p>
       <p className={styles.status}>Try the fictional task below first. This version has not been tested with connected accounts, imports, schedules or actions outside the conversation.</p>
+      <a href="#first-steps" className="button button-primary">Try the first task →</a>
+      </div>
+      <Image className={styles.heroPortrait} src={portrait.image} alt={portrait.alt} width={768} height={768} sizes="(max-width: 760px) 90vw, 36vw" preload />
+      </div>
     </div></section>
     <div className={`shell ${styles.section}`}>
       <section className={styles.block}>
-      <h2>Try it in three steps</h2>
+      <h2 id="first-steps">Try it in three steps</h2>
       <div className={styles.steps}>
         <article><h3>1. Set the job</h3><p>Open a new Bot or conversation in your AI app. Copy these instructions into its role or instructions field, or send them as the first message.</p><CopyTextButton text={bot.instructions} label="Copy role instructions" /></article>
         <article><h3>2. Give it a small task</h3><p>Send this fictional example as the next message. No account connection is needed.</p><CopyTextButton text={bot.task} label="Copy first task" /></article>
