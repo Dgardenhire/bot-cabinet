@@ -1,4 +1,6 @@
 .section { max-width: 76rem; padding-block: 2.5rem 4rem; color: var(--paper); }
+.heroGrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.heroPortrait { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--line); }
 .section h2 { margin: 0 0 1.25rem; color: var(--ivory); font: 400 clamp(1.8rem, 3vw, 2.4rem)/1.15 var(--serif); }
 .section h3 { margin: 2rem 0 .85rem; color: var(--ivory); font: 400 1.5rem/1.25 var(--serif); }
 .section h4 { margin: 1.5rem 0 .65rem; color: var(--ivory); font: 600 1rem/1.4 var(--sans); }
@@ -49,6 +51,8 @@
 .tableWrap th { white-space: nowrap; }
 .tableWrap tbody tr:last-child td { border-bottom: 0; }
 @media (max-width: 760px) {
+  .heroGrid { grid-template-columns: 1fr; }
+  .heroPortrait { max-width: 32rem; }
   .steps, .grid, .roles { grid-template-columns: 1fr; }
   .section { padding-top: 1.5rem; }
   .block { padding-block: 1.75rem; }
