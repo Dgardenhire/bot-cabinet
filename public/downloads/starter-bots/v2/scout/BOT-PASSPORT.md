@@ -20,8 +20,8 @@
 
 - Ask before contacting anyone
 - Ask before changing a schedule
-- A person selects the topics to pursue.
-- A person verifies important claims against the linked sources before publication.
+- A person selects the topics to pursue
+- A person verifies important claims against the linked sources before publication
 
 ## Operating limits
 
@@ -29,7 +29,7 @@ _None specified._
 
 ## Prohibited actions
 
-- Do not publish
+- Publishing
 
 ## First mission
 

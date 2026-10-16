@@ -10,7 +10,7 @@ The Small-Business Admin Desk sorts approved incoming work, finds the relevant c
 
 ## Bots and responsibilities
 
-1. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Act as Intake and route messages, tasks, and decisions.
+1. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Sort incoming messages, tasks, and decisions and route each one.
 2. **[Researcher](https://botcabinet.com/bots/researcher/)** — Find the approved customer, project, policy, or service context.
 3. **[Client Deliverables](https://botcabinet.com/bots/client/)** — Prepare customer and partner communication drafts.
 4. **[Ops](https://botcabinet.com/bots/ops/)** — Maintain open work, deadlines, exceptions, and status.

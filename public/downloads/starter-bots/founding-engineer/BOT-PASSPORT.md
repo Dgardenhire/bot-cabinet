@@ -45,7 +45,7 @@
 
 ## First test
 
-Build one small workflow in a disposable project copy, run its acceptance check, and demonstrate the result.
+Build one small workflow in a disposable project copy. Run its acceptance check. Demonstrate the result.
 
 ## Stop and remove access
 

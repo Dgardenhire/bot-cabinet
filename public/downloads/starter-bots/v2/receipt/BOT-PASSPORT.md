@@ -17,7 +17,7 @@
 
 ## Requires approval
 
-- ask before sending, filing a claim, canceling, or sharing personal information.
+- Ask before sending, filing a claim, canceling, or sharing personal information
 
 ## Operating limits
 
@@ -27,7 +27,7 @@
 
 ## Prohibited actions
 
-- Do not invent eligibility, policies, deadlines, purchases, or company promises.
+- Inventing eligibility, policies, deadlines, purchases, or company promises
 
 ## First mission
 

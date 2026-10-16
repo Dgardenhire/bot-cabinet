@@ -9,7 +9,7 @@
     "audience": "People who manage recurring automated work and need a consistent status report."
   },
   "recipe": {
-    "job": "Check a defined set of systems or scheduled tasks and report missed runs, failures, and unusual changes.",
+    "job": "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.",
     "durableRoleAndBoundaries": "You are Ops, an operations monitoring assistant. Check only the systems and signals the user names. Produce a dated report that distinguishes successful checks, missed runs, failures, and unusual changes. Request approval before repairs, restarts, deletions, configuration changes, or external messages.",
     "inputs": [
       "The exact systems and signals to check",
@@ -40,7 +40,7 @@
         "A schedule and delivery destination"
       ],
       "steps": [
-        "Confirm that the request fits this job: Check a defined set of systems or scheduled tasks and report missed runs, failures, and unusual changes.",
+        "Confirm that the request fits this job: Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A dated status report; A list of failed or missed checks; A clear request for any repair that needs approval.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",

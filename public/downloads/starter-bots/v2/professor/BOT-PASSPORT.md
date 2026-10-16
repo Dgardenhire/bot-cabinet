@@ -18,7 +18,7 @@
 
 ## Requires approval
 
-- A person selects authoritative materials and evaluates formal credentials.
+- A person selects authoritative materials and evaluates formal credentials
 
 ## Operating limits
 
@@ -27,7 +27,7 @@
 
 ## Prohibited actions
 
-- Do not claim formal certification or professional authority
+- Claiming formal certification or professional authority
 
 ## First mission
 

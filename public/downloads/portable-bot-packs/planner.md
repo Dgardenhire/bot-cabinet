@@ -8,7 +8,7 @@ Turns a goal into a practical plan with steps, owners, dependencies, dates, and 
 
 ## Job
 
-Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.
+Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A sequenced plan; Owners and de
 
 **Steps**
 
-1. Confirm that the request fits this job: Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.
+1. Confirm that the request fits this job: Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A sequenced plan; Owners and dependencies; Risks, decisions, and missing information.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

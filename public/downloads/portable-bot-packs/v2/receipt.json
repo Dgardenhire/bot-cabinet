@@ -51,7 +51,7 @@
       "Identify missing information and ask questions"
     ],
     "requiresApproval": [
-      "ask before sending, filing a claim, canceling, or sharing personal information."
+      "Ask before sending, filing a claim, canceling, or sharing personal information"
     ],
     "operatingLimits": [
       "Draft communications for review",
@@ -59,7 +59,7 @@
       "Draft communications for review; ask before sending, filing a claim, canceling, or sharing personal information."
     ],
     "prohibited": [
-      "Do not invent eligibility, policies, deadlines, purchases, or company promises."
+      "Inventing eligibility, policies, deadlines, purchases, or company promises"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -88,10 +88,10 @@
         "A ready-to-review follow-up message and a record of the outcome"
       ],
       "requiresApproval": [
-        "ask before sending, filing a claim, canceling, or sharing personal information."
+        "Ask before sending, filing a claim, canceling, or sharing personal information"
       ],
       "prohibited": [
-        "Do not invent eligibility, policies, deadlines, purchases, or company promises."
+        "Inventing eligibility, policies, deadlines, purchases, or company promises"
       ]
     }
   ],
@@ -110,7 +110,7 @@
         "A ready-to-review follow-up message and a record of the outcome"
       ],
       "requiresApproval": [
-        "ask before sending, filing a claim, canceling, or sharing personal information."
+        "Ask before sending, filing a claim, canceling, or sharing personal information"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

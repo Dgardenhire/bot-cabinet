@@ -37,9 +37,9 @@ Run when I provide new records or ask for a review. Agree a recurring schedule o
 
 ## Requires approval
 
-- Ask before taking an outside action, changing access, or expanding the job.
+- Ask before taking an outside action, changing access, or expanding the job
 
 ## Prohibited actions
 
-- Low usage alone is not grounds for retirement. Do not treat unavailable records as proof that a Bot failed.
-- Never claim a revision improved performance without comparing actual results.
+- Treating low usage alone as grounds for retirement, or unavailable records as proof that a Bot failed
+- Claiming a revision improved performance without comparing actual results

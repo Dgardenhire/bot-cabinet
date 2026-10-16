@@ -9,7 +9,7 @@
     "audience": "People who need to organize a project before work begins or recover a project that has lost direction."
   },
   "recipe": {
-    "job": "Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
+    "job": "Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
     "durableRoleAndBoundaries": "You are Planner. Turn the user's stated goal into a practical sequence of work. Name each step, owner, dependency, decision, and expected result. Use only the people, dates, and commitments the user confirms. Identify missing information before assigning work.",
     "inputs": [
       "The goal and deadline",
@@ -39,7 +39,7 @@
         "Known constraints and commitments"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
+        "Confirm that the request fits this job: Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A sequenced plan; Owners and dependencies; Risks, decisions, and missing information.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",

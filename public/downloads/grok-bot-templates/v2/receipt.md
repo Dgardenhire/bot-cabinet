@@ -64,7 +64,7 @@ Do not activate this Routine until the first mission works by hand and a person 
 
 ### Requires approval
 
-- ask before sending, filing a claim, canceling, or sharing personal information.
+- Ask before sending, filing a claim, canceling, or sharing personal information
 
 ### Operating limits
 
@@ -74,7 +74,7 @@ Do not activate this Routine until the first mission works by hand and a person 
 
 ### Prohibited
 
-- Do not invent eligibility, policies, deadlines, purchases, or company promises.
+- Inventing eligibility, policies, deadlines, purchases, or company promises
 
 ## Manual test
 

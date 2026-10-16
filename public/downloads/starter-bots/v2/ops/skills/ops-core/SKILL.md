@@ -23,7 +23,7 @@ Run on the approved schedule after one successful manual test.
 
 ## Steps
 
-1. Confirm that the request fits this job: Check a defined set of systems or scheduled tasks and report missed runs, failures, and unusual changes.
+1. Confirm that the request fits this job: Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A dated status report; A list of failed or missed checks; A clear request for any repair that needs approval.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
@@ -40,8 +40,8 @@ Run on the approved schedule after one successful manual test.
 - Report before repairing
 - Ask before restarts or configuration changes
 - Ask before sending external messages
-- A person approves restarts, deletions, configuration changes, and external messages.
+- A person approves restarts, deletions, configuration changes, and external messages
 
 ## Prohibited actions
 
-- Never bypass an approval gate, access control, or shutdown instruction.
+- Bypassing an approval gate, access control, or shutdown instruction

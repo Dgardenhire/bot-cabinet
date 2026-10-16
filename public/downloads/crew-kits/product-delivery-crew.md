@@ -13,7 +13,7 @@ The Product Delivery Crew plans an approved feature, builds the code, runs tests
 1. **[Planner](https://botcabinet.com/bots/planner/)** — Define the user outcome, acceptance conditions, scope, and dependencies.
 2. **[Architect](https://botcabinet.com/bots/architect/)** — Choose the technical approach and identify material risks.
 3. **[Founding Engineer](https://botcabinet.com/bots/founding-engineer/)** — Implement the approved approach and document actual changes.
-4. **[Coder](https://botcabinet.com/bots/coder/)** — Act as Tester by running checks and reporting failures.
+4. **[Coder](https://botcabinet.com/bots/coder/)** — Run the checks and report failures.
 5. **[Editor](https://botcabinet.com/bots/editor/)** — Prepare review notes, release copy, and unresolved questions.
 
 ## Included workflows

@@ -20,7 +20,7 @@
       "packVersion": "2.0.1",
       "archivePath": "members/ops.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/ops.tar.gz",
-      "sha256": "7e54f6d839f286ff83f738295692f7576f5d16fc30fc005e8ed44183ccbd7dfc",
+      "sha256": "8c24359b762cf91a56c6daa7a4d8dd447eb759054ef72a557bb797523472d2b6",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",
@@ -35,19 +35,19 @@
         "Report before repairing",
         "Ask before restarts or configuration changes",
         "Ask before sending external messages",
-        "A person approves restarts, deletions, configuration changes, and external messages."
+        "A person approves restarts, deletions, configuration changes, and external messages"
       ],
       "firstTest": "Check two harmless status sources and produce a report without changing either system."
     },
     {
       "slug": "researcher",
       "name": "Researcher",
-      "responsibility": "Act as Analyst and explain changes, gaps, and possible causes.",
+      "responsibility": "Explain changes, gaps, and possible causes.",
       "setupOrder": 2,
       "packVersion": "2.0.0",
       "archivePath": "members/researcher.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/researcher.tar.gz",
-      "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928",
+      "sha256": "cd4e77069ae82df353b9554b1d6b7d4db14c1b4b761386b614779637eccaeab5",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",
@@ -60,7 +60,7 @@
       ],
       "approvalActions": [
         "Ask when sources conflict",
-        "A person makes legal, medical, financial, and policy decisions."
+        "A person makes legal, medical, financial, and policy decisions"
       ],
       "firstTest": "Answer one narrow question using at least three approved sources and identify any unresolved conflict."
     },
@@ -72,7 +72,7 @@
       "packVersion": "2.0.0",
       "archivePath": "members/chief-of-staff.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/chief-of-staff.tar.gz",
-      "sha256": "f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8",
+      "sha256": "d605455fc8ec3f07f423e86a07665c5846b51f5ab36fad72613b99caa9fd6be1",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",
@@ -86,8 +86,7 @@
       "approvalActions": [
         "Ask before contacting anyone",
         "Ask before changing a calendar, task, or shared record",
-        "A leader sets priorities, assigns people, and approves commitments and deadlines.",
-        "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+        "A leader sets priorities, assigns people, and approves commitments and deadlines"
       ],
       "firstTest": "Use sample updates from two projects to produce a one-page priority brief and a decision log for review."
     },
@@ -99,7 +98,7 @@
       "packVersion": "2.0.0",
       "archivePath": "members/planner.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/planner.tar.gz",
-      "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1",
+      "sha256": "8101faff73c3ba9e7b90dce4b563990f13dab6d96282713d343d1b37c12baafd",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",
@@ -111,9 +110,9 @@
         "Optional task-system access after review"
       ],
       "approvalActions": [
-        "Do not assign people or commit dates without approval",
-        "Do not change an external task system without approval",
-        "A person approves assignments and deadlines."
+        "Ask before assigning people or committing dates",
+        "Ask before changing an external task system",
+        "A person approves assignments and deadlines"
       ],
       "firstTest": "Create a two-week plan from one approved objective and identify every missing decision."
     }

@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Answer a defined question with a concise source-based brief and a clear list of remaining questions.",
+    "outcome": "Answers a defined question with a concise source-based brief and a clear list of remaining questions.",
     "exampleRequests": [
       "Compare these three options and cite the strongest source for each conclusion.",
       "Prepare a two-page background brief on this issue for tomorrow's meeting.",
@@ -53,14 +53,14 @@
     ],
     "requiresApproval": [
       "Ask when sources conflict",
-      "A person makes legal, medical, financial, and policy decisions."
+      "A person makes legal, medical, financial, and policy decisions"
     ],
     "operatingLimits": [
       "The Bot identifies uncertainty and asks for missing information."
     ],
     "prohibited": [
-      "Do not make high-stakes decisions",
-      "Do not contact sources or publish"
+      "Making high-stakes decisions",
+      "Contacting sources or publishing"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "The format and length you need"
       ],
       "steps": [
-        "Confirm that the request fits this job: Answer a defined question with a concise source-based brief and a clear list of remaining questions.",
+        "Confirm that the request fits this job: Answers a defined question with a concise source-based brief and a clear list of remaining questions.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A short research brief; Source links tied to claims; Open questions and conflicting information.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -90,11 +90,11 @@
       ],
       "requiresApproval": [
         "Ask when sources conflict",
-        "A person makes legal, medical, financial, and policy decisions."
+        "A person makes legal, medical, financial, and policy decisions"
       ],
       "prohibited": [
-        "Do not make high-stakes decisions",
-        "Do not contact sources or publish"
+        "Making high-stakes decisions",
+        "Contacting sources or publishing"
       ]
     }
   ],
@@ -114,7 +114,7 @@
       ],
       "requiresApproval": [
         "Ask when sources conflict",
-        "A person makes legal, medical, financial, and policy decisions."
+        "A person makes legal, medical, financial, and policy decisions"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

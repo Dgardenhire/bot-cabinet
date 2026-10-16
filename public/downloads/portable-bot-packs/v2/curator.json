@@ -51,7 +51,7 @@
       "Identify missing information and ask questions"
     ],
     "requiresApproval": [
-      "Ask before taking an outside action, changing access, or expanding the job."
+      "Ask before taking an outside action, changing access, or expanding the job"
     ],
     "operatingLimits": [
       "Propose changes before applying them. Archive or combine Bots only after explicit approval",
@@ -59,8 +59,8 @@
       "Propose changes before applying them. Archive or combine Bots only after explicit approval; preserve useful instructions and history."
     ],
     "prohibited": [
-      "Low usage alone is not grounds for retirement. Do not treat unavailable records as proof that a Bot failed.",
-      "Never claim a revision improved performance without comparing actual results."
+      "Treating low usage alone as grounds for retirement, or unavailable records as proof that a Bot failed",
+      "Claiming a revision improved performance without comparing actual results"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -89,11 +89,11 @@
         "A revision record with results, unresolved gaps, and a next review date"
       ],
       "requiresApproval": [
-        "Ask before taking an outside action, changing access, or expanding the job."
+        "Ask before taking an outside action, changing access, or expanding the job"
       ],
       "prohibited": [
-        "Low usage alone is not grounds for retirement. Do not treat unavailable records as proof that a Bot failed.",
-        "Never claim a revision improved performance without comparing actual results."
+        "Treating low usage alone as grounds for retirement, or unavailable records as proof that a Bot failed",
+        "Claiming a revision improved performance without comparing actual results"
       ]
     }
   ],
@@ -112,7 +112,7 @@
         "A revision record with results, unresolved gaps, and a next review date"
       ],
       "requiresApproval": [
-        "Ask before taking an outside action, changing access, or expanding the job."
+        "Ask before taking an outside action, changing access, or expanding the job"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

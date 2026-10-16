@@ -19,7 +19,7 @@
 ## Requires approval
 
 - Ask when sources conflict
-- A person makes legal, medical, financial, and policy decisions.
+- A person makes legal, medical, financial, and policy decisions
 
 ## Operating limits
 
@@ -27,8 +27,8 @@
 
 ## Prohibited actions
 
-- Do not make high-stakes decisions
-- Do not contact sources or publish
+- Making high-stakes decisions
+- Contacting sources or publishing
 
 ## First mission
 

@@ -21,7 +21,7 @@
 
 - Ask before changing campaigns, tracking, or accounts
 - Ask before spending money or contacting customers
-- A person approves targeting, spending, public claims, customer outreach, and account changes.
+- A person approves targeting, spending, public claims, customer outreach, and account changes
 
 ## Operating limits
 
@@ -29,12 +29,12 @@ _None specified._
 
 ## Prohibited actions
 
-- Do not collect new personal data or publish claims
-- The Bot does not change campaigns or tracking, collect new personal data, or treat a small sample as a reliable result.
+- Collecting new personal data or publishing claims
+- Changing campaigns or tracking, or treating a small sample as a reliable result
 
 ## First mission
 
-Use one approved data export to define the baseline, identify one gap, and propose two measurable experiments.
+Use one approved data export to define the baseline. Identify one gap. Propose two measurable experiments.
 
 ## Human checkpoint
 

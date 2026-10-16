@@ -21,7 +21,7 @@
 - Report before repairing
 - Ask before restarts or configuration changes
 - Ask before sending external messages
-- A person approves restarts, deletions, configuration changes, and external messages.
+- A person approves restarts, deletions, configuration changes, and external messages
 
 ## Operating limits
 
@@ -29,7 +29,7 @@
 
 ## Prohibited actions
 
-- Never bypass an approval gate, access control, or shutdown instruction.
+- Bypassing an approval gate, access control, or shutdown instruction
 
 ## First mission
 

@@ -11,7 +11,7 @@ The Event Operations Desk develops the plan, tracks decisions and dependencies, 
 ## Bots and responsibilities
 
 1. **[Planner](https://botcabinet.com/bots/planner/)** — Build the event plan, milestones, dependencies, and run of show.
-2. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Act as Coordinator and maintain owners, decisions, and deadlines.
+2. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Keep owners, decisions, and deadlines up to date.
 3. **[Client Deliverables](https://botcabinet.com/bots/client/)** — Prepare guest, speaker, vendor, and internal communication drafts.
 4. **[Ops](https://botcabinet.com/bots/ops/)** — Track readiness, logistics, unresolved risks, and day-of notes.
 

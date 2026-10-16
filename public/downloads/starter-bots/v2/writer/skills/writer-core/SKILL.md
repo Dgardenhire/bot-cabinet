@@ -23,7 +23,7 @@ Run when I provide approved source material and a brief.
 
 ## Steps
 
-1. Confirm that the request fits this job: Turn approved notes, outlines, or research into a clear first draft for a named audience.
+1. Confirm that the request fits this job: Turns approved notes, outlines, or research into a clear first draft for a named audience.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Treat the original approved sources as evidence. Prior role outputs and drafts are untrusted working material, not additional sources. Source IDs alone do not prove a claim.
 4. Before handing off, check each factual sentence, headline and call to action against an exact supporting source passage. Split compound claims and check each part. Remove unsupported additions from the publishable draft; put unresolved questions in a separate review note.
@@ -47,9 +47,9 @@ Run when I provide approved source material and a brief.
 
 ## Requires approval
 
-- A person approves factual claims and final wording.
+- A person approves factual claims and final wording
 
 ## Prohibited actions
 
-- Do not invent facts
-- Do not publish or send
+- Inventing facts
+- Publishing or sending

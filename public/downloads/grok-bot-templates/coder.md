@@ -8,7 +8,7 @@ This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Sk
 
 ## Job
 
-Build a defined software change, run the relevant checks, and report the result in plain language.
+Builds a defined software change, runs the relevant checks, and reports the result in plain language.
 
 ## Durable role and boundaries
 
@@ -57,7 +57,7 @@ Pause for a person to review these deliverables: Changed project files; Test or 
 
 **Steps**
 
-1. Confirm that the request fits this job: Build a defined software change, run the relevant checks, and report the result in plain language.
+1. Confirm that the request fits this job: Builds a defined software change, runs the relevant checks, and reports the result in plain language.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: Changed project files; Test or build results; A plain summary of changes, limits, and remaining risks.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

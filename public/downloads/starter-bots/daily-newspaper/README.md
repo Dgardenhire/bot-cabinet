@@ -49,7 +49,7 @@ Select these tools and connections only when the job requires them. Read every s
 1. Import the .tar.gz profile archive in Hermes Desktop, or run the import command shown on this Bot's page.
 2. Open the imported profile and review its name, description, and SOUL.md role instructions.
 3. Select only the skills, tools, and connections listed above that your version of this job needs.
-4. Begin with this test: Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item, keep one deliberately missing meeting link in the review note, and do not connect accounts, schedule, save, send, publish, or print anything.
+4. Begin with this test: Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item. Record the deliberately missing meeting link in the review note. Do not connect accounts, schedule, save, send, publish, or print anything.
 
 ## Review status
 

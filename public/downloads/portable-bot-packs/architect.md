@@ -8,7 +8,7 @@ Turns product goals and operating constraints into a practical technology strate
 
 ## Job
 
-Turn confirmed product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.
+Turns confirmed product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A technology strategy brief; Ar
 
 **Steps**
 
-1. Confirm that the request fits this job: Turn confirmed product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.
+1. Confirm that the request fits this job: Turns confirmed product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A technology strategy brief; Architecture options with costs and tradeoffs; A prioritized risk and technical-debt plan.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

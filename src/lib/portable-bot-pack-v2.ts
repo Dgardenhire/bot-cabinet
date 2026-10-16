@@ -1,5 +1,6 @@
 import type { StarterBot } from "../data/starter-bots";
 import { getReproducedBotEvidence } from "../data/bot-release-evidence";
+import { APPROVAL_COPY, OFF_LIMITS_COPY } from "../data/bot-control-copy";
 import {
   starterBotReviewCheckpoint,
   starterBotSkillSteps,
@@ -252,19 +253,41 @@ function normalizeControls(bot: StarterBot): NormalizedControls {
   if (!requiresApproval.length) requiresApproval.push(DEFAULT_APPROVAL_GATE);
   if (!prohibited.length) prohibited.push(DEFAULT_PROHIBITION);
 
+  const approvals = displayRules(requiresApproval, APPROVAL_COPY);
+  const offLimits = displayRules(prohibited, OFF_LIMITS_COPY);
+
   return {
-    riskLevel: riskLevel(
-      requestedCapabilities,
-      requiresApproval,
-      operatingLimits,
-    ),
+    riskLevel: riskLevel(requestedCapabilities, approvals, operatingLimits),
     requestedCapabilities,
     allowedWithoutApproval: [...ALLOWED_WITHOUT_APPROVAL],
-    requiresApproval,
+    requiresApproval: approvals,
     operatingLimits,
-    prohibited,
+    prohibited: offLimits,
     shutdown: SHUTDOWN,
   };
+}
+
+/** One list item in its published wording: a mapped rewrite, or the rule with a capital and no closing period. */
+function displayRules(
+  rules: readonly string[],
+  copy: Readonly<Record<string, string | null>>,
+): string[] {
+  const result: string[] = [];
+  for (const rule of rules) {
+    const mapped = Object.hasOwn(copy, rule) ? copy[rule] : listItem(rule);
+    if (mapped) result.push(mapped);
+  }
+  return uniqueItems(result);
+}
+
+/** Single-sentence list items carry no closing period; multi-sentence items keep theirs. */
+function listItem(rule: string) {
+  const text = rule.trim();
+  const capped = text.charAt(0).toLocaleUpperCase() + text.slice(1);
+  const singleSentence = !/[.!?]\s+\S/.test(capped.slice(0, -1));
+  return singleSentence && capped.endsWith(".") && !capped.endsWith("..")
+    ? capped.slice(0, -1)
+    : capped;
 }
 
 export function portableBotPackV2ArtifactIds(slug: string) {

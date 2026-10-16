@@ -8,7 +8,7 @@ This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Sk
 
 ## Job
 
-Find timely topics, developments, or opportunities in the subjects I choose and return a short ranked list.
+Finds timely topics, developments, or opportunities in the subjects you choose and returns a short ranked list.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A short ranked list; A link for
 
 **Steps**
 
-1. Confirm that the request fits this job: Find timely topics, developments, or opportunities in the subjects I choose and return a short ranked list.
+1. Confirm that the request fits this job: Finds timely topics, developments, or opportunities in the subjects you choose and returns a short ranked list.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A short ranked list; A link for each source; A sentence explaining why each item matters.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

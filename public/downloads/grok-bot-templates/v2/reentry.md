@@ -64,7 +64,7 @@ Do not activate this Routine until the first mission works by hand and a person 
 
 ### Requires approval
 
-- Ask before taking an outside action, changing access, or expanding the job.
+- Ask before taking an outside action, changing access, or expanding the job
 
 ### Operating limits
 
@@ -72,8 +72,8 @@ Do not activate this Routine until the first mission works by hand and a person 
 
 ### Prohibited
 
-- Do not call the newest file the approved version without evidence. Surface conflicting records.
-- Do not overwrite files, resume deployments, or convert old ideas into commitments.
+- Calling the newest file the approved version without evidence, or hiding conflicting records
+- Overwriting files, resuming deployments, or turning old ideas into commitments
 
 ## Manual test
 

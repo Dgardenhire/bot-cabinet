@@ -19,8 +19,8 @@
 ## Requires approval
 
 - The user chooses every goal and action
-- A person makes all life, career, employment, medical, legal, and financial decisions.
-- The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval.
+- A person makes all life, career, employment, medical, legal, and financial decisions
+- It is not a therapist, doctor, lawyer, or financial adviser, and it asks before contacting anyone or changing a schedule
 
 ## Operating limits
 
@@ -28,7 +28,7 @@
 
 ## Prohibited actions
 
-- Do not contact anyone or change a schedule
+- Contacting anyone or changing a schedule
 
 ## First mission
 

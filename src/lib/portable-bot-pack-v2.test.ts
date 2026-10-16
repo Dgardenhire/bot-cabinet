@@ -107,9 +107,9 @@ describe("Portable Bot Pack V2", () => {
 
     expect(pack.controls.requiresApproval).toEqual([
       "Ask before spending money",
-      "A person approves final wording.",
+      "A person approves final wording",
     ]);
-    expect(pack.controls.prohibited).toEqual(["Do not publish"]);
+    expect(pack.controls.prohibited).toEqual(["Publishing"]);
     expect(pack.controls.operatingLimits).toEqual([
       "Keep source links with claims",
     ]);
@@ -129,13 +129,13 @@ describe("Portable Bot Pack V2", () => {
     const pack = starterBotToPortablePackV2(bot);
 
     expect(pack.controls.prohibited).toContain(
-      "Do not change files outside the approved project",
+      "Changing files outside the approved project",
     );
     expect(pack.controls.requiresApproval).toContain(
       "Do not connect outside services without approval",
     );
     expect(pack.controls.requiresApproval).not.toContain(
-      "Do not change files outside the approved project",
+      "Changing files outside the approved project",
     );
     expect(validatePortableBotPackV2(pack)).toEqual([]);
   });
@@ -145,12 +145,39 @@ describe("Portable Bot Pack V2", () => {
     const pack = starterBotToPortablePackV2(planner);
 
     expect(pack.controls.prohibited).toEqual([
-      "Never bypass an approval gate, access control, or shutdown instruction.",
+      "Bypassing an approval gate, access control, or shutdown instruction",
     ]);
     expect(pack.controls.prohibited.join(" ")).not.toMatch(
       /unless a person .*approves/i,
     );
     expect(validatePortableBotPackV2(pack)).toEqual([]);
+  });
+
+  it("states every starter Bot's limits as plain list items", () => {
+    for (const bot of STARTER_BOTS) {
+      const { requiresApproval, prohibited } = starterBotToPortablePackV2(bot).controls;
+      for (const item of prohibited) {
+        // Each prohibition is listed as something the Bot never does, not as an order to it.
+        expect(item, `${bot.slug} off-limits item`).not.toMatch(/^(?:do not|don't|never|use only|the bot)\b/i);
+        expect(item, `${bot.slug} off-limits item`).not.toMatch(/\.$/);
+      }
+      for (const item of requiresApproval) {
+        expect(item, `${bot.slug} approval item`).not.toMatch(/^(?:do not|the bot)\b/i);
+        expect(item, `${bot.slug} approval item`).toMatch(/^[A-Z]/);
+        if (!/[.!?]\s+\S/.test(item)) expect(item, `${bot.slug} approval item`).not.toMatch(/\.$/);
+      }
+      const lines = [...requiresApproval, ...prohibited].map((item) => item.toLocaleLowerCase());
+      expect(new Set(lines).size, `${bot.slug} repeats a control line`).toBe(lines.length);
+    }
+  });
+
+  it("lists each Daily Newspaper approval once", () => {
+    const bot = STARTER_BOTS.find((item) => item.slug === "daily-newspaper")!;
+    expect(starterBotToPortablePackV2(bot).controls.requiresApproval).toEqual([
+      "Ask before connecting an account or widening access",
+      "Ask before creating or changing a schedule",
+      "Ask before saving outside the approved folder, sending, publishing, or printing",
+    ]);
   });
 
   it("uses stable artifact IDs derived only from the Bot slug", () => {

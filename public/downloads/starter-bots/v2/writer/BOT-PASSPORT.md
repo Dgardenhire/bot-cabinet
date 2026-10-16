@@ -18,7 +18,7 @@
 
 ## Requires approval
 
-- A person approves factual claims and final wording.
+- A person approves factual claims and final wording
 
 ## Operating limits
 
@@ -27,8 +27,8 @@
 
 ## Prohibited actions
 
-- Do not invent facts
-- Do not publish or send
+- Inventing facts
+- Publishing or sending
 
 ## First mission
 

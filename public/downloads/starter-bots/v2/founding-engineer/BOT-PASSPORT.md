@@ -21,8 +21,8 @@
 
 - Ask before adding a dependency or changing a data structure
 - Ask before deleting material or using real customer data
-- Do not connect outside services or release the work without approval
-- A person defines the product promise, accepts technical tradeoffs, and approves release.
+- Ask before connecting outside services or releasing the work
+- A person defines the product promise, accepts technical tradeoffs, and approves release
 
 ## Operating limits
 
@@ -30,11 +30,11 @@
 
 ## Prohibited actions
 
-- Never bypass an approval gate, access control, or shutdown instruction.
+- Bypassing an approval gate, access control, or shutdown instruction
 
 ## First mission
 
-Build one small workflow in a disposable project copy, run its acceptance check, and demonstrate the result.
+Build one small workflow in a disposable project copy. Run its acceptance check. Demonstrate the result.
 
 ## Human checkpoint
 

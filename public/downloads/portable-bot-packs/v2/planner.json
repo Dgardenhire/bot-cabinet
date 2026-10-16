@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
+    "outcome": "Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
     "exampleRequests": [
       "Turn this objective into a four-week plan with owners and dependencies.",
       "Review these meeting notes and create an action plan.",
@@ -52,15 +52,15 @@
       "Identify missing information and ask questions"
     ],
     "requiresApproval": [
-      "Do not assign people or commit dates without approval",
-      "Do not change an external task system without approval",
-      "A person approves assignments and deadlines."
+      "Ask before assigning people or committing dates",
+      "Ask before changing an external task system",
+      "A person approves assignments and deadlines"
     ],
     "operatingLimits": [
       "The Bot identifies assumptions and missing capacity."
     ],
     "prohibited": [
-      "Never bypass an approval gate, access control, or shutdown instruction."
+      "Bypassing an approval gate, access control, or shutdown instruction"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "Known constraints and commitments"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
+        "Confirm that the request fits this job: Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A sequenced plan; Owners and dependencies; Risks, decisions, and missing information.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -89,12 +89,12 @@
         "Risks, decisions, and missing information"
       ],
       "requiresApproval": [
-        "Do not assign people or commit dates without approval",
-        "Do not change an external task system without approval",
-        "A person approves assignments and deadlines."
+        "Ask before assigning people or committing dates",
+        "Ask before changing an external task system",
+        "A person approves assignments and deadlines"
       ],
       "prohibited": [
-        "Never bypass an approval gate, access control, or shutdown instruction."
+        "Bypassing an approval gate, access control, or shutdown instruction"
       ]
     }
   ],
@@ -113,9 +113,9 @@
         "Risks, decisions, and missing information"
       ],
       "requiresApproval": [
-        "Do not assign people or commit dates without approval",
-        "Do not change an external task system without approval",
-        "A person approves assignments and deadlines."
+        "Ask before assigning people or committing dates",
+        "Ask before changing an external task system",
+        "A person approves assignments and deadlines"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

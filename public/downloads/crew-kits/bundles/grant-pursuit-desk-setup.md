@@ -19,7 +19,7 @@ Import-tested means archive import was checked, not that this Bot or crew has pr
 Find current opportunities matching the approved mission, geography, and funding range.
 
 Archive: members/scout.tar.gz
-SHA-256: 961e8512a33911efc1ef8b4b0b9b566ee0e24d0d3a3f60aef482f30a4020ea5d
+SHA-256: 8c93096f7bb9265742f32b5dd0c735952f46cd9c28608e98199dcb904ad2bfeb
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -40,7 +40,7 @@ Requested capabilities (configure manually):
 Verify eligibility, deadlines, requirements, and official language.
 
 Archive: members/researcher.tar.gz
-SHA-256: 0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928
+SHA-256: cd4e77069ae82df353b9554b1d6b7d4db14c1b4b761386b614779637eccaeab5
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Build the work plan, evidence checklist, assignments, and schedule.
 
 Archive: members/planner.tar.gz
-SHA-256: 278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1
+SHA-256: 8101faff73c3ba9e7b90dce4b563990f13dab6d96282713d343d1b37c12baafd
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -82,7 +82,7 @@ Requested capabilities (configure manually):
 Draft sections from approved facts and evidence.
 
 Archive: members/writer.tar.gz
-SHA-256: 550c3182a5b6e0d20c8e418464f299921d05e65b8b795590de6bf0282258e8a5
+SHA-256: b9054d5270dea666ed2ca4038b96094365d6f3d2339742d2d5a94fb8cd049549
 Pack: 2.0.5; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -103,7 +103,7 @@ Requested capabilities (configure manually):
 Check completeness, consistency, claims, and compliance questions.
 
 Archive: members/editor.tar.gz
-SHA-256: 5cf5ac1d11b406df726894260d3cdb94b85abeda8650e6b5800552d2550f4975
+SHA-256: 250e6d6776e787dafd9bc5cbe49208abe16a639bc57d0db973d88fb8cf629ddf
 Pack: 2.0.3; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

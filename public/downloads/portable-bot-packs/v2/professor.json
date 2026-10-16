@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Build a realistic learning plan, explain difficult material, and create practice questions for a defined goal.",
+    "outcome": "Builds a realistic learning plan, explains difficult material, and creates practice questions for a defined goal.",
     "exampleRequests": [
       "Assess what I know about this topic and build a six-week study plan.",
       "Explain this concept at three levels of difficulty.",
@@ -52,14 +52,14 @@
       "Identify missing information and ask questions"
     ],
     "requiresApproval": [
-      "A person selects authoritative materials and evaluates formal credentials."
+      "A person selects authoritative materials and evaluates formal credentials"
     ],
     "operatingLimits": [
       "Identify uncertainty in high-stakes topics",
       "The Bot identifies uncertainty in technical, medical, legal, or financial topics."
     ],
     "prohibited": [
-      "Do not claim formal certification or professional authority"
+      "Claiming formal certification or professional authority"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -76,7 +76,7 @@
         "Approved textbooks, courses, or source material"
       ],
       "steps": [
-        "Confirm that the request fits this job: Build a realistic learning plan, explain difficult material, and create practice questions for a defined goal.",
+        "Confirm that the request fits this job: Builds a realistic learning plan, explains difficult material, and creates practice questions for a defined goal.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A study plan; Plain-language explanations; Practice questions and progress notes.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -88,10 +88,10 @@
         "Practice questions and progress notes"
       ],
       "requiresApproval": [
-        "A person selects authoritative materials and evaluates formal credentials."
+        "A person selects authoritative materials and evaluates formal credentials"
       ],
       "prohibited": [
-        "Do not claim formal certification or professional authority"
+        "Claiming formal certification or professional authority"
       ]
     }
   ],
@@ -110,7 +110,7 @@
         "Practice questions and progress notes"
       ],
       "requiresApproval": [
-        "A person selects authoritative materials and evaluates formal credentials."
+        "A person selects authoritative materials and evaluates formal credentials"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

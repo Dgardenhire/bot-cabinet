@@ -23,7 +23,7 @@ Run when I provide a research question.
 
 ## Steps
 
-1. Confirm that the request fits this job: Answer a defined question with a concise source-based brief and a clear list of remaining questions.
+1. Confirm that the request fits this job: Answers a defined question with a concise source-based brief and a clear list of remaining questions.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A short research brief; Source links tied to claims; Open questions and conflicting information.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
@@ -38,9 +38,9 @@ Run when I provide a research question.
 ## Requires approval
 
 - Ask when sources conflict
-- A person makes legal, medical, financial, and policy decisions.
+- A person makes legal, medical, financial, and policy decisions
 
 ## Prohibited actions
 
-- Do not make high-stakes decisions
-- Do not contact sources or publish
+- Making high-stakes decisions
+- Contacting sources or publishing

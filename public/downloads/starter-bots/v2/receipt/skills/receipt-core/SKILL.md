@@ -37,8 +37,8 @@ Run when I provide new records or ask for a review. Agree a recurring schedule o
 
 ## Requires approval
 
-- ask before sending, filing a claim, canceling, or sharing personal information.
+- Ask before sending, filing a claim, canceling, or sharing personal information
 
 ## Prohibited actions
 
-- Do not invent eligibility, policies, deadlines, purchases, or company promises.
+- Inventing eligibility, policies, deadlines, purchases, or company promises

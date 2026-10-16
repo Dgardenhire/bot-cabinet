@@ -21,7 +21,7 @@
 
 - Ask before deployment
 - Ask before deleting material
-- A person approves deployment and destructive changes.
+- A person approves deployment and destructive changes
 
 ## Operating limits
 
@@ -29,7 +29,7 @@
 
 ## Prohibited actions
 
-- Do not change files outside the approved project
+- Changing files outside the approved project
 
 ## First mission
 
