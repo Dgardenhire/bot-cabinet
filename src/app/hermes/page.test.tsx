@@ -7,13 +7,17 @@ describe("Bot Cabinet in Hermes page", () => {
   const html = renderToStaticMarkup(<CabinetForHermesPage />);
   const text = html.replace(/<[^>]+>/g, " ");
 
-  it("gives the one install line, where to run it, and the plugin's source and manual", () => {
+  it("installs from inside Hermes Desktop first, keeps the terminal line as a fallback, and links the manual on botcabinet.com", () => {
+    expect(html).toContain('href="hermes://plugin/install?repo=Dgardenhire/hermes-cabinet&amp;enable=1"');
+    expect(text).toContain("Install in Hermes");
+    expect(text).toContain("Open Cabinet in the sidebar");
+    expect(text).toContain("Prefer the terminal?");
     expect(text.replace(/\s+/g, " ")).toContain("hermes plugins install Dgardenhire/hermes-cabinet --enable");
     expect(text).toContain("On Windows, open PowerShell. On a Mac or Linux, open Terminal.");
-    expect(text).toContain("Restart Hermes Desktop");
-    expect(text).toContain("Open Cabinet in the sidebar");
+    expect(html.indexOf("hermes://plugin/install")).toBeLessThan(html.indexOf("Prefer the terminal?"));
     expect(html).toContain('href="https://github.com/Dgardenhire/hermes-cabinet"');
-    expect(html).toContain('href="https://linchpin.studio/hermes/cabinet"');
+    expect(html).toMatch(/href="\/hermes\/manual\/?"/);
+    expect(html).not.toContain("linchpin.studio/hermes/cabinet");
   });
 
   it("says plainly that it is independent and sits beside the Hermes Bots catalog", () => {
