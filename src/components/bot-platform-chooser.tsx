@@ -74,6 +74,17 @@ export function BotPlatformChooser({
               ? `The archive imported successfully and its Skill was present in an isolated Hermes Agent ${pack.platforms.hermes.importEvidence.hermesVersion} installation. Its task results have not been tested.`
               : "This profile has not been tested for import or task results."}
           </p>
+          <p className="bot-platform-cabinet-note">
+            Using Hermes Desktop?{" "}
+            <Link
+              href="/hermes"
+              data-funnel-event="bot_cabinet_plugin_open"
+              data-funnel-surface="bot_platform_chooser"
+              data-funnel-destination={botSlug}
+            >
+              Add {botName} with Cabinet <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </p>
           <div className="bot-platform-actions">
             <a
               href={hermesArchiveUrl}

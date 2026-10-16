@@ -5,7 +5,7 @@ import { HomeFeatureCarousel, HOME_FEATURES, nextFeature, shouldAutoAdvance, pau
 
 describe("homepage feature carousel", () => {
   it("offers distinct existing art and working site destinations for every feature", () => {
-    expect(HOME_FEATURES.length).toBe(6);
+    expect(HOME_FEATURES.length).toBe(7);
     expect(new Set(HOME_FEATURES.map(feature => feature.image)).size).toBe(HOME_FEATURES.length);
     for (const feature of HOME_FEATURES) expect(existsSync(`public${feature.image}`)).toBe(true);
     expect(HOME_FEATURES.map(feature => feature.href)).toEqual(expect.arrayContaining(["/start", "/watch", "/crew-kits", "/workshop", "/starter-pack", "https://ai-seminar.linchpin.studio/open-source"]));
