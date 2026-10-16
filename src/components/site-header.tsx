@@ -19,7 +19,7 @@ const LEARN_NAV_ITEMS = [
   ["Inspection Desk", "/trust"],
 ] as const;
 
-const TOOLS_NAV_ITEMS = [["My Workbench", "/workbench"], ["Portrait Studio", "/portraits"], ["Bot Workflows", "/use-cases"]] as const;
+const TOOLS_NAV_ITEMS = [["Bot Cabinet in Hermes", "/hermes"], ["My Workbench", "/workbench"], ["Portrait Studio", "/portraits"], ["Bot Workflows", "/use-cases"]] as const;
 
 export function SiteHeader() {
   return (

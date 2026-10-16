@@ -2812,3 +2812,17 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
     animation-duration: .01ms !important; animation-iteration-count: 1 !important;
   }
 }
+
+/* Cabinet plugin entry points */
+.starter-cabinet-note, .bot-platform-cabinet-note { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.bot-platform-cabinet-note { margin-top: 14px; padding: 11px 14px; border-left: 2px solid var(--brass); background: rgba(198,154,75,.06); }
+.starter-cabinet-note a, .bot-platform-cabinet-note a { display: inline-flex; align-items: center; gap: 6px; color: var(--brass-bright); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass-deep); text-underline-offset: 3px; }
+.starter-cabinet-note a:hover, .bot-platform-cabinet-note a:hover { color: var(--ivory); }
+.cabinet-home-slide { background: linear-gradient(105deg,rgba(198,154,75,.16),rgba(16,44,54,.5)), var(--ink-raised); }
+.cabinet-home-slide-copy { display: grid; grid-template-columns: 168px minmax(0,1fr); gap: 24px; align-items: center; }
+.cabinet-home-slide-copy > img { width: 168px; height: 112px; object-fit: cover; object-position: 78% 50%; border: 1px solid var(--line); border-radius: 6px; }
+.cabinet-home-slide code { color: var(--blueprint); font: 13px var(--mono); }
+@media (max-width: 720px) {
+  .cabinet-home-slide-copy { grid-template-columns: 1fr; gap: 14px; }
+  .cabinet-home-slide-copy > img { width: 100%; height: 150px; }
+}

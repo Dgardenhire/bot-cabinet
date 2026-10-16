@@ -170,6 +170,28 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <Link
+          className="platform-slide cabinet-home-slide"
+          href="/hermes"
+          data-funnel-event="homepage_cabinet_plugin"
+          data-funnel-surface="homepage"
+        >
+          <div className="cabinet-home-slide-copy">
+            <Image
+              src="/hermes-cabinet/cabinet-art.jpg"
+              alt=""
+              width={620}
+              height={600}
+              sizes="(max-width: 720px) 90vw, 168px"
+            />
+            <div>
+              <span>Use Bot Cabinet inside Hermes</span>
+              <h3>Bot Cabinet in Hermes</h3>
+              <p>Add the Cabinet plugin to Hermes Desktop. Take the Fit Test, add Bots and Crew Kits as Hermes bots, and take back anything you haven&apos;t changed.</p>
+            </div>
+          </div>
+          <strong>Get the plugin <ArrowRight size={17} aria-hidden="true" /></strong>
+        </Link>
         <Link className="platform-slide" href="/watch">
           <div>
             <span>New Bots and agent updates</span>

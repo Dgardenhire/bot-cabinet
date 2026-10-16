@@ -27,6 +27,7 @@ export function SiteFooter() {
         <div className="footer-column">
           <span>Explore</span>
           <Link href="/start">Start Here</Link>
+          <Link href="/hermes">Bot Cabinet in Hermes</Link>
           <Link href="/bots">The Cabinet</Link>
           <Link href="/workbench">My Workbench</Link>
           <Link href="/workshop">Bot Lab</Link>

@@ -102,6 +102,9 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
                 {runtimeEvidence ? "One recorded task run is available." : portablePackV2.platforms.hermes.importEvidence ? "Hermes archive import checked; a full task run is still pending." : "Prepared, but not yet task-tested."}{" "}
                 <a href="#review-details">Read the test status</a>
               </p>
+              <p className="starter-cabinet-note">
+                Using Hermes Desktop? <Link href="/hermes" data-funnel-event="bot_cabinet_plugin_open" data-funnel-surface="bot_detail_hero" data-funnel-destination={bot.slug}>Add {bot.name} with Cabinet <ArrowRight size={14} aria-hidden="true" /></Link>
+              </p>
             </div>
           </div>
         </div>
