@@ -68,13 +68,13 @@ export function AgentComparison({ agents, initialSelection = defaultComparison }
           </thead>
           <tbody>
             {rows.map(({ label, key }) => <tr key={key}>
-              <th scope="row">{label}</th>
+              <th scope="row"><span className={styles.rowLabel}>{label}</span></th>
               {selected.map((agent) => <td key={agent.name}><span className={styles.mobileLabel} aria-hidden="true">{label}</span>{agent[key]}</td>)}
             </tr>)}
           </tbody>
           <tbody id="comparison-details" hidden={!expanded}>
-            <tr><th scope="row">How to get in</th>{selected.map((agent) => <td key={agent.name}><span className={styles.mobileLabel} aria-hidden="true">How to get in</span>{agent.entry}</td>)}</tr>
-            <tr><th scope="row">Check before using</th>{selected.map((agent) => <td key={agent.name}><span className={styles.mobileLabel} aria-hidden="true">Check before using</span>{agent.caution}</td>)}</tr>
+            <tr><th scope="row"><span className={styles.rowLabel}>How to get in</span></th>{selected.map((agent) => <td key={agent.name}><span className={styles.mobileLabel} aria-hidden="true">How to get in</span>{agent.entry}</td>)}</tr>
+            <tr><th scope="row"><span className={styles.rowLabel}>Check before using</span></th>{selected.map((agent) => <td key={agent.name}><span className={styles.mobileLabel} aria-hidden="true">Check before using</span>{agent.caution}</td>)}</tr>
           </tbody>
           <tfoot>
             <tr><th scope="row" className={styles.corner}><span className="sr-only">Guides and sources</span></th>{selected.map((agent) => <td key={agent.name}>

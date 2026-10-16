@@ -38,7 +38,8 @@
   .tableScroll { border-top: 1px solid var(--line); }
   .table { min-width: 48rem; }
   .corner { width: 0; }
-  .corner, .table tbody th { visibility: hidden; width: 0; padding: 0; }
+  .corner, .table tbody th { width: 0; padding: 0; }
+  .rowLabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .table thead th { padding: 1.25rem 1rem; }
   .table tbody td { padding: 1.25rem 1rem; }
   .table tfoot td { padding: 1.25rem 1rem; }
