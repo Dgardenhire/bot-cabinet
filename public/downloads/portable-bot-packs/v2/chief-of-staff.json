@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Keep confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+    "outcome": "Keeps confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
     "exampleRequests": [
       "Turn these weekly updates into our five confirmed priorities, blocked decisions, and owner list.",
       "Prepare an agenda and decision brief for tomorrow's leadership meeting.",
@@ -54,12 +54,11 @@
     "requiresApproval": [
       "Ask before contacting anyone",
       "Ask before changing a calendar, task, or shared record",
-      "A leader sets priorities, assigns people, and approves commitments and deadlines.",
-      "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+      "A leader sets priorities, assigns people, and approves commitments and deadlines"
     ],
     "operatingLimits": [],
     "prohibited": [
-      "Do not assign people or commit dates or budgets"
+      "Assigning people or committing dates or budgets"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -76,7 +75,7 @@
         "Deadlines, available capacity, and escalation rules"
       ],
       "steps": [
-        "Confirm that the request fits this job: Keep confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+        "Confirm that the request fits this job: Keeps confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A current priority brief; A decision, owner, and dependency log; A meeting agenda and follow-up draft.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -90,11 +89,10 @@
       "requiresApproval": [
         "Ask before contacting anyone",
         "Ask before changing a calendar, task, or shared record",
-        "A leader sets priorities, assigns people, and approves commitments and deadlines.",
-        "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+        "A leader sets priorities, assigns people, and approves commitments and deadlines"
       ],
       "prohibited": [
-        "Do not assign people or commit dates or budgets"
+        "Assigning people or committing dates or budgets"
       ]
     }
   ],
@@ -115,8 +113,7 @@
       "requiresApproval": [
         "Ask before contacting anyone",
         "Ask before changing a calendar, task, or shared record",
-        "A leader sets priorities, assigns people, and approves commitments and deadlines.",
-        "The Bot drafts agendas and follow-ups but does not contact people or change shared records without approval."
+        "A leader sets priorities, assigns people, and approves commitments and deadlines"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

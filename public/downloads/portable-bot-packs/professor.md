@@ -8,7 +8,7 @@ Builds a realistic learning plan, explains difficult material, and creates pract
 
 ## Job
 
-Build a realistic learning plan, explain difficult material, and create practice questions for a defined goal.
+Builds a realistic learning plan, explains difficult material, and creates practice questions for a defined goal.
 
 ## Durable role and boundaries
 
@@ -55,7 +55,7 @@ Pause for a person to review these deliverables: A study plan; Plain-language ex
 
 **Steps**
 
-1. Confirm that the request fits this job: Build a realistic learning plan, explain difficult material, and create practice questions for a defined goal.
+1. Confirm that the request fits this job: Builds a realistic learning plan, explains difficult material, and creates practice questions for a defined goal.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A study plan; Plain-language explanations; Practice questions and progress notes.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

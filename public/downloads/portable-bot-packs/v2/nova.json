@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Turn a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
+    "outcome": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
     "exampleRequests": [
       "Turn this idea into a one-week demand test within the budget I supplied.",
       "Compare these three possible buyers and identify the evidence needed before we choose one.",
@@ -55,12 +55,11 @@
     "requiresApproval": [
       "Ask before spending money or contacting anyone",
       "Ask before publishing a claim or beginning a build",
-      "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture."
+      "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture"
     ],
     "operatingLimits": [],
     "prohibited": [
-      "Do not present forecasts or interest as proof of demand",
-      "The Bot treats forecasts as hypotheses and never presents interest, traffic, or generated analysis as proof of demand."
+      "Presenting forecasts, interest, traffic, or generated analysis as proof of demand"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +76,7 @@
         "Existing evidence, budget, time, and risk limits"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
+        "Confirm that the request fits this job: Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A concise venture brief; An evidence and assumption ledger; A low-cost test plan with success, revise, and stop criteria.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -91,11 +90,10 @@
       "requiresApproval": [
         "Ask before spending money or contacting anyone",
         "Ask before publishing a claim or beginning a build",
-        "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture."
+        "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture"
       ],
       "prohibited": [
-        "Do not present forecasts or interest as proof of demand",
-        "The Bot treats forecasts as hypotheses and never presents interest, traffic, or generated analysis as proof of demand."
+        "Presenting forecasts, interest, traffic, or generated analysis as proof of demand"
       ]
     }
   ],
@@ -116,7 +114,7 @@
       "requiresApproval": [
         "Ask before spending money or contacting anyone",
         "Ask before publishing a claim or beginning a build",
-        "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture."
+        "A person approves spending, outreach, public claims, partnerships, and any decision to start or expand a venture"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

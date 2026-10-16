@@ -8,7 +8,7 @@ Turns a new venture idea into explicit assumptions, evidence questions, and a sm
 
 ## Job
 
-Turn a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.
+Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.
 
 ## Durable role and boundaries
 
@@ -57,7 +57,7 @@ Pause for a person to review these deliverables: A concise venture brief; An evi
 
 **Steps**
 
-1. Confirm that the request fits this job: Turn a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.
+1. Confirm that the request fits this job: Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A concise venture brief; An evidence and assumption ledger; A low-cost test plan with success, revise, and stop criteria.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

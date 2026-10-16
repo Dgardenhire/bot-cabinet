@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Turn a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
+    "outcome": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
     "exampleRequests": [
       "Map this signup funnel and show where the largest verified drop-off occurs.",
       "Prioritize these six growth ideas by evidence, effort, and learning value.",
@@ -34,7 +34,7 @@
       "A weekly report separating observations, hypotheses, and decisions"
     ],
     "cadence": "Run when I supply a current data export. Add a recurring review only after one manual report is approved.",
-    "firstMission": "Use one approved data export to define the baseline, identify one gap, and propose two measurable experiments.",
+    "firstMission": "Use one approved data export to define the baseline. Identify one gap. Propose two measurable experiments.",
     "checkpoint": "Pause for a person to review these deliverables: A baseline metric and funnel brief; A prioritized experiment list with one primary metric for each test; A weekly report separating observations, hypotheses, and decisions. Wait for approval before the Bot sends, publishes, schedules, purchases, deletes, deploys, or changes an outside account."
   },
   "instructions": {
@@ -55,12 +55,12 @@
     "requiresApproval": [
       "Ask before changing campaigns, tracking, or accounts",
       "Ask before spending money or contacting customers",
-      "A person approves targeting, spending, public claims, customer outreach, and account changes."
+      "A person approves targeting, spending, public claims, customer outreach, and account changes"
     ],
     "operatingLimits": [],
     "prohibited": [
-      "Do not collect new personal data or publish claims",
-      "The Bot does not change campaigns or tracking, collect new personal data, or treat a small sample as a reliable result."
+      "Collecting new personal data or publishing claims",
+      "Changing campaigns or tracking, or treating a small sample as a reliable result"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "Channels, budget, capacity, and privacy or brand constraints"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
+        "Confirm that the request fits this job: Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A baseline metric and funnel brief; A prioritized experiment list with one primary metric for each test; A weekly report separating observations, hypotheses, and decisions.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -91,11 +91,11 @@
       "requiresApproval": [
         "Ask before changing campaigns, tracking, or accounts",
         "Ask before spending money or contacting customers",
-        "A person approves targeting, spending, public claims, customer outreach, and account changes."
+        "A person approves targeting, spending, public claims, customer outreach, and account changes"
       ],
       "prohibited": [
-        "Do not collect new personal data or publish claims",
-        "The Bot does not change campaigns or tracking, collect new personal data, or treat a small sample as a reliable result."
+        "Collecting new personal data or publishing claims",
+        "Changing campaigns or tracking, or treating a small sample as a reliable result"
       ]
     }
   ],
@@ -116,7 +116,7 @@
       "requiresApproval": [
         "Ask before changing campaigns, tracking, or accounts",
         "Ask before spending money or contacting customers",
-        "A person approves targeting, spending, public claims, customer outreach, and account changes."
+        "A person approves targeting, spending, public claims, customer outreach, and account changes"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

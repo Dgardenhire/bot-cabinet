@@ -11,7 +11,7 @@ The Weekly Business Review gathers approved operating information, explains mate
 ## Bots and responsibilities
 
 1. **[Ops](https://botcabinet.com/bots/ops/)** — Gather approved metrics, project status, deadlines, and exceptions.
-2. **[Researcher](https://botcabinet.com/bots/researcher/)** — Act as Analyst and explain changes, gaps, and possible causes.
+2. **[Researcher](https://botcabinet.com/bots/researcher/)** — Explain changes, gaps, and possible causes.
 3. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Prepare the decision brief and surface capacity conflicts.
 4. **[Planner](https://botcabinet.com/bots/planner/)** — Turn approved decisions into owners, actions, and dates.
 

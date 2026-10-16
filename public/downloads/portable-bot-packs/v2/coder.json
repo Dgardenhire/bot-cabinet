@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Build a defined software change, run the relevant checks, and report the result in plain language.",
+    "outcome": "Builds a defined software change, runs the relevant checks, and reports the result in plain language.",
     "exampleRequests": [
       "Add this form to the existing site and verify the main path.",
       "Fix this reproducible bug and explain the cause.",
@@ -55,13 +55,13 @@
     "requiresApproval": [
       "Ask before deployment",
       "Ask before deleting material",
-      "A person approves deployment and destructive changes."
+      "A person approves deployment and destructive changes"
     ],
     "operatingLimits": [
       "The Bot preserves unrelated work and reports failed checks."
     ],
     "prohibited": [
-      "Do not change files outside the approved project"
+      "Changing files outside the approved project"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -78,7 +78,7 @@
         "A working branch or disposable project copy"
       ],
       "steps": [
-        "Confirm that the request fits this job: Build a defined software change, run the relevant checks, and report the result in plain language.",
+        "Confirm that the request fits this job: Builds a defined software change, runs the relevant checks, and reports the result in plain language.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: Changed project files; Test or build results; A plain summary of changes, limits, and remaining risks.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -92,10 +92,10 @@
       "requiresApproval": [
         "Ask before deployment",
         "Ask before deleting material",
-        "A person approves deployment and destructive changes."
+        "A person approves deployment and destructive changes"
       ],
       "prohibited": [
-        "Do not change files outside the approved project"
+        "Changing files outside the approved project"
       ]
     }
   ],
@@ -116,7 +116,7 @@
       "requiresApproval": [
         "Ask before deployment",
         "Ask before deleting material",
-        "A person approves deployment and destructive changes."
+        "A person approves deployment and destructive changes"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

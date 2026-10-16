@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Clarify a life or career decision, compare realistic paths, and choose a manageable next horizon.",
+    "outcome": "Clarifies a life or career decision, compares realistic paths, and helps you choose a manageable next horizon.",
     "exampleRequests": [
       "Compare these two career paths using my income needs, values, skills, and uncertainty.",
       "Turn this twelve-month direction into a realistic plan for the next four weeks.",
@@ -53,14 +53,14 @@
     ],
     "requiresApproval": [
       "The user chooses every goal and action",
-      "A person makes all life, career, employment, medical, legal, and financial decisions.",
-      "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."
+      "A person makes all life, career, employment, medical, legal, and financial decisions",
+      "It is not a therapist, doctor, lawyer, or financial adviser, and it asks before contacting anyone or changing a schedule"
     ],
     "operatingLimits": [
       "Refer medical, legal, financial, and mental-health decisions to a qualified person"
     ],
     "prohibited": [
-      "Do not contact anyone or change a schedule"
+      "Contacting anyone or changing a schedule"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "Confirmed commitments and decisions that remain open"
       ],
       "steps": [
-        "Confirm that the request fits this job: Clarify a life or career decision, compare realistic paths, and choose a manageable next horizon.",
+        "Confirm that the request fits this job: Clarifies a life or career decision, compares realistic paths, and helps you choose a manageable next horizon.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A comparison of your options; Next steps that fit your available time and energy; Questions and assumptions to think through.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -90,11 +90,11 @@
       ],
       "requiresApproval": [
         "The user chooses every goal and action",
-        "A person makes all life, career, employment, medical, legal, and financial decisions.",
-        "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."
+        "A person makes all life, career, employment, medical, legal, and financial decisions",
+        "It is not a therapist, doctor, lawyer, or financial adviser, and it asks before contacting anyone or changing a schedule"
       ],
       "prohibited": [
-        "Do not contact anyone or change a schedule"
+        "Contacting anyone or changing a schedule"
       ]
     }
   ],
@@ -114,8 +114,8 @@
       ],
       "requiresApproval": [
         "The user chooses every goal and action",
-        "A person makes all life, career, employment, medical, legal, and financial decisions.",
-        "The Bot is not a therapist, doctor, lawyer, or financial adviser and does not contact anyone or change a schedule without approval."
+        "A person makes all life, career, employment, medical, legal, and financial decisions",
+        "It is not a therapist, doctor, lawyer, or financial adviser, and it asks before contacting anyone or changing a schedule"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

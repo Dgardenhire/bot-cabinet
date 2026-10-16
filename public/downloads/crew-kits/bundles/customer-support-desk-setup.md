@@ -16,10 +16,10 @@ Import-tested means archive import was checked, not that this Bot or crew has pr
 
 ## 1. Chief of Staff
 
-Act as Intake, classify the request, and route it to the right path.
+Classify each incoming request and route it to the right path.
 
 Archive: members/chief-of-staff.tar.gz
-SHA-256: f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8
+SHA-256: d605455fc8ec3f07f423e86a07665c5846b51f5ab36fad72613b99caa9fd6be1
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -40,7 +40,7 @@ Requested capabilities (configure manually):
 Find the approved policy or customer record needed for the case.
 
 Archive: members/researcher.tar.gz
-SHA-256: 0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928
+SHA-256: cd4e77069ae82df353b9554b1d6b7d4db14c1b4b761386b614779637eccaeab5
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Draft a concise response using confirmed information.
 
 Archive: members/writer.tar.gz
-SHA-256: 550c3182a5b6e0d20c8e418464f299921d05e65b8b795590de6bf0282258e8a5
+SHA-256: b9054d5270dea666ed2ca4038b96094365d6f3d2339742d2d5a94fb8cd049549
 Pack: 2.0.5; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -79,10 +79,10 @@ Requested capabilities (configure manually):
 
 ## 4. Editor
 
-Act as Support Reviewer and check tone, accuracy, and escalation.
+Check each reply for tone, accuracy, and whether it needs escalation.
 
 Archive: members/editor.tar.gz
-SHA-256: 5cf5ac1d11b406df726894260d3cdb94b85abeda8650e6b5800552d2550f4975
+SHA-256: 250e6d6776e787dafd9bc5cbe49208abe16a639bc57d0db973d88fb8cf629ddf
 Pack: 2.0.3; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

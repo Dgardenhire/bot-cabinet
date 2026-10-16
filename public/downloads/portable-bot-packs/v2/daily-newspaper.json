@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Turn the information I choose into a short, source-linked personal newspaper for the day ahead.",
+    "outcome": "Turns the calendar entries, messages, notes, and articles you choose into a short, source-linked personal newspaper for the day ahead.",
     "exampleRequests": [
       "Make a one-page newspaper from these calendar entries, messages, and saved articles.",
       "Create tomorrow's edition from only the sources in this folder and flag anything that needs my answer.",
@@ -34,7 +34,7 @@
       "A separate list of missing information and corrections"
     ],
     "cadence": "Run manually when I provide the day's material. Add a schedule only after I approve a successful sample.",
-    "firstMission": "Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item, keep one deliberately missing meeting link in the review note, and do not connect accounts, schedule, save, send, publish, or print anything.",
+    "firstMission": "Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item. Record the deliberately missing meeting link in the review note. Do not connect accounts, schedule, save, send, publish, or print anything.",
     "checkpoint": "Pause for a person to review these deliverables: A short personal newspaper with clear sections; A source note for every factual item; A separate list of missing information and corrections. Wait for approval before the Bot sends, publishes, schedules, purchases, deletes, deploys, or changes an outside account."
   },
   "instructions": {
@@ -55,17 +55,16 @@
     "requiresApproval": [
       "Ask before connecting an account or widening access",
       "Ask before creating or changing a schedule",
-      "Ask before saving outside the approved folder, sending, publishing, or printing",
-      "Ask before connecting an account, creating a schedule, sending, publishing, saving outside the approved folder, or printing."
+      "Ask before saving outside the approved folder, sending, publishing, or printing"
     ],
     "operatingLimits": [
       "Keep uncertain or conflicting details out of the newspaper and place them in a separate review note."
     ],
     "prohibited": [
-      "Use only material the user supplies or explicitly connects. Do not search private accounts or widen access on your own.",
-      "Do not invent missing context, urgency, quotations, links, or conclusions",
-      "Do not place uncertain or conflicting details in the newspaper",
-      "Do not expose private source material beyond the approved edition"
+      "Using material beyond what is supplied or explicitly connected, searching private accounts, or widening its own access",
+      "Inventing missing context, urgency, quotations, links, or conclusions",
+      "Placing uncertain or conflicting details in the newspaper",
+      "Exposing private source material beyond the approved edition"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -82,7 +81,7 @@
         "The cutoff time and any topics or private details to leave out"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn the information I choose into a short, source-linked personal newspaper for the day ahead.",
+        "Confirm that the request fits this job: Turns the calendar entries, messages, notes, and articles you choose into a short, source-linked personal newspaper for the day ahead.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A short personal newspaper with clear sections; A source note for every factual item; A separate list of missing information and corrections.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -96,14 +95,13 @@
       "requiresApproval": [
         "Ask before connecting an account or widening access",
         "Ask before creating or changing a schedule",
-        "Ask before saving outside the approved folder, sending, publishing, or printing",
-        "Ask before connecting an account, creating a schedule, sending, publishing, saving outside the approved folder, or printing."
+        "Ask before saving outside the approved folder, sending, publishing, or printing"
       ],
       "prohibited": [
-        "Use only material the user supplies or explicitly connects. Do not search private accounts or widen access on your own.",
-        "Do not invent missing context, urgency, quotations, links, or conclusions",
-        "Do not place uncertain or conflicting details in the newspaper",
-        "Do not expose private source material beyond the approved edition"
+        "Using material beyond what is supplied or explicitly connected, searching private accounts, or widening its own access",
+        "Inventing missing context, urgency, quotations, links, or conclusions",
+        "Placing uncertain or conflicting details in the newspaper",
+        "Exposing private source material beyond the approved edition"
       ]
     }
   ],
@@ -124,8 +122,7 @@
       "requiresApproval": [
         "Ask before connecting an account or widening access",
         "Ask before creating or changing a schedule",
-        "Ask before saving outside the approved folder, sending, publishing, or printing",
-        "Ask before connecting an account, creating a schedule, sending, publishing, saving outside the approved folder, or printing."
+        "Ask before saving outside the approved folder, sending, publishing, or printing"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

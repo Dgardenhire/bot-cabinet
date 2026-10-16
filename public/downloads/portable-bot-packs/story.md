@@ -8,7 +8,7 @@ Develops a consistent story and message for a founder, organization, product or 
 
 ## Job
 
-Build and maintain a clear central narrative from confirmed facts and approved source material.
+Builds and maintains a clear central narrative from confirmed facts and approved source material.
 
 ## Durable role and boundaries
 
@@ -57,7 +57,7 @@ Pause for a person to review these deliverables: A narrative brief with a centra
 
 **Steps**
 
-1. Confirm that the request fits this job: Build and maintain a clear central narrative from confirmed facts and approved source material.
+1. Confirm that the request fits this job: Builds and maintains a clear central narrative from confirmed facts and approved source material.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A narrative brief with a central idea and supporting evidence; A message map by audience and channel; A list of contradictions, unsupported claims, and decisions.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

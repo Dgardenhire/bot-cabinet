@@ -84,7 +84,7 @@ export const CREW_KITS: CrewKit[] = [
     description: "The Sales Meeting Desk researches an approved prospect, prepares the meeting brief and questions, records decisions, and drafts follow-up for a person to approve.",
     image: { src: "/use-cases/client-meeting-follow-up.webp", alt: "A carefully arranged desk prepared for a client meeting" },
     roles: [
-      { botSlug: "scout", responsibility: "Act as Account Scout and gather current public information about the prospect." },
+      { botSlug: "scout", responsibility: "Gather current public information about the prospect." },
       { botSlug: "researcher", responsibility: "Verify account facts and separate evidence from assumptions." },
       { botSlug: "planner", responsibility: "Build the meeting objective, question sequence, and decision points." },
       { botSlug: "client", responsibility: "Turn approved notes into a recap and follow-up draft." },
@@ -120,10 +120,10 @@ export const CREW_KITS: CrewKit[] = [
     description: "The Customer Support Desk classifies incoming requests, checks approved policies and records, drafts a response, and routes refunds, disputes, safety issues, and unusual cases to a person.",
     image: { src: "/use-cases/customer-request-response.webp", alt: "An orderly communications desk receiving and sorting customer messages" },
     roles: [
-      { botSlug: "chief-of-staff", responsibility: "Act as Intake, classify the request, and route it to the right path." },
+      { botSlug: "chief-of-staff", responsibility: "Classify each incoming request and route it to the right path." },
       { botSlug: "researcher", responsibility: "Find the approved policy or customer record needed for the case." },
       { botSlug: "writer", responsibility: "Draft a concise response using confirmed information." },
-      { botSlug: "editor", responsibility: "Act as Support Reviewer and check tone, accuracy, and escalation." },
+      { botSlug: "editor", responsibility: "Check each reply for tone, accuracy, and whether it needs escalation." },
     ],
     workflows: [
       { name: "Customer request response", description: "Classify, research, draft, and review one request." },
@@ -158,7 +158,7 @@ export const CREW_KITS: CrewKit[] = [
       { botSlug: "planner", responsibility: "Define the user outcome, acceptance conditions, scope, and dependencies." },
       { botSlug: "architect", responsibility: "Choose the technical approach and identify material risks." },
       { botSlug: "founding-engineer", responsibility: "Implement the approved approach and document actual changes." },
-      { botSlug: "coder", responsibility: "Act as Tester by running checks and reporting failures." },
+      { botSlug: "coder", responsibility: "Run the checks and report failures." },
       { botSlug: "editor", responsibility: "Prepare review notes, release copy, and unresolved questions." },
     ],
     workflows: [
@@ -228,7 +228,7 @@ export const CREW_KITS: CrewKit[] = [
     image: { src: "/use-cases/project-launch-plan.webp", alt: "An organized operations table with schedules and timing controls" },
     roles: [
       { botSlug: "planner", responsibility: "Build the event plan, milestones, dependencies, and run of show." },
-      { botSlug: "chief-of-staff", responsibility: "Act as Coordinator and maintain owners, decisions, and deadlines." },
+      { botSlug: "chief-of-staff", responsibility: "Keep owners, decisions, and deadlines up to date." },
       { botSlug: "client", responsibility: "Prepare guest, speaker, vendor, and internal communication drafts." },
       { botSlug: "ops", responsibility: "Track readiness, logistics, unresolved risks, and day-of notes." },
     ],
@@ -263,7 +263,7 @@ export const CREW_KITS: CrewKit[] = [
     image: { src: "/use-cases/leadership-weekly-review.jpg", alt: "A measured weekly operating review arranged across a professional desk" },
     roles: [
       { botSlug: "ops", responsibility: "Gather approved metrics, project status, deadlines, and exceptions." },
-      { botSlug: "researcher", responsibility: "Act as Analyst and explain changes, gaps, and possible causes." },
+      { botSlug: "researcher", responsibility: "Explain changes, gaps, and possible causes." },
       { botSlug: "chief-of-staff", responsibility: "Prepare the decision brief and surface capacity conflicts." },
       { botSlug: "planner", responsibility: "Turn approved decisions into owners, actions, and dates." },
     ],
@@ -334,7 +334,7 @@ export const CREW_KITS: CrewKit[] = [
     roles: [
       { botSlug: "researcher", responsibility: "Collect and organize approved official materials." },
       { botSlug: "professor", responsibility: "Explain concepts and create practice questions." },
-      { botSlug: "coach", responsibility: "Act as Quiz Coach and help the learner review errors." },
+      { botSlug: "coach", responsibility: "Quiz the learner and help review errors." },
       { botSlug: "planner", responsibility: "Build and adjust the study schedule." },
     ],
     workflows: [
@@ -369,7 +369,7 @@ export const CREW_KITS: CrewKit[] = [
     roles: [
       { botSlug: "researcher", responsibility: "Research approved options, current facts, costs, and constraints." },
       { botSlug: "planner", responsibility: "Build the sequence, schedule, decisions, and fallback plan." },
-      { botSlug: "coach", responsibility: "Act as Constraint Checker and test fit with stated priorities." },
+      { botSlug: "coach", responsibility: "Check how well each option fits the stated priorities." },
     ],
     workflows: [
       { name: "Personal project plan", description: "Turn a goal into steps, decisions, and checkpoints." },
@@ -401,7 +401,7 @@ export const CREW_KITS: CrewKit[] = [
     description: "The Small-Business Admin Desk sorts approved incoming work, finds the relevant context, drafts routine replies, tracks follow-up, and prepares a weekly operating view. A person controls sending, payments, contracts, account changes, and deletions.",
     image: { src: "/use-cases/operations-status-report.webp", alt: "A compact administrative desk organizing correspondence and weekly status" },
     roles: [
-      { botSlug: "chief-of-staff", responsibility: "Act as Intake and route messages, tasks, and decisions." },
+      { botSlug: "chief-of-staff", responsibility: "Sort incoming messages, tasks, and decisions and route each one." },
       { botSlug: "researcher", responsibility: "Find the approved customer, project, policy, or service context." },
       { botSlug: "client", responsibility: "Prepare customer and partner communication drafts." },
       { botSlug: "ops", responsibility: "Maintain open work, deadlines, exceptions, and status." },

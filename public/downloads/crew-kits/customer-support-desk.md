@@ -10,10 +10,10 @@ The Customer Support Desk classifies incoming requests, checks approved policies
 
 ## Bots and responsibilities
 
-1. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Act as Intake, classify the request, and route it to the right path.
+1. **[Chief of Staff](https://botcabinet.com/bots/chief-of-staff/)** — Classify each incoming request and route it to the right path.
 2. **[Researcher](https://botcabinet.com/bots/researcher/)** — Find the approved policy or customer record needed for the case.
 3. **[Writer](https://botcabinet.com/bots/writer/)** — Draft a concise response using confirmed information.
-4. **[Editor](https://botcabinet.com/bots/editor/)** — Act as Support Reviewer and check tone, accuracy, and escalation.
+4. **[Editor](https://botcabinet.com/bots/editor/)** — Check each reply for tone, accuracy, and whether it needs escalation.
 
 ## Included workflows
 

@@ -8,7 +8,7 @@ This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Sk
 
 ## Job
 
-Clarify a life or career decision, compare realistic paths, and choose a manageable next horizon.
+Clarifies a life or career decision, compares realistic paths, and helps you choose a manageable next horizon.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A comparison of your options; N
 
 **Steps**
 
-1. Confirm that the request fits this job: Clarify a life or career decision, compare realistic paths, and choose a manageable next horizon.
+1. Confirm that the request fits this job: Clarifies a life or career decision, compares realistic paths, and helps you choose a manageable next horizon.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A comparison of your options; Next steps that fit your available time and energy; Questions and assumptions to think through.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

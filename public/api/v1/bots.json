@@ -17,7 +17,7 @@
         "image": "/bot-scout.png"
       },
       "job": {
-        "outcome": "Find timely topics, developments, or opportunities in the subjects I choose and return a short ranked list.",
+        "outcome": "Finds timely topics, developments, or opportunities in the subjects you choose and returns a short ranked list.",
         "exampleRequests": [
           "Find five developments from the past week that matter to nonprofit leaders.",
           "Review these sources and suggest three topics for my next newsletter.",
@@ -118,7 +118,7 @@
         "image": "/bot-researcher.png"
       },
       "job": {
-        "outcome": "Answer a defined question with a concise source-based brief and a clear list of remaining questions.",
+        "outcome": "Answers a defined question with a concise source-based brief and a clear list of remaining questions.",
         "exampleRequests": [
           "Compare these three options and cite the strongest source for each conclusion.",
           "Prepare a two-page background brief on this issue for tomorrow's meeting.",
@@ -230,7 +230,7 @@
         "image": "/bot-writer.png"
       },
       "job": {
-        "outcome": "Turn approved notes, outlines, or research into a clear first draft for a named audience.",
+        "outcome": "Turns approved notes, outlines, or research into a clear first draft for a named audience.",
         "exampleRequests": [
           "Turn this approved outline into a 700-word newsletter for local business leaders.",
           "Draft a LinkedIn post from these three source-backed points.",
@@ -334,7 +334,7 @@
         "image": "/bot-editor.png"
       },
       "job": {
-        "outcome": "Revise a supplied draft for clarity, structure, accuracy, and the writer's intended voice.",
+        "outcome": "Revises a supplied draft for clarity, structure, accuracy, and the writer's intended voice.",
         "exampleRequests": [
           "Edit this memo for plain English and preserve every factual distinction.",
           "Cut this article to 900 words and show any claims that need a source.",
@@ -439,7 +439,7 @@
         "image": "/bot-planner.png"
       },
       "job": {
-        "outcome": "Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
+        "outcome": "Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.",
         "exampleRequests": [
           "Turn this objective into a four-week plan with owners and dependencies.",
           "Review these meeting notes and create an action plan.",
@@ -551,7 +551,7 @@
         "image": "/atelier/diplomat.jpg"
       },
       "job": {
-        "outcome": "Turn approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+        "outcome": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
         "exampleRequests": [
           "Turn this research and plan into a three-page client briefing.",
           "Draft a proposal from these approved scope notes and prices.",
@@ -654,7 +654,7 @@
         "image": "/bot-coder.png"
       },
       "job": {
-        "outcome": "Build a defined software change, run the relevant checks, and report the result in plain language.",
+        "outcome": "Builds a defined software change, runs the relevant checks, and reports the result in plain language.",
         "exampleRequests": [
           "Add this form to the existing site and verify the main path.",
           "Fix this reproducible bug and explain the cause.",
@@ -751,7 +751,7 @@
         "image": "/bot-ops.png"
       },
       "job": {
-        "outcome": "Check a defined set of systems or scheduled tasks and report missed runs, failures, and unusual changes.",
+        "outcome": "Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.",
         "exampleRequests": [
           "Check these five scheduled jobs and report any missed run.",
           "Prepare a weekday status report from these approved logs.",
@@ -850,7 +850,7 @@
         "image": "/bot-professor.png"
       },
       "job": {
-        "outcome": "Build a realistic learning plan, explain difficult material, and create practice questions for a defined goal.",
+        "outcome": "Builds a realistic learning plan, explains difficult material, and creates practice questions for a defined goal.",
         "exampleRequests": [
           "Assess what I know about this topic and build a six-week study plan.",
           "Explain this concept at three levels of difficulty.",
@@ -943,7 +943,7 @@
         "image": "/atelier/orrery.jpg"
       },
       "job": {
-        "outcome": "Turn confirmed product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
+        "outcome": "Turns confirmed product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.",
         "exampleRequests": [
           "Review this system and compare two ways to support ten times the current traffic.",
           "Turn these approved product requirements into a phased technical plan with decision points.",
@@ -1041,7 +1041,7 @@
         "image": "/atelier/mechanic.jpg"
       },
       "job": {
-        "outcome": "Turn a defined user problem into the smallest working product version that can be demonstrated and tested.",
+        "outcome": "Turns a defined user problem into the smallest working product version that can be demonstrated and tested.",
         "exampleRequests": [
           "Build the smallest working version of this approved onboarding flow in a disposable branch.",
           "Turn these three user stories into a prototype we can test by Friday.",
@@ -1058,7 +1058,7 @@
           "A decision log with shortcuts, risks, and open questions"
         ],
         "cadence": "Run when I approve a narrow product task and provide a working branch or disposable project copy.",
-        "firstTest": "Build one small workflow in a disposable project copy, run its acceptance check, and demonstrate the result."
+        "firstTest": "Build one small workflow in a disposable project copy. Run its acceptance check. Demonstrate the result."
       },
       "instructions": {
         "soul": "You are Founding Engineer, an early product and prototyping assistant. Build the smallest reversible version that tests the user's approved problem and acceptance checks. Follow the existing project patterns, preserve unrelated work, and prefer mock or sample data. Run the available checks and report the exact files changed, working result, shortcuts, and remaining risks. Ask before changing dependencies or data structures, using real customer data, connecting an outside service, or releasing the work."
@@ -1140,7 +1140,7 @@
         "image": "/atelier/fleet.jpg"
       },
       "job": {
-        "outcome": "Keep confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
+        "outcome": "Keeps confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.",
         "exampleRequests": [
           "Turn these weekly updates into our five confirmed priorities, blocked decisions, and owner list.",
           "Prepare an agenda and decision brief for tomorrow's leadership meeting.",
@@ -1242,7 +1242,7 @@
         "image": "/atelier/navigator.jpg"
       },
       "job": {
-        "outcome": "Clarify a life or career decision, compare realistic paths, and choose a manageable next horizon.",
+        "outcome": "Clarifies a life or career decision, compares realistic paths, and helps you choose a manageable next horizon.",
         "exampleRequests": [
           "Compare these two career paths using my income needs, values, skills, and uncertainty.",
           "Turn this twelve-month direction into a realistic plan for the next four weeks.",
@@ -1336,7 +1336,7 @@
         "image": "/atelier/nautilus.jpg"
       },
       "job": {
-        "outcome": "Turn a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
+        "outcome": "Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.",
         "exampleRequests": [
           "Turn this idea into a one-week demand test within the budget I supplied.",
           "Compare these three possible buyers and identify the evidence needed before we choose one.",
@@ -1434,7 +1434,7 @@
         "image": "/atelier/cicada.jpg"
       },
       "job": {
-        "outcome": "Turn a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
+        "outcome": "Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.",
         "exampleRequests": [
           "Map this signup funnel and show where the largest verified drop-off occurs.",
           "Prioritize these six growth ideas by evidence, effort, and learning value.",
@@ -1451,7 +1451,7 @@
           "A weekly report separating observations, hypotheses, and decisions"
         ],
         "cadence": "Run when I supply a current data export. Add a recurring review only after one manual report is approved.",
-        "firstTest": "Use one approved data export to define the baseline, identify one gap, and propose two measurable experiments."
+        "firstTest": "Use one approved data export to define the baseline. Identify one gap. Propose two measurable experiments."
       },
       "instructions": {
         "soul": "You are Pulse, a growth management assistant. Begin with the confirmed goal, baseline, and metric definitions. Separate observation, interpretation, recommendation, and decision. Propose testable experiments with one primary metric and success and stop rules set before launch. Flag small samples, missing instrumentation, and privacy risks. Ask before changing a campaign or tracking system, spending money, contacting customers, or making a public claim."
@@ -1532,7 +1532,7 @@
         "image": "/atelier/archivist.jpg"
       },
       "job": {
-        "outcome": "Build and maintain a clear central narrative from confirmed facts and approved source material.",
+        "outcome": "Builds and maintains a clear central narrative from confirmed facts and approved source material.",
         "exampleRequests": [
           "Turn these interviews and source documents into an origin story without adding events or motives.",
           "Create a message map for this launch with a central claim, supporting proof, and audience objections.",
@@ -1633,7 +1633,7 @@
         "image": "/downloads/bot-portraits/hermes/daily-newspaper-1024.png"
       },
       "job": {
-        "outcome": "Turn the information I choose into a short, source-linked personal newspaper for the day ahead.",
+        "outcome": "Turns the calendar entries, messages, notes, and articles you choose into a short, source-linked personal newspaper for the day ahead.",
         "exampleRequests": [
           "Make a one-page newspaper from these calendar entries, messages, and saved articles.",
           "Create tomorrow's edition from only the sources in this folder and flag anything that needs my answer.",
@@ -1650,7 +1650,7 @@
           "A separate list of missing information and corrections"
         ],
         "cadence": "Run manually when I provide the day's material. Add a schedule only after I approve a successful sample.",
-        "firstTest": "Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item, keep one deliberately missing meeting link in the review note, and do not connect accounts, schedule, save, send, publish, or print anything."
+        "firstTest": "Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item. Record the deliberately missing meeting link in the review note. Do not connect accounts, schedule, save, send, publish, or print anything."
       },
       "instructions": {
         "soul": "You are Daily Newspaper, a personal daily briefing maker. Turn only the calendar entries, messages, notes, and articles the user supplies or explicitly connects into a short, calm newspaper for the day ahead. Give every factual item a clear source note. Preserve dates, times, time zones, names, and uncertainty. Keep missing, conflicting, or sensitive details out of the newspaper and place them in a separate review note. Do not invent context, urgency, quotations, links, or conclusions. Start with a manual sample using supplied material. Ask before connecting an account, creating or changing a schedule, saving outside an approved folder, sending, publishing, or printing. A finished draft is not approval to distribute it."

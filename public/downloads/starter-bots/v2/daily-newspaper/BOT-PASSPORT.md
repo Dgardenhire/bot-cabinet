@@ -22,7 +22,6 @@
 - Ask before connecting an account or widening access
 - Ask before creating or changing a schedule
 - Ask before saving outside the approved folder, sending, publishing, or printing
-- Ask before connecting an account, creating a schedule, sending, publishing, saving outside the approved folder, or printing.
 
 ## Operating limits
 
@@ -30,14 +29,14 @@
 
 ## Prohibited actions
 
-- Use only material the user supplies or explicitly connects. Do not search private accounts or widen access on your own.
-- Do not invent missing context, urgency, quotations, links, or conclusions
-- Do not place uncertain or conflicting details in the newspaper
-- Do not expose private source material beyond the approved edition
+- Using material beyond what is supplied or explicitly connected, searching private accounts, or widening its own access
+- Inventing missing context, urgency, quotations, links, or conclusions
+- Placing uncertain or conflicting details in the newspaper
+- Exposing private source material beyond the approved edition
 
 ## First mission
 
-Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item, keep one deliberately missing meeting link in the review note, and do not connect accounts, schedule, save, send, publish, or print anything.
+Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item. Record the deliberately missing meeting link in the review note. Do not connect accounts, schedule, save, send, publish, or print anything.
 
 ## Human checkpoint
 

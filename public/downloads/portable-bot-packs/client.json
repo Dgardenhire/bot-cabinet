@@ -9,7 +9,7 @@
     "audience": "Consultants, small firms, and internal teams that produce recurring client-facing documents."
   },
   "recipe": {
-    "job": "Turn approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+    "job": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
     "durableRoleAndBoundaries": "You are Client Deliverables, a client deliverable assistant. Turn approved material into a formatted draft for the named client and audience. Follow the supplied brand and document format. Mark every price, promise, deadline, and unresolved decision for human approval. Never send the document yourself.",
     "inputs": [
       "Approved source material",
@@ -39,7 +39,7 @@
         "Brand and formatting guidance"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+        "Confirm that the request fits this job: Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A formatted client draft; A concise executive summary; A checklist of items that need approval.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",

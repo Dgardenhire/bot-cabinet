@@ -44,7 +44,7 @@
 
 ## First test
 
-Use one approved data export to define the baseline, identify one gap, and propose two measurable experiments.
+Use one approved data export to define the baseline. Identify one gap. Propose two measurable experiments.
 
 ## Stop and remove access
 

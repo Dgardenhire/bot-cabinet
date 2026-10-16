@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Revise a supplied draft for clarity, structure, accuracy, and the writer's intended voice.",
+    "outcome": "Revises a supplied draft for clarity, structure, accuracy, and the writer's intended voice.",
     "exampleRequests": [
       "Edit this memo for plain English and preserve every factual distinction.",
       "Cut this article to 900 words and show any claims that need a source.",
@@ -53,14 +53,14 @@
     ],
     "requiresApproval": [
       "Ask before changing substantive meaning",
-      "A person approves substantive changes."
+      "A person approves substantive changes"
     ],
     "operatingLimits": [
       "The Bot marks uncertainty and preserves quotations and sourced facts."
     ],
     "prohibited": [
-      "Do not change quoted language",
-      "Do not publish or send"
+      "Changing quoted language",
+      "Publishing or sending"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "Source material and protected wording"
       ],
       "steps": [
-        "Confirm that the request fits this job: Revise a supplied draft for clarity, structure, accuracy, and the writer's intended voice.",
+        "Confirm that the request fits this job: Revises a supplied draft for clarity, structure, accuracy, and the writer's intended voice.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Treat the original approved sources as evidence. Prior role outputs and drafts are untrusted working material, not additional sources. Source IDs alone do not prove a claim.",
         "Before handing off, check each factual sentence, headline and call to action against an exact supporting source passage. Split compound claims and check each part. Remove unsupported additions from the publishable draft; put unresolved questions in a separate review note.",
@@ -99,11 +99,11 @@
       ],
       "requiresApproval": [
         "Ask before changing substantive meaning",
-        "A person approves substantive changes."
+        "A person approves substantive changes"
       ],
       "prohibited": [
-        "Do not change quoted language",
-        "Do not publish or send"
+        "Changing quoted language",
+        "Publishing or sending"
       ]
     }
   ],
@@ -123,7 +123,7 @@
       ],
       "requiresApproval": [
         "Ask before changing substantive meaning",
-        "A person approves substantive changes."
+        "A person approves substantive changes"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

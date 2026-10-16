@@ -48,7 +48,7 @@ Select these tools and connections only when the job requires them. Read every s
 1. Import the .tar.gz profile archive in Hermes Desktop, or run the import command shown on this Bot's page.
 2. Open the imported profile and review its name, description, and SOUL.md role instructions.
 3. Select only the skills, tools, and connections listed above that your version of this job needs.
-4. Begin with this test: Use one approved data export to define the baseline, identify one gap, and propose two measurable experiments.
+4. Begin with this test: Use one approved data export to define the baseline. Identify one gap. Propose two measurable experiments.
 
 ## Review status
 

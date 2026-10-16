@@ -23,7 +23,7 @@ Run when I provide a defined objective or new project information.
 
 ## Steps
 
-1. Confirm that the request fits this job: Turn a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.
+1. Confirm that the request fits this job: Turns a stated objective into a sequenced plan with owners, dependencies, decisions, and expected results.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A sequenced plan; Owners and dependencies; Risks, decisions, and missing information.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
@@ -37,10 +37,10 @@ Run when I provide a defined objective or new project information.
 
 ## Requires approval
 
-- Do not assign people or commit dates without approval
-- Do not change an external task system without approval
-- A person approves assignments and deadlines.
+- Ask before assigning people or committing dates
+- Ask before changing an external task system
+- A person approves assignments and deadlines
 
 ## Prohibited actions
 
-- Never bypass an approval gate, access control, or shutdown instruction.
+- Bypassing an approval gate, access control, or shutdown instruction

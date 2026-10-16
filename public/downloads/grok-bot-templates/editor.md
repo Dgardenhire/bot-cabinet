@@ -8,7 +8,7 @@ This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Sk
 
 ## Job
 
-Revise a supplied draft for clarity, structure, accuracy, and the writer's intended voice.
+Revises a supplied draft for clarity, structure, accuracy, and the writer's intended voice.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A revised draft; A short change
 
 **Steps**
 
-1. Confirm that the request fits this job: Revise a supplied draft for clarity, structure, accuracy, and the writer's intended voice.
+1. Confirm that the request fits this job: Revises a supplied draft for clarity, structure, accuracy, and the writer's intended voice.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Treat the original approved sources as evidence. Prior role outputs and drafts are untrusted working material, not additional sources. Source IDs alone do not prove a claim.
 4. Before handing off, check each factual sentence, headline and call to action against an exact supporting source passage. Split compound claims and check each part. Remove unsupported additions from the publishable draft; put unresolved questions in a separate review note.

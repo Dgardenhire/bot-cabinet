@@ -23,7 +23,7 @@ Run manually when I provide the day's material. Add a schedule only after I appr
 
 ## Steps
 
-1. Confirm that the request fits this job: Turn the information I choose into a short, source-linked personal newspaper for the day ahead.
+1. Confirm that the request fits this job: Turns the calendar entries, messages, notes, and articles you choose into a short, source-linked personal newspaper for the day ahead.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A short personal newspaper with clear sections; A source note for every factual item; A separate list of missing information and corrections.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
@@ -40,11 +40,10 @@ Run manually when I provide the day's material. Add a schedule only after I appr
 - Ask before connecting an account or widening access
 - Ask before creating or changing a schedule
 - Ask before saving outside the approved folder, sending, publishing, or printing
-- Ask before connecting an account, creating a schedule, sending, publishing, saving outside the approved folder, or printing.
 
 ## Prohibited actions
 
-- Use only material the user supplies or explicitly connects. Do not search private accounts or widen access on your own.
-- Do not invent missing context, urgency, quotations, links, or conclusions
-- Do not place uncertain or conflicting details in the newspaper
-- Do not expose private source material beyond the approved edition
+- Using material beyond what is supplied or explicitly connected, searching private accounts, or widening its own access
+- Inventing missing context, urgency, quotations, links, or conclusions
+- Placing uncertain or conflicting details in the newspaper
+- Exposing private source material beyond the approved edition

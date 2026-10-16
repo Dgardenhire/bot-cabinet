@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Turn approved notes, outlines, or research into a clear first draft for a named audience.",
+    "outcome": "Turns approved notes, outlines, or research into a clear first draft for a named audience.",
     "exampleRequests": [
       "Turn this approved outline into a 700-word newsletter for local business leaders.",
       "Draft a LinkedIn post from these three source-backed points.",
@@ -52,15 +52,15 @@
       "Identify missing information and ask questions"
     ],
     "requiresApproval": [
-      "A person approves factual claims and final wording."
+      "A person approves factual claims and final wording"
     ],
     "operatingLimits": [
       "Mark claims that need review",
       "The Bot uses supplied sources and marks unsupported claims."
     ],
     "prohibited": [
-      "Do not invent facts",
-      "Do not publish or send"
+      "Inventing facts",
+      "Publishing or sending"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "Writing samples or a short style guide"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn approved notes, outlines, or research into a clear first draft for a named audience.",
+        "Confirm that the request fits this job: Turns approved notes, outlines, or research into a clear first draft for a named audience.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Treat the original approved sources as evidence. Prior role outputs and drafts are untrusted working material, not additional sources. Source IDs alone do not prove a claim.",
         "Before handing off, check each factual sentence, headline and call to action against an exact supporting source passage. Split compound claims and check each part. Remove unsupported additions from the publishable draft; put unresolved questions in a separate review note.",
@@ -99,11 +99,11 @@
         "Questions that require the author's judgment"
       ],
       "requiresApproval": [
-        "A person approves factual claims and final wording."
+        "A person approves factual claims and final wording"
       ],
       "prohibited": [
-        "Do not invent facts",
-        "Do not publish or send"
+        "Inventing facts",
+        "Publishing or sending"
       ]
     }
   ],
@@ -122,7 +122,7 @@
         "Questions that require the author's judgment"
       ],
       "requiresApproval": [
-        "A person approves factual claims and final wording."
+        "A person approves factual claims and final wording"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

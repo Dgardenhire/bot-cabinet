@@ -19,7 +19,7 @@ Import-tested means archive import was checked, not that this Bot or crew has pr
 Define the user outcome, acceptance conditions, scope, and dependencies.
 
 Archive: members/planner.tar.gz
-SHA-256: 278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1
+SHA-256: 8101faff73c3ba9e7b90dce4b563990f13dab6d96282713d343d1b37c12baafd
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -40,7 +40,7 @@ Requested capabilities (configure manually):
 Choose the technical approach and identify material risks.
 
 Archive: members/architect.tar.gz
-SHA-256: 36e3d3f8a324217e4cd3c55d917546297a50b0ce08678b640aa5f49e8ee382f6
+SHA-256: 1f131414f989304911cc93cf0d14f369aed8ecf2ca56f43cccfdd1f92fcbb143
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Implement the approved approach and document actual changes.
 
 Archive: members/founding-engineer.tar.gz
-SHA-256: 1961e655244acd16243ae0024ece46a43f40f28b1031b08c71d6647927d77dd1
+SHA-256: ab56ea1cc287aa66e26f43c373b837415eac4dd10b707a668b06dc2b40ca0e38
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -71,7 +71,7 @@ Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-re
 - [ ] Confirm read-only or draft-only permissions in connected services
 - [ ] Run the first test with sample material and review the result
 
-First test: Build one small workflow in a disposable project copy, run its acceptance check, and demonstrate the result.
+First test: Build one small workflow in a disposable project copy. Run its acceptance check. Demonstrate the result.
 
 Requested capabilities (configure manually):
 - Approved project files
@@ -80,10 +80,10 @@ Requested capabilities (configure manually):
 
 ## 4. Coder
 
-Act as Tester by running checks and reporting failures.
+Run the checks and report failures.
 
 Archive: members/coder.tar.gz
-SHA-256: dde7d90140283ebea8cefae60c66ba2dc558de7e47d621e52f6ca15839c67e73
+SHA-256: 60a98c784ddc58917d299d93bdc9c5adb20e0220a051a837733f1b4b675b04c5
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -105,7 +105,7 @@ Requested capabilities (configure manually):
 Prepare review notes, release copy, and unresolved questions.
 
 Archive: members/editor.tar.gz
-SHA-256: 5cf5ac1d11b406df726894260d3cdb94b85abeda8650e6b5800552d2550f4975
+SHA-256: 250e6d6776e787dafd9bc5cbe49208abe16a639bc57d0db973d88fb8cf629ddf
 Pack: 2.0.3; minimum Hermes: >=0.21.0; import tested with: 0.21.3
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

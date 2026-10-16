@@ -19,7 +19,7 @@
 ## Requires approval
 
 - Ask before changing substantive meaning
-- A person approves substantive changes.
+- A person approves substantive changes
 
 ## Operating limits
 
@@ -27,8 +27,8 @@
 
 ## Prohibited actions
 
-- Do not change quoted language
-- Do not publish or send
+- Changing quoted language
+- Publishing or sending
 
 ## First mission
 

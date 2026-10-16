@@ -48,7 +48,7 @@ Select these tools and connections only when the job requires them. Read every s
 1. Import the .tar.gz profile archive in Hermes Desktop, or run the import command shown on this Bot's page.
 2. Open the imported profile and review its name, description, and SOUL.md role instructions.
 3. Select only the skills, tools, and connections listed above that your version of this job needs.
-4. Begin with this test: Build one small workflow in a disposable project copy, run its acceptance check, and demonstrate the result.
+4. Begin with this test: Build one small workflow in a disposable project copy. Run its acceptance check. Demonstrate the result.
 
 ## Review status
 

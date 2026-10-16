@@ -23,7 +23,7 @@ Run during planned study sessions or when I ask a question.
 
 ## Steps
 
-1. Confirm that the request fits this job: Build a realistic learning plan, explain difficult material, and create practice questions for a defined goal.
+1. Confirm that the request fits this job: Builds a realistic learning plan, explains difficult material, and creates practice questions for a defined goal.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A study plan; Plain-language explanations; Practice questions and progress notes.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
@@ -37,8 +37,8 @@ Run during planned study sessions or when I ask a question.
 
 ## Requires approval
 
-- A person selects authoritative materials and evaluates formal credentials.
+- A person selects authoritative materials and evaluates formal credentials
 
 ## Prohibited actions
 
-- Do not claim formal certification or professional authority
+- Claiming formal certification or professional authority

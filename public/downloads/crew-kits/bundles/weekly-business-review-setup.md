@@ -19,7 +19,7 @@ Import-tested means archive import was checked, not that this Bot or crew has pr
 Gather approved metrics, project status, deadlines, and exceptions.
 
 Archive: members/ops.tar.gz
-SHA-256: 7e54f6d839f286ff83f738295692f7576f5d16fc30fc005e8ed44183ccbd7dfc
+SHA-256: 8c24359b762cf91a56c6daa7a4d8dd447eb759054ef72a557bb797523472d2b6
 Pack: 2.0.1; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -37,10 +37,10 @@ Requested capabilities (configure manually):
 
 ## 2. Researcher
 
-Act as Analyst and explain changes, gaps, and possible causes.
+Explain changes, gaps, and possible causes.
 
 Archive: members/researcher.tar.gz
-SHA-256: 0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928
+SHA-256: cd4e77069ae82df353b9554b1d6b7d4db14c1b4b761386b614779637eccaeab5
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Prepare the decision brief and surface capacity conflicts.
 
 Archive: members/chief-of-staff.tar.gz
-SHA-256: f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8
+SHA-256: d605455fc8ec3f07f423e86a07665c5846b51f5ab36fad72613b99caa9fd6be1
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 
@@ -82,7 +82,7 @@ Requested capabilities (configure manually):
 Turn approved decisions into owners, actions, and dates.
 
 Archive: members/planner.tar.gz
-SHA-256: 278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1
+SHA-256: 8101faff73c3ba9e7b90dce4b563990f13dab6d96282713d343d1b37c12baafd
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

@@ -37,9 +37,9 @@ Run when I provide new records or ask for a review. Agree a recurring schedule o
 
 ## Requires approval
 
-- Ask before taking an outside action, changing access, or expanding the job.
+- Ask before taking an outside action, changing access, or expanding the job
 
 ## Prohibited actions
 
-- Do not call the newest file the approved version without evidence. Surface conflicting records.
-- Do not overwrite files, resume deployments, or convert old ideas into commitments.
+- Calling the newest file the approved version without evidence, or hiding conflicting records
+- Overwriting files, resuming deployments, or turning old ideas into commitments

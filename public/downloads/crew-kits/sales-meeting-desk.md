@@ -10,7 +10,7 @@ The Sales Meeting Desk researches an approved prospect, prepares the meeting bri
 
 ## Bots and responsibilities
 
-1. **[Scout](https://botcabinet.com/bots/scout/)** — Act as Account Scout and gather current public information about the prospect.
+1. **[Scout](https://botcabinet.com/bots/scout/)** — Gather current public information about the prospect.
 2. **[Researcher](https://botcabinet.com/bots/researcher/)** — Verify account facts and separate evidence from assumptions.
 3. **[Planner](https://botcabinet.com/bots/planner/)** — Build the meeting objective, question sequence, and decision points.
 4. **[Client Deliverables](https://botcabinet.com/bots/client/)** — Turn approved notes into a recap and follow-up draft.

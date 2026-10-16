@@ -48,7 +48,7 @@
 
 ## First test
 
-Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item, keep one deliberately missing meeting link in the review note, and do not connect accounts, schedule, save, send, publish, or print anything.
+Use a fictional calendar entry, two short messages, and one saved article to make a one-page sample. Cite each item. Record the deliberately missing meeting link in the review note. Do not connect accounts, schedule, save, send, publish, or print anything.
 
 ## Stop and remove access
 

@@ -34,7 +34,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "961e8512a33911efc1ef8b4b0b9b566ee0e24d0d3a3f60aef482f30a4020ea5d"
+        "sha256": "8c93096f7bb9265742f32b5dd0c735952f46cd9c28608e98199dcb904ad2bfeb"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -76,7 +76,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "0b112367c8278bc99a90bb2da8a11c0297f309a9733c7e6d351a9a8fc7ad4928"
+        "sha256": "cd4e77069ae82df353b9554b1d6b7d4db14c1b4b761386b614779637eccaeab5"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -118,7 +118,7 @@
           "testedDate": "2026-09-20",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "550c3182a5b6e0d20c8e418464f299921d05e65b8b795590de6bf0282258e8a5"
+        "sha256": "b9054d5270dea666ed2ca4038b96094365d6f3d2339742d2d5a94fb8cd049549"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -160,7 +160,7 @@
           "testedDate": "2026-09-20",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "5cf5ac1d11b406df726894260d3cdb94b85abeda8650e6b5800552d2550f4975"
+        "sha256": "250e6d6776e787dafd9bc5cbe49208abe16a639bc57d0db973d88fb8cf629ddf"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -202,7 +202,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "278b9fcd044be4c7c218f95924e5f0c9a5d3b1ec762fe3cffc012952f4e3a6e1"
+        "sha256": "8101faff73c3ba9e7b90dce4b563990f13dab6d96282713d343d1b37c12baafd"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -244,7 +244,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "6fe7fad0d25dc04832a6897f37791eb1b63145e00e870ab6b0e27bd987b48dd6"
+        "sha256": "f5b2efe996856da333d84b49df2a87b8bd484ef3aa5d304ffd6904a012b88535"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -286,7 +286,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "dde7d90140283ebea8cefae60c66ba2dc558de7e47d621e52f6ca15839c67e73"
+        "sha256": "60a98c784ddc58917d299d93bdc9c5adb20e0220a051a837733f1b4b675b04c5"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -328,7 +328,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "7e54f6d839f286ff83f738295692f7576f5d16fc30fc005e8ed44183ccbd7dfc"
+        "sha256": "8c24359b762cf91a56c6daa7a4d8dd447eb759054ef72a557bb797523472d2b6"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -370,7 +370,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "46661088274f609a8c02a7287b001c22392b21f25213f9d20421fb9c31bc30cd"
+        "sha256": "dd9910d5ad83777903e4630b2e27293a445cc14c44e9525aec884788fe783603"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -412,7 +412,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "36e3d3f8a324217e4cd3c55d917546297a50b0ce08678b640aa5f49e8ee382f6"
+        "sha256": "1f131414f989304911cc93cf0d14f369aed8ecf2ca56f43cccfdd1f92fcbb143"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -454,7 +454,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "1961e655244acd16243ae0024ece46a43f40f28b1031b08c71d6647927d77dd1"
+        "sha256": "ab56ea1cc287aa66e26f43c373b837415eac4dd10b707a668b06dc2b40ca0e38"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -496,7 +496,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "f1756db02bb0dbdd9fc170e77474d1229adc4a591715c5cab58edb333291eed8"
+        "sha256": "d605455fc8ec3f07f423e86a07665c5846b51f5ab36fad72613b99caa9fd6be1"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -538,7 +538,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "b7ec6117d72ae77aa4dc6d7116dbf12726d6ce6690d79f286b93db6d0b92e6ce"
+        "sha256": "cd04a6dafb8d8621acf67d650d9e094d883886876e7a352e7e26784a71a25028"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -580,7 +580,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "dc063a3d49b36adefbd00802258c4abb3918e22734e44c9764896533c7c2cfc3"
+        "sha256": "0142c1381474b28871e810645f24c216222dad1f7f32a388c8e6ec54d3d30628"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -622,7 +622,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "b7d295b903da56a02b61b51a0084de9d7ae89b3491b2a6409d520b292eb0eded"
+        "sha256": "071c74233d2cbaca26099d4920f330ff3a99281d048d9087588fea92f79fb4f9"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -664,7 +664,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "57c7f0fac0168568a5ce36fa9a2ade5b68043656d9e149e1da3574900724c9d8"
+        "sha256": "9149c9e4d3c4425c5f6d4bdea957b7de3bea662e9d0fb8a3b616f37840aff52f"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -706,7 +706,7 @@
           "testedDate": "2026-09-23",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "b731dd23e0209055752a287e8675934d8180f675a2518eac7ea400d73f92d28d"
+        "sha256": "9e8c03f4fcd192d405444cadecfab39c163276a29c0f547475e804aa3322f763"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -748,7 +748,7 @@
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "3d76f1c99cd40f64574df11e31552c087f4e72762be5c74b059b84a333a4f789"
+        "sha256": "cda1139b447ca18277b2a992b3776c75c0d62b2f0ab8f267d94338c07469c587"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -790,7 +790,7 @@
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "0cad677d1edd4649410f0dec954b29a7ea1731168f90d2b4dbc98b82f46eb698"
+        "sha256": "5be17ca12985754bba44c78c5f2959d013a3c04b313611e4c4180e73f09a77ce"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -832,7 +832,7 @@
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "622788dce90e9e74de9c8e6ab419fb79a0f678d38a7b96229619d557e36ed001"
+        "sha256": "030a9b4ed8b6fa096722572646c0bd927e99736500f1a6dcd24e1d3530b2ab09"
       },
       "grokBot": {
         "platformId": "grok-bot",

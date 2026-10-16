@@ -8,7 +8,7 @@ This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Sk
 
 ## Job
 
-Answer a defined question with a concise source-based brief and a clear list of remaining questions.
+Answers a defined question with a concise source-based brief and a clear list of remaining questions.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A short research brief; Source 
 
 **Steps**
 
-1. Confirm that the request fits this job: Answer a defined question with a concise source-based brief and a clear list of remaining questions.
+1. Confirm that the request fits this job: Answers a defined question with a concise source-based brief and a clear list of remaining questions.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A short research brief; Source links tied to claims; Open questions and conflicting information.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.

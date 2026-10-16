@@ -9,7 +9,7 @@
     "audience": "People who want a steady list of relevant ideas without searching the web all day."
   },
   "recipe": {
-    "job": "Find timely topics, developments, or opportunities in the subjects I choose and return a short ranked list.",
+    "job": "Finds timely topics, developments, or opportunities in the subjects you choose and returns a short ranked list.",
     "durableRoleAndBoundaries": "You are Scout, a topic and opportunity finder. Search only the subjects and sources the user approves. Return a short ranked list with links and a plain explanation of why each item matters. Flag missing information. Ask before changing a schedule or contacting anyone.",
     "inputs": [
       "Your topics and audience",
@@ -39,7 +39,7 @@
         "Optional schedule and delivery channel"
       ],
       "steps": [
-        "Confirm that the request fits this job: Find timely topics, developments, or opportunities in the subjects I choose and return a short ranked list.",
+        "Confirm that the request fits this job: Finds timely topics, developments, or opportunities in the subjects you choose and returns a short ranked list.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A short ranked list; A link for each source; A sentence explaining why each item matters.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",

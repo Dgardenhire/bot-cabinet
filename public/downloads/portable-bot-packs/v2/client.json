@@ -17,7 +17,7 @@
     }
   },
   "job": {
-    "outcome": "Turn approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+    "outcome": "Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
     "exampleRequests": [
       "Turn this research and plan into a three-page client briefing.",
       "Draft a proposal from these approved scope notes and prices.",
@@ -53,14 +53,14 @@
     ],
     "requiresApproval": [
       "Ask before including prices, promises, or deadlines",
-      "A person approves pricing, promises, and final delivery.",
-      "A person limits client information to approved files and systems and checks the Bot’s access before use."
+      "A person approves pricing, promises, and final delivery",
+      "A person limits client information to approved files and systems and checks the Bot’s access before use"
     ],
     "operatingLimits": [
       "Keep client information within approved systems"
     ],
     "prohibited": [
-      "Do not send files or messages"
+      "Sending files or messages"
     ],
     "shutdown": "Disable its schedule, remove outside-service connections, and revoke or rotate any dedicated credentials."
   },
@@ -77,7 +77,7 @@
         "Brand and formatting guidance"
       ],
       "steps": [
-        "Confirm that the request fits this job: Turn approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
+        "Confirm that the request fits this job: Turns approved work into a formatted client memo, proposal, briefing, or follow-up draft for the named audience, following the supplied brand and document format.",
         "Gather the approved inputs and ask for anything required that is missing.",
         "Create the intended result: A formatted client draft; A concise executive summary; A checklist of items that need approval.",
         "Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.",
@@ -90,11 +90,11 @@
       ],
       "requiresApproval": [
         "Ask before including prices, promises, or deadlines",
-        "A person approves pricing, promises, and final delivery.",
-        "A person limits client information to approved files and systems and checks the Bot’s access before use."
+        "A person approves pricing, promises, and final delivery",
+        "A person limits client information to approved files and systems and checks the Bot’s access before use"
       ],
       "prohibited": [
-        "Do not send files or messages"
+        "Sending files or messages"
       ]
     }
   ],
@@ -114,8 +114,8 @@
       ],
       "requiresApproval": [
         "Ask before including prices, promises, or deadlines",
-        "A person approves pricing, promises, and final delivery.",
-        "A person limits client information to approved files and systems and checks the Bot’s access before use."
+        "A person approves pricing, promises, and final delivery",
+        "A person limits client information to approved files and systems and checks the Bot’s access before use"
       ],
       "missingInputBehavior": "Pause and ask for the missing source or input. Report which parts remain incomplete.",
       "failureHandling": "Stop, preserve the completed work, and report the failure before trying again or changing access."

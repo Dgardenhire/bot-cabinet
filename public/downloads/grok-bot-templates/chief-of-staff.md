@@ -8,7 +8,7 @@ This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Sk
 
 ## Job
 
-Keep confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
+Keeps confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
 
 ## Durable role and boundaries
 
@@ -56,7 +56,7 @@ Pause for a person to review these deliverables: A current priority brief; A dec
 
 **Steps**
 
-1. Confirm that the request fits this job: Keep confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
+1. Confirm that the request fits this job: Keeps confirmed priorities, decisions, owners, dependencies, and follow-ups in one current operating brief.
 2. Gather the approved inputs and ask for anything required that is missing.
 3. Create the intended result: A current priority brief; A decision, owner, and dependency log; A meeting agenda and follow-up draft.
 4. Check the result against the approval gates and operating limits. Mark uncertain claims or decisions.
