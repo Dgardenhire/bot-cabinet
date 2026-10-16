@@ -2,26 +2,26 @@
   {
     "slug": "ad-spend-review",
     "generator": "OpenAI built-in image generation",
-    "source": "ad-spend-review-original.png",
-    "sourceSha256": "31748b0838692cafaddc01651f09d0ecd1097bd4497effcef48544a4b86ba243",
+    "source": "ad-spend-review-background-v2.png",
+    "sourceSha256": "2eaa45fa5e557234b1f1fabe033a2c2c3a8e2d363aade7edc026542f83a60b59",
     "image": "/bot-portraits/specialists/ad-spend-review.webp",
-    "imageSha256": "82741ee3ae54e094c0cacb25dd9ac305be09d22280c4bd40db132e8008f257e5"
+    "imageSha256": "826aabd420fac5176850107155ef2684879dbc7322b94d3afdaead7de1b6dea8"
   },
   {
     "slug": "bot-porter",
     "generator": "OpenAI built-in image generation",
-    "source": "bot-porter-original.png",
-    "sourceSha256": "b93221792a0dd556f8c48f73580eaf1210a8f39125fd5789b93ea6d3a53cd0dc",
+    "source": "bot-porter-background-v2.png",
+    "sourceSha256": "a26c09fc5aeae91dc12a5e1b69944f703519579a52f5308a1fc202ca83a90446",
     "image": "/bot-portraits/specialists/bot-porter.webp",
-    "imageSha256": "67d0a880002ad281c3441fb54507d0ceba8f9442be9e210881b6deb2d199d5b7"
+    "imageSha256": "e1a7f3b5868eb21f904d17e31e05cafc84eb94a49d0e6b195191a1de0de94e53"
   },
   {
     "slug": "bug-examiner",
     "generator": "OpenAI built-in image generation",
-    "source": "bug-examiner-original.png",
-    "sourceSha256": "8b4eccbb8a43e2f49b375e3ec8fc64c21b2ac144a269903c2d26a09b23016298",
+    "source": "bug-examiner-background-v2.png",
+    "sourceSha256": "6f52b87df67854b4336ec3b49807c517846797f754836e9270401de78ee902f0",
     "image": "/bot-portraits/specialists/bug-examiner.webp",
-    "imageSha256": "7a1c2c3a61144733c0856b675f0caba2e0b1b7aa16c52ebf6ec9504926bb6713"
+    "imageSha256": "6d3c5159a79916c78d623dcf0d5c8ff805c126c2032c60fdc8404062a005729f"
   },
   {
     "slug": "call-coach",
@@ -66,10 +66,10 @@
   {
     "slug": "deal-reviewer",
     "generator": "OpenAI built-in image generation",
-    "source": "deal-reviewer-original.png",
-    "sourceSha256": "7fc4b4f8545885ba74a0836140afa4c8a75daec596ceebd4ec184cbdfedbad43",
+    "source": "deal-reviewer-background-v2.png",
+    "sourceSha256": "b6e2f0500812e3f16a2f2d253f645af9195398b149dbc65bf8f70e25cbffc345",
     "image": "/bot-portraits/specialists/deal-reviewer.webp",
-    "imageSha256": "2feda6916e8c2dd28ee36a214ac450490f3032db475f87dc8c201d85f63a818a"
+    "imageSha256": "a0f1f58521240610122a69b3dd928d3111fde12979c0a9f10b6cff7db285343d"
   },
   {
     "slug": "habit-coach",
