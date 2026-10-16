@@ -308,12 +308,18 @@ html[data-cabinet-reveal="run"] .cabinet-reveal { display: block; }
 .home-fit-copy .section-deck { max-width: 600px; }
 .home-fit-copy .button { width: max-content; margin-top: 26px; }
 .home-fit-scale { border-top: 1px solid var(--line); }
-.home-fit-scale > div {
+.home-fit-scale > details { border-bottom: 1px solid var(--line-soft); }
+.home-fit-scale summary {
   min-height: 70px; display: grid; grid-template-columns: 46px minmax(130px,.7fr) 1fr; gap: 16px;
-  align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line-soft);
-  transition: background 160ms ease, padding-left 160ms ease;
+  align-items: center; padding: 12px 16px; cursor: pointer; list-style: none;
 }
-.home-fit-scale > div:hover { padding-left: 22px; background: rgba(198,154,75,.055); }
+.home-fit-scale summary::-webkit-details-marker { display: none; }
+.home-fit-scale summary:hover { background: rgba(198,154,75,.055); }
+.home-fit-scale summary strong::after { content: " +"; color: var(--brass-bright); font-size: 16px; }
+.home-fit-scale details[open] summary strong::after { content: " −"; }
+.home-fit-scale summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.home-fit-scale details > div { padding: 0 16px 24px 78px; }
+.home-fit-scale details p { color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0 0 12px; }
 .home-fit-scale span { color: var(--brass-bright); font: 12px var(--mono); }
 .home-fit-scale strong { color: var(--paper); font: 400 24px/1 var(--serif); }
 .home-fit-scale small { color: var(--muted); font-size: 14px; }
@@ -2488,7 +2494,8 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .first-run-finish .button { grid-column: 1/-1; }
   .home-fit-section { padding-block: 54px; }
   .home-fit-copy .button { width: 100%; }
-  .home-fit-scale > div { grid-template-columns: 34px 1fr; }
+  .home-fit-scale summary { grid-template-columns: 34px 1fr; }
+  .home-fit-scale details > div { padding-left: 66px; }
   .home-fit-scale small { grid-column: 2; }
   .fit-test-page-hero { padding: 54px 0 42px; }
   .fit-test-page-hero h1 { font-size: 52px; }

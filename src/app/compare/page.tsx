@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
+import styles from "./compare.module.css";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Compare personal AI agents",
@@ -26,44 +27,29 @@ const agents = [
 
 export default function ComparePage() {
   return (
-    <main id="main-content" className="page-main compare-page">
+    <main id="main-content" className={`page-main compare-page ${styles.page}`}>
       <div className="shell compare-wrap">
         <header className="compare-hero">
           <Eyebrow>A field guide · checked September 29, 2026</Eyebrow>
           <h1>Which agent fits your job?</h1>
           <p>Compare eight AI assistants. Choose based on the apps you use, the job you need done, and how much setup you want.</p>
-          <div className="compare-flow" aria-label="A simple way to start"><span>Give it a job</span><span>Set its limits</span><span>Check the result</span></div>
         </header>
 
-        <section className="compare-picks" aria-labelledby="compare-picks-title">
-          <div className="compare-section-head"><div><Eyebrow>At a glance</Eyebrow><h2 id="compare-picks-title">Four ways in</h2></div><p>Begin with the kind of help you want. You can inspect all eight products in the chart below.</p></div>
-          <div className="compare-pick-grid">
-            <article><span>Personal work</span><h3>ChatGPT Dots</h3><p>Keep one assistant near your projects and ask it to follow through on a clear job.</p><Link href="/start/dots" className="text-link">Try a first job <ArrowRight size={16} aria-hidden="true" /></Link></article>
-            <article><span>Everyday life</span><h3>Muse or Instinct</h3><p>Ask for help with plans, errands, and follow-ups through an app, message, or call.</p><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" className="text-link" target="_blank" rel="noopener noreferrer">See how Muse works <ArrowUpRight size={16} aria-hidden="true" /></a></article>
-            <article><span>Several work roles</span><h3>Grok Bot</h3><p>Give different Bots different jobs, and bring them together when a handoff helps.</p><Link href="/start/grok" className="text-link">Try a Grok Bot <ArrowRight size={16} aria-hidden="true" /></Link></article>
-            <article><span>Your own setup</span><h3>Hermes or OpenClaw</h3><p>Choose your tools and hosting. Expect more setup—and more control.</p><Link href="/start/hermes" className="text-link">Try Hermes <ArrowRight size={16} aria-hidden="true" /></Link></article>
-          </div>
-        </section>
-
         <section className="compare-table-section" aria-labelledby="compare-title">
-          <div className="compare-section-head"><div><Eyebrow>Look closer</Eyebrow><h2 id="compare-title">Eight agents, different starting points</h2></div><p>Based on the linked provider information. Bot Cabinet has not tested all eight products. Check current prices and access before signing up.</p></div>
+          <div className="compare-section-head"><div><h2 id="compare-title">Compare the options</h2></div><p>Based on the linked provider information. Bot Cabinet has not tested all eight products. Check current prices and access before signing up.</p></div>
           <div className="compare-table-scroll" role="region" aria-label="Agent comparison table" tabIndex={0}>
             <table className="compare-table">
               <caption className="sr-only">Compare each agent by useful job, number of agents, where it runs, entry requirements, and a caution.</caption>
               <thead><tr><th scope="col">Product</th><th scope="col">A good first job</th><th scope="col">Agent setup</th><th scope="col">Where it works</th><th scope="col">How to get in</th><th scope="col">Check before using</th></tr></thead>
               <tbody>{agents.map((agent) => <tr key={agent.name}>
-                <th scope="row"><strong>{agent.name}</strong><small>{agent.maker}</small><a href={agent.sourceUrl} target="_blank" rel="noopener noreferrer">{agent.source} <ArrowUpRight size={13} aria-hidden="true" /></a></th>
-                <td>{agent.job}</td><td>{agent.shape}</td><td>{agent.runs}</td><td>{agent.entry}</td><td>{agent.caution}</td>
+                <th scope="row"><strong>{agent.name}</strong><small>{agent.maker}</small><a href={agent.sourceUrl} target="_blank" rel="noopener noreferrer">{agent.source} <ArrowUpRight size={13} aria-hidden="true" /></a>{agent.path.startsWith("/") ? <Link href={agent.path} className={styles.tryLink}>Try it <ArrowRight size={13} aria-hidden="true" /></Link> : null}</th>
+                <td data-label="A good first job">{agent.job}</td><td data-label="Agent setup">{agent.shape}</td><td data-label="Where it works">{agent.runs}</td><td data-label="How to get in">{agent.entry}</td><td data-label="Check before using">{agent.caution}</td>
               </tr>)}</tbody>
             </table>
           </div>
-          <p className="compare-scroll-hint">On a narrow screen, swipe the table sideways. Every row links to its source.</p>
         </section>
 
-        <section className="compare-choice" aria-labelledby="compare-choice-title">
-          <div><Eyebrow>Pick a first step</Eyebrow><h2 id="compare-choice-title">Choose a useful first task</h2><p>Choose the tool and Bot roles the job needs. Try the task and check the result before adding a schedule or more account access.</p></div>
-          <div className="compare-choice-links"><Link href="/start/dots" className="text-link">Try a Chief of Staff job with Dots <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/start/grok" className="text-link">Try a Bot in Grok Bot <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/start/hermes" className="text-link">Try a Bot in Hermes <ArrowRight size={16} aria-hidden="true" /></Link></div>
-        </section>
+        <p className={styles.next}>Chosen an app? <Link href="/fit">Find a Bot for your task <ArrowRight size={16} aria-hidden="true" /></Link></p>
         <p className="compare-credit">This comparison builds on our AI for the Real World newsletter graphic and <a href="https://every.to/vibe-check/vibe-check-dots-always-on-agents-in-chatgpt" target="_blank" rel="noopener noreferrer">Every&apos;s September 29 Dots field report</a>.</p>
       </div>
     </main>
