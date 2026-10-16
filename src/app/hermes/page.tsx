@@ -100,7 +100,7 @@ export default function CabinetForHermesPage() {
             <div className="first-run-facts" aria-label="At a glance">
               <span>Free and open source</span>
               <span>Needs Hermes 0.22.0 or later</span>
-              <span>Works beside Hermes Bots</span>
+              <span>Tested on Windows, Mac and Linux</span>
             </div>
           </div>
           <figure className={`first-run-hero-art ${styles.heroArt}`}>
