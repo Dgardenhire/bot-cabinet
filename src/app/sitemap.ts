@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/start",
     "/start/hermes",
     "/hermes",
+    "/hermes/manual",
     "/start/grok",
     "/start/dots",
     "/compare",
@@ -53,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updatedRoutes = new Set([...SPECIALISTS.map(bot => `/bots/${bot.slug}`), ...CREW_PLANS.map(crew => `/crew-kits/${crew.slug}`), "/bots", "/crew-kits"]);
   const jobReleaseRoutes = new Set(["", "/start", "/use-cases", ...BOT_USE_CASES.filter(job => job.sample).map(job => `/use-cases/${job.slug}`)]);
   function modifiedOn(route: string) {
-    if (route === "/hermes") return "2026-10-16";
+    if (route === "/hermes" || route === "/hermes/manual") return "2026-10-16";
     if (jobReleaseRoutes.has(route)) return "2026-10-15";
     if (updatedRoutes.has(route)) return "2026-10-06";
     if (["/start/dots", "/compare", "/watch"].includes(route)) return "2026-09-29";

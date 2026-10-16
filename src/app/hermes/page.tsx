@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowSquareOut,
   ArrowUUpLeft,
   BookOpenText,
   ClipboardText,
@@ -12,10 +11,11 @@ import {
   UserPlus,
 } from "@phosphor-icons/react/dist/ssr";
 
-import { CopyTextButton } from "@/components/copy-text-button";
+import { CabinetInstall } from "@/components/cabinet-install";
 import { Eyebrow } from "@/components/ui";
 import { getBotRuntimeEvidence, getReproducedBotEvidence } from "@/data/bot-release-evidence";
 import { CREW_KITS } from "@/data/crew-kits";
+import { CABINET_MANUAL_PATH, CABINET_MIN_HERMES, CABINET_REPO_URL } from "@/data/hermes-cabinet";
 import { STARTER_BOTS } from "@/data/starter-bots";
 import { buildPageMetadata } from "@/lib/metadata";
 import styles from "./hermes.module.css";
@@ -28,10 +28,6 @@ export const metadata: Metadata = buildPageMetadata({
   image: "/brand/social/cabinet-for-hermes-1200x630.jpg",
   imageAlt: "Cabinet, a plugin for Hermes Desktop that adds Bots and crews from botcabinet.com",
 });
-
-const CABINET_INSTALL_COMMAND = "hermes plugins install Dgardenhire/hermes-cabinet --enable";
-const CABINET_REPO_URL = "https://github.com/Dgardenhire/hermes-cabinet";
-const CABINET_MANUAL_URL = "https://linchpin.studio/hermes/cabinet";
 
 const testedBotCount = STARTER_BOTS.filter(
   (bot) => getReproducedBotEvidence(bot.slug) || getBotRuntimeEvidence(bot.slug),
@@ -93,13 +89,13 @@ export default function CabinetForHermesPage() {
               <a href="#install" className="button button-primary" data-funnel-event="cabinet_plugin_install_jump" data-funnel-surface="hermes_page">
                 Install Cabinet <ArrowRight size={16} aria-hidden="true" />
               </a>
-              <a href={CABINET_MANUAL_URL} className="button button-secondary" target="_blank" rel="noreferrer" data-funnel-event="cabinet_plugin_manual" data-funnel-surface="hermes_page">
-                Read the manual <ArrowSquareOut size={16} aria-hidden="true" />
-              </a>
+              <Link href={CABINET_MANUAL_PATH} className="button button-secondary" data-funnel-event="cabinet_plugin_manual" data-funnel-surface="hermes_page">
+                Read the manual <BookOpenText size={16} aria-hidden="true" />
+              </Link>
             </div>
             <div className="first-run-facts" aria-label="At a glance">
               <span>Free and open source</span>
-              <span>Needs Hermes 0.22.0 or later</span>
+              <span>Needs Hermes {CABINET_MIN_HERMES} or later</span>
               <span>Tested on Windows, Mac and Linux</span>
             </div>
           </div>
@@ -155,30 +151,16 @@ export default function CabinetForHermesPage() {
             <Eyebrow>Install</Eyebrow>
             <h2 id="cabinet-install-title" className="section-heading">Getting it running</h2>
             <p className="section-deck">
-              You install Cabinet once. After that it lives in the Hermes Desktop sidebar. Hermes uses git to
-              download it, so git needs to be on your computer too.
+              You install Cabinet once, from inside Hermes Desktop. After that it lives in the sidebar. Hermes uses git
+              to download plugins, so git needs to be on your computer too.
+            </p>
+            <p className={styles.manualLink}>
+              <Link href={CABINET_MANUAL_PATH} className="text-link">
+                <BookOpenText size={16} aria-hidden="true" /> Read the manual for every screen, with pictures
+              </Link>
             </p>
           </div>
-          <ol className={styles.steps}>
-            <li>
-              <strong>Open a terminal</strong>
-              <p>On Windows, open PowerShell. On a Mac or Linux, open Terminal.</p>
-            </li>
-            <li>
-              <strong>Run this one line</strong>
-              <code className={styles.command}>hermes plugins install Dgardenhire/hermes-cabinet <span className={styles.nowrap}>--enable</span></code>
-              <CopyTextButton text={CABINET_INSTALL_COMMAND} label="Copy the install line" analyticsEvent="cabinet_plugin_install_copy" analyticsSurface="hermes_page" />
-              <p>Hermes may say this comes from a source it hasn&apos;t reviewed. That is expected for now.</p>
-            </li>
-            <li>
-              <strong>Restart Hermes Desktop</strong>
-              <p>Quit it fully and open it again, so it loads the new plugin.</p>
-            </li>
-            <li>
-              <strong>Open Cabinet in the sidebar</strong>
-              <p>If the page says Cabinet isn&apos;t connected, turn the plugin on under Capabilities and open the page again.</p>
-            </li>
-          </ol>
+          <CabinetInstall surface="hermes_page" />
         </div>
       </section>
 
@@ -216,9 +198,9 @@ export default function CabinetForHermesPage() {
             <a href={CABINET_REPO_URL} target="_blank" rel="noreferrer" className="text-link">
               <GithubLogo size={16} aria-hidden="true" /> Cabinet on GitHub
             </a>
-            <a href={CABINET_MANUAL_URL} target="_blank" rel="noreferrer" className="text-link">
+            <Link href={CABINET_MANUAL_PATH} className="text-link">
               <BookOpenText size={16} aria-hidden="true" /> The Cabinet manual
-            </a>
+            </Link>
             <Link href="/bots" className="text-link">
               Browse the Bots <ArrowRight size={16} aria-hidden="true" />
             </Link>

@@ -9,6 +9,7 @@ Use Bot Cabinet to find role instructions and workflows for a task your user has
 - Catalog RSS: https://botcabinet.com/feed.xml
 - Source repository: https://github.com/Dgardenhire/bot-cabinet
 - Hermes Desktop plugin: https://botcabinet.com/hermes/ (Cabinet reads https://botcabinet.com/catalog.json and adds Bot Cabinet's Bots and Crew Kits as Hermes bots, with the user's approval)
+- Cabinet manual: https://botcabinet.com/hermes/manual/ (install from inside Hermes Desktop with hermes://plugin/install?repo=Dgardenhire/hermes-cabinet&enable=1, or in a terminal with `hermes plugins install Dgardenhire/hermes-cabinet --enable`)
 
 The complete index includes starter Bots, manual specialists, downloadable Crew Kits and manual crew plans. Each entry has a stable ID, a job summary, setup type, file links, SHA-256 hashes and a scoped test status. Crew member IDs point to other entries in the same index.
 

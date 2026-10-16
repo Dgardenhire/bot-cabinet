@@ -176,6 +176,7 @@ export function buildLlmsText(catalog: PublicBotCatalog) {
     `- [Bot Lab](${BOT_CABINET_ORIGIN}/workshop/): Plan and customize a Bot.`,
     `- [Crew Kits](${BOT_CABINET_ORIGIN}/crew-kits/): Plan several Bots with separate jobs and handoffs.`,
     `- [Bot Cabinet in Hermes](${BOT_CABINET_ORIGIN}/hermes/): The Cabinet plugin for Hermes Desktop. Run the Fit Test and add Bot Cabinet's Bots and Crew Kits as Hermes bots.`,
+    `- [Cabinet manual](${BOT_CABINET_ORIGIN}/hermes/manual/): How to install Cabinet from inside Hermes Desktop and use every screen, with pictures.`,
     `- [Hermes and Grok Bot](${BOT_CABINET_ORIGIN}/platforms/grok-bot/): Compare the supported setup path for each platform.`,
     `- [Review process](${BOT_CABINET_ORIGIN}/trust/): Understand the labels and checks shown on the site.`,
     "",
