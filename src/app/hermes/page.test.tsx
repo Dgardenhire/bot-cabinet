@@ -13,7 +13,7 @@ describe("Bot Cabinet in Hermes page", () => {
     expect(text).toContain("Restart Hermes Desktop");
     expect(text).toContain("Open Cabinet in the sidebar");
     expect(html).toContain('href="https://github.com/Dgardenhire/hermes-cabinet"');
-    expect(html).toContain('href="https://github.com/Dgardenhire/hermes-cabinet/blob/main/docs/MANUAL.md"');
+    expect(html).toContain('href="https://linchpin.studio/hermes/cabinet"');
   });
 
   it("says plainly that it is independent and sits beside the Hermes Bots catalog", () => {

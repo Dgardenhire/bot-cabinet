@@ -31,7 +31,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const CABINET_INSTALL_COMMAND = "hermes plugins install Dgardenhire/hermes-cabinet --enable";
 const CABINET_REPO_URL = "https://github.com/Dgardenhire/hermes-cabinet";
-const CABINET_MANUAL_URL = "https://github.com/Dgardenhire/hermes-cabinet/blob/main/docs/MANUAL.md";
+const CABINET_MANUAL_URL = "https://linchpin.studio/hermes/cabinet";
 
 const testedBotCount = STARTER_BOTS.filter(
   (bot) => getReproducedBotEvidence(bot.slug) || getBotRuntimeEvidence(bot.slug),
@@ -100,7 +100,7 @@ export default function CabinetForHermesPage() {
             <div className="first-run-facts" aria-label="At a glance">
               <span>Free and open source</span>
               <span>Needs Hermes 0.22.0 or later</span>
-              <span>Windows, Mac and Linux</span>
+              <span>Works beside Hermes Bots</span>
             </div>
           </div>
           <figure className={`first-run-hero-art ${styles.heroArt}`}>
