@@ -1,0 +1,8 @@
+{
+  "task": "Fictional source audit, not a rewrite. Original source S1: 'The room seats 40. Registration opens Nov 1. The report identifies no sponsor.' Draft: 'Forty people have signed up. Register today. There is no sponsor.' Audit each exact draft sentence against the exact source passage and mark supported, unsupported or ambiguous. Do not rewrite until the audit is reviewed.",
+  "checklist": [
+    "Identifies capacity versus signups and future registration versus register-today as unsupported.",
+    "Preserves the scope of 'report identifies no sponsor' rather than claiming no sponsor exists.",
+    "Returns a sentence-by-sentence audit without claiming approval, publication or an approved rewrite."
+  ]
+}

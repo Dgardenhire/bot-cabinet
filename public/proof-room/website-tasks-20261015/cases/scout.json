@@ -1,0 +1,8 @@
+{
+  "task": "Fictional source packet for a local nonprofit newsletter, dated 2026-10-01. S1 (example.test/grant): grant applications open Oct 20; eligibility is not supplied. S2 (example.test/library): a free volunteer workshop is Oct 8. S3 (example.test/report): a survey describes volunteer shortages but supplies no count. S4 (example.test/sports): a team won yesterday. S5 (example.test/weather): tomorrow is cloudy. Select three relevant topics, rank them and cite the supplied source links. Use only these records; do not claim the links were opened or checked.",
+  "checklist": [
+    "Ranks S1, S2 and S3 for the nonprofit audience with their supplied links.",
+    "Preserves the future application date and missing eligibility and survey count.",
+    "Does not invent opportunities or claim live link verification or publication."
+  ]
+}

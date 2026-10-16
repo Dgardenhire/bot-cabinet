@@ -370,7 +370,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "dd9910d5ad83777903e4630b2e27293a445cc14c44e9525aec884788fe783603"
+        "sha256": "07924959b52e3c52074ececc206d11a320a855a3b9ec64382d356220fdd61221"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -538,7 +538,7 @@
           "testedDate": "2026-09-04",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "cd04a6dafb8d8621acf67d650d9e094d883886876e7a352e7e26784a71a25028"
+        "sha256": "fb4be0b7fc0faf818a9f4aa9dfb5de54ebec15d3b1db35b82c870413b4e49b85"
       },
       "grokBot": {
         "platformId": "grok-bot",
@@ -832,7 +832,7 @@
           "testedDate": "2026-09-09",
           "scope": "archive-import-and-bundled-skill-presence"
         },
-        "sha256": "030a9b4ed8b6fa096722572646c0bd927e99736500f1a6dcd24e1d3530b2ab09"
+        "sha256": "35f9b0a9aa281b3e3b1e169c9e203b61a061167a91ed75045156e0e20f515c3a"
       },
       "grokBot": {
         "platformId": "grok-bot",

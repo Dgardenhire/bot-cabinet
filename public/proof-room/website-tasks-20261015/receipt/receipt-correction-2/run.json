@@ -1,0 +1,15 @@
+{
+  "bot": "receipt",
+  "completed": false,
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/receipt.json",
+    "mediaType": "application/json",
+    "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+    "bytes": 9680
+  },
+  "sourceMode": "local-candidate",
+  "stopReason": "Provider returned 429 after truncated responses; stopped at the 180-second process deadline. No final answer saved.",
+  "apiCalls": null,
+  "estimatedCostUsd": null,
+  "humanApproved": false
+}

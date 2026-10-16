@@ -1,0 +1,28 @@
+{
+  "bot": "professor",
+  "resourceId": "starter:professor",
+  "date": "2026-10-16T04:16:48.152820+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/professor.json",
+    "mediaType": "application/json",
+    "sha256": "0469d45b7a455828e16e2946d60ae0cc402f8ac9678bad9cc90034856bac2132",
+    "bytes": 6630
+  },
+  "indexRevision": "4053b95554a99b9fd56ee029986b6b1a76ed26b397e31dcad83452157a52328c",
+  "roleSha256": "6796158f348a64dbdf035fa724d8d77975bf848114cfb89da702fa8ce2f2fe26",
+  "caseSha256": "0c058a6269c93b36358b1733c6cde6c10915508459989bcf8bb2a66d927f536a",
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "inputTokens": 4136,
+  "outputTokens": 1148,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false
+}

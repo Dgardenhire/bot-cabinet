@@ -1,0 +1,29 @@
+{
+  "bot": "coach",
+  "resourceId": "starter:coach",
+  "date": "2026-10-16T04:20:19.206899+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/coach.json",
+    "mediaType": "application/json",
+    "sha256": "3c565b18d863ca148430227c1c922889af8e3a81079f3eeefe78d574827ec678",
+    "bytes": 8201
+  },
+  "sourceMode": "local-candidate",
+  "indexRevision": "8b25d7e97ae54e62b05b65ac3db2f7109220f87eeb86978284bafb603f3f6cf6",
+  "roleSha256": "5722b35940029ae41b273ecbb35773fc1ee3c420be7a49e364e9acdbfa86ac57",
+  "caseSha256": "1d9aa7b00e478ed603b56aeae4a4fa520c3ce175fa3f930c0cc9c11a9981614d",
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "inputTokens": 4288,
+  "outputTokens": 2009,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false
+}

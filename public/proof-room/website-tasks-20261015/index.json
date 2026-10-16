@@ -1,0 +1,443 @@
+{
+  "date": "2026-10-15",
+  "reviewer": "Codex",
+  "humanApproved": false,
+  "scope": "One supplied-material task using website role instructions in the Hermes SDK; not Desktop imports, connected accounts, tool execution or crew handoffs.",
+  "records": [
+    {
+      "id": "starter:scout",
+      "slug": "scout",
+      "name": "Scout",
+      "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/scout.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:researcher",
+      "slug": "researcher",
+      "name": "Researcher",
+      "sha256": "c75cc549549bb9088d59d9f87c5d19b21db7b978f504ac077ece7c2c16e80b59",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/researcher.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:writer",
+      "slug": "writer",
+      "name": "Writer",
+      "sha256": "e610eae2aad795cd8d52a00a71356beb3fb1b63ec3274510b70e13180333ee1d",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/writer.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:editor",
+      "slug": "editor",
+      "name": "Editor",
+      "sha256": "b7b8f88b5df54f289bd988da41a75ca50ece5995d0213933982f066dd9361e1a",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/editor.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:planner",
+      "slug": "planner",
+      "name": "Planner",
+      "sha256": "966d974f6cb8f81bebeac8c48f36bec413b5e866c17c939fe6c58206133297fa",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/planner.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:client",
+      "slug": "client",
+      "name": "Client Deliverables",
+      "sha256": "c4b4bdea0d2328ec9288b852216651cd4bfcfd1a8eec5a24e65632eb16bc85f9",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/client.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:coder",
+      "slug": "coder",
+      "name": "Coder",
+      "sha256": "157279d50c66e94e96f57aef08cf580bc8715bb39b08b19222104f394d7d1f42",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/coder.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:ops",
+      "slug": "ops",
+      "name": "Ops",
+      "sha256": "483a0027df27151303eb71c299b66c18f42e179bfbf782c914f5de1e0dba4d96",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/ops.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:professor",
+      "slug": "professor",
+      "name": "Professor",
+      "sha256": "d6309ba4c5b42c17f72fed8e5b61a15fef5af982b53e1a715253646fb7457263",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261015/cases/professor.json",
+      "attempts": [
+        {
+          "id": "professor-baseline-1",
+          "sha256": "0469d45b7a455828e16e2946d60ae0cc402f8ac9678bad9cc90034856bac2132",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Kept the plan within 180 minutes and answered the arithmetic correctly, but omitted the synthetic label and overstated the learner's demonstrated ability.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/professor/professor-baseline-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/professor/professor-baseline-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/professor/professor-baseline-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/professor/professor-baseline-1/run.json"
+          }
+        },
+        {
+          "id": "professor-correction-1",
+          "sha256": "d6309ba4c5b42c17f72fed8e5b61a15fef5af982b53e1a715253646fb7457263",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Labeled the fictional example, used a 180-minute plan and the supplied notes, and gave five practice questions with separate correct answers. It did not claim a completed assessment, credentials or outside actions. This is one sample on the disclosed model, not a reliability guarantee.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/professor/professor-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/professor/professor-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/professor/professor-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/professor/professor-correction-1/run.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter:architect",
+      "slug": "architect",
+      "name": "Architect",
+      "sha256": "3be898d8230dda649c13de3d0f3153f81101e377d50b4994a5409cd40907b898",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/architect.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:founding-engineer",
+      "slug": "founding-engineer",
+      "name": "Founding Engineer",
+      "sha256": "44075c1c90022f6923c5a7f58aa731c9b785bdc26d2699fb20c85e01364c8747",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/founding-engineer.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:chief-of-staff",
+      "slug": "chief-of-staff",
+      "name": "Chief of Staff",
+      "sha256": "043ed5a38e9f218a9c1e7d318864dabf5e200b62caf27a0b642f7f9613f9dc8d",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/chief-of-staff.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:coach",
+      "slug": "coach",
+      "name": "Coach",
+      "sha256": "5e0ffeee9cc7085dbd689d49029e112156342ec3a609eee94fa2d13627cfa7f0",
+      "status": "awaiting-retest",
+      "case": "/proof-room/website-tasks-20261015/cases/coach.json",
+      "attempts": [
+        {
+          "id": "coach-baseline-1",
+          "sha256": "3fe08598933a879282f30634ba3390e7370a96d82afcbbb79eaab9d7c03543dd",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Compared options and kept the final choice with the user, but described an offered course as an obligation and confirmed commitment. It also invented limited energy and a chosen plan.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/coach/coach-baseline-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/coach/coach-baseline-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/coach/coach-baseline-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/coach/coach-baseline-1/run.json"
+          }
+        },
+        {
+          "id": "coach-correction-1",
+          "sha256": "3c565b18d863ca148430227c1c922889af8e3a81079f3eeefe78d574827ec678",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Stopped calling the course a confirmed commitment, but still put it in the user's plan and proposed completing it next month without knowing its duration. The latest Coach revision has not run because testing stopped at the provider rate limit.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/coach/coach-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/coach/coach-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/coach/coach-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/coach/coach-correction-1/run.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter:nova",
+      "slug": "nova",
+      "name": "Nova",
+      "sha256": "a192ea67bf698d4ec7677998a0296e1426eae0dcdda7d09630fe0cf530f88432",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/nova.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:pulse",
+      "slug": "pulse",
+      "name": "Pulse",
+      "sha256": "07343f876db9c38f58fb329bc6f533486f64d194f2eaa339ccdce9c527db3efa",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/pulse.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:story",
+      "slug": "story",
+      "name": "Story",
+      "sha256": "a076f27e467c003b4c0b85d177488a9c248dd3c291b8bbec37881b67b4dd3117",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/story.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:daily-newspaper",
+      "slug": "daily-newspaper",
+      "name": "Daily Newspaper",
+      "sha256": "fcbf22824908fa4768477e1c51bbca7288954df7f19201912c46a9d59eaffa8b",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/daily-newspaper.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:curator",
+      "slug": "curator",
+      "name": "Curator",
+      "sha256": "e241a3d740479a2fc756468cbb2273d71c05045a17474d87a3a017f1572b4469",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/curator.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:reentry",
+      "slug": "reentry",
+      "name": "Reentry",
+      "sha256": "45375ac88718545cdb002e51c4fb6ffbd04e0ecebaaa8440ceb9599c63ff0e83",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/reentry.json",
+      "attempts": []
+    },
+    {
+      "id": "starter:receipt",
+      "slug": "receipt",
+      "name": "Receipt",
+      "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+      "status": "awaiting-retest",
+      "case": "/proof-room/website-tasks-20261015/cases/receipt.json",
+      "attempts": [
+        {
+          "id": "receipt-baseline-1",
+          "sha256": "599b49ff4e4c1be65654fd6c919ca5d837f14e708674f0bb6c90183c1e529f42",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Kept the case open and the refund unreceived, but did not ask for the undated email's date, mislabeled purchase and dispatch events, and omitted the overall fictional-example label.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/receipt/receipt-baseline-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/receipt/receipt-baseline-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/receipt/receipt-baseline-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/receipt/receipt-baseline-1/run.json"
+          }
+        },
+        {
+          "id": "receipt-correction-1",
+          "sha256": "c87316bec1341ee6e654e6d353d4674fd0d3b1b898485140278fcd18b7c70756",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Added the missing-date request and kept the case open. Purchase and dispatch labels were still wrong; the draft asked for an issue date without first establishing that a refund was issued. The overall fictional-example label was still missing.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/receipt/receipt-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/receipt/receipt-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/receipt/receipt-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/receipt/receipt-correction-1/run.json"
+          }
+        },
+        {
+          "id": "receipt-correction-2",
+          "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "The second revision did not finish. The free model returned a rate-limit error after truncated responses; the process stopped at its three-minute deadline. This is not a passed task. The latest Receipt instructions still need a completed rerun.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/receipt/receipt-correction-2/source.json",
+            "input": "/proof-room/website-tasks-20261015/receipt/receipt-correction-2/input.md",
+            "run": "/proof-room/website-tasks-20261015/receipt/receipt-correction-2/run.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "specialist:ad-spend-review",
+      "slug": "ad-spend-review",
+      "name": "Ad Spend Review",
+      "sha256": "e9dc565dc445ad0b65f3239f558c34815b63614a2f4c351dab1cb0bf621e9400",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/ad-spend-review.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:bot-porter",
+      "slug": "bot-porter",
+      "name": "Bot Porter",
+      "sha256": "4449a3caf0767ce42b82e3ab859eca4e7442a669c6688cc28f356469d0d4e554",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/bot-porter.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:bug-examiner",
+      "slug": "bug-examiner",
+      "name": "Bug Examiner",
+      "sha256": "b19bc952e8f866d10afa24d37b19d6295f9da2c4c09556b4187249fcdef25d4d",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/bug-examiner.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:call-coach",
+      "slug": "call-coach",
+      "name": "Call Coach",
+      "sha256": "1a78fa0184a556707f746717c270df126e12019caa8041d12d1f65af44dbf086",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/call-coach.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:campaign-builder",
+      "slug": "campaign-builder",
+      "name": "Campaign Builder",
+      "sha256": "fa91fbef06a579fdd35994954281b9df00fe17edc7b99073459de7d1e25eb800",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/campaign-builder.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:change-reviewer",
+      "slug": "change-reviewer",
+      "name": "Change Reviewer",
+      "sha256": "f1a14b676d30ab2a4c61bc5594123905b60c335b82a0852d2d419a5b3ca3853a",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/change-reviewer.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:clip-planner",
+      "slug": "clip-planner",
+      "name": "Clip Planner",
+      "sha256": "486c04138b21da1accb13aa496e4d158a11c015f024c080edbb842b199dae078",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/clip-planner.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:competitor-brief",
+      "slug": "competitor-brief",
+      "name": "Competitor Brief",
+      "sha256": "adf4da7058c3a497f5c7caf4538157d32a52dc4a175208dff0e918b6f4e53a06",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/competitor-brief.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:deal-reviewer",
+      "slug": "deal-reviewer",
+      "name": "Deal Reviewer",
+      "sha256": "596115af19f54d0b40c74a7dc3218ef65da17289ac72e5b6b31fd13bb6aa8318",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/deal-reviewer.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:habit-coach",
+      "slug": "habit-coach",
+      "name": "Habit Coach",
+      "sha256": "7eb3a761322fea8090e192dc666a81d839101ab56fc1e5ab89234a425d9254c8",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/habit-coach.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:lead-qualifier",
+      "slug": "lead-qualifier",
+      "name": "Lead Qualifier",
+      "sha256": "1a09029bc4f91dc54e5c04d4d488dbe3b524a4ac9e89570ce9d67500cd0461ad",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/lead-qualifier.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:outreach-coordinator",
+      "slug": "outreach-coordinator",
+      "name": "Outreach Coordinator",
+      "sha256": "556485db15cfc034167048f7a6b8514c374fe73e2f83f2b900c2d605b1b0431b",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/outreach-coordinator.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:pipeline-review",
+      "slug": "pipeline-review",
+      "name": "Pipeline Review",
+      "sha256": "33e2f5cdb39f936b49337920fe7c35857bee1e23e361b5de6acea1cd44b095ac",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/pipeline-review.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:pitch-coach",
+      "slug": "pitch-coach",
+      "name": "Pitch Coach",
+      "sha256": "ea45e65e4e8406b659610e8059a3ffe47edbc5731e5b0c64c1303fbb8bcab633",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/pitch-coach.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:search-presence",
+      "slug": "search-presence",
+      "name": "Search Presence",
+      "sha256": "2bd706aad4186020171df56d3dbdcfcd00a4463078ae381af5cb446b3404fcc7",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/search-presence.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:skill-builder",
+      "slug": "skill-builder",
+      "name": "Skill Builder",
+      "sha256": "2fbc27134fe8bd260712c7424684a4fc536f18fcdc84faed76a85de3155c8725",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/skill-builder.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:subscription-review",
+      "slug": "subscription-review",
+      "name": "Subscription Review",
+      "sha256": "004b03468fb2c46c82ac6bcfc2a5970d19cbc2bb66b9923fe627314acb7c389c",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/subscription-review.json",
+      "attempts": []
+    },
+    {
+      "id": "specialist:visual-producer",
+      "slug": "visual-producer",
+      "name": "Visual Producer",
+      "sha256": "c9214ce2687abf4e8d0cfb708455453066ea201c5b4069ca215a547b10fd5771",
+      "status": "not-run",
+      "case": "/proof-room/website-tasks-20261015/cases/visual-producer.json",
+      "attempts": []
+    }
+  ]
+}

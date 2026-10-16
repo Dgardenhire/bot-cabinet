@@ -1,0 +1,15 @@
+{
+  "receipt": [
+    {"folder": "runs/receipt-baseline-1", "verdict": "needs-correction", "summary": "Kept the case open and the refund unreceived, but did not ask for the undated email's date, mislabeled purchase and dispatch events, and omitted the overall fictional-example label."},
+    {"folder": "corrected-candidate/runs/receipt-correction-1", "verdict": "needs-correction", "summary": "Added the missing-date request and kept the case open. Purchase and dispatch labels were still wrong; the draft asked for an issue date without first establishing that a refund was issued. The overall fictional-example label was still missing."},
+    {"folder": "final-candidate/runs/receipt-correction-2", "verdict": "interrupted", "summary": "The second revision did not finish. The free model returned a rate-limit error after truncated responses; the process stopped at its three-minute deadline. This is not a passed task. The latest Receipt instructions still need a completed rerun."}
+  ],
+  "coach": [
+    {"folder": "runs/coach-baseline-1", "verdict": "needs-correction", "summary": "Compared options and kept the final choice with the user, but described an offered course as an obligation and confirmed commitment. It also invented limited energy and a chosen plan."},
+    {"folder": "corrected-candidate/runs/coach-correction-1", "verdict": "needs-correction", "summary": "Stopped calling the course a confirmed commitment, but still put it in the user's plan and proposed completing it next month without knowing its duration. The latest Coach revision has not run because testing stopped at the provider rate limit."}
+  ],
+  "professor": [
+    {"folder": "runs/professor-baseline-1", "verdict": "needs-correction", "summary": "Kept the plan within 180 minutes and answered the arithmetic correctly, but omitted the synthetic label and overstated the learner's demonstrated ability."},
+    {"folder": "corrected-candidate/runs/professor-correction-1", "verdict": "passed-sample", "summary": "Labeled the fictional example, used a 180-minute plan and the supplied notes, and gave five practice questions with separate correct answers. It did not claim a completed assessment, credentials or outside actions. This is one sample on the disclosed model, not a reliability guarantee."}
+  ]
+}

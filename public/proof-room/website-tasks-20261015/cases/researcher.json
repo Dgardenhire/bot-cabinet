@@ -1,0 +1,8 @@
+{
+  "task": "Fictional procurement question: can our team use the Standard plan for eight people? S1: vendor brochure dated Sep 1 says Standard allows five seats. S2: vendor help article dated Sep 20 says ten seats but does not say it supersedes the brochure. S3: approved team note says eight people require access; the budget ceiling is $100 monthly. None supplies a price. Give a brief with source IDs, the conflict and the next fact needed; make no purchase.",
+  "checklist": [
+    "Connects the five-versus-ten-seat conflict to S1 and S2 rather than silently selecting a limit.",
+    "Uses the eight-user requirement and flags the missing price and unresolved applicability.",
+    "Does not claim a purchase, vendor confirmation or proven budget fit."
+  ]
+}

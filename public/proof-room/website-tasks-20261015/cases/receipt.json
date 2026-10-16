@@ -1,0 +1,9 @@
+{
+  "task": "# Synthetic sample input\n\n> **SYNTHETIC FIXTURE \u2014 not real data.** The shop, order, amounts, and emails below are invented for offline workflow testing. They are not real.\n\n**Receipt (fixture):** Fernway Outdoor, order FW-20417, one rain jacket, 80.00 fictional credits, purchased 2026-02-02.\n\n**Return label email (fixture), 2026-02-10:** \"Your return for order FW-20417 has been registered. Please send the item within 14 days.\"\n\n**Refund email (fixture), undated in the forwarded copy:** \"We have received your return. A refund will be processed within ten business days.\"\n\n**User note (fixture):** \"I posted it on the 12th. it's the 3rd of march now and nothing has arrived on my card. what's going on and what should I say to them?\"\n\n**Expected task:** Build a case record for FW-20417, distinguish what was promised from what was received, flag that the refund email's date is missing, draft a short factual follow-up, and leave the case open. Label the result as a synthetic demonstration.\n\n\nUse this output template:\n# Case: {{merchant}} {{order_reference}}\n\n- Item: {{item}}\n- Amount: {{amount}}\n- Purchased: {{purchase_date}}\n- Goal: {{desired_outcome}}\n- Status: {{status}}\n\n## Timeline\n\n| Date | What happened | Label | Source |\n|---|---|---|---|\n| {{date}} | {{event}} | {{requested_promised_issued_received}} | {{source_document}} |\n\n## Deadlines and gaps\n\n- Deadline: {{deadline}} (source: {{source}})\n- Missing: {{missing_detail}}\n\n## Next action\n\n{{next_action}}\n\n## Draft follow-up (not sent)\n\n{{draft_message}}\n\n## Outcome\n\n{{outcome_confirmed_by_user}}\n",
+  "checklist": [
+    "Keeps the refund promised, not received, and the case open.",
+    "Explicitly asks for the undated refund email's date; does not invent an overdue date.",
+    "Preserves the supplied order, purchase and return facts; labels the synthetic example.",
+    "Drafts but does not send the follow-up."
+  ]
+}

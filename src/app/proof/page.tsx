@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui";
 import { PROOF_ROOM_DEMOS, PROOF_STATE_NAMES } from "@/data/proof-room";
 import { buildPageMetadata } from "@/lib/metadata";
 import { CATALOG_TASK_TRIALS, CATALOG_TRIAL_PATH } from "@/data/catalog-task-trials";
+import { WEBSITE_TASK_COVERAGE, WEBSITE_TASK_TRIALS, WEBSITE_TASK_STATUS_NAMES } from "@/data/website-task-trials";
 
 export const metadata = buildPageMetadata({
   title: "Test Records · Bot Cabinet",
@@ -104,6 +105,29 @@ export default function ProofRoomPage() {
             <p><a className="text-link" href={`${CATALOG_TRIAL_PATH}/${trial.slug}-input.md`}>Input</a>{" · "}<a className="text-link" href={`${CATALOG_TRIAL_PATH}/${trial.slug}-output.md`}>Actual answer</a>{" · "}<a className="text-link" href={`${CATALOG_TRIAL_PATH}/${trial.slug}-run.json`}>Run details</a></p>
           </article>)}
         </div>
+      </section>
+
+      <section className="content-section shell proof-room-library" aria-labelledby="website-trials-title">
+        <div className="proof-room-library-heading">
+          <div><Eyebrow>October 15, 2026 · Website downloads</Eyebrow><h2 id="website-trials-title" className="section-heading">Website Bot tests</h2></div>
+          <p>All 38 standalone Bots have prepared tasks. Three have run in this series so far. The downloaded instructions ran in Hermes with supplied fictional material; Desktop installation, connected accounts and Crew handoffs are not covered. Codex reviewed the answers.</p>
+        </div>
+        {WEBSITE_TASK_TRIALS.map(trial => <details className="content-card" key={trial.slug}>
+          <summary>{trial.name} — {WEBSITE_TASK_STATUS_NAMES[trial.status]}</summary>
+          <p><a className="text-link" href={trial.case}>Task and checks</a></p>
+          <ul>{trial.attempts.map(attempt => <li key={attempt.id}>
+            <p>{attempt.summary}</p>
+            <p><a className="text-link" href={attempt.files.input}>Exact request</a>{" · "}
+              {attempt.files.output ? <><a className="text-link" href={attempt.files.output}>Actual answer</a>{" · "}</> : null}
+              <a className="text-link" href={attempt.files.source}>Tested instructions</a>{" · "}
+              <a className="text-link" href={attempt.files.run}>Run details</a></p>
+          </li>)}</ul>
+        </details>)}
+        <details className="content-card">
+          <summary>{WEBSITE_TASK_COVERAGE.records.filter(record => !record.attempts.length).length} Bots not yet run in this series</summary>
+          <p>{WEBSITE_TASK_COVERAGE.records.filter(record => !record.attempts.length).map(record => record.name).join(", ")}. Earlier tests, where available, remain below.</p>
+        </details>
+        <p><a className="text-link" href="/proof-room/website-tasks-20261015/index.json">Complete task coverage and file hashes</a></p>
       </section>
 
       <section className="content-section shell proof-room-library" aria-labelledby="proof-room-library-title">
