@@ -237,7 +237,7 @@ describe("Proof Room evidence records", () => {
     expect(demo?.stateDetail).toContain("earlier corrected run passed");
     expect(demo?.checks.find((check) => check.label === "Role run")?.state).toBe("passed");
     expect(demo?.checks.find((check) => check.label === "Reproduction")?.state).toBe("failed");
-    expect(demo?.deliverable?.description).toContain("correction loop");
+    expect(demo?.deliverable?.href).toBe("/proof-room/publishing-desk/independent-reproduction-failure.md");
     expect(demo?.supportingArtifacts.map((artifact) => artifact.href)).toEqual(expect.arrayContaining([
       "/proof-room/publishing-desk/audit-gate-result.json",
       "/proof-room/publishing-desk/runtime-failure-summary.md",

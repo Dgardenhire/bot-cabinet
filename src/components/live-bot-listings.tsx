@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { ArrowSquareOut, ArrowsClockwise } from "@phosphor-icons/react";
+import { ArrowSquareOut, ArrowsClockwise, Robot, UsersThree, Path, Wrench, Code, Broadcast } from "@phosphor-icons/react";
+import styles from "./live-bot-listings.module.css";
 import { LIVE_BOT_SOURCES, type LiveBotListing } from "@/lib/live-bot-listings";
 import { AGENT_WATCH_API_URL } from "@/lib/agent-watch-live";
 
@@ -9,6 +10,20 @@ type SourceState = { name: string; ok: boolean; count: number };
 type LiveFeed = { checkedAt: string; sources: SourceState[]; totalCount: number; items: LiveBotListing[] };
 type ListingFilter = "Bots & workflows" | "All" | LiveBotListing["kind"];
 const PAGE_SIZE = 6;
+
+const kindIcons = { Bot: Robot, Team: UsersThree, Workflow: Path, Role: Robot, Tool: Wrench, Repository: Code, Release: Broadcast };
+
+export function LiveBotListingCard({ item }: { item: LiveBotListing }) {
+  const Icon = kindIcons[item.kind];
+  return <article className={styles.card} aria-labelledby={`listing-${item.id}`}>
+    <div className={styles.top}><div className={styles.visual} data-kind={item.kind} aria-hidden="true"><Icon size={34} weight="duotone" /></div>
+      <div className={styles.meta}><span>{item.source}</span><span>{item.kind}{item.listedAt ? ` · ${new Date(item.listedAt).toLocaleDateString()}` : ""}</span></div>
+    </div>
+    <h3 id={`listing-${item.id}`}>{item.name}</h3><p>{item.job}</p>
+    <span className={styles.creator}>By {item.creator}</span>
+    <LiveBotListingLinks item={item} />
+  </article>;
+}
 
 export function filterLiveListings(items: LiveBotListing[], filter: ListingFilter) {
   if (filter === "All") return items;
@@ -66,6 +81,7 @@ export function LiveBotListings() {
   const [totalCount, setTotalCount] = useState(0);
   const [kind, setKind] = useState<ListingFilter>("Bots & workflows");
   const [visibleLimit, setVisibleLimit] = useState(PAGE_SIZE);
+  const [error, setError] = useState(false);
 
   const refresh = useCallback((signal?: AbortSignal) => {
     void fetchListings(signal).then((feed) => {
@@ -75,7 +91,8 @@ export function LiveBotListings() {
       setTotalCount(feed.totalCount);
       setCheckedAt(new Date(feed.checkedAt));
       setLoading(false);
-    }).catch(() => { if (!signal?.aborted) setLoading(false); });
+      setError(false);
+    }).catch(() => { if (!signal?.aborted) { setLoading(false); setError(true); } });
   }, []);
 
   const filteredItems = filterLiveListings(items, kind);
@@ -103,13 +120,10 @@ export function LiveBotListings() {
         {checkedAt && !loading ? ` · Checked ${checkedAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}` : ""}
       </div>
       {items.length ? <div className="live-bot-filters" aria-label="Filter current listings">{availableKinds.map((value) => <button type="button" aria-pressed={kind === value} onClick={() => { setKind(value); setVisibleLimit(PAGE_SIZE); }} key={value}>{value}</button>)}</div> : null}
-      {visibleItems.length ? <ol className="live-bot-list">{visibleItems.map((item) => (
-        <li key={item.id}>
-          <div className="live-bot-list-meta"><span>{item.kind} · {item.source}</span>{item.listedAt ? <time dateTime={item.listedAt}>{new Date(item.listedAt).toLocaleDateString()}</time> : <span>Current entry</span>}</div>
-          <div className="live-bot-list-copy"><div><h3>{item.name}</h3><p>{item.job}</p></div><span>By {item.creator}</span></div>
-          <LiveBotListingLinks item={item} />
-        </li>
-      ))}</ol> : !loading ? <p className="live-bot-empty">No listings match this filter. Try another filter or open a directory from the source list below.</p> : null}
+      {error ? <p role="status">Could not refresh listings.{items.length ? " Showing the last loaded results." : " Try Refresh or browse the sources below."}</p> : null}
+      {visibleItems.length ? <ol className={styles.grid}>{visibleItems.map((item) => (
+        <li key={item.id}><LiveBotListingCard item={item} /></li>
+      ))}</ol> : !loading && !error ? <p className="live-bot-empty">No listings match this filter. Try another filter or open a directory from the source list below.</p> : null}
       {visibleItems.length < filteredItems.length ? <button className="button button-secondary live-bot-more" type="button" onClick={() => setVisibleLimit((value) => value + PAGE_SIZE)}>Show {Math.min(PAGE_SIZE, filteredItems.length - visibleItems.length)} more</button> : null}
       {!loading && sources.some((source) => !source.ok) ? <details className="live-bot-source-health"><summary>Source status</summary><p>{sources.map((source) => `${source.name}: ${source.ok ? `${source.count.toLocaleString()} entries` : "unavailable"}`).join(" · ")}</p></details> : null}
     </section>

@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import type { LiveBotListing } from "@/lib/live-bot-listings";
-import { filterLiveListings, LiveBotListingLinks } from "./live-bot-listings";
+import { filterLiveListings, LiveBotListingLinks, LiveBotListingCard } from "./live-bot-listings";
 
 const example = (kind: LiveBotListing["kind"]): LiveBotListing => ({
   id: kind,
@@ -15,6 +15,15 @@ const example = (kind: LiveBotListing["kind"]): LiveBotListing => ({
 });
 
 describe("current listing filters", () => {
+  it("gives each listing a named article, decorative visual and its own source links", () => {
+    const html = renderToStaticMarkup(<LiveBotListingCard item={example("Bot")} />);
+    expect(html).toContain('<article');
+    expect(html).toContain('aria-labelledby="listing-Bot"');
+    expect(html).toContain('<h3 id="listing-Bot">Bot</h3>');
+    expect(html).toContain("Grok Bot Marketplace");
+    expect(html).toContain("View listing");
+    expect(html).toContain('aria-hidden="true"');
+  });
   it("leads with usable Bots and workflows without hiding other kinds from All", () => {
     const items = (["Repository", "Bot", "Release", "Workflow", "Tool", "Team", "Role"] as const).map(example);
 

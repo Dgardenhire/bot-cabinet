@@ -287,9 +287,9 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
     subjectKind: "crew",
     subjectHref: "/crew-kits/publishing-desk",
     cardImage: "/use-cases/weekly-newsletter.webp",
-    title: "Publishing Desk runs a five-role newsletter handoff",
-    outcome: "Five roles reach a source-checked draft and the required human-review hold",
-    summary: "Scout, Researcher, Story, Writer and Editor completed a locked Tool Library run using the exact revised packages. Editor caught three unsupported directions; one bounded Writer correction removed them, and a fresh Editor audit passed all 25 exact boundaries. Codex semantic review found the corrected publishable claims source-faithful. Human approval remains absent.",
+    title: "Publishing Desk needs another correction",
+    outcome: "The latest repeat added a claim the sources did not support",
+    summary: "It implied that a missing catalog link would be available later. The source did not say that. An earlier run passed after corrections, but the crew did not repeat that success. A new complete run must pass before this version can be called reliable.",
     state: "failed-runtime",
     stateDetail: "The latest independent repeat failed. An earlier corrected run passed.",
     platform: "Hermes Agent",
@@ -323,9 +323,9 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
     ],
     conversationDisclosure: "These lines summarize the preserved stage outputs and Codex reviews. Provider-internal reasoning and identifiers are not published. The linked failed draft, audit fixture, deterministic result and sanitized summary are the public evidence.",
     deliverable: {
-      label: "Inspect the latest simplified-Writer result",
-      description: "The full five-role result, exact hashes, correction loop, bounded cost, final gates and remaining proof limits.",
-      href: "/proof-room/publishing-desk/simplified-writer-editor-result.md",
+      label: "Read the latest failed repeat",
+      description: "The unsupported claim, the check added to catch it, and what still needs testing.",
+      href: "/proof-room/publishing-desk/independent-reproduction-failure.md",
       download: true,
     },
     supportingArtifacts: [
@@ -333,6 +333,12 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
         label: "Inspect the original failed newsletter",
         description: "The earlier repair-workshop regression fixture remains preserved rather than silently replaced.",
         href: "/proof-room/publishing-desk/failed-writer-newsletter.md",
+        download: true,
+      },
+      {
+        label: "Read the earlier corrected run",
+        description: "The earlier pass is preserved for comparison; it does not override the later failed repeat.",
+        href: "/proof-room/publishing-desk/simplified-writer-editor-result.md",
         download: true,
       },
       {
