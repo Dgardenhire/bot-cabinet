@@ -30,8 +30,10 @@
 .steps p { margin: 6px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .command {
   display: block; margin: 12px 0; padding: 14px 16px; overflow-x: auto; border: 1px solid rgba(168,217,231,.28);
-  background: var(--blueprint-deep); color: var(--blueprint); font: 14px/1.5 var(--mono); white-space: pre;
+  background: var(--blueprint-deep); color: var(--blueprint); font: 14px/1.55 var(--mono); white-space: normal; overflow-wrap: anywhere;
 }
+
+.nowrap { white-space: nowrap; }
 
 .prose p { max-width: 680px; margin: 0 0 16px; color: var(--paper); font-size: 18px; line-height: 1.7; }
 .prose p:last-child { margin-bottom: 0; color: var(--muted); font-size: 16px; }
@@ -47,12 +49,12 @@
   .features { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .features article:nth-child(3) { border-left: 0; }
   .features article:nth-child(n+3) { border-top: 1px solid var(--line-soft); }
-  .split, .closing { grid-template-columns: 1fr; }
+  .split, .closing { grid-template-columns: minmax(0,1fr); }
 }
 
 @media (max-width: 640px) {
   .section { padding-block: 56px; }
-  .features, .screens { grid-template-columns: 1fr; }
+  .features, .screens { grid-template-columns: minmax(0,1fr); }
   .features article { border-left: 0; border-top: 1px solid var(--line-soft); }
   .features article:first-child { border-top: 0; }
   .steps li { padding: 20px 18px 20px 62px; }

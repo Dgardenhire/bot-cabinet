@@ -166,7 +166,7 @@ export default function CabinetForHermesPage() {
             </li>
             <li>
               <strong>Run this one line</strong>
-              <code className={styles.command}>{CABINET_INSTALL_COMMAND}</code>
+              <code className={styles.command}>hermes plugins install Dgardenhire/hermes-cabinet <span className={styles.nowrap}>--enable</span></code>
               <CopyTextButton text={CABINET_INSTALL_COMMAND} label="Copy the install line" analyticsEvent="cabinet_plugin_install_copy" analyticsSurface="hermes_page" />
               <p>Hermes may say this comes from a source it hasn&apos;t reviewed. That is expected for now.</p>
             </li>

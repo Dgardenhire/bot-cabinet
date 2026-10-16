@@ -8,7 +8,7 @@ describe("Bot Cabinet in Hermes page", () => {
   const text = html.replace(/<[^>]+>/g, " ");
 
   it("gives the one install line, where to run it, and the plugin's source and manual", () => {
-    expect(html).toContain("hermes plugins install Dgardenhire/hermes-cabinet --enable");
+    expect(text.replace(/\s+/g, " ")).toContain("hermes plugins install Dgardenhire/hermes-cabinet --enable");
     expect(text).toContain("On Windows, open PowerShell. On a Mac or Linux, open Terminal.");
     expect(text).toContain("Restart Hermes Desktop");
     expect(text).toContain("Open Cabinet in the sidebar");
