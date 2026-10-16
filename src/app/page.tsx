@@ -1,4 +1,5 @@
 import { StarterPackInvitation } from "@/components/starter-pack-invitation";
+import { HomeFeatureCarousel } from "@/components/home-feature-carousel";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,34 +72,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="hero-grid shell">
-          <div className="hero-copy">
-            <p className="hero-kicker">Bot Cabinet · find a useful place to start</p>
-            <h1 className="hero-title">Find a Bot that makes your day easier</h1>
-            <p className="hero-deck">
-              Find a useful idea, choose where to run it, and try one real task.
-              Each Bot page tells you what has—and has not—been tested.
-            </p>
-            <div className="button-row">
-              <Link href="/start" className="button button-primary" data-funnel-event="homepage_start_first_bot" data-funnel-surface="homepage">
-                Start your first Bot <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-              <Link href="/watch/" className="button button-secondary" data-funnel-event="homepage_agent_watch" data-funnel-surface="homepage">
-                See new Bot ideas <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-          <div className="hero-visual" aria-label="A cream and burgundy workshop robot">
-            <Image
-              src="/atelier/archivist.jpg"
-              alt="A photorealistic cream and burgundy robot in a mechanical workshop"
-              width={1200}
-              height={1800}
-              priority
-            />
-            <span className="hero-image-note">Illustration</span>
-          </div>
-        </div>
+        <HomeFeatureCarousel />
       </section>
 
       <section className="home-cost-strip" aria-label="Cost information">

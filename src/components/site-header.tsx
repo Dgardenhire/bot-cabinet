@@ -5,23 +5,21 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const PRIMARY_NAV_ITEMS = [
   ["Start Here", "/start"],
+  ["Bots", "/bots"],
+  ["Crew Kits", "/crew-kits"],
   ["Fit Test", "/fit"],
-  ["The Cabinet", "/bots"],
-  ["My Workbench", "/workbench"],
   ["Bot Lab", "/workshop"],
   ["Agent Watch", "/watch"],
 ] as const;
 
-const MORE_NAV_ITEMS = [
+const LEARN_NAV_ITEMS = [
   ["Field Manual", "/guides"],
-  ["Portrait Studio", "/portraits"],
-  ["Bot Workflows", "/use-cases"],
-  ["Crew Kits", "/crew-kits"],
+  ["Compare Apps", "/compare"],
   ["Test Records", "/proof"],
   ["Inspection Desk", "/trust"],
 ] as const;
 
-const NAV_ITEMS = [...PRIMARY_NAV_ITEMS, ...MORE_NAV_ITEMS] as const;
+const TOOLS_NAV_ITEMS = [["My Workbench", "/workbench"], ["Portrait Studio", "/portraits"], ["Bot Workflows", "/use-cases"]] as const;
 
 export function SiteHeader() {
   return (
@@ -56,14 +54,6 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
-          <details className="desktop-nav-more">
-            <summary>More</summary>
-            <div>
-              {MORE_NAV_ITEMS.map(([label, href]) => (
-                <Link href={href} key={href}>{label}</Link>
-              ))}
-            </div>
-          </details>
         </nav>
         <ThemeToggle />
         <details className="mobile-nav">
@@ -72,11 +62,13 @@ export function SiteHeader() {
             <X className="menu-close" size={23} aria-hidden="true" />
           </summary>
           <nav aria-label="Mobile navigation">
-            {NAV_ITEMS.map(([label, href]) => (
+            {PRIMARY_NAV_ITEMS.map(([label, href]) => (
               <Link href={href} key={href}>
                 {label}
               </Link>
             ))}
+            <div className="mobile-nav-group" aria-label="Tools"><strong>Tools</strong>{TOOLS_NAV_ITEMS.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
+            <div className="mobile-nav-group" aria-label="Learn and check"><strong>Learn and check</strong>{LEARN_NAV_ITEMS.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
           </nav>
         </details>
       </div>

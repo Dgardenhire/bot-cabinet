@@ -1,0 +1,19 @@
+.carousel { position: relative; }
+.controls { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--line-soft); }
+.choices { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.controls button { min-height: 44px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+.choices button { display: flex; align-items: center; gap: .5rem; padding: .5rem 0; font: 13px var(--mono); border-bottom: 2px solid transparent; }
+.choices span { color: var(--faint); font-size: 11px; }
+.choices button[aria-current="true"] { color: var(--paper); border-color: var(--brass); }
+.transport { display: flex; flex-shrink: 0; gap: .25rem; }
+.transport button { display: grid; place-items: center; width: 44px; }
+.controls button:hover { color: var(--brass-bright); }
+.controls button:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+.landscape img { object-position: 75% center; }
+@media (max-width: 780px) {
+  .controls { flex-wrap: wrap; }
+  .choices { flex: 1 1 100%; justify-content: space-between; gap: .25rem .75rem; }
+  .choices button { font-size: 12px; }
+  .choices span { display: none; }
+  .transport { margin-left: auto; }
+}

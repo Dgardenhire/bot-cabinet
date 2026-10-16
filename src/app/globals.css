@@ -190,6 +190,9 @@ html[data-theme="light"] .theme-toggle-dark-label { display: inline; }
   background: rgba(8,10,10,.98);
 }
 .mobile-nav nav a { padding: 14px 0; border-bottom: 1px solid var(--line-soft); font: 14px var(--mono); }
+.mobile-nav-group { display: grid; margin-top: 1.5rem; }
+.mobile-nav-group strong { color: var(--brass-bright); font: 12px var(--mono); margin-bottom: .5rem; }
+.mobile-nav[open] nav { max-height: 80vh; overflow-y: auto; }
 
 .button-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
 .button {
@@ -445,7 +448,7 @@ html[data-cabinet-reveal="run"] .cabinet-reveal { display: block; }
 .noteworthy-bots-heading h2 { margin: 10px 0 0; color: var(--paper); font: 400 clamp(34px,4vw,52px)/1.04 var(--serif); letter-spacing: -.025em; }
 .noteworthy-bots-heading p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
 .noteworthy-bot-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
-.noteworthy-bot-card { display: flex; flex-direction: column; padding: clamp(22px,2.5vw,32px); border: 1px solid var(--line); background: linear-gradient(145deg,rgba(198,154,75,.07),transparent 42%),var(--ink-soft); }
+.noteworthy-bot-card { display: flex; flex-direction: column; padding: 24px 0; border-top: 2px solid var(--brass-deep); }
 .noteworthy-bot-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; color: var(--faint); font: 11px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
 .noteworthy-bot-card h3 { margin: 22px 0 7px; color: var(--paper); font: 400 clamp(30px,3vw,40px)/1.04 var(--serif); letter-spacing: -.02em; }
 .noteworthy-bot-job { margin: 0; color: var(--ivory); font-size: 16px; line-height: 1.6; }
@@ -453,17 +456,17 @@ html[data-cabinet-reveal="run"] .cabinet-reveal { display: block; }
 .noteworthy-bot-card dt { margin-bottom: 6px; color: var(--brass-bright); font: 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .noteworthy-bot-card dd { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.62; }
 .noteworthy-bot-card dd a { display: inline-flex; align-items: center; gap: 5px; color: var(--brass-bright); }
-.noteworthy-bot-decision { padding: 14px; border: 1px solid var(--line-soft); background: rgba(198,154,75,.05); }
+.noteworthy-bot-decision { padding-top: 14px; border-top: 1px solid var(--line-soft); }
 .noteworthy-bot-decision dd { display: grid; gap: 5px; }
 .noteworthy-bot-decision dd strong { color: var(--paper); font-weight: 600; }
 .noteworthy-bot-card .agent-watch-links { margin-top: auto; }
 .agent-watch-list { display: grid; gap: 18px; margin-top: 28px; }
-.agent-watch-card { padding: clamp(23px,3vw,36px); border: 1px solid var(--line); background: var(--ink-soft); }
+.agent-watch-card { padding: clamp(24px,3vw,40px) 0; border-top: 1px solid var(--line); }
 .agent-watch-card-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; color: var(--faint); font: 11px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
-.agent-watch-card h2 { max-width: 900px; margin: 24px 0 12px; color: var(--paper); font: 400 clamp(32px,4vw,46px)/1.02 var(--serif); letter-spacing: -.025em; }
+.agent-watch-card h3 { max-width: 900px; margin: 20px 0 12px; color: var(--paper); font: 400 clamp(26px,3vw,36px)/1.12 var(--serif); letter-spacing: -.025em; }
 .agent-watch-signal { max-width: 960px; margin: 0 0 22px; color: var(--muted); font-size: 16px; line-height: 1.65; }
-.agent-watch-card dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0; border-top: 1px solid var(--line-soft); border-left: 1px solid var(--line-soft); }
-.agent-watch-card dl > div { min-height: 0; padding: 19px; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.agent-watch-card dl { display: grid; gap: 24px; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 20px 0; }
+.agent-watch-card dl > div { min-height: 0; }
 .agent-watch-card dl > .agent-watch-limit { grid-column: 1/-1; min-height: auto; background: rgba(217,137,112,.06); }
 .agent-watch-card dt { margin-bottom: 14px; color: var(--brass-bright); font: 11px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
 .agent-watch-card dd { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }

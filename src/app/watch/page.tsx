@@ -71,7 +71,7 @@ export default function AgentWatchPage() {
           <h2>Test status</h2>
           <div><CheckCircle size={20} weight="thin" /><span><strong>Source reviewed:</strong> we read the original public source.</span></div>
           <div><Flask size={20} weight="thin" /><span><strong>Tried by Bot Cabinet:</strong> we ran the named test.</span></div>
-          <div><Warning size={20} weight="thin" /><span><strong>Maker’s claim:</strong> the creator describes the feature; Bot Cabinet has not confirmed it.</span></div>
+          <div><Warning size={20} weight="thin" /><span><strong>Not independently tested:</strong> the creator describes the feature; Bot Cabinet has not confirmed it.</span></div>
         </div>
       </section>
     </main>

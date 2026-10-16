@@ -1,0 +1,8 @@
+.templates { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 2rem; margin-top: 1.5rem; }
+.template { display: flex; gap: .75rem; padding: 1rem 0; border-block-start: 1px solid var(--line-soft); color: var(--brass-bright); }
+.template > svg { flex-shrink: 0; margin-top: .25rem; }
+.template a { display: grid; gap: .5rem; }
+.template strong { font: 400 1.4rem var(--serif); color: var(--paper); }
+.template span { display: flex; align-items: center; gap: .5rem; font: 12px var(--mono); }
+.template .instructions { margin-top: .75rem; font-size: 12px; text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 620px) { .templates { grid-template-columns: 1fr; } }

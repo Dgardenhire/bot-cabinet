@@ -1,0 +1,11 @@
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 3rem 2rem; margin-top: 2rem; }
+.plan { min-width: 0; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line-soft); }
+.art { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); overflow: hidden; margin-bottom: 1.25rem; background: var(--ink-soft); }
+.art img { width: 100%; height: auto; aspect-ratio: .9; object-fit: cover; transition: transform 180ms ease; }
+.art:hover img { transform: scale(1.025); }
+.type { color: var(--brass-bright); font: 12px var(--mono); }
+.plan h3 { margin: .75rem 0; font: 400 clamp(1.75rem,3vw,2.25rem)/1.1 var(--serif); color: var(--paper); }
+.plan p { line-height: 1.65; color: var(--muted); margin: 0 0 1rem; }
+.plan .members { font-size: 13px; color: var(--faint); }
+@media (max-width: 760px) { .gallery { grid-template-columns: 1fr; gap: 2rem; } }
+@media (prefers-reduced-motion: reduce) { .art img { transition: none; } }

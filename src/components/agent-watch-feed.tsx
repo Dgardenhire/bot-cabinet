@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, ArrowSquareOut, CalendarCheck } from "@phosphor-icons/react";
+import { ArrowRight, CalendarCheck } from "@phosphor-icons/react";
+import { WatchSourceLinks } from "./watch-source-links";
 import { EvidencePill } from "@/components/ui";
 import type { AgentWatchItem, WatchBotDecision, WatchBotEvidence, WatchEvidence, WatchResponseStatus } from "@/data/agent-watch";
 import { AGENT_WATCH_API_URL, mergeWatchItems, parsePublicWatchFeed } from "@/lib/agent-watch-live";
 
-const evidenceLabels: Record<WatchEvidence, string> = { observed: "Source reviewed", "provider-claim": "Maker’s claim", "cabinet-tested": "Tried by Bot Cabinet" };
+const evidenceLabels: Record<WatchEvidence, string> = { observed: "Source reviewed", "provider-claim": "Not independently tested", "cabinet-tested": "Tried by Bot Cabinet" };
 const statusLabels: Record<WatchResponseStatus, string> = { published: "Guide available", prepared: "Guide in progress", testing: "Testing in progress", watching: "Watching" };
 const evidenceKinds: Record<WatchEvidence, "official" | "tested" | "blueprint"> = { observed: "official", "provider-claim": "blueprint", "cabinet-tested": "tested" };
 const botEvidenceLabels: Record<WatchBotEvidence, string> = {
@@ -87,15 +88,17 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
                   </div>
                   <h3>{bot.name}</h3>
                   <p className="noteworthy-bot-job">{bot.job}</p>
+                  <WatchSourceLinks sources={item.sources} />
+                  <details className="agent-watch-uncertainty"><summary>Setup and review notes</summary>
                   <dl>
                     <div><dt>Creator</dt><dd>{bot.creator}</dd></div>
                     <div><dt>Why it stands out</dt><dd>{item.whyItMatters}</dd></div>
                     <div><dt>Accounts, tools and actions</dt><dd>{bot.requiredAccess} {bot.outsideActions}</dd></div>
                     <div className="noteworthy-bot-decision"><dt>Bot Cabinet plans</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Similar Cabinet Bot: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
                   </dl>
+                  </details>
                   <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
                   <div className="agent-watch-links">
-                    {item.sources.map((source) => <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} <ArrowSquareOut size={13} /></a>)}
                     {item.cabinetLinks?.map((link) => <Link href={link.href} key={link.href}>{link.label} <ArrowRight size={13} /></Link>)}
                   </div>
                 </article>
@@ -111,15 +114,17 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
               <EvidencePill kind={evidenceKinds[item.evidence]}>{evidenceLabels[item.evidence]}</EvidencePill>
               <span>{statusLabels[item.responseStatus]}</span>
             </div>
-            <h2>{item.title}</h2>
+            <h3>{item.title}</h3>
             <p className="agent-watch-signal">{item.signal}</p>
+            <WatchSourceLinks sources={item.sources} />
+            <details className="agent-watch-uncertainty"><summary>What you can try</summary>
             <dl><div><dt>Why it matters</dt><dd>{item.whyItMatters}</dd></div><div><dt>Try this</dt><dd>{item.cabinetResponse}</dd></div></dl>
+            </details>
             <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
             <div className="agent-watch-dates">
               <span><CalendarCheck size={16} weight="thin" /> Updated {item.observedOn}</span>
             </div>
             <div className="agent-watch-links">
-              {item.sources.map((source) => <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} <ArrowSquareOut size={13} /></a>)}
               {item.cabinetLinks?.map((link) => <Link href={link.href} key={link.href}>{link.label} <ArrowRight size={13} /></Link>)}
             </div>
           </article>
