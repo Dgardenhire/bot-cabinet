@@ -1,0 +1,46 @@
+{
+  "bot": "professor",
+  "date": "2026-10-16T03:17:36.864959+00:00",
+  "commit": "35d75fbe66c18e3e45c8340825b7d4d390a04c0d",
+  "sourceFiles": [
+    {
+      "path": "optional-skills/bots/professor/SKILL.md",
+      "sha256": "7320ff7f98cc2fc213aedc4d57ff825ada60daf546a37c3f7d67adb6b9b3ca98",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/professor/SKILL.md"
+    },
+    {
+      "path": "optional-skills/bots/professor/references/sample-input.md",
+      "sha256": "dea5b5e885e968dc708bb1db3095c11f66c4a63d1569d0b570b9c045ca4f848f",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/professor/references/sample-input.md"
+    },
+    {
+      "path": "optional-skills/bots/professor/references/expected-output-rubric.md",
+      "sha256": "bbd18fd85f3d95e14292f828df2a9ad0c3a7e7a2ac9c2f89d2cd8d469bb7e943",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/professor/references/expected-output-rubric.md"
+    },
+    {
+      "path": "optional-skills/bots/professor/templates/study-plan.md",
+      "sha256": "484d3d671201a01747498eb4167903ebb5768029de1a9160a3ea0acf5b541e4e",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/professor/templates/study-plan.md"
+    },
+    {
+      "path": "bot-catalog/professor.yaml",
+      "sha256": "cf984b4e70a717c43f3a0e4f71f13cbb45359cbfc5da9d179c1d73105ce37e87",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/bot-catalog/professor.yaml"
+    }
+  ],
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK with native skills.auto_load",
+  "roleLoaded": true,
+  "completed": true,
+  "apiCalls": 1,
+  "outputCharacters": 2091,
+  "inputTokens": 4552,
+  "outputTokens": 1500,
+  "costStatus": "estimated",
+  "estimatedCostUsd": 0.0,
+  "reviewStatus": "awaiting-answer-review",
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "humanApproved": false
+}

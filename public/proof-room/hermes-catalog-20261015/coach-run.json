@@ -1,0 +1,46 @@
+{
+  "bot": "coach",
+  "date": "2026-10-16T03:14:50.124939+00:00",
+  "commit": "35d75fbe66c18e3e45c8340825b7d4d390a04c0d",
+  "sourceFiles": [
+    {
+      "path": "optional-skills/bots/coach/SKILL.md",
+      "sha256": "1ab101bc188a23956407a8a50744c385b815beb92146d237f99d633de9e409a8",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/coach/SKILL.md"
+    },
+    {
+      "path": "optional-skills/bots/coach/references/sample-input.md",
+      "sha256": "9f20503ad29f5a1399ebcc1413510d6fbec275e42a86022e803884ec3746383b",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/coach/references/sample-input.md"
+    },
+    {
+      "path": "optional-skills/bots/coach/references/expected-output-rubric.md",
+      "sha256": "76c41aed3d8148cf2081cc5178e189d66cb41bbaeeb53a79e8910ca8f3580281",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/coach/references/expected-output-rubric.md"
+    },
+    {
+      "path": "optional-skills/bots/coach/templates/decision-frame.md",
+      "sha256": "34800003a5025e44ff6b4e36f672e1016e12375007aab830430baea19f7379ad",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/coach/templates/decision-frame.md"
+    },
+    {
+      "path": "bot-catalog/coach.yaml",
+      "sha256": "b0c8c966a7e87c509ecabca96d46a567781082f997a6f39dae10897ab837c72a",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/bot-catalog/coach.yaml"
+    }
+  ],
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK with native skills.auto_load",
+  "roleLoaded": true,
+  "completed": true,
+  "apiCalls": 1,
+  "outputCharacters": 3170,
+  "inputTokens": 4574,
+  "outputTokens": 1756,
+  "costStatus": "estimated",
+  "estimatedCostUsd": 0.0,
+  "reviewStatus": "awaiting-answer-review",
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "humanApproved": false
+}

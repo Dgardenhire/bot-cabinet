@@ -1,0 +1,46 @@
+{
+  "bot": "receipt",
+  "date": "2026-10-16T03:09:05.560070+00:00",
+  "commit": "35d75fbe66c18e3e45c8340825b7d4d390a04c0d",
+  "sourceFiles": [
+    {
+      "path": "optional-skills/bots/receipt/SKILL.md",
+      "sha256": "5c60576a9a2eb79b03077b3c341c7c2dfb816ed41f67911f4989671729c530b4",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/receipt/SKILL.md"
+    },
+    {
+      "path": "optional-skills/bots/receipt/references/sample-input.md",
+      "sha256": "4a37e3db1d5adc230af8d3c9091c6d2ec15c9f23b3d2bec5491ce7c76f67a162",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/receipt/references/sample-input.md"
+    },
+    {
+      "path": "optional-skills/bots/receipt/references/expected-output-rubric.md",
+      "sha256": "ce09ef71ea5a405777a46c8f0014de2c221e216e1ac537c619a6fec0e1db7e40",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/receipt/references/expected-output-rubric.md"
+    },
+    {
+      "path": "optional-skills/bots/receipt/templates/case-record.md",
+      "sha256": "80b3c36786d26f6935029f814f634c500cc750f63328d3bf517c68bc418cc60f",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/optional-skills/bots/receipt/templates/case-record.md"
+    },
+    {
+      "path": "bot-catalog/receipt.yaml",
+      "sha256": "3cd08e4646f2debf7a9f6d1faed83c06ff7660397c2ada892defc26a5be649b5",
+      "url": "https://raw.githubusercontent.com/notwitcheer/hermes-agent-fork/35d75fbe66c18e3e45c8340825b7d4d390a04c0d/bot-catalog/receipt.yaml"
+    }
+  ],
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK with native skills.auto_load",
+  "roleLoaded": true,
+  "completed": true,
+  "apiCalls": 1,
+  "outputCharacters": 1685,
+  "inputTokens": 3675,
+  "outputTokens": 2455,
+  "costStatus": "estimated",
+  "estimatedCostUsd": 0.0,
+  "reviewStatus": "awaiting-answer-review",
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "humanApproved": false
+}
