@@ -11,6 +11,6 @@
 .links a::after { display: none; }
 .mobile { display: grid; align-items: stretch; }
 .mobile .group { border-bottom: 1px solid var(--line-soft); }
-.mobile .group summary { padding-block: 1rem; justify-content: space-between; }
+.mobile .group > summary { display: flex; width: 100%; height: auto; min-height: 44px; padding: 1rem 0; border: 0; justify-content: space-between; place-items: normal; }
 .mobile .links { position: static; min-width: 0; padding: 0 0 .5rem 1rem; border: 0; box-shadow: none; background: none; }
 @media (max-width: 860px) { .nav:not(.mobile) { display: none; } }
