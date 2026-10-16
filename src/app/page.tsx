@@ -112,17 +112,20 @@ export default function Home() {
         </div>
         <div className="home-fit-scale" aria-label="Five possible work formats">
           {[
-            ["01", "Assignment", "One result"],
-            ["02", "Skill", "Reusable method"],
-            ["03", "Routine", "Runs on a schedule or event"],
-            ["04", "Bot", "Keeps its role and history"],
-            ["05", "Crew", "Shares a job across Bots"],
-          ].map(([number, label, note]) => (
-            <div key={label}>
+            ["01", "Assignment", "One result", "Ask for one piece of work without setting up a continuing specialist. Example: summarize one meeting or compare two documents.", "/use-cases", "Find a task to try"],
+            ["02", "Skill", "Reusable method", "Save the steps for a job you do often, then ask your agent to use them again. Example: turn meeting notes into the same kind of recap each time.", "/guides/run-bots-reliably", "Learn about reusable instructions"],
+            ["03", "Routine", "Runs on a schedule or event", "Arrange for an approved task to start at a set time or after an event. Example: prepare a daily brief. Test it manually before switching on a schedule.", "/guides/routines-with-control", "Learn about routines"],
+            ["04", "Bot", "Keeps its role and history", "Give a continuing assistant a defined job and clear limits. Example: keep a return-and-refund case organized as new messages arrive.", "/bots", "Browse the Bots"],
+            ["05", "Crew", "Shares a job across Bots", "Use several specialists when the job benefits from separate responsibilities or checks. Example: have one Bot draft an article and another check its sources.", "/crew-kits", "Explore Crew Kits"],
+          ].map(([number, label, note, explanation, href, action]) => (
+            <details key={label}>
+              <summary>
               <span>{number}</span>
               <strong>{label}</strong>
               <small>{note}</small>
-            </div>
+              </summary>
+              <div><p>{explanation}</p><Link href={href} className="text-link">{action} <ArrowRight size={14} aria-hidden="true" /></Link></div>
+            </details>
           ))}
         </div>
       </section>

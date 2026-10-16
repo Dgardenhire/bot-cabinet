@@ -1,0 +1,21 @@
+.page :global(.compare-table-section) { padding-top: 2.5rem; }
+.page :global(.compare-table-scroll) { border: 0; }
+.page :global(.compare-table) { min-width: 64rem; }
+.page :global(.compare-table th), .page :global(.compare-table td) { border-right: 0; padding: 1.5rem 1rem; line-height: 1.65; }
+.page :global(.compare-table thead th) { background: none; border-bottom: 2px solid var(--brass-deep); }
+.page :global(.compare-table tbody tr:nth-child(even)) { background: none; }
+.page :global(.compare-section-head) { margin-bottom: 1.5rem; }
+.page .tryLink { display: flex; align-items: center; gap: .4rem; margin-top: .75rem; color: var(--paper); }
+.next { margin-top: 2.5rem; padding-block: 1.5rem; color: var(--muted); border-bottom: 1px solid var(--line-soft); }
+.next a { display: inline-flex; align-items: center; gap: .5rem; color: var(--brass-bright); }
+@media (max-width: 760px) {
+  .page :global(.compare-table-scroll) { overflow: visible; }
+  .page :global(.compare-table) { min-width: 0; display: block; }
+  .page :global(.compare-table thead) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .page :global(.compare-table tbody) { display: block; }
+  .page :global(.compare-table tr) { display: block; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+  .page :global(.compare-table tbody th) { display: block; min-width: 0; border: 0; padding: 0 0 1rem; }
+  .page :global(.compare-table tbody td) { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.5fr); gap: 1rem; padding: .65rem 0; border: 0; overflow-wrap: anywhere; }
+  .page :global(.compare-table td)::before { content: attr(data-label); color: var(--brass-bright); font: 11px/1.6 var(--mono); }
+  .next a { margin-top: .75rem; }
+}
