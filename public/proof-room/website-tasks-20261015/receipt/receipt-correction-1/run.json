@@ -1,0 +1,29 @@
+{
+  "bot": "receipt",
+  "resourceId": "starter:receipt",
+  "date": "2026-10-16T04:18:36.092767+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/receipt.json",
+    "mediaType": "application/json",
+    "sha256": "c87316bec1341ee6e654e6d353d4674fd0d3b1b898485140278fcd18b7c70756",
+    "bytes": 9305
+  },
+  "sourceMode": "local-candidate",
+  "indexRevision": "8b25d7e97ae54e62b05b65ac3db2f7109220f87eeb86978284bafb603f3f6cf6",
+  "roleSha256": "892ef18a7d4281baaf91d8d5a4d985dbb80c0f57550949be7da1d32d3d74516d",
+  "caseSha256": "0479a584983a95f2264803f71a75f9ad0b346ff37e5750d9a12e7801e29a7290",
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "inputTokens": 4445,
+  "outputTokens": 2200,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false
+}

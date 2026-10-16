@@ -61,7 +61,7 @@ Requested capabilities (configure manually):
 Check how well each option fits the stated priorities.
 
 Archive: members/coach.tar.gz
-SHA-256: cd04a6dafb8d8621acf67d650d9e094d883886876e7a352e7e26784a71a25028
+SHA-256: fb4be0b7fc0faf818a9f4aa9dfb5de54ebec15d3b1db35b82c870413b4e49b85
 Pack: 2.0.0; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

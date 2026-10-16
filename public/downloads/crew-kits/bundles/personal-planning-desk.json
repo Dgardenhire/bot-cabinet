@@ -71,7 +71,7 @@
       "packVersion": "2.0.0",
       "archivePath": "members/coach.tar.gz",
       "archiveUrl": "/downloads/starter-bots/v2/coach.tar.gz",
-      "sha256": "cd04a6dafb8d8621acf67d650d9e094d883886876e7a352e7e26784a71a25028",
+      "sha256": "fb4be0b7fc0faf818a9f4aa9dfb5de54ebec15d3b1db35b82c870413b4e49b85",
       "minimumSupported": ">=0.21.0",
       "testedWith": "0.21.0",
       "importTest": "import-test-passed",

@@ -1,0 +1,9 @@
+{
+  "task": "# Synthetic sample input\n\n> **SYNTHETIC FIXTURE \u2014 not real data.** The learner, course, and dates below are invented for offline workflow testing. They are not real.\n\n**Learner (fixture):** Jo, adult evening student, 3 hours a week, quiz on 2026-04-14.\n\n**Goal (fixture):** \"I need to understand percentages properly for my bookkeeping course quiz. I can do 50% and 10% in my head but I get lost with things like 'what percent of 80 is 12' or percentage increase.\"\n\n**Course notes (fixture):** \"Unit 2: percentages. percent means per hundred. part = percent \u00d7 whole. percentage change = (new \u2212 old) \u00f7 old \u00d7 100.\"\n\n**Expected task:** Check the starting point, produce a one-week study plan that fits 3 hours, explain the first idea in plain language using the course notes as the source, and write five practice questions with the answers in a separate section. Label the result as a synthetic demonstration.\n\n\nUse this output template:\n# Study plan: {{subject}}\n\n- Goal: {{goal}}\n- Deadline: {{deadline}}\n- Time available: {{hours_per_week}} per week\n- Starting point: {{starting_point}}\n\n## Plan\n\n| Session | Topic | Length | Source |\n|---|---|---|---|\n| {{n}} | {{topic}} | {{minutes}} | {{source}} |\n\n## Explanation: {{first_topic}}\n\n{{plain_language_explanation}}\n\nWorked example: {{example}}\n\n## Practice\n\n1. {{question}}\n\n## Answers (keep separate)\n\n1. {{answer}}\n\n## Progress notes\n\n- Right: {{right}}\n- Revisit: {{revisit}}\n",
+  "checklist": [
+    "Labels the result a synthetic demonstration.",
+    "Keeps the weekly plan within 180 minutes and preserves the supplied quiz date.",
+    "Uses correct percentage arithmetic and five practice questions with separate answers.",
+    "Uses supplied notes without claiming credentials or recording invented progress."
+  ]
+}

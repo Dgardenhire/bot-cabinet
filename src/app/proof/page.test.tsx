@@ -12,4 +12,13 @@ describe("Test Records page", () => {
     expect(html).toContain("Unfinished test plans");
     expect(html).toContain("A passed fixture is test evidence");
   });
+
+  it("shows website task results, preserved failures and unfinished coverage", () => {
+    const html = renderToStaticMarkup(<ProofPage />);
+    expect(html).toContain("Website Bot tests");
+    expect(html).toContain("Correction awaiting retest");
+    expect(html).toContain("35 Bots not yet run in this series");
+    expect(html).toContain("/proof-room/website-tasks-20261015/index.json");
+    expect(html).toContain("three-minute deadline");
+  });
 });
