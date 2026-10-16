@@ -42,7 +42,7 @@ export default function ComparePage() {
               <caption className="sr-only">Compare each agent by useful job, number of agents, where it runs, entry requirements, and a caution.</caption>
               <thead><tr><th scope="col">Product</th><th scope="col">A good first job</th><th scope="col">Agent setup</th><th scope="col">Where it works</th><th scope="col">How to get in</th><th scope="col">Check before using</th></tr></thead>
               <tbody>{agents.map((agent) => <tr key={agent.name}>
-                <th scope="row"><strong>{agent.name}</strong><small>{agent.maker}</small><a href={agent.sourceUrl} target="_blank" rel="noopener noreferrer">{agent.source} <ArrowUpRight size={13} aria-hidden="true" /></a><Link href={agent.path} className={styles.tryLink}>Try it <ArrowRight size={13} aria-hidden="true" /></Link></th>
+                <th scope="row"><strong>{agent.name}</strong><small>{agent.maker}</small><a href={agent.sourceUrl} target="_blank" rel="noopener noreferrer">{agent.source} <ArrowUpRight size={13} aria-hidden="true" /></a>{agent.path.startsWith("/") ? <Link href={agent.path} className={styles.tryLink}>Try it <ArrowRight size={13} aria-hidden="true" /></Link> : null}</th>
                 <td data-label="A good first job">{agent.job}</td><td data-label="Agent setup">{agent.shape}</td><td data-label="Where it works">{agent.runs}</td><td data-label="How to get in">{agent.entry}</td><td data-label="Check before using">{agent.caution}</td>
               </tr>)}</tbody>
             </table>
