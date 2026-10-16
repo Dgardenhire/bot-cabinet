@@ -2,24 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, List, X } from "@phosphor-icons/react/dist/ssr";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-const PRIMARY_NAV_ITEMS = [
-  ["Start Here", "/start"],
-  ["Bots", "/bots"],
-  ["Crew Kits", "/crew-kits"],
-  ["Fit Test", "/fit"],
-  ["Bot Lab", "/workshop"],
-  ["Agent Watch", "/watch"],
-] as const;
-
-const LEARN_NAV_ITEMS = [
-  ["Field Manual", "/guides"],
-  ["Compare Apps", "/compare"],
-  ["Test Records", "/proof"],
-  ["Inspection Desk", "/trust"],
-] as const;
-
-const TOOLS_NAV_ITEMS = [["Bot Cabinet in Hermes", "/hermes"], ["My Workbench", "/workbench"], ["Portrait Studio", "/portraits"], ["Bot Workflows", "/use-cases"]] as const;
+import { SiteNavigation } from "./site-navigation";
 
 export function SiteHeader() {
   return (
@@ -48,28 +31,14 @@ export function SiteHeader() {
             priority
           />
         </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {PRIMARY_NAV_ITEMS.map(([label, href]) => (
-            <Link href={href} key={href}>
-              {label}
-            </Link>
-          ))}
-        </nav>
+        <SiteNavigation />
         <ThemeToggle />
         <details className="mobile-nav">
           <summary aria-label="Open navigation">
             <List className="menu-open" size={23} aria-hidden="true" />
             <X className="menu-close" size={23} aria-hidden="true" />
           </summary>
-          <nav aria-label="Mobile navigation">
-            {PRIMARY_NAV_ITEMS.map(([label, href]) => (
-              <Link href={href} key={href}>
-                {label}
-              </Link>
-            ))}
-            <div className="mobile-nav-group" aria-label="Tools"><strong>Tools</strong>{TOOLS_NAV_ITEMS.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
-            <div className="mobile-nav-group" aria-label="Learn and check"><strong>Learn and check</strong>{LEARN_NAV_ITEMS.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
-          </nav>
+          <SiteNavigation mobile />
         </details>
       </div>
     </header>

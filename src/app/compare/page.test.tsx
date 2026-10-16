@@ -21,8 +21,11 @@ describe("agent comparison", () => {
     for (const name of ["ChatGPT Dots", "Grok Bot", "Muse", "Instinct", "Gemini Spark", "Poke", "OpenClaw", "Hermes Agent"]) {
       expect(html).toContain(name);
     }
-    expect(html).toContain("Four ways in");
-    expect(html).toContain("Give it a job");
+    expect(html).not.toContain('class="compare-pick-grid"');
+    expect(html).not.toContain('class="compare-flow"');
+    expect(html).not.toContain('class="compare-choice"');
+    expect(html).toContain('data-label="How to get in"');
+    expect(html).toContain("Find a Bot for your task");
     expect(html).toContain("Bot Cabinet has not tested all eight products");
     expect(html).toContain("https://x.ai/bot/guides");
     expect(html).toContain("every.to/vibe-check");

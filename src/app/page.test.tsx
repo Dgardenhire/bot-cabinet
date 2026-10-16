@@ -5,6 +5,14 @@ import Home from "./page";
 import WorkbenchPage from "./workbench/page";
 
 describe("homepage returning-use path", () => {
+  it("gives all five work formats real expandable explanations", () => {
+    const home = renderToStaticMarkup(<Home />);
+    const formats = home.split('aria-label="Five possible work formats"')[1].split('</section>')[0];
+    expect(formats.match(/<details/g)).toHaveLength(5);
+    expect(formats.match(/<summary/g)).toHaveLength(5);
+    expect(formats).toContain("Example: summarize one meeting");
+    expect(formats).toContain('href="/guides/routines-with-control"');
+  });
   it("links a current user directly to the bounded Three-Run Trial", () => {
     const home = renderToStaticMarkup(<Home />);
     const workbench = renderToStaticMarkup(<WorkbenchPage />);
