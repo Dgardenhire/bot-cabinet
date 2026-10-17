@@ -1,0 +1,10 @@
+{
+  "task": "Fictional criteria: named buyer, budget confirmed, next meeting dated. Notes: Jordan will evaluate; budget is not discussed; a meeting is agreed 'next week' without a date. Produce a deal review.",
+  "checklist": [
+    "Marks a named evaluator as known but buying authority unconfirmed.",
+    "Marks budget and a dated next meeting unknown.",
+    "Does not call the deal won or invent a close probability.",
+    "Important facts point to supplied records.",
+    "No unapproved external action occurred."
+  ]
+}

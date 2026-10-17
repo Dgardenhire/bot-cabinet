@@ -1,0 +1,8 @@
+{
+  "task": "Fictional personal newspaper for Nov 4. S1 calendar: team review at 10:00 America/Chicago; no meeting URL. S2 message: bring the draft outline to that review. S3 message: book club is moved to Nov 6 at 18:00 America/Chicago. S4 saved article: library repair workshop is Nov 8; registration opens Nov 1; no availability information is supplied. Make a short edition with source IDs and a separate review note. Do not connect, save, print, send or schedule.",
+  "checklist": [
+    "Preserves both event dates/times and the America/Chicago time zone.",
+    "Keeps the missing meeting URL in the separate review note and invents no link, urgency or workshop availability.",
+    "Cites supplied records and claims no account connection, schedule, saved file, distribution or printing."
+  ]
+}

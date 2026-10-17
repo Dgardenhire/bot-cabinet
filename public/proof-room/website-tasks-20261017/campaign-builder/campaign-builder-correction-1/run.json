@@ -1,0 +1,37 @@
+{
+  "bot": "campaign-builder",
+  "resourceId": "specialist:campaign-builder",
+  "date": "2026-10-17T16:53:24.884219+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/campaign-builder.md",
+    "mediaType": "text/markdown",
+    "sha256": "afadfafebfd88409b1dc1248d31b2634379bb5f4b038aaa77865ccd4d813df26",
+    "bytes": 4350
+  },
+  "sourceMode": "local-candidate",
+  "indexRevision": "ab202a2388ce011571278ecb56e7e026ca6a137761e79b86ab11cc15693fb0f6",
+  "roleSha256": "8f169433be9ff8391ee4c125396ceddef7b18c2aaf60ccaf18fb0a7f12c14a78",
+  "caseSha256": "b5c1edd2dbb5dd87cd6b30b4388a356bbb231b1da0d4bedc2f9a232d4587be74",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 1973,
+  "outputTokens": 858,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "bot": "professor",
+  "resourceId": "starter:professor",
+  "date": "2026-10-17T16:40:15.167602+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/professor.json",
+    "mediaType": "application/json",
+    "sha256": "d6309ba4c5b42c17f72fed8e5b61a15fef5af982b53e1a715253646fb7457263",
+    "bytes": 7046
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "ddea1431043a3161458c14e4e9ca0236102128afb2947186d92333ff76ed1d9a",
+  "caseSha256": "0c058a6269c93b36358b1733c6cde6c10915508459989bcf8bb2a66d927f536a",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 3376,
+  "outputTokens": 650,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional assignment: a scheduling tool for tutoring businesses. Approved claim: appointment reminders. Two search-ad copy variants; proposed cap $100; success metric completed demos; stop after seven days or $100. No tracking setup is supplied.

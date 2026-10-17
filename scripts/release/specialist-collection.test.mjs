@@ -43,3 +43,16 @@ test('crew roles resolve and setup retains limits, originals, and manual handoff
     assert.ok(crew.source.startsWith('https://'));
   }
 });
+
+test('revised roles prevent the factual errors found in completed task runs', () => {
+  for (const [slug, required] of [
+    ['campaign-builder', 'Do not turn a feature into a promised outcome'],
+    ['habit-coach', 'Do not infer completed sessions'],
+    ['visual-producer', 'Do not add performance promises'],
+  ]) {
+    const bot = collection.bots.find(entry => entry.slug === slug);
+    assert.ok(bot.instructions.includes(required), slug);
+    const download = readFileSync(new URL(`public/downloads/specialists/${slug}.md`, root), 'utf8');
+    assert.ok(download.includes(bot.instructions), `${slug} downloadable role differs from its source`);
+  }
+});

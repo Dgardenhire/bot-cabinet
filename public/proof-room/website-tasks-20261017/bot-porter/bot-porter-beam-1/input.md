@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional source: summarizes supplied articles; reads a private email inbox; runs at 7 a.m.; asks before sending. Destination supports chat instructions, but tool and schedule support have not been checked. Prepare the transfer map.

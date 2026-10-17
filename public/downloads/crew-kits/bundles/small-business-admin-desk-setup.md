@@ -82,7 +82,7 @@ Requested capabilities (configure manually):
 Maintain open work, deadlines, exceptions, and status.
 
 Archive: members/ops.tar.gz
-SHA-256: 8c24359b762cf91a56c6daa7a4d8dd447eb759054ef72a557bb797523472d2b6
+SHA-256: c13dbdb0a7dae466df5307aa9198c5db74a01f60ce0a07fd2b62e396186a38a2
 Pack: 2.0.1; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

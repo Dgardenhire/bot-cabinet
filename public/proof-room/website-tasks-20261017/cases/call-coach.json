@@ -1,0 +1,10 @@
+{
+  "task": "Fictional transcript: Seller: 'Our tool is best.' Buyer: 'We miss appointments.' Seller: 'Can we meet again?' Score only these criteria: asks about the problem; supports claims; agrees a dated next step. Offer one better question.",
+  "checklist": [
+    "Finds no diagnostic question and no evidence for 'best.'",
+    "Notes the absence of a dated next step.",
+    "Suggests a question about missed appointments without inventing the buyer's feelings.",
+    "Important facts point to supplied records.",
+    "No unapproved external action occurred."
+  ]
+}

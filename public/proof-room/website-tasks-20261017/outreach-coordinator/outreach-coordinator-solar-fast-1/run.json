@@ -1,0 +1,37 @@
+{
+  "bot": "outreach-coordinator",
+  "resourceId": "specialist:outreach-coordinator",
+  "date": "2026-10-17T16:43:38.735139+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/outreach-coordinator.md",
+    "mediaType": "text/markdown",
+    "sha256": "556485db15cfc034167048f7a6b8514c374fe73e2f83f2b900c2d605b1b0431b",
+    "bytes": 4567
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "a4bcab4e8e72a1e0c771ac3ec3d9d054570d2112888651c53f3b2c46c34f6bd7",
+  "caseSha256": "723e631ceb6de1b64694c77ce1330f13b8f0c0784a298de5dc7805701867c889",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2972,
+  "outputTokens": 94,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

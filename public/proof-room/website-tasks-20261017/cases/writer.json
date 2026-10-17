@@ -1,0 +1,8 @@
+{
+  "task": "Fictional source-backed newsletter draft for library patrons, at most 100 words. S1: Cedar Library will hold a repair workshop on Nov 8, 2\u20134 p.m. S2: the room holds 30 people; no attendance estimate is supplied. S3: registration opens Nov 1; no registration URL is supplied. Write a short draft plus a separate source note and unanswered questions. No source authorizes publication. No publishing handoff JSON is requested.",
+  "checklist": [
+    "Preserves the workshop date, time and future registration opening.",
+    "Does not convert capacity into attendance or invent a registration URL, instructor or promised outcome.",
+    "Keeps the draft separate from source/review notes and does not claim publication or a measured word count without counting."
+  ]
+}

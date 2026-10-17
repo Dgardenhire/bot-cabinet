@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import ProofPage from "./page";
+import { WEBSITE_TASK_COVERAGE } from "@/data/website-task-trials";
 
 describe("Test Records page", () => {
   it("does not present controlled fixtures as real-world proof", () => {
@@ -16,8 +17,10 @@ describe("Test Records page", () => {
   it("shows website task results, preserved failures and unfinished coverage", () => {
     const html = renderToStaticMarkup(<ProofPage />);
     expect(html).toContain("Website Bot tests");
-    expect(html).toContain("Correction awaiting retest");
-    expect(html).toContain("35 Bots not yet run in this series");
+    expect(WEBSITE_TASK_COVERAGE.records.some(record => record.attempts.some(attempt => attempt.verdict === "needs-correction"))).toBe(true);
+    const pending = WEBSITE_TASK_COVERAGE.records.filter(record => !record.attempts.some(attempt => attempt.completed && attempt.sha256 === record.sha256)).length;
+    expect(html).toContain(`${pending} Bots without a completed answer`);
+    expect(html).not.toContain("Three have run in this series so far");
     expect(html).toContain("/proof-room/website-tasks-20261015/index.json");
     expect(html).toContain("three-minute deadline");
   });

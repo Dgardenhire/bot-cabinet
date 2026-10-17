@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-17",
   "reviewer": "Codex",
   "humanApproved": false,
   "scope": "One supplied-material task using website role instructions in the Hermes SDK; not Desktop imports, connected accounts, tool execution or crew handoffs.",
@@ -9,72 +9,275 @@
       "slug": "scout",
       "name": "Scout",
       "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/scout.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/scout.json",
+      "attempts": [
+        {
+          "id": "scout-task-20261016-3",
+          "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Selected the three relevant topics and source links, but described the application opening as a deadline to act before, despite no deadline being supplied. Did not preserve the missing eligibility and survey-count qualifications. Failed this supplied-material sample; no outside actions were tested.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/scout/scout-task-20261016-3/source.json",
+            "input": "/proof-room/website-tasks-20261015/scout/scout-task-20261016-3/input.md",
+            "output": "/proof-room/website-tasks-20261015/scout/scout-task-20261016-3/output.md",
+            "run": "/proof-room/website-tasks-20261015/scout/scout-task-20261016-3/run.json"
+          }
+        },
+        {
+          "id": "scout-sample-1",
+          "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "Step 3.7 Flash returned HTTP 429. No completed answer; not a Bot task pass.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/scout/scout-sample-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/scout/scout-sample-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/scout/scout-sample-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/scout/scout-sample-1/run.json"
+          }
+        },
+        {
+          "id": "scout-longcat-1",
+          "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "The LongCat attempt reached the one-request limit without a final answer. This runner still exposed skill tools; that was corrected before subsequent Solar runs. Not a task pass.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/scout/scout-longcat-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/scout/scout-longcat-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/scout/scout-longcat-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/scout/scout-longcat-1/run.json"
+          }
+        },
+        {
+          "id": "scout-solar-2",
+          "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Ranked the grant opening, workshop and volunteer-shortage survey with the supplied links. Preserved October 20 and October 8, flagged missing eligibility and survey counts, and explicitly disclaimed live link verification and outside actions. Passed this supplied-material sample on Solar Mini4 only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/scout/scout-solar-2/source.json",
+            "input": "/proof-room/website-tasks-20261017/scout/scout-solar-2/input.md",
+            "output": "/proof-room/website-tasks-20261017/scout/scout-solar-2/output.md",
+            "run": "/proof-room/website-tasks-20261017/scout/scout-solar-2/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:researcher",
       "slug": "researcher",
       "name": "Researcher",
       "sha256": "c75cc549549bb9088d59d9f87c5d19b21db7b978f504ac077ece7c2c16e80b59",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/researcher.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/researcher.json",
+      "attempts": [
+        {
+          "id": "researcher-solar-1",
+          "sha256": "c75cc549549bb9088d59d9f87c5d19b21db7b978f504ac077ece7c2c16e80b59",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved the five-versus-ten-seat conflict and source IDs, the eight-person requirement and $100 ceiling, and the unknown price. Requested authoritative confirmation instead of claiming eligibility, budget fit or a purchase. Passed this supplied-material sample on Solar Mini4 only; this attempt preceded the removal of skill-tool definitions.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/researcher/researcher-solar-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/researcher/researcher-solar-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/researcher/researcher-solar-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/researcher/researcher-solar-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:writer",
       "slug": "writer",
       "name": "Writer",
       "sha256": "e610eae2aad795cd8d52a00a71356beb3fb1b63ec3274510b70e13180333ee1d",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/writer.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/writer.json",
+      "attempts": [
+        {
+          "id": "writer-writer-20261016-1",
+          "sha256": "e610eae2aad795cd8d52a00a71356beb3fb1b63ec3274510b70e13180333ee1d",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved the workshop date, time, registration opening and 30-person capacity without inventing attendance, a registration URL or an instructor. Kept the short draft separate from source notes and unanswered questions, and did not claim publication. Passed this supplied-material sample only; no Desktop import, connected tools or repeated-use test was performed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/writer/writer-writer-20261016-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/writer/writer-writer-20261016-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/writer/writer-writer-20261016-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/writer/writer-writer-20261016-1/run.json"
+          }
+        },
+        {
+          "id": "writer-solar-1",
+          "sha256": "e610eae2aad795cd8d52a00a71356beb3fb1b63ec3274510b70e13180333ee1d",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Produced a short review-only draft preserving the November 8 workshop, 2\u20134 p.m. time, 30-person capacity and November 1 registration opening. Kept source notes and unanswered questions separate, invented no registration link or attendance, and did not publish. Passed this supplied-material sample on Solar Mini4 only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/writer/writer-solar-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/writer/writer-solar-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/writer/writer-solar-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/writer/writer-solar-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:editor",
       "slug": "editor",
       "name": "Editor",
       "sha256": "b7b8f88b5df54f289bd988da41a75ca50ece5995d0213933982f066dd9361e1a",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/editor.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/editor.json",
+      "attempts": [
+        {
+          "id": "editor-solar-1",
+          "sha256": "b7b8f88b5df54f289bd988da41a75ca50ece5995d0213933982f066dd9361e1a",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Audited each draft sentence, caught capacity being turned into signups and an unnamed sponsor being turned into no sponsor. Treated 'Register today' as unverified because the fixture supplied no current date, rather than assuming registration was available. Did not rewrite or approve publication. Passed this supplied-material sample on Solar Mini4 only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/editor/editor-solar-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/editor/editor-solar-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/editor/editor-solar-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/editor/editor-solar-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:planner",
       "slug": "planner",
       "name": "Planner",
       "sha256": "966d974f6cb8f81bebeac8c48f36bec413b5e866c17c939fe6c58206133297fa",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/planner.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/planner.json",
+      "attempts": [
+        {
+          "id": "planner-solar-1",
+          "sha256": "966d974f6cb8f81bebeac8c48f36bec413b5e866c17c939fe6c58206133297fa",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "The reasoning-enabled response exhausted the 6,000-token output limit without a final answer; the one-request guard blocked continuation. Not a completed task.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/planner/planner-solar-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/planner/planner-solar-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/planner/planner-solar-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/planner/planner-solar-1/run.json"
+          }
+        },
+        {
+          "id": "planner-solar-fast-1",
+          "sha256": "966d974f6cb8f81bebeac8c48f36bec413b5e866c17c939fe6c58206133297fa",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Kept Mina as the only agreed outline owner, the four-hour capacity, and approval before invitation drafting. Labeled the suggested sequence and time allocations as proposals and left review timing, invitation ownership and budget unresolved. Changed no task system. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/planner/planner-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/planner/planner-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/planner/planner-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/planner/planner-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:client",
       "slug": "client",
       "name": "Client Deliverables",
       "sha256": "c4b4bdea0d2328ec9288b852216651cd4bfcfd1a8eec5a24e65632eb16bc85f9",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/client.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/client.json",
+      "attempts": [
+        {
+          "id": "client-solar-fast-1",
+          "sha256": "c4b4bdea0d2328ec9288b852216651cd4bfcfd1a8eec5a24e65632eb16bc85f9",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved 'Draft for review,' completed discovery and unstarted implementation. Kept the $900 price and November 15 deadline in explicit approval questions and produced the requested sections without sending or saving. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/client/client-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/client/client-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/client/client-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/client/client-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:coder",
       "slug": "coder",
       "name": "Coder",
       "sha256": "157279d50c66e94e96f57aef08cf580bc8715bb39b08b19222104f394d7d1f42",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/coder.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/coder.json",
+      "attempts": [
+        {
+          "id": "coder-solar-fast-1",
+          "sha256": "157279d50c66e94e96f57aef08cf580bc8715bb39b08b19222104f394d7d1f42",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Proposed trim-based validation and correct empty, whitespace-only and nonempty expected results. Explicitly said no tests ran and no project or deployment was changed. Passed the written-review sample; executing the proposed code remains separate.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/coder/coder-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/coder/coder-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/coder/coder-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/coder/coder-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:ops",
       "slug": "ops",
       "name": "Ops",
-      "sha256": "483a0027df27151303eb71c299b66c18f42e179bfbf782c914f5de1e0dba4d96",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/ops.json",
-      "attempts": []
+      "sha256": "f7f3c9bf3574337e329d3a68a46e4b16f796204977be7992080ecb976a8fd8b0",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/ops.json",
+      "attempts": [
+        {
+          "id": "ops-solar-fast-1",
+          "sha256": "483a0027df27151303eb71c299b66c18f42e179bfbf782c914f5de1e0dba4d96",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Correctly separated the successful probe and unknown backup status, but did not date the report as October 1 and described the missing receipt as a 'missed/unverified run' before later qualifying it. A missing receipt does not prove a missed run. No new checks or alerts occurred.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/ops/ops-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/ops/ops-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/ops/ops-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/ops/ops-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "ops-beam-1",
+          "sha256": "483a0027df27151303eb71c299b66c18f42e179bfbf782c914f5de1e0dba4d96",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Dated the report and correctly kept backup status unknown, but still placed the absent report receipt under 'Missed runs,' qualifying it only afterward as unconfirmed. Missing evidence must be classified as unknown, not a missed run. No system check or alert occurred.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/ops/ops-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/ops/ops-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/ops/ops-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/ops/ops-beam-1/run.json"
+          }
+        },
+        {
+          "id": "ops-correction-1",
+          "sha256": "f7f3c9bf3574337e329d3a68a46e4b16f796204977be7992080ecb976a8fd8b0",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "The revised role dated the report, kept the HTTP 200 observation separate, and placed both the timed-out backup lookup and missing daily-report receipt under unknown status. Explicitly said no confirmed missed run or backup failure was established. No new probe, repair or alert occurred. Passed the unchanged sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/ops/ops-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/ops/ops-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/ops/ops-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/ops/ops-correction-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:professor",
@@ -82,7 +285,7 @@
       "name": "Professor",
       "sha256": "d6309ba4c5b42c17f72fed8e5b61a15fef5af982b53e1a715253646fb7457263",
       "status": "passed-sample",
-      "case": "/proof-room/website-tasks-20261015/cases/professor.json",
+      "case": "/proof-room/website-tasks-20261017/cases/professor.json",
       "attempts": [
         {
           "id": "professor-baseline-1",
@@ -109,6 +312,32 @@
             "output": "/proof-room/website-tasks-20261015/professor/professor-correction-1/output.md",
             "run": "/proof-room/website-tasks-20261015/professor/professor-correction-1/run.json"
           }
+        },
+        {
+          "id": "professor-solar-fast-1",
+          "sha256": "d6309ba4c5b42c17f72fed8e5b61a15fef5af982b53e1a715253646fb7457263",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "The proposed sessions totaled 195 minutes despite the 180-minute weekly limit. Omitted the required synthetic-demonstration label and claimed a starting-point check had been completed. Percentage answers were correct, but the sample failed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/professor/professor-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/professor/professor-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/professor/professor-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/professor/professor-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "professor-beam-1",
+          "sha256": "d6309ba4c5b42c17f72fed8e5b61a15fef5af982b53e1a715253646fb7457263",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Labeled the demonstration fictional, preserved the quiz date and reported-versus-verified ability, and used four 45-minute sessions totaling 180 minutes. Five practice answers were correct and separate from questions. Passed this sample on Beam; the 195-minute failure remains recorded.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/professor/professor-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/professor/professor-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/professor/professor-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/professor/professor-beam-1/run.json"
+          }
         }
       ]
     },
@@ -117,35 +346,103 @@
       "slug": "architect",
       "name": "Architect",
       "sha256": "3be898d8230dda649c13de3d0f3153f81101e377d50b4994a5409cd40907b898",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/architect.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/architect.json",
+      "attempts": [
+        {
+          "id": "architect-solar-fast-1",
+          "sha256": "3be898d8230dda649c13de3d0f3153f81101e377d50b4994a5409cd40907b898",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Considered the simple static option and took no outside action, but invented $0\u2013$20 hosting estimates and claimed the database option often exceeds $20 without supplied price evidence. Also said the budget should cover the static costs despite listing those costs as unverified. Failed the source-bound cost requirement.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/architect/architect-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/architect/architect-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/architect/architect-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/architect/architect-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "architect-beam-1",
+          "sha256": "3be898d8230dda649c13de3d0f3153f81101e377d50b4994a5409cd40907b898",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Compared static and database approaches against the 30-entry, one-editor requirements. Kept prices unverified and the $20 ceiling as a gate, separated assumptions, and proposed a non-production reversible prototype without selecting a vendor or changing production. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/architect/architect-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/architect/architect-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/architect/architect-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/architect/architect-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:founding-engineer",
       "slug": "founding-engineer",
       "name": "Founding Engineer",
       "sha256": "44075c1c90022f6923c5a7f58aa731c9b785bdc26d2699fb20c85e01364c8747",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/founding-engineer.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/founding-engineer.json",
+      "attempts": [
+        {
+          "id": "founding-engineer-solar-fast-1",
+          "sha256": "44075c1c90022f6923c5a7f58aa731c9b785bdc26d2699fb20c85e01364c8747",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Kept the proposal to an in-memory parser and the supplied sample, preserving Mina and November 2 and leaving missing owners/dates null. Supplied acceptance checks and explicitly said the build and tests had not run. Passed the written prototype-planning sample only; compilation and running the prototype remain separate.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/founding-engineer/founding-engineer-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/founding-engineer/founding-engineer-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/founding-engineer/founding-engineer-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/founding-engineer/founding-engineer-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:chief-of-staff",
       "slug": "chief-of-staff",
       "name": "Chief of Staff",
       "sha256": "043ed5a38e9f218a9c1e7d318864dabf5e200b62caf27a0b642f7f9613f9dc8d",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/chief-of-staff.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/chief-of-staff.json",
+      "attempts": [
+        {
+          "id": "chief-of-staff-solar-fast-1",
+          "sha256": "043ed5a38e9f218a9c1e7d318864dabf5e200b62caf27a0b642f7f9613f9dc8d",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Preserved Mina, November 2 and the unapproved podcast idea, with no assignments or messages. However, its next step said to choose a review target only after director approval was granted, reversing the review/approval dependency. The coordination recommendation needs correction.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "chief-of-staff-beam-1",
+          "sha256": "043ed5a38e9f218a9c1e7d318864dabf5e200b62caf27a0b642f7f9613f9dc8d",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved Mina and November 2, kept the podcast as an unapproved suggestion, and identified director approval as gating invitations. Asked for the review slot and scheduler without inventing an owner, date or assignment. No contacts or shared-record changes occurred. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/chief-of-staff/chief-of-staff-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:coach",
       "slug": "coach",
       "name": "Coach",
       "sha256": "5e0ffeee9cc7085dbd689d49029e112156342ec3a609eee94fa2d13627cfa7f0",
-      "status": "awaiting-retest",
-      "case": "/proof-room/website-tasks-20261015/cases/coach.json",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/coach.json",
       "attempts": [
         {
           "id": "coach-baseline-1",
@@ -172,6 +469,58 @@
             "output": "/proof-room/website-tasks-20261015/coach/coach-correction-1/output.md",
             "run": "/proof-room/website-tasks-20261015/coach/coach-correction-1/run.json"
           }
+        },
+        {
+          "id": "coach-retest-20261016-2",
+          "sha256": "5e0ffeee9cc7085dbd689d49029e112156342ec3a609eee94fa2d13627cfa7f0",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "One provider request returned HTTP 429. No completed answer and no paid fallback; the corrected role remains unverified.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/coach/coach-retest-20261016-2/source.json",
+            "input": "/proof-room/website-tasks-20261015/coach/coach-retest-20261016-2/input.md",
+            "output": "/proof-room/website-tasks-20261015/coach/coach-retest-20261016-2/output.md",
+            "run": "/proof-room/website-tasks-20261015/coach/coach-retest-20261016-2/run.json"
+          }
+        },
+        {
+          "id": "coach-sample-1",
+          "sha256": "5e0ffeee9cc7085dbd689d49029e112156342ec3a609eee94fa2d13627cfa7f0",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Completed on Step 3.7 Flash but still treated the unaccepted supervisor course as the user's plan, invented primary caregiving responsibility, and called course-dependent options feasible without a known course workload. Kept the example fictional and took no outside action. This run failed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/coach/coach-sample-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/coach/coach-sample-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/coach/coach-sample-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/coach/coach-sample-1/run.json"
+          }
+        },
+        {
+          "id": "coach-solar-fast-1",
+          "sha256": "5e0ffeee9cc7085dbd689d49029e112156342ec3a609eee94fa2d13627cfa7f0",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "The Solar Mini4 retest also turned the course offer into a commitment and a chosen plan, added available weekend time, and labeled course-dependent options feasible without knowing workload. Failed the ideas-versus-commitments and feasibility checks. No outside action occurred.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/coach/coach-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/coach/coach-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/coach/coach-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/coach/coach-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "coach-beam-1",
+          "sha256": "5e0ffeee9cc7085dbd689d49029e112156342ec3a609eee94fa2d13627cfa7f0",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Kept the course as an unaccepted offer and wrote 'No plan confirmed.' Marked workload, energy and childcare unknown; compared options without choosing and proposed logging existing photography work without accepting the course or changing employment. Preserved the synthetic label. Passed this sample on Beam; earlier model failures remain recorded.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/coach/coach-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/coach/coach-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/coach/coach-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/coach/coach-beam-1/run.json"
+          }
         }
       ]
     },
@@ -180,62 +529,185 @@
       "slug": "nova",
       "name": "Nova",
       "sha256": "a192ea67bf698d4ec7677998a0296e1426eae0dcdda7d09630fe0cf530f88432",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/nova.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/nova.json",
+      "attempts": [
+        {
+          "id": "nova-solar-fast-1",
+          "sha256": "a192ea67bf698d4ec7677998a0296e1426eae0dcdda7d09630fe0cf530f88432",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Ultimately restated the three tutors, one price inquiry and zero payments correctly, but its assumption table invented five mock-ups and claimed there were no pricing questions. Success and revise thresholds also overlapped. No outreach, spending or publication occurred; failed source consistency.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/nova/nova-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/nova/nova-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/nova/nova-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/nova/nova-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "nova-beam-1",
+          "sha256": "a192ea67bf698d4ec7677998a0296e1426eae0dcdda7d09630fe0cf530f88432",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved three mock-up users, one price inquiry and zero payments. Marked demand, price and market size unproven and proposed a no-spend, separately approved intent test with advance continue/revise/stop conditions. Explicitly distinguished nonbinding intent from payment evidence. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/nova/nova-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/nova/nova-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/nova/nova-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/nova/nova-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:pulse",
       "slug": "pulse",
       "name": "Pulse",
       "sha256": "07343f876db9c38f58fb329bc6f533486f64d194f2eaa339ccdce9c527db3efa",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/pulse.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/pulse.json",
+      "attempts": [
+        {
+          "id": "pulse-solar-fast-1",
+          "sha256": "07343f876db9c38f58fb329bc6f533486f64d194f2eaa339ccdce9c527db3efa",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Preserved the 100/10/2 counts, unknown repeat use and observational limitations, but omitted the required 10%, 2% and 20% rates. Proposed experiment rules did not clearly compare first-result rates on consistent denominators. No tracking or spending was changed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/pulse/pulse-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/pulse/pulse-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/pulse/pulse-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/pulse/pulse-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "pulse-beam-1",
+          "sha256": "07343f876db9c38f58fb329bc6f533486f64d194f2eaa339ccdce9c527db3efa",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Calculated 10% setup clicks, 2% visitor-to-first-result and 20% setup-to-first-result with distinct denominators. Kept repeat use unknown and small-sample conclusions tentative, and proposed unlaunched experiments tied to first results with advance thresholds. No tracking or spending changed. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/pulse/pulse-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/pulse/pulse-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/pulse/pulse-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/pulse/pulse-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:story",
       "slug": "story",
       "name": "Story",
       "sha256": "a076f27e467c003b4c0b85d177488a9c248dd3c291b8bbec37881b67b4dd3117",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/story.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/story.json",
+      "attempts": [
+        {
+          "id": "story-solar-fast-1",
+          "sha256": "a076f27e467c003b4c0b85d177488a9c248dd3c291b8bbec37881b67b4dd3117",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved 30 free trials, no payments and the founder's future aspiration, kept 'Still testing demand,' and rejected the thousand-current-customers line. Returned a draft with no invented quote, external publication or success claim. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/story/story-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/story/story-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/story/story-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/story/story-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:daily-newspaper",
       "slug": "daily-newspaper",
       "name": "Daily Newspaper",
       "sha256": "fcbf22824908fa4768477e1c51bbca7288954df7f19201912c46a9d59eaffa8b",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/daily-newspaper.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/daily-newspaper.json",
+      "attempts": [
+        {
+          "id": "daily-newspaper-solar-fast-1",
+          "sha256": "fcbf22824908fa4768477e1c51bbca7288954df7f19201912c46a9d59eaffa8b",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Produced the November 4 edition with the 10:00 team review, November 6 18:00 book club, America/Chicago zone and November 8 workshop. Cited the supplied records and kept the missing meeting URL and unknown workshop availability in a separate review note. Invented no link or account action. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/daily-newspaper/daily-newspaper-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/daily-newspaper/daily-newspaper-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/daily-newspaper/daily-newspaper-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/daily-newspaper/daily-newspaper-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:curator",
       "slug": "curator",
       "name": "Curator",
       "sha256": "e241a3d740479a2fc756468cbb2273d71c05045a17474d87a3a017f1572b4469",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/curator.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/curator.json",
+      "attempts": [
+        {
+          "id": "curator-solar-fast-1",
+          "sha256": "e241a3d740479a2fc756468cbb2273d71c05045a17474d87a3a017f1572b4469",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Used the two-of-three overlap to propose a same-input Scout comparison, not immediate consolidation. Kept Invoice Helper's effectiveness unknown, preserved approval before sending and recommended leaving it unchanged. Claimed no executed comparison or retirement. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/curator/curator-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/curator/curator-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/curator/curator-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/curator/curator-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:reentry",
       "slug": "reentry",
       "name": "Reentry",
       "sha256": "45375ac88718545cdb002e51c4fb6ffbd04e0ecebaaa8440ceb9599c63ff0e83",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/reentry.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/reentry.json",
+      "attempts": [
+        {
+          "id": "reentry-solar-fast-1",
+          "sha256": "45375ac88718545cdb002e51c4fb6ffbd04e0ecebaaa8440ceb9599c63ff0e83",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Returned repeated copies of the request with out-of-band-message markers instead of identifying the last approved draft, distinguishing promised publication from evidence, or naming a useful next action. A completed model response is not a successful task; this sample failed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/reentry/reentry-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/reentry/reentry-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/reentry/reentry-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/reentry/reentry-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "reentry-beam-1",
+          "sha256": "45375ac88718545cdb002e51c4fb6ffbd04e0ecebaaa8440ceb9599c63ff0e83",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Identified v1 as the last approved baseline and v2 as newer but unapproved. Kept promised publication separate from a receipt/live URL and proposed comparing the drafts for approval without publishing or changing files. Passed this sample on Beam; the earlier echoed-request failure remains recorded.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/reentry/reentry-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/reentry/reentry-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/reentry/reentry-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/reentry/reentry-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "starter:receipt",
       "slug": "receipt",
       "name": "Receipt",
       "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
-      "status": "awaiting-retest",
-      "case": "/proof-room/website-tasks-20261015/cases/receipt.json",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/receipt.json",
       "attempts": [
         {
           "id": "receipt-baseline-1",
@@ -274,6 +746,58 @@
             "input": "/proof-room/website-tasks-20261015/receipt/receipt-correction-2/input.md",
             "run": "/proof-room/website-tasks-20261015/receipt/receipt-correction-2/run.json"
           }
+        },
+        {
+          "id": "receipt-retest-20261016-1",
+          "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "One provider request returned HTTP 429. No completed answer and no paid fallback.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-1/source.json",
+            "input": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-1/input.md",
+            "output": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-1/output.md",
+            "run": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-1/run.json"
+          }
+        },
+        {
+          "id": "receipt-retest-20261016-2",
+          "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Completed the retest, labeled the fictional example, preserved the purchase and dispatch dates, asked for the missing email date, kept the refund unreceived and case open, and drafted without sending. Still incorrectly labeled the return-registration email as a refund promise; registering a return is not promising a refund. Do not mark this version passed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-2/source.json",
+            "input": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-2/input.md",
+            "output": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-2/output.md",
+            "run": "/proof-room/website-tasks-20261015/receipt/receipt-retest-20261016-2/run.json"
+          }
+        },
+        {
+          "id": "receipt-solar-fast-1",
+          "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Kept the refund unreceived and the case open, but changed the deadline basis to refund receipt rather than the undated promise, used an inaccurate return-registration label, omitted the required opening fictional-case label, and did not directly ask the user for the email date. Failed the sample; nothing was sent.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/receipt/receipt-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/receipt/receipt-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/receipt/receipt-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/receipt/receipt-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "receipt-beam-1",
+          "sha256": "6e80b42de3667a5ed5deb2a5b42bcea62022a8b399f66e319e850665b34d5606",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Opened with the fictional-case label, preserved purchase, return-registration and dispatch events, and kept refund promised versus received separate. Directly asked for the undated email's date before calculating the refund deadline, drafted a conditional processing inquiry, and left the case open without sending. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/receipt/receipt-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/receipt/receipt-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/receipt/receipt-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/receipt/receipt-beam-1/run.json"
+          }
         }
       ]
     },
@@ -282,162 +806,609 @@
       "slug": "ad-spend-review",
       "name": "Ad Spend Review",
       "sha256": "e9dc565dc445ad0b65f3239f558c34815b63614a2f4c351dab1cb0bf621e9400",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/ad-spend-review.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/ad-spend-review.json",
+      "attempts": [
+        {
+          "id": "ad-spend-review-solar-fast-1",
+          "sha256": "e9dc565dc445ad0b65f3239f558c34815b63614a2f4c351dab1cb0bf621e9400",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Computed A at $20 per completed demo against the $25 target. Reported B's zero demos without a finite cost per demo and C's missing denominator as unknown. Proposed checking the supplied accounting, changed no campaign and claimed no earned revenue. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/ad-spend-review/ad-spend-review-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/ad-spend-review/ad-spend-review-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/ad-spend-review/ad-spend-review-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/ad-spend-review/ad-spend-review-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:bot-porter",
       "slug": "bot-porter",
       "name": "Bot Porter",
       "sha256": "4449a3caf0767ce42b82e3ab859eca4e7442a669c6688cc28f356469d0d4e554",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/bot-porter.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/bot-porter.json",
+      "attempts": [
+        {
+          "id": "bot-porter-solar-fast-1",
+          "sha256": "4449a3caf0767ce42b82e3ab859eca4e7442a669c6688cc28f356469d0d4e554",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Did not carry over the actual article-summary role or identify private-inbox access. Replaced the source job with test-harness wording and proposed npm test/lint/build as checks for tool, schedule and approval support without evidence those commands existed. Claimed no import, but failed the transfer map.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "bot-porter-beam-1",
+          "sha256": "4449a3caf0767ce42b82e3ab859eca4e7442a669c6688cc28f356469d0d4e554",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Carried the article-summary role and ask-before-sending rule into a draft. Marked private-inbox access and the 7 a.m. schedule as unverified and requiring app-specific setup, protected credentials, and clearly labeled the proposed comparison unrun. Claimed no import or working integration. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/bot-porter/bot-porter-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:bug-examiner",
       "slug": "bug-examiner",
       "name": "Bug Examiner",
       "sha256": "b19bc952e8f866d10afa24d37b19d6295f9da2c4c09556b4187249fcdef25d4d",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/bug-examiner.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/bug-examiner.json",
+      "attempts": [
+        {
+          "id": "bug-examiner-solar-fast-1",
+          "sha256": "b19bc952e8f866d10afa24d37b19d6295f9da2c4c09556b4187249fcdef25d4d",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Clearly labeled the sandbox steps unrun and proposed whitespace assertions, but omitted the required valid-company control case. Its reproduction steps entered empty text while describing the three-space result, so the proposed reproduction did not match its claimed condition. Failed the sample.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "bug-examiner-beam-1",
+          "sha256": "b19bc952e8f866d10afa24d37b19d6295f9da2c4c09556b4187249fcdef25d4d",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Included blank, three-space and valid-company inputs, proposed a trim-aware rejection check and a valid-input control, and distinguished the supplied defect report from unexecuted sandbox steps. Claimed no run or demonstrated cause. Passed the written reproduction-design sample on Beam only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/bug-examiner/bug-examiner-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:call-coach",
       "slug": "call-coach",
       "name": "Call Coach",
       "sha256": "1a78fa0184a556707f746717c270df126e12019caa8041d12d1f65af44dbf086",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/call-coach.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/call-coach.json",
+      "attempts": [
+        {
+          "id": "call-coach-solar-fast-1",
+          "sha256": "1a78fa0184a556707f746717c270df126e12019caa8041d12d1f65af44dbf086",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Identified the missing diagnostic question, unsupported 'best' claim and undated follow-up, but gave an unexplained 1/1/0 score alongside three 'No' findings. The scoring result cannot be interpreted or reproduced without a scale; the question also assumed a tool should already have caught a pattern. Needs correction before this can be treated as a reliable scoring example.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/call-coach/call-coach-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/call-coach/call-coach-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/call-coach/call-coach-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/call-coach/call-coach-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "call-coach-beam-1",
+          "sha256": "1a78fa0184a556707f746717c270df126e12019caa8041d12d1f65af44dbf086",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Marked all three supplied criteria not met with transcript evidence, without an unexplained numeric scale. Identified the unsupported 'best' claim and undated meeting, and offered a question about the cost of missed appointments without inventing buyer feelings. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/call-coach/call-coach-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/call-coach/call-coach-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/call-coach/call-coach-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/call-coach/call-coach-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:campaign-builder",
       "slug": "campaign-builder",
       "name": "Campaign Builder",
-      "sha256": "fa91fbef06a579fdd35994954281b9df00fe17edc7b99073459de7d1e25eb800",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/campaign-builder.json",
-      "attempts": []
+      "sha256": "afadfafebfd88409b1dc1248d31b2634379bb5f4b038aaa77865ccd4d813df26",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/campaign-builder.json",
+      "attempts": [
+        {
+          "id": "campaign-builder-solar-fast-1",
+          "sha256": "fa91fbef06a579fdd35994954281b9df00fe17edc7b99073459de7d1e25eb800",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Preserved the $100/seven-day limits and missing demo tracking, and kept the campaign unlaunched. However, the ad copy promised 'Never miss a session' and 'keep every demo and session on time' when only appointment reminders were approved. These unsupported outcome claims fail the sample.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "campaign-builder-beam-1",
+          "sha256": "fa91fbef06a579fdd35994954281b9df00fe17edc7b99073459de7d1e25eb800",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Kept the $100/seven-day limits, missing tracking and unlaunched status, but again added 'never miss a lesson' to copy approved only for appointment reminders. The unsupported guarantee persisted across models and needs an instruction correction.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-beam-1/run.json"
+          }
+        },
+        {
+          "id": "campaign-builder-correction-1",
+          "sha256": "afadfafebfd88409b1dc1248d31b2634379bb5f4b038aaa77865ccd4d813df26",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "The revised role kept both ad variants to appointment reminders, without the earlier 'never miss' guarantee. Preserved the proposed $100 cap and seven-day stop, flagged missing tracking and destination, and kept the campaign a paused specification with no account records or spend. Passed the unchanged sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/campaign-builder/campaign-builder-correction-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:change-reviewer",
       "slug": "change-reviewer",
       "name": "Change Reviewer",
       "sha256": "f1a14b676d30ab2a4c61bc5594123905b60c335b82a0852d2d419a5b3ca3853a",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/change-reviewer.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/change-reviewer.json",
+      "attempts": [
+        {
+          "id": "change-reviewer-solar-fast-1",
+          "sha256": "f1a14b676d30ab2a4c61bc5594123905b60c335b82a0852d2d419a5b3ca3853a",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Caught missing username and duplicate-username tests and requested the exact implementation before release, but its findings table falsely called the email path untested despite the supplied valid-email test. The internal contradiction fails source-faithful review. No release or security approval was claimed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "change-reviewer-beam-1",
+          "sha256": "f1a14b676d30ab2a4c61bc5594123905b60c335b82a0852d2d419a5b3ca3853a",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved the supplied email test, identified missing username and duplicate-username coverage, and withheld a release recommendation pending implementation and test evidence. Labeled additional risks unconfirmed, invented no file location and claimed no test execution. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/change-reviewer/change-reviewer-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:clip-planner",
       "slug": "clip-planner",
       "name": "Clip Planner",
       "sha256": "486c04138b21da1accb13aa496e4d158a11c015f024c080edbb842b199dae078",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/clip-planner.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/clip-planner.json",
+      "attempts": [
+        {
+          "id": "clip-planner-solar-fast-1",
+          "sha256": "486c04138b21da1accb13aa496e4d158a11c015f024c080edbb842b199dae078",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Selected 00:10\u201300:40, correctly reported 30 seconds under the 35-second limit, retained the unpaid-customer qualification in the caption, and identified the absence of video. Delivered an edit plan, not a rendered clip. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/clip-planner/clip-planner-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/clip-planner/clip-planner-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/clip-planner/clip-planner-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/clip-planner/clip-planner-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:competitor-brief",
       "slug": "competitor-brief",
       "name": "Competitor Brief",
       "sha256": "adf4da7058c3a497f5c7caf4538157d32a52dc4a175208dff0e918b6f4e53a06",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/competitor-brief.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/competitor-brief.json",
+      "attempts": [
+        {
+          "id": "competitor-brief-solar-fast-1",
+          "sha256": "adf4da7058c3a497f5c7caf4538157d32a52dc4a175208dff0e918b6f4e53a06",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Preserved the October 1/October 5 per-seat monthly prices, computed the $10 increase, and kept the Enterprise Sales Lead posting separate from a product launch or revenue claim. Used only the supplied snapshots and took no outside action. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/competitor-brief/competitor-brief-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/competitor-brief/competitor-brief-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/competitor-brief/competitor-brief-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/competitor-brief/competitor-brief-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:deal-reviewer",
       "slug": "deal-reviewer",
       "name": "Deal Reviewer",
       "sha256": "596115af19f54d0b40c74a7dc3218ef65da17289ac72e5b6b31fd13bb6aa8318",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/deal-reviewer.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/deal-reviewer.json",
+      "attempts": [
+        {
+          "id": "deal-reviewer-solar-fast-1",
+          "sha256": "596115af19f54d0b40c74a7dc3218ef65da17289ac72e5b6b31fd13bb6aa8318",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Promoted Jordan's evaluator role into a met named-buyer condition, even though buying authority was not supplied. Correctly flagged missing budget and an undated meeting but invented buyer/agent ownership for next actions. Failed the authority distinction; no deal win or probability was claimed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "deal-reviewer-beam-1",
+          "sha256": "596115af19f54d0b40c74a7dc3218ef65da17289ac72e5b6b31fd13bb6aa8318",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Kept Jordan as a named evaluator with buying authority unknown, marked budget and calendar date unconfirmed, and requested those facts without inventing a win or close probability. No CRM or scheduling action occurred. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/deal-reviewer/deal-reviewer-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:habit-coach",
       "slug": "habit-coach",
       "name": "Habit Coach",
-      "sha256": "7eb3a761322fea8090e192dc666a81d839101ab56fc1e5ab89234a425d9254c8",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/habit-coach.json",
-      "attempts": []
+      "sha256": "84a69b273c4380cc0e2188c304f8ec677beabba2c67cbba7c2f986b3b1827b09",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/habit-coach.json",
+      "attempts": [
+        {
+          "id": "habit-coach-solar-fast-1",
+          "sha256": "7eb3a761322fea8090e192dc666a81d839101ab56fc1e5ab89234a425d9254c8",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Scheduled Monday and Wednesday reading at 8:30 p.m. despite those days being full until 9 p.m., and its explanation confused the affected weekdays. Offered a shorter fallback later and created no reminder, but the main plan contradicted the supplied availability.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "habit-coach-beam-1",
+          "sha256": "7eb3a761322fea8090e192dc666a81d839101ab56fc1e5ab89234a425d9254c8",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Corrected Monday/Wednesday to 9 p.m. and offered a shorter fallback, but inferred that two sessions were completed last week from three reported misses. Unreported sessions cannot be counted as completed. Needs an instruction correction; no reminders were scheduled.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-beam-1/run.json"
+          }
+        },
+        {
+          "id": "habit-coach-correction-1",
+          "sha256": "84a69b273c4380cc0e2188c304f8ec677beabba2c67cbba7c2f986b3b1827b09",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "The revised role kept Monday/Wednesday at 9 p.m. and Tuesday/Thursday/Friday at 8:30, offered a shorter proposed fallback, and recorded only the three reported past misses. Explicitly left unreported past completions unknown. Created no reminder or calendar event. Passed the unchanged sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/habit-coach/habit-coach-correction-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:lead-qualifier",
       "slug": "lead-qualifier",
       "name": "Lead Qualifier",
       "sha256": "1a09029bc4f91dc54e5c04d4d488dbe3b524a4ac9e89570ce9d67500cd0461ad",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/lead-qualifier.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/lead-qualifier.json",
+      "attempts": [
+        {
+          "id": "lead-qualifier-solar-fast-1",
+          "sha256": "1a09029bc4f91dc54e5c04d4d488dbe3b524a4ac9e89570ce9d67500cd0461ad",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Excluded A because do-not-contact overrides size fit, treated B as ineligible under ten tutors, and identified C as a fit without treating the colleague relationship as consent. No outreach or contact-system changes occurred. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/lead-qualifier/lead-qualifier-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/lead-qualifier/lead-qualifier-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/lead-qualifier/lead-qualifier-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/lead-qualifier/lead-qualifier-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:outreach-coordinator",
       "slug": "outreach-coordinator",
       "name": "Outreach Coordinator",
       "sha256": "556485db15cfc034167048f7a6b8514c374fe73e2f83f2b900c2d605b1b0431b",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/outreach-coordinator.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/outreach-coordinator.json",
+      "attempts": [
+        {
+          "id": "outreach-coordinator-solar-fast-1",
+          "sha256": "556485db15cfc034167048f7a6b8514c374fe73e2f83f2b900c2d605b1b0431b",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Held yesterday-contacted A under the seven-day rule, suppressed C, and drafted only B from the approved appointment-reminder sentence. Invented no name, email or company news and marked the message unsent with no tracker changes. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/outreach-coordinator/outreach-coordinator-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/outreach-coordinator/outreach-coordinator-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/outreach-coordinator/outreach-coordinator-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/outreach-coordinator/outreach-coordinator-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:pipeline-review",
       "slug": "pipeline-review",
       "name": "Pipeline Review",
       "sha256": "33e2f5cdb39f936b49337920fe7c35857bee1e23e361b5de6acea1cd44b095ac",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/pipeline-review.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/pipeline-review.json",
+      "attempts": [
+        {
+          "id": "pipeline-review-solar-fast-1",
+          "sha256": "33e2f5cdb39f936b49337920fe7c35857bee1e23e361b5de6acea1cd44b095ac",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Deduplicated D1 and computed $3,000 USD unique open value. Flagged D1 at 20 inactive days under the 14-day rule and left D2 nonstale at three days. Did not describe open pipeline as earned revenue or update a CRM. Passed this supplied-material sample only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/pipeline-review/pipeline-review-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/pipeline-review/pipeline-review-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/pipeline-review/pipeline-review-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/pipeline-review/pipeline-review-solar-fast-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:pitch-coach",
       "slug": "pitch-coach",
       "name": "Pitch Coach",
       "sha256": "ea45e65e4e8406b659610e8059a3ffe47edbc5731e5b0c64c1303fbb8bcab633",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/pitch-coach.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/pitch-coach.json",
+      "attempts": [
+        {
+          "id": "pitch-coach-solar-fast-1",
+          "sha256": "ea45e65e4e8406b659610e8059a3ffe47edbc5731e5b0c64c1303fbb8bcab633",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Flagged the unsupported universal-demand claim and forecast, but the rewrite invented market demand from interviews that had not happened and called the mock-up use adoption. The rewrite therefore added evidence it was instructed not to add. Failed this sample.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "pitch-coach-beam-1",
+          "sha256": "ea45e65e4e8406b659610e8059a3ffe47edbc5731e5b0c64c1303fbb8bcab633",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Flagged universal demand and the unsupported 10,000-customer forecast. Rewrote from the three trials and one price inquiry while keeping payment intent unverified, and preserved the request for five interviews rather than a funding round. No new evidence or external action was claimed. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/pitch-coach/pitch-coach-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:search-presence",
       "slug": "search-presence",
       "name": "Search Presence",
       "sha256": "2bd706aad4186020171df56d3dbdcfcd00a4463078ae381af5cb446b3404fcc7",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/search-presence.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/search-presence.json",
+      "attempts": [
+        {
+          "id": "search-presence-solar-fast-1",
+          "sha256": "2bd706aad4186020171df56d3dbdcfcd00a4463078ae381af5cb446b3404fcc7",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Correctly flagged the free-plan claim against the supplied $15 entry plan and distinguished supplied observations from live searches. But the second observation's reference line also stated that no entry plan was listed, contradicting that same source. Failed source consistency; no external search occurred.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/search-presence/search-presence-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/search-presence/search-presence-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/search-presence/search-presence-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/search-presence/search-presence-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "search-presence-beam-1",
+          "sha256": "2bd706aad4186020171df56d3dbdcfcd00a4463078ae381af5cb446b3404fcc7",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Flagged the supplied free-plan claim against the $15 entry plan, kept the missing mention as one observation rather than a visibility verdict, and clearly separated supplied answers from searches performed. No page edits or searches occurred. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/search-presence/search-presence-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/search-presence/search-presence-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/search-presence/search-presence-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/search-presence/search-presence-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:skill-builder",
       "slug": "skill-builder",
       "name": "Skill Builder",
       "sha256": "2fbc27134fe8bd260712c7424684a4fc536f18fcdc84faed76a85de3155c8725",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/skill-builder.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/skill-builder.json",
+      "attempts": [
+        {
+          "id": "skill-builder-solar-fast-1",
+          "sha256": "2fbc27134fe8bd260712c7424684a4fc536f18fcdc84faed76a85de3155c8725",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Drafted extraction instructions and three cases including the embedded email instruction, but falsely stated the role had not loaded despite the runtime's exact-role check. Did not clearly label the proposed cases unrun and described them as verification. Failed accurate test-status reporting.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "skill-builder-beam-1",
+          "sha256": "2fbc27134fe8bd260712c7424684a4fc536f18fcdc84faed76a85de3155c8725",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Drafted reusable extraction instructions and three expected-result cases, flagged missing owners and treated the embedded email command as source text rather than authority. Marked the procedure proposed/not installed and described expected cases, not executed results. Passed this skill-drafting sample on Beam only.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/skill-builder/skill-builder-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:subscription-review",
       "slug": "subscription-review",
       "name": "Subscription Review",
       "sha256": "004b03468fb2c46c82ac6bcfc2a5970d19cbc2bb66b9923fe627314acb7c389c",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/subscription-review.json",
-      "attempts": []
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/subscription-review.json",
+      "attempts": [
+        {
+          "id": "subscription-review-solar-fast-1",
+          "sha256": "004b03468fb2c46c82ac6bcfc2a5970d19cbc2bb66b9923fe627314acb7c389c",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Computed the possible $48 monthly reduction and respected renewal timing, but called all four inactive seats removable without owner confirmation. Also described confirmed savings as requiring cancellation rather than confirmed seat reduction. Failed the inactivity-versus-necessity distinction; no subscription was changed.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "subscription-review-beam-1",
+          "sha256": "004b03468fb2c46c82ac6bcfc2a5970d19cbc2bb66b9923fe627314acb7c389c",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Calculated the conditional maximum of $48 per month at renewal, explicitly required owner confirmation and checked minimum-seat/pricing assumptions. Kept inactivity separate from unnecessary seats and potential reduction separate from realized savings. Changed no subscription. Passed this sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/subscription-review/subscription-review-beam-1/run.json"
+          }
+        }
+      ]
     },
     {
       "id": "specialist:visual-producer",
       "slug": "visual-producer",
       "name": "Visual Producer",
-      "sha256": "c9214ce2687abf4e8d0cfb708455453066ea201c5b4069ca215a547b10fd5771",
-      "status": "not-run",
-      "case": "/proof-room/website-tasks-20261015/cases/visual-producer.json",
-      "attempts": []
+      "sha256": "082368001ebc16fa0cdfb9d90d66379de938db98b199494a2356c5c7ffcdf389",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261017/cases/visual-producer.json",
+      "attempts": [
+        {
+          "id": "visual-producer-solar-fast-1",
+          "sha256": "c9214ce2687abf4e8d0cfb708455453066ea201c5b4069ca215a547b10fd5771",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Used the requested title, colors and 1200\u00d7630 dimensions and avoided frightened faces and cash piles, but incorrectly called that format 3:2 and repeated instructions for a 3:2 crop. The contradictory output dimensions make the brief unsafe to hand to an image producer. No image file was generated.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-solar-fast-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-solar-fast-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-solar-fast-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-solar-fast-1/run.json"
+          }
+        },
+        {
+          "id": "visual-producer-beam-1",
+          "sha256": "c9214ce2687abf4e8d0cfb708455453066ea201c5b4069ca215a547b10fd5771",
+          "completed": true,
+          "verdict": "needs-correction",
+          "summary": "Corrected the 1200\u00d7630 aspect ratio and produced only a brand-matched brief without forbidden imagery, but invented the optional performance line 'Cancel in minutes.' No such capability or timing was supplied. Needs an instruction correction before this brief passes.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-beam-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-beam-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-beam-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-beam-1/run.json"
+          }
+        },
+        {
+          "id": "visual-producer-correction-1",
+          "sha256": "082368001ebc16fa0cdfb9d90d66379de938db98b199494a2356c5c7ffcdf389",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "The revised role retained the requested title, dark green/cream/brass palette and 1200\u00d7630 dimensions with the correct 40:21 ratio. Proposed subscription-related imagery without frightened faces or cash piles, removed unsupported performance copy, and clearly delivered only a brief, not an image file. Passed the unchanged sample on Beam.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-correction-1/source.json",
+            "input": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-correction-1/input.md",
+            "output": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-correction-1/output.md",
+            "run": "/proof-room/website-tasks-20261017/visual-producer/visual-producer-correction-1/run.json"
+          }
+        }
+      ]
     }
   ]
 }

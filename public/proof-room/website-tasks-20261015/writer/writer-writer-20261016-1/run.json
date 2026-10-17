@@ -1,0 +1,33 @@
+{
+  "bot": "writer",
+  "resourceId": "starter:writer",
+  "date": "2026-10-16T11:56:25.778898+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/writer.json",
+    "mediaType": "application/json",
+    "sha256": "e610eae2aad795cd8d52a00a71356beb3fb1b63ec3274510b70e13180333ee1d",
+    "bytes": 12522
+  },
+  "sourceMode": "local-candidate",
+  "indexRevision": "afdc7d1d208434a9f5cfbbdba8c5a88b4ca5b8882a35929dbb3a5332ec689ba5",
+  "roleSha256": "43d664c4b4faf1353f4eb93709be9279a4fd24000d60f3c088c463bd3b03b1d8",
+  "caseSha256": "a5441f355836db0e6985cc0df305e7df5e5cb3c8f4098895902882e266657e6f",
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 5306,
+  "outputTokens": 1590,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false
+}

@@ -1,0 +1,33 @@
+{
+  "bot": "researcher",
+  "resourceId": "starter:researcher",
+  "date": "2026-10-17T16:33:19.749979+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/researcher.json",
+    "mediaType": "application/json",
+    "sha256": "c75cc549549bb9088d59d9f87c5d19b21db7b978f504ac077ece7c2c16e80b59",
+    "bytes": 6708
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "71501e4a24dc731f568e25180c37fead7ba6e4238c40241d1bdbfd9008f2b866",
+  "caseSha256": "20e6ebbba5da323f5ca2a61a31e4dfd57c84fbcd3ffa34f3b4d343bdc9c7f11a",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 4354,
+  "outputTokens": 763,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false
+}

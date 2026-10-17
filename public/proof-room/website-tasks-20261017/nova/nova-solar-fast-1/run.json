@@ -1,0 +1,37 @@
+{
+  "bot": "nova",
+  "resourceId": "starter:nova",
+  "date": "2026-10-17T16:41:15.078919+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/nova.json",
+    "mediaType": "application/json",
+    "sha256": "a192ea67bf698d4ec7677998a0296e1426eae0dcdda7d09630fe0cf530f88432",
+    "bytes": 7559
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "0d05108d43a1b6beecae7b88f0b026f96afb52ad41909a0ebd40c4e73fbff348",
+  "caseSha256": "4483c498c982b22434e28772f0afecbb86e17c8a173cdaef8b7cea4f438606bb",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 3149,
+  "outputTokens": 623,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

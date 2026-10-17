@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional invoice: ten seats at $12 per seat per month. Usage export for the last 30 days shows six active seats. Contract allows seat changes only at the next renewal. Summarize the review and the maximum gross monthly reduction if all four seats are removable then.

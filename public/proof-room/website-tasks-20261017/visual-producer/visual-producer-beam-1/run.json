@@ -1,0 +1,37 @@
+{
+  "bot": "visual-producer",
+  "resourceId": "specialist:visual-producer",
+  "date": "2026-10-17T16:49:25.044912+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/visual-producer.md",
+    "mediaType": "text/markdown",
+    "sha256": "c9214ce2687abf4e8d0cfb708455453066ea201c5b4069ca215a547b10fd5771",
+    "bytes": 3868
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "d01b1e3f3a65f069a66dda51eebc05c27b9ba84306d7f56e993194f98897a717",
+  "caseSha256": "adde558e90d8b1a45fe623e012a09e6bacb6bc6a13a8ba1b2fdc2d0839e5dd3c",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2093,
+  "outputTokens": 1248,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

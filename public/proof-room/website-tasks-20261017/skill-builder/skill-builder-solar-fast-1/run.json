@@ -1,0 +1,37 @@
+{
+  "bot": "skill-builder",
+  "resourceId": "specialist:skill-builder",
+  "date": "2026-10-17T16:44:24.874651+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/skill-builder.md",
+    "mediaType": "text/markdown",
+    "sha256": "2fbc27134fe8bd260712c7424684a4fc536f18fcdc84faed76a85de3155c8725",
+    "bytes": 3913
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "a9a482e39da1f433c3f470058d614cb1df0ec4b7332232eb1b4d3aaaf0ccc3c9",
+  "caseSha256": "47d1dc93ba48668c5f54a775530420780fb621942484ee863994e6173733291d",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2848,
+  "outputTokens": 760,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

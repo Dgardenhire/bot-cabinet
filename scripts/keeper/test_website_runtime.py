@@ -8,6 +8,22 @@ from website_runtime import verified_download, role_from_download, case_from_exi
 
 
 class WebsiteDownloadTests(unittest.TestCase):
+    def test_supplied_material_runs_disable_tools_but_keep_native_role_loading(self):
+        from website_runtime import offline_agent_options
+        options = offline_agent_options()
+        self.assertEqual(options["enabled_toolsets"], ["skills"])
+        self.assertFalse(options["skip_context_files"])
+        self.assertTrue(options["skip_memory"])
+        self.assertIsNone(options["fallback_model"])
+        self.assertEqual(options["max_tokens"], 6000)
+        self.assertEqual(options["reasoning_config"], {"enabled": False})
+        from types import SimpleNamespace
+        from website_runtime import disable_runtime_tools
+        agent = SimpleNamespace(tools=[{"function": {"name": "skill_view"}}], valid_tool_names={"skill_view"})
+        disable_runtime_tools(agent)
+        self.assertEqual(agent.tools, [])
+        self.assertEqual(agent.valid_tool_names, {"skill_view"})
+
     def test_single_request_gate_blocks_continuations_and_provider_retries(self):
         gate = SingleRequestGate()
         calls = []

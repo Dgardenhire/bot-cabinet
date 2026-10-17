@@ -170,6 +170,7 @@ describe("Portable Bot Pack V2 artifact compilers", () => {
     expect(files["README.md"]).toContain(
       "The included Skill “Diagnose a bad AI result” is prepared and not-tested.",
     );
+    expect(pack.instructions.durableRoleAndBoundaries).toContain("missing receipt is not proof of a missed run");
   });
 
   it("keeps Grok output manual, untested, and explicitly non-importable", () => {

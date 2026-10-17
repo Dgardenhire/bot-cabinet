@@ -1,0 +1,37 @@
+{
+  "bot": "competitor-brief",
+  "resourceId": "specialist:competitor-brief",
+  "date": "2026-10-17T16:43:07.824472+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/competitor-brief.md",
+    "mediaType": "text/markdown",
+    "sha256": "adf4da7058c3a497f5c7caf4538157d32a52dc4a175208dff0e918b6f4e53a06",
+    "bytes": 4155
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "b9e4165f71e4de7b791f16839e8ca35d075d916cbd46718cee8470db5e3495a1",
+  "caseSha256": "c28160127fc5771fbf561fae24e767cb0c11d75e35ad997b57670a59a4ccc9e1",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2907,
+  "outputTokens": 329,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

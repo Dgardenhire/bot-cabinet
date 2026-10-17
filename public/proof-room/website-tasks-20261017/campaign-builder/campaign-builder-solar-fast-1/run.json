@@ -1,0 +1,37 @@
+{
+  "bot": "campaign-builder",
+  "resourceId": "specialist:campaign-builder",
+  "date": "2026-10-17T16:42:43.465660+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/campaign-builder.md",
+    "mediaType": "text/markdown",
+    "sha256": "fa91fbef06a579fdd35994954281b9df00fe17edc7b99073459de7d1e25eb800",
+    "bytes": 3956
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "0a8e57fd849bfecdf4f3d04008bfff3ec568a1fd9a9446adf39d03e0c82347de",
+  "caseSha256": "b5c1edd2dbb5dd87cd6b30b4388a356bbb231b1da0d4bedc2f9a232d4587be74",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2843,
+  "outputTokens": 431,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

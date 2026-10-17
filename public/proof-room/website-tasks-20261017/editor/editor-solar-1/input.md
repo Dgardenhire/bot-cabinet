@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional source audit, not a rewrite. Original source S1: 'The room seats 40. Registration opens Nov 1. The report identifies no sponsor.' Draft: 'Forty people have signed up. Register today. There is no sponsor.' Audit each exact draft sentence against the exact source passage and mark supported, unsupported or ambiguous. Do not rewrite until the audit is reviewed.

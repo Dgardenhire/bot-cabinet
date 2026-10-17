@@ -1,0 +1,37 @@
+{
+  "bot": "ops",
+  "resourceId": "starter:ops",
+  "date": "2026-10-17T16:46:56.689083+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/ops.json",
+    "mediaType": "application/json",
+    "sha256": "483a0027df27151303eb71c299b66c18f42e179bfbf782c914f5de1e0dba4d96",
+    "bytes": 9421
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "2287addaf2bda813817de8924bfa6efa3c53bc2a0011384b3f4c88471eb3833a",
+  "caseSha256": "a8ed5587da7506ebfa2d88d2c559d4c7247b3f94389d02b5187a3b284cfff57d",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 3118,
+  "outputTokens": 417,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

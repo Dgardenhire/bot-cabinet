@@ -1,0 +1,37 @@
+{
+  "bot": "pitch-coach",
+  "resourceId": "specialist:pitch-coach",
+  "date": "2026-10-17T16:43:55.934524+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/pitch-coach.md",
+    "mediaType": "text/markdown",
+    "sha256": "ea45e65e4e8406b659610e8059a3ffe47edbc5731e5b0c64c1303fbb8bcab633",
+    "bytes": 3934
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "70cebf0ef94c80f53ae7bf15c0a140d292439025bdb1da2f29577971c671d868",
+  "caseSha256": "b598e8bf5edb33bd829de272a263c778dbfea1b52b9118b2fb0f55c207bf5230",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2854,
+  "outputTokens": 426,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

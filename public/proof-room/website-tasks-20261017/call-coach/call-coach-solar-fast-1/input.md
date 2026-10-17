@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional transcript: Seller: 'Our tool is best.' Buyer: 'We miss appointments.' Seller: 'Can we meet again?' Score only these criteria: asks about the problem; supports claims; agrees a dated next step. Offer one better question.
