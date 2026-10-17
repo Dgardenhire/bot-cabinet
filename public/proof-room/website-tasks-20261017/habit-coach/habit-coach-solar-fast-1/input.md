@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional example: I want to read for 15 minutes on weekdays. Monday and Wednesday are full until 9 p.m.; the other weekdays have a free 8:30 p.m. slot. I missed three evenings last week because I fell asleep. Offer a one-week plan and one fallback. Do not schedule reminders.

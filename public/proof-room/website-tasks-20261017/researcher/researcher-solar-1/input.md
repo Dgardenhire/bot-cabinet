@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional procurement question: can our team use the Standard plan for eight people? S1: vendor brochure dated Sep 1 says Standard allows five seats. S2: vendor help article dated Sep 20 says ten seats but does not say it supersedes the brochure. S3: approved team note says eight people require access; the budget ceiling is $100 monthly. None supplies a price. Give a brief with source IDs, the conflict and the next fact needed; make no purchase.

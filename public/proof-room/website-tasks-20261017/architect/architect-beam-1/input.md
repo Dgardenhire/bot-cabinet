@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional architecture decision: a public directory with 30 entries maintained by one editor. No user accounts, private data, live writes or payment requirement. Existing project supports static pages; budget is at most $20 monthly; no vendor prices are supplied. Compare extending the static site with building a database-backed app. Separate requirements, assumptions, costs needing verification and a reversible next step. Select no vendor and change nothing.

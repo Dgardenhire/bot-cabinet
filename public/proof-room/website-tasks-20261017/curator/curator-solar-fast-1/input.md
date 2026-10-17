@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional Bot lineup. S1 Scout A researches library news from sources X and Y. S2 Scout B researches the same sources for the same audience. Their Oct 1 outputs overlap on two of three items. S3 Invoice Helper is rarely used; no outputs or usage logs are supplied. Review the lineup and propose one comparison test. The user wants Invoice Helper's approval-before-sending rule preserved. Edit or retire nothing.

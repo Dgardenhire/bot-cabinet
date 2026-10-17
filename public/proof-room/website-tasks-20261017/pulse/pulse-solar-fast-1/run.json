@@ -1,0 +1,37 @@
+{
+  "bot": "pulse",
+  "resourceId": "starter:pulse",
+  "date": "2026-10-17T16:41:21.879251+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/pulse.json",
+    "mediaType": "application/json",
+    "sha256": "07343f876db9c38f58fb329bc6f533486f64d194f2eaa339ccdce9c527db3efa",
+    "bytes": 7973
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "b7363736a417368d390475bea00a40ba3099c92e36a2157c2931e68ccabe64ef",
+  "caseSha256": "fa85d187e880321b814ece444685ee602faffc0a1f09a9e7efdffdab05384bb2",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 3156,
+  "outputTokens": 269,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

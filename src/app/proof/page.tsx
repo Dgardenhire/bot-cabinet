@@ -29,6 +29,9 @@ const stateIcon = {
 export default function ProofRoomPage() {
   const runRecords = PROOF_ROOM_DEMOS.filter((demo) => demo.state !== "test-designed" && demo.state !== "test-prepared");
   const unfinishedPlans = PROOF_ROOM_DEMOS.filter((demo) => demo.state === "test-designed" || demo.state === "test-prepared");
+  const completedTasks = WEBSITE_TASK_COVERAGE.records.filter(record => record.attempts.some(attempt => attempt.completed && attempt.sha256 === record.sha256));
+  const pendingTasks = WEBSITE_TASK_COVERAGE.records.filter(record => !completedTasks.includes(record));
+  const passedTasks = WEBSITE_TASK_COVERAGE.records.filter(record => record.status === "passed-sample");
 
   const renderCard = (demo: (typeof PROOF_ROOM_DEMOS)[number]) => {
     const StateIcon = stateIcon[demo.state];
@@ -109,8 +112,8 @@ export default function ProofRoomPage() {
 
       <section className="content-section shell proof-room-library" aria-labelledby="website-trials-title">
         <div className="proof-room-library-heading">
-          <div><Eyebrow>October 15, 2026 · Website downloads</Eyebrow><h2 id="website-trials-title" className="section-heading">Website Bot tests</h2></div>
-          <p>All 38 standalone Bots have prepared tasks. Three have run in this series so far. The downloaded instructions ran in Hermes with supplied fictional material; Desktop installation, connected accounts and Crew handoffs are not covered. Codex reviewed the answers.</p>
+          <div><Eyebrow>{WEBSITE_TASK_COVERAGE.date} · Website downloads</Eyebrow><h2 id="website-trials-title" className="section-heading">Website Bot tests</h2></div>
+          <p>{completedTasks.length} of {WEBSITE_TASK_COVERAGE.records.length} Bots have returned a completed answer using the current downloaded instructions. {passedTasks.length} passed their supplied-material sample. These Hermes tests use fictional inputs; they do not cover Desktop installation, connected accounts or Crew handoffs. Codex reviewed the answers.</p>
         </div>
         {WEBSITE_TASK_TRIALS.map(trial => <details className="content-card" key={trial.slug}>
           <summary>{trial.name} — {WEBSITE_TASK_STATUS_NAMES[trial.status]}</summary>
@@ -124,8 +127,8 @@ export default function ProofRoomPage() {
           </li>)}</ul>
         </details>)}
         <details className="content-card">
-          <summary>{WEBSITE_TASK_COVERAGE.records.filter(record => !record.attempts.length).length} Bots not yet run in this series</summary>
-          <p>{WEBSITE_TASK_COVERAGE.records.filter(record => !record.attempts.length).map(record => record.name).join(", ")}. Earlier tests, where available, remain below.</p>
+          <summary>{pendingTasks.length} Bots without a completed answer</summary>
+          <p>{pendingTasks.length ? pendingTasks.map(record => record.name).join(", ") : "Every current Bot has a completed answer in this series. Completed does not mean passed; individual results and failures are listed above."}</p>
         </details>
         <p><a className="text-link" href="/proof-room/website-tasks-20261015/index.json">Complete task coverage and file hashes</a></p>
       </section>

@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional pitch: Slide 1: a booking tool for independent tutors. Slide 2: three tutors tried a mock-up; one asked for a price. Slide 3: 'Everyone wants this. We will reach 10,000 paying tutors in a year.' Slide 4: asking for five more interviews. Review it and rewrite slide 3 without adding evidence.

@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional venture: a subscription newsletter for tutors at a proposed $10 monthly. Three tutors tried a free mock-up; one asked about price; none paid. There is no market-size evidence. Prepare an assumption ledger and one no-spend demand test, with proposed success, revise and stop rules set before results. Do not contact anyone, publish or build.

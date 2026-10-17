@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional project updates: S1 approved Monday: Mina owns the library outline due Nov 2. S2 Tuesday suggestion: maybe launch a podcast; no owner, budget or approval. S3 current note: director approval is required before library invitations; no review slot is confirmed. Produce a priority brief and decision log. Assign no new work and contact nobody.

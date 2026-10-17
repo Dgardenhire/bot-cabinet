@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional client update for Elm Studio. Approved notes: discovery interviews are complete; implementation has not started. A proposed $900 implementation price and Nov 15 deadline have not been approved. Format: short summary, completed work, proposed next work, approval questions. Protected wording: 'Draft for review.' Prepare the document text only; do not send it or create a file.

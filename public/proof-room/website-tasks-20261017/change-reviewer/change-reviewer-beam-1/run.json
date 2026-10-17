@@ -1,0 +1,37 @@
+{
+  "bot": "change-reviewer",
+  "resourceId": "specialist:change-reviewer",
+  "date": "2026-10-17T16:48:29.894266+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/change-reviewer.md",
+    "mediaType": "text/markdown",
+    "sha256": "f1a14b676d30ab2a4c61bc5594123905b60c335b82a0852d2d419a5b3ca3853a",
+    "bytes": 3966
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "41f9797ab0bc28a7bd5d88dd2f0c8697e340aa4ea1b37b750d51a925747141ab",
+  "caseSha256": "13e2fd9660e08cae06712f4bd0dd6d218a021a945e7a3e8e8590c34b96fdbbdc",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2080,
+  "outputTokens": 977,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

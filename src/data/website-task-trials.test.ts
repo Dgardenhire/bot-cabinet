@@ -6,9 +6,20 @@ import { STARTER_BOTS } from "./starter-bots";
 import { SPECIALISTS } from "./specialist-collection";
 
 describe("website task evidence", () => {
+  it("blocks a published Bot whose current download lacks a completed, reviewed sample pass", () => {
+    for (const record of WEBSITE_TASK_COVERAGE.records) {
+      const file = record.id.startsWith("starter:") ? `public/downloads/portable-bot-packs/v2/${record.slug}.json` : `public/downloads/specialists/${record.slug}.md`;
+      const currentHash = createHash("sha256").update(readFileSync(file)).digest("hex");
+      expect(record.sha256, `${record.slug}: stale test record`).toBe(currentHash);
+      expect(record.status, `${record.slug}: no current reviewed pass`).toBe("passed-sample");
+      const latest = record.attempts.findLast(attempt => attempt.sha256 === currentHash);
+      expect(latest?.completed, `${record.slug}: no completed answer`).toBe(true);
+      expect(latest?.verdict, `${record.slug}: latest result did not pass`).toBe("passed-sample");
+    }
+  });
   it("accounts for every standalone Bot without counting prepared cases as completed tests", () => {
     expect(WEBSITE_TASK_COVERAGE.records.map(r => r.slug).sort()).toEqual([...STARTER_BOTS, ...SPECIALISTS].map(b => b.slug).sort());
-    expect(WEBSITE_TASK_TRIALS).toHaveLength(3);
+    expect(WEBSITE_TASK_TRIALS.length).toBeGreaterThanOrEqual(3);
     expect(WEBSITE_TASK_COVERAGE.humanApproved).toBe(false);
     for (const record of WEBSITE_TASK_COVERAGE.records) {
       const task = JSON.parse(readFileSync(`public${record.case}`, "utf8"));
@@ -37,7 +48,8 @@ describe("website task evidence", () => {
       if (record.status === "passed-sample") {
         const latestPass = record.attempts.findLast(a => a.completed && a.verdict === "passed-sample")!;
         expect(latestPass.sha256).toBe(record.sha256);
-        expect(createHash("sha256").update(readFileSync(`public/downloads/portable-bot-packs/v2/${record.slug}.json`)).digest("hex")).toBe(record.sha256);
+        const file = record.id.startsWith("starter:") ? `public/downloads/portable-bot-packs/v2/${record.slug}.json` : `public/downloads/specialists/${record.slug}.md`;
+        expect(createHash("sha256").update(readFileSync(file)).digest("hex")).toBe(record.sha256);
       }
     }
   });

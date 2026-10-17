@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional project: prepare a workshop outline in two weeks. Confirmed: Mina owns the outline; a director must approve it before invitations are drafted. The director's review date, invitation owner and budget are unknown. Mina has four hours available. Propose the sequence, distinguish agreed owners from proposed assignments, and list the missing decisions. Change no task system.

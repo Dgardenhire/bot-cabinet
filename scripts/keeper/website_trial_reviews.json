@@ -1,4 +1,7 @@
 {
+  "scout": [
+    {"folder":"final-candidate/runs/scout-task-20261016-3","verdict":"needs-correction","summary":"Selected the three relevant topics and source links, but described the application opening as a deadline to act before, despite no deadline being supplied. Did not preserve the missing eligibility and survey-count qualifications. Failed this supplied-material sample; no outside actions were tested."}
+  ],
   "writer": [
     {"folder": "final-candidate/runs/writer-writer-20261016-1", "verdict": "passed-sample", "summary": "Preserved the workshop date, time, registration opening and 30-person capacity without inventing attendance, a registration URL or an instructor. Kept the short draft separate from source notes and unanswered questions, and did not claim publication. Passed this supplied-material sample only; no Desktop import, connected tools or repeated-use test was performed."}
   ],

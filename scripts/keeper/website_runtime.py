@@ -37,6 +37,19 @@ class TestStopped(BaseException):
     """Bypass SDK retry handlers; never include provider response bodies."""
 
 
+def offline_agent_options():
+    return {"enabled_toolsets": ["skills"], "max_iterations": 3, "max_tokens": 6000,
+        "quiet_mode": True, "skip_context_files": False, "load_soul_identity": False,
+        "skip_memory": True, "skip_background_review": True,
+        "run_budget_seconds": 90, "fallback_model": None, "reasoning_config": {"enabled": False}}
+
+
+def disable_runtime_tools(agent):
+    # Hermes gates native auto-loading on skill availability. Retain that loader
+    # context, but offer no callable definitions to the provider in this phase.
+    agent.tools = []
+
+
 class SingleRequestGate:
     def __init__(self):
         self.calls = 0
@@ -169,13 +182,14 @@ def run(root, slug, runtime_path, auth_source, model, run_id):
         prompt = "Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.\n\n" + case["task"]
         write_new(home / "input.md", prompt)
         agent = AIAgent(model=model, provider=runtime["provider"], base_url=runtime["base_url"], api_key=runtime["api_key"],
-            api_mode=runtime.get("api_mode"), enabled_toolsets=["skills"], max_iterations=3, max_tokens=6000,
-            quiet_mode=True, skip_context_files=False, load_soul_identity=False, skip_memory=True,
-            skip_background_review=True, run_budget_seconds=90, cwd=str(home), fallback_model=None)
+            api_mode=runtime.get("api_mode"), cwd=str(home), **offline_agent_options())
         agent._auto_recovery_cycles = 0
         agent._api_max_retries = 1
         if role not in agent._build_system_prompt():
             raise ValueError("Exact website role not loaded into Hermes system prompt")
+        disable_runtime_tools(agent)
+        if agent.tools:
+            raise ValueError("Offline task unexpectedly exposed tools; no inference started")
         from unittest.mock import patch
         from hermes_cli import middleware
         original_execution = middleware.run_llm_execution_middleware
@@ -204,7 +218,8 @@ def run(root, slug, runtime_path, auth_source, model, run_id):
             "inputTokens": result.get("input_tokens"), "outputTokens": result.get("output_tokens"),
             "estimatedCostUsd": result.get("estimated_cost_usd"), "costStatus": result.get("cost_status"),
             "roleLoaded": True, "reviewStatus": "awaiting-answer-review" if result.get("completed") else "not-completed", "humanApproved": False,
-            "desktopInstallTested": False, "outsideActionsTested": False}
+            "desktopInstallTested": False, "outsideActionsTested": False, "toolsExposed": len(agent.tools or []),
+            "reasoningConfig": offline_agent_options()["reasoning_config"]}
         write_new(home / "run.json", json.dumps(report, indent=2))
         return report
     finally:

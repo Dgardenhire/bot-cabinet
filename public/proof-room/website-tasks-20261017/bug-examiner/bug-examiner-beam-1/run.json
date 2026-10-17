@@ -1,0 +1,37 @@
+{
+  "bot": "bug-examiner",
+  "resourceId": "specialist:bug-examiner",
+  "date": "2026-10-17T16:48:11.231898+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/bug-examiner.md",
+    "mediaType": "text/markdown",
+    "sha256": "b19bc952e8f866d10afa24d37b19d6295f9da2c4c09556b4187249fcdef25d4d",
+    "bytes": 3846
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "c9b7540fc408cf37ca9007e75a52b8f8fb0fa5dc3ddb0150c37f9d4885ffc690",
+  "caseSha256": "dba11951acab31c106e50b4621fc0c200c554caa08a1cd698bb12be50af1ee28",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2077,
+  "outputTokens": 665,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task": "Fictional same-period analytics: 100 unique visitors; 10 clicked setup; 2 recorded a first result; no repeat-use event exists. Counts are small and not randomized. Goal: improve first results, not raw clicks. State the baseline, the missing evidence and two proposed experiments with success/stop rules. Do not change tracking, spend or claim causality.",
+  "checklist": [
+    "Computes 10% visitor-to-setup, 2% visitor-to-result and 20% setup-to-result, keeping denominators distinct.",
+    "Marks repeat use unknown and notes the small observational sample.",
+    "Proposes experiments tied to first results with criteria but no claimed launch, causality or outside changes."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "bot": "daily-newspaper",
+  "resourceId": "starter:daily-newspaper",
+  "date": "2026-10-17T16:41:35.258226+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/daily-newspaper.json",
+    "mediaType": "application/json",
+    "sha256": "fcbf22824908fa4768477e1c51bbca7288954df7f19201912c46a9d59eaffa8b",
+    "bytes": 9129
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "dc4f869c184115c0f7453fe9eb6fa67166148b3d0f11158fc726e8605c6614cf",
+  "caseSha256": "894f42b456a269a3080da23d83547dc40215d669cb849900be97fe461243b436",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 3393,
+  "outputTokens": 157,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

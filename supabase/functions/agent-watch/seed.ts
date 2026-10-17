@@ -429,7 +429,7 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "slug": "grok-bot-engineering-fleets",
     "observedOn": "2026-09-24",
     "reviewAgainBy": "2026-10-01",
-    "title": "Grok Bot is pushing beyond one assistant into managed Bot fleets",
+    "title": "How engineering teams divide work among Grok Bots",
     "signal": "An X post points to a 57-minute workshop in which SpaceXAI engineer Lauren Tan describes running many engineering Bots with a Chief of Staff Bot above them. xAI's own launch and engineering guides separately confirm that teams run multiple Bots in parallel and sometimes place one Bot in charge of coordination.",
     "evidence": "provider-claim",
     "whyItMatters": "Separate Bots can build a change, test it and review the result. They need a shared task record and a clear owner for each next step.",

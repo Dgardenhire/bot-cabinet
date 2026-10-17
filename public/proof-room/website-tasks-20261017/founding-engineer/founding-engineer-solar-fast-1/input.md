@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional prototype exercise, no files or execution tools supplied. Problem: let a person paste three task notes and see owner, action and due date. Missing owners must stay unknown. Acceptance sample: 'Mina: draft outline by Nov 2'; 'review budget' with no owner or date. Propose the smallest mock-data implementation, sample output and acceptance checks. State that the build and tests have not run. Do not connect services or claim a working demo.

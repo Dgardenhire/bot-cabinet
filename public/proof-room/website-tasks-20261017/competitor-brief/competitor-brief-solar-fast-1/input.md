@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional snapshots: Rival A charged $29 monthly on Oct 1 and lists $39 monthly on Oct 5, both per seat. A new public role is titled 'Enterprise Sales Lead.' Summarize the changes. Do not infer its revenue or an enterprise product launch.

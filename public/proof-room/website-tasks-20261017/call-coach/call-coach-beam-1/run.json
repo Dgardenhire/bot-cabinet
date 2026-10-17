@@ -1,0 +1,37 @@
+{
+  "bot": "call-coach",
+  "resourceId": "specialist:call-coach",
+  "date": "2026-10-17T16:48:17.140542+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/call-coach.md",
+    "mediaType": "text/markdown",
+    "sha256": "1a78fa0184a556707f746717c270df126e12019caa8041d12d1f65af44dbf086",
+    "bytes": 3847
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "bc95e6f56693a2231cb3947d68fcf33ecd661b4d3f57edf8ed6a47bf9d746e99",
+  "caseSha256": "05e249e23b6a4f9cacba6332a183cf9b2c7dbbae67741ff909600349fc674526",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2076,
+  "outputTokens": 729,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

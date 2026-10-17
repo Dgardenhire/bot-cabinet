@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional change: login now accepts either email or username. The only test supplied checks a valid email. The requirement also says duplicate usernames must not select the wrong account. Review the change based on this evidence; no code or environment is supplied.

@@ -1,0 +1,33 @@
+{
+  "bot": "scout",
+  "resourceId": "starter:scout",
+  "date": "2026-10-17T16:31:08.442722+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/scout.json",
+    "mediaType": "application/json",
+    "sha256": "a4fd9e7ee4c1964e267cf1d049567bae2d0c550211cde3869703be1fe81ad33a",
+    "bytes": 6745
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "b8cde8b25b81b9ac06e103ab85470717c9b48f027a9567ded5efc779adc8f5c2",
+  "caseSha256": "a4e21d696e6e18b1d819b8f334cdb783528f6e78556ec165e41e4e2597ce808d",
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": false,
+  "apiCalls": null,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": "provider-error-429",
+  "maxOutputTokens": 6000,
+  "inputTokens": null,
+  "outputTokens": null,
+  "estimatedCostUsd": null,
+  "costStatus": null,
+  "roleLoaded": true,
+  "reviewStatus": "not-completed",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false
+}

@@ -1,0 +1,37 @@
+{
+  "bot": "deal-reviewer",
+  "resourceId": "specialist:deal-reviewer",
+  "date": "2026-10-17T16:43:16.566435+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/deal-reviewer.md",
+    "mediaType": "text/markdown",
+    "sha256": "596115af19f54d0b40c74a7dc3218ef65da17289ac72e5b6b31fd13bb6aa8318",
+    "bytes": 4013
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "47a5d89d4923797728d5eda5b2716f52c33b6b0d3c852de095b343531422df8b",
+  "caseSha256": "e81ac56e8b100d3e1f2b14943ed2e8ebe7c262644dec13e6fbc3ad8ac220beb3",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2864,
+  "outputTokens": 364,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

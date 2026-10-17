@@ -1,0 +1,37 @@
+{
+  "bot": "ad-spend-review",
+  "resourceId": "specialist:ad-spend-review",
+  "date": "2026-10-17T16:42:11.971256+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/ad-spend-review.md",
+    "mediaType": "text/markdown",
+    "sha256": "e9dc565dc445ad0b65f3239f558c34815b63614a2f4c351dab1cb0bf621e9400",
+    "bytes": 3818
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "b797a97ce118d10e28adc48babe27c6aa3b0b268e11a2dde5c4a54e772890712",
+  "caseSha256": "947a6dfad1b30bddd7220d82061a2b543ce95c5d3a19fb642b3d42e5a60a7331",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2837,
+  "outputTokens": 175,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

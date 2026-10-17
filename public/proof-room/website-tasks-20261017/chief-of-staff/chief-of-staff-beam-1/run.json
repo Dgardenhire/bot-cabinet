@@ -1,0 +1,37 @@
+{
+  "bot": "chief-of-staff",
+  "resourceId": "starter:chief-of-staff",
+  "date": "2026-10-17T16:47:19.651446+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/chief-of-staff.json",
+    "mediaType": "application/json",
+    "sha256": "043ed5a38e9f218a9c1e7d318864dabf5e200b62caf27a0b642f7f9613f9dc8d",
+    "bytes": 7454
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "7502fb1b746df1809a16953b87b54fb97ff3e6aeb97b92724601556b061239a7",
+  "caseSha256": "024696c5df4fbc79e8fcec7894e500c911c2c84266e2669248a38a922cf6f131",
+  "model": "reflection/beam-1.0-501b-a23b:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2365,
+  "outputTokens": 781,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "unknown",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

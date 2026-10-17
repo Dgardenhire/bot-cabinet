@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional same-period analytics: 100 unique visitors; 10 clicked setup; 2 recorded a first result; no repeat-use event exists. Counts are small and not randomized. Goal: improve first results, not raw clicks. State the baseline, the missing evidence and two proposed experiments with success/stop rules. Do not change tracking, spend or claim causality.

@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional export: deal D1 appears twice at $1,000; D2 is $2,000. D1 has had no activity for 20 days; D2 for three days. The supplied rule says stale after 14 days. All amounts are USD. Summarize unique open value and stale deals.

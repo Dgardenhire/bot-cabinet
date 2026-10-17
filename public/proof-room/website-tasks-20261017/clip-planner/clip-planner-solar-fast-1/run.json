@@ -1,0 +1,37 @@
+{
+  "bot": "clip-planner",
+  "resourceId": "specialist:clip-planner",
+  "date": "2026-10-17T16:43:00.518414+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/clip-planner.md",
+    "mediaType": "text/markdown",
+    "sha256": "486c04138b21da1accb13aa496e4d158a11c015f024c080edbb842b199dae078",
+    "bytes": 3804
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "64684e69f302b9916101c7787f9a544ebdfc2132f031631613970bab48e1dde8",
+  "caseSha256": "81f00609585144fcf3e5ef306fc7e9b1c3bbb60ba5bd0549ed14c3deea629ada",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2855,
+  "outputTokens": 240,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

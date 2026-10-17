@@ -1,0 +1,37 @@
+{
+  "bot": "founding-engineer",
+  "resourceId": "starter:founding-engineer",
+  "date": "2026-10-17T16:40:38.435334+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/founding-engineer.json",
+    "mediaType": "application/json",
+    "sha256": "44075c1c90022f6923c5a7f58aa731c9b785bdc26d2699fb20c85e01364c8747",
+    "bytes": 8246
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "ac503c78eb35784221fc4d95a00717eb04d5df6d4137c1a2ed71602fd06e9054",
+  "caseSha256": "8f70ce85fe1fcc6487d641f920322d77236a3187f3db4111f5a16e29de891047",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 3214,
+  "outputTokens": 780,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

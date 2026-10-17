@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 
@@ -25,6 +26,64 @@ def preserve(path, body):
     if path.exists() and path.read_bytes() != body:
         raise ValueError("Refusing to overwrite a different preserved test file")
     path.write_bytes(body)
+
+
+def append_batch(prepared, public, review_file, date):
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+        raise ValueError("Use an ISO test date")
+    lock = json.loads((prepared / "source-lock.json").read_text())
+    reviews = json.loads(review_file.read_text())
+    index_path = public / "proof-room/website-tasks-20261015/index.json"
+    index = json.loads(index_path.read_text())
+    records = {record["slug"]: record for record in index["records"]}
+    prefix = f"/proof-room/website-tasks-{date.replace('-', '')}"
+    allowed = {"bot", "resourceId", "date", "source", "sourceMode", "indexRevision", "roleSha256", "caseSha256", "model", "harness", "scope", "completed", "apiCalls", "inputTokens", "outputTokens", "estimatedCostUsd", "costStatus", "roleLoaded", "reviewStatus", "humanApproved", "desktopInstallTested", "outsideActionsTested", "providerRequests", "singleRequestLimit", "stopReason", "maxOutputTokens", "toolsExposed", "reasoningConfig"}
+    for bot in lock["bots"]:
+        slug = bot["slug"]
+        record = records[slug]
+        current_file = public / "downloads" / (f"portable-bot-packs/v2/{slug}.json" if bot["id"].startswith("starter:") else f"specialists/{slug}.md")
+        sha = hashlib.sha256(current_file.read_bytes()).hexdigest()
+        if sha != bot["file"]["sha256"]:
+            raise ValueError("Published test lock differs from the current download")
+        case = (prepared / "cases" / f"{slug}.json").read_bytes()
+        preserve(public / prefix.lstrip("/") / "cases" / f"{slug}.json", case)
+        record["case"] = f"{prefix}/cases/{slug}.json"
+        record["sha256"] = sha
+        for review in reviews.get(slug, []):
+            if review["verdict"] not in {"passed-sample", "needs-correction", "interrupted", "awaiting-review"}:
+                raise ValueError("Unknown answer-review verdict")
+            home = safe(prepared, review["folder"])
+            report = json.loads((home / "run.json").read_text())
+            if report["bot"] != slug or report["source"]["sha256"] != sha:
+                raise ValueError("Run source does not match the reviewed Bot")
+            answer = (home / "output.md").read_bytes()
+            if review["verdict"] == "passed-sample" and (not report["completed"] or not answer.strip()):
+                raise ValueError("An unfinished or empty answer cannot pass")
+            destination = public / prefix.lstrip("/") / slug / home.name
+            source = safe(prepared, bot["sourcePath"]).read_bytes()
+            if hashlib.sha256(source).hexdigest() != sha:
+                raise ValueError("Preserved source changed")
+            preserve(destination / "source.json", source)
+            files = {"source": f"{prefix}/{slug}/{home.name}/source.json"}
+            for name in ("input.md", "output.md"):
+                preserve(destination / name, (home / name).read_bytes())
+                files[name.split(".")[0]] = f"{prefix}/{slug}/{home.name}/{name}"
+            preserve(destination / "run.json", (json.dumps({key: value for key, value in report.items() if key in allowed}, indent=2) + "\n").encode())
+            files["run"] = f"{prefix}/{slug}/{home.name}/run.json"
+            attempt = {"id": home.name, "sha256": sha, "completed": report["completed"],
+                "verdict": review["verdict"], "summary": review["summary"], "files": files}
+            previous = next((entry for entry in record["attempts"] if entry["id"] == home.name), None)
+            if previous and previous != attempt:
+                raise ValueError("Refusing to replace a different reviewed attempt")
+            if not previous:
+                record["attempts"].append(attempt)
+        record["status"] = current_status(sha, record["attempts"])
+    index["date"] = date
+    index["reviewer"] = "Codex"
+    index["humanApproved"] = False
+    index_path.write_text(json.dumps(index, indent=2) + "\n")
+    return {"bots": len(records), "completedBots": sum(any(attempt["completed"] for attempt in record["attempts"]) for record in records.values()),
+        "currentSamplePasses": sum(record["status"] == "passed-sample" for record in records.values())}
 
 
 def publish(artifacts, public):
@@ -80,5 +139,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", required=True, type=Path)
     parser.add_argument("--public", required=True, type=Path)
+    parser.add_argument("--batch", action="store_true")
+    parser.add_argument("--reviews", type=Path)
+    parser.add_argument("--date")
     args = parser.parse_args()
-    print(json.dumps(publish(args.artifacts.resolve(), args.public.resolve())))
+    if args.batch and not (args.reviews and args.date):
+        parser.error("batch publication requires reviews and date")
+    print(json.dumps(append_batch(args.artifacts.resolve(), args.public.resolve(), args.reviews.resolve(), args.date)
+        if args.batch else publish(args.artifacts.resolve(), args.public.resolve())))

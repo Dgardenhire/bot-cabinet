@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional export, same seven days and USD: A spent $120 for six completed demos. B spent $50 for zero demos. C spent $75; demo count is missing. Target: no more than $25 per demo. Review each.

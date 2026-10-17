@@ -1,0 +1,37 @@
+{
+  "bot": "lead-qualifier",
+  "resourceId": "specialist:lead-qualifier",
+  "date": "2026-10-17T16:43:32.477145+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/specialists/lead-qualifier.md",
+    "mediaType": "text/markdown",
+    "sha256": "1a09029bc4f91dc54e5c04d4d488dbe3b524a4ac9e89570ce9d67500cd0461ad",
+    "bytes": 3960
+  },
+  "sourceMode": "published-website",
+  "indexRevision": "626945f6032819093a4b4efe1e714ead0453dd5a04daf957940209016da88194",
+  "roleSha256": "dc95b3a46d8ac52441f380085d501b0fab182aabdb42c46c7beac3b8eb3ffc1d",
+  "caseSha256": "be7c5705d9df5c580783c70a2524c0b249959003daa67068790b4ec96862613e",
+  "model": "upstage/solar-mini4:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 2838,
+  "outputTokens": 140,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}
