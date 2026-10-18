@@ -4,12 +4,12 @@
 // plugin catalog (NousResearch/hermes-agent#139267), the button installs straight from GitHub and Hermes marks it
 // Unverified. Once the catalog lists it, flip CABINET_CATALOG_LISTED to true: the button then installs the reviewed
 // catalog pin, and the in-app steps point people to Capabilities, then Plugins.
-export const CABINET_CATALOG_LISTED = false;
+export const CABINET_CATALOG_LISTED = true;
 
-export const CABINET_CATALOG_NAME = "bot-cabinet";
+export const CABINET_CATALOG_NAME = "bot-cabinet-v2";
 export const CABINET_REPO = "Dgardenhire/hermes-cabinet";
 export const CABINET_REPO_URL = `https://github.com/${CABINET_REPO}`;
-export const CABINET_VERSION = "0.3.9";
+export const CABINET_VERSION = "0.3.10";
 export const CABINET_MIN_HERMES = "0.22.0";
 
 export const CABINET_INSTALL_URL = CABINET_CATALOG_LISTED
