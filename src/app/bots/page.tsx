@@ -22,7 +22,7 @@ export default function BotsPage() {
           <Eyebrow>Find a useful job</Eyebrow>
           <h1 className="inner-title">The Cabinet</h1>
           <p className="inner-deck">
-            Search by what you need done. Open a Bot to see its first task, then choose where to use it.
+            Choose a useful kind of help, then find the role that fits. These are selected templates, not a directory of every Bot. Open one to see its first task and choose where to use it.
           </p>
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function BotsPage() {
 
       <details className="shell starter-catalog-review">
         <summary>What has been tested?</summary>
-        <p>The original 16 Hermes archives passed isolated profile-import tests. Curator, Reentry, and Receipt are newer prepared profiles whose import tests remain pending. Import success does not prove work quality; human technical review and real-job testing are still in progress. Each Bot page shows its own current status.</p>
+        <p>All 38 standalone roles have a reviewed pass on one supplied-material task through the Hermes SDK. This does not prove Desktop installation, connected-account work or reliability on other tasks. Workflow examples have their own status and do not inherit a role&apos;s test result. <Link href="/proof/#website-trials-title">Read the test records and limits.</Link></p>
       </details>
 
       <section className="content-section shell starter-community-cta">

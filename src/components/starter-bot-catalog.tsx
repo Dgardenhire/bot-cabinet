@@ -7,23 +7,22 @@ import { useMemo, useState } from "react";
 import specialists from "@/data/specialist-index.json";
 import { getSpecialistPortrait } from "@/data/specialist-portraits";
 import styles from "./manual-bot-plan.module.css";
+import archetypeStyles from "./archetype-filter.module.css";
+import { WORK_ARCHETYPES, matchesWorkArchetype, type WorkArchetypeId } from "@/data/work-archetypes";
 
 import {
   STARTER_BOTS,
   STARTER_CATEGORY_LABELS,
-  type StarterBotCategory,
 } from "@/data/starter-bots";
-
-const categories = Object.entries(STARTER_CATEGORY_LABELS) as [StarterBotCategory, string][];
 
 export function StarterBotCatalog() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<StarterBotCategory | "all">("all");
+  const [archetype, setArchetype] = useState<WorkArchetypeId | "all">("all");
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
     return STARTER_BOTS.filter((bot) => {
-      const categoryMatches = category === "all" || bot.category === category;
+      const categoryMatches = matchesWorkArchetype(bot.slug, archetype);
       const searchMatches =
         !needle ||
         [bot.name, bot.title, bot.summary, bot.whoItHelps, ...bot.asks]
@@ -32,8 +31,8 @@ export function StarterBotCatalog() {
           .includes(needle);
       return categoryMatches && searchMatches;
     });
-  }, [category, query]);
-  const visibleSpecialists = specialists.filter(bot => (category === "all" || bot.category === category) && [bot.name, bot.summary].join(" ").toLowerCase().includes(query.trim().toLowerCase()));
+  }, [archetype, query]);
+  const visibleSpecialists = specialists.filter(bot => matchesWorkArchetype(bot.slug, archetype) && [bot.name, bot.summary].join(" ").toLowerCase().includes(query.trim().toLowerCase()));
 
   return (
     <div>
@@ -48,20 +47,22 @@ export function StarterBotCatalog() {
             placeholder="Search by job or result"
           />
         </label>
-        <div className="registry-filter-row" aria-label="Filter by category">
-          <button type="button" className={category === "all" ? "active" : ""} onClick={() => setCategory("all")}>All</button>
-          {categories.map(([key, label]) => (
-            <button type="button" className={category === key ? "active" : ""} onClick={() => setCategory(key)} key={key}>{label}</button>
-          ))}
-        </div>
+        <label className={archetypeStyles.filter}>
+          What kind of help do you need?
+          <select value={archetype} onChange={event => setArchetype(event.target.value as WorkArchetypeId | "all")}>
+            <option value="all">All kinds of help</option>
+            {WORK_ARCHETYPES.map(group => <option value={group.id} key={group.id}>{group.name}</option>)}
+          </select>
+        </label>
       </div>
+      <p className={archetypeStyles.description}>{WORK_ARCHETYPES.find(group => group.id === archetype)?.job ?? "Choose a kind of help, then compare the roles below. Some are specialists within the same kind of work."}</p>
 
       <p className="registry-results-line" aria-live="polite">
         <span>{visible.length + visibleSpecialists.length} Bot{visible.length + visibleSpecialists.length === 1 ? "" : "s"}</span>
         <span>{visible.length} starter packs · {visibleSpecialists.length} manual specialists</span>
       </p>
 
-      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>New specialists</h2><p>Copy the instructions and try a sample task. The recorded answers were written and checked in Codex; these Bots have not been tested in Hermes or Grok.</p><div className="registry-grid starter-grid">{visibleSpecialists.map(bot => <Link className="registry-card starter-card" key={bot.slug} href={`/bots/${bot.slug}/`}>
+      {visibleSpecialists.length > 0 && <section className={styles.section}><h2>Specialists for a narrower job</h2><p>Each specialist has a reviewed sample answer from the Hermes SDK. That does not test Desktop setup, connected accounts or Grok. Open a role to see its instructions and try your own task.</p><div className="registry-grid starter-grid">{visibleSpecialists.map(bot => <Link className="registry-card starter-card" key={bot.slug} href={`/bots/${bot.slug}/`}>
         <div className="registry-card-image"><Image src={getSpecialistPortrait(bot.slug).image} alt="" width={768} height={768} sizes="(max-width: 760px) 90vw, 30vw" /><span>Bot Cabinet · Specialist</span></div>
         <div className="registry-card-copy"><div className="registry-card-meta"><span>Manual setup</span><span>Free instructions</span></div><h3>{bot.name}</h3><p>{bot.summary}</p><div className="registry-card-foot"><span>Includes a sample task</span><span>Try it →</span></div></div>
       </Link>)}</div></section>}
@@ -92,7 +93,7 @@ export function StarterBotCatalog() {
       {!visible.length && !visibleSpecialists.length && (
         <div className="registry-empty">
           <h2>No Bots match that search</h2>
-          <button type="button" onClick={() => { setQuery(""); setCategory("all"); }}>Show all Bots</button>
+          <button type="button" onClick={() => { setQuery(""); setArchetype("all"); }}>Show all Bots</button>
         </div>
       )}
     </div>

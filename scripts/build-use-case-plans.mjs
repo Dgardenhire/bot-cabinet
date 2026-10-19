@@ -54,7 +54,13 @@ for (const useCase of useCases) {
       "",
       ...useCase.sample.checks.map(item => `- ${item}`),
       "",
-      ...(useCase.inspiredBy ? [`Inspired by a community use shared by ${useCase.inspiredBy.creator}: ${useCase.inspiredBy.href}`, "Found through Bot Usecases (https://botusecases.netlify.app/), curated by KP. This fictional sample was written by Bot Cabinet.", ""] : []),
+      ...(useCase.inspiredBy ? [
+        `Inspired by ${useCase.inspiredBy.collection ? "" : "a community use shared by "}${useCase.inspiredBy.creator}: ${useCase.inspiredBy.href}`,
+        useCase.inspiredBy.collection
+          ? `Found through ${useCase.inspiredBy.collection.name} (${useCase.inspiredBy.collection.href}). This fictional sample was written by Bot Cabinet.`
+          : "Found through Bot Usecases (https://botusecases.netlify.app/), curated by KP. This fictional sample was written by Bot Cabinet.",
+        "",
+      ] : []),
     ] : []),
     "## Operating guide",
     "",

@@ -1,0 +1,4 @@
+.filter { display: grid; gap: .5rem; color: var(--paper); max-width: 30rem; }
+.filter select { min-height: 2.75rem; max-width: 100%; padding: .65rem .85rem; border: 1px solid var(--line); background: var(--ink-soft); color: var(--ivory); font: inherit; }
+.filter select:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+.description { margin: .5rem 0 1rem; color: var(--muted); }

@@ -47,4 +47,18 @@ describe("job-first workflow browsing", () => {
     expect(download).toContain("Copy its role instructions into a new Bot");
     expect(download).not.toContain(".tar.gz profile");
   });
+
+  it("credits official Grok examples without claiming the community directory found them", async () => {
+    for (const slug of ["sort-inbox-for-review", "check-outdated-guide", "review-product-feedback"]) {
+      const html = renderToStaticMarkup(await UseCaseDetailPage({ params: Promise.resolve({ slug }) }));
+      expect(html).toContain("Grok Bot use cases");
+      expect(html).not.toContain("Bot Usecases, curated by KP");
+      expect(html).toContain("this adaptation has not been runtime-tested");
+      expect(html).toContain("Copy sample task");
+      expect(html).toContain("/start/chatgpt/");
+      const download = readFileSync(`public/downloads/use-cases/${slug}.md`, "utf8");
+      expect(download).toContain("Grok Bot use cases");
+      expect(download).not.toContain("Bot Usecases (");
+    }
+  });
 });
