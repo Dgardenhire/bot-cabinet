@@ -67,9 +67,12 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
   const visibleBots = expanded ? noteworthyBots : collapsedBots;
   const visibleNotes = expanded ? watchNotes : collapsedNotes;
   const hiddenCount = Math.max(0, items.length - Math.min(2, noteworthyBots.length) - Math.min(2, watchNotes.length));
+  // Wait until hydration and any live-feed merge have settled; both can move the card.
   useEffect(() => {
-    if (targetSlug) document.getElementById(targetSlug)?.scrollIntoView({ block: "start" });
-  }, [targetSlug, expanded]);
+    if (!targetSlug) return;
+    const timer = window.setTimeout(() => document.getElementById(targetSlug)?.scrollIntoView({ block: "start", behavior: "instant" }), 150);
+    return () => window.clearTimeout(timer);
+  }, [targetSlug, expanded, items.length]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -107,7 +110,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
                   </div>
                   <h3>{bot.name}</h3>
                   <p className="noteworthy-bot-job">{bot.job}</p>
-                  <WatchSourceLinks sources={item.sources} />
+                  <WatchSourceLinks sources={item.sources} cabinetTemplate={bot.cabinetTemplate} />
                   <details className="agent-watch-uncertainty"><summary>Setup and review notes</summary>
                   <dl>
                     <div><dt>Creator</dt><dd>{bot.creator}</dd></div>
@@ -153,7 +156,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
           </article>
         ))}
       </div>
-      {hiddenCount > 0 ? <button className="button button-secondary agent-watch-more" type="button" onClick={() => { if (targetCollapsed) { history.replaceState(null, "", window.location.pathname); window.dispatchEvent(new HashChangeEvent("hashchange")); } setShowAll(!expanded); }}>{expanded ? "Show fewer" : `Show ${hiddenCount} more reviewed notes`}</button> : null}
+      {hiddenCount > 0 ? <button className="button button-secondary agent-watch-more" type="button" onClick={() => { if (targetCollapsed) { history.replaceState(null, "", window.location.pathname + window.location.search); window.dispatchEvent(new HashChangeEvent("hashchange")); } setShowAll(!expanded); }}>{expanded ? "Show fewer" : `Show ${hiddenCount} more reviewed notes`}</button> : null}
     </>
   );
 }
