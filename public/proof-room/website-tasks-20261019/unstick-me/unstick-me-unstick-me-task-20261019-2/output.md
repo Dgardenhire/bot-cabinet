@@ -1,0 +1,1 @@
+Would it feel easier to open a blank email to your landlord right now, or to write just one sentence of it?

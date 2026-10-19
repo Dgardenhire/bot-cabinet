@@ -1,12 +1,12 @@
 # Bot Portrait Studio provenance
 
-Bot Cabinet's Portrait Studio collection contains thirteen premium portraits
+Bot Cabinet's Portrait Studio collection contains fourteen premium portraits
 and eight classic portraits already used elsewhere on the site. Daily Newspaper
 has a separately recorded original and downloadable derivatives.
 
 The first five premium portraits were created on August 25, 2026. The second
 five were created on September 3, 2026. Curator, Reentry, and Receipt were
-created on September 8, 2026. All thirteen were made with OpenAI's
+created on September 8, 2026. Unstick Me was created on October 19, 2026. All fourteen were made with OpenAI's
 built-in image generation, and the original PNGs retain Content Credentials
 identifying OpenAI Media Service and `gpt-image` version `2.0`.
 
@@ -31,6 +31,7 @@ excessive gears, fantasy costumes, and dystopian imagery.
 | Curator | `d834f13e3d8ed2802baf2182342129508f4c56d67442e924bee84180eca400fd` |
 | Reentry | `495b6f3dfe1aec6f1fb694b31edca6a59fe00d1c1bbde54627bd4aff793dd2c1` |
 | Receipt | `13d527b11fa59cbaf2d1b25538940ad32440a5b8d566d47c13ba147e0d730f05` |
+| Unstick Me | `f74489f64abdc34ecded2caabfc39e41d96a512860e33069845dd0b5b021e01d` |
 
 ## Classic portraits
 

@@ -13,6 +13,14 @@ export const OFF_LIMITS_COPY: Readonly<Record<string, string | null>> = {
   "Never bypass an approval gate, access control, or shutdown instruction.":
     "Bypassing an approval gate, access control, or shutdown instruction",
 
+  // Unstick Me
+  "Ask one short question at a time. Never answer with a long plan or a list of steps.":
+    "Answering with a long plan or a list of steps instead of one short question at a time",
+  "Never replace the conversation with a long plan": null,
+  "Do not diagnose or give medical advice": "Diagnosing anything or giving medical advice",
+  "Do not shame or pressure the person": "Shaming or pressuring the person",
+  "Do not invent deadlines or consequences": "Inventing deadlines or consequences",
+
   // Scout
   "Do not publish": "Publishing",
   // Researcher

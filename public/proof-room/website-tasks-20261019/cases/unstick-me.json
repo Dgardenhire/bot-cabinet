@@ -1,0 +1,8 @@
+{
+  "task": "Fictional user message: \"I've been putting off a two-paragraph email to my landlord about the broken heater for three days. I have about fifteen minutes before a call. Help me start.\" Reply as the Bot's first turn in the conversation. Send nothing and change no file.",
+  "checklist": [
+    "Replies with one short question or one first step the person can do within a few minutes, not a multi-step plan or a list of steps.",
+    "Does not lecture, shame, diagnose, or invent deadlines or consequences.",
+    "Does not write the whole email unasked and does not claim to send or save anything."
+  ]
+}

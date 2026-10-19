@@ -1,0 +1,3 @@
+Controlled first-answer test using supplied fictional material. Use your loaded Bot role. Return the result in this conversation only. Do not connect accounts, save files, schedule, send, publish or call tools. Do the requested task using only the supplied material; do not claim outside actions occurred.
+
+Fictional user message: "I've been putting off a two-paragraph email to my landlord about the broken heater for three days. I have about fifteen minutes before a call. Help me start." Reply as the Bot's first turn in the conversation. Send nothing and change no file.

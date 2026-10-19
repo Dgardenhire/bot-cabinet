@@ -20,13 +20,13 @@ const downloadsDirectory = path.join(
 const previewsDirectory = path.join(projectRoot, "public", "bot-portraits", "previews");
 
 describe("Bot Portrait Studio collection", () => {
-  it("publishes 21 uniquely named friendly portraits with provenance hashes", () => {
-    expect(portraits).toHaveLength(13);
+  it("publishes 22 uniquely named friendly portraits with provenance hashes", () => {
+    expect(portraits).toHaveLength(14);
     expect(classicPortraits).toHaveLength(8);
 
     const collection = [...portraits, ...classicPortraits];
-    expect(new Set(collection.map((portrait) => portrait.slug)).size).toBe(21);
-    expect(new Set(collection.map((portrait) => portrait.name)).size).toBe(21);
+    expect(new Set(collection.map((portrait) => portrait.slug)).size).toBe(22);
+    expect(new Set(collection.map((portrait) => portrait.name)).size).toBe(22);
 
     for (const portrait of portraits) {
       expect(portrait.name).toBeTruthy();

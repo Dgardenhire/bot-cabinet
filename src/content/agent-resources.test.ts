@@ -5,9 +5,9 @@ import { createHash } from "node:crypto";
 
 describe("complete agent discovery index", () => {
   it("includes starters, newer specialists, kits and manual crew plans without duplicates", () => {
-    expect(AGENT_RESOURCE_ENTRIES).toHaveLength(59);
-    expect(new Set(AGENT_RESOURCE_ENTRIES.map(entry => entry.id)).size).toBe(59);
-    for (const [kind, count] of Object.entries({ "starter-bot": 20, "manual-specialist": 18, "crew-kit": 11, "manual-crew-plan": 10 })) {
+    expect(AGENT_RESOURCE_ENTRIES).toHaveLength(60);
+    expect(new Set(AGENT_RESOURCE_ENTRIES.map(entry => entry.id)).size).toBe(60);
+    for (const [kind, count] of Object.entries({ "starter-bot": 21, "manual-specialist": 18, "crew-kit": 11, "manual-crew-plan": 10 })) {
       expect(AGENT_RESOURCE_ENTRIES.filter(entry => entry.kind === kind)).toHaveLength(count);
     }
   });

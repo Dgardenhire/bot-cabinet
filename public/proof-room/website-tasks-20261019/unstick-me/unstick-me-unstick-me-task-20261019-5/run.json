@@ -1,0 +1,37 @@
+{
+  "bot": "unstick-me",
+  "resourceId": "starter:unstick-me",
+  "date": "2026-10-19T21:38:37.350037+00:00",
+  "source": {
+    "url": "https://botcabinet.com/downloads/portable-bot-packs/v2/unstick-me.json",
+    "mediaType": "application/json",
+    "sha256": "dd6dc79d44035922edd646c4519b7a0e1d9524fb848fd39d6f0cdf929b72ad28",
+    "bytes": 8662
+  },
+  "sourceMode": "local-candidate",
+  "indexRevision": "e9f94d3a424acff8f868f5bcf2df54c261936f51577f36a65d24de8c2dca9257",
+  "roleSha256": "16e7ed784a8d52616220865e7809e1232d0de60876457fe2fbe42090c84302e1",
+  "caseSha256": "3f852e77c06b1a8b4536b35df1b7d818d873ed4f80160e34ef817e9f7f9ded2a",
+  "model": "stepfun/step-3.7-flash:free",
+  "harness": "Hermes SDK native auto-loaded skill containing the downloaded website role and controls",
+  "scope": "supplied-material first-answer task; not Desktop import or live connected-service testing",
+  "completed": true,
+  "apiCalls": 1,
+  "providerRequests": 1,
+  "singleRequestLimit": true,
+  "stopReason": null,
+  "maxOutputTokens": 6000,
+  "inputTokens": 1827,
+  "outputTokens": 1488,
+  "estimatedCostUsd": 0.0,
+  "costStatus": "estimated",
+  "roleLoaded": true,
+  "reviewStatus": "awaiting-answer-review",
+  "humanApproved": false,
+  "desktopInstallTested": false,
+  "outsideActionsTested": false,
+  "toolsExposed": 0,
+  "reasoningConfig": {
+    "enabled": false
+  }
+}

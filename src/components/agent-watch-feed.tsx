@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { ArrowRight, CalendarCheck } from "@phosphor-icons/react";
 import { WatchSourceLinks } from "./watch-source-links";
 import { EvidencePill } from "@/components/ui";
@@ -26,6 +26,14 @@ const botDecisionLabels: Record<WatchBotDecision, string> = {
   watch: "Watch",
 };
 
+function subscribeToHash(onChange: () => void) {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+}
+function readHashSlug() {
+  return decodeURIComponent(window.location.hash.slice(1));
+}
+
 function variedPlatforms(items: AgentWatchItem[], limit = 2) {
   const selected: AgentWatchItem[] = [];
   const platforms = new Set<string>();
@@ -48,9 +56,20 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
   const [showAll, setShowAll] = useState(false);
   const noteworthyBots = items.filter((item) => item.botDetails);
   const watchNotes = items.filter((item) => !item.botDetails);
-  const visibleBots = showAll ? noteworthyBots : variedPlatforms(noteworthyBots);
-  const visibleNotes = showAll ? watchNotes : watchNotes.slice(0, 2);
+  // A link such as /watch/#unstick-me-bot must land on that card, even when it
+  // sits in the collapsed part of the list.
+  const targetSlug = useSyncExternalStore(subscribeToHash, readHashSlug, () => "");
+  const collapsedBots = variedPlatforms(noteworthyBots);
+  const collapsedNotes = watchNotes.slice(0, 2);
+  const targetCollapsed = !!targetSlug && items.some((item) => item.slug === targetSlug)
+    && !collapsedBots.some((item) => item.slug === targetSlug) && !collapsedNotes.some((item) => item.slug === targetSlug);
+  const expanded = showAll || targetCollapsed;
+  const visibleBots = expanded ? noteworthyBots : collapsedBots;
+  const visibleNotes = expanded ? watchNotes : collapsedNotes;
   const hiddenCount = Math.max(0, items.length - Math.min(2, noteworthyBots.length) - Math.min(2, watchNotes.length));
+  useEffect(() => {
+    if (targetSlug) document.getElementById(targetSlug)?.scrollIntoView({ block: "start" });
+  }, [targetSlug, expanded]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -94,7 +113,11 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
                     <div><dt>Creator</dt><dd>{bot.creator}</dd></div>
                     <div><dt>Why it stands out</dt><dd>{item.whyItMatters}</dd></div>
                     <div><dt>Accounts, tools and actions</dt><dd>{bot.requiredAccess} {bot.outsideActions}</dd></div>
-                    <div className="noteworthy-bot-decision"><dt>Bot Cabinet plans</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Similar Cabinet Bot: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
+                    {bot.cabinetTemplate ? (
+                      <div className="noteworthy-bot-decision"><dt>In Bot Cabinet</dt><dd><strong>Now a Bot Cabinet template</strong>{bot.cabinetFit} <Link href={bot.cabinetTemplate.href}>Use {bot.cabinetTemplate.label} <ArrowRight size={13} /></Link></dd></div>
+                    ) : (
+                      <div className="noteworthy-bot-decision"><dt>Bot Cabinet plans</dt><dd><strong>{botDecisionLabels[bot.cabinetDecision]}</strong>{bot.cabinetFit} Similar Cabinet Bot: <Link href={bot.closestCabinetMatch.href}>{bot.closestCabinetMatch.label} <ArrowRight size={13} /></Link></dd></div>
+                    )}
                   </dl>
                   </details>
                   <details className="agent-watch-uncertainty"><summary>Limits and unknowns</summary><p>{item.limits}</p></details>
@@ -130,7 +153,7 @@ export function AgentWatchFeed({ fallbackItems }: { fallbackItems: AgentWatchIte
           </article>
         ))}
       </div>
-      {hiddenCount > 0 ? <button className="button button-secondary agent-watch-more" type="button" onClick={() => setShowAll((value) => !value)}>{showAll ? "Show fewer" : `Show ${hiddenCount} more reviewed notes`}</button> : null}
+      {hiddenCount > 0 ? <button className="button button-secondary agent-watch-more" type="button" onClick={() => { if (targetCollapsed) { history.replaceState(null, "", window.location.pathname); window.dispatchEvent(new HashChangeEvent("hashchange")); } setShowAll(!expanded); }}>{expanded ? "Show fewer" : `Show ${hiddenCount} more reviewed notes`}</button> : null}
     </>
   );
 }

@@ -14,6 +14,8 @@ export type WatchBotDetails = {
   cabinetDecision: WatchBotDecision;
   cabinetFit: string;
   closestCabinetMatch: { label: string; href: string };
+  /** The Bot Cabinet template this bot became. Required once cabinetDecision is "add-new". */
+  cabinetTemplate?: { label: string; href: string };
 };
 
 export type AgentWatchItem = {
@@ -145,18 +147,18 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
     whyItMatters:
       "A long plan can become one more obstacle. This narrower approach may help someone find one manageable action and begin it.",
     cabinetResponse:
-      "Test this as a possible new standalone Bot. Compare it with Coach and Planner using the same stalled task, and keep it only if the smaller approach helps someone start sooner.",
-    responseStatus: "testing",
+      "Bot Cabinet turned it into a cross-platform template, Unstick Me, with versions for Hermes, Grok Bot and ChatGPT and setup notes for other apps. Yanqing Cheng's original Grok Bot is linked from the template.",
+    responseStatus: "prepared",
     limits:
-      "Bot Cabinet has reviewed the public description and links but has not run the Grok template or built a Hermes adaptation.",
+      "Bot Cabinet has reviewed the public description and links. Neither the original Grok template nor the Bot Cabinet versions have been task-tested yet.",
     sources: [
       { label: "Creator's post", href: "https://x.com/YanqingCheng/status/2099206038368977179" },
       { label: "Open the Grok Bot template", href: "https://x.ai/bot/EahHaI-kwO0hgWj6I45jC" },
       { label: "GrokHub listing", href: "https://www.grokhub.io/use-cases/unstick-me-bot" },
     ],
     cabinetLinks: [
+      { label: "Use the Unstick Me template", href: "/bots/unstick-me" },
       { label: "Compare with Coach", href: "/bots/coach" },
-      { label: "Compare with Planner", href: "/bots/planner" },
     ],
     botDetails: {
       name: "Unstick Me Bot",
@@ -167,8 +169,9 @@ export const AGENT_WATCH_ITEMS: AgentWatchItem[] = [
       outsideActions: "None described. It asks questions and suggests a next step.",
       evidenceStatus: "inspected",
       cabinetDecision: "add-new",
-      cabinetFit: "Test it against Coach and Planner first, then add it only if the smaller approach works better.",
+      cabinetFit: "Added as Unstick Me, a cross-platform template. Coach remains the better fit for larger decisions.",
       closestCabinetMatch: { label: "Coach", href: "/bots/coach" },
+      cabinetTemplate: { label: "Unstick Me", href: "/bots/unstick-me" },
     },
   },
   {

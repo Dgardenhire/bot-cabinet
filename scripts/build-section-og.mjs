@@ -9,6 +9,18 @@ const wordmark = path.join(root, "public", "brand", "bot-cabinet-wordmark-dark-v
 
 const cards = [
 {
+  "output": "showcase-unstick-me-v1-1200x630.jpg",
+  "source": path.join(root, "public", "downloads/bot-portraits/hermes/unstick-me-1024.png"),
+  "sourcePosition": "right",
+  "eyebrow": "BOT SHOWCASE",
+  "title": [
+    "Meet Unstick Me",
+    ""
+  ],
+  "description": "Take the first small step",
+  "url": "botcabinet.com/bots/unstick-me"
+},
+{
   output: "showcase-daily-newspaper-v1-1200x630.jpg",
   source: path.join(root, "public", "downloads/bot-portraits/hermes/daily-newspaper-1024.png"),
   sourcePosition: "right",
