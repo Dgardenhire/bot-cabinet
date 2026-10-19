@@ -127,8 +127,8 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
           <small>These are setup guides, not automatic imports. Available tools and account access differ by app.</small>
         </div>
         {useCase.inspiredBy && <div className={styles.source}>
-          <p>Inspired by a use shared by <a href={useCase.inspiredBy.href} target="_blank" rel="noreferrer">{useCase.inspiredBy.creator} <ArrowSquareOut size={13} /></a>, found through <a href="https://botusecases.netlify.app/" target="_blank" rel="noreferrer">Bot Usecases, curated by KP</a>. The sample above is Bot Cabinet&apos;s own fictional example.</p>
-          <p>Community report; this adaptation has not been runtime-tested.</p>
+          <p>Inspired by <a href={useCase.inspiredBy.href} target="_blank" rel="noreferrer">{useCase.inspiredBy.creator} <ArrowSquareOut size={13} /></a>, found through <a href={useCase.inspiredBy.collection?.href ?? "https://botusecases.netlify.app/"} target="_blank" rel="noreferrer">{useCase.inspiredBy.collection?.name ?? "Bot Usecases, curated by KP"}</a>. The sample above is Bot Cabinet&apos;s own fictional example.</p>
+          <p>{useCase.inspiredBy.collection ? "Source idea" : "Community report"}; this adaptation has not been runtime-tested.</p>
         </div>}
       </section>}
 

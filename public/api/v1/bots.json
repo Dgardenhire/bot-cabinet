@@ -403,6 +403,7 @@
           "client"
         ],
         "workflows": [
+          "check-outdated-guide",
           "morning-industry-briefing",
           "weekly-newsletter",
           "social-media-content-set",
@@ -1212,6 +1213,7 @@
           "story"
         ],
         "workflows": [
+          "sort-inbox-for-review",
           "project-launch-plan",
           "leadership-weekly-review"
         ],
@@ -1409,6 +1411,7 @@
           "pulse"
         ],
         "workflows": [
+          "review-product-feedback",
           "new-venture-evaluation",
           "product-technology-direction"
         ],
