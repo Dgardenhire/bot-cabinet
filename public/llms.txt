@@ -53,3 +53,4 @@ Bot Cabinet is an independent guide to practical Bots. Each public profile expla
 - [Curator: Bot review and improvement assistant](https://botcabinet.com/bots/curator/)
 - [Reentry: Project resumption guide](https://botcabinet.com/bots/reentry/)
 - [Receipt: Returns and warranty case assistant](https://botcabinet.com/bots/receipt/)
+- [Unstick Me: Gets you started on a task you keep avoiding](https://botcabinet.com/bots/unstick-me/)

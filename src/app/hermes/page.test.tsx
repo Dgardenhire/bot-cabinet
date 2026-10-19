@@ -27,7 +27,7 @@ describe("Bot Cabinet in Hermes page", () => {
   });
 
   it("reports the recorded task runs without overstating testing", () => {
-    expect(text).toContain("Today 4 of the 20 Bots have a recorded task run.");
+    expect(text).toContain("Today 4 of the 21 Bots have a recorded task run.");
   });
 
   it("uses local art and real screenshots, and keeps headlines free of periods and section numbers", () => {

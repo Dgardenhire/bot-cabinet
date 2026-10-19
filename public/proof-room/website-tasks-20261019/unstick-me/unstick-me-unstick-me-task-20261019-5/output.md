@@ -1,0 +1,1 @@
+Can you open a blank message and type the greeting right now?

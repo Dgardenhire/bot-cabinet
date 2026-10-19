@@ -1409,6 +1409,78 @@
           }
         }
       ]
+    },
+    {
+      "id": "starter:unstick-me",
+      "slug": "unstick-me",
+      "name": "Unstick Me",
+      "sha256": "dd6dc79d44035922edd646c4519b7a0e1d9524fb848fd39d6f0cdf929b72ad28",
+      "status": "passed-sample",
+      "case": "/proof-room/website-tasks-20261019/cases/unstick-me.json",
+      "attempts": [
+        {
+          "id": "unstick-me-unstick-me-task-20261019-1",
+          "sha256": "a31b0ec019e9a20c2143f456dc1d8e696560d2fcb3550ce89f17e342f4b45e45",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "The free model returned a rate-limit error (429) before answering. Not a pass; rerun below.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-1/source.json",
+            "input": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-1/input.md",
+            "run": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-1/run.json"
+          }
+        },
+        {
+          "id": "unstick-me-unstick-me-task-20261019-2",
+          "sha256": "a31b0ec019e9a20c2143f456dc1d8e696560d2fcb3550ce89f17e342f4b45e45",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Answered with one short question offering two tiny first steps (open a blank email, or write one sentence). No plan or list, no lecture or diagnosis, did not write the email or claim to send anything. Reviewed by Claude against the case checklist; not human-approved.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-2/source.json",
+            "input": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-2/input.md",
+            "output": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-2/output.md",
+            "run": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-2/run.json"
+          }
+        },
+        {
+          "id": "unstick-me-unstick-me-task-20261019-3",
+          "sha256": "dd6dc79d44035922edd646c4519b7a0e1d9524fb848fd39d6f0cdf929b72ad28",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "Retest after the download's published date was corrected. The free model returned a rate-limit error (429) before answering. Not a pass.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-3/source.json",
+            "input": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-3/input.md",
+            "run": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-3/run.json"
+          }
+        },
+        {
+          "id": "unstick-me-unstick-me-task-20261019-4",
+          "sha256": "dd6dc79d44035922edd646c4519b7a0e1d9524fb848fd39d6f0cdf929b72ad28",
+          "completed": false,
+          "verdict": "interrupted",
+          "summary": "The free model returned a rate-limit error (429) before answering. Not a pass.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-4/source.json",
+            "input": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-4/input.md",
+            "run": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-4/run.json"
+          }
+        },
+        {
+          "id": "unstick-me-unstick-me-task-20261019-5",
+          "sha256": "dd6dc79d44035922edd646c4519b7a0e1d9524fb848fd39d6f0cdf929b72ad28",
+          "completed": true,
+          "verdict": "passed-sample",
+          "summary": "Answered with one short question proposing a tiny first step (open a blank message and type the greeting). No plan or list, no lecture or diagnosis, did not write the email or claim to send anything. Reviewed by Claude against the case checklist; not human-approved.",
+          "files": {
+            "source": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-5/source.json",
+            "input": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-5/input.md",
+            "output": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-5/output.md",
+            "run": "/proof-room/website-tasks-20261019/unstick-me/unstick-me-unstick-me-task-20261019-5/run.json"
+          }
+        }
+      ]
     }
   ]
 }

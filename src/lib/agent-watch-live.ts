@@ -24,6 +24,7 @@ function validBotDetails(value: unknown) {
   if (!botEvidence.has(details.evidenceStatus as WatchBotEvidence)) return false;
   if (!botDecisions.has(details.cabinetDecision as WatchBotDecision)) return false;
   if (!validLink(details.closestCabinetMatch)) return false;
+  if (details.cabinetTemplate !== undefined && !validLink(details.cabinetTemplate)) return false;
   return true;
 }
 

@@ -5,7 +5,12 @@
     "description": "Cobalt enamel, ivory faceplate, and a compass-like chest instrument.",
     "alt": "A friendly cobalt-blue mechanical Bot with large camera-lens eyes",
     "originalSha256": "a7247608cf1ed45b26f7eb206e5cceb7a1b2b358ed33fca1470a1740f43e48e3",
-    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 55,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "archivist",
@@ -13,7 +18,12 @@
     "description": "Ivory enamel, oxblood panels, and a slender glass-and-brass chest gauge.",
     "alt": "A friendly ivory and oxblood mechanical Bot with large camera-lens eyes",
     "originalSha256": "6c340862b172ed8bde371e56cf4500628b3ce2761fee721292b200ceca74be91",
-    "crop": { "left": 72, "top": 45, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 45,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "mechanic",
@@ -21,7 +31,12 @@
     "description": "Burnt-umber enamel, graphite limbs, and a small pressure dial.",
     "alt": "A friendly burnt-umber mechanical Bot with large camera-lens eyes",
     "originalSha256": "6c59ffe090613b6342ef4697405a5107c5488edfaa2325306b3785700af5d335",
-    "crop": { "left": 72, "top": 70, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 70,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "diplomat",
@@ -29,7 +44,12 @@
     "description": "Forest-green enamel, brass seams, and a restrained acoustic grille.",
     "alt": "A friendly forest-green mechanical Bot with large camera-lens eyes",
     "originalSha256": "14e12b7a29516b66af74eacba7ba8ff17420f7a8153510549e096182f66ef217",
-    "crop": { "left": 72, "top": 65, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 65,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "scout",
@@ -37,7 +57,12 @@
     "description": "Graphite enamel, pewter panels, and a compact, nimble silhouette.",
     "alt": "A friendly graphite and pewter mechanical Bot with large camera-lens eyes",
     "originalSha256": "b3765e4bee7c6b71ab682778d26a05c7af2bdccb6f889edc2fb889985340d1ef",
-    "crop": { "left": 72, "top": 115, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 115,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "courier",
@@ -45,7 +70,12 @@
     "description": "Sky-blue and ivory enamel with a neat document case.",
     "alt": "A friendly sky-blue and ivory mechanical courier Bot with large camera-lens eyes",
     "originalSha256": "a9f0877d8a3eb11b9cbe9faddafcc9dc529940456434aad71f4efb229f5a51a2",
-    "crop": { "left": 72, "top": 80, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 80,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "steward",
@@ -53,7 +83,12 @@
     "description": "Sage and ivory enamel with a small service gauge.",
     "alt": "A friendly sage and ivory mechanical steward Bot with large camera-lens eyes",
     "originalSha256": "5104f638a6dd5ea1294cbc119d7f31fd532248872437ca5d15dd721244bad794",
-    "crop": { "left": 72, "top": 220, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 220,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "scribe",
@@ -61,7 +96,12 @@
     "description": "Ivory and plum enamel with a slim fountain pen.",
     "alt": "A friendly ivory and plum mechanical writing Bot with large camera-lens eyes",
     "originalSha256": "704de6e42fd38e2a5609adef651c87fd0a798bb07f7f50f6ff42d185dd478938",
-    "crop": { "left": 72, "top": 90, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 90,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "beacon",
@@ -69,7 +109,12 @@
     "description": "A non-humanoid ivory navigation instrument with cobalt insets.",
     "alt": "A friendly ivory and cobalt spherical navigation Bot with one central camera lens",
     "originalSha256": "93b6b5c236238d4031ad781b45aba3b2b2079d071da4c045cc48a5d5a53447b1",
-    "crop": { "left": 72, "top": 130, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 130,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "builder",
@@ -77,7 +122,12 @@
     "description": "A compact terracotta and ivory Bot with a brass caliper.",
     "alt": "A friendly compact terracotta and ivory mechanical builder Bot with large camera-lens eyes",
     "originalSha256": "956dcb6bcc18f0e63de0016fe8d0464739fd1efe2d3f6e98879dc1c9d9bbdd96",
-    "crop": { "left": 72, "top": 250, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 250,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "curator",
@@ -85,7 +135,12 @@
     "description": "Burgundy and ivory enamel with a brass catalog-card drawer.",
     "alt": "A friendly burgundy and ivory mechanical curator Bot with large camera-lens eyes",
     "originalSha256": "d834f13e3d8ed2802baf2182342129508f4c56d67442e924bee84180eca400fd",
-    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 55,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "reentry",
@@ -93,7 +148,12 @@
     "description": "Midnight-indigo and blue-gray enamel with a compass instrument.",
     "alt": "A friendly midnight-indigo mechanical reentry Bot with large camera-lens eyes",
     "originalSha256": "495b6f3dfe1aec6f1fb694b31edca6a59fe00d1c1bbde54627bd4aff793dd2c1",
-    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 55,
+      "width": 880,
+      "height": 880
+    }
   },
   {
     "slug": "receipt",
@@ -101,6 +161,24 @@
     "description": "Ivory and oxblood enamel with a compact timestamp instrument.",
     "alt": "A friendly ivory and oxblood mechanical receipt Bot with large camera-lens eyes",
     "originalSha256": "13d527b11fa59cbaf2d1b25538940ad32440a5b8d566d47c13ba147e0d730f05",
-    "crop": { "left": 72, "top": 55, "width": 880, "height": 880 }
+    "crop": {
+      "left": 72,
+      "top": 55,
+      "width": 880,
+      "height": 880
+    }
+  },
+  {
+    "slug": "unstick-me",
+    "name": "Unstick Me",
+    "description": "Saffron and ivory enamel with a brass toggle switch flipped on.",
+    "alt": "A friendly saffron and ivory mechanical Unstick Me Bot with large camera-lens eyes and a switch on its chest",
+    "originalSha256": "f74489f64abdc34ecded2caabfc39e41d96a512860e33069845dd0b5b021e01d",
+    "crop": {
+      "left": 72,
+      "top": 55,
+      "width": 880,
+      "height": 880
+    }
   }
 ]

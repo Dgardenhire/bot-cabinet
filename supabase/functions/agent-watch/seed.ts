@@ -153,9 +153,9 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "signal": "Yanqing Cheng shared a Grok Bot that helps when a task feels hard to begin. It asks short questions one at a time instead of making a large plan.",
     "evidence": "observed",
     "whyItMatters": "A long plan can become one more obstacle. This narrower approach may help someone find one manageable action and begin it.",
-    "cabinetResponse": "Test this as a possible new standalone Bot. Compare it with Coach and Planner using the same stalled task, and keep it only if the smaller approach helps someone start sooner.",
-    "responseStatus": "testing",
-    "limits": "Bot Cabinet has reviewed the public description and links but has not run the Grok template or built a Hermes adaptation.",
+    "cabinetResponse": "Bot Cabinet turned it into a cross-platform template, Unstick Me, with versions for Hermes, Grok Bot and ChatGPT and setup notes for other apps. Yanqing Cheng's original Grok Bot is linked from the template.",
+    "responseStatus": "prepared",
+    "limits": "Bot Cabinet has reviewed the public description and links. Neither the original Grok template nor the Bot Cabinet versions have been task-tested yet.",
     "sources": [
       {
         "label": "Creator's post",
@@ -172,12 +172,12 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     ],
     "cabinetLinks": [
       {
-        "label": "Compare with Coach",
-        "href": "/bots/coach"
+        "label": "Use the Unstick Me template",
+        "href": "/bots/unstick-me"
       },
       {
-        "label": "Compare with Planner",
-        "href": "/bots/planner"
+        "label": "Compare with Coach",
+        "href": "/bots/coach"
       }
     ],
     "botDetails": {
@@ -189,10 +189,14 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
       "outsideActions": "None described. It asks questions and suggests a next step.",
       "evidenceStatus": "inspected",
       "cabinetDecision": "add-new",
-      "cabinetFit": "Test it against Coach and Planner first, then add it only if the smaller approach works better.",
+      "cabinetFit": "Added as Unstick Me, a cross-platform template. Coach remains the better fit for larger decisions.",
       "closestCabinetMatch": {
         "label": "Coach",
         "href": "/bots/coach"
+      },
+      "cabinetTemplate": {
+        "label": "Unstick Me",
+        "href": "/bots/unstick-me"
       }
     }
   },

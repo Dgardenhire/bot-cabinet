@@ -139,7 +139,7 @@ export type PortableBotPackV2 = {
   provenance: {
     source: "Bot Cabinet starter catalog";
     sourceUrl: string;
-    publishedDate: typeof PORTABLE_BOT_PACK_V2_PUBLISHED_DATE | "2026-09-05" | "2026-09-21";
+    publishedDate: typeof PORTABLE_BOT_PACK_V2_PUBLISHED_DATE | "2026-09-05" | "2026-09-21" | "2026-10-19";
     license: "MIT";
   };
 };
@@ -477,7 +477,7 @@ export function starterBotToPortablePackV2(
     provenance: {
       source: "Bot Cabinet starter catalog",
       sourceUrl: paths.sourcePageUrl,
-      publishedDate: bot.slug === "daily-newspaper" ? "2026-09-21" : reproducedEvidence?.publishedDate ?? PORTABLE_BOT_PACK_V2_PUBLISHED_DATE,
+      publishedDate: bot.slug === "daily-newspaper" ? "2026-09-21" : bot.slug === "unstick-me" ? "2026-10-19" : reproducedEvidence?.publishedDate ?? PORTABLE_BOT_PACK_V2_PUBLISHED_DATE,
       license: "MIT",
     },
   };
@@ -1045,7 +1045,7 @@ function validateProvenance(value: unknown, issues: string[]) {
   requiredText(provenance.sourceUrl, "pack.provenance.sourceUrl", issues);
   oneOf(
     provenance.publishedDate,
-    [PORTABLE_BOT_PACK_V2_PUBLISHED_DATE, "2026-09-05", "2026-09-21"],
+    [PORTABLE_BOT_PACK_V2_PUBLISHED_DATE, "2026-09-05", "2026-09-21", "2026-10-19"],
     "pack.provenance.publishedDate",
     issues,
   );

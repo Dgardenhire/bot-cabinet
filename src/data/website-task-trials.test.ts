@@ -39,7 +39,9 @@ describe("website task evidence", () => {
         const run = JSON.parse(readFileSync(`public${attempt.files.run}`, "utf8"));
         expect(run.humanApproved).toBe(false);
         if (attempt.completed) {
-          expect(readFileSync(`public${attempt.files.output}`, "utf8").length).toBeGreaterThan(100);
+          // Unstick Me's correct first turn is a single short question.
+          const minimumAnswer = record.slug === "unstick-me" ? 20 : 100;
+          expect(readFileSync(`public${attempt.files.output}`, "utf8").length).toBeGreaterThan(minimumAnswer);
           expect(run.desktopInstallTested).toBe(false);
           expect(run.outsideActionsTested).toBe(false);
         }

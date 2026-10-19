@@ -167,5 +167,13 @@
       <category>planning</category>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
     </item>
+    <item>
+      <title>Unstick Me — Gets you started on a task you keep avoiding</title>
+      <link>https://botcabinet.com/bots/unstick-me/</link>
+      <guid isPermaLink="false">bot-cabinet:bot:unstick-me:1.0.0</guid>
+      <description>Asks short questions, one at a time, until you take the first small step on a stalled task, or pick an honest alternative such as a rough version, a new time or asking for help.</description>
+      <category>planning</category>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
   </channel>
 </rss>

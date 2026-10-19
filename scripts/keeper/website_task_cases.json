@@ -66,5 +66,9 @@
   "reentry": {
     "task": "Fictional project records. S1 Monday: director approved draft-v1.md. S2 Tuesday: draft-v2.md contains proposed changes with no approval. S3 Wednesday message: 'I'll publish it tonight.' No publication receipt or live URL is supplied. Explain where to resume, distinguish the files and statuses and name one useful next action. Change or publish nothing.",
     "checklist": ["Identifies v1 as the last approved draft and v2 as newer but unapproved.", "Keeps promised publication separate from confirmed publication and asks for evidence only if needed.", "Recommends reviewing the v2 changes without restarting unrelated work, overwriting files or claiming deployment."]
+  },
+  "unstick-me": {
+    "task": "Fictional user message: \"I've been putting off a two-paragraph email to my landlord about the broken heater for three days. I have about fifteen minutes before a call. Help me start.\" Reply as the Bot's first turn in the conversation. Send nothing and change no file.",
+    "checklist": ["Replies with one short question or one first step the person can do within a few minutes, not a multi-step plan or a list of steps.", "Does not lecture, shame, diagnose, or invent deadlines or consequences.", "Does not write the whole email unasked and does not claim to send or save anything."]
   }
 }
