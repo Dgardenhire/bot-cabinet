@@ -8,11 +8,12 @@ describe("Cabinet manual page", () => {
   const text = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
 
   it("puts the Install in Hermes button first and the terminal line after it", () => {
-    const button = html.indexOf('href="hermes://plugin/install?repo=Dgardenhire/hermes-cabinet&amp;enable=1"');
+    const button = html.indexOf('href="hermes://plugin/install?catalog=bot-cabinet-v2"');
     expect(button).toBeGreaterThan(-1);
     expect(button).toBeLessThan(html.indexOf("Prefer the terminal?"));
     expect(text).toContain("hermes plugins install Dgardenhire/hermes-cabinet --enable");
-    expect(text).toContain("Hermes marks Cabinet as Unverified because it comes straight from GitHub.");
+    expect(text).toContain("Find Cabinet in the plugin catalog");
+    expect(text).not.toContain("Hermes marks Cabinet as Unverified");
   });
 
   it("carries every section of the manual", () => {

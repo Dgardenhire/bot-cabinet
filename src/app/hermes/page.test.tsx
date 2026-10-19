@@ -8,7 +8,8 @@ describe("Bot Cabinet in Hermes page", () => {
   const text = html.replace(/<[^>]+>/g, " ");
 
   it("installs from inside Hermes Desktop first, keeps the terminal line as a fallback, and links the manual on botcabinet.com", () => {
-    expect(html).toContain('href="hermes://plugin/install?repo=Dgardenhire/hermes-cabinet&amp;enable=1"');
+    expect(html).toContain('href="hermes://plugin/install?catalog=bot-cabinet-v2"');
+    expect(text).toContain("Find Cabinet in the plugin catalog");
     expect(text).toContain("Install in Hermes");
     expect(text).toContain("Open Cabinet in the sidebar");
     expect(text).toContain("Prefer the terminal?");
