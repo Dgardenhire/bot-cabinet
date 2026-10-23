@@ -12,6 +12,6 @@ The preserved Editor response passed the authoritative structure-and-evidence ga
 
 Technical result: **the fresh five-role handoff completed and passed its structure-and-evidence gate**.
 
-Semantic result: **publication held**. Codex inspection found one overclaim: “There is no commercial sponsor” is stronger than the source's “The report identifies no commercial sponsor.” The remaining claims were direct quotations or meaning-preserving paraphrases. This is not human approval or proof of general crew reliability.
+Semantic result: **publication held**. A separate AI review found one overclaim: “There is no commercial sponsor” is stronger than the source's “The report identifies no commercial sponsor.” The remaining claims were direct quotations or meaning-preserving paraphrases. This is not human approval or proof of general crew reliability.
 
 Provider-derived estimates across successful stages and rejected correction attempts totaled `$0.012231882`. This is an estimate, not an invoice. No profile or shared authentication copies remain in the evidence directory.

@@ -54,7 +54,7 @@ export function PackAccess() {
         <div className={styles.offerNotes}>
           <p className={document.eyebrow}>One useful job at a time</p><h2>Pick a job.<br />Try the first step.</h2>
           <ol className={styles.steps}><li><strong>Choose what bugs you every week.</strong><span>The inbox, the receipts, the Sunday-night schedule.</span></li><li><strong>Copy the starter prompt.</strong><span>Start with sample information in your AI app.</span></li><li><strong>Check the first result yourself.</strong><span>Keep approval for anything that sends, pays, deletes, or signs.</span></li></ol>
-          <div className={styles.scope}><h3>What has been checked</h3><p>The prompts were tried with made-up examples in Codex. App connections, scheduling, and use in other apps have not been tested. These are instructions to try with an AI assistant; ongoing or scheduled work needs separate setup. Each guide explains its limits.</p></div>
+          <div className={styles.scope}><h3>What has been checked</h3><p>The prompts were tried with made-up examples in an AI text-only exercise. App connections, scheduling, and use in other apps have not been tested. These are instructions to try with an AI assistant; ongoing or scheduled work needs separate setup. Each guide explains its limits.</p></div>
         </div>
         <div className={styles.accessCard}>
           <p className={document.eyebrow}>Free with Open Source</p><h2 id="pack-access-heading">Get your starter pack</h2>

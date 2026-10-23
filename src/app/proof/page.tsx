@@ -100,7 +100,7 @@ export default function ProofRoomPage() {
       <section className="content-section shell proof-room-library" aria-labelledby="catalog-trials-title">
         <div className="proof-room-library-heading">
           <div><Eyebrow>October 15, 2026 · Hermes catalog skills</Eyebrow><h2 id="catalog-trials-title" className="section-heading">Four first-task trials</h2></div>
-          <p>The contributed skills ran through Hermes’s skill loader with fictional inputs. Codex checked the answers against the contributed checklists. These are first-answer tests, not Desktop installation, connected-account tests or human approval.</p>
+          <p>The contributed skills ran through Hermes’s skill loader with fictional inputs. A separate AI review checked the answers against the contributed checklists. These are first-answer tests, not Desktop installation, connected-account tests or human approval.</p>
         </div>
         <div className="content-grid-2">
           {CATALOG_TASK_TRIALS.map(trial => <article className="content-card" key={trial.slug}>
@@ -113,7 +113,7 @@ export default function ProofRoomPage() {
       <section className="content-section shell proof-room-library" aria-labelledby="website-trials-title">
         <div className="proof-room-library-heading">
           <div><Eyebrow>{WEBSITE_TASK_COVERAGE.date} · Website downloads</Eyebrow><h2 id="website-trials-title" className="section-heading">Website Bot tests</h2></div>
-          <p>{completedTasks.length} of {WEBSITE_TASK_COVERAGE.records.length} Bots have returned a completed answer using the current downloaded instructions. {passedTasks.length} passed their supplied-material sample. These Hermes tests use fictional inputs; they do not cover Desktop installation, connected accounts or Crew handoffs. Codex reviewed the answers.</p>
+          <p>{completedTasks.length} of {WEBSITE_TASK_COVERAGE.records.length} Bots have returned a completed answer using the current downloaded instructions. {passedTasks.length} passed their supplied-material sample. These Hermes tests use fictional inputs; they do not cover Desktop installation, connected accounts or Crew handoffs. A separate AI review checked the answers.</p>
         </div>
         {WEBSITE_TASK_TRIALS.map(trial => <details className="content-card" key={trial.slug}>
           <summary>{trial.name} — {WEBSITE_TASK_STATUS_NAMES[trial.status]}</summary>

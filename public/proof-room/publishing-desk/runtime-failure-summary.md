@@ -14,7 +14,7 @@ Five profiles from the Publishing Desk 2.0.0 bundle were imported into an isolat
 
 Tested 2.0.0 bundle SHA-256: `b5f47f0c3d0108f8a3ea42a43ccd63c9b54c3a3678290c55ada76e91feb46c6c`. The current downloadable bundle may be a later candidate and is not represented by this fingerprint.
 
-This was Codex-orchestrated through the Hermes runtime. It was not an autonomous workforce or a Hermes Desktop UI test.
+This was orchestrated by an AI test agent through the Hermes runtime. It was not an autonomous workforce or a Hermes Desktop UI test.
 
 ## Result
 

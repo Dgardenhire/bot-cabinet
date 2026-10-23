@@ -27,7 +27,7 @@ export function buildAgentResourceEntries() {
       summary: bot.summary, detailUrl: `${origin}/bots/${bot.slug}/`, setup: "manual-role-instructions",
       files: [{ url: `${origin}/downloads/specialists/${bot.slug}.md`, mediaType: "text/markdown" }],
       firstTask: bot.task, checklist: bot.checklist,
-      testStatus: { level: "codex-text-exercise-not-native-app-tested", testedAt: bot.evidence?.date ?? null, evidenceUrl: `${origin}/bots/${bot.slug}/#check-answer` },
+      testStatus: { level: "ai-text-exercise-not-native-app-tested", testedAt: bot.evidence?.date ?? null, evidenceUrl: `${origin}/bots/${bot.slug}/#check-answer` },
     })),
     ...CREW_KITS.map(crew => ({
       id: `crew-kit:${crew.slug}`, kind: "crew-kit" as const, slug: crew.slug, name: crew.name,

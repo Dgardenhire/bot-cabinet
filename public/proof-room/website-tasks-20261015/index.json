@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "reviewer": "Codex",
+  "reviewer": "Separate AI review agent",
   "humanApproved": false,
   "scope": "One supplied-material task using website role instructions in the Hermes SDK; not Desktop imports, connected accounts, tool execution or crew handoffs.",
   "records": [
