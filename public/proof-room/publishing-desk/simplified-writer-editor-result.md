@@ -20,8 +20,8 @@ The source says only that the catalog URL was not supplied. It does not identify
 
 Technical handoff result: **passed to human review.** The corrected Writer handoff passed with zero gate issues. Editor returned 21 supported newsletter entries and four supported social entries, with no unsupported or ambiguous assertions. Exact boundaries, literal evidence and the human-review hold all passed.
 
-Semantic result: **passed for this fixture.** Codex separately compared every corrected publishable claim with S1–S4 and found only direct quotations, numeric restatements, date abbreviations or meaning-preserving paraphrases. Superseded details and the three invented directions are absent.
+Semantic result: **passed for this fixture.** A separate AI review compared every corrected publishable claim with S1–S4 and found only direct quotations, numeric restatements, date abbreviations or meaning-preserving paraphrases. Superseded details and the three invented directions are absent.
 
 Provider-derived estimates across the five roles, one Writer correction and one Editor re-audit totaled `$0.00965038`. This is an estimate, not an invoice. No role used a tool, published anything or retained a copied credential.
 
-Human approval remains pending. This is one successful locked fixture, not independent reproduction, general crew reliability or a one-click workforce. The correction loop was Codex-orchestrated through Hermes; nothing was sent or published.
+Human approval remains pending. This is one successful locked fixture, not independent reproduction, general crew reliability or a one-click workforce. The correction loop was orchestrated by an AI test agent through Hermes; nothing was sent or published.

@@ -5,7 +5,7 @@ Test a clear message and learn whether it helps people take the intended next st
 Category inspiration: The Growth Department, from the supplied @unicodef1wn chart.
 Cabinet treatment: New crew built around existing Pulse and Story.
 Version: 0.1 · October 6, 2026.
-Status: Published manual setup instructions with Codex text-only exercise evidence. Native imports, tools, and Bot-to-Bot handoffs remain untested.
+Status: Published manual setup instructions with AI text-only exercise evidence. Native imports, tools, and Bot-to-Bot handoffs remain untested.
 
 Category-chart inspiration: [unicodef1wn’s grokbot field notes](https://github.com/unicodef1wn/grokbot-field-notes). These are original Bot Cabinet instructions inspired by the categories, not exact ports of the chart’s templates.
 
@@ -95,4 +95,4 @@ A message brief, page proposal, paused campaign specification, and measurement p
 
 ## Exercise evidence
 
-The [collection record](../specialists/collection.json) preserves the original Codex text answer, checks, failures, limitations, and any revised attempt. These records are instruction exercises, not native-app validation. Proposed operational tests remain unrun where the record says so.
+The [collection record](../specialists/collection.json) preserves the original AI text answer, checks, failures, limitations, and any revised attempt. These records are instruction exercises, not native-app validation. Proposed operational tests remain unrun where the record says so.

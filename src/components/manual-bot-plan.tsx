@@ -18,7 +18,7 @@ type Exercise = {
 function ExerciseRecord({ evidence }: { evidence: Exercise | null }) {
   return <details className={styles.details}>
     <summary>Read the sample answer and checks</summary>
-    <p className={styles.status}>Sample written in Codex on October 6, 2026. The same assistant wrote and checked the answer. This is not an independent review or a Hermes or Grok app test.</p>
+    <p className={styles.status}>Sample written in an AI text-only exercise on October 6, 2026. The same assistant wrote and checked the answer. This is not an independent review or a Hermes or Grok app test.</p>
     {evidence ? <>
       <h3>Original answer</h3><PlanText text={evidence.actualAnswer} headingLevel={4} />
       <h3>Checklist results</h3>

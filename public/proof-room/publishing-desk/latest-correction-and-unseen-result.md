@@ -11,7 +11,7 @@ Human publication approval: not given
 
 The corrected Writer stopped padding the sparse repair-workshop source packet and returned an explicit source-shortfall draft. A later normally completed Writer produced a 77-word newsletter and a 175-code-point social draft using only supplied facts. Deterministic pre-segmentation supplied nine newsletter and five social assertions to a separately imported Editor.
 
-The final Editor audit completed normally, matched every supplied boundary and attached literal evidence to every assertion. Both structural evidence gates passed. Codex semantic review found each publishable assertion to be a direct paraphrase of the approved sources. This is a pass for the known technical fixture, not human publication approval or proof of general crew reliability.
+The final Editor audit completed normally, matched every supplied boundary and attached literal evidence to every assertion. Both structural evidence gates passed. A separate AI review found each publishable assertion to be a direct paraphrase of the approved sources. This is a pass for the known technical fixture, not human publication approval or proof of general crew reliability.
 
 Provider-derived estimates for the final known Writer/Editor pair were `$0.00030788` and `$0.00038109`. These are estimates, not an invoice.
 

@@ -79,7 +79,7 @@ def append_batch(prepared, public, review_file, date):
                 record["attempts"].append(attempt)
         record["status"] = current_status(sha, record["attempts"])
     index["date"] = date
-    index["reviewer"] = "Codex"
+    index["reviewer"] = "Separate AI review agent"
     index["humanApproved"] = False
     index_path.write_text(json.dumps(index, indent=2) + "\n")
     return {"bots": len(records), "completedBots": sum(any(attempt["completed"] for attempt in record["attempts"]) for record in records.values()),
@@ -126,7 +126,7 @@ def publish(artifacts, public):
                 "verdict": review["verdict"], "summary": review["summary"], "files": files})
         records.append({"id": bot["id"], "slug": slug, "name": bot["name"], "sha256": current_sha,
             "status": current_status(current_sha, attempts), "case": f"{prefix}/cases/{slug}.json", "attempts": attempts})
-    result = {"date": "2026-10-15", "reviewer": "Codex", "humanApproved": False,
+    result = {"date": "2026-10-15", "reviewer": "Separate AI review agent", "humanApproved": False,
         "scope": "One supplied-material task using website role instructions in the Hermes SDK; not Desktop imports, connected accounts, tool execution or crew handoffs.",
         "records": records}
     target.mkdir(parents=True, exist_ok=True)

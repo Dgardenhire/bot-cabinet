@@ -321,7 +321,7 @@ export const PROOF_ROOM_DEMOS: ProofRoomDemo[] = [
         abridged: true,
       },
     ],
-    conversationDisclosure: "These lines summarize the preserved stage outputs and Codex reviews. Provider-internal reasoning and identifiers are not published. The linked failed draft, audit fixture, deterministic result and sanitized summary are the public evidence.",
+    conversationDisclosure: "These lines summarize the preserved stage outputs and the separate AI reviews. Provider-internal reasoning and identifiers are not published. The linked failed draft, audit fixture, deterministic result and sanitized summary are the public evidence.",
     deliverable: {
       label: "Read the latest failed repeat",
       description: "The unsupported claim, the check added to catch it, and what still needs testing.",
