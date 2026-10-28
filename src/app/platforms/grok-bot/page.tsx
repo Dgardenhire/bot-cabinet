@@ -24,7 +24,7 @@ import { STARTER_BOTS } from "../../../data/starter-bots";
 import { buildPageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Grok Bot Templates · Bot Cabinet",
+  title: "Build briefs for Grok Bot",
   description:
     "Choose a Bot job, follow the Grok Bot setup instructions, and try its first task.",
   path: "/platforms/grok-bot/",
@@ -88,7 +88,7 @@ export default function GrokBotTemplatesPage() {
       <section className="grok-platform-map shell" aria-labelledby="grok-current-heading">
         <div className="grok-platform-map-heading">
           <div>
-            <Eyebrow>Source review · September 20, 2026 · Not runtime-tested</Eyebrow>
+            <Eyebrow>Source review · October 27, 2026 · Not runtime-tested</Eyebrow>
             <h2 id="grok-current-heading">Find an existing template</h2>
           </div>
           <p>
@@ -97,7 +97,7 @@ export default function GrokBotTemplatesPage() {
             Cabinet&apos;s downloads here remain manual build briefs, not native templates.
           </p>
         </div>
-        <div className="grok-platform-map-grid">
+        <div className="grok-platform-map-grid is-two-up">
           <article>
             <h3>Browse by the job</h3>
             <p>
@@ -109,7 +109,7 @@ export default function GrokBotTemplatesPage() {
           <article>
             <h3>Inspect the setup before adding it</h3>
             <p>
-              xAI&apos;s September 8 guide describes templates as reusable recipes.
+              SpaceXSI&apos;s September 8 guide describes templates as reusable recipes.
               Review included context and integrations. Plugins may need setup;
               custom scripts and non-standard integrations may need separate transfer.
               Start with sample data and check the result before connecting sensitive accounts.
@@ -203,7 +203,7 @@ export default function GrokBotTemplatesPage() {
             <Eyebrow>Five-line handoff</Eyebrow>
             <p>Outcome · Sources · Constraints · Deliverable · Review point</p>
             <small>
-              Bot Cabinet is independent and is not affiliated with xAI or Cursor.
+              Bot Cabinet is independent and is not affiliated with SpaceXSI (SpaceXAI LLC), the maker of Grok Bot, or with Cursor.
               Product behavior can change. Check the current documentation before
               connecting sensitive accounts or allowing consequential actions.
             </small>

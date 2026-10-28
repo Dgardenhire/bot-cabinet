@@ -377,7 +377,7 @@ export function ReliableBotsGuidePdf() {
           <Text style={styles.sourceText}>
             This guide draws on an independent synthesis by GitHub user
             unicodef1wn of a 72-hour public build by members of the Grok Bot
-            team. It is not official xAI guidance. Bot Cabinet has not tested
+            team. It is not official SpaceXSI guidance. Bot Cabinet has not tested
             this complete method as one system.
           </Text>
           <Link src={FIELD_NOTES_URL} style={styles.sourceLink}>

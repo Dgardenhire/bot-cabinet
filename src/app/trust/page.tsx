@@ -10,6 +10,9 @@ import { KeeperTrustStatusTable } from "@/components/keeper-trust-status";
 import { KEEPER_TRUST_FALLBACK } from "@/lib/keeper-status-live";
 import { buildPageMetadata } from "@/lib/metadata";
 
+/** The static export is built once, so this is the build time the Keeper table is judged against before scripts run. */
+const BUILT_AT = Date.now();
+
 export const metadata: Metadata = buildPageMetadata({
   title: "How Bot Cabinet checks its work",
   description: "See dated site checks, Bot test results, and checks with no published result.",
@@ -69,9 +72,9 @@ export default function TrustPage() {
         <div className="trust-status-heading">
           <Eyebrow>Latest public record</Eyebrow>
           <h2 className="section-heading" id="keeper-status-title">Latest Keeper results</h2>
-          <p className="section-deck">See the last published results for pages, downloads, and Bot sources. These records are dated and reviewed before publication. Missing results show “No public record”; old passing results show “Out of date.”</p>
+          <p className="section-deck">See the last published results for pages, downloads, and Bot sources. These records are dated and reviewed before publication, and they show here for 14 days. Missing results show “No public record”; old passing results show “Out of date.”</p>
         </div>
-        <KeeperTrustStatusTable fallback={KEEPER_TRUST_FALLBACK} />
+        <KeeperTrustStatusTable fallback={KEEPER_TRUST_FALLBACK} builtAt={BUILT_AT} />
         </div>
         <div className="content-grid-3 trust-summary-grid">
           <article className="content-card"><CheckCircle size={24} weight="thin" /><h2>Release checks</h2><p>Every public release checks pages, links, social images, downloads, and site behavior.</p><a className="text-link" href="https://github.com/Dgardenhire/bot-cabinet/actions" target="_blank" rel="noreferrer">See the latest public run <ArrowSquareOut size={14} /></a></article>

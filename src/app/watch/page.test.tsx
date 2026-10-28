@@ -37,7 +37,7 @@ describe("Agent Watch", () => {
     expect(html).toContain("Why it stands out");
     expect(html).toContain("Source reviewed");
     expect(html).toContain("Bots for specific jobs, with source links and test status");
-    expect(html).toContain("Import Bot");
+    expect(html).toContain("Email Scam Filter");
     expect(html).toContain("Diagnose My Agent&#x27;s Mistake");
     expect(html).toContain("Muse at Work");
     expect(html).toContain("Try the step-by-step guide");
@@ -47,7 +47,7 @@ describe("Agent Watch", () => {
     expect(html).toContain("has not yet been task-tested");
     expect(html).toContain("Nasiko");
     expect(html).toContain("Agent infrastructure");
-    expect(html).toContain("Official Grok Bot Marketplace listing");
+    expect(html).toContain("Brian Roemmele");
     expect(html).toContain("Creator");
     expect(html).toContain("Accounts, tools and actions");
     expect(html).toContain("Similar Cabinet Bot");
@@ -66,7 +66,7 @@ describe("Agent Watch", () => {
     expect(html).not.toContain("all three");
     expect(html).toContain("Guide available");
     expect(metadata.alternates?.types).toBeUndefined();
-    expect(html).toContain("https://gemini.google/overview/agent/spark/");
-    expect(sitemap().some(entry => entry.url === "https://botcabinet.com/watch/")).toBe(true);
+    expect(html).toContain("https://support.google.com/gemini/answer/17094507?hl=en");
+    expect(sitemap()).toContainEqual(expect.objectContaining({ url: "https://botcabinet.com/watch/", lastModified: new Date("2026-10-27") }));
   });
 });

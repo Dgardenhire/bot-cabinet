@@ -28,7 +28,7 @@ export const AGENT_WATCH_SOURCES: AgentWatchSource[] = [
   { name: "GitLab agent repositories", href: "https://gitlab.com/explore/projects/topics/ai-agent", group: "Repositories and releases", coverage: "Live listings" },
   { name: "Muse", href: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", group: "Agent products", coverage: "Checked for each update" },
   { name: "Instinct", href: "https://instinct.com/", group: "Agent products", coverage: "Checked for each update" },
-  { name: "Gemini Spark", href: "https://gemini.google/overview/agent/spark/", group: "Agent products", coverage: "Checked for each update" },
+  { name: "Gemini Tasks (formerly Spark)", href: "https://support.google.com/gemini/answer/17094507?hl=en", group: "Agent products", coverage: "Checked for each update" },
   { name: "Nasiko", href: "https://github.com/Nasiko-Labs/nasiko", group: "Agent infrastructure", coverage: "Checked for each update" },
 ];
 

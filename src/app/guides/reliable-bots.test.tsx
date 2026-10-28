@@ -22,7 +22,7 @@ describe("reliable Bots guide", () => {
 
     expect(html).toContain("How to run Bots reliably");
     expect(html).toContain("independent synthesis by GitHub user unicodef1wn");
-    expect(html).toContain("It is not official xAI guidance");
+    expect(html).toContain("It is not official SpaceXSI guidance");
     expect(html).toContain("https://github.com/unicodef1wn/grokbot-field-notes");
     expect(html).toContain("Write the job instructions");
     expect(html).toContain("Choose a Bot, a skill or a routine");

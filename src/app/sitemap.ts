@@ -57,7 +57,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (route === "/hermes" || route === "/hermes/manual") return "2026-10-16";
     if (jobReleaseRoutes.has(route)) return "2026-10-15";
     if (updatedRoutes.has(route)) return "2026-10-06";
-    if (["/start/dots", "/compare", "/watch"].includes(route)) return "2026-09-29";
+    if (route === "/watch") return "2026-10-27";
+    if (["/start/dots", "/compare"].includes(route)) return "2026-09-29";
     return "2026-09-03";
   }
 

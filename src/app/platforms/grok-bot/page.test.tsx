@@ -7,7 +7,7 @@ import GrokBotTemplatesPage from "./page";
 describe("Grok Bot platform page", () => {
   it("offers a dated external-template path without passing it off as a Cabinet runtime test", () => {
     const html = renderToStaticMarkup(<GrokBotTemplatesPage />);
-    expect(html).toContain("September 20, 2026 · Not runtime-tested");
+    expect(html).toContain("October 27, 2026 · Not runtime-tested");
     expect(html).toContain('href="https://x.ai/bot/marketplace"');
     expect(html).toContain('href="https://x.ai/bot/guides/templates-for-grok-bot"');
     expect(html).toContain("manual build briefs, not native templates");
@@ -53,7 +53,7 @@ describe("Grok Bot platform page", () => {
     const html = renderToStaticMarkup(<GrokBotTemplatesPage />);
 
     expect(html).toContain("Set up, test, and manage Grok Bots");
-    expect(html).toContain("Checked September 24, 2026");
+    expect(html).toContain("Checked October 27, 2026");
     expect(html).toContain('href="/downloads/guides/grok-bot-operator-guide.pdf"');
     expect(html).toContain("Choose a Bot, Skill or Routine");
     expect(html).toContain("Protect accounts and files");

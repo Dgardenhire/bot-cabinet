@@ -1068,6 +1068,7 @@ html[data-theme="light"] .review-status-row span { color: #70483d; }
 .grok-platform-map-heading > p,
 .grok-template-heading > p { max-width: 630px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
 .grok-platform-map-grid { display: grid; grid-template-columns: minmax(0,1fr) 62px minmax(0,1fr); align-items: stretch; }
+.grok-platform-map-grid.is-two-up { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
 .grok-platform-map-grid article { min-height: 320px; padding: 28px; border: 1px solid var(--line); background: var(--ink-soft); }
 .grok-platform-map-grid article > svg { color: var(--brass-bright); }
 .grok-platform-map-grid article > span { display: block; margin-top: 38px; color: var(--brass-bright); font: 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
@@ -2448,7 +2449,7 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .bot-pack-v2-job, .bot-pack-v2-recipes { grid-template-columns: 1fr; }
   .bot-pack-v2-job article, .bot-pack-v2-recipes article { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line-soft); }
   .bot-pack-v2-job article:last-child, .bot-pack-v2-recipes article:last-child { border-bottom: 0; }
-  .grok-platform-map-grid { grid-template-columns: 1fr; }
+  .grok-platform-map-grid, .grok-platform-map-grid.is-two-up { grid-template-columns: 1fr; }
   .grok-platform-map-connector { min-height: 58px; }
   .grok-platform-map-connector svg { transform: rotate(90deg); }
   .grok-sharing-facts { grid-template-columns: 1fr; }

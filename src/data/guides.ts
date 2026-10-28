@@ -87,7 +87,7 @@ export const GUIDES: Guide[] = [
     summary: "Set up a Bot in ChatGPT, Claude or another app. Copy its instructions, connect the accounts it needs, and try its first task.",
     audience: "Anyone choosing where to run a Bot",
     readTime: "7 min",
-    updated: "2026-09-24",
+    updated: "2026-10-27",
     coverImage: "/atelier/victorian-library-guides-v1.png",
     sections: [
       {
@@ -132,9 +132,11 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        heading: "Claude: use a Cowork plugin or skill",
+        heading: "Claude: upload the Bot's Skill",
         paragraphs: [
+          "To add a Bot to Claude, open Customize > Skills > Upload a skill. Claude expects the skill folder at the top of the ZIP, and the Bot's pack keeps it inside a subfolder. Unzip the pack, compress only the Bot's skill folder (for Scout, skills/scout-core), and upload that ZIP.",
           "For a general work role, Cowork is the better fit. A Claude plugin can bundle the Bot's skills, connections and optional helper agents. Start with one skill and the fewest connections. Use Manual approval while you test. A schedule can come later if the job truly needs to run on its own.",
+          "On Free, Pro and Max, each person uploads the Skill to their own account; only Team and Enterprise can share Skills inside an organization. Claude Duet: tell it in plain words what to check and how often; Anthropic has not published a schedule screen for Duet.",
           "Claude Code is the right home only when the Bot's job lives in a codebase or local project folder. A release checker, documentation maintainer or code reviewer may fit there. A general Chief of Staff usually belongs in Cowork, not Claude Code. Claude Artifacts can be useful outputs, but an Artifact is not the standing agent itself.",
         ],
         bullets: [
@@ -147,6 +149,8 @@ export const GUIDES: Guide[] = [
         sources: [
           { label: "Anthropic: Get started with Claude Cowork", href: "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork" },
           { label: "Anthropic: Use plugins in Claude", href: "https://support.claude.com/en/articles/13837440-use-plugins-in-claude" },
+          { label: "Anthropic: Use skills in Claude", href: "https://support.claude.com/en/articles/12512180-use-skills-in-claude" },
+          { label: "Anthropic: Get started with Claude Duet", href: "https://support.claude.com/en/articles/17631495-get-started-with-claude-duet" },
           { label: "Anthropic: Set up Claude Code", href: "https://docs.anthropic.com/en/docs/claude-code/getting-started" },
         ],
       },
@@ -192,7 +196,7 @@ and no message, event or task is created without approval.`,
         heading: "Decide what the Bot should do",
         paragraphs: [
           "Give the Bot a job you can check. Save its answer or file, compare it with the source material, and confirm that it stops when information is missing or an action needs your approval.",
-          "This guide draws on an independent synthesis by GitHub user unicodef1wn of a 72-hour public build by three members of the Grok Bot team. The repository gathers rules, role notes and failures seen during that event. It is not official xAI guidance. Bot Cabinet has not checked every conclusion against the full stream or tested this whole guide as one system.",
+          "This guide draws on an independent synthesis by GitHub user unicodef1wn of a 72-hour public build by three members of the Grok Bot team. The repository gathers rules, role notes and failures seen during that event. It is not official SpaceXSI guidance. Bot Cabinet has not checked every conclusion against the full stream or tested this whole guide as one system.",
         ],
         note: "The field notes are an independent account of the event. Test these steps in the app you use before relying on them.",
         sources: [
@@ -454,13 +458,13 @@ Do not create the routine, connect accounts or print yet.`,
           "You do not need to build your own AI system to benefit from an agent. A service may already handle your job. Saved instructions may help an assistant do the same job more than once. Tools for software builders matter when you are making a product or need control that a ready-made service does not offer.",
           "Choose the simplest option that can do your job. These examples come from public product descriptions; Bot Cabinet has not ranked the services or tested them hands-on.",
         ],
-        note: "Pages checked September 20, 2026. Product descriptions come from the companies unless we say otherwise. Access, prices and features can change. Bot Cabinet has not tested these services side by side.",
+        note: "Pages checked September 20, 2026. Muse and Instinct lines checked October 27, 2026. Product descriptions come from the companies unless we say otherwise. Access, prices and features can change. Bot Cabinet has not tested these services side by side.",
       },
       {
         heading: "Ask a ready-to-use assistant",
         paragraphs: [
-          "Meta describes Muse as a personal agent with background work, connected apps and a dedicated cloud computer. Its September 8 announcement describes a US rollout on iOS, Android and web, plus WhatsApp messaging, free access and subscription options. Confidential VM, Shop Pay and 1Password support were future additions in that announcement—not capabilities this guide verifies as available.",
-          "Instinct describes an assistant you text or call, with connected context and proactive follow-up. Its public start link leads to sign-in. We have not verified a generally available price or whether a particular person's accounts and devices are supported. Treat those as questions to resolve before committing.",
+          "Meta describes Muse as a personal agent with background work, connected apps and a dedicated cloud computer. Its September 8 announcement describes a US rollout on iOS, Android and web, plus WhatsApp messaging, free access and subscription options. Muse has since reached Canada (September 18, 2026) and Japan (October 22, 2026). Confidential VM, Shop Pay and 1Password support were future additions in that announcement—not capabilities this guide verifies as available.",
+          "Instinct describes an assistant you text or call, with connected context and proactive follow-up. New users need an invite or a waitlist spot, and Instinct publishes no price. We have not verified whether a particular person's accounts and devices are supported. Treat those as questions to resolve before committing.",
           "Consider this path when you want a result rather than another system to administer. First check your actual services, the access required, what happens before a send or purchase, and how to disconnect and delete stored information. A simple chat interface does not eliminate those decisions.",
         ],
         sources: [

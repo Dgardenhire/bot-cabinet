@@ -28,7 +28,11 @@ describe("BotPlatformChooser", () => {
     expect(html).toContain("Prepared · test pending");
     expect(html).toContain("Portable Bot Pack");
     expect(html).toContain("ChatGPT Workspace Agent");
-    expect(html).toContain("Use a Cowork plugin or Skill");
+    expect(html).toContain("Customize &gt; Skills &gt; Upload a skill");
+    expect(html).toContain("compress only the <code>skills/scout-core</code> folder");
+    expect(html).toContain("Claude Duet");
+    expect(html).toContain("asks before it sends a potentially sensitive message");
+    expect(html).not.toContain("before it sends a message,");
     expect(html).toContain('href="/guides/use-a-bot-on-another-platform"');
     expect(html).toContain('href="/downloads/starter-bots/v2/scout.tar.gz"');
     expect(html).toContain('href="/downloads/grok-bot-templates/v2/scout.md"');

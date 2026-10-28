@@ -16,7 +16,9 @@ describe("portable Bot platform guide", () => {
   it("gives honest ChatGPT and Claude setup paths with a first test", async () => {
     const html = renderToStaticMarkup(await GuidePage({ params: Promise.resolve({ slug }) }));
     expect(html).toContain("ChatGPT Workspace Agent");
-    expect(html).toContain("Cowork plugin or skill");
+    expect(html).toContain("Claude: upload the Bot&#x27;s Skill");
+    expect(html).toContain("open Customize &gt; Skills &gt; Upload a skill");
+    expect(html).toContain("for Scout, skills/scout-core");
     expect(html).toContain("Claude Code is the right home only when the Bot&#x27;s job lives in a codebase");
     expect(html).toContain("Example: Chief of Staff");
     expect(html).toContain("Prepared instructions have not necessarily been installed or tested");

@@ -137,8 +137,8 @@ export default function Home() {
             <h2 id="bot-proof-title" className="section-heading">See Scout’s research brief</h2>
           </div>
           <p className="section-deck">
-            Watch a recorded excerpt of Scout’s answer. The complete run
-            record was not preserved; the test page explains what is available.
+            Watch a recorded excerpt of Scout’s answer. The test record
+            explains what this excerpt shows and what it does not.
           </p>
         </div>
         <figure className="bot-proof-video-frame">
@@ -151,7 +151,7 @@ export default function Home() {
           >
             <source src="/videos/bot-cabinet-scout-in-action.mp4" type="video/mp4" />
           </video>
-          <figcaption>Recorded Scout excerpt. The complete raw run record was not preserved.</figcaption>
+          <figcaption>Recorded Scout excerpt.</figcaption>
         </figure>
         <div className="bot-proof-room-link"><TextLink href="/proof">Inspect the test record</TextLink></div>
       </section>
@@ -206,7 +206,7 @@ export default function Home() {
         <Link className="platform-slide" href="/platforms/grok-bot">
           <div>
             <span>Use a Bot in Grok</span>
-            <h3>Grok Bot Templates</h3>
+            <h3>Build briefs for Grok Bot</h3>
             <p>Choose a job, copy the instructions, and follow the Grok Bot setup guide.</p>
           </div>
           <strong>Set up a Grok Bot <ArrowRight size={17} aria-hidden="true" /></strong>
