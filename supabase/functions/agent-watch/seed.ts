@@ -79,18 +79,18 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
   },
   {
     "slug": "gemini-gems-become-skills",
-    "observedOn": "2026-10-27",
+    "observedOn": "2026-10-28",
     "reviewAgainBy": "2026-11-10",
-    "title": "Gemini Gems on personal accounts become read-only skills on November 17 and disappear December 17",
+    "title": "Gemini Gems on personal accounts (18 and over) go read-only and become skills on November 17, then disappear December 17",
     "signal": "Google is replacing Gems with skills in the Gemini app. For personal Google accounts of people 18 and over, Gems transition to skills and become read-only on November 17, 2026, and are removed on December 17, 2026. Workspace business, enterprise and nonprofit accounts follow in March 2027 and education accounts in June 2027. Google has also renamed Gemini Spark to Task.",
     "evidence": "provider-claim",
-    "whyItMatters": "Gemini accepts a SKILL.md file, or a folder or .zip with SKILL.md in its main folder, so a Bot Cabinet skill can be uploaded to Gemini. Google says skills will be shareable in the coming weeks; until then, each person uploads their own. Skills work without a paid plan, while tasks need Google AI Pro or Ultra and are not offered in the European Economic Area, Nigeria, Switzerland or the United Kingdom.",
-    "cabinetResponse": "Google says it will turn your Gems into skills automatically, along with supported files. Files beyond the 100 MB limit are dropped, largest first, and some file types, including audio, video, older Office files and archives, are left out. Check each converted skill after November 17 and save anything you still need from a Gem before December 17. To add a Bot Cabinet skill, upload its folder at gemini.google.com or in the Gemini app on a Mac. Use a lowercase, hyphenated name, keep the upload under 100 MB, leave out .docx, .doc and .xlsx files, and remove hidden files such as .DS_Store, which can make an upload fail.",
-    "responseStatus": "watching",
+    "whyItMatters": "Gemini accepts a SKILL.md file, or a folder or .zip with SKILL.md in its main folder. Each Bot's Agent Skill is a single SKILL.md that meets those rules; Bot Cabinet has not uploaded one to Gemini yet. Google says skills will be shareable in the coming weeks; until then, each person uploads their own. Skills work without a paid plan, while tasks need Google AI Pro or Ultra and are not offered in the European Economic Area, Nigeria, Switzerland or the United Kingdom.",
+    "cabinetResponse": "Google says it will turn your Gems into skills automatically, along with supported files. Files beyond the 100 MB limit are dropped, largest first, and some file types, including audio, video, older Office files and archives, are left out. Gems by Google Labs go away on November 17 as well. Before November 17, save each Gem's instructions. After it, check each converted skill and download any missing files from the Gem before December 17. To add a Bot, download its Agent Skill, a single SKILL.md file, from the Bot's page and upload it at gemini.google.com or in the Gemini app on a Mac. Upload that file by itself, since the Bot's .zip pack keeps it in a subfolder.",
+    "responseStatus": "published",
     "limits": "Bot Cabinet has not uploaded a skill to Gemini. Google gives no date for skill sharing, and accounts for people under 18 will transition later. Scripts in a skill cannot make requests to outside websites.",
     "sources": [
       {
-        "label": "Google Help: Gems are transitioning to skills",
+        "label": "Google Help: About the transition from Gems to skills",
         "href": "https://support.google.com/gemini/answer/18560919?hl=en"
       },
       {
@@ -100,6 +100,12 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
       {
         "label": "Google Help: Manage your tasks (Where did Spark go?)",
         "href": "https://support.google.com/gemini/answer/17094507?hl=en"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Read the Gemini guide",
+        "href": "/guides/gemini-skills-and-tasks/"
       }
     ]
   },

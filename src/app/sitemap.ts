@@ -58,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (jobReleaseRoutes.has(route)) return "2026-10-15";
     if (updatedRoutes.has(route)) return "2026-10-06";
     if (route === "/watch") return "2026-10-27";
+    if (route === "/guides" || route === "/guides/gemini-skills-and-tasks") return "2026-10-28";
     if (["/start/dots", "/compare"].includes(route)) return "2026-09-29";
     return "2026-09-03";
   }

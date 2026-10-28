@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowSquareOut, Info, Warning } from "@phosphor-icons/react/dist/ssr";
 import { EvidencePill, Eyebrow } from "@/components/ui";
 import { CopyTextButton } from "@/components/copy-text-button";
-import { getGuide, GUIDES } from "@/data/guides";
+import { getGuide, guideSectionId, GUIDES } from "@/data/guides";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
@@ -50,7 +50,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <div className="guide-article-body">
           {guide.sections.map((section) => (
             <section key={section.heading}>
-              <h2>{section.heading}</h2>
+              <h2 id={guideSectionId(section.heading)}>{section.heading}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
               {section.code && <div className="guide-code-block"><pre className="guide-code"><code>{section.code}</code></pre><CopyTextButton text={section.code} label="Copy this text" analyticsEvent="guide_example_copy" analyticsSurface="field_manual" /></div>}

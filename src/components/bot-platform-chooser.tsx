@@ -225,6 +225,9 @@ export function BotPlatformChooser({
             Download the instructions, Bot Passport and setup notes as Markdown
             or JSON. The Agent Skill is a <code>SKILL.md</code> file. Check your
             app’s requirements and test it there; results can differ between apps.
+            For Gemini, upload the <code>SKILL.md</code> file on its own. It meets
+            Google’s upload rules but has not been tested in Gemini yet.{" "}
+            <Link href="/guides/gemini-skills-and-tasks/#add-a-bot-to-gemini" className="inline-link">Add a Bot to Gemini</Link>.
           </p>
           <div className="bot-platform-file-actions">
             <a
