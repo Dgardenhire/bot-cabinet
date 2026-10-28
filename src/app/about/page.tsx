@@ -55,16 +55,16 @@ export default function AboutPage() {
           <p>
             He is a strategist, writer, journalist, and builder with roughly
             three decades of experience helping organizations make sense of difficult choices.
-            He founded <a href="https://linchpin.studio/" target="_blank" rel="noreferrer">LINCHPIN</a>,
+            He founded <a href="https://linchpin.studio/" target="_blank" rel="noopener">LINCHPIN</a>,
             where the practice advises and the studio builds.
           </p>
           <p>
-            He also created <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noreferrer">AI for the Real World</a>,
+            He also created <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noopener">AI for the Real World</a>,
             which helps nontechnical leaders apply AI to their work through seminars, workshops,
             examples, and practical tools.
           </p>
           <p>
-            He publishes <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noreferrer">Open Source</a>,
+            He publishes <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noopener">Open Source</a>,
             a five-minute Monday briefing on the handful of developments in AI that are most
             likely to change a decision someone will make next.
           </p>
@@ -100,14 +100,14 @@ export default function AboutPage() {
             <Compass size={29} weight="thin" aria-hidden="true" />
             <h2>LINCHPIN</h2>
             <p>A strategy practice and product studio for communications, funding, policy, and practical digital tools.</p>
-            <a href="https://linchpin.studio/" target="_blank" rel="noreferrer" className="text-link">Visit LINCHPIN <ArrowRight size={15} /></a>
+            <a href="https://linchpin.studio/" target="_blank" rel="noopener" className="text-link">Visit LINCHPIN <ArrowRight size={15} /></a>
           </article>
           <article className="content-card">
             <Newspaper size={29} weight="thin" aria-hidden="true" />
             <h2>AI for the Real World</h2>
             <p>Practical AI education, workshops, examples, and tools for nontechnical leaders.</p>
-            <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noreferrer" className="text-link">Visit the seminar <ArrowRight size={15} /></a>
-            <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noreferrer" className="text-link about-secondary-link">Read Open Source <ArrowRight size={15} /></a>
+            <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noopener" className="text-link">Visit the seminar <ArrowRight size={15} /></a>
+            <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noopener" className="text-link about-secondary-link">Read Open Source <ArrowRight size={15} /></a>
           </article>
           <article className="content-card">
             <Wrench size={29} weight="thin" aria-hidden="true" />
@@ -156,11 +156,11 @@ export default function AboutPage() {
           <p className="section-deck">These links lead to LINCHPIN’s main site, AI work, product studio, and practical workshop for leaders.</p>
         </div>
         <div className="linchpin-link-grid">
-          <a href="https://linchpin.studio/" target="_blank" rel="noreferrer"><Compass size={25} weight="thin" /><span>LINCHPIN</span><strong>Strategy practice and product studio</strong><ArrowUpRight size={15} /></a>
-          <a href="https://linchpin.studio/ai-lab" target="_blank" rel="noreferrer"><Flask size={25} weight="thin" /><span>AI Innovation Lab</span><strong>Applied AI research, briefings, and advisory work</strong><ArrowUpRight size={15} /></a>
-          <a href="https://linchpin.studio/studio" target="_blank" rel="noreferrer"><Wrench size={25} weight="thin" /><span>The Studio</span><strong>Products and public tools built with AI</strong><ArrowUpRight size={15} /></a>
-          <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noreferrer"><Newspaper size={25} weight="thin" /><span>AI for the Real World</span><strong>Practical AI seminars for nontechnical leaders</strong><ArrowUpRight size={15} /></a>
-          <a href="https://linchpin.studio/workshop" target="_blank" rel="noreferrer"><Wrench size={25} weight="thin" /><span>LINCHPIN Workshop</span><strong>Workshops built around real organizational needs</strong><ArrowUpRight size={15} /></a>
+          <a href="https://linchpin.studio/" target="_blank" rel="noopener"><Compass size={25} weight="thin" /><span>LINCHPIN</span><strong>Strategy practice and product studio</strong><ArrowUpRight size={15} /></a>
+          <a href="https://linchpin.studio/ai-lab" target="_blank" rel="noopener"><Flask size={25} weight="thin" /><span>AI Innovation Lab</span><strong>Applied AI research, briefings, and advisory work</strong><ArrowUpRight size={15} /></a>
+          <a href="https://linchpin.studio/studio" target="_blank" rel="noopener"><Wrench size={25} weight="thin" /><span>The Studio</span><strong>Products and public tools built with AI</strong><ArrowUpRight size={15} /></a>
+          <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noopener"><Newspaper size={25} weight="thin" /><span>AI for the Real World</span><strong>Practical AI seminars for nontechnical leaders</strong><ArrowUpRight size={15} /></a>
+          <a href="https://linchpin.studio/workshop" target="_blank" rel="noopener"><Wrench size={25} weight="thin" /><span>LINCHPIN Workshop</span><strong>Workshops built around real organizational needs</strong><ArrowUpRight size={15} /></a>
         </div>
       </section>
 

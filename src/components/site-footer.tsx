@@ -56,22 +56,22 @@ export function SiteFooter() {
           <a href="https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode" target="_blank" rel="noreferrer">
             Official Bot Mode docs <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <a href="https://linchpin.studio/" target="_blank" rel="noreferrer">
+          <a href="https://linchpin.studio/" target="_blank" rel="noopener">
             LINCHPIN <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <a href="https://linchpin.studio/ai-lab" target="_blank" rel="noreferrer">
+          <a href="https://linchpin.studio/ai-lab" target="_blank" rel="noopener">
             AI Innovation Lab <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noreferrer">
+          <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noopener">
             Open Source newsletter <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <a href="https://linchpin.studio/studio" target="_blank" rel="noreferrer">
+          <a href="https://linchpin.studio/studio" target="_blank" rel="noopener">
             The Studio <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noreferrer">
+          <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noopener">
             AI for the Real World <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <a href="https://linchpin.studio/workshop" target="_blank" rel="noreferrer">
+          <a href="https://linchpin.studio/workshop" target="_blank" rel="noopener">
             LINCHPIN Workshop <ArrowUpRight size={14} aria-hidden="true" />
           </a>
         </div>

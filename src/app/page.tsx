@@ -261,10 +261,10 @@ export default function Home() {
             </p>
             <TextLink href="/about">Meet the founder and learn why Bot Cabinet exists</TextLink>
             <div className="founder-external-links">
-              <a href="https://linchpin.studio/" target="_blank" rel="noreferrer">LINCHPIN <ArrowUpRight size={13} /></a>
-              <a href="https://linchpin.studio/ai-lab" target="_blank" rel="noreferrer">AI Innovation Lab <ArrowUpRight size={13} /></a>
-              <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noreferrer">AI for the Real World <ArrowUpRight size={13} /></a>
-              <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noreferrer">Open Source newsletter <ArrowUpRight size={13} /></a>
+              <a href="https://linchpin.studio/" target="_blank" rel="noopener">LINCHPIN <ArrowUpRight size={13} /></a>
+              <a href="https://linchpin.studio/ai-lab" target="_blank" rel="noopener">AI Innovation Lab <ArrowUpRight size={13} /></a>
+              <a href="https://ai-seminar.linchpin.studio/" target="_blank" rel="noopener">AI for the Real World <ArrowUpRight size={13} /></a>
+              <a href="https://ai-seminar.linchpin.studio/open-source" target="_blank" rel="noopener">Open Source newsletter <ArrowUpRight size={13} /></a>
             </div>
           </div>
         </div>
