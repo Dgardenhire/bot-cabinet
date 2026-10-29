@@ -15,6 +15,7 @@ import {
   portableBotPackV2ApiIndex,
   portableBotPackV2Catalog,
   portableBotPackV2ToGrokMarkdown,
+  portableBotPackV2ToJson,
   portableBotPackV2ToMarkdown,
 } from "./portable-bot-pack-v2-artifacts";
 import { portableBotPackV2ArtifactPaths, starterBotToPortablePackV2 } from "./portable-bot-pack-v2";
@@ -171,6 +172,55 @@ describe("Portable Bot Pack V2 artifact compilers", () => {
       "The included Skill “Diagnose a bad AI result” is prepared and not-tested.",
     );
     expect(pack.instructions.durableRoleAndBoundaries).toContain("missing receipt is not proof of a missed run");
+  });
+
+  it("names the outside creator in every Markdown download of each inspired Bot", () => {
+    const inspired = STARTER_BOTS.filter((bot) => bot.inspiredBy);
+    expect(inspired.map((bot) => bot.slug)).toEqual(
+      expect.arrayContaining(["daily-newspaper", "unstick-me"]),
+    );
+
+    for (const bot of inspired) {
+      const { creator, work, href } = bot.inspiredBy!;
+      const line = `Inspired by ${creator}'s ${work}: ${href}`;
+      const pack = starterBotToPortablePackV2(bot);
+      const hermes = compilePortableBotPackV2HermesFiles(pack);
+      const markdownDownloads = {
+        "portable .md": portableBotPackV2ToMarkdown(pack),
+        "Grok brief": portableBotPackV2ToGrokMarkdown(pack),
+        "README.md": hermes["README.md"],
+        "BOT-PASSPORT.md": hermes["BOT-PASSPORT.md"],
+        "core SKILL.md": hermes[`skills/${bot.slug}-core/SKILL.md`],
+      };
+
+      for (const [name, content] of Object.entries(markdownDownloads)) {
+        expect(content, `${bot.slug} ${name}`).toContain(creator);
+        expect(content, `${bot.slug} ${name}`).toContain(href);
+        expect(content, `${bot.slug} ${name}`).toContain(line);
+      }
+      expect(hermes["README.md"]).toContain(`## Credit\n\n${line}\n`);
+      expect(hermes["BOT-PASSPORT.md"]).toContain(`## Credit\n\n${line}\n`);
+      expect(hermes[`skills/${bot.slug}-core/SKILL.md`]).toContain(
+        `**Test status:** ${pack.skills[0].testStatus}\n\n## Credit\n\n${line}\n`,
+      );
+      // The credit is documentation: the Bot's instructions and the gated JSON stay as they were.
+      expect(hermes["SOUL.md"]).not.toContain(href);
+      expect(portableBotPackV2ToJson(pack)).not.toContain(href);
+    }
+
+    const scout = compilePortableBotPackV2HermesFiles(
+      packs.find((candidate) => candidate.identity.slug === "scout")!,
+    );
+    expect(scout["README.md"]).not.toContain("## Credit");
+  });
+
+  it("names the Ops Diagnose Skill's source in the Ops README", () => {
+    const pack = packs.find((candidate) => candidate.identity.slug === "ops")!;
+    const readme = compilePortableBotPackV2HermesFiles(pack)["README.md"];
+
+    expect(readme).toContain(
+      "- The included Skill “Diagnose a bad AI result” is prepared and not-tested.\n- The Diagnose a bad AI result Skill is based on the public Diagnose My Agent's Mistake listing on Muse at Work, which does not name its creator: https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c\n",
+    );
   });
 
   it("keeps Grok output manual, untested, and explicitly non-importable", () => {

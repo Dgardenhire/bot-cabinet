@@ -4,6 +4,10 @@ Turns the calendar notes, messages, and source material you choose into a short 
 
 This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.
 
+## Credit
+
+Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
+
 ## Package status
 
 - The generated files and archive structure are checked at build time.

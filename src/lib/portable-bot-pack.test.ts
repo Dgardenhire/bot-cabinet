@@ -5,6 +5,7 @@ import {
   portableBotPackFileName,
   portableBotPackToGrokMarkdown,
   portableBotPackToMarkdown,
+  starterBotCreditLine,
   starterBotToPortablePack,
 } from "./portable-bot-pack";
 
@@ -97,6 +98,34 @@ describe("portable Bot Packs", () => {
     expect(markdown).toContain("Computer access, logins, and conversation history stay with the original account");
     expect(markdown).toContain("Bots on the same Grok account share one cloud computer");
     expect(markdown).not.toMatch(/one-click|install this Grok|import this Grok/i);
+  });
+
+  it("names the outside creator in the v1 Markdown downloads of each inspired Bot", () => {
+    const inspired = STARTER_BOTS.filter((bot) => bot.inspiredBy);
+    expect(inspired.map((bot) => bot.slug)).toEqual(
+      expect.arrayContaining(["daily-newspaper", "unstick-me"]),
+    );
+
+    for (const bot of inspired) {
+      const { creator, work, href } = bot.inspiredBy!;
+      const line = `Inspired by ${creator}'s ${work}: ${href}`;
+      const pack = starterBotToPortablePack(bot);
+
+      for (const [name, content] of Object.entries({
+        "portable .md": portableBotPackToMarkdown(pack),
+        "Grok brief": portableBotPackToGrokMarkdown(pack),
+      })) {
+        expect(content, `${bot.slug} ${name}`).toContain(creator);
+        expect(content, `${bot.slug} ${name}`).toContain(href);
+        expect(content, `${bot.slug} ${name}`).toContain(line);
+      }
+      expect(starterBotCreditLine(bot.slug)).toBe(line);
+      // The v1 JSON is unchanged: the credit lives only in the Markdown.
+      expect(JSON.stringify(pack)).not.toContain(href);
+    }
+
+    expect(starterBotCreditLine("scout")).toBeNull();
+    expect(portableBotPackToMarkdown(starterBotToPortablePack(STARTER_BOTS[0]))).not.toContain("Inspired by");
   });
 
   it("keeps every public Markdown artifact free of known generated-copy defects", () => {

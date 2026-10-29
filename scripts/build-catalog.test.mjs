@@ -70,6 +70,10 @@ test("builds a valid catalog from the working tree, mirroring the plugin's tools
     assert.deepEqual(scout.test, { status: "tested", line: "Two recorded task runs passed" });
     assert.deepEqual(ops.test, { status: "not-tested", line: "Prepared, but not yet task-tested" });
     assert.equal(ops.credits.length, 1, "Ops carries the Muse at Work credit");
+    assert.deepEqual(ops.credits, [{
+      line: "Its Diagnose a bad AI result Skill is based on Diagnose My Agent's Mistake, listed on Muse at Work",
+      href: "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c",
+    }], "the Ops credit uses the Skill's published name");
     assert.deepEqual(paper.test, { status: "tested", line: "One recorded task run is available" });
     assert.deepEqual(paper.credits, [{ line: "Inspired by Karen X. Cheng's The Morning Newspaper", href: "https://x.ai/bot/marketplace/bots/the-morning-newspaper" }]);
     assert.equal(doc.crews[0].summary, "Find a topic and stop for approval");

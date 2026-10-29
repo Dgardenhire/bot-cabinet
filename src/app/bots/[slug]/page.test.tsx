@@ -44,6 +44,16 @@ describe("starter Bot detail", () => {
     expect(html).not.toContain("Role-specific output testing remains pending");
   });
 
+  it("credits the source of the Ops Diagnose Skill on the Ops page only", async () => {
+    const html = renderToStaticMarkup(await StarterBotPage({ params: Promise.resolve({ slug: "ops" }) }));
+
+    expect(html).toContain(
+      '<p class="starter-inspired-by">Its Diagnose a bad AI result Skill is based on <a href="https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c" target="_blank" rel="noopener noreferrer">Diagnose My Agent’s Mistake</a>, listed on Muse at Work.</p>',
+    );
+    const scout = renderToStaticMarkup(await StarterBotPage({ params: Promise.resolve({ slug: "scout" }) }));
+    expect(scout).not.toContain("museatwork.app");
+  });
+
   it("keeps every starter and specialist title at 60 characters or fewer with the suffix", async () => {
     for (const bot of [...STARTER_BOTS, ...SPECIALISTS]) {
       const { title } = await metadataFor(bot.slug);

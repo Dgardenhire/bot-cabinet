@@ -1,4 +1,4 @@
-import type { StarterBot } from "../data/starter-bots";
+import { getStarterBot, type StarterBot } from "../data/starter-bots";
 import {
   starterBotToPassport,
   type BotPassport,
@@ -69,6 +69,15 @@ export type PortableBotPack = {
     license: "MIT";
   };
 };
+
+/**
+ * The outside-work credit for a starter Bot, read at render time from its
+ * existing inspiredBy field. Downloads carry it so a copied file keeps the credit.
+ */
+export function starterBotCreditLine(slug: string): string | null {
+  const credit = getStarterBot(slug)?.inspiredBy;
+  return credit ? `Inspired by ${credit.creator}'s ${credit.work}: ${credit.href}` : null;
+}
 
 function markdownList(values: readonly string[]) {
   return values.map((value) => `- ${value}`).join("\n");
@@ -302,6 +311,7 @@ function statusLabel(value: PortableBotPack["platforms"]["hermes"]["importStatus
 }
 
 export function portableBotPackToMarkdown(pack: PortableBotPack) {
+  const credit = starterBotCreditLine(pack.bot.slug);
   return [
     `# ${pack.bot.name} — Portable Bot Pack`,
     "",
@@ -310,6 +320,7 @@ export function portableBotPackToMarkdown(pack: PortableBotPack) {
     `**Pack version:** ${pack.packVersion}`,
     `**Audience:** ${pack.bot.audience}`,
     `**Source:** ${pack.provenance.sourceUrl}`,
+    ...(credit ? [credit] : []),
     "",
     ...portableRecipeMarkdown(pack),
     "## Bot Passport",
@@ -357,6 +368,7 @@ export function portableBotPackToMarkdown(pack: PortableBotPack) {
 }
 
 export function portableBotPackToGrokMarkdown(pack: PortableBotPack) {
+  const credit = starterBotCreditLine(pack.bot.slug);
   return [
     `# ${pack.bot.name} — Build brief for Grok Bot`,
     "",
@@ -364,6 +376,7 @@ export function portableBotPackToGrokMarkdown(pack: PortableBotPack) {
     "",
     "**Adaptation status: Prepared from the portable recipe; not tested in Grok Bot.**",
     "",
+    ...(credit ? [credit, ""] : []),
     "This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Skill, Routine, and sharing model. Build and test it inside your own Grok Bot app.",
     "",
     ...portableRecipeMarkdown(pack),

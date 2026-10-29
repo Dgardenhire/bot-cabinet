@@ -7,6 +7,7 @@ Turns the calendar notes, messages, and source material you choose into a short 
 - **Preparation status:** prepared
 - **Audience:** People who want a short morning briefing from the information they choose.
 - **Source:** https://botcabinet.com/bots/daily-newspaper/
+- Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
 
 ## Job
 

@@ -4,6 +4,10 @@ Asks short questions, one at a time, until you take the first small step on a st
 
 This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.
 
+## Credit
+
+Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
+
 ## Package status
 
 - The generated files and archive structure are checked at build time.

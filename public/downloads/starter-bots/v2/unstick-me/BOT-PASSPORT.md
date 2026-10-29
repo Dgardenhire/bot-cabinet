@@ -5,6 +5,10 @@
 - **Planned risk:** Low
 - **Pack version:** 2.0.0
 
+## Credit
+
+Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
+
 ## Requested capabilities
 
 - None required. It works entirely in the conversation.

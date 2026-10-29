@@ -6,6 +6,8 @@ import { promisify } from "node:util";
 import test from "node:test";
 import { gunzipSync } from "node:zlib";
 
+import { starterBlocks, tsString } from "./build-catalog.mjs";
+
 const execFile = promisify(execFileCallback);
 const root = path.join(process.cwd(), "public/downloads/starter-bots");
 const grokRoot = path.join(process.cwd(), "public/downloads/grok-bot-templates");
@@ -214,5 +216,38 @@ test("every starter Bot has matching Markdown and JSON portable packs", async ()
     assert.equal(json.schemaVersion, 1);
     assert.equal(json.bot.slug, slug);
     assert.equal(json.platforms.grokBot.testStatus, "adaptation-prepared-not-tested");
+  }
+});
+
+test("every Markdown download of an inspired starter Bot names the creator and links the work", async () => {
+  const source = await readFile(path.join(process.cwd(), "src/data/starter-bots.ts"), "utf8");
+  const inspired = Object.entries(starterBlocks(source)).flatMap(([slug, block]) => {
+    const match = block.match(/"?inspiredBy"?:\s*\{([^}]*)\}/);
+    return match
+      ? [{ slug, creator: tsString(match[1], "creator"), work: tsString(match[1], "work"), href: tsString(match[1], "href") }]
+      : [];
+  });
+  assert.ok(inspired.some(({ slug }) => slug === "unstick-me"), "Unstick Me carries an inspiredBy credit");
+  assert.ok(inspired.some(({ slug }) => slug === "daily-newspaper"), "Daily Newspaper carries an inspiredBy credit");
+
+  for (const { slug, creator, work, href } of inspired) {
+    const line = `Inspired by ${creator}'s ${work}: ${href}`;
+    const downloads = [
+      path.join(root, slug, "README.md"),
+      path.join(portableRoot, `${slug}.md`),
+      path.join(grokRoot, `${slug}.md`),
+      path.join(root, "v2", slug, "README.md"),
+      path.join(root, "v2", slug, "BOT-PASSPORT.md"),
+      path.join(root, "v2", slug, "skills", `${slug}-core`, "SKILL.md"),
+      path.join(portableRoot, "v2", `${slug}.md`),
+      path.join(grokRoot, "v2", `${slug}.md`),
+    ];
+    for (const file of downloads) {
+      const text = await readFile(file, "utf8");
+      const where = path.relative(process.cwd(), file);
+      assert.ok(text.includes(creator), `${where} names ${creator}`);
+      assert.ok(text.includes(href), `${where} links ${href}`);
+      assert.ok(text.includes(line), `${where} carries the credit line`);
+    }
   }
 });

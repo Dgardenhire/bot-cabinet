@@ -11,6 +11,10 @@ description: "Daily Newspaper core Skill. Run manually when I provide the day's 
 
 **Test status:** not-tested
 
+## Credit
+
+Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
+
 ## Use this Skill when
 
 Run manually when I provide the day's material. Add a schedule only after I approve a successful sample.

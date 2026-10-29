@@ -4,6 +4,8 @@ Asks short questions, one at a time, until you take the first small step on a st
 
 **Status: Prepared adaptation; not tested in Grok Bot.**
 
+Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
+
 This is a manual construction brief. It is not an import package and makes no claim of direct Grok Bot import support.
 
 ## Profile fields to enter

@@ -10,6 +10,7 @@ import {
 const projectRoot = process.cwd();
 const sourcePath = path.join(projectRoot, "src/data/starter-bots.ts");
 const passportSourcePath = path.join(projectRoot, "src/lib/bot-passport.ts");
+const portablePackSourcePath = path.join(projectRoot, "src/lib/portable-bot-pack.ts");
 const outputRoot = path.join(projectRoot, "public/downloads/starter-bots");
 
 async function loadTsModule(filePath) {
@@ -20,6 +21,7 @@ async function loadTsModule(filePath) {
 
 const { STARTER_BOTS: starters } = await loadTsModule(sourcePath);
 const { starterBotToPassport, botPassportToMarkdown } = await loadTsModule(passportSourcePath);
+const { starterBotCreditLine } = await loadTsModule(portablePackSourcePath);
 
 if (!Array.isArray(starters) || starters.length === 0) {
   throw new Error("No starter bots were found");
@@ -89,12 +91,14 @@ for (const bot of starters) {
   const importReview = bot.slug === "scout"
     ? "Bot Cabinet also imported this archive with Hermes Agent 0.20.5."
     : "Bot Cabinet has not individually imported this archive into Hermes Desktop."
+  const credit = starterBotCreditLine(bot.slug);
 
   const readme = [
     `# ${bot.name} — ${bot.title}`,
     "",
     bot.summary,
     "",
+    ...(credit ? [credit, ""] : []),
     "This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.",
     "",
     "## What this download is",

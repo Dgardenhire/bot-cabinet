@@ -23,6 +23,7 @@ import {
   getStarterBotRoleContract,
 } from "@/data/starter-bots";
 import { REGISTRY_ENTRIES, getRegistryEntry } from "@/data/registry";
+import { getSkillCredit } from "@/data/skill-credits";
 import { getBotRuntimeEvidence } from "@/data/bot-release-evidence";
 import { portableBotPackV2ToPassport } from "@/lib/bot-passport";
 import { starterBotToPortablePackV2 } from "@/lib/portable-bot-pack-v2";
@@ -108,6 +109,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
   const importCommand = `curl --fail --location ${profileArchiveUrl} --output /tmp/botcabinet-${bot.slug}-v2.tar.gz && hermes profile import /tmp/botcabinet-${bot.slug}-v2.tar.gz --name ${bot.slug}-v2`;
   const passport = portableBotPackV2ToPassport(portablePackV2);
   const roleContract = getStarterBotRoleContract(bot);
+  const skillCredit = getSkillCredit(bot.slug);
 
   return (
     <main id="main-content" className="page-main starter-detail">
@@ -127,6 +129,9 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
               <p className="starter-who"><strong>Best for:</strong> {bot.whoItHelps}</p>
               {bot.inspiredBy && (
                 <p className="starter-inspired-by">Inspired by {bot.inspiredBy.creator}’s <a href={bot.inspiredBy.href} target="_blank" rel="noopener noreferrer">{bot.inspiredBy.work}</a>.</p>
+              )}
+              {skillCredit && (
+                <p className="starter-inspired-by">Its {skillCredit.skill} Skill is based on <a href={skillCredit.href} target="_blank" rel="noopener noreferrer">{skillCredit.work}</a>, listed on {skillCredit.listedOn}.</p>
               )}
               <div className="starter-hero-actions">
                 <a href="#choose-platform" className="button button-primary" data-funnel-event="bot_choose_platform" data-funnel-surface="bot_detail" data-funnel-destination={bot.slug}>Choose where to use it <ArrowRight size={16} aria-hidden="true" /></a>

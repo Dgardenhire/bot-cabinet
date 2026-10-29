@@ -2,6 +2,8 @@
 
 Asks short questions, one at a time, until you take the first small step on a stalled task, or pick an honest alternative such as a rough version, a new time or asking for help.
 
+Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
+
 This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.
 
 ## What this download is

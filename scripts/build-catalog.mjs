@@ -35,7 +35,7 @@ const MAX_SKILL_STEPS = 12;
 // Outside work a Bot's skill adapts (mirrors EXTRA_CREDITS in the plugin's tools/make_site_data.py).
 const EXTRA_CREDITS = {
   ops: [{
-    line: "Its Diagnose an AI result skill adapts Diagnose My Agent's Mistake, listed on Muse at Work",
+    line: "Its Diagnose a bad AI result Skill is based on Diagnose My Agent's Mistake, listed on Muse at Work",
     href: "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c",
   }],
 };

@@ -2,6 +2,8 @@
 
 Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.
 
+Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
+
 This LINCHPIN starter package contains profile metadata, role instructions, a Bot Passport, setup documentation, a package manifest, and a license.
 
 ## What this download is
