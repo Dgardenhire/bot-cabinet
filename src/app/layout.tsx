@@ -34,12 +34,11 @@ export const metadata: Metadata = {
     template: "%s — Bot Cabinet",
   },
   description:
-    "Discover useful AI Bots, see what people are building, and find a practical way to try the ideas yourself.",
-  alternates: { canonical: "/" },
+    "AI bot templates with setup steps for ChatGPT, Claude, Grok Bot and Hermes Agent, plus a guide for Gemini. Each Bot shows how far it has been tested.",
   openGraph: {
     title: "Bot Cabinet",
     description:
-      "Discover useful AI Bots, compare ways to use them, and start with a practical first job.",
+      "AI bot templates with setup steps for ChatGPT, Claude, Grok Bot and Hermes Agent, plus a guide for Gemini. Each Bot shows how far it has been tested.",
     siteName: "Bot Cabinet",
     type: "website",
     url: "https://botcabinet.com",
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bot Cabinet",
     description:
-      "Discover useful AI Bots, compare ways to use them, and start with a practical first job.",
+      "AI bot templates with setup steps for ChatGPT, Claude, Grok Bot and Hermes Agent, plus a guide for Gemini. Each Bot shows how far it has been tested.",
     images: ["/brand/bot-cabinet-launch-card-1200x630.jpg"],
   },
 };

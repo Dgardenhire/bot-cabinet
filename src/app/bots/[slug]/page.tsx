@@ -39,16 +39,49 @@ export function generateStaticParams() {
   ];
 }
 
+// Titles that would run past 60 characters with the " — Bot Cabinet" suffix.
+// Keyed by exact slug. page.test.tsx checks every starter and specialist length.
+const SHORT_TITLES: Record<string, string> = {
+  scout: "Scout: AI opportunity finder template",
+  researcher: "Researcher: AI research assistant template",
+  writer: "Writer: AI writing assistant template",
+  planner: "Planner: AI project planning template",
+  client: "Client Deliverables: AI document template",
+  ops: "Ops: AI operations monitoring template",
+  professor: "Professor: AI study assistant template",
+  architect: "Architect: AI CTO and tech strategy template",
+  "founding-engineer": "Founding Engineer: AI prototyping template",
+  "chief-of-staff": "Chief of Staff: AI coordination template",
+  coach: "Coach: AI life and career planning template",
+  nova: "Nova: AI new venture testing template",
+  "daily-newspaper": "Daily Newspaper: AI daily briefing template",
+  curator: "Curator: AI bot review template",
+  receipt: "Receipt: AI returns and warranty template",
+  "unstick-me": "Unstick Me: AI template for avoided tasks",
+};
+
+function starterBotTitle(bot: { slug: string; name: string; title: string }) {
+  return Object.hasOwn(SHORT_TITLES, bot.slug)
+    ? SHORT_TITLES[bot.slug]
+    : `${bot.name}: AI ${bot.title.toLowerCase()} template`;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const specialist = getSpecialist(slug);
-  if (specialist) return buildPageMetadata({ title: `${specialist.name} · Bot Cabinet`, description: specialist.summary, path: `/bots/${slug}/`, image: `/brand/social/specialists/${slug}-1200x630.jpg`, imageAlt: `${specialist.name} — Bot Cabinet specialist` });
+  if (specialist) return buildPageMetadata({ title: `${specialist.name} bot template`, description: specialist.summary, path: `/bots/${slug}/`, image: `/brand/social/specialists/${slug}-1200x630.jpg`, imageAlt: `${specialist.name} — Bot Cabinet specialist` });
   const bot = getStarterBot(slug);
   const communityEntry = getRegistryEntry(slug);
-  if (!bot && communityEntry) return { title: `${communityEntry.name} moved` };
+  if (!bot && communityEntry) {
+    return {
+      title: `${communityEntry.name} moved`,
+      robots: { index: false, follow: true },
+      alternates: { canonical: `/bots/${slug}/` },
+    };
+  }
   if (!bot) return {};
   return buildPageMetadata({
-    title: `${bot.name} · The Cabinet`,
+    title: starterBotTitle(bot),
     description: bot.summary,
     path: `/bots/${bot.slug}/`,
     image: bot.showcase ? `/brand/social/showcase-${bot.slug}-${bot.slug === "receipt" ? "v2" : "v1"}-1200x630.jpg` : "/brand/social/the-cabinet-1200x630.jpg",
@@ -83,7 +116,7 @@ export default async function StarterBotPage({ params }: { params: Promise<{ slu
           <Link href="/bots" className="back-link"><ArrowLeft size={15} /> Back to The Cabinet</Link>
           <div className="registry-detail-grid">
             <div className="registry-detail-image starter-detail-image">
-              <Image src={bot.image} alt={`Illustration for ${bot.name} in The Cabinet’s Hermes Bot collection`} width={1200} height={1200} priority />
+              <Image src={bot.image} alt={`Illustration for ${bot.name} in The Cabinet`} width={1200} height={1200} priority />
               <span>The Cabinet · Bot starter</span>
             </div>
             <div className="registry-detail-copy">

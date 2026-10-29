@@ -7,8 +7,8 @@ import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "The Cabinet · Bots for useful work",
-  description: "Find a specialist, copy its role instructions, try a first task, or download an existing starter pack. See what each example has and has not tested.",
+  title: "All Bots: AI bot templates by job",
+  description: "Browse AI bot templates by job. Each has setup steps for ChatGPT, Claude, Grok Bot or Hermes Agent and shows how far it has been tested.",
   path: "/bots/",
   image: "/brand/social/bot-pack-2-0-1200x630.jpg",
   imageAlt: "Bot Pack 2.0 — one useful job in four usable formats",

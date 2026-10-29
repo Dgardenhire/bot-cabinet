@@ -1,6 +1,6 @@
 # Bot Cabinet
 
-Bot Cabinet is a free, independent guide to finding, understanding, and building useful Bots. Its first collection, the Hermes Bot Registry, focuses on Hermes Agent Bot Mode. It helps people find Bots by job, follow practical setup steps, and examine selected public Hermes projects.
+Bot Cabinet is a library of AI bot templates with setup steps for ChatGPT, Claude, Grok Bot and Hermes Agent, plus a guide for Gemini. Each Bot shows how far it has been tested. It began as the Hermes Bot Registry, a collection of Hermes Agent profiles. Those profiles are still here, and the Community Registry lists Hermes projects by other people.
 
 A Hermes Bot is an agent profile with its own role and settings. A profile distribution is a public package that shares profile files with other Hermes users.
 
@@ -8,14 +8,21 @@ Bot Cabinet and the Hermes Bot Registry are independent from Nous Research. List
 
 ## What the site includes
 
-- Twenty-one practical Bots with example requests, expected results, approval points, importable Hermes profiles and setup notes for other agents
+- Starter Bots and specialists, each with example requests, expected results, approval points and setup steps
 - A portable Markdown and JSON recipe for each starter Bot, plus a separate Grok Bot build brief
-- Seventeen everyday use cases that show which Bots to use and provide a copyable message for each step
+- Everyday use cases that show which Bots to use, with a copyable message for each step
 - Bot Lab, a browser-based builder with optional AI suggestions, an importable Hermes profile, role instructions, a designed PDF, and an editable Markdown plan
-- Bot Portrait Studio, with eighteen Hermes-ready portrait downloads and a browser-based custom portrait recipe builder
+- Bot Portrait Studio, with Hermes-ready portrait downloads and a browser-based custom portrait recipe builder
 - A small directory of public community projects with source links and clearly labeled review information
 - Plain-English guides to Bot Mode, profile packages, first tests, and installation checks
 - Dark and light layouts with a persistent theme control
+
+## Use with your agent
+
+- [/llms.txt](https://botcabinet.com/llms.txt): site guide for AI tools
+- [/agents.md](https://botcabinet.com/agents.md): how agents should treat fetched content
+- [/api/v1/resources.json](https://botcabinet.com/api/v1/resources.json): every download with its checksum
+- [/feed.xml](https://botcabinet.com/feed.xml): new and updated Bots
 
 ## Current review limits
 

@@ -5,13 +5,16 @@ import { SubmissionPacketBuilder } from "@/components/submission-packet-builder"
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Prepare a submission packet",
-  description: "Prepare a public-source submission packet for Bot Cabinet’s Hermes Bot Registry.",
-  path: "/submit/",
-  image: "/brand/social/submission-desk-1200x630.jpg",
-  imageAlt: "Submission Desk — prepare a public Bot for future review",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "Prepare a submission packet",
+    description: "Prepare a public-source submission packet for Bot Cabinet’s Hermes Bot Registry.",
+    path: "/submit/",
+    image: "/brand/social/submission-desk-1200x630.jpg",
+    imageAlt: "Submission Desk — prepare a public Bot for future review",
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function SubmitPage() {
   return (

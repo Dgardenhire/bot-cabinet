@@ -9,7 +9,7 @@ import { CATALOG_TASK_TRIALS, CATALOG_TRIAL_PATH } from "@/data/catalog-task-tri
 import { WEBSITE_TASK_COVERAGE, WEBSITE_TASK_TRIALS, WEBSITE_TASK_STATUS_NAMES } from "@/data/website-task-trials";
 
 export const metadata = buildPageMetadata({
-  title: "Test Records · Bot Cabinet",
+  title: "Test Records",
   description: "Inspect controlled Bot tests, including the input, exact request, preserved output, failures, and limits.",
   path: "/proof/",
   image: "/brand/social/proof-room-1200x630.jpg",

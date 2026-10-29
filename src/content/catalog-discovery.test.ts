@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { PUBLIC_BOT_CATALOG } from "./public-manifest";
+import { botDates } from "../data/content-dates";
 import {
   BOT_CABINET_ORIGIN,
   CATALOG_DISCOVERY_RELEASE,
@@ -98,8 +99,20 @@ describe("public catalog discovery files", () => {
     expect(PUBLIC_CATALOG_RSS.match(/<item>/g)).toHaveLength(
       PUBLIC_BOT_CATALOG.count,
     );
+    const updated = PUBLIC_BOT_CATALOG.bots.map((bot) => botDates(bot.slug).updatedAt).sort();
     expect(PUBLIC_CATALOG_RSS).toContain(
-      `<lastBuildDate>${new Date(CATALOG_DISCOVERY_RELEASE.releasedAt).toUTCString()}</lastBuildDate>`,
+      `<lastBuildDate>${new Date(updated.at(-1)!).toUTCString()}</lastBuildDate>`,
+    );
+    for (const bot of PUBLIC_BOT_CATALOG.bots) {
+      const item = PUBLIC_CATALOG_RSS.split("<item>").find((chunk) =>
+        chunk.includes(`<link>${BOT_CABINET_ORIGIN}${bot.links.detailUrl}</link>`),
+      );
+      expect(item).toContain(
+        `<pubDate>${new Date(botDates(bot.slug).updatedAt).toUTCString()}</pubDate>`,
+      );
+    }
+    expect(PUBLIC_CATALOG_RSS).not.toContain(
+      `<pubDate>${new Date(CATALOG_DISCOVERY_RELEASE.releasedAt).toUTCString()}</pubDate>`,
     );
 
     const escapedCatalog = {

@@ -7,6 +7,13 @@ import { BOT_USE_CASES } from "@/data/use-cases";
 import { CREW_KITS } from "@/data/crew-kits";
 import { PROOF_ROOM_DEMOS } from "@/data/proof-room";
 import { SPECIALISTS, CREW_PLANS } from "@/data/specialist-collection";
+import {
+  botDates,
+  specialistDates,
+  startPageDate,
+  staticRouteDate,
+  useCaseDates,
+} from "@/data/content-dates";
 
 const baseUrl = "https://botcabinet.com";
 
@@ -40,33 +47,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
   ];
 
+  const dated = (route: string, date?: string) => ({ route, date });
   const routes = [
-    ...staticRoutes,
-    ...STARTER_BOTS.map((bot) => `/bots/${bot.slug}`),
-    ...SPECIALISTS.map((bot) => `/bots/${bot.slug}`),
-    ...BOT_USE_CASES.map((useCase) => `/use-cases/${useCase.slug}`),
-    ...CREW_KITS.map((kit) => `/crew-kits/${kit.slug}`),
-    ...CREW_PLANS.map((kit) => `/crew-kits/${kit.slug}`),
-    ...PROOF_ROOM_DEMOS.map((demo) => `/proof/${demo.slug}`),
-    ...REGISTRY_ENTRIES.map((entry) => `/community/${entry.slug}`),
-    ...GUIDES.map((guide) => `/guides/${guide.slug}`),
+    ...staticRoutes.map((route) => dated(route, staticRouteDate(route))),
+    ...STARTER_BOTS.map((bot) => dated(`/bots/${bot.slug}`, botDates(bot.slug).updatedAt)),
+    ...SPECIALISTS.map((bot) => dated(`/bots/${bot.slug}`, specialistDates(bot.slug).updatedAt)),
+    ...STARTER_BOTS.map((bot) => dated(`/start/chatgpt/${bot.slug}`, startPageDate("chatgpt", bot.slug))),
+    ...STARTER_BOTS.map((bot) => dated(`/start/grok/${bot.slug}`, startPageDate("grok", bot.slug))),
+    ...BOT_USE_CASES.map((useCase) => dated(`/use-cases/${useCase.slug}`, useCaseDates(useCase.slug).updatedAt)),
+    // Not dated in content-dates yet: crew kits, crew plans, test records and community projects.
+    ...CREW_KITS.map((kit) => dated(`/crew-kits/${kit.slug}`)),
+    ...CREW_PLANS.map((kit) => dated(`/crew-kits/${kit.slug}`)),
+    ...PROOF_ROOM_DEMOS.map((demo) => dated(`/proof/${demo.slug}`)),
+    ...REGISTRY_ENTRIES.map((entry) => dated(`/community/${entry.slug}`)),
+    ...GUIDES.map((guide) => dated(`/guides/${guide.slug}`, guide.updated)),
   ];
-  const updatedRoutes = new Set([...SPECIALISTS.map(bot => `/bots/${bot.slug}`), ...CREW_PLANS.map(crew => `/crew-kits/${crew.slug}`), "/bots", "/crew-kits"]);
-  const jobReleaseRoutes = new Set(["", "/start", "/use-cases", ...BOT_USE_CASES.filter(job => job.sample).map(job => `/use-cases/${job.slug}`)]);
-  function modifiedOn(route: string) {
-    if (route === "/hermes" || route === "/hermes/manual") return "2026-10-16";
-    if (jobReleaseRoutes.has(route)) return "2026-10-15";
-    if (updatedRoutes.has(route)) return "2026-10-06";
-    if (route === "/watch") return "2026-10-27";
-    if (route === "/guides" || route === "/guides/gemini-skills-and-tasks") return "2026-10-28";
-    if (["/start/dots", "/compare"].includes(route)) return "2026-09-29";
-    return "2026-09-03";
-  }
 
-  return routes.map((route) => ({
+  return routes.map(({ route, date }) => ({
     url: `${baseUrl}${route}/`.replace(`${baseUrl}//`, `${baseUrl}/`),
-    lastModified: new Date(modifiedOn(route)),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route.split("/").filter(Boolean).length === 1 ? 0.8 : 0.6,
+    ...(date ? { lastModified: new Date(date) } : {}),
   }));
 }

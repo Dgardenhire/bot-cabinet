@@ -6,13 +6,14 @@ import { agents } from "./agents";
 import { AgentComparison } from "./agent-comparison";
 import StartPage from "../start/page";
 import sitemap from "../sitemap";
+import { staticRouteDate } from "../../data/content-dates";
 
 describe("agent comparison", () => {
   it("is discoverable from Start and the sitemap", () => {
     expect(renderToStaticMarkup(<StartPage />)).toContain('href="/compare"');
     expect(sitemap()).toContainEqual(expect.objectContaining({
       url: "https://botcabinet.com/compare/",
-      lastModified: new Date("2026-09-29"),
+      lastModified: new Date(staticRouteDate("/compare")),
     }));
   });
 

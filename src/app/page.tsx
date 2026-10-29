@@ -10,12 +10,14 @@ import {
 import { Eyebrow, SectionRule, TextLink } from "@/components/ui";
 
 export const metadata: Metadata = {
-  description: "Discover useful AI Bots, see what people are building, and find a practical way to try the ideas yourself. Browse guides, downloads, and honest test results.",
+  title: { absolute: "Bot Cabinet: AI bot templates for ChatGPT, Claude and Gemini" },
+  description: "AI bot templates with setup steps for ChatGPT, Claude, Grok Bot and Hermes Agent, plus a guide for Gemini. Each Bot shows how far it has been tested.",
+  alternates: { canonical: "/" },
 };
 
 const pathways = [
   {
-    title: "Choose a Hermes Bot",
+    title: "Choose a Bot",
     tag: "The Cabinet",
     note: "See jobs, examples, and setup",
     href: "/bots",
@@ -77,8 +79,8 @@ export default function Home() {
 
       <section className="home-cost-strip" aria-label="Cost information">
         <div className="shell">
-          <strong>Bot Cabinet is free.</strong>
-          <span>Hermes Agent is open source. You will need a supported AI provider, and provider costs vary.</span>
+          <strong>Your AI app sets the cost.</strong>
+          <span>ChatGPT, Claude, Gemini and Grok Bot each have their own plans. Hermes Agent is open source and needs an AI provider, whose costs vary.</span>
         </div>
       </section>
 
@@ -257,7 +259,7 @@ export default function Home() {
             <p>
               Damon Gardenhire built Bot Cabinet through LINCHPIN and AI for the Real World:
               a practical project for nontechnical people who want useful examples, clear setup
-              guidance, and a better understanding of what Hermes Bots can do.
+              guidance, and a better understanding of what AI bots can do.
             </p>
             <TextLink href="/about">Meet the founder and learn why Bot Cabinet exists</TextLink>
             <div className="founder-external-links">

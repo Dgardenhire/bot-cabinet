@@ -24,7 +24,7 @@ import { STARTER_BOTS } from "../../../data/starter-bots";
 import { buildPageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Build briefs for Grok Bot",
+  title: "Grok Bot templates: find one or build your own",
   description:
     "Choose a Bot job, follow the Grok Bot setup instructions, and try its first task.",
   path: "/platforms/grok-bot/",
