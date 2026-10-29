@@ -33,7 +33,154 @@ const official = {
 const fieldNotes =
   "https://github.com/unicodef1wn/grokbot-field-notes";
 
+export function guideSectionId(heading: string) {
+  return heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 export const GUIDES: Guide[] = [
+  {
+    slug: "gemini-skills-and-tasks",
+    title: "Gems become skills on November 17",
+    summary: "Save your Gems before Google turns them into skills, check each one after the switch, and add a Bot to Gemini for chats and Task mode (formerly Spark).",
+    audience: "Anyone using Gemini with a personal Google account",
+    readTime: "8 min",
+    updated: "2026-10-28",
+    coverImage: "/atelier/victorian-library-guides-v1.png",
+    sections: [
+      {
+        heading: "What changes and when",
+        paragraphs: [
+          "Google is replacing Gems with skills in the Gemini app. A skill is a saved set of instructions, with optional files, that Gemini can use in any chat or task. The dates depend on your account:",
+        ],
+        bullets: [
+          "Personal accounts, 18 and over: on November 17, 2026, your Gems become read-only and Google turns them into skills. You can still open your Gems, but you can't use or edit them or make new ones. On December 17, 2026, Google removes Gems, along with any files that did not carry over.",
+          "Gems from Google Labs, the AI mini-apps listed under Gems made by Labs and My Gems from Labs, turn off on November 17, 2026, and Google won't turn them into skills automatically. Before then, copy the prompts of any you made. Google keeps their workflow files in your Google Drive, under My Drive > Opal.",
+          "Personal accounts, under 18: Google will move Gems to skills later and has not set a date.",
+          "Work and school accounts keep Gems longer. Google lists March 2027 for business, enterprise and nonprofit accounts and June 2027 for education accounts.",
+        ],
+        sources: [
+          { label: "Google Help: About the transition from Gems to skills", href: "https://support.google.com/gemini/answer/18560919?hl=en" },
+          { label: "Google for Developers: Opal FAQ", href: "https://developers.google.com/opal/faq" },
+        ],
+      },
+      {
+        heading: "Save your Gems before November 17",
+        paragraphs: [
+          "Google converts your Gems for you, along with any files that skills support. A skill holds up to 100 MB of files, and Google removes the largest files first to fit. It leaves out audio, video, GitHub files, older Office files (.doc, .xls, .ppt) and archives such as .zip. Skills also reject newer Office files (.docx, .xlsx, .pptx) when you upload them and can't use Google Drive files yet, so download those as well.",
+          "Most of the built-in tools Gems can use don't work with skills yet, including Create video, Create music, Canvas, Deep research and Guided learning.",
+          "Before November 17, while you can still edit, save a copy of every Gem you rely on, including Gems other people shared with you:",
+        ],
+        bullets: [
+          "On a computer, go to gemini.google.com. Open the sidebar and click Gems (click More first if you don't see it), then click Edit next to the Gem.",
+          "Copy the Gem's name, description and instructions into a document.",
+          "If someone shared a Gem with you, you may not see Edit. Open the Gem, view its instructions and files, and copy them.",
+          "Under Knowledge, click each file, then click Download.",
+          "For a second copy, use Google Takeout: click Deselect all, check Gemini and export. Google says this saves your Gems data but doesn't say whether it includes a Gem's files, and an export can take a few hours to a few days.",
+        ],
+        note: "If you miss a file, download it from the Gem before December 17. After that, Google removes Gems and their files.",
+        sources: [
+          { label: "Google Help: About the transition from Gems to skills", href: "https://support.google.com/gemini/answer/18560919?hl=en" },
+          { label: "Google Help: Download your Gemini Apps data", href: "https://support.google.com/gemini/answer/16920332?hl=en" },
+        ],
+      },
+      {
+        heading: "Move a Gem yourself before November 17",
+        paragraphs: [
+          "To use a Gem as a skill now, recreate it on a computer. The Gem stays where it is.",
+        ],
+        bullets: [
+          "Keep the Gem's Edit page open. In a new tab, go to gemini.google.com and click Customize > Skills (click More first if you don't see Customize).",
+          "Click Create > Create manually. Paste the Gem's name, description and instructions, and click Create.",
+          "To add the Gem's files, click More options next to the new skill, then Download. Open the .zip it saves and move the SKILL.md inside into a new folder with the Gem's files.",
+          "Name the folder exactly as the Skills page shows the skill: lowercase, with hyphens between words, such as writing-coach. Keep it under 100 MB, save .docx, .xlsx and .pptx files as PDF first, and leave out hidden files such as .DS_Store, which can make an upload fail.",
+          "Click More options > Replace skill, click folder, choose your folder, then click Upload and Upload again.",
+          "After November 17, Google may convert the original Gem as well. If you find two copies, delete one.",
+        ],
+        sources: [
+          { label: "Google Help: About the transition from Gems to skills", href: "https://support.google.com/gemini/answer/18560919?hl=en" },
+          { label: "Google Help: Create and manage skills", href: "https://support.google.com/gemini/answer/17094296?hl=en" },
+        ],
+      },
+      {
+        heading: "Add a Bot to Gemini",
+        paragraphs: [
+          "Each Bot's Agent Skill is one SKILL.md file that meets Google's upload rules as it is. Skills work on every Gemini plan. You need to be 18 or over, with Keep Activity turned on. Upload the file at gemini.google.com in a browser on any computer, or in the Gemini app for Mac. The phone apps can use skills but can't upload them yet.",
+        ],
+        bullets: [
+          "Pick a Bot in the Cabinet (Scout is a simple first one). On its page, open Download files for another app. Click Download the Agent Skill, then Download Markdown to get the Bot Pack.",
+          "Open SKILL.md in a text editor, such as Notepad or TextEdit, and read it before you upload it. Gemini will follow its instructions.",
+          "If your browser saved it as SKILL (1).md, delete the older SKILL.md from your Downloads folder and download it again.",
+          "In Gemini, click Customize > Skills > Create > Upload (click More first if you don't see Customize). Choose SKILL.md, click Open, review the skill and click Create.",
+          "The skill already lists the Bot's approval rules under Requires approval, and it refers to a checkpoint kept in the Bot Pack. Click the skill, paste the Bot Pack's Human checkpoint section at the end of the Instructions field, add its Operating limits unless they say None specified, and click Save.",
+        ],
+        note: "Upload the SKILL.md file by itself. Gemini looks for SKILL.md at the top level of a .zip, and the Bot's .zip pack keeps it in a subfolder. Specialist Bots have no Agent Skill: on the Bot's page, open Read and adapt the full instructions and click Download the instructions, then in Gemini click Create > Create manually and paste them in.",
+        sources: [
+          { label: "Google Help: Create and manage skills", href: "https://support.google.com/gemini/answer/17094296?hl=en" },
+        ],
+      },
+      {
+        heading: "Try the Bot in a chat first",
+        paragraphs: [
+          "Gemini picks skills on its own from their name and description, and most Bot descriptions say when to run the Bot, not what it does. So choose the skill yourself: in a new chat, type / (or @, if your Gemini shows that shortcut) and pick it. Its name ends in -core, such as scout-core.",
+          "Then fill in the prompt below with the First task from the Bot's page and the material it asks for. The test passes when the answer follows the Bot's steps, every claim points back to what you supplied, and nothing is sent, changed or bought without your OK.",
+        ],
+        code: `Use this skill for the task below. Work only from the material I give you.
+Ask me before you send, change, buy or publish anything.
+
+Task: [paste the First task from the Bot's page]
+Material: [paste the text, links or files the task asks for]`,
+      },
+      {
+        heading: "Run a Bot in Task mode (formerly Spark)",
+        paragraphs: [
+          "Task mode is for longer jobs with several steps, such as research, web browsing and scheduled work. Google called it Gemini Spark until October, when it renamed the mode Task; some app store listings still say Spark. Google calls tasks experimental.",
+          "Task mode needs a Google AI Pro or Ultra plan, a personal Google account, age 18 or over, Keep Activity on and Personal Intelligence turned on. Personal Intelligence lets Gemini use your past chats, your saved instructions and the Google apps you connect, so connect only the apps the Bot needs. Google is still rolling out Personal Intelligence, so Task mode may not appear for you yet. It isn't offered in the European Economic Area, Nigeria, Switzerland or the United Kingdom.",
+        ],
+        bullets: [
+          "Before your first task, set the browser permission to Always ask. At gemini.google.com, click Settings at the bottom, then Browser, and next to Permission choose Always ask. In the phone app, tap Menu at the top, then Settings > Browser.",
+          "On a computer, click Task below the text box. On a phone, tap Task above it.",
+          "Type @ (or / if @ shows nothing), choose the Bot's skill and describe the job.",
+          "Click the progress chip at the top of the task to open its work panel. It shows the task's steps and progress and, under Files, the files Gemini read or updated.",
+          "Add a schedule only after the same job works more than once.",
+        ],
+        note: "Google says Gemini is designed to ask you every time before it sends a message, changes or deletes your data, makes a purchase or payment, submits a web form or signs in with Google, even if you chose Always allow. Google names one exception: Gemini can make bulk changes to the private to-dos in your Google Tasks app without asking. Google also says these safeguards don't guarantee protection, so if a Bot's approval rules cover more than this, do those steps yourself.",
+        sources: [
+          { label: "Google Help: Manage your tasks and workflows (Where did Spark go?)", href: "https://support.google.com/gemini/answer/17094507?hl=en" },
+          { label: "Google Help: Manage browser and app permissions for tasks", href: "https://support.google.com/gemini/answer/18766567?hl=en" },
+        ],
+      },
+      {
+        heading: "Check each skill after November 17",
+        paragraphs: [
+          "After November 17, click Customize > Skills and go through your converted Gems one at a time:",
+        ],
+        bullets: [
+          "Compare the description and instructions with the copy you saved.",
+          "Open the old Gem beside the skill and download any file that didn't come across, before December 17.",
+          "If a converted skill is turned off, click it, then More > Activate.",
+          "Try one request you already know the answer to.",
+          "Gemini picks only skills that are turned on, and up to 100 can be on at once. To stop Gemini from picking one, click it, then More > Deactivate.",
+        ],
+        sources: [
+          { label: "Google Help: About the transition from Gems to skills", href: "https://support.google.com/gemini/answer/18560919?hl=en" },
+          { label: "Google Help: Create and manage skills", href: "https://support.google.com/gemini/answer/17094296?hl=en" },
+        ],
+      },
+      {
+        heading: "Limits as of October 28, 2026",
+        bullets: [
+          "Sharing: Google says that in the coming weeks you'll be able to share skills and add Google Drive files and Gemini Notebook notebooks to them. Until then, each person uploads their own copy.",
+          "Work and school accounts: Google is still rolling skills out to these accounts, and Task mode is for personal accounts only.",
+          "Upload rules: plain-text files, PDFs and images, up to 100 MB in all, and no scripts that reach the internet. Bot Cabinet's skills are plain text with no scripts.",
+        ],
+        note: "Bot Cabinet has not yet uploaded a Bot to Gemini or run one there. These steps follow Google's help pages as of October 28, 2026. Run the first task before you rely on a Bot.",
+        sources: [
+          { label: "Google Help: About the transition from Gems to skills", href: "https://support.google.com/gemini/answer/18560919?hl=en" },
+          { label: "Google Help: Create and manage skills", href: "https://support.google.com/gemini/answer/17094296?hl=en" },
+        ],
+      },
+    ],
+  },
   {
     slug: "fix-one-bad-ai-result",
     title: "Fix one bad AI result",
