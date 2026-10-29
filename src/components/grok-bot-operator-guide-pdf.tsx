@@ -134,7 +134,7 @@ export function GrokBotOperatorGuidePdf() {
           </View>
         </View>
         <Text style={styles.note}>
-          Bot Cabinet is an independent guide and is not affiliated with xAI or Cursor. Product behavior, limits and controls can change. This guide was checked against the official Grok Bot documentation on {GROK_OPERATOR_UPDATED}. Review the current documentation before connecting sensitive accounts or allowing consequential actions.
+          Bot Cabinet is independent and is not affiliated with SpaceXSI (SpaceXAI LLC), the maker of Grok Bot, or with Cursor. Product behavior, limits and controls can change. This guide was checked against the official Grok Bot documentation on {GROK_OPERATOR_UPDATED}. Review the current documentation before connecting sensitive accounts or allowing consequential actions.
         </Text>
         <Footer page="02 / 02" />
       </Page>

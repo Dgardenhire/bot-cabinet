@@ -55,7 +55,7 @@ export function StarterPackContent({ pack, onClose }: { pack: StarterPack; onClo
           <p className={styles.tested}><strong>What was tested:</strong> {entry.tested.replace(/^Tested vs\. untested:\s*/, "")}</p>
         </article>)}
       </section>
-      <footer className={styles.footer}><p>Bot Cabinet is free and independent, and is not affiliated with xAI, Nous Research, OpenAI, or Anthropic. Hermes Agent is open source. You&apos;ll need a supported AI provider or app plan, and costs vary. Product behavior changes; check your app&apos;s current documentation before connecting sensitive accounts or allowing consequential actions.</p><p>Bot Cabinet · built by Damon Gardenhire through LINCHPIN and AI for the Real World · botcabinet.com</p></footer>
+      <footer className={styles.footer}><p>Bot Cabinet is free and independent, and is not affiliated with SpaceXSI (SpaceXAI LLC), Nous Research, OpenAI, or Anthropic. Hermes Agent is open source. You&apos;ll need a supported AI provider or app plan, and costs vary. Product behavior changes; check your app&apos;s current documentation before connecting sensitive accounts or allowing consequential actions.</p><p>Bot Cabinet · built by Damon Gardenhire through LINCHPIN and AI for the Real World · botcabinet.com</p></footer>
     </div>
   </main>;
 }

@@ -4,7 +4,7 @@ export type GrokOperatorSection = {
   bullets: string[];
 };
 
-export const GROK_OPERATOR_UPDATED = "September 24, 2026";
+export const GROK_OPERATOR_UPDATED = "October 27, 2026";
 
 export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
   {
@@ -24,7 +24,7 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
       "Say which sources to use, what answer or file to make, what it must not do, and when to ask for review.",
       "Send a new message when you need to redirect work already in progress.",
       "Stop ends the current work; it does not undo actions already completed.",
-      "Review drafts before sending, publishing, purchasing, deleting or changing production systems.",
+      "Review drafts before sending, publishing, purchasing, deleting or changing production systems. Since October 23, 2026, an email or Slack message you ask a Bot to send can go out without a draft card once Auto-review allows it, so add the Ask first rule in step 03 before you ask for a send.",
     ],
   },
   {
@@ -34,7 +34,7 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
       "Take control of the computer for passwords, passkeys, two-factor codes, CAPTCHAs and payment confirmation.",
       "Never paste passwords or one-time codes into ordinary chat.",
       "All of your Bots share one cloud computer, including its files, browser sessions and logins.",
-      "Connect only what the job needs. Set Ask first rules for sending, spending, publishing, deleting or changing account access.",
+      "Connect only what the job needs. Open Settings > General > Auto-review and add Ask first rules for sending, spending, publishing, deleting or changing account access, for example: Ask first before sending any email or Slack message. Ask first rules always stop matching actions, even when an allow rule also matches.",
     ],
   },
   {
@@ -62,7 +62,7 @@ export const GROK_OPERATOR_SECTIONS: GrokOperatorSection[] = [
     title: "Fix the smallest failing part",
     bullets: [
       "If a Routine misses a run, check whether it is enabled, who owns it, its time zone, its source and its run history.",
-      "If a private Skill is missing, check Marketplace, then Your plugins, then Manage plugins and skills.",
+      "If a private Skill is missing, open Connect Apps in the sidebar, select the connected count next to the title, and turn it on for this Bot under Private skills.",
       "If computer work stalls, retry the step before rebuilding the computer.",
       "Change one instruction, rerun the same safe test, and save both answers so you can compare them.",
     ],
@@ -75,7 +75,6 @@ export const GROK_OPERATOR_SHORTCUTS = [
   ["Cmd/Ctrl+F", "Find in the current chat"],
   ["Cmd/Ctrl+B", "Compact the sidebar"],
   ["Cmd/Ctrl+Shift+F", "Search Bots"],
-  ["/", "Choose a Skill"],
   ["@", "Mention a Bot, group, Routine or connector"],
 ] as const;
 

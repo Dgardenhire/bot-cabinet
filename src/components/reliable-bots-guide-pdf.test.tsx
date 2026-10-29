@@ -61,7 +61,7 @@ describe("reliable Bots PDF source", () => {
     expect(text).toContain("Decide what needs your approval");
     expect(text).toContain("Check what happens when something goes wrong");
     expect(text).toContain("Use the simplest structure that can do the job");
-    expect(text).toContain("It is not official xAI guidance");
+    expect(text).toContain("It is not official SpaceXSI guidance");
     expect(sourceLinks).toHaveLength(1);
     expect(sourceLinks[0].props).toMatchObject({
       src: "https://github.com/unicodef1wn/grokbot-field-notes",

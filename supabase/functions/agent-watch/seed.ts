@@ -3,6 +3,454 @@ import type { AgentWatchItem } from "./core.ts";
 
 export const AGENT_WATCH_SEED: AgentWatchItem[] = [
   {
+    "slug": "claude-duet-research-preview",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Claude Duet opens as a waitlisted agent that works in the background",
+    "signal": "Anthropic opened a research preview of Claude Duet on October 21, 2026, by waitlist, starting with Pro and Max subscribers in the US. It is a standalone app on iOS and Android and also runs on claude.ai. Each morning it sends a short brief, it checks connected accounts every few hours, and it carries over the memory, skills and connected apps from your Claude account.",
+    "evidence": "provider-claim",
+    "whyItMatters": "Because Duet uses the skills already on your Claude account, a skill you add to Claude is one way to give Duet a specific job. Anthropic says Duet asks before it sends a message, makes a payment, signs a document or deletes anything. Its October 23 safety article adds that paying or sending money, deleting an order and creating an account are never covered by a “don't ask me again” rule, and that trading securities, moving money between accounts and accessing someone else's account are off-limits even with your approval.",
+    "cabinetResponse": "If you get access, start with one read-only job. Tell Duet in plain words what to watch, how often to tell you and what to leave alone; Anthropic says you can tell it what you want to hear about and how often. Read every approval card, including each recipient, before you confirm.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet does not have Duet access and has not run any Bot in it. Anthropic's help article describes no separate schedule screen and names plugins only by example, such as the small business plugin. Whether a skill you uploaded yourself behaves the same way in Duet is untested. Duet is not yet available on Team or Enterprise plans.",
+    "sources": [
+      {
+        "label": "Anthropic: Introducing Claude Duet (October 21, 2026)",
+        "href": "https://claude.com/resources/articles/claude-duet"
+      },
+      {
+        "label": "Anthropic: Claude Duet safety, privacy and security (October 23, 2026)",
+        "href": "https://claude.com/resources/articles/claude-duet-safety-privacy-and-security"
+      },
+      {
+        "label": "Claude Help Center: Get started with Claude Duet",
+        "href": "https://support.claude.com/en/articles/17631495-get-started-with-claude-duet"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Use a Bot on another platform",
+        "href": "/guides/use-a-bot-on-another-platform"
+      }
+    ]
+  },
+  {
+    "slug": "email-scam-filter",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Email Scam Filter scores suspicious mail without touching it",
+    "signal": "Brian Roemmele shared Email Scam Filter, a Grok Bot, on October 13, 2026. It checks Gmail every morning, gives each suspicious message a 0 to 100 risk score using current alerts from sources including the FTC, FBI, BBB, CISA and AARP, and names the red flags, such as a forged sender or a lookalike link. He says it is read-only and never clicks, replies or deletes.",
+    "evidence": "observed",
+    "whyItMatters": "A read-only check can warn about phishing, fake invoices and impostor messages without giving an agent power over your inbox. A score is a warning, not proof that a message is safe.",
+    "cabinetResponse": "Bot Cabinet is preparing its own read-only template from the idea and will credit Brian Roemmele's original; it is not available yet.",
+    "responseStatus": "testing",
+    "limits": "Bot Cabinet has not added or run the original template and did not copy its instructions. Bot Cabinet's own template is not available yet and has not been tested on a real inbox.",
+    "sources": [
+      {
+        "label": "Brian Roemmele's post (October 13, 2026)",
+        "href": "https://x.com/BrianRoemmele/status/2110008406807568813"
+      },
+      {
+        "label": "Open the Grok Bot template",
+        "href": "https://x.ai/bot/0iuz7X3hVDGJhJIBWTTZ_"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Sort an inbox for review",
+        "href": "/use-cases/sort-inbox-for-review"
+      }
+    ],
+    "botDetails": {
+      "name": "Email Scam Filter",
+      "creator": "Brian Roemmele",
+      "platform": "Grok Bot",
+      "job": "Reads Gmail each morning and scores suspicious messages for scam risk, with the red flags and safe next steps.",
+      "requiredAccess": "A Grok Bot account and read access to Gmail.",
+      "outsideActions": "None described. The creator says it never clicks, replies or deletes. Never click a link in a flagged message to check it; go to the company's own site or app instead.",
+      "evidenceStatus": "inspected",
+      "cabinetDecision": "test-adaptation",
+      "cabinetFit": "No Bot Cabinet Bot checks mail for scams. A read-only cross-platform template written from the idea is being prepared and is not available yet.",
+      "closestCabinetMatch": {
+        "label": "Sort an inbox for review",
+        "href": "/use-cases/sort-inbox-for-review"
+      }
+    }
+  },
+  {
+    "slug": "gemini-gems-become-skills",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-10",
+    "title": "Gemini Gems on personal accounts become read-only skills on November 17 and disappear December 17",
+    "signal": "Google is replacing Gems with skills in the Gemini app. For personal Google accounts of people 18 and over, Gems transition to skills and become read-only on November 17, 2026, and are removed on December 17, 2026. Workspace business, enterprise and nonprofit accounts follow in March 2027 and education accounts in June 2027. Google has also renamed Gemini Spark to Task.",
+    "evidence": "provider-claim",
+    "whyItMatters": "Gemini accepts a SKILL.md file, or a folder or .zip with SKILL.md in its main folder, so a Bot Cabinet skill can be uploaded to Gemini. Google says skills will be shareable in the coming weeks; until then, each person uploads their own. Skills work without a paid plan, while tasks need Google AI Pro or Ultra and are not offered in the European Economic Area, Nigeria, Switzerland or the United Kingdom.",
+    "cabinetResponse": "Google says it will turn your Gems into skills automatically, along with supported files. Files beyond the 100 MB limit are dropped, largest first, and some file types, including audio, video, older Office files and archives, are left out. Check each converted skill after November 17 and save anything you still need from a Gem before December 17. To add a Bot Cabinet skill, upload its folder at gemini.google.com or in the Gemini app on a Mac. Use a lowercase, hyphenated name, keep the upload under 100 MB, leave out .docx, .doc and .xlsx files, and remove hidden files such as .DS_Store, which can make an upload fail.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet has not uploaded a skill to Gemini. Google gives no date for skill sharing, and accounts for people under 18 will transition later. Scripts in a skill cannot make requests to outside websites.",
+    "sources": [
+      {
+        "label": "Google Help: Gems are transitioning to skills",
+        "href": "https://support.google.com/gemini/answer/18560919?hl=en"
+      },
+      {
+        "label": "Google Help: Create and manage skills",
+        "href": "https://support.google.com/gemini/answer/17094296?hl=en"
+      },
+      {
+        "label": "Google Help: Manage your tasks (Where did Spark go?)",
+        "href": "https://support.google.com/gemini/answer/17094507?hl=en"
+      }
+    ]
+  },
+  {
+    "slug": "grok-bot-october-sends-without-drafts",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Grok Bot can now send some emails and Slack messages without a draft card",
+    "signal": "Grok Bot's October 23, 2026 release (v0.75.5) says emails and Slack messages you ask a Bot to send go out once Auto-review allows them, while sends on routine and other turns still wait as drafts. The same release added the Vault, where a Bot can save your logins, cards and contact info and fill them in to sign in or check out. Earlier in October, Bots gained X Money and Stripe Link (October 11) and Shop Pay (October 22) as ways to pay. Grok Bot announced X search on October 7, and its October 11 changelog entry adds that no X account connection is needed. It announced Pages for reports, memos and dashboards on October 21. On October 2 it renamed the in-app Marketplace to Connect Apps and moved Bot templates to the web. Grok Bot is made by SpaceXSI (SpaceXAI LLC); accounts and help run through Cursor.",
+    "evidence": "provider-claim",
+    "whyItMatters": "Setup steps that assume every send becomes a draft are now out of date, including Bot Cabinet's own Grok Bot guide before this update. Since October 14, turning on Disable drafts for a Bot has also let it send email from its own address with no draft card. Grok Bot's documentation says Ask first rules always stop matching actions and win when an allow rule also matches.",
+    "cabinetResponse": "Before you ask a Bot to send anything, open Settings > General > Auto-review and add an Ask first rule, such as “Ask first before sending any email or Slack message.” Add another for purchases before you save a card in the Vault. Send a test message to yourself and confirm that an approval card appears. Look for templates on the web marketplace at x.ai/bot/marketplace.",
+    "responseStatus": "published",
+    "limits": "Bot Cabinet has not tested these changes in the app. Elon Musk posted on October 25 that Grok Bot can now call someone or a business for you; as of October 27, calling is not in the official changelog, whose newest release is v0.75.8 from October 24.",
+    "sources": [
+      {
+        "label": "Grok Bot changelog",
+        "href": "https://x.ai/changelog/bot"
+      },
+      {
+        "label": "Grok Bot docs: Approvals, security and privacy",
+        "href": "https://docs.x.ai/grok-bot/approvals-security-and-privacy.md"
+      },
+      {
+        "label": "@bot on X: X search (October 7, 2026)",
+        "href": "https://x.com/bot/status/2107949161878606089"
+      },
+      {
+        "label": "@bot on X: Pages (October 21, 2026)",
+        "href": "https://x.com/bot/status/2112992872857252082"
+      },
+      {
+        "label": "Elon Musk on X: calling (October 25, 2026)",
+        "href": "https://x.com/elonmusk/status/2114365361068138990"
+      },
+      {
+        "label": "SpaceXSI terms of service",
+        "href": "https://x.ai/legal/terms-of-service"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Read the Grok Bot guide",
+        "href": "/platforms/grok-bot"
+      },
+      {
+        "label": "Set up Scout in Grok Bot",
+        "href": "/start/grok"
+      }
+    ]
+  },
+  {
+    "slug": "hermes-plugin-catalog-passes-850",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Hermes's reviewed plugin catalog passes 850 listings, including Bot builders",
+    "signal": "Nous Research launched a Plugin Catalog for Hermes Agent with its v0.22.0 release, published October 14, 2026, which says each of its 600 entries is pinned to a reviewed commit. On October 27, the catalog folder held 860 plugin listings, up from 348 on October 1. Listings added since October 1 include Hermes Agent Builder, Crew, Hermes Teammates and Bot HQ, which help people build, coordinate or manage Bots, and Bot Cabinet's own Cabinet plugin at version 0.3.11.",
+    "evidence": "observed",
+    "whyItMatters": "Hermes users now have several ways to build and run Bots inside Hermes itself. The release notes say each listing is pinned to a reviewed commit; they do not say the plugins were tested on real tasks.",
+    "cabinetResponse": "Add one plugin at a time. Read its catalog listing first, including what it says it accesses, and check the Hermes version it requires. Cabinet's listing requires Hermes 0.22.0 or later.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet counted the listing files in the public repository and read the four Bot-related listings named here; it has not installed or tested them. Cabinet's own listing says it calls private Hermes modules, so a Hermes update can break it.",
+    "sources": [
+      {
+        "label": "Hermes Agent v0.22.0 release notes",
+        "href": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0"
+      },
+      {
+        "label": "Hermes plugin catalog folder",
+        "href": "https://github.com/NousResearch/hermes-agent/tree/main/plugin-catalog"
+      },
+      {
+        "label": "Cabinet catalog listing",
+        "href": "https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/bot-cabinet-v2.yaml"
+      },
+      {
+        "label": "Hermes Agent Builder",
+        "href": "https://github.com/itsflownium/hermes-agent-builder"
+      },
+      {
+        "label": "Crew",
+        "href": "https://github.com/macd2/Crew"
+      },
+      {
+        "label": "Hermes Teammates",
+        "href": "https://github.com/100yenadmin/hermes-teammates"
+      },
+      {
+        "label": "Bot HQ",
+        "href": "https://github.com/RohanRJ389/hermes-bot-hq"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Bot Cabinet in Hermes",
+        "href": "/hermes"
+      }
+    ]
+  },
+  {
+    "slug": "instinct-spending-balance-and-group-chats",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Instinct adds a spending balance, the iPhone Action Button and group chats",
+    "signal": "Instinct, a personal assistant you text or call, launched Link balance with Stripe on October 26, 2026: you add money and set a per-purchase limit, and Instinct can buy within those limits. It is rolling out across the US, with New York still pending. Founder Noah Shinn also announced Instinct on the iPhone Action Button for iPhone 15 Pro and newer on October 25, and on October 27 posted that group chats are open to everyone on iMessage, where each group gets its own Instinct that knows only what is in the chat.",
+    "evidence": "provider-claim",
+    "whyItMatters": "Instinct says there are no new interfaces: you text or call it, and its own setup steps tell you to ask your Instinct. A standing job is therefore a message you send. A per-purchase limit is a cap you can set before any job that buys things.",
+    "cabinetResponse": "Send one kickoff message that names the job, how often to check, when to stop, what it must ask before doing and the most it may spend. For any job that could buy something, set a small Link balance and a low per-purchase limit first.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet has not used Instinct. Instinct's terms say you must be 18 or older to use it. New users need an invite or a waitlist spot, and Instinct publishes no price. Fortune reported in September that it is free and in an invite-only beta. TechCrunch reported in August that people can reach it through WhatsApp, but Instinct's own pages do not mention WhatsApp.",
+    "sources": [
+      {
+        "label": "Instinct",
+        "href": "https://instinct.com/"
+      },
+      {
+        "label": "Instinct terms of service",
+        "href": "https://instinct.com/terms"
+      },
+      {
+        "label": "Instinct on X: Link balance (October 26, 2026)",
+        "href": "https://x.com/instinct/status/2114799582760861732"
+      },
+      {
+        "label": "Noah Shinn on X: Action Button (October 25, 2026)",
+        "href": "https://x.com/noahrshinn/status/2114518299824553988"
+      },
+      {
+        "label": "Noah Shinn on X: group chats (October 27, 2026)",
+        "href": "https://x.com/noahrshinn/status/2115142114711646446"
+      },
+      {
+        "label": "Fortune (September 30, 2026)",
+        "href": "https://fortune.com/2026/09/30/noah-shinn-instinct-ai-assistant-meta-muse-alexandr-wang-tech-series-c-ai-agent-mark-zuckerberg/"
+      },
+      {
+        "label": "TechCrunch (August 24, 2026)",
+        "href": "https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/"
+      }
+    ]
+  },
+  {
+    "slug": "muse-canada-japan-and-shared-artifacts",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Muse reaches Canada and Japan, and its shared pages return after a fix",
+    "signal": "Meta's Muse account announced that Muse reached Canada on September 18, 2026, and Japan on October 22. In the week of October 19, Meta turned off sharing for Muse artifacts after a security researcher found that some shared artifact links could be discovered through passive DNS records. On October 22, David Singleton of Meta Superintelligence Labs said the flaw was fixed and sharing was back on, and that the problem affected shared artifacts, not chat sharing.",
+    "evidence": "provider-claim",
+    "whyItMatters": "Meta's About Muse subscriptions page says Muse is free with a usage limit, with Power ($20 a month) and Maximum ($100 a month) plans for more use. Meta says Muse's skills are built in and developed by Meta, and the page describes no way to add your own skills. You can ask Muse to build a custom connector to another service, but Meta does not review custom connectors or how they use your information.",
+    "cabinetResponse": "Give Muse a Bot Cabinet job as a message: what to do, how often, and what it must ask before doing. Under Settings > Permissions, keep connectors on Ask for some actions or Always ask, and do not choose Always allow for anything that sends or spends. Do not rely on Muse links shared before October 22; anyone opening one now sees a note asking for the new link.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet has not run a job in Muse. Meta says Muse and its subscriptions are in limited testing and not available in all locations. Muse's Canada announcement said Android was coming soon; whether it has arrived was not checked.",
+    "sources": [
+      {
+        "label": "Muse on X: Canada (September 18, 2026)",
+        "href": "https://x.com/Muse/status/2101071767838372272"
+      },
+      {
+        "label": "Muse on X: iOS and web, Android coming soon (September 18, 2026)",
+        "href": "https://x.com/Muse/status/2101071769448935749"
+      },
+      {
+        "label": "Muse on X: Japan (October 22, 2026)",
+        "href": "https://x.com/Muse/status/2113404740931670283"
+      },
+      {
+        "label": "David Singleton on X: shared artifacts update (October 22, 2026)",
+        "href": "https://x.com/dps/status/2113317986635485559"
+      },
+      {
+        "label": "Meta Help: About Muse subscriptions",
+        "href": "https://www.meta.com/help/subscriptions/1021145227643680/"
+      },
+      {
+        "label": "Meta Help: How Muse works with skills",
+        "href": "https://www.meta.com/help/superintelligence/2797651547267109/"
+      },
+      {
+        "label": "Meta Help: How Muse works with Connectors",
+        "href": "https://www.meta.com/help/superintelligence/1687253048996149/"
+      },
+      {
+        "label": "Meta Help: How Muse works with your guidance and approval",
+        "href": "https://www.meta.com/help/superintelligence/1385290430137537/"
+      }
+    ]
+  },
+  {
+    "slug": "spam-call-scrubber",
+    "observedOn": "2026-10-27",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Spam-Call Scrubber asks people-search sites to remove your phone number",
+    "signal": "Arash (@MinimalDuck) shared a Grok Bot on October 15, 2026, that finds your phone number on people-search sites and data brokers, submits the opt-outs, finishes the email confirmations and checks again on a schedule you choose. His post had about 4.8 million views when Bot Cabinet checked on October 27. Liam (@liam_fallen) shared a similar Grok Bot, Agent Zero, on September 17.",
+    "evidence": "observed",
+    "whyItMatters": "The job needs only a browser and an email inbox, so it can be set up on most agents. Removing a listing makes a number harder to find, but it does not stop a caller who already has it, and some people-search sites list people again or reject opt-outs.",
+    "cabinetResponse": "Bot Cabinet is preparing its own template from the idea and will credit Arash's original; it is not available yet.",
+    "responseStatus": "testing",
+    "limits": "Bot Cabinet has not added or run Arash's template and did not copy its instructions. Bot Cabinet's own template is not available yet and has not been tested on a real account. Some sites' terms ban automated requests; Spokeo's, for example, prohibit using any robot, spider or other automatic device to send it queries.",
+    "sources": [
+      {
+        "label": "Arash's post (October 15, 2026)",
+        "href": "https://x.com/MinimalDuck/status/2110712459405464057"
+      },
+      {
+        "label": "Open the Grok Bot template",
+        "href": "https://x.ai/bot/fUj6TYhiW_cjtzWvbsFgz"
+      },
+      {
+        "label": "Agent Zero by Liam",
+        "href": "https://x.ai/bot/DFnZYjCELW2QdywUWZRiG"
+      },
+      {
+        "label": "MonetizeAI: what the template can and cannot do (October 23, 2026)",
+        "href": "https://monetizeai.substack.com/p/free-grok-bot-template-goes-viral"
+      },
+      {
+        "label": "California DROP",
+        "href": "https://privacy.ca.gov/drop/"
+      },
+      {
+        "label": "Spokeo terms of use",
+        "href": "https://www.spokeo.com/terms-of-use-consumer"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Compare with Receipt",
+        "href": "/bots/receipt"
+      }
+    ],
+    "botDetails": {
+      "name": "Spam-Call Scrubber",
+      "creator": "Arash (@MinimalDuck)",
+      "platform": "Grok Bot",
+      "job": "Finds a person's phone number on people-search and data-broker sites, files the opt-outs and checks again on a schedule.",
+      "requiredAccess": "A Grok Bot account, the person's name, phone number and city, and an email inbox for confirmation links.",
+      "outsideActions": "Submits opt-out forms to third-party sites and opens email confirmation links. If you live in California, start with the state's free DROP tool, which sends one deletion request to registered data brokers.",
+      "evidenceStatus": "inspected",
+      "cabinetDecision": "test-adaptation",
+      "cabinetFit": "Nothing in Bot Cabinet removes personal listings. A cross-platform template written from the idea, with a list-first approval step, is being prepared and is not available yet.",
+      "closestCabinetMatch": {
+        "label": "Receipt",
+        "href": "/bots/receipt"
+      }
+    }
+  },
+  {
+    "slug": "four-grok-bots-for-small-business-work",
+    "observedOn": "2026-10-01",
+    "reviewAgainBy": "2026-11-03",
+    "title": "Four Grok Bots for testing, prototyping, sales and marketing",
+    "signal": "Shub Gaur's Startup QA Bot checks a product using its own test account and reports broken steps with screenshots. Proto Bot turns a feature idea into a draft code change with pictures and video. Sell Bot drafts outreach, call preparation and customer follow-ups. Distro Bot combines campaign analysis, creative drafts and outreach. Their original marketplace pages include direct import links.",
+    "evidence": "provider-claim",
+    "whyItMatters": "These are useful jobs to look for when choosing an agent: catch a broken signup, show a proposed feature before releasing it, prepare a customer reply, or compare campaign results. You do not need to assemble a crew to try one of them.",
+    "cabinetResponse": "Choose one job and try a harmless example first. For product testing, use a separate test account, not a customer account. For a prototype, use a project copy and review the changed files. For sales, draft a reply without sending it. For marketing, start with campaign analysis and leave spending unchanged. Follow the original listing's setup instructions and review its requested access before importing.",
+    "responseStatus": "watching",
+    "limits": "Bot Cabinet inspected the published instructions and import links, but has not imported or run these Bots. The stated approval rules are instructions, not proven safeguards. Proto Bot uses cloud coding agents and outside image services; its listing warns that FAL and Higgsfield upload links are public, so private screenshots should not be uploaded. Distro Bot can change creative and targeting without asking in an autopilot mode. Its spending changes still require explicit approval and caps. Sales and marketing require access to business records or accounts. Sell Bot's and Distro Bot's listings say their routines ship paused, and Startup QA Bot's listing says its morning walk ships off. Proto Bot's listing does not say, so check its routines before turning any on.",
+    "sources": [
+      {
+        "label": "Startup QA Bot: instructions",
+        "href": "https://x.ai/bot/marketplace/bots/startup-qa-bot"
+      },
+      {
+        "label": "Startup QA Bot: open import",
+        "href": "https://x.ai/bot/XBauviUoNcdi05-ExoOo4"
+      },
+      {
+        "label": "Proto Bot: instructions",
+        "href": "https://x.ai/bot/marketplace/bots/proto-bot"
+      },
+      {
+        "label": "Proto Bot: open import",
+        "href": "https://x.ai/bot/p4sSEZV7xqcBgdT7m2O8i"
+      },
+      {
+        "label": "Sell Bot: instructions",
+        "href": "https://x.ai/bot/marketplace/bots/sell-bot"
+      },
+      {
+        "label": "Sell Bot: open import",
+        "href": "https://x.ai/bot/znrhzY4AYMg4v3QTfU0IJ"
+      },
+      {
+        "label": "Distro Bot: instructions",
+        "href": "https://x.ai/bot/marketplace/bots/distro-bot"
+      },
+      {
+        "label": "Distro Bot: open import",
+        "href": "https://x.ai/bot/XbN6iofs_Qjsi2Od1yjyI"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Build a prototype with Founding Engineer",
+        "href": "/bots/founding-engineer/"
+      },
+      {
+        "label": "Check systems with Ops",
+        "href": "/bots/ops/"
+      },
+      {
+        "label": "Prepare client documents",
+        "href": "/bots/client/"
+      }
+    ]
+  },
+  {
+    "slug": "chatgpt-dots-one-agent-per-account",
+    "observedOn": "2026-09-29",
+    "reviewAgainBy": "2026-11-03",
+    "title": "ChatGPT dots give each account one agent that keeps working",
+    "signal": "OpenAI introduced dots on September 29, 2026: always-on agents in ChatGPT that run on GPT-6 Astra, have their own cloud computer and keep making progress between conversations. You start with one primary dot. In the week of October 5–9 OpenAI added dot creation in the ChatGPT mobile app, and in the week of October 12–16 an iPhone Home Screen widget and an Apple Shortcuts action, rolling out with ChatGPT for iOS 1.2026.279.",
+    "evidence": "provider-claim",
+    "whyItMatters": "You set up a dot by describing the responsibility in conversation and sharing the material it needs. Custom rules are instructions your dot tries to follow for a kind of action: Take action without asking, Take action when you say so, Ask before taking action, or Hand off to you. OpenAI says a dot can make mistakes.",
+    "cabinetResponse": "Give your dot one responsibility and the material it needs. Before you connect accounts, add custom rules; OpenAI's own examples are Ask before taking action for messages to customers and Hand off to you for deleting shared project files. Review the first result before you widen the job.",
+    "responseStatus": "published",
+    "limits": "Bot Cabinet has not run a dot. OpenAI's docs list Pro 100, Pro 200 and Pro 500 for users outside the European Economic Area, the United Kingdom and Switzerland, plus Business Premium and admin-enabled Enterprise workspaces. OpenAI Help limits Pro access to users 18 and older. OpenAI said dots usage would not count toward Pro, Business and Enterprise allowances for the first month and that it would then share usage terms for each plan; none were in its release notes when Bot Cabinet checked on October 27, 2026. OpenAI's Help Center calls the second custom rule Take action if pre-approved.",
+    "sources": [
+      {
+        "label": "OpenAI: Introducing dots (September 29, 2026)",
+        "href": "https://openai.com/index/introducing-dots/"
+      },
+      {
+        "label": "OpenAI: Meet dots",
+        "href": "https://learn.chatgpt.com/docs/dots"
+      },
+      {
+        "label": "OpenAI: Control your dot",
+        "href": "https://learn.chatgpt.com/docs/dots/controls"
+      },
+      {
+        "label": "OpenAI: What's new",
+        "href": "https://learn.chatgpt.com/docs/whats-new"
+      },
+      {
+        "label": "ChatGPT release notes",
+        "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      },
+      {
+        "label": "OpenAI Help: Getting started with your dot",
+        "href": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"
+      }
+    ],
+    "cabinetLinks": [
+      {
+        "label": "Try a first task with a dot",
+        "href": "/start/dots"
+      }
+    ]
+  },
+  {
     "slug": "nasiko-agent-control-plane",
     "observedOn": "2026-09-24",
     "reviewAgainBy": "2026-10-08",
@@ -466,7 +914,7 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
     "observedOn": "2026-09-20",
     "reviewAgainBy": "2026-10-04",
     "title": "Personal agents are moving into background work",
-    "signal": "Muse and Gemini Spark describe agents that keep working after the conversation ends. Instinct describes an assistant reached by text or phone that connects to applications and devices.",
+    "signal": "Muse and Gemini Tasks (formerly Spark) describe agents that keep working after the conversation ends. Instinct describes an assistant reached by text or phone that connects to applications and devices.",
     "evidence": "provider-claim",
     "whyItMatters": "These services offer to handle continuing jobs using connected apps and schedules. Compare what each can do, what it can access, how it asks permission and how much it costs.",
     "cabinetResponse": "Choose one small recurring job and compare the services by what information they can use, what actions they can take, how they ask permission, what they cost, and how they show that the work was completed.",
@@ -482,8 +930,8 @@ export const AGENT_WATCH_SEED: AgentWatchItem[] = [
         "href": "https://instinct.com/"
       },
       {
-        "label": "Google: Gemini Spark",
-        "href": "https://gemini.google/overview/agent/spark/"
+        "label": "Google: Gemini Tasks (formerly Spark)",
+        "href": "https://support.google.com/gemini/answer/17094507?hl=en"
       }
     ],
     "cabinetLinks": [

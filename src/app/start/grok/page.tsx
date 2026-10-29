@@ -44,7 +44,7 @@ export default function GrokStartPage() {
               <h2>Check access</h2>
               <p>You need Grok Bot and an eligible plan. If you do not have the app yet, follow its official setup guide before continuing.</p>
               <a href="https://x.ai/bot/guides/grok-bot-101" className="text-link" target="_blank" rel="noopener noreferrer">Open Grok Bot 101 <ArrowRight size={16} aria-hidden="true" /></a>
-              <p className="workspace-start-small">xAI also has <a href="https://x.ai/bot/guides">work examples and template guides</a>. Native Grok Bot templates can open in the app; Scout&apos;s Cabinet brief below is not one of those installable links.</p>
+              <p className="workspace-start-small">SpaceXSI also has <a href="https://x.ai/bot/guides">work examples and template guides</a>. Native Grok Bot templates can open in the app; Scout&apos;s Cabinet brief below is not one of those installable links.</p>
             </div>
           </li>
           <li>
@@ -69,7 +69,7 @@ export default function GrokStartPage() {
             <span className="workspace-start-step-number">4</span>
             <div>
               <h2>Keep what works</h2>
-              <p>Use Scout on your own approved sources only after the practice result is useful. Save a Skill or create a Routine later, once repeated manual runs work. Keep sending, publishing, account changes, and other outside actions behind your approval.</p>
+              <p>Use Scout on your own approved sources only after the practice result is useful. Save a Skill or create a Routine later, once repeated manual runs work. Keep sending, publishing, account changes, and other outside actions behind your approval. In Grok Bot, open Settings &gt; General &gt; Auto-review and add an Ask first rule for sending email and Slack messages; since October 23, 2026, sends you ask for can otherwise go out without a draft card.</p>
               <p className="workspace-start-small">This walkthrough is prepared from Cabinet&apos;s Scout recipe and the official Grok Bot guide. Bot Cabinet has not installed or task-tested Scout in Grok Bot.</p>
             </div>
           </li>

@@ -9,7 +9,7 @@ export const CABINET_CATALOG_LISTED = true;
 export const CABINET_CATALOG_NAME = "bot-cabinet-v2";
 export const CABINET_REPO = "Dgardenhire/hermes-cabinet";
 export const CABINET_REPO_URL = `https://github.com/${CABINET_REPO}`;
-export const CABINET_VERSION = "0.3.10";
+export const CABINET_VERSION = "0.3.11";
 export const CABINET_MIN_HERMES = "0.22.0";
 
 export const CABINET_INSTALL_URL = CABINET_CATALOG_LISTED

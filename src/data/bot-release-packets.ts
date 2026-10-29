@@ -63,7 +63,7 @@ export const BOT_RELEASE_PACKETS: BotReleasePacket[] = [
     botSlug: "unstick-me",
     portrait: "/downloads/bot-portraits/hermes/unstick-me-1024.png",
     socialCard: "/brand/social/showcase-unstick-me-v1-1200x630.jpg",
-    xPost: "New in Bot Cabinet: Unstick Me, adapted from Yanqing Cheng's Grok Bot. Short questions, one at a time, until you start the task you've been avoiding. Hermes, Grok Bot and ChatGPT versions: https://botcabinet.com/bots/unstick-me/",
+    xPost: "New in Bot Cabinet: Unstick Me, inspired by Yanqing Cheng's Grok Bot. Short questions, one at a time, until you start the task you've been avoiding. Hermes, Grok Bot and ChatGPT versions: https://botcabinet.com/bots/unstick-me/",
     status: "draft",
     humanApprovalRequired: true,
   },

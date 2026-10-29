@@ -20,7 +20,7 @@ describe("agent comparison", () => {
     const html = renderToStaticMarkup(<ComparePage />);
 
     expect(metadata).toHaveProperty("title");
-    for (const name of ["ChatGPT Dots", "Grok Bot", "Muse", "Instinct", "Gemini Spark", "Poke", "OpenClaw", "Hermes Agent"]) {
+    for (const name of ["ChatGPT Dots", "Grok Bot", "Muse", "Instinct", "Gemini Tasks (formerly Spark)", "Poke", "OpenClaw", "Hermes Agent"]) {
       expect(html).toContain(name);
     }
     expect(html).not.toContain('class="compare-pick-grid"');

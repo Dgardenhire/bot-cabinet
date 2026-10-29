@@ -150,9 +150,28 @@ export function BotPlatformChooser({
           </summary>
           <div className="bot-platform-option-content">
           <p>
-            Use a Cowork plugin or Skill for a general work role. Use Claude Code
-            only when the job involves code or a local project. This setup
-            has not yet been installed or task-tested for {botName}.
+            Add this Bot’s Skill to Claude under Customize &gt; Skills &gt; Upload
+            a skill. Unzip{" "}
+            <a
+              href={hermesReadableFilesUrl}
+              download
+              data-funnel-event="bot_claude_skill_download"
+              data-funnel-surface="bot_platform_chooser"
+              data-funnel-destination={botSlug}
+            >
+              the pack
+            </a>
+            ,
+            then compress only the <code>skills/{botSlug}-core</code> folder and
+            upload that. Claude Duet, a waitlisted research preview for US Pro and
+            Max plans, carries over the skills on your Claude account. Anthropic
+            says Duet asks before it sends a potentially sensitive message, pays
+            for something or deletes anything. Paying or sending money, deleting an
+            order and creating an account always need your approval, and some
+            actions, like trading securities or moving money between accounts, are
+            off-limits even with it. This
+            setup has not been installed or task-tested for {botName}, in Claude
+            or in Duet.
           </p>
           <div className="bot-platform-actions">
             <Link href="/guides/use-a-bot-on-another-platform" className="text-link">

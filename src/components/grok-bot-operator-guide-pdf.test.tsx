@@ -49,6 +49,6 @@ describe("Grok Bot operator guide PDF", () => {
     expect(content).toContain("Protect accounts and files");
     expect(content).toContain("Use a group only when it helps");
     expect(content).toContain("THE FIVE-LINE HANDOFF");
-    expect(content).toContain("not affiliated with xAI or Cursor");
+    expect(content).toContain("not affiliated with SpaceXSI (SpaceXAI LLC), the maker of Grok Bot, or with Cursor");
   });
 });

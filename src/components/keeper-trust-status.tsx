@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CheckCircle, Clock, Prohibit, Warning } from "@phosphor-icons/react";
 import { KEEPER_STATUS_API_URL, type KeeperTrustResult, type KeeperTrustStatus, ageKeeperStatus, keeperSnapshotIsOld, parsePublicKeeperStatus } from "@/lib/keeper-status-live";
@@ -24,7 +25,21 @@ function when(value: string | null) {
   return new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" }).format(new Date(value)) + " UTC";
 }
 
-export function KeeperTrustStatusTable({ fallback }: { fallback: KeeperTrustStatus }) {
+const RECHECK_AFTER_MS = 14 * 24 * 60 * 60 * 1000;
+
+/**
+ * Returns why the dated rows are hidden, or null when the newest reviewed snapshot is at most 14 days old and can show
+ * as a table. Before scripts run, the caller passes the build time, so the server-rendered page and the loaded page
+ * judge the same snapshot the same way.
+ */
+export function keeperRecheckNotice(status: KeeperTrustStatus, nowMs: number): string | null {
+  if (!status.publishedAt) return "No recent reviewed site checks to show.";
+  if (nowMs <= Date.parse(status.publishedAt) + RECHECK_AFTER_MS) return null;
+  const day = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "UTC" }).format(new Date(status.publishedAt));
+  return `The last reviewed site checks, from ${day}, are too old to rely on, so they are hidden.`;
+}
+
+export function KeeperTrustStatusTable({ fallback, builtAt }: { fallback: KeeperTrustStatus; builtAt: number }) {
   const [status, setStatus] = useState(fallback);
   const [now, setNow] = useState<number | null>(null);
 
@@ -45,18 +60,28 @@ export function KeeperTrustStatusTable({ fallback }: { fallback: KeeperTrustStat
     return () => { controller.abort(); window.cancelAnimationFrame(frame); window.clearInterval(interval); };
   }, []);
 
+  const notice = keeperRecheckNotice(status, now ?? builtAt);
   const shown = now === null ? status : ageKeeperStatus(status, now);
   const snapshotOld = now !== null && keeperSnapshotIsOld(status, now);
+
+  if (notice) {
+    return (
+      <div className="keeper-trust-status">
+        <div className="keeper-trust-status-head" style={{ borderBottom: 0 }}>
+          <div><span>Latest reviewed checks</span><strong>{status.publishedAt ? "Out of date" : "None to show"}</strong></div>
+          <p>{notice} Each Bot’s own test record in the <Link href="/proof">Proof Room</Link> shows its date.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="keeper-trust-status">
       <div className="keeper-trust-status-head">
-        <div><span>Latest reviewed checks</span><strong>{status.publishedAt ? when(status.publishedAt) : "No results published yet"}</strong></div>
-        <p>{!status.publishedAt
-          ? "No reviewed Keeper results have been published. The checks below remain unknown."
-          : snapshotOld
-            ? `Revision ${status.revision}. These results are out of date. They cannot confirm whether the site works today or whether Keeper has run more recent checks.`
-            : `Revision ${status.revision}. These are Keeper’s check results. They do not establish that every Bot works well or is safe for your task.`}</p>
+        <div><span>Latest reviewed checks</span><strong>{when(status.publishedAt)}</strong></div>
+        <p>{snapshotOld
+          ? `Revision ${status.revision}. These results are out of date. They cannot confirm whether the site works today or whether Keeper has run more recent checks.`
+          : `Revision ${status.revision}. These are Keeper’s check results. They do not establish that every Bot works well or is safe for your task.`}</p>
       </div>
       <div className="keeper-trust-status-table" role="table" aria-label="Latest approved Keeper checks">
         {shown.checks.map((item) => (
