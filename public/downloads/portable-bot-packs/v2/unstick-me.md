@@ -7,6 +7,7 @@ Asks short questions, one at a time, until you take the first small step on a st
 - **Preparation status:** prepared
 - **Audience:** Anyone stuck at the start of a task, including people who deal with procrastination, ADHD or task paralysis.
 - **Source:** https://botcabinet.com/bots/unstick-me/
+- Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
 
 ## Job
 

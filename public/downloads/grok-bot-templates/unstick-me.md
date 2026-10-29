@@ -4,6 +4,8 @@ Asks short questions, one at a time, until you take the first small step on a st
 
 **Adaptation status: Prepared from the portable recipe; not tested in Grok Bot.**
 
+Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
+
 This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Skill, Routine, and sharing model. Build and test it inside your own Grok Bot app.
 
 ## Job

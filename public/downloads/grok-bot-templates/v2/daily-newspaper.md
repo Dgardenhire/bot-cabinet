@@ -4,6 +4,8 @@ Turns the calendar notes, messages, and source material you choose into a short 
 
 **Status: Prepared adaptation; not tested in Grok Bot.**
 
+Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
+
 This is a manual construction brief. It is not an import package and makes no claim of direct Grok Bot import support.
 
 ## Profile fields to enter

@@ -19,7 +19,7 @@ Import-tested means archive import was checked, not that this Bot or crew has pr
 Gather approved metrics, project status, deadlines, and exceptions.
 
 Archive: members/ops.tar.gz
-SHA-256: c13dbdb0a7dae466df5307aa9198c5db74a01f60ce0a07fd2b62e396186a38a2
+SHA-256: 9a08d692f493c34f2224e369daaf9b8d9df3281c3e767cb5f49d2b974e6219dc
 Pack: 2.0.1; minimum Hermes: >=0.21.0; import tested with: 0.21.0
 Import: import-test-passed; skill: not-tested; routine: inactive; manual-test-required
 

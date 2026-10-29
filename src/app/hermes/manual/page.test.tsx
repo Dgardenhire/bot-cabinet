@@ -25,6 +25,12 @@ describe("Cabinet manual page", () => {
     expect(html).toContain('href="https://hermesatlas.com/"');
   });
 
+  it("credits each outside creator and names the Diagnose Skill as the Bot Pack publishes it", () => {
+    expect(text).toContain("The Unstick Me Bot was inspired by Yanqing Cheng&#x27;s Unstick me (Grok Bot).");
+    expect(text).toContain("The Diagnose a bad AI result Skill is based on Diagnose My Agent&#x27;s Mistake, from Muse at Work.");
+    expect(text).not.toContain("Diagnose an AI result");
+  });
+
   it("uses screenshots that exist and headlines without periods or numbers", () => {
     const shots = [...new Set([...html.replaceAll("%2F", "/").matchAll(/(\/hermes-cabinet\/manual\/[a-z-]+\.jpg)/g)].map((match) => match[1]))];
     expect(shots.length).toBe(16);

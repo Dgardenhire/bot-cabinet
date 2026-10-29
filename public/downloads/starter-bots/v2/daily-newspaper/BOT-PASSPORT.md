@@ -5,6 +5,10 @@
 - **Planned risk:** Elevated
 - **Pack version:** 2.0.0
 
+## Credit
+
+Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
+
 ## Requested capabilities
 
 - Start with files and text supplied in the conversation

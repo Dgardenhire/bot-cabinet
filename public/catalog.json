@@ -1,8 +1,8 @@
 {
  "schemaVersion": 2,
- "generatedAt": "2026-10-19",
+ "generatedAt": "2026-10-29",
  "source": "botcabinet.com site repository (Damon Gardenhire, MIT)",
- "siteCommit": "7b6c85f+local 2026-10-18",
+ "siteCommit": "efb44c7+local 2026-10-28",
  "origin": "https://botcabinet.com",
  "bots": [
   {
@@ -537,7 +537,7 @@
    },
    "credits": [
     {
-     "line": "Its Diagnose an AI result skill adapts Diagnose My Agent's Mistake, listed on Muse at Work",
+     "line": "Its Diagnose a bad AI result Skill is based on Diagnose My Agent's Mistake, listed on Muse at Work",
      "href": "https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c"
     }
    ],

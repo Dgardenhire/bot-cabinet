@@ -11,6 +11,10 @@ description: "Unstick Me core Skill. Run when you ask for help starting somethin
 
 **Test status:** not-tested
 
+## Credit
+
+Inspired by Yanqing Cheng's Unstick me (Grok Bot): https://x.ai/bot/EahHaI-kwO0hgWj6I45jC
+
 ## Use this Skill when
 
 Run when you ask for help starting something. No schedule needed.

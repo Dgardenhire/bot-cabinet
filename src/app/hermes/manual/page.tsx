@@ -365,8 +365,9 @@ export default function CabinetManualPage() {
             <ul className={styles.credits}>
               <li><b>Bot Cabinet</b>, by Damon Gardenhire, made the Bots, Crew Kits, painted portraits and test records. <Link href="/">botcabinet.com</Link></li>
               <li><b>The Daily Newspaper Bot</b> was inspired by Karen X. Cheng&apos;s The Morning Newspaper.</li>
+              <li><b>The Unstick Me Bot</b> was inspired by Yanqing Cheng&apos;s Unstick me (Grok Bot).</li>
               <li><b>The Hermes guides</b> linked in Cabinet were written by Shann&sup3;, YanXbt, Tony Simons and witcheer.</li>
-              <li><b>The Diagnose an AI result skill</b> is based on Diagnose My Agent&apos;s Mistake, from Muse at Work.</li>
+              <li><b>The Diagnose a bad AI result Skill</b> is based on Diagnose My Agent&apos;s Mistake, from Muse at Work.</li>
             </ul>
             <h3>Keep exploring</h3>
             <ul className={styles.credits}>

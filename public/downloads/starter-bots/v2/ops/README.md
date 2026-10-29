@@ -11,6 +11,7 @@ This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every 
 - That import test confirmed the archive and bundled Skill were present. It did not test output quality or live-service behavior.
 - The included Skill “Ops core Skill” is prepared and not-tested.
 - The included Skill “Diagnose a bad AI result” is prepared and not-tested.
+- The Diagnose a bad AI result Skill is based on the public Diagnose My Agent's Mistake listing on Muse at Work, which does not name its creator: https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c
 - The Routine is a plan only: manual-test-required and not-tested.
 - No schedule or active Routine is included in this package.
 

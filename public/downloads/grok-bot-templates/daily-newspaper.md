@@ -4,6 +4,8 @@ Turns the calendar notes, messages, and source material you choose into a short 
 
 **Adaptation status: Prepared from the portable recipe; not tested in Grok Bot.**
 
+Inspired by Karen X. Cheng's The Morning Newspaper: https://x.ai/bot/marketplace/bots/the-morning-newspaper
+
 This brief translates the Bot Cabinet recipe into Grok Bot's current profile, Skill, Routine, and sharing model. Build and test it inside your own Grok Bot app.
 
 ## Job

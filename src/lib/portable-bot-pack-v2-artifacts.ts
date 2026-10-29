@@ -7,6 +7,7 @@ import {
   type PortableBotPackV2,
 } from "./portable-bot-pack-v2";
 import { getBotRuntimeEvidence, getReproducedBotEvidence } from "../data/bot-release-evidence";
+import { starterBotCreditLine } from "./portable-bot-pack";
 import { BOT_CABINET_ORIGIN } from "./site-constants";
 
 const PUBLIC_ORIGIN = BOT_CABINET_ORIGIN;
@@ -371,6 +372,14 @@ function yamlString(value: string) {
   return JSON.stringify(value);
 }
 
+// The Ops Diagnose Skill's source, named in the Ops README (the Skill file keeps its own note).
+const DIAGNOSE_SKILL_README_CREDIT =
+  "The Diagnose a bad AI result Skill is based on the public Diagnose My Agent's Mistake listing on Muse at Work, which does not name its creator: https://museatwork.app/#w=1d0661a5-1cf7-4013-9aff-9cf605bcbe8c";
+
+function creditSection(credit: string | null) {
+  return credit ? ["## Credit", "", credit, ""] : [];
+}
+
 function portableRecipeMarkdown(pack: PortableBotPackV2) {
   const skill = pack.skills[0];
   const routine = pack.routines[0];
@@ -450,6 +459,7 @@ export function portableBotPackV2ToJson(pack: PortableBotPackV2) {
 
 export function portableBotPackV2ToMarkdown(pack: PortableBotPackV2) {
   parsePortableBotPackV2(pack);
+  const credit = starterBotCreditLine(pack.identity.slug);
 
   return [
     `# ${pack.identity.name} — Portable Bot Pack V2`,
@@ -461,6 +471,7 @@ export function portableBotPackV2ToMarkdown(pack: PortableBotPackV2) {
     `- **Preparation status:** ${pack.preparationStatus}`,
     `- **Audience:** ${pack.identity.audience}`,
     `- **Source:** ${pack.provenance.sourceUrl}`,
+    ...(credit ? [`- ${credit}`] : []),
     "",
     ...portableRecipeMarkdown(pack),
     "## Bot Passport",
@@ -504,6 +515,7 @@ export function portableBotPackV2ToGrokMarkdown(pack: PortableBotPackV2) {
   const skill = pack.skills[0];
   const routine = pack.routines[0];
   const paths = portableBotPackV2ArtifactPaths(pack.identity.slug);
+  const credit = starterBotCreditLine(pack.identity.slug);
 
   return [
     `# ${pack.identity.name} — Manual build brief for Grok Bot`,
@@ -512,6 +524,7 @@ export function portableBotPackV2ToGrokMarkdown(pack: PortableBotPackV2) {
     "",
     "**Status: Prepared adaptation; not tested in Grok Bot.**",
     "",
+    ...(credit ? [credit, ""] : []),
     "This is a manual construction brief. It is not an import package and makes no claim of direct Grok Bot import support.",
     "",
     "## Profile fields to enter",
@@ -594,6 +607,7 @@ export function compilePortableBotPackV2HermesFiles(
   parsePortableBotPackV2(pack);
   const routine = pack.routines[0];
   const paths = portableBotPackV2ArtifactPaths(pack.identity.slug);
+  const credit = starterBotCreditLine(pack.identity.slug);
   const skillFiles = pack.skills.map((candidate, index) => {
     const skillSlug = portableBotPackV2SkillSlug(pack, index);
     const skillPath = `skills/${skillSlug}/SKILL.md`;
@@ -621,6 +635,7 @@ export function compilePortableBotPackV2HermesFiles(
       "",
       `**Test status:** ${candidate.testStatus}`,
       "",
+      ...(index === 0 ? creditSection(credit) : []),
       ...sourceNote,
       "## Use this Skill when",
       "",
@@ -710,6 +725,7 @@ export function compilePortableBotPackV2HermesFiles(
     `- **Planned risk:** ${pack.controls.riskLevel}`,
     `- **Pack version:** ${pack.packVersion}`,
     "",
+    ...creditSection(credit),
     "## Requested capabilities",
     "",
     markdownList(pack.controls.requestedCapabilities),
@@ -752,6 +768,7 @@ export function compilePortableBotPackV2HermesFiles(
     "",
     "This is a Bot Cabinet Portable Bot Pack V2 Hermes profile archive. Review every file before importing it or granting access.",
     "",
+    ...creditSection(credit),
     "## Package status",
     "",
     "- The generated files and archive structure are checked at build time.",
@@ -773,10 +790,10 @@ export function compilePortableBotPackV2HermesFiles(
       ? [
           `- The included Skill is ${pack.skills[0].preparationStatus} and ${pack.skills[0].testStatus}.`,
         ]
-      : pack.skills.map(
-          (candidate) =>
-            `- The included Skill “${candidate.name}” is ${candidate.preparationStatus} and ${candidate.testStatus}.`,
-        )),
+      : pack.skills.flatMap((candidate) => [
+          `- The included Skill “${candidate.name}” is ${candidate.preparationStatus} and ${candidate.testStatus}.`,
+          ...(candidate.artifactId.endsWith(":diagnose-ai-result") ? [`- ${DIAGNOSE_SKILL_README_CREDIT}`] : []),
+        ])),
     `- The Routine is a plan only: ${routine.activationStatus} and ${routine.testStatus}.`,
     "- No schedule or active Routine is included in this package.",
     "",
