@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@vercel/analytics";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { loadStarterPack, requestStarterPack, PackAccessError, type StarterPack } from "@/lib/starter-pack-access";
@@ -6,6 +7,18 @@ import { forgetPackSession, readPackSession, rememberPackSession } from "@/lib/s
 import { StarterPackContent } from "./pack-content";
 import styles from "./pack.module.css";
 import document from "./document.module.css";
+
+/** Requests the pack and records the signup. The event carries no email address or name. */
+export async function sendPackRequest(
+  email: string,
+  name: string,
+  request: (email: string, name: string) => Promise<unknown> = requestStarterPack,
+  record: (event: string, properties: { surface: string }) => void = track,
+) {
+  await request(email, name);
+  record("starter_pack_requested", { surface: "starter_pack" });
+}
+
 export function PackAccess() {
   const [pack, setPack] = useState<StarterPack | null>(null);
   const [state, setState] = useState<"idle" | "opening" | "sending" | "sent">("idle");
@@ -64,7 +77,7 @@ export function PackAccess() {
             event.preventDefault();
             const values = new FormData(event.currentTarget);
             setState("sending"); setError("");
-            try { await requestStarterPack(String(values.get("email") || ""), String(values.get("name") || "")); setState("sent"); }
+            try { await sendPackRequest(String(values.get("email") || ""), String(values.get("name") || "")); setState("sent"); }
             catch (reason) { setError(reason instanceof Error ? reason.message : "Please try again."); setState("idle"); }
           }}>
             <label htmlFor="pack-email">Email address</label><input id="pack-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required maxLength={254} />

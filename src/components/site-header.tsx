@@ -16,7 +16,7 @@ export function SiteHeader() {
           className="newsletter-top-link"
           href="https://ai-seminar.linchpin.studio/open-source"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
         >
           Read the Open Source newsletter <ArrowUpRight size={13} aria-hidden="true" />
         </a>

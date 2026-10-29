@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Serif_Display, Space_Mono } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { FunnelAnalytics } from "@/components/funnel-analytics";
+import { FunnelAnalytics, SiteAnalytics } from "@/components/funnel-analytics";
 import { ReturningUseAnalytics } from "@/components/returning-use-analytics";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -112,7 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter />
         <FunnelAnalytics />
         <ReturningUseAnalytics />
-        <Analytics />
+        <SiteAnalytics />
       </body>
     </html>
   );
