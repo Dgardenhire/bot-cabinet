@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const useCase = getBotUseCase(slug);
   if (!useCase) return {};
   return buildPageMetadata({
-    title: `${useCase.title} · Workflow Guide`,
+    title: useCase.title,
     description: useCase.outcome,
     path: `/use-cases/${useCase.slug}/`,
     image: useCase.slug === "personal-morning-newspaper"

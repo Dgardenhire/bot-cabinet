@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import StartPage from "../page";
 import AgentWatchPage from "../../watch/page";
 import sitemap from "../../sitemap";
+import { staticRouteDate } from "../../../data/content-dates";
 import DotsStartPage, { metadata } from "./page";
 
 describe("ChatGPT Dots first-use guide", () => {
@@ -16,7 +17,7 @@ describe("ChatGPT Dots first-use guide", () => {
     expect(watch).toContain("Specialist Dots are still limited to enterprise pilots");
     expect(sitemap()).toContainEqual(expect.objectContaining({
       url: "https://botcabinet.com/start/dots/",
-      lastModified: new Date("2026-09-29"),
+      lastModified: new Date(staticRouteDate("/start/dots")),
     }));
   });
 

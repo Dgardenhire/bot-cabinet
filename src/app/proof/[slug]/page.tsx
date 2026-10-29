@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const demo = getProofRoomDemo(slug);
   return demo
     ? buildPageMetadata({
-        title: `${demo.title} · Test Records`,
+        title: demo.title,
         description: demo.summary,
         path: `/proof/${demo.slug}/`,
         image: "/brand/social/proof-room-1200x630.jpg",

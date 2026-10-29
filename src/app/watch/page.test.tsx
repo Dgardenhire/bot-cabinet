@@ -2,6 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { AGENT_WATCH_ITEMS } from "../../data/agent-watch";
 import sitemap from "../sitemap";
+import { staticRouteDate } from "../../data/content-dates";
 import AgentWatchPage, { metadata } from "./page";
 
 describe("Agent Watch", () => {
@@ -67,6 +68,6 @@ describe("Agent Watch", () => {
     expect(html).toContain("Guide available");
     expect(metadata.alternates?.types).toBeUndefined();
     expect(html).toContain("https://support.google.com/gemini/answer/17094507?hl=en");
-    expect(sitemap()).toContainEqual(expect.objectContaining({ url: "https://botcabinet.com/watch/", lastModified: new Date("2026-10-27") }));
+    expect(sitemap()).toContainEqual(expect.objectContaining({ url: "https://botcabinet.com/watch/", lastModified: new Date(staticRouteDate("/watch")) }));
   });
 });

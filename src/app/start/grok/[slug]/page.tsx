@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const bot = getStarterBot(slug);
   if (!bot) return {};
   return buildPageMetadata({
-    title: `Build ${bot.name} in Grok Bot · Bot Cabinet`,
+    title: `Build ${bot.name} in Grok Bot`,
     description: `Set up ${bot.name} in Grok Bot, copy its job description, and try a first task. Manual setup; Grok runtime test pending.`,
     path: `/start/grok/${slug}/`,
     image: "/brand/social/grok-bot-templates-1200x630.jpg",

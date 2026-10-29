@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = getGuide(slug);
   return guide
     ? buildPageMetadata({
-        title: `${guide.title} · Field Manual`,
+        title: guide.title,
         description: guide.summary,
         path: `/guides/${guide.slug}/`,
         image: "/brand/social/field-manual-1200x630.jpg",

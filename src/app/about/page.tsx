@@ -5,13 +5,16 @@ import { ArrowRight, ArrowUpRight, Code, Compass, Flask, GitBranch, Newspaper, W
 import { Eyebrow, TextLink } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "About Bot Cabinet",
-  description: "Why Damon Gardenhire, LINCHPIN, and AI for the Real World built Bot Cabinet and its Hermes Bot Registry.",
-  path: "/about/",
-  image: "/brand/social/about-bot-cabinet-1200x630.jpg",
-  imageAlt: "About Bot Cabinet — why this project exists",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "About Bot Cabinet",
+    description: "Why Damon Gardenhire, LINCHPIN and AI for the Real World built Bot Cabinet, a library of AI bot templates for ChatGPT, Claude, Gemini and more.",
+    path: "/about/",
+    image: "/brand/social/about-bot-cabinet-1200x630.jpg",
+    imageAlt: "About Bot Cabinet — why this project exists",
+  }),
+  title: { absolute: "About Bot Cabinet" },
+};
 
 export default function AboutPage() {
   return (
@@ -22,10 +25,10 @@ export default function AboutPage() {
             <Eyebrow>About the project</Eyebrow>
             <h1 className="inner-title">About Bot Cabinet</h1>
             <p className="inner-deck">
-              A practical starting point for people who want to use Hermes Bots. Bot Cabinet is an independent community project from LINCHPIN
-              and AI for the Real World. Its first collection, the Hermes Bot Registry, provides
-              starter roles, step-by-step use cases, setup guidance, and clear information about
-              public Community Registry projects.
+              Bot Cabinet is a library of AI bot templates with setup steps for ChatGPT, Claude,
+              Grok Bot and Hermes Agent, plus a guide for Gemini. Each Bot shows how far it has
+              been tested. It is an independent community project from LINCHPIN and AI for the Real
+              World, and began as the Hermes Bot Registry.
             </p>
           </div>
           <div className="about-hero-image">
@@ -112,7 +115,7 @@ export default function AboutPage() {
           <article className="content-card">
             <Wrench size={29} weight="thin" aria-hidden="true" />
             <h2>Bot Cabinet</h2>
-            <p>A free home for The Cabinet’s Hermes Bot starters, Bot Lab, Bot Crews workflows, Field Manual guides, and selected Community Registry projects.</p>
+            <p>AI bot templates for ChatGPT, Claude, Gemini, Grok Bot and Hermes Agent, plus Bot Lab, Bot Workflows, Crew Kits, Field Manual guides and selected Community Registry projects.</p>
             <TextLink href="/bots">Open The Cabinet</TextLink>
           </article>
         </div>
@@ -167,18 +170,17 @@ export default function AboutPage() {
       <section className="content-section shell about-manifesto">
         <div>
           <Eyebrow>Why Bot Cabinet exists</Eyebrow>
-          <h2 className="section-heading">Practical help for building and using Hermes Bots</h2>
+          <h2 className="section-heading">Practical help for building and using AI bots</h2>
         </div>
         <div className="about-manifesto-copy">
           <p>
-            Hermes makes it straightforward to create named Bots with continuing conversations,
-            distinct roles, memory, tools, and histories. People still need clear examples that
-            connect those capabilities to everyday work.
+            ChatGPT, Claude, Gemini, Grok Bot and Hermes Agent all let people give an assistant a
+            lasting role. People still need clear examples that connect those tools to everyday work.
           </p>
           <p>
-            The Hermes Bot Registry organizes starter roles, step-by-step workflows, setup guidance,
-            and selected outside projects. Each listing explains the job, the required access, and
-            the current review and test status.
+            Bot Cabinet organizes starter roles, step-by-step workflows, setup guidance and selected
+            outside projects. Each listing explains the job, the access it needs, and its current
+            review and test status.
           </p>
           <div className="button-row">
             <Link href="/bots" className="button button-primary">Open The Cabinet <ArrowRight size={16} /></Link>

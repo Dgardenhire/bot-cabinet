@@ -5,6 +5,7 @@ import {
   buildPublicBotCatalog,
 } from "./public-manifest";
 import { BOT_CABINET_ORIGIN } from "../lib/site-constants";
+import { botDates } from "../data/content-dates";
 
 export { BOT_CABINET_ORIGIN };
 
@@ -108,10 +109,13 @@ function escapeXml(value: string) {
     .replaceAll("'", "&apos;");
 }
 
+function rssDate(isoDate: string) {
+  return new Date(isoDate).toUTCString();
+}
+
 export function buildCatalogRss(catalog: PublicBotCatalog) {
-  const releaseDate = new Date(
-    CATALOG_DISCOVERY_RELEASE.releasedAt,
-  ).toUTCString();
+  const updatedDates = catalog.bots.map((bot) => botDates(bot.slug).updatedAt);
+  const newestDate = updatedDates.reduce((newest, date) => (date > newest ? date : newest));
   const items = catalog.bots.flatMap((bot) => [
     "    <item>",
     `      <title>${escapeXml(`${bot.identity.name} — ${bot.identity.title}`)}</title>`,
@@ -119,7 +123,7 @@ export function buildCatalogRss(catalog: PublicBotCatalog) {
     `      <guid isPermaLink="false">${escapeXml(`bot-cabinet:bot:${bot.slug}:${bot.version}`)}</guid>`,
     `      <description>${escapeXml(bot.identity.summary)}</description>`,
     `      <category>${escapeXml(bot.identity.category)}</category>`,
-    `      <pubDate>${releaseDate}</pubDate>`,
+    `      <pubDate>${rssDate(botDates(bot.slug).updatedAt)}</pubDate>`,
     "    </item>",
   ]);
 
@@ -131,7 +135,7 @@ export function buildCatalogRss(catalog: PublicBotCatalog) {
     `    <link>${BOT_CABINET_ORIGIN}/bots/</link>`,
     "    <description>Current public Bot Cabinet profiles and their plain-language job descriptions.</description>",
     "    <language>en-us</language>",
-    `    <lastBuildDate>${releaseDate}</lastBuildDate>`,
+    `    <lastBuildDate>${rssDate(newestDate)}</lastBuildDate>`,
     `    <atom:link href="${BOT_CABINET_ORIGIN}/feed.xml" rel="self" type="application/rss+xml" />`,
     ...items,
     "  </channel>",

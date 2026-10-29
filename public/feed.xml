@@ -5,7 +5,7 @@
     <link>https://botcabinet.com/bots/</link>
     <description>Current public Bot Cabinet profiles and their plain-language job descriptions.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://botcabinet.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scout — Topic and opportunity finder</title>
@@ -13,7 +13,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:scout:1.0.0</guid>
       <description>Finds timely topics, useful developments, and promising opportunities in the areas you choose.</description>
       <category>research</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Researcher — Source-based research assistant</title>
@@ -21,7 +21,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:researcher:1.0.0</guid>
       <description>Answers a defined question with a concise brief, source links, and clearly marked gaps.</description>
       <category>research</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Writer — First-draft writing assistant</title>
@@ -29,7 +29,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:writer:1.0.0</guid>
       <description>Turns an approved brief, notes, or source material into a clear first draft for a named audience.</description>
       <category>writing</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Editor — Plain-language editor</title>
@@ -37,7 +37,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:editor:1.0.0</guid>
       <description>Revises a draft for clarity, structure, accuracy, and the writer&apos;s intended voice.</description>
       <category>writing</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Planner — Project planning assistant</title>
@@ -45,7 +45,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:planner:1.0.0</guid>
       <description>Turns a goal into a practical plan with steps, owners, dependencies, dates, and decision points.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Client Deliverables — Client document assistant</title>
@@ -53,7 +53,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:client:1.0.0</guid>
       <description>Drafts client memos, proposals, briefings and follow-ups from your approved notes, using your brand and document format.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coder — Software building assistant</title>
@@ -61,7 +61,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:coder:1.0.0</guid>
       <description>Builds a defined software change, runs the available checks, and reports what changed and what still needs review.</description>
       <category>technical</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Ops — Operations monitoring assistant</title>
@@ -69,7 +69,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:ops:1.0.0</guid>
       <description>Checks a defined set of systems or scheduled tasks and reports missed runs, failures, and unusual changes.</description>
       <category>technical</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Professor — Learning and study assistant</title>
@@ -77,7 +77,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:professor:1.0.0</guid>
       <description>Builds a realistic learning plan, explains difficult material, and creates practice questions.</description>
       <category>learning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Architect — CTO and technology strategy assistant</title>
@@ -85,7 +85,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:architect:1.0.0</guid>
       <description>Turns product goals and operating constraints into a practical technology strategy, architecture options, and an ordered risk plan.</description>
       <category>technical</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Founding Engineer — Early product and prototyping assistant</title>
@@ -93,7 +93,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:founding-engineer:1.0.0</guid>
       <description>Turns a defined user problem into the smallest working product version that can be demonstrated and tested.</description>
       <category>technical</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Chief of Staff — Executive priority and coordination assistant</title>
@@ -101,7 +101,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:chief-of-staff:1.0.0</guid>
       <description>Keeps a leader&apos;s confirmed priorities, decisions, responsibilities and follow-ups in one current summary.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coach — Life and career planning assistant</title>
@@ -109,7 +109,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:coach:1.0.0</guid>
       <description>Helps you think through a life or career decision, compare options and plan your next steps.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Nova — New venture testing assistant</title>
@@ -117,7 +117,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:nova:1.0.0</guid>
       <description>Turns a new venture idea into explicit assumptions, evidence questions, and a small test with decision rules.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Pulse — Growth management assistant</title>
@@ -125,7 +125,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:pulse:1.0.0</guid>
       <description>Turns a growth goal and approved data into a clear baseline, prioritized experiments, and a recurring results brief.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Story — Brand and message assistant</title>
@@ -133,7 +133,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:story:1.0.0</guid>
       <description>Develops a consistent story and message for a founder, organization, product or campaign from approved facts and sources.</description>
       <category>writing</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Daily Newspaper — Personal daily briefing maker</title>
@@ -141,7 +141,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:daily-newspaper:1.0.0</guid>
       <description>Turns the calendar notes, messages, and source material you choose into a short personal newspaper for the day ahead.</description>
       <category>writing</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Curator — Bot review and improvement assistant</title>
@@ -149,7 +149,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:curator:1.0.0</guid>
       <description>Reviews your Bot lineup, proposes improvements and combinations, and checks whether approved changes actually helped.</description>
       <category>technical</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Reentry — Project resumption guide</title>
@@ -157,7 +157,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:reentry:1.0.0</guid>
       <description>Reconstructs where a project stands so you can return to the right files, confirmed decisions, and next useful action.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Receipt — Returns and warranty case assistant</title>
@@ -165,7 +165,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:receipt:1.0.0</guid>
       <description>Keeps receipts, correspondence, deadlines, and next steps together while you resolve a refund, return, or warranty issue.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Unstick Me — Gets you started on a task you keep avoiding</title>
@@ -173,7 +173,7 @@
       <guid isPermaLink="false">bot-cabinet:bot:unstick-me:1.0.0</guid>
       <description>Asks short questions, one at a time, until you take the first small step on a stalled task, or pick an honest alternative such as a rough version, a new time or asking for help.</description>
       <category>planning</category>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

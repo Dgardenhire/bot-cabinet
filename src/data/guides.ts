@@ -230,7 +230,7 @@ Material: [paste the text, links or files the task asks for]`,
   },
   {
     slug: "use-a-bot-on-another-platform",
-    title: "Use a Bot outside Hermes or Grok Bot",
+    title: "Use a Bot in ChatGPT, Claude or another app",
     summary: "Set up a Bot in ChatGPT, Claude or another app. Copy its instructions, connect the accounts it needs, and try its first task.",
     audience: "Anyone choosing where to run a Bot",
     readTime: "7 min",

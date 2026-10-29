@@ -20,7 +20,7 @@ describe("Gemini skills and tasks guide", () => {
     expect(generateStaticParams()).toContainEqual({ slug });
     expect(sitemap()).toContainEqual(expect.objectContaining({
       url: `https://botcabinet.com/guides/${slug}/`,
-      lastModified: new Date("2026-10-28"),
+      lastModified: new Date(guide.updated),
     }));
   });
 

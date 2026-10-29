@@ -16,12 +16,13 @@ export function SiteFooter() {
             />
           </Link>
           <p>
-            A free, independent guide to finding, understanding, and building useful
-            Bots across platforms.
+            An independent library of AI bot templates for ChatGPT, Claude, Gemini, Grok Bot
+            and Hermes Agent.
           </p>
           <p className="footer-fineprint">
-            Not affiliated with Nous Research. Hermes Agent is an open-source project;
-            model, API, and hosting costs may still apply.
+            Not affiliated with OpenAI, Anthropic, Google, SpaceXSI (SpaceXAI LLC) or Nous
+            Research. Each AI app sets its own plans and prices; Hermes Agent is open source but
+            needs an AI provider.
           </p>
         </div>
         <div className="footer-column">
