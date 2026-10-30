@@ -44,6 +44,8 @@ export function SiteFooter() {
           <Link href="/trust">Inspection Desk</Link>
           <Link href="/contribute">Submission Desk</Link>
           <Link href="/about">About Bot Cabinet</Link>
+          <Link href="/sponsor">Sponsor Bot Cabinet</Link>
+          <Link href="/privacy">Privacy</Link>
         </div>
         <div className="footer-column">
           <span>Elsewhere</span>

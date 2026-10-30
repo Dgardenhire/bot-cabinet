@@ -8,6 +8,7 @@ import { BOT_USE_CASES } from "@/data/use-cases";
 import { CREW_KITS } from "@/data/crew-kits";
 import { workflowCategory } from "@/lib/workflow-catalog";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Find a useful job for your Bot",
@@ -50,5 +51,6 @@ export default function UseCasesPage() {
       <Link href="/crew-kits" className="text-link">Browse all Crew Kits <ArrowRight size={15} /></Link>
     </section>
     <StarterPackInvitation />
+    <SponsorStrip page="use-cases" />
   </main>;
 }

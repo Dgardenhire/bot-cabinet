@@ -5,6 +5,7 @@ import { ArrowRight, BookOpenText, Compass, ShieldCheck } from "@phosphor-icons/
 import { Eyebrow } from "@/components/ui";
 import { GUIDES } from "@/data/guides";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Field Manual · Guides",
@@ -73,6 +74,7 @@ export default function GuidesPage() {
           ))}
         </div>
       </section>
+      <SponsorStrip page="guides" />
     </main>
   );
 }

@@ -4,6 +4,7 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Start here",
@@ -68,6 +69,7 @@ export default function StartPage() {
         <Link href="/compare" className="text-link">Compare personal AI agents <ArrowRight size={16} aria-hidden="true" /></Link><br />
         <Link href="/bots" className="text-link">Browse the Bots <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
+      <SponsorStrip page="start" />
     </main>
   );
 }

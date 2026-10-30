@@ -7,6 +7,7 @@ import { Eyebrow } from "@/components/ui";
 import { CREW_KITS } from "@/data/crew-kits";
 import { CrewPlanGallery } from "@/components/crew-plan-gallery";
 import styles from "@/components/manual-bot-plan.module.css";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = {
   title: "Crew Kits · Standing Bot teams",
@@ -96,6 +97,7 @@ export default function CrewKitsPage() {
           <article><span>03</span><h3>Crew Kit</h3><p>A persistent mini-workforce runs several related workflows for an ongoing function.</p></article>
         </div>
       </section>
+      <SponsorStrip page="crew-kits" />
     </main>
   );
 }

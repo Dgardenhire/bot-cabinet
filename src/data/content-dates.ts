@@ -130,6 +130,8 @@ export const STATIC_ROUTE_DATES: Record<string, string> = {
   "/trust": "2026-10-27", // 3bb559c
   "/contribute": "2026-08-27", // 86c65fa
   "/about": "2026-08-27", // 86c65fa
+  "/sponsor": "2026-10-30", // CR-12
+  "/privacy": "2026-10-30", // CR-12
 };
 
 // The /start/chatgpt/<slug> and /start/grok/<slug> page templates. Each page is dated by
