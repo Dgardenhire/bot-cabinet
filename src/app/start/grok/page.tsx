@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, DownloadSimple } from "@phosphor-icons/react/dis
 import { CopyTextButton } from "@/components/copy-text-button";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorTop } from "@/components/sponsor-top";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Start with Grok Bot · Try Scout",
@@ -36,6 +38,7 @@ export default function GrokStartPage() {
           <p>Scout looks through sources you choose and returns a short, linked brief. Build it in Grok Bot, try one public-source task, and judge the result yourself.</p>
           <div className="workspace-start-status">Not yet tested in Grok Bot</div>
         </header>
+        <SponsorTop page="start/grok" contained />
 
         <ol className="workspace-start-steps">
           <li>
@@ -81,6 +84,7 @@ export default function GrokStartPage() {
           <div className="button-row"><Link href="/platforms/grok-bot" className="button button-primary">See Grok build briefs <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/bots/scout" className="button button-secondary">Meet Scout</Link></div>
         </footer>
       </div>
+      <SponsorStrip page="start/grok" />
     </main>
   );
 }

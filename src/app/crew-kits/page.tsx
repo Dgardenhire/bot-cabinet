@@ -8,6 +8,7 @@ import { CREW_KITS } from "@/data/crew-kits";
 import { CrewPlanGallery } from "@/components/crew-plan-gallery";
 import styles from "@/components/manual-bot-plan.module.css";
 import { SponsorStrip } from "@/components/sponsor-strip";
+import { SponsorTop } from "@/components/sponsor-top";
 
 export const metadata: Metadata = {
   title: "Crew Kits · Standing Bot teams",
@@ -61,6 +62,7 @@ export default function CrewKitsPage() {
           </aside>
         </div>
       </section>
+      <SponsorTop page="crew-kits" />
 
       <section className={`shell ${styles.section}`}>
         <h2>New crews and workflows</h2>

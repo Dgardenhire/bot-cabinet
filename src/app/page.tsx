@@ -9,6 +9,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow, SectionRule, TextLink } from "@/components/ui";
 import { SponsorStrip } from "@/components/sponsor-strip";
+import { SponsorTop } from "@/components/sponsor-top";
 
 export const metadata: Metadata = {
   title: { absolute: "Bot Cabinet: AI bot templates for ChatGPT, Claude and Gemini" },
@@ -77,6 +78,7 @@ export default function Home() {
         </div>
         <HomeFeatureCarousel />
       </section>
+      <SponsorTop page="" />
 
       <section className="home-cost-strip" aria-label="Cost information">
         <div className="shell">

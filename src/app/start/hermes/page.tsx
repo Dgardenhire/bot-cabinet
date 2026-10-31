@@ -7,6 +7,8 @@ import { CopyTextButton } from "@/components/copy-text-button";
 import { FirstRunChecklist } from "@/components/first-run-checklist";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorTop } from "@/components/sponsor-top";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Start with Hermes · Your first Bot",
@@ -44,6 +46,7 @@ export default function HermesStartPage() {
           </figure>
         </div>
       </section>
+      <SponsorTop page="start/hermes" />
 
       <section className="first-run-cost-note" aria-label="What you need"><div className="shell"><strong>What you need:</strong><span>A computer, Hermes Desktop, and a supported AI provider. Provider costs vary.</span></div></section>
 
@@ -65,6 +68,7 @@ export default function HermesStartPage() {
         <div><Eyebrow>What happens next</Eyebrow><h2 className="section-heading">Keep the conversation going</h2><p className="section-deck">Scout keeps its role and conversation inside Hermes. Ask it to refine the brief, compare sources, or hand verified findings to a Writer Bot.</p></div>
         <div className="button-row"><Link href="/bots" className="button button-primary">Browse The Cabinet <ArrowRight size={16} aria-hidden="true" /></Link><Link href="/hermes" className="button button-secondary">Add Bots with Cabinet</Link><Link href="/start" className="button button-secondary">Choose another path</Link></div>
       </section>
+      <SponsorStrip page="start/hermes" />
     </main>
   );
 }

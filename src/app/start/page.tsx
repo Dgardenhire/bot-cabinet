@@ -5,6 +5,7 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 import { SponsorStrip } from "@/components/sponsor-strip";
+import { SponsorTop } from "@/components/sponsor-top";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Start here",
@@ -23,6 +24,7 @@ export default function StartPage() {
         <p>Choose the app you use. We&apos;ll help you set up a Bot, try one task, and check the result.</p>
         <Link href="/use-cases" className="text-link">Need an idea? Browse jobs for home, work and learning <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
+      <SponsorTop page="start" />
 
       <section className="shell start-choice-grid" aria-label="Choose where to use your Bot">
         <article>
