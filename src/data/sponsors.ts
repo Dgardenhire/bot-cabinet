@@ -1,11 +1,15 @@
-// The sponsor program (CR-12). Sponsors appear only on SPONSOR_PAGES, are labeled "Advertisement", and never
-// touch test records, Bot pages, compare pages, Hermes pages, downloads or the catalog.
+// The sponsor program (CR-12, CR-13). Sponsors appear only on SPONSOR_PAGES, are labeled "Advertisement", and never
+// touch test records, Bot pages, compare pages, Hermes pages, Agent Watch, downloads or the catalog.
+
+/** "founding" is the $199 slot for vendors; "directory" is the $49 slot for independent bot directories. */
+export type SponsorTier = "founding" | "directory";
 
 export type Sponsor = {
   /** Stable id used in click analytics. */
   slug: string;
+  tier: SponsorTier;
   name: string;
-  /** One line shown after the name, up to SPONSOR_LINE_MAX characters. */
+  /** One line shown after the name, up to the tier's line limit. */
   line: string;
   /** https only. */
   url: string;
@@ -15,14 +19,18 @@ export type Sponsor = {
   clicks?: { count: number; asOf: string };
 };
 
-export const SPONSOR_LINE_MAX = 90;
+export const SPONSOR_LINE_MAX: Record<SponsorTier, number> = { founding: 90, directory: 60 };
 
 export const SPONSOR_PROGRAM = {
   foundingSlots: 3,
   foundingPrice: 199,
   laterPrice: 299,
-  /** The Stripe Payment Link. Until it exists, the sponsor page offers email instead. */
+  /** The Stripe Payment Link for founding slots. Until it exists, the sponsor page offers email instead. */
   checkoutUrl: null as string | null,
+  directorySlots: 5,
+  directoryPrice: 49,
+  /** The Stripe Payment Link for directory slots, with the same email fallback. */
+  directoryCheckoutUrl: null as string | null,
   contact: "damon@linchpin.studio",
   /** When the first clean 30-day audience count is published. */
   audienceNumbersOn: "2026-12-01",
@@ -49,8 +57,17 @@ export const EXCLUDED_SPONSOR_DOMAINS = [
 
 export const SPONSORS: Sponsor[] = [];
 
+/** Founding sponsors first, then directories, each in the order they were added. */
+export function orderedSponsors(sponsors: readonly Sponsor[] = SPONSORS) {
+  return [...sponsors.filter((s) => s.tier === "founding"), ...sponsors.filter((s) => s.tier === "directory")];
+}
+
 export function openFoundingSlots(sponsors: readonly Sponsor[] = SPONSORS) {
-  return Math.max(0, SPONSOR_PROGRAM.foundingSlots - sponsors.length);
+  return Math.max(0, SPONSOR_PROGRAM.foundingSlots - sponsors.filter((s) => s.tier === "founding").length);
+}
+
+export function openDirectorySlots(sponsors: readonly Sponsor[] = SPONSORS) {
+  return Math.max(0, SPONSOR_PROGRAM.directorySlots - sponsors.filter((s) => s.tier === "directory").length);
 }
 
 /** The sponsor's host is a covered platform, or a subdomain of one. */
