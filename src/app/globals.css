@@ -2834,3 +2834,18 @@ html[data-theme="light"] .first-run-hero-art figcaption { background: rgba(255,2
   .cabinet-home-slide-copy { grid-template-columns: 1fr; gap: 14px; }
   .cabinet-home-slide-copy > img { width: 100%; height: 150px; }
 }
+
+/* Sponsor strip and sponsor page (CR-12). Whitespace separates the strip from the page; no box, no tint. */
+.sponsor-strip { padding: 56px 0 64px; }
+.sponsor-strip-inner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px 40px; }
+.sponsor-strip-label { margin: 0; color: var(--paper); font: 13px var(--mono); }
+.sponsor-strip ul { display: flex; flex-wrap: wrap; gap: 14px 40px; margin: 0; padding: 0; list-style: none; }
+.sponsor-strip ul a { color: var(--ivory); font-size: 16px; line-height: 1.5; text-decoration: underline; text-decoration-color: var(--brass-deep); text-underline-offset: 4px; }
+.sponsor-strip ul a strong { color: var(--brass-bright); font-weight: 600; }
+.sponsor-strip-open { color: var(--brass-bright); font-size: 15px; text-decoration: underline; text-decoration-color: var(--brass-deep); text-underline-offset: 4px; }
+.sponsor-strip a:hover { text-decoration-color: currentColor; }
+.sponsor-offer { margin-top: 40px; max-width: 620px; }
+.sponsor-offer p { margin: 0 0 22px; color: var(--paper); font-size: 17px; line-height: 1.7; }
+.sponsor-offer .sponsor-price { margin-bottom: 10px; color: var(--ivory); font: 400 clamp(40px,4.4vw,60px)/1 var(--serif); }
+.sponsor-results { margin: 0; padding: 0; list-style: none; }
+.sponsor-results li { margin: 0 0 14px; color: var(--paper); font-size: 17px; line-height: 1.7; }

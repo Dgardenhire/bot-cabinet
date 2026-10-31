@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
 } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow, SectionRule, TextLink } from "@/components/ui";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = {
   title: { absolute: "Bot Cabinet: AI bot templates for ChatGPT, Claude and Gemini" },
@@ -273,6 +274,7 @@ export default function Home() {
       </section>
 
     <StarterPackInvitation />
+      <SponsorStrip page="" />
       </main>
   );
 }

@@ -5,6 +5,7 @@ import { ArrowRight, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 import { StarterBotCatalog } from "@/components/starter-bot-catalog";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "All Bots: AI bot templates by job",
@@ -45,6 +46,7 @@ export default function BotsPage() {
         </div>
         <Link href="/community" className="button button-secondary">Open the Community Registry <ArrowRight size={16} /></Link>
       </section>
+      <SponsorStrip page="bots" />
     </main>
   );
 }

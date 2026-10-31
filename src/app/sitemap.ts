@@ -45,6 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/trust",
     "/contribute",
     "/about",
+    "/sponsor",
+    "/privacy",
   ];
 
   const dated = (route: string, date?: string) => ({ route, date });
