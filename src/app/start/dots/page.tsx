@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/
 import { CopyTextButton } from "@/components/copy-text-button";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
+import { SponsorTop } from "@/components/sponsor-top";
+import { SponsorStrip } from "@/components/sponsor-strip";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "What ChatGPT Dots can do—and a useful first job",
@@ -61,6 +63,7 @@ export default function DotsStartPage() {
             <a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot" target="_blank" rel="noopener noreferrer" className="text-link">Check OpenAI&apos;s current setup guide <ArrowUpRight size={16} aria-hidden="true" /></a>
           </aside>
         </header>
+        <SponsorTop page="start/dots" contained />
 
         <section className="dots-field-section" aria-labelledby="dots-field-title">
           <div className="dots-section-heading"><div><Eyebrow>Early hands-on reports</Eyebrow><h2 id="dots-field-title">What happened when people tried it</h2></div><p>Read what testers completed, where tasks failed, and which permissions caused trouble. Bot Cabinet has not independently tested these results.</p></div>
@@ -94,6 +97,7 @@ export default function DotsStartPage() {
 
         <footer className="dots-footer"><div><h2>Which kind of agent fits your job?</h2><p>Dots is one route. Grok Bot, Muse, Hermes, and other tools make different trade-offs. Our comparison starts with the job you want done.</p></div><Link href="/compare" className="button button-primary">Compare the options <ArrowRight size={16} aria-hidden="true" /></Link><p className="dots-sources">Sources: <a href="https://openai.com/index/introducing-dots/" target="_blank" rel="noopener noreferrer">OpenAI launch</a> · <a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot" target="_blank" rel="noopener noreferrer">OpenAI help</a> · <a href="https://every.to/vibe-check/vibe-check-dots-always-on-agents-in-chatgpt" target="_blank" rel="noopener noreferrer">Dan Shipper&apos;s review</a> · <a href="https://www.youtube.com/watch?v=z5X1eMU6isI&t=10s" target="_blank" rel="noopener noreferrer">Peter Yang&apos;s review</a> · <a href="https://www.youtube.com/watch?v=D2L22EbGa7s" target="_blank" rel="noopener noreferrer">Chase AI&apos;s walkthrough</a>. Checked September 29, 2026. Access, setup and usage notes checked October 27, 2026.</p></footer>
       </div>
+      <SponsorStrip page="start/dots" />
     </main>
   );
 }

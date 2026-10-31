@@ -6,6 +6,7 @@ import { StarterBotCatalog } from "@/components/starter-bot-catalog";
 import { Eyebrow } from "@/components/ui";
 import { buildPageMetadata } from "@/lib/metadata";
 import { SponsorStrip } from "@/components/sponsor-strip";
+import { SponsorTop } from "@/components/sponsor-top";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "All Bots: AI bot templates by job",
@@ -27,6 +28,7 @@ export default function BotsPage() {
           </p>
         </div>
       </section>
+      <SponsorTop page="bots" />
 
       <section className="content-section shell registry-section">
         <StarterBotCatalog />
