@@ -9,6 +9,7 @@ import { CREW_KITS } from "@/data/crew-kits";
 import { workflowCategory } from "@/lib/workflow-catalog";
 import { buildPageMetadata } from "@/lib/metadata";
 import { SponsorStrip } from "@/components/sponsor-strip";
+import { SponsorTop } from "@/components/sponsor-top";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Find a useful job for your Bot",
@@ -34,6 +35,7 @@ export default function UseCasesPage() {
         <p className="inner-deck">Sort school messages, check an invoice, practise a conversation or prepare a piece of writing. Pick a job, see what a useful result looks like and try it with sample information.</p>
       </div>
     </section>
+    <SponsorTop page="use-cases" />
     <section className="content-section shell" aria-label="Browse practical jobs">
       <WorkflowCatalog jobs={jobs} />
     </section>
