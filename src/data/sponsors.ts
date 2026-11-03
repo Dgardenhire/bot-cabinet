@@ -64,17 +64,19 @@ export const SPONSOR_PROGRAM = {
     clickRate: "10 to 17 percent",
   },
   bundles: { cardAndNewsletter: 279, featureAndNewsletter: 179 },
-  /** Stripe Payment Links. Each falls back to email until it exists. */
+  /** Live Stripe Payment Links, created Nov 2, 2026. Removing one sends its button back to email. */
   checkout: {
-    card: null as string | null,
-    feature: null as string | null,
-    line: null as string | null,
-    setup: null as string | null,
-    newsletterIssue: null as string | null,
-    newsletterFour: null as string | null,
-    cardAndNewsletter: null as string | null,
-    featureAndNewsletter: null as string | null,
+    card: "https://buy.stripe.com/8x228saeecLZaSC3BUaIM0v" as string | null,
+    feature: "https://buy.stripe.com/dRmeVedqq5jxgcWc8qaIM0w" as string | null,
+    line: "https://buy.stripe.com/8x23cw4TUdQ35yi1tMaIM0x" as string | null,
+    setup: "https://buy.stripe.com/28EeVe9aa9zNe4O0pIaIM0y" as string | null,
+    newsletterIssue: "https://buy.stripe.com/aFaaEY1HI9zNbWG2xQaIM0z" as string | null,
+    newsletterFour: "https://buy.stripe.com/28E6oI722dQ37Gqa0iaIM0A" as string | null,
+    cardAndNewsletter: "https://buy.stripe.com/dRmdRa5XYaDR8Kuc8qaIM0B" as string | null,
+    featureAndNewsletter: "https://buy.stripe.com/bJe28s3PQ4ft3qaegyaIM0C" as string | null,
   },
+  /** The ladder stage whose prices the card, feature and line links charge. A test fails when CURRENT_STAGE moves past it. */
+  checkoutStage: 0,
   contact: "damon@linchpin.studio",
   /** When the first clean 30-day audience count is published. */
   audienceNumbersOn: "2026-12-01",
