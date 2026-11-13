@@ -209,13 +209,22 @@ export default function SponsorPage() {
             </p>
             <p>Damon writes your mention himself, about 80 words with one link, and it&apos;s labeled Sponsored.</p>
           </div>
-          <a
-            className="button button-secondary"
-            href={buyLink(checkout.newsletterIssue, "Open Source sponsor")}
-            rel={checkout.newsletterIssue ? "noopener" : undefined}
-          >
-            Reserve an issue
-          </a>
+          <div className="sp-nl-actions">
+            <a
+              className="button button-secondary"
+              href={buyLink(checkout.newsletterIssue, "Open Source sponsor")}
+              rel={checkout.newsletterIssue ? "noopener" : undefined}
+            >
+              Reserve an issue
+            </a>
+            <a
+              className="button button-secondary"
+              href={buyLink(checkout.newsletterFour, "Open Source four-pack")}
+              rel={checkout.newsletterFour ? "noopener" : undefined}
+            >
+              Reserve four
+            </a>
+          </div>
         </div>
       </section>
 
@@ -226,10 +235,12 @@ export default function SponsorPage() {
             <strong>Founding Card and Open Source, ${bundles.cardAndNewsletter} a month.</strong> The card, plus one newsletter
             mention a month.
           </p>
+          {reserve(checkout.cardAndNewsletter, "Founding Card and Open Source")}
           <p>
             <strong>Feature and Open Source, ${bundles.featureAndNewsletter} a month.</strong> The two-line feature, plus one
             mention a month.
           </p>
+          {reserve(checkout.featureAndNewsletter, "Feature and Open Source")}
         </div>
       </section>
 
@@ -245,7 +256,11 @@ export default function SponsorPage() {
           </div>
           <div className="sp-fact">
             <strong>Pay ahead</strong>
-            <p>Pay for three months and get 10% off. Pay for a year and get two months free.</p>
+            <p>
+              Pay for three months and get 10% off, or a year and get two months free. Email{" "}
+              <a href={`mailto:${contact}?subject=${encodeURIComponent("Pay ahead")}`}>Damon</a> first and he&apos;ll send you a
+              code.
+            </p>
           </div>
         </div>
       </section>
