@@ -1,0 +1,48 @@
+name: Keeper public watchdog
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/keeper-watchdog.yml'
+      - 'scripts/keeper-ops/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: keeper-watchdog-${{ github.event_name == 'pull_request' && github.ref || 'monitor' }}
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts/keeper-ops -p 'test_*.py'
+  monitor:
+    if: github.event_name != 'pull_request'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Check public health and freshness
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: PYTHONDONTWRITEBYTECODE=1 python3 scripts/keeper-ops/watchdog.py --output tmp/keeper-watchdog --report-issue
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: keeper-watchdog-${{ github.run_id }}
+          path: tmp/keeper-watchdog
+          retention-days: 14
