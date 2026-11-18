@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import styles from "./site-navigation.module.css";
 
 export const NAV_GROUPS = [
-  { label: "Bots & Crews", links: [["Browse Bots", "/bots"], ["Bot Fit Test", "/fit"], ["Bot Workflows", "/use-cases"], ["Crew Kits", "/crew-kits"], ["Community Registry", "/community"]] },
+  { label: "Bots & Crews", links: [["Browse Bots", "/bots"], ["Bot Fit Test", "/fit"], ["Workflow Fixer", "/workflow"], ["Bot Workflows", "/use-cases"], ["Crew Kits", "/crew-kits"], ["Community Registry", "/community"]] },
   { label: "Tools", links: [["Bot Cabinet in Hermes", "/hermes"], ["Bot Lab", "/workshop"], ["My Workbench", "/workbench"], ["Portrait Studio", "/portraits"]] },
   { label: "Guides", links: [["Field Manual", "/guides"], ["Compare Apps", "/compare"], ["Test Records", "/proof"], ["Inspection Desk", "/trust"], ["About Bot Cabinet", "/about"], ["Contribute", "/contribute"]] },
 ] as const;

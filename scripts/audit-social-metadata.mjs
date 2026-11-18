@@ -17,6 +17,7 @@ const routes = [
   ["bots/daily-newspaper", "/brand/social/showcase-daily-newspaper-v1-1200x630.jpg"],
   ["use-cases/personal-morning-newspaper", "/brand/social/showcase-daily-newspaper-v1-1200x630.jpg"],
   ["fit", "/brand/social/bot-fit-test-share-v2-1200x630.jpg"],
+  ["workflow", "/brand/social/workflow-fixer-v2-1200x630.jpg"],
   ["bots", "/brand/social/bot-pack-2-0-1200x630.jpg"],
   ["workshop", "/brand/social/bot-lab-1200x630.jpg"],
   ["portraits", "/brand/social/bot-portrait-studio-1200x630.jpg"],

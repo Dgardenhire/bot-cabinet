@@ -108,6 +108,7 @@ export const USE_CASE_DATES: Record<string, ContentDates> = {
 export const STATIC_ROUTE_DATES: Record<string, string> = {
   "": "2026-10-27", // 3bb559c
   "/fit": "2026-09-05", // 0b3a965
+  "/workflow": "2026-11-18", // Workflow Fixer launch
   "/start": "2026-10-15", // e7621ce
   "/start/hermes": "2026-10-16", // c09f698
   "/hermes": "2026-10-27", // 3bb559c

@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/fit",
+    "/workflow",
     "/start",
     "/start/hermes",
     "/hermes",
