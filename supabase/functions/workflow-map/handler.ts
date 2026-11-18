@@ -15,7 +15,8 @@ import {
 } from "./core.ts";
 
 const PROVIDER_TIMEOUT_MS = 35_000;
-const DEFAULT_MODEL = "claude-haiku-5-5";
+// Same model Bot Lab already runs in production unless overridden.
+const DEFAULT_MODEL = "claude-haiku-4-5-20251001";
 
 type HandlerDependencies = {
   envGet?: (name: string) => string | undefined;
@@ -85,7 +86,7 @@ export function createWorkflowMapHandler(
     if (envGet("AI_ENABLED") === "false") return errorResponse(503, origin);
 
     const apiKey = envGet("ANTHROPIC_API_KEY")?.trim();
-    const model = envGet("WORKFLOW_MAP_MODEL")?.trim() || DEFAULT_MODEL;
+    const model = envGet("WORKFLOW_MAP_MODEL")?.trim() || envGet("BOT_BLUEPRINT_MODEL")?.trim() || DEFAULT_MODEL;
     if (!apiKey || !/^[a-zA-Z0-9._:-]{1,100}$/.test(model)) {
       return errorResponse(503, origin);
     }
