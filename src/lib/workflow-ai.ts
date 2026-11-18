@@ -39,9 +39,11 @@ export function getWorkflowApiUrl(
   configured: string | undefined = process.env.NEXT_PUBLIC_WORKFLOW_MAP_API_URL,
   blueprint: string | undefined = process.env.NEXT_PUBLIC_BOT_BLUEPRINT_API_URL,
 ): string | null {
-  const direct = getBotBlueprintApiUrl(configured);
+  // getBotBlueprintApiUrl falls back to Bot Lab's own URL when given
+  // undefined, so only call it with a value that was actually set.
+  const direct = configured?.trim() ? getBotBlueprintApiUrl(configured) : null;
   if (direct) return direct;
-  const base = getBotBlueprintApiUrl(blueprint);
+  const base = blueprint?.trim() ? getBotBlueprintApiUrl(blueprint) : null;
   if (!base) return null;
   const url = new URL(base);
   if (!/\/bot-blueprint\/?$/.test(url.pathname)) return null;
