@@ -252,18 +252,45 @@ describe("sponsor page", () => {
     expect(page).toContain("Audience numbers on December 1");
   });
 
-  it("falls back to email for each product shown without a Payment Link", () => {
-    const shown: [keyof typeof SPONSOR_PROGRAM.checkout, string][] = [
-      ["card", "Founding Card"],
-      ["feature", "Feature"],
-      ["line", "Line"],
-      ["setup", "Setup page sponsor"],
-      ["newsletterIssue", "Open Source sponsor"],
-    ];
-    for (const [key, subject] of shown) {
+  const BUTTONS: [keyof typeof SPONSOR_PROGRAM.checkout, string, string][] = [
+    ["card", "Founding Card", "Reserve"],
+    ["feature", "Feature", "Reserve"],
+    ["line", "Line", "Reserve"],
+    ["setup", "Setup page sponsor", "Reserve"],
+    ["newsletterIssue", "Open Source sponsor", "Reserve an issue"],
+    ["newsletterFour", "Open Source four-pack", "Reserve four"],
+    ["cardAndNewsletter", "Founding Card and Open Source", "Reserve"],
+    ["featureAndNewsletter", "Feature and Open Source", "Reserve"],
+  ];
+
+  it("gives every product a button, falling back to email without a Payment Link", () => {
+    expect(BUTTONS.map(([key]) => key).sort()).toEqual(Object.keys(SPONSOR_PROGRAM.checkout).sort());
+    for (const [key, subject] of BUTTONS) {
       const link = SPONSOR_PROGRAM.checkout[key];
       expect(html, key).toContain(link ? `href="${link}"` : `subject=${encodeURIComponent(subject)}`);
     }
+  });
+
+  it("points each button at its own product, never another's link", () => {
+    const links = Object.values(SPONSOR_PROGRAM.checkout).filter(Boolean);
+    expect(new Set(links).size, "two products share a link").toBe(links.length);
+    for (const [key, , label] of BUTTONS) {
+      const link = SPONSOR_PROGRAM.checkout[key];
+      if (!link) continue;
+      expect(html, key).toMatch(new RegExp(`href="${link.replace(/[.?]/g, "\\$&")}"[^>]*>\\s*${label}\\s*</a>`));
+    }
+    expect(html.split(`href="${SPONSOR_PROGRAM.checkout.card}"`).length - 1, "card link in both card spots").toBe(2);
+  });
+
+  it("only charges ladder prices from the stage the links were made for", () => {
+    expect(CURRENT_STAGE, "make new Card, Feature and Line links before moving the stage").toBe(
+      SPONSOR_PROGRAM.checkoutStage,
+    );
+  });
+
+  it("tells buyers how to claim the pay-ahead discount", () => {
+    expect(page).toContain("send you a code");
+    expect(html).toContain(`subject=${encodeURIComponent("Pay ahead")}`);
   });
 
   it("shows one square per founding slot, filled for each slot sold", () => {

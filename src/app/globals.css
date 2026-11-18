@@ -2896,6 +2896,8 @@ html[data-theme="light"] .sp-shot img { box-shadow: 0 24px 60px rgba(37,33,27,.2
 .sp-nl .sp-rate-price { margin: 0 0 18px; color: var(--brass-bright); font: 400 32px/1.15 var(--serif); }
 .sp-bundles p { max-width: 720px; margin: 0 0 14px; color: var(--paper); font-size: 18px; line-height: 1.7; }
 .sp-bundles strong { color: var(--ivory); font-weight: 600; }
+.sp-bundles .button { margin: 0 0 28px; }
+.sp-nl-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .sp-ladder { width: 100%; max-width: 880px; border-collapse: collapse; font-size: 17px; }
 .sp-ladder th, .sp-ladder td { padding: 14px 18px 14px 0; text-align: left; color: var(--paper); border-bottom: 1px solid var(--line-soft); }
 .sp-ladder th { color: var(--ivory); font: 600 15px var(--sans); }
