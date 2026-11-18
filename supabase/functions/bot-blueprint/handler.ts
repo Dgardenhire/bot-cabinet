@@ -24,7 +24,7 @@ type HandlerDependencies = {
   now?: () => Date;
 };
 
-async function consumeRateLimit(
+export async function consumeRateLimit(
   request: Request,
   envGet: (name: string) => string | undefined,
   fetchImpl: typeof fetch,
